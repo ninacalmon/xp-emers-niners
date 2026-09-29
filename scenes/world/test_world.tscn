@@ -1,0 +1,16 @@
+[gd_scene format=3 uid="uid://1158fbu5njsp"]
+
+[sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_5604n"]
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_ksdio"]
+size = Vector2(20, 20)
+
+[node name="TestWorld" type="Node3D" unique_id=1370714841]
+
+[node name="Ground" type="StaticBody3D" parent="." unique_id=286959965]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Ground" unique_id=316747533]
+shape = SubResource("WorldBoundaryShape3D_5604n")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Ground" unique_id=339831810]
+mesh = SubResource("PlaneMesh_ksdio")
