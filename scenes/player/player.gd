@@ -58,6 +58,7 @@ func _physics_process(delta: float) -> void:
 
 	move_and_slide()
 
+
 func update_config_values(config_area: ConfigValues.ConfigArea):
 	match config_area:
 		ConfigValues.ConfigArea.CONTROLS:
