@@ -14,7 +14,7 @@ var v_mouse_sensitivity: float
 
 func _ready() -> void:
 	ConfigValues.update_config_values.connect(update_config_values)
-	update_config_values(ConfigValues.ConfigArea.CONTROLS)
+	update_config_values(ConfigValues.ConfigField.CONTROLS)
 
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 
@@ -59,8 +59,8 @@ func _physics_process(delta: float) -> void:
 	move_and_slide()
 
 
-func update_config_values(config_area: ConfigValues.ConfigArea):
-	match config_area:
-		ConfigValues.ConfigArea.CONTROLS:
+func update_config_values(config_field: ConfigValues.ConfigField):
+	match config_field:
+		ConfigValues.ConfigField.CONTROLS:
 			h_mouse_sensitivity = ConfigValues.h_mouse_sensitivity
 			v_mouse_sensitivity = ConfigValues.v_mouse_sensitivity
