@@ -7,7 +7,6 @@ extends RayCast3D
 
 
 var inter: InteractionArea
-var message_sent: bool = false
 
 
 func _process(_delta: float) -> void:

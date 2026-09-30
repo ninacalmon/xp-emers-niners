@@ -2,7 +2,7 @@
 
 [ext_resource type="Material" uid="uid://di60w74uej151" path="res://resources/shader_materials/outline_shader_material.tres" id="1_pec88"]
 [ext_resource type="Script" uid="uid://cf2auur4umdjl" path="res://systems/interaction/interaction_area.gd" id="2_ctkoj"]
-[ext_resource type="Script" uid="uid://ddmt6j8enlu6y" path="res://scenes/tests/change_color_action.gd" id="3_pec88"]
+[ext_resource type="Script" uid="uid://ddmt6j8enlu6y" path="res://examples/change_color_action.gd" id="3_pec88"]
 
 [sub_resource type="PrismMesh" id="PrismMesh_cdpwx"]
 

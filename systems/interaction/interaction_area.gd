@@ -1,7 +1,7 @@
 ## this node goes with any object from which player can interact with via [PlayerRayCast].[br]
 ##[br]
 ##NOTE: the needed [CollisionShape3D] should be, per usual, about the size of the object's [MeshInstance3D].
-## if you wish to allow a specific interaction from further away or closer up, change
+## if you wish to allow a specific interaction from further away or closer up, you may change
 ## the [CollisionShape3D] size.
 class_name InteractionArea
 extends Area3D
