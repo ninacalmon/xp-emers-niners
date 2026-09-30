@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://bd046eokvcnu2" path="res://addons/phantom_camera/scripts/phantom_camera_host/phantom_camera_host.gd" id="1_tjl6x"]
 [ext_resource type="PackedScene" uid="uid://cciw6s8b6nsbw" path="res://scenes/player/player.tscn" id="2_xl1yy"]
-[ext_resource type="PackedScene" uid="uid://cokxea35dpi8d" path="res://scenes/interactable/test_prism.tscn" id="3_jlx5v"]
+[ext_resource type="PackedScene" uid="uid://cokxea35dpi8d" path="res://scenes/tests/test_prism.tscn" id="3_jlx5v"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_xl1yy"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)

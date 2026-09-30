@@ -1,3 +1,4 @@
+/*THIS SHADER BUGS WHEN VIEWED FROM SPECIFIC ANGLES, WE NEED TO CHANGE IT LATER*/
 shader_type spatial;
 render_mode blend_mix, unshaded, cull_back;
 
