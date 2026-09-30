@@ -21,7 +21,7 @@ func _ready() -> void:
 
 func _input(event: InputEvent) -> void:
 	# mouse capturing and freeing, temporary and for DEBUG ONLY!
-	if event.is_action_pressed("pause"):
+	if event.is_action_pressed("rmb"):
 		Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
 
 	if Input.mouse_mode == Input.MOUSE_MODE_VISIBLE and event.is_action_pressed("lmb"):
@@ -31,7 +31,7 @@ func _input(event: InputEvent) -> void:
 	if event is InputEventMouseMotion:
 		rotate_y(-event.relative.x * h_mouse_sensitivity)
 		head.rotate_x(-event.relative.y * v_mouse_sensitivity)
-		head.rotation.x = clamp(head.rotation.x, -1.0, 1.0)
+		head.rotation.x = clamp(head.rotation.x, -1.2, 1.0)
 
 
 func _physics_process(delta: float) -> void:

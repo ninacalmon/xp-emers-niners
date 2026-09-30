@@ -1,0 +1,41 @@
+[gd_scene format=3 uid="uid://cokxea35dpi8d"]
+
+[ext_resource type="Material" uid="uid://di60w74uej151" path="res://resources/shader_materials/outline_shader_material.tres" id="1_pec88"]
+[ext_resource type="Script" uid="uid://cf2auur4umdjl" path="res://systems/interaction/interaction_area.gd" id="2_ctkoj"]
+[ext_resource type="Script" uid="uid://ddmt6j8enlu6y" path="res://scenes/tests/change_color_action.gd" id="3_pec88"]
+
+[sub_resource type="PrismMesh" id="PrismMesh_cdpwx"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ksdio"]
+albedo_color = Color(1, 0.50980395, 0.7019608, 1)
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_5604n"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ksdio"]
+size = Vector3(0.71655273, 0.7657471, 1)
+
+[node name="TestPrism" type="StaticBody3D" unique_id=471407858]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=857388053]
+material_overlay = ExtResource("1_pec88")
+instance_shader_parameters/outline_enabled = false
+mesh = SubResource("PrismMesh_cdpwx")
+surface_material_override/0 = SubResource("StandardMaterial3D_ksdio")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=527810784]
+shape = SubResource("SphereShape3D_5604n")
+
+[node name="InteractionArea" type="Area3D" parent="." unique_id=1769980333 node_paths=PackedStringArray("mesh", "action_trigger")]
+monitoring = false
+script = ExtResource("2_ctkoj")
+mesh = NodePath("../MeshInstance3D")
+action_trigger = NodePath("../ChangeColorAction")
+metadata/_custom_type_script = "uid://cf2auur4umdjl"
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="InteractionArea" unique_id=1341005508]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.117126465, 0)
+shape = SubResource("BoxShape3D_ksdio")
+
+[node name="ChangeColorAction" type="Node" parent="." unique_id=1090347223 node_paths=PackedStringArray("mesh")]
+script = ExtResource("3_pec88")
+mesh = NodePath("../MeshInstance3D")

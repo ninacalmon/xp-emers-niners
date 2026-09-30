@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://bldx81ebb3arj" path="res://scenes/player/player.gd" id="1_8afob"]
 [ext_resource type="Script" uid="uid://csjccrhj5wnx7" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_3d.gd" id="2_gmlin"]
 [ext_resource type="Script" uid="uid://8umksf8e80fw" path="res://addons/phantom_camera/scripts/resources/tween_resource.gd" id="3_lvxji"]
+[ext_resource type="Script" uid="uid://d2t1c1bj6y3t6" path="res://systems/interaction/player_ray_cast.gd" id="4_lvxji"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_cdpwx"]
 
@@ -28,7 +29,7 @@ shape = SubResource("CapsuleShape3D_cdpwx")
 transform = Transform3D(1, 0, 0, 0, 0.99999994, 0, 0, 0, 0.99999994, 0, 0.6484742, -0.5161338)
 
 [node name="PlayerCam" type="Node3D" parent="Head" unique_id=296005120 node_paths=PackedStringArray("follow_target", "look_at_target")]
-transform = Transform3D(0.99999815, 0, 0, 0, 0.9999996, 0, 0, 0, 0.999998, 0, 0.6484742, -0.5161338)
+transform = Transform3D(0.9999979, 0, 0, 0, 0.99999946, 0, 0, 0, 0.99999774, 0, 0.6484742, -0.5161338)
 top_level = true
 script = ExtResource("2_gmlin")
 follow_mode = 1
@@ -40,3 +41,11 @@ align_transform_with_view = Callable()
 align_position_with_view = Callable()
 align_rotation_with_view = Callable()
 metadata/_custom_type_script = "uid://csjccrhj5wnx7"
+
+[node name="PlayerRayCast" type="RayCast3D" parent="Head/PlayerCam" unique_id=1115479559]
+transform = Transform3D(1.000002, 0, 0, 0, 1.0000004, 0, 0, 0, 1.0000021, 0, 0, 0)
+target_position = Vector3(0, 0, -2)
+collision_mask = 2
+collide_with_areas = true
+collide_with_bodies = false
+script = ExtResource("4_lvxji")
