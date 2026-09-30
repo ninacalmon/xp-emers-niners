@@ -1,0 +1,54 @@
+[gd_scene format=3 uid="uid://cokxea35dpi8d"]
+
+[ext_resource type="Shader" uid="uid://dkhctjc3chsjs" path="res://resources/shaders/outline.gdshader" id="1_hedys"]
+[ext_resource type="Script" uid="uid://cf2auur4umdjl" path="res://scenes/interactable/interactable_area.gd" id="2_u1gsd"]
+[ext_resource type="Script" uid="uid://bhsgslx8beofl" path="res://scenes/interactable/close_area.gd" id="3_rtneh"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_4ldu5"]
+render_priority = 0
+shader = ExtResource("1_hedys")
+shader_parameter/thickness = 2.0
+shader_parameter/outline_color = Color(1, 1, 1, 1)
+shader_parameter/samples = 4
+shader_parameter/sensitivity = 0.1
+shader_parameter/edge_fade = 0.015
+
+[sub_resource type="PrismMesh" id="PrismMesh_cdpwx"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ksdio"]
+albedo_color = Color(1, 0.50980395, 0.7019608, 1)
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_5604n"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ksdio"]
+size = Vector3(0.71655273, 0.7657471, 1)
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_cdpwx"]
+radius = 1.6
+
+[node name="TestPrism" type="StaticBody3D" unique_id=471407858]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=857388053]
+material_overlay = SubResource("ShaderMaterial_4ldu5")
+instance_shader_parameters/outline_enabled = false
+mesh = SubResource("PrismMesh_cdpwx")
+surface_material_override/0 = SubResource("StandardMaterial3D_ksdio")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=527810784]
+shape = SubResource("SphereShape3D_5604n")
+
+[node name="InteractableArea" type="Area3D" parent="." unique_id=1735306350 node_paths=PackedStringArray("close_area", "mesh")]
+monitorable = false
+script = ExtResource("2_u1gsd")
+close_area = NodePath("../CloseArea")
+mesh = NodePath("../MeshInstance3D")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="InteractableArea" unique_id=1341005508]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.117126465, 0)
+shape = SubResource("BoxShape3D_ksdio")
+
+[node name="CloseArea" type="Area3D" parent="." unique_id=1221531001]
+script = ExtResource("3_rtneh")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="CloseArea" unique_id=2118443140]
+shape = SubResource("SphereShape3D_cdpwx")

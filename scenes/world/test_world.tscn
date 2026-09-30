@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://bd046eokvcnu2" path="res://addons/phantom_camera/scripts/phantom_camera_host/phantom_camera_host.gd" id="1_tjl6x"]
 [ext_resource type="PackedScene" uid="uid://cciw6s8b6nsbw" path="res://scenes/player/player.tscn" id="2_xl1yy"]
+[ext_resource type="PackedScene" uid="uid://cokxea35dpi8d" path="res://scenes/interactable/test_prism.tscn" id="3_jlx5v"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_xl1yy"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
@@ -20,6 +21,9 @@ glow_enabled = true
 [sub_resource type="PlaneMesh" id="PlaneMesh_ksdio"]
 size = Vector2(20, 20)
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_u1gsd"]
+albedo_color = Color(0.66, 0.52536005, 0.4224, 1)
+
 [node name="TestWorld" type="Node3D" unique_id=1370714841]
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1489338464]
@@ -36,10 +40,11 @@ shape = SubResource("WorldBoundaryShape3D_5604n")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Ground" unique_id=339831810]
 mesh = SubResource("PlaneMesh_ksdio")
+surface_material_override/0 = SubResource("StandardMaterial3D_u1gsd")
 
 [node name="Camera3D" type="Camera3D" parent="." unique_id=1834340419]
 physics_interpolation_mode = 1
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.4687023, -0.5161338)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.832912, -0.5161338)
 top_level = true
 
 [node name="PhantomCameraHost" type="Node" parent="Camera3D" unique_id=845311130]
@@ -50,3 +55,21 @@ metadata/_custom_type_script = "uid://bd046eokvcnu2"
 
 [node name="Player" parent="." unique_id=949902107 instance=ExtResource("2_xl1yy")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.1844378, 0)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=352556717]
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer" unique_id=789905907]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -2.0
+offset_top = -2.0
+offset_right = 2.0
+offset_bottom = 2.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TestPrism" parent="." unique_id=471407858 instance=ExtResource("3_jlx5v")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.621314, 0.67547035, 0)
