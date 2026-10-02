@@ -1,4 +1,7 @@
-@tool
+@tool ## @tool means this script has code that runs in the editor
+## (without the need to start the game per se).[br]
+## [br]
+## this code runs both in the editor and in the game itself.
 class_name InventorySlot
 extends Button
 

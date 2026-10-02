@@ -1,5 +1,7 @@
+## this class manages [InventorySlot]s. It gets and modifies
+## data in the autoload [InventoryManager].
+class_name InventoryUI
 extends HBoxContainer
-
 
 var slots: Array[InventorySlot]
 
@@ -10,7 +12,9 @@ func _ready() -> void:
 
 	setup_slots()
 
-
+## storages and asserts that the number of slots is no greater then whats defined 
+## on [InventoryManager].
+## WARNING: later, i need to assert that the number of slots is no lower also.
 func setup_slots():
 	for s in get_children():
 		if s is InventorySlot:
@@ -26,16 +30,13 @@ func _input(event: InputEvent) -> void:
 	elif event.is_action_pressed("inventory_down"):
 		change_slot(+1)
 
-
+## input controls what is the current selected slot.
 func change_slot(direction: int):
 	selected_slot_idx = wrapi(selected_slot_idx + direction, 0, len(slots))
 	InventoryManager.selected_slot_idx = selected_slot_idx
 
-	print(selected_slot_idx)
 	slots[selected_slot_idx].button_pressed = true
 
 
 func _on_inventory_item_changed(slot_idx: int):
-	print("item changed")
 	slots[slot_idx].item = InventoryManager.inventory_slots[slot_idx]
-	print("my slot: ", slot_idx, " the item: ", InventoryManager.inventory_slots[slot_idx])

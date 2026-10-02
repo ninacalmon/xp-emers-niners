@@ -14,6 +14,9 @@ albedo_color = Color(1, 0.50980395, 0.7019608, 1)
 [sub_resource type="BoxShape3D" id="BoxShape3D_ga3ux"]
 size = Vector3(1, 1.7241211, 0.1484375)
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_yv8hu"]
+size = Vector3(1, 1.723877, 0.6621094)
+
 [node name="TestDoor" type="StaticBody3D" unique_id=471407858]
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=857388053]
@@ -35,8 +38,8 @@ action_trigger = NodePath("../OpenWithKeyAction")
 metadata/_custom_type_script = "uid://cf2auur4umdjl"
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="InteractionArea" unique_id=852886610]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.36206055, 0)
-shape = SubResource("BoxShape3D_ga3ux")
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.37194824, 0)
+shape = SubResource("BoxShape3D_yv8hu")
 
 [node name="OpenWithKeyAction" type="Node" parent="." unique_id=1090347223 node_paths=PackedStringArray("scene_root")]
 script = ExtResource("3_eye4s")
