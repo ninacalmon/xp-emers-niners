@@ -4,18 +4,19 @@ extends ActionTrigger
 @export var key_item_needed: ItemRes
 
 func trigger():
-	var item: ItemRes = InventoryManager.inventory_slots[
+	var item: ItemRes = InventoryManager.inventory_slots\
+	[
 	InventoryManager.selected_slot_idx
 	]
 
 	if item and item.id == key_item_needed.id:
-		print("abrindo!!!")
+		print("you have the key! i will open")
 		InventoryManager.use_item()
-		scene_root.queue_free()
-	else:
-		print("não não...")
-	
 
+		if scene_root:
+			scene_root.queue_free()
+	else:
+		print("no... f you")
 
 
 func ray_enter():
