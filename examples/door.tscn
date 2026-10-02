@@ -1,0 +1,44 @@
+[gd_scene format=3 uid="uid://dm22m11rlg6jn"]
+
+[ext_resource type="Material" uid="uid://di60w74uej151" path="res://resources/shader_materials/outline_shader_material.tres" id="1_1usxp"]
+[ext_resource type="Script" uid="uid://cf2auur4umdjl" path="res://systems/interaction/interaction_area.gd" id="2_eye4s"]
+[ext_resource type="Script" uid="uid://ddo0ax1287ah8" path="res://examples/open_with_key_action.gd" id="3_eye4s"]
+[ext_resource type="Resource" uid="uid://dte7cm27yhqgf" path="res://resources/itens/test_key.tres" id="4_eye4s"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_p1r0a"]
+size = Vector3(1, 1.7250977, 0.15039063)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_u3bse"]
+albedo_color = Color(1, 0.50980395, 0.7019608, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ga3ux"]
+size = Vector3(1, 1.7241211, 0.1484375)
+
+[node name="TestDoor" type="StaticBody3D" unique_id=471407858]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=857388053]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.36254883, 0)
+material_overlay = ExtResource("1_1usxp")
+instance_shader_parameters/outline_enabled = false
+mesh = SubResource("BoxMesh_p1r0a")
+surface_material_override/0 = SubResource("StandardMaterial3D_u3bse")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=527810784]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.36206055, 0)
+shape = SubResource("BoxShape3D_ga3ux")
+
+[node name="InteractionArea" type="Area3D" parent="." unique_id=1769980333 node_paths=PackedStringArray("mesh", "action_trigger")]
+monitoring = false
+script = ExtResource("2_eye4s")
+mesh = NodePath("../MeshInstance3D")
+action_trigger = NodePath("../OpenWithKeyAction")
+metadata/_custom_type_script = "uid://cf2auur4umdjl"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="InteractionArea" unique_id=852886610]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.36206055, 0)
+shape = SubResource("BoxShape3D_ga3ux")
+
+[node name="OpenWithKeyAction" type="Node" parent="." unique_id=1090347223 node_paths=PackedStringArray("scene_root")]
+script = ExtResource("3_eye4s")
+scene_root = NodePath("..")
+key_item_needed = ExtResource("4_eye4s")

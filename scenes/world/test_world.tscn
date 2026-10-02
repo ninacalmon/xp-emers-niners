@@ -2,7 +2,10 @@
 
 [ext_resource type="Script" uid="uid://bd046eokvcnu2" path="res://addons/phantom_camera/scripts/phantom_camera_host/phantom_camera_host.gd" id="1_tjl6x"]
 [ext_resource type="PackedScene" uid="uid://cciw6s8b6nsbw" path="res://scenes/player/player.tscn" id="2_xl1yy"]
-[ext_resource type="PackedScene" uid="uid://cokxea35dpi8d" path="res://examples/test_prism.tscn" id="3_jlx5v"]
+[ext_resource type="PackedScene" uid="uid://bp8vuh2jyr8ow" path="res://scenes/interface/inventory/inventory_ui.tscn" id="3_7378n"]
+[ext_resource type="PackedScene" uid="uid://cokxea35dpi8d" path="res://examples/color_change_prism.tscn" id="3_jlx5v"]
+[ext_resource type="PackedScene" uid="uid://dhb4ubn1lv1kq" path="res://examples/key_giver_ball.tscn" id="5_utf6i"]
+[ext_resource type="PackedScene" uid="uid://dm22m11rlg6jn" path="res://examples/door.tscn" id="6_i3rsd"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_xl1yy"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
@@ -25,6 +28,9 @@ size = Vector2(20, 20)
 albedo_color = Color(0.66, 0.52536005, 0.4224, 1)
 
 [node name="TestWorld" type="Node3D" unique_id=1370714841]
+
+[node name="TestKeyGiverBall" parent="." unique_id=471407858 instance=ExtResource("5_utf6i")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5898051, 7.0133257)
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1489338464]
 transform = Transform3D(-0.8660254, -0.43301278, 0.25, 0, 0.49999997, 0.86602545, -0.50000006, 0.75, -0.43301266, 0, 0, 0)
@@ -70,6 +76,23 @@ offset_right = 2.0
 offset_bottom = 2.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
 
-[node name="TestPrism" parent="." unique_id=471407858 instance=ExtResource("3_jlx5v")]
+[node name="Inventory" parent="CanvasLayer" unique_id=782102103 instance=ExtResource("3_7378n")]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -86.0
+offset_top = -93.0
+offset_right = 86.0
+offset_bottom = -53.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="TestPrism" parent="." unique_id=1450271090 instance=ExtResource("3_jlx5v")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.621314, 0.67547035, 0)
+
+[node name="TestDoor" parent="." unique_id=1317123489 instance=ExtResource("6_i3rsd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.60676813, -6.415066)

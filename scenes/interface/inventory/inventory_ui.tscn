@@ -1,0 +1,22 @@
+[gd_scene format=3 uid="uid://bp8vuh2jyr8ow"]
+
+[ext_resource type="PackedScene" uid="uid://bys1pm7m2dgd1" path="res://scenes/interface/inventory/inventory_slot_ui.tscn" id="1_rye1p"]
+[ext_resource type="Script" uid="uid://csg3gqual13i7" path="res://scenes/interface/inventory/inventory_ui.gd" id="1_vgx2o"]
+
+[node name="Inventory" type="HBoxContainer" unique_id=782102103]
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_vgx2o")
+
+[node name="InventorySlot" parent="." unique_id=90551678 instance=ExtResource("1_rye1p")]
+layout_mode = 2
+button_pressed = true
+
+[node name="InventorySlot2" parent="." unique_id=427579533 instance=ExtResource("1_rye1p")]
+layout_mode = 2
+
+[node name="InventorySlot3" parent="." unique_id=565902212 instance=ExtResource("1_rye1p")]
+layout_mode = 2
+
+[node name="InventorySlot4" parent="." unique_id=1920679463 instance=ExtResource("1_rye1p")]
+layout_mode = 2

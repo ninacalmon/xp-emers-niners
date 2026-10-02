@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="ItemRes" format=3 uid="uid://dte7cm27yhqgf"]
+
+[ext_resource type="Script" uid="uid://doqkh62nh5of1" path="res://systems/itens_resource/item_resource.gd" id="1_1dt24"]
+[ext_resource type="Texture2D" uid="uid://brwdotei4p56b" path="res://icon.svg" id="2_lpeu1"]
+
+[resource]
+script = ExtResource("1_1dt24")
+id = &"test_key"
+texture = ExtResource("2_lpeu1")
+metadata/_custom_type_script = "uid://doqkh62nh5of1"
