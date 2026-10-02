@@ -1,0 +1,40 @@
+[gd_scene format=3 uid="uid://dhb4ubn1lv1kq"]
+
+[ext_resource type="Material" uid="uid://di60w74uej151" path="res://resources/shader_materials/outline_shader_material.tres" id="1_1l5ex"]
+[ext_resource type="Script" uid="uid://cf2auur4umdjl" path="res://systems/interaction/interaction_area.gd" id="2_0x7fo"]
+[ext_resource type="Script" uid="uid://bigtx7hj4jkkr" path="res://examples/key_giver_action.gd" id="3_1l5ex"]
+[ext_resource type="Resource" uid="uid://dte7cm27yhqgf" path="res://resources/itens/test_key.tres" id="4_0x7fo"]
+
+[sub_resource type="SphereMesh" id="SphereMesh_ga3ux"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_7puw7"]
+albedo_color = Color(0.9265, 1, 0.51, 1)
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_mjcr6"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_sn1ct"]
+
+[node name="TestKeyGiverBall" type="StaticBody3D" unique_id=471407858]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=857388053]
+material_overlay = ExtResource("1_1l5ex")
+instance_shader_parameters/outline_enabled = false
+mesh = SubResource("SphereMesh_ga3ux")
+surface_material_override/0 = SubResource("StandardMaterial3D_7puw7")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=527810784]
+shape = SubResource("SphereShape3D_mjcr6")
+
+[node name="InteractionArea" type="Area3D" parent="." unique_id=1769980333 node_paths=PackedStringArray("mesh", "action_trigger")]
+monitoring = false
+script = ExtResource("2_0x7fo")
+mesh = NodePath("../MeshInstance3D")
+action_trigger = NodePath("../KeyGiverAction")
+metadata/_custom_type_script = "uid://cf2auur4umdjl"
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="InteractionArea" unique_id=1341005508]
+shape = SubResource("SphereShape3D_sn1ct")
+
+[node name="KeyGiverAction" type="Node" parent="." unique_id=505320648]
+script = ExtResource("3_1l5ex")
+key_item = ExtResource("4_0x7fo")
