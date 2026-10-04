@@ -1,0 +1,65 @@
+[gd_scene format=3 uid="uid://cf72rjxb2wq2n"]
+
+[ext_resource type="Script" uid="uid://deq1v5upcwhi3" path="res://scenes/interface/main_menu/button_start.gd" id="1_65o3d"]
+[ext_resource type="Script" uid="uid://cbsj7w520xsyl" path="res://scenes/interface/main_menu/button_language.gd" id="2_pvcxm"]
+[ext_resource type="Script" uid="uid://8tar21xrjawd" path="res://scenes/interface/main_menu/button_exit.gd" id="3_tpyxh"]
+[ext_resource type="PackedScene" uid="uid://cdgtb0r0au0fw" path="res://scenes/interface/language_select/language_select.tscn" id="4_tpyxh"]
+
+[node name="MainMenu" type="Control" unique_id=438514198]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=889298569]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.27, 0.27, 0.27, 1)
+
+[node name="VBoxButtons" type="VBoxContainer" parent="." unique_id=1168821983]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 24
+
+[node name="ButtonStart" type="Button" parent="VBoxButtons" unique_id=844787894]
+layout_mode = 2
+text = "UI_START"
+script = ExtResource("1_65o3d")
+
+[node name="ButtonLanguage" type="Button" parent="VBoxButtons" unique_id=1391714175 node_paths=PackedStringArray("language_select")]
+layout_mode = 2
+text = "UI_LANGUAGE"
+script = ExtResource("2_pvcxm")
+language_select = NodePath("../../LanguageSelect")
+
+[node name="ButtonExit" type="Button" parent="VBoxButtons" unique_id=1702131834]
+layout_mode = 2
+text = "UI_EXIT"
+script = ExtResource("3_tpyxh")
+
+[node name="LanguageSelect" parent="." unique_id=1767081159 instance=ExtResource("4_tpyxh")]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
