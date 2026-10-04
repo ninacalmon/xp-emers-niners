@@ -7,6 +7,7 @@
 offset_right = 40.0
 offset_bottom = 40.0
 script = ExtResource("1_vgx2o")
+inventory_slot_ui_scene = ExtResource("1_rye1p")
 
 [node name="InventorySlot" parent="." unique_id=90551678 instance=ExtResource("1_rye1p")]
 layout_mode = 2

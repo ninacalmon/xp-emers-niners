@@ -59,7 +59,7 @@ tracks/0/keys = {
 
 [sub_resource type="Animation" id="Animation_2gk0g"]
 resource_name = "item_anim_change"
-length = 1.5999999999999999
+length = 1.6
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -130,7 +130,9 @@ position = Vector2(950, 647)
 z_index = 1
 position = Vector2(762, -102)
 sprite_frames = ExtResource("3_htwhv")
-animation = &"idle"
+animation = &"nono"
+frame = 11
+frame_progress = 1.0
 metadata/_edit_lock_ = true
 
 [node name="LHandsAnim" type="AnimatedSprite2D" parent="HandAnimTrack" unique_id=490817015]

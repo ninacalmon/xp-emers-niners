@@ -268,7 +268,7 @@ animations = [{
 }],
 "loop": 0,
 "name": &"interaction",
-"speed": 6.0
+"speed": 8.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -309,5 +309,5 @@ animations = [{
 }],
 "loop": 0,
 "name": &"nono",
-"speed": 6.0
+"speed": 8.0
 }]

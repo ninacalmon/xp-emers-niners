@@ -14,6 +14,7 @@ func trigger():
 		InventoryManager.use_item()
 
 		await hands_overlay.play_interaction()
+		
 
 		if scene_root:
 			scene_root.queue_free()
