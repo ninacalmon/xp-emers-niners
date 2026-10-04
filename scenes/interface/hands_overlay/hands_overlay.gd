@@ -9,12 +9,21 @@ extends Control
 @onready var hand_animation_player: AnimationPlayer = $HandAnimationPlayer
 @onready var item_animation_player: AnimationPlayer = $ItemAnimationPlayer
 
+
+var current_item: ItemRes
+var current_selected_idx: int
+var anim_override: bool = false
+
 func _ready() -> void:
+	InventoryManager.selected_item_changed.connect(_on_selected_item_changed)
+
+	item_spr.texture = null
 	play_idle()
 
 
 
 func play_item_change(item: ItemRes):
+	"5. playing item changed"
 	await play_anim_change()
 
 	if item == null:
@@ -38,24 +47,37 @@ func play_idle():
 
 
 func play_interaction():
+	InventoryManager.is_busy = true
+
 	await play_anim_change()
+
+	item_spr.hide()
+	l_hands_anim.stop()
+	r_hands_anim.stop()
+	item_animation_player.stop()
 
 	r_hands_anim.play("interaction")
 	await r_hands_anim.animation_finished
+
+	play_anim_change()
+	item_spr.show()
+
+	InventoryManager.is_busy = false
 	play_idle()
 
 
 func play_nono():
-	await play_anim_change()
+	InventoryManager.is_busy = true
+
+	l_hands_anim.stop()
+	r_hands_anim.stop()
+	item_animation_player.stop()
 
 	r_hands_anim.play("nono")
 	await r_hands_anim.animation_finished
-	r_hands_anim.play("idle")
+	play_idle()
 
-
-
-
-
+	InventoryManager.is_busy = false
 
 
 func play_anim_change():
@@ -76,3 +98,13 @@ func _process(_delta: float) -> void:
 	if r_hands_anim.animation == "idle" and r_hands_anim.animation == l_hands_anim.animation:
 		r_hands_anim.frame = l_hands_anim.frame
 		r_hands_anim.frame_progress = l_hands_anim.frame_progress
+
+
+func _on_selected_item_changed(item: ItemRes):
+	#anim_override = item == null
+
+	if item == current_item or anim_override:
+		return
+
+	current_item = item
+	play_item_change(item)

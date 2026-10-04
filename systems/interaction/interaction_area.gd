@@ -32,7 +32,6 @@ func _input(event: InputEvent) -> void:
 
 	## "interact" input action is currently triggered by lmb or 'E' for tests and will be changed.
 	if event.is_action_pressed("interact"):
-		print("clicked")
 		action_trigger.trigger()
 
 
