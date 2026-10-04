@@ -14,6 +14,12 @@
 class_name ActionTrigger
 extends Node
 
+var hands_overlay: HandsOverlay
+
+func _ready() -> void:
+	if get_tree().get_first_node_in_group("hands_overlay") is HandsOverlay:
+		hands_overlay = get_tree().get_first_node_in_group("hands_overlay")
+
 ## is called by [InteractionArea] when player actively interacts with object.
 @abstract
 func trigger()

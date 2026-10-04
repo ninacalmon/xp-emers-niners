@@ -13,9 +13,12 @@ func trigger():
 		print("you have the key! i will open")
 		InventoryManager.use_item()
 
+		await hands_overlay.play_interaction()
+
 		if scene_root:
 			scene_root.queue_free()
 	else:
+		hands_overlay.play_nono()
 		print("no... f you")
 
 
