@@ -93,7 +93,6 @@ grow_horizontal = 2
 grow_vertical = 0
 
 [node name="HandsOverlay" parent="CanvasLayer" unique_id=1915315994 instance=ExtResource("5_i3rsd")]
-z_index = 6
 
 [node name="TestPrism" parent="." unique_id=1450271090 instance=ExtResource("3_jlx5v")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.621314, 0.67547035, 0)
