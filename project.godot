@@ -101,6 +101,10 @@ inventory_down={
 ]
 }
 
+[internationalization]
+
+locale/translations=PackedStringArray("res://translations/dialogue - Página1.en.translation", "res://translations/dialogue - Página1.pt.translation", "res://translations/ui - Página1.en.translation", "res://translations/ui - Página1.pt.translation")
+
 [layer_names]
 
 3d_physics/layer_2="interactables"
