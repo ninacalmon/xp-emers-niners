@@ -4,6 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://cciw6s8b6nsbw" path="res://scenes/player/player.tscn" id="2_xl1yy"]
 [ext_resource type="PackedScene" uid="uid://bp8vuh2jyr8ow" path="res://scenes/interface/inventory/inventory_ui.tscn" id="3_7378n"]
 [ext_resource type="PackedScene" uid="uid://cokxea35dpi8d" path="res://examples/color_change_prism.tscn" id="3_jlx5v"]
+[ext_resource type="PackedScene" uid="uid://bcw7p5ibxxkdk" path="res://scenes/interface/hands_overlay/hands_overlay.tscn" id="5_i3rsd"]
 [ext_resource type="PackedScene" uid="uid://dhb4ubn1lv1kq" path="res://examples/key_giver_ball.tscn" id="5_utf6i"]
 [ext_resource type="PackedScene" uid="uid://dm22m11rlg6jn" path="res://examples/door.tscn" id="6_i3rsd"]
 
@@ -90,6 +91,9 @@ offset_right = 86.0
 offset_bottom = -53.0
 grow_horizontal = 2
 grow_vertical = 0
+
+[node name="HandsOverlay" parent="CanvasLayer" unique_id=1915315994 instance=ExtResource("5_i3rsd")]
+z_index = 6
 
 [node name="TestPrism" parent="." unique_id=1450271090 instance=ExtResource("3_jlx5v")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.621314, 0.67547035, 0)
