@@ -1,0 +1,16 @@
+[remap]
+
+importer="dialogue_manager"
+importer_version=18
+type="Resource"
+uid="uid://dfeguavrkn38s"
+path="res://.godot/imported/tests_ball.dialogue-d02c95a391f7b1e5a28a274beef7793c.tres"
+
+[deps]
+
+source_file="res://dialogue/tests/tests_ball.dialogue"
+dest_files=["res://.godot/imported/tests_ball.dialogue-d02c95a391f7b1e5a28a274beef7793c.tres"]
+
+[params]
+
+defaults=true
