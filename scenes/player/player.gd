@@ -2,9 +2,10 @@ class_name Player
 extends CharacterBody3D
 
 @export var speed = 5.0
-@export var jump_velocity = 4.5
 
 @onready var head: Node3D = $Head
+
+var is_dialogue_locked: bool = false
 
 #region ConfigVariables
 var h_mouse_sensitivity: float
@@ -16,11 +17,19 @@ func _ready() -> void:
 	ConfigValues.update_config_values.connect(update_config_values)
 	update_config_values(ConfigValues.ConfigField.CONTROLS)
 
+	## dialogue locking to make player static during dialogue! vvv
+	DialogueManager.dialogue_started.connect(func(_res): is_dialogue_locked = true)
+	DialogueManager.dialogue_ended.connect(func(_res): is_dialogue_locked = false)
+
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 
 
 func _input(event: InputEvent) -> void:
-	# mouse capturing and freeing, temporary and for DEBUG ONLY!
+	if is_dialogue_locked:
+		print("locked")
+		return
+
+	## NOTE: mouse capturing and freeing, temporary and for DEBUG ONLY!
 	if event.is_action_pressed("rmb"):
 		Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
 
@@ -35,11 +44,11 @@ func _input(event: InputEvent) -> void:
 
 
 func _physics_process(delta: float) -> void:
+	if is_dialogue_locked:
+		return
+
 	if not is_on_floor():
 		velocity += get_gravity() * delta
-
-	if Input.is_action_just_pressed("jump") and is_on_floor():
-		velocity.y = jump_velocity
 
 	var input_dir: Vector2 = Input.get_vector(
 		"walk_left",
