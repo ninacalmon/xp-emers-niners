@@ -1,0 +1,11 @@
+[gd_resource type="ShaderMaterial" format=3 uid="uid://dxugeq4hehdak"]
+
+[ext_resource type="Shader" uid="uid://bk5mnnyweo335" path="res://resources/shaders/outline_2d.gdshader" id="1_t1g0g"]
+
+[resource]
+shader = ExtResource("1_t1g0g")
+shader_parameter/outline_width = 3.802000180595
+shader_parameter/outline_tint = Color(1, 1, 1, 1)
+shader_parameter/atlas_region_pos = Vector2(0, 0)
+shader_parameter/atlas_region_size = Vector2(1, 1)
+shader_parameter/draw_size = Vector2(512, 512)

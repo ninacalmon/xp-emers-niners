@@ -4,11 +4,11 @@ class_name CharacterSpriteHandler
 extends Node
 
 @export var bounce_duration: float = 0.1
-@export var animated_sprite: AnimatedSprite3D
+@export var animated_sprite: AnimatedSprite2D
 @export var dialogue_action: DialogueAction
 
 var dialogue_res: DialogueResource
-var original_sprite_scale: Vector3
+var original_sprite_scale: Vector2
 
 
 func _ready() -> void:
@@ -35,16 +35,14 @@ func change_anim(mood: String):
 
 
 func bounce_on_it():
-	var tall_scale: Vector3 = Vector3(
+	var tall_scale: Vector2 = Vector2(
 		original_sprite_scale.x * (0.9),
-		original_sprite_scale.y * (1.1),
-		original_sprite_scale.z
+		original_sprite_scale.y * (1.1)
 		)
 
-	var short_scale: Vector3 = Vector3(
+	var short_scale: Vector2 = Vector2(
 		original_sprite_scale.x * (1.1),
-		original_sprite_scale.y * (0.9),
-		original_sprite_scale.z
+		original_sprite_scale.y * (0.9)
 		)
 
 	var bounce_tween = create_tween()

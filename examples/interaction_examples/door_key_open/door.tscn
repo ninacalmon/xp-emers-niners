@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://dm22m11rlg6jn"]
 
-[ext_resource type="Material" uid="uid://di60w74uej151" path="res://resources/shader_materials/outline_shader_material.tres" id="1_1usxp"]
+[ext_resource type="Material" uid="uid://di60w74uej151" path="res://resources/shader_materials/outline_shader_material_3d.tres" id="1_1usxp"]
 [ext_resource type="Script" uid="uid://cf2auur4umdjl" path="res://systems/interaction/interaction_area.gd" id="2_eye4s"]
 [ext_resource type="Script" uid="uid://ddo0ax1287ah8" path="res://examples/interaction_examples/door_key_open/open_with_key_action.gd" id="3_eye4s"]
 [ext_resource type="Resource" uid="uid://dte7cm27yhqgf" path="res://resources/itens/test_key.tres" id="4_eye4s"]
