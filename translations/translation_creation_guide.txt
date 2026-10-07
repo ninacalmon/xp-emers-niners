@@ -1,1 +1,39 @@
-a
+====================== TRANSLATION CREATION GUIDE ======================
+
+===== Template Generation =====
+When any file is saved used TRANSLATION KEYS (.dialog files do this by default), this file
+will pop as a suggestion in Project -> Project Settings -> Localization -> Template Generation
+and can be used to generate a TRANSLATION TEMPLATE.
+
+
+
+===== TRANSLATION TEMPLATE =====
+
+All files present into this section will be crammed together in the same template file.
+Nina finds it really unpleasant and suggest that we click DELETE on all of those files, then click
+'add' and select only the desired files, before clicking 'generate'.
+
+A TRANSLATION TEMPLATE is a file that maps keys to a meaning in the original languague.
+It is a .pot file and it is important to notice that IT DOES NOT SHOW on Godot's FILE SYSTEM!
+(it does show into your computers file explorer tho).
+
+This TRANSLATION TEMPLATE can be opened in PoEdit, and new translations can be created upon it.
+
+
+
+===== TRANSLATION =====
+
+In PoEdit, with a TRANSLATION TEMPLATE open, find an option called 'New Translation' and select the
+desired language to translate to. This will open a new TRANSLATION FILE.
+
+TRANSLATION FILES are a .po and need to be named correctly: MUST contain the code
+of the corresponding language:
+
+e.g.: pt_BR.po - brazilian portuguese
+e.g.: en.po - english
+
+
+After saving the .po in the correct folder, go to
+Project -> Project Settings -> Localization -> TRanslations and click 'add', there you should find
+and select your newly added translation .po file (along with it, there will also be a .mo
+file that you can ignore).
