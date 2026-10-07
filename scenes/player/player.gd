@@ -14,6 +14,7 @@ var v_mouse_sensitivity: float
 
 
 func _ready() -> void:
+	TranslationServer.set_locale("pt")
 	ConfigValues.update_config_values.connect(update_config_values)
 	update_config_values(ConfigValues.ConfigField.CONTROLS)
 
@@ -26,7 +27,6 @@ func _ready() -> void:
 
 func _input(event: InputEvent) -> void:
 	if is_dialogue_locked:
-		print("locked")
 		return
 
 	## NOTE: mouse capturing and freeing, temporary and for DEBUG ONLY!

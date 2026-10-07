@@ -3,11 +3,10 @@
 [ext_resource type="Script" uid="uid://bd046eokvcnu2" path="res://addons/phantom_camera/scripts/phantom_camera_host/phantom_camera_host.gd" id="1_tjl6x"]
 [ext_resource type="PackedScene" uid="uid://cciw6s8b6nsbw" path="res://scenes/player/player.tscn" id="2_xl1yy"]
 [ext_resource type="PackedScene" uid="uid://bp8vuh2jyr8ow" path="res://scenes/interface/inventory/inventory_ui.tscn" id="3_7378n"]
-[ext_resource type="PackedScene" uid="uid://cokxea35dpi8d" path="res://examples/color_change_prism.tscn" id="3_jlx5v"]
+[ext_resource type="PackedScene" uid="uid://cokxea35dpi8d" path="res://examples/interaction_examples/change_color/color_change_prism.tscn" id="3_jlx5v"]
 [ext_resource type="PackedScene" uid="uid://bcw7p5ibxxkdk" path="res://scenes/interface/hands_overlay/hands_overlay.tscn" id="5_i3rsd"]
-[ext_resource type="PackedScene" uid="uid://dhb4ubn1lv1kq" path="res://examples/key_giver_ball.tscn" id="5_utf6i"]
-[ext_resource type="PackedScene" uid="uid://dm22m11rlg6jn" path="res://examples/door.tscn" id="6_i3rsd"]
-[ext_resource type="PackedScene" uid="uid://chclheg0jrexg" path="res://examples/dialogue_test_ball.tscn" id="8_f38oy"]
+[ext_resource type="PackedScene" uid="uid://dhb4ubn1lv1kq" path="res://examples/interaction_examples/item_giver/key_giver_ball.tscn" id="5_utf6i"]
+[ext_resource type="PackedScene" uid="uid://dm22m11rlg6jn" path="res://examples/interaction_examples/door_key_open/door.tscn" id="6_i3rsd"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_xl1yy"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
@@ -100,6 +99,3 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.60676813, -6.415066)
 
 [node name="TestKeyGiverBall" parent="." unique_id=471407858 instance=ExtResource("5_utf6i")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5898051, 7.0133257)
-
-[node name="TestKeyGiverBall2" parent="." unique_id=1920024259 instance=ExtResource("8_f38oy")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.52837, 1.0090055, 0)
