@@ -1,0 +1,97 @@
+
+====================== TRANSLATION USAGE GUIDE ======================
+
+
+===== translation in DIALOGUE MANAGER =====
+
+this is the most different translation usage workflow and probably the
+one we will spend more time working on.
+
+after defining the dialogue lines, creating the Translation Template, and
+proper translations (see TRANSLATION CREATION GUIDE for detailed process), the
+translation should work properly automatically getting the texts from the
+current set locale (language). No extra work to be done unless.......
+
+BE CAUTIOUS WHEN ALTERING DIALOGUE LINES IN .dialogue FILE!!!!!!!!!!
+(see TRANSLATION CREATION GUIDE for details on why.)
+
+
+
+
+===== translation in texts defined in the INSPECTOR =====
+
+for any text defined in the Inspector (right side window), you should define
+a TRANSLATION KEY intead of the proper text.
+
+in the case of BBCode usage, you can insert the BBCode tags surrounding the
+Key OR embedded inside of the Key text.
+
+e.g. WITHOUT BBCODE:
+
+		Button Node
+
+		desired text to be displayed:
+			en_text: Start
+			pt_text: Começar
+
+		translation key: BUTTON_START
+
+		in the 'text' field in the Inspector, write BUTTON_START
+
+
+
+e.g. WITH BBCODE SURROUNDING:
+
+	you want to add a wave effect to the whole text.
+
+	RichTextLabel Node
+
+	desired text to be displayed:
+		en_text: Hello!
+		pt_text: Olá!
+
+	translation key: HELLO_TEXT
+
+	in the 'text' fiel in the Inspector, write:
+	[wave amp=50.0 freq=5.0 connected=1]HELLO_TEXT[/wave]
+
+
+
+e.g. WITH BBCODE EMBEDDED:
+
+	you want to add a color effect to the PART of the text.
+
+	RichTextLabel Node
+
+	desired text to be displayed:
+		en_text: Hello, my [color=#ffffff]Friends[/color]!
+		pt_text: Olá, meu [color=#ffffff]Amigões[/color]!
+
+		NOTE: do NOT translate the BBCode tags!!!!
+
+	translation key: HELLO_FRIENDS_TEXT
+
+	in the 'text' fiel in the Inspector, write:
+	HELLO_FRIENDS_TEXT
+
+
+
+===== translation in texts defined in SCRIPT =====
+
+for any texts defined through script, you should call the following
+function and pass the TRANSLATION KEY as the argument.
+
+tr("MY_KEY")
+
+the engine will get the desired text in the current set locale (language).
+
+e.g
+
+	you have a RichTextLabel that you are controlling through code.
+
+	var label: RichTextLabel
+
+	label.text = tr("MY_KEY")
+
+NOTE: BBCode usage will work exactly like in the examples above
+(check e.g. WITH BBCODE SURROUNDING and e.g. WITH BBCODE EMBEDDED).
