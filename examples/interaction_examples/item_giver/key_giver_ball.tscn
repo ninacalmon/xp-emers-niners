@@ -2,7 +2,7 @@
 
 [ext_resource type="Material" uid="uid://di60w74uej151" path="res://resources/shader_materials/outline_shader_material.tres" id="1_1l5ex"]
 [ext_resource type="Script" uid="uid://cf2auur4umdjl" path="res://systems/interaction/interaction_area.gd" id="2_0x7fo"]
-[ext_resource type="Script" uid="uid://bigtx7hj4jkkr" path="res://examples/key_giver_action.gd" id="3_1l5ex"]
+[ext_resource type="Script" uid="uid://bigtx7hj4jkkr" path="res://examples/interaction_examples/item_giver/key_giver_action.gd" id="3_1l5ex"]
 [ext_resource type="Resource" uid="uid://dte7cm27yhqgf" path="res://resources/itens/test_key.tres" id="4_0x7fo"]
 
 [sub_resource type="SphereMesh" id="SphereMesh_ga3ux"]
