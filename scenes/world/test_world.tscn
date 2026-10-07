@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://bcw7p5ibxxkdk" path="res://scenes/interface/hands_overlay/hands_overlay.tscn" id="5_i3rsd"]
 [ext_resource type="PackedScene" uid="uid://dhb4ubn1lv1kq" path="res://examples/interaction_examples/item_giver/key_giver_ball.tscn" id="5_utf6i"]
 [ext_resource type="PackedScene" uid="uid://dm22m11rlg6jn" path="res://examples/interaction_examples/door_key_open/door.tscn" id="6_i3rsd"]
+[ext_resource type="PackedScene" uid="uid://g4ak671rswao" path="res://systems/character/character.tscn" id="8_f38oy"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_xl1yy"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
@@ -99,3 +100,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.60676813, -6.415066)
 
 [node name="TestKeyGiverBall" parent="." unique_id=471407858 instance=ExtResource("5_utf6i")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5898051, 7.0133257)
+
+[node name="Character" parent="." unique_id=1339048520 instance=ExtResource("8_f38oy")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.7879443, 0, -7.926646)

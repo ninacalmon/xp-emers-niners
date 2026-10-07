@@ -1,0 +1,16 @@
+[remap]
+
+importer="dialogue_manager"
+importer_version=18
+type="Resource"
+uid="uid://wxem0338d8ye"
+path="res://.godot/imported/jhonny_bravo.dialogue-8c157c2b56e19e58eaa3be532cbe21ad.tres"
+
+[deps]
+
+source_file="res://dialogue/tests/jhonny_bravo/jhonny_bravo.dialogue"
+dest_files=["res://.godot/imported/jhonny_bravo.dialogue-8c157c2b56e19e58eaa3be532cbe21ad.tres"]
+
+[params]
+
+defaults=true

@@ -2,21 +2,20 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c1shy4587malc"
-path.s3tc="res://.godot/imported/IMG_4457.PNG-25badf29bdf2f2f3e19ca12be64146d9.s3tc.ctex"
+uid="uid://drvshtqnoaji2"
+path="res://.godot/imported/kindpng_1985804.png-e3967bdfccebe39a55dcf444945e7870.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
-"vram_texture": true
+"vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/art/2d/hands/holding_big/IMG_4457.PNG"
-dest_files=["res://.godot/imported/IMG_4457.PNG-25badf29bdf2f2f3e19ca12be64146d9.s3tc.ctex"]
+source_file="res://assets/placeholders/kindpng_1985804.png"
+dest_files=["res://.godot/imported/kindpng_1985804.png-e3967bdfccebe39a55dcf444945e7870.ctex"]
 
 [params]
 
-compress/mode=2
+compress/mode=0
 compress/high_quality=false
 compress/lossy_quality=0.7
 compress/uastc_level=0
@@ -24,7 +23,7 @@ compress/rdo_quality_loss=0.0
 compress/hdr_compression=1
 compress/normal_map=0
 compress/channel_pack=0
-mipmaps/generate=true
+mipmaps/generate=false
 mipmaps/limit=-1
 roughness/mode=0
 roughness/src_normal=""
@@ -38,4 +37,4 @@ process/normal_map_invert_y=false
 process/hdr_as_srgb=false
 process/hdr_clamp_exposure=false
 process/size_limit=0
-detect_3d/compress_to=0
+detect_3d/compress_to=1

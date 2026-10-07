@@ -1,10 +1,10 @@
 [gd_resource type="ShaderMaterial" format=3 uid="uid://di60w74uej151"]
 
-[ext_resource type="Shader" uid="uid://dkhctjc3chsjs" path="res://resources/shaders/outline.gdshader" id="1_vwqtu"]
+[ext_resource type="Shader" uid="uid://dkhctjc3chsjs" path="res://resources/shaders/outline.gdshader" id="1_dbf2a"]
 
 [resource]
 render_priority = 0
-shader = ExtResource("1_vwqtu")
+shader = ExtResource("1_dbf2a")
 shader_parameter/thickness = 2.0
 shader_parameter/outline_color = Color(1, 1, 1, 1)
 shader_parameter/samples = 4

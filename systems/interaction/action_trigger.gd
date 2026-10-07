@@ -21,15 +21,17 @@ func _ready() -> void:
 		hands_overlay = get_tree().get_first_node_in_group("hands_overlay")
 
 ## is called by [InteractionArea] when player actively interacts with object.
-@abstract
-func trigger()
+@abstract func trigger()
+
+
+
 
 ## is called by [InteractionArea] when player is close enough and looks
 ## directly at object.
-@abstract
-func ray_enter()
+@abstract func ray_enter()
+
+
 
 
 ## is called by [InteractionArea] when player is not close enough anymore or looked away.
-@abstract
-func ray_exit()
+@abstract func ray_exit()

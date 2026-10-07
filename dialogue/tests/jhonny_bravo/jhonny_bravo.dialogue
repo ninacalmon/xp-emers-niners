@@ -1,0 +1,11 @@
+~ start
+Nathan: [[Hi|Hello|Howdy]], this is some dialogue.
+Nathan: Here are some choices.
+- First one
+	Nathan: You picked the first one.
+- Second one
+	Nathan:[#mood=HAPPY] You picked the second one.
+- Start again => start
+- End the conversation => END
+Nathan: [#mood=SAD]For more information see the online documentation.
+=> END
