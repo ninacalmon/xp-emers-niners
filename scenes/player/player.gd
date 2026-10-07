@@ -14,7 +14,6 @@ var v_mouse_sensitivity: float
 
 
 func _ready() -> void:
-	TranslationServer.set_locale("pt")
 	ConfigValues.update_config_values.connect(update_config_values)
 	update_config_values(ConfigValues.ConfigField.CONTROLS)
 

@@ -25,6 +25,7 @@ PhantomCameraManager="*uid://duq6jhf6unyis"
 ConfigValues="*uid://bm40tncpnmx6g"
 InventoryManager="*uid://36d6iny0a1m1"
 DialogueManager="*uid://c3rodes2l3gxb"
+DialogueData="*uid://tjbeqbolh7r"
 
 [display]
 
@@ -136,8 +137,7 @@ inventory_down={
 
 [internationalization]
 
-locale/translations=PackedStringArray("res://translations/example_translation/pt.po")
-locale/translations_pot_files=PackedStringArray("res://dialogue/tests/tests_ball.dialogue")
+locale/translations_pot_files=PackedStringArray("res://dialogue/tests/jhonny_bravo/jhonny_bravo.dialogue")
 
 [layer_names]
 

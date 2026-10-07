@@ -8,7 +8,8 @@ extends Area3D
 
 var checking_input: bool = false
 
-@export var mesh: MeshInstance3D
+@export var mesh: MeshInstance3D ## Visual node for 3D objects.
+@export var animated_sprite: AnimatedSprite3D ## visual node for 2D (billboarded) objects.
 @export var action_trigger: ActionTrigger
 
 
@@ -16,14 +17,22 @@ var checking_input: bool = false
 func on_ray_enter():
 	checking_input = true
 	action_trigger.ray_enter()
-	mesh.set_instance_shader_parameter("outline_enabled", true)
+	if mesh:
+		mesh.set_instance_shader_parameter("outline_enabled", false)
+
+	elif animated_sprite:
+		animated_sprite.set_instance_shader_parameter("outline_enabled", false)
 
 
 ## called by [PlayerRayCast]. means player is not close enough anymore or looked away.
 func on_ray_exit():
 	checking_input = false
 	action_trigger.ray_exit()
-	mesh.set_instance_shader_parameter("outline_enabled", false)
+	if mesh:
+		mesh.set_instance_shader_parameter("outline_enabled", false)
+
+	elif animated_sprite:
+		animated_sprite.set_instance_shader_parameter("outline_enabled", false)
 
 
 func _input(event: InputEvent) -> void:
@@ -36,14 +45,24 @@ func _input(event: InputEvent) -> void:
 
 
 func _ready() -> void:
-	## Guarantees that mesh have outline_shader_material.tres as material overlay. vvv
-	assert(
-	(
-		mesh.material_overlay and
-		mesh.material_overlay.resource_path.ends_with("outline_shader_material.tres")
-	),
-	"mesh does not have outline_shader_material.tres as material overlay!"
-	)
+	## guarantees that mesh or animated_sprite have outline_shader_material.tres as material overlay. vvv
+	if mesh:
+		assert(
+		(
+			mesh.material_overlay and
+			mesh.material_overlay.resource_path.ends_with("outline_shader_material.tres")
+		),
+		"mesh does not have outline_shader_material.tres as material overlay!"
+		)
+
+	elif animated_sprite:
+		assert(
+		(
+			animated_sprite.material_overlay and
+			animated_sprite.material_overlay.resource_path.ends_with("outline_shader_material.tres")
+		),
+		"animated_sprite does not have outline_shader_material.tres as material overlay!"
+		)
 
 	## WARNING: do not change! vvv
 	monitoring = false

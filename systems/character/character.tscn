@@ -1,0 +1,62 @@
+[gd_scene format=3 uid="uid://g4ak671rswao"]
+
+[ext_resource type="Texture2D" uid="uid://d0ju0a3dcf0ll" path="res://assets/placeholders/johnny-bravo-wearing-suit.png" id="1_lfcmt"]
+[ext_resource type="Material" uid="uid://di60w74uej151" path="res://resources/shader_materials/outline_shader_material.tres" id="1_rwxsw"]
+[ext_resource type="Script" uid="uid://cf2auur4umdjl" path="res://systems/interaction/interaction_area.gd" id="2_gurpu"]
+[ext_resource type="Script" uid="uid://bjidnq65qcjsh" path="res://systems/character/dialogue_action.gd" id="3_go1nc"]
+[ext_resource type="Resource" uid="uid://wxem0338d8ye" path="res://dialogue/tests/jhonny_bravo/jhonny_bravo.dialogue" id="5_b4ncv"]
+[ext_resource type="Script" uid="uid://biodsue5rifq4" path="res://systems/character/character_sprite_handler.gd" id="6_jv7vh"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_5604n"]
+radius = 0.61279297
+height = 2.5634766
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ksdio"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_lfcmt")
+}],
+"loop": 1,
+"name": &"idle",
+"speed": 5.0
+}]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_rwxsw"]
+radius = 1.3422852
+height = 2.7280273
+
+[node name="Character" type="StaticBody3D" unique_id=1339048520]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1213328445]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.2735412, 0)
+shape = SubResource("CapsuleShape3D_5604n")
+
+[node name="AnimatedSprite3D" type="AnimatedSprite3D" parent="." unique_id=2121258603]
+transform = Transform3D(0.545, 0, 0, 0, 0.545, 0, 0, 0, 0.545, 0, 0, 0)
+material_overlay = ExtResource("1_rwxsw")
+instance_shader_parameters/outline_enabled = true
+offset = Vector2(0, 241.06)
+billboard = 2
+sprite_frames = SubResource("SpriteFrames_ksdio")
+animation = &"idle"
+
+[node name="InteractionArea" type="Area3D" parent="." unique_id=830411389 node_paths=PackedStringArray("animated_sprite", "action_trigger")]
+script = ExtResource("2_gurpu")
+animated_sprite = NodePath("../AnimatedSprite3D")
+action_trigger = NodePath("../DialogueAction")
+metadata/_custom_type_script = "uid://cf2auur4umdjl"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="InteractionArea" unique_id=538184214]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.3558166, 0)
+shape = SubResource("CapsuleShape3D_rwxsw")
+debug_color = Color(0.78039217, 0.6, 0.7019608, 0.41960785)
+
+[node name="DialogueAction" type="Node" parent="." unique_id=1494072435]
+script = ExtResource("3_go1nc")
+dialogue_res = ExtResource("5_b4ncv")
+
+[node name="CharacterSpriteHandler" type="Node" parent="." unique_id=961269039 node_paths=PackedStringArray("animated_sprite", "dialogue_action")]
+script = ExtResource("6_jv7vh")
+animated_sprite = NodePath("../AnimatedSprite3D")
+dialogue_action = NodePath("../DialogueAction")
