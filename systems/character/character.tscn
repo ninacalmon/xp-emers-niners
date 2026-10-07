@@ -69,4 +69,5 @@ material = ExtResource("5_jv7vh")
 instance_shader_parameters/outline_enabled = true
 sprite_frames = SubResource("SpriteFrames_5604n")
 animation = &"IDLE"
+frame_progress = 0.5965953
 centered = false
