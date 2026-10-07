@@ -1,29 +1,37 @@
+## this script handles all sprite/animation related changes
+## in all characters (to be considered a character, it MUST have dialogue).
 class_name CharacterSpriteHandler
 extends Node
 
 @export var bounce_duration: float = 0.1
 @export var animated_sprite: AnimatedSprite3D
-@export var dialogue_action: DialogAction
+@export var dialogue_action: DialogueAction
 
 var dialogue_res: DialogueResource
 var original_sprite_scale: Vector3
 
+
 func _ready() -> void:
 	dialogue_res = dialogue_action.dialogue_res
+	original_sprite_scale = animated_sprite.scale
 
 	connect_signals()
 
-	original_sprite_scale = animated_sprite.scale
 
-
+## this function is called when a line of dialogue have a mood different than
+## the previous storaged mood in [DialogueAction].
 func _on_mood_changed(new_mood: String):
-	print(new_mood)
 	if new_mood in DialogueData.moods:
-		print("found new mood")
-		## change sprite accourndly to mood HERE!
+		change_anim(new_mood)
+
+
+## tries to match and play animation with the same name as a mood declared
+## in [DialogueData.moods].
+## NOTE: to add and play a new animation/mood, read [DialogueData]!!!
+func change_anim(mood: String):
+	if animated_sprite.sprite_frames.has_animation(mood):
+		animated_sprite.play(mood)
 		bounce_on_it()
-		pass
-			
 
 
 func bounce_on_it():

@@ -1,11 +1,11 @@
 ~ start
-Nathan: [[Hi|Hello|Howdy]], this is some dialogue.
-Nathan: Here are some choices.
-- First one
-	Nathan: You picked the first one.
-- Second one
-	Nathan:[#mood=HAPPY] You picked the second one.
+Johnny: [[Hi|Hello|Howdy]], this is some dialogue.
+Johnny: Here are some choices.
+- hello beautiful
+	Johnny:[#mood=HAPPY] WHOA MAMA!!
+- ...
+	Johnny: taking a good look at my beautiful biceps, eh?
 - Start again => start
 - End the conversation => END
-Nathan: [#mood=SAD]For more information see the online documentation.
+Johnny: [#mood=SAD]For more information see the online documentation, dollface!
 => END

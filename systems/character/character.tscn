@@ -18,7 +18,7 @@ animations = [{
 "texture": ExtResource("1_lfcmt")
 }],
 "loop": 1,
-"name": &"idle",
+"name": &"IDLE",
 "speed": 5.0
 }]
 
@@ -39,7 +39,7 @@ instance_shader_parameters/outline_enabled = true
 offset = Vector2(0, 241.06)
 billboard = 2
 sprite_frames = SubResource("SpriteFrames_ksdio")
-animation = &"idle"
+animation = &"IDLE"
 
 [node name="InteractionArea" type="Area3D" parent="." unique_id=830411389 node_paths=PackedStringArray("animated_sprite", "action_trigger")]
 script = ExtResource("2_gurpu")
