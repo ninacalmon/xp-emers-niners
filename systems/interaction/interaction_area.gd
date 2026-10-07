@@ -9,7 +9,7 @@ extends Area3D
 var checking_input: bool = false
 
 @export var mesh: MeshInstance3D ## Visual node for 3D objects.
-@export var animated_sprite: AnimatedSprite3D ## visual node for 2D (billboarded) objects.
+@export var animated_sprite: AnimatedSprite2D ## visual node for 2D (billboarded) objects.
 @export var action_trigger: ActionTrigger
 
 
@@ -18,10 +18,10 @@ func on_ray_enter():
 	checking_input = true
 	action_trigger.ray_enter()
 	if mesh:
-		mesh.set_instance_shader_parameter("outline_enabled", false)
+		mesh.set_instance_shader_parameter("outline_enabled", true)
 
 	elif animated_sprite:
-		animated_sprite.set_instance_shader_parameter("outline_enabled", false)
+		animated_sprite.set_instance_shader_parameter("outline_enabled", true)
 
 
 ## called by [PlayerRayCast]. means player is not close enough anymore or looked away.
@@ -50,19 +50,21 @@ func _ready() -> void:
 		assert(
 		(
 			mesh.material_overlay and
-			mesh.material_overlay.resource_path.ends_with("outline_shader_material.tres")
+			mesh.material_overlay.resource_path.ends_with("outline_shader_material_3d.tres")
 		),
-		"mesh does not have outline_shader_material.tres as material overlay!"
+		"mesh does not have outline_shader_material_3d.tres as material overlay!"
 		)
 
 	elif animated_sprite:
 		assert(
 		(
-			animated_sprite.material_overlay and
-			animated_sprite.material_overlay.resource_path.ends_with("outline_shader_material.tres")
+			animated_sprite.material and
+			animated_sprite.material.resource_path.ends_with("outline_shader_material_2d.tres")
 		),
-		"animated_sprite does not have outline_shader_material.tres as material overlay!"
+		"animated_sprite does not have outline_shader_material_2d.tres as material overlay!"
 		)
+
+	on_ray_exit()
 
 	## WARNING: do not change! vvv
 	monitoring = false
