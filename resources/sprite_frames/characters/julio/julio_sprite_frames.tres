@@ -1,0 +1,140 @@
+[gd_resource type="SpriteFrames" format=3 uid="uid://daq8bx0soe2xd"]
+
+[ext_resource type="Texture2D" uid="uid://dtm6rbundaid8" path="res://assets/2d/characters/julio/intense/julio_intense_angry_closed.png" id="1_jra1n"]
+[ext_resource type="Texture2D" uid="uid://0dfvcl320xne" path="res://assets/2d/characters/julio/intense/julio_intense_angry_open.png" id="2_sa1o0"]
+[ext_resource type="Texture2D" uid="uid://bej8cscfqopvi" path="res://assets/2d/characters/julio/idle/julio_idle_default_closed.png" id="2_ylc4b"]
+[ext_resource type="Texture2D" uid="uid://bixe6ui6wxqon" path="res://assets/2d/characters/julio/idle/julio_idle_angry_closed.png" id="3_pm383"]
+[ext_resource type="Texture2D" uid="uid://c4rgoaymj3ly5" path="res://assets/2d/characters/julio/idle/julio_idle_angry_open.png" id="4_6o56x"]
+[ext_resource type="Texture2D" uid="uid://dhe7u7srqhhe7" path="res://assets/2d/characters/julio/silly/julio_silly_happy_closed.png" id="5_yxswh"]
+[ext_resource type="Texture2D" uid="uid://cr4pcm8fwqre0" path="res://assets/2d/characters/julio/silly/julio_silly_happy_open.png" id="6_3fdgi"]
+[ext_resource type="Texture2D" uid="uid://bic4oyjqrlcyo" path="res://assets/2d/characters/julio/idle/julio_idle_happy_closed.png" id="7_divdm"]
+[ext_resource type="Texture2D" uid="uid://6s312py73w0c" path="res://assets/2d/characters/julio/idle/julio_idle_happy_open.png" id="8_m0i8y"]
+[ext_resource type="Texture2D" uid="uid://p8538x2fdlqu" path="res://assets/2d/characters/julio/intense/julio_intense_sad_closed.png" id="9_2tw77"]
+[ext_resource type="Texture2D" uid="uid://dxc4y7b6xluro" path="res://assets/2d/characters/julio/intense/julio_intense_sad_open.png" id="10_cu5ug"]
+[ext_resource type="Texture2D" uid="uid://brtnmym271woj" path="res://assets/2d/characters/julio/idle/julio_idle_serious_closed.png" id="11_koqft"]
+[ext_resource type="Texture2D" uid="uid://blnpj1qh1b83g" path="res://assets/2d/characters/julio/idle/julio_idle_serious_open.png" id="12_rnmn3"]
+[ext_resource type="Texture2D" uid="uid://c6vvxgjh066kq" path="res://assets/2d/characters/julio/intense/julio_intense_surprised.png" id="13_ig2hw"]
+[ext_resource type="Texture2D" uid="uid://dpxheopsyd2dv" path="res://assets/2d/characters/julio/idle/julio_idle_surprised.png" id="14_trfna"]
+[ext_resource type="Texture2D" uid="uid://ceije1irebwe2" path="res://assets/2d/characters/julio/intense/julio_intense_happy_closed.png" id="15_0gjop"]
+[ext_resource type="Texture2D" uid="uid://dksfuvjt8x0d1" path="res://assets/2d/characters/julio/intense/julio_intense_happy_open.png" id="16_qhb8e"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_1pet5"]
+load_path = "res://.godot/imported/julio_idle_default_closed.png-755e4f137af0a56d7f45381ea656acde.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_qlihe"]
+load_path = "res://.godot/imported/julio_idle_default_open.png-8a29c1dd05486c90270c6d86f61e8c22.ctex"
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_jra1n")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_sa1o0")
+}],
+"loop": 1,
+"name": &"ANGRY",
+"speed": 6.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_pm383")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_6o56x")
+}],
+"loop": 1,
+"name": &"BOTHERED",
+"speed": 6.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_yxswh")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_3fdgi")
+}],
+"loop": 1,
+"name": &"CUTE",
+"speed": 6.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("CompressedTexture2D_1pet5")
+}, {
+"duration": 1.0,
+"texture": SubResource("CompressedTexture2D_qlihe")
+}],
+"loop": 1,
+"name": &"DEFAULT",
+"speed": 6.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("7_divdm")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_m0i8y")
+}],
+"loop": 1,
+"name": &"HAPPY",
+"speed": 6.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("9_2tw77")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_cu5ug")
+}],
+"loop": 1,
+"name": &"SAD",
+"speed": 6.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("11_koqft")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_rnmn3")
+}],
+"loop": 1,
+"name": &"SERIOUS",
+"speed": 6.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("13_ig2hw")
+}],
+"loop": 1,
+"name": &"SHOCKED",
+"speed": 6.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("14_trfna")
+}],
+"loop": 1,
+"name": &"SURPRISED",
+"speed": 6.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("15_0gjop")
+}, {
+"duration": 1.0,
+"texture": ExtResource("16_qhb8e")
+}],
+"loop": 1,
+"name": &"WELCOMING",
+"speed": 6.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_ylc4b")
+}],
+"loop": 1,
+"name": &"idle",
+"speed": 5.0
+}]

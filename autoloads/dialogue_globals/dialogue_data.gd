@@ -12,11 +12,18 @@ extends Node
 ## do not allow duplicate keys and able faster and optmized search for
 ## keys in it.
 
+
 var moods: Dictionary[String, bool] = {
-	"IDLE": true,
+	"DEFAULT": true,
 	"HAPPY": true,
 	"SAD": true,
 	"ANGRY": true,
+	"SERIOUS" : true,
+	"CUTE" : true,
+	"BOTHERED" : true,
+	"WELCOMING" : true,
+	"SHOKED" : true,
+	"SURPRISED" : true,
 }
 
 ## ================== ADDING MOODS/ANIMATIONS ===================
