@@ -6,4 +6,4 @@ func _ready() -> void:
 
 
 func _on_pressed():
-	get_tree().change_scene_to_file("res://scenes/world/test_world.tscn")
+	LoadingManager.load_scene("res://scenes/world/test_world.tscn")
