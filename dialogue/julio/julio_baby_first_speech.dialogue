@@ -1,0 +1,11 @@
+~ start
+Julio:[#mood=DEFAULT] Olá!
+Julio:[#mood=WELCOMING] Sou Julio.
+Julio:[#mood=WELCOMING] Sou apenas um monge burrinho...
+- Você é muito fofo...
+	Julio:[#mood=CUTE] V-você acha mesmo...?
+- E eu sou um cilindro bonitão!
+	Julio: [#mood=BOTHERED] Não gosto muito de cilindro...
+- Tchau! => END
+Julio: [#mood=ANGRY]Mas enfim... Não tenho tempo para papinho furado. Tenho muito o que fazer aqui no monastério!
+=> END

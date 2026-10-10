@@ -6,13 +6,20 @@ signal mood_changed(new_mood: String)
 signal dialogue_started
 signal dialogue_ended
 
+signal next_dialogue
+
 signal ray_entered
 signal ray_exited
+
+signal speech_line_finished
 
 @export var dialogue_res: DialogueResource
 @export var first_cue: String = "start"
 
 var is_showing_dialogue: bool = false
+
+@onready var balloon: DialogueManagerExampleBalloon 
+
 
 var cue_mood: String:
 	set(value):
@@ -20,11 +27,13 @@ var cue_mood: String:
 			mood_changed.emit(value)
 			cue_mood = value
 
+
 func trigger():
 	if is_showing_dialogue:
 		return
 
-	DialogueManager.show_dialogue_balloon(dialogue_res, first_cue)
+	balloon = DialogueManager.show_dialogue_balloon(dialogue_res, first_cue)
+	balloon.line_finished.connect(_on_line_finished)
 
 
 func ray_enter():
@@ -44,7 +53,9 @@ func _ready() -> void:
 	DialogueManager.dialogue_ended.connect(_on_dialog_ended)
 
 
+
 func _on_dialog_got(line: DialogueLine):
+	next_dialogue.emit()
 	var _mood = line.get_tag_value("mood")
 	if _mood and _mood != "":
 		cue_mood = _mood
@@ -60,3 +71,7 @@ func _on_dialog_ended(resource: DialogueResource):
 	is_showing_dialogue = false
 	if resource == dialogue_res:
 		dialogue_ended.emit()
+
+
+func _on_line_finished(_line: DialogueLine):
+	speech_line_finished.emit()

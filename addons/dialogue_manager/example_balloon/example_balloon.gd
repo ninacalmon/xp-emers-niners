@@ -1,6 +1,7 @@
 class_name DialogueManagerExampleBalloon extends CanvasLayer
 ## A basic dialogue balloon for use with Dialogue Manager.
 
+signal line_finished(line: DialogueLine)
 
 ## The dialogue resource
 @export var dialogue_resource: DialogueResource
@@ -156,6 +157,8 @@ func apply_dialogue_line() -> void:
 	if not dialogue_line.text.is_empty():
 		dialogue_label.type_out()
 		await dialogue_label.finished_typing
+
+	line_finished.emit(dialogue_line)
 
 	# Wait for next line
 	if dialogue_line.has_tag("voice"):

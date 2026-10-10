@@ -29,6 +29,11 @@ func _on_mood_changed(new_mood: String):
 ## in [DialogueData.moods].
 ## NOTE: to add and play a new animation/mood, read [DialogueData]!!!
 func change_anim(mood: String):
+	if mood == "idle":
+		animated_sprite.play(mood)
+		animated_sprite.stop()
+		return
+
 	if animated_sprite.sprite_frames.has_animation(mood):
 		animated_sprite.play(mood)
 		bounce_on_it()
@@ -36,13 +41,13 @@ func change_anim(mood: String):
 
 func bounce_on_it():
 	var tall_scale: Vector2 = Vector2(
-		original_sprite_scale.x * (0.9),
-		original_sprite_scale.y * (1.1)
+		original_sprite_scale.x * (0.93),
+		original_sprite_scale.y * (1.05)
 		)
 
 	var short_scale: Vector2 = Vector2(
-		original_sprite_scale.x * (1.1),
-		original_sprite_scale.y * (0.9)
+		original_sprite_scale.x * (1.05),
+		original_sprite_scale.y * (0.93)
 		)
 
 	var bounce_tween = create_tween()
@@ -65,7 +70,15 @@ func _on_dialogue_started():
 
 
 func _on_dialogue_ended():
-	pass
+	change_anim("idle")
+
+
+func _on_next_dialogue():
+	animated_sprite.play()
+
+
+func _on_speech_line_finished():
+	animated_sprite.stop()
 
 
 func connect_signals():
@@ -74,3 +87,5 @@ func connect_signals():
 	dialogue_action.ray_exited.connect(_on_ray_exit)
 	dialogue_action.dialogue_started.connect(_on_dialogue_started)
 	dialogue_action.dialogue_ended.connect(_on_dialogue_ended)
+	dialogue_action.next_dialogue.connect(_on_next_dialogue)
+	dialogue_action.speech_line_finished.connect(_on_speech_line_finished)
