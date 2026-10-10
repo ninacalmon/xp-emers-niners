@@ -15,7 +15,7 @@ func update_tasks() -> void:
 		child.queue_free()
 
 	for task in TaskManager.tasks.values():
-		var label := Label.new()
+		var label: Label = Label.new()
 		label.text = task["text"]
 
 		if task["completed"]:
