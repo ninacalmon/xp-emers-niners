@@ -3,15 +3,16 @@
 [ext_resource type="PackedScene" uid="uid://bys1pm7m2dgd1" path="res://scenes/interface/inventory/inventory_slot_ui.tscn" id="1_rye1p"]
 [ext_resource type="Script" uid="uid://csg3gqual13i7" path="res://scenes/interface/inventory/inventory_ui.gd" id="1_vgx2o"]
 
-[node name="Inventory" type="HBoxContainer" unique_id=782102103]
+[node name="Inventory" type="VBoxContainer" unique_id=1245154446]
+custom_maximum_size = Vector2(64, -1)
 offset_right = 40.0
-offset_bottom = 40.0
+offset_bottom = 172.0
+theme_override_constants/separation = 12
 script = ExtResource("1_vgx2o")
 inventory_slot_ui_scene = ExtResource("1_rye1p")
 
 [node name="InventorySlot" parent="." unique_id=90551678 instance=ExtResource("1_rye1p")]
 layout_mode = 2
-button_pressed = true
 
 [node name="InventorySlot2" parent="." unique_id=427579533 instance=ExtResource("1_rye1p")]
 layout_mode = 2
@@ -20,4 +21,22 @@ layout_mode = 2
 layout_mode = 2
 
 [node name="InventorySlot4" parent="." unique_id=1920679463 instance=ExtResource("1_rye1p")]
+layout_mode = 2
+
+[node name="InventorySlot5" parent="." unique_id=1556918091 instance=ExtResource("1_rye1p")]
+layout_mode = 2
+
+[node name="InventorySlot6" parent="." unique_id=1768225112 instance=ExtResource("1_rye1p")]
+layout_mode = 2
+
+[node name="InventorySlot7" parent="." unique_id=722204807 instance=ExtResource("1_rye1p")]
+layout_mode = 2
+
+[node name="InventorySlot8" parent="." unique_id=1382706600 instance=ExtResource("1_rye1p")]
+layout_mode = 2
+
+[node name="InventorySlot9" parent="." unique_id=1347542251 instance=ExtResource("1_rye1p")]
+layout_mode = 2
+
+[node name="InventorySlot10" parent="." unique_id=430029102 instance=ExtResource("1_rye1p")]
 layout_mode = 2

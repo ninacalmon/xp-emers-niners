@@ -1,0 +1,38 @@
+[gd_scene format=3 uid="uid://6lc2b26efhsw"]
+
+[ext_resource type="Script" uid="uid://dxswvjuay0e03" path="res://scenes/interface/task_bar/task_label/task_label.gd" id="1_xdmei"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_ksdio"]
+blend_mode = 1
+
+[sub_resource type="Gradient" id="Gradient_0noio"]
+offsets = PackedFloat32Array(0.5194805, 0.5551948)
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_cdpwx"]
+gradient = SubResource("Gradient_0noio")
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+
+[node name="TaskLabel" type="HBoxContainer" unique_id=525921863]
+custom_minimum_size = Vector2(240, 0)
+offset_right = 240.0
+offset_bottom = 23.0
+theme_override_constants/separation = 12
+script = ExtResource("1_xdmei")
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=296422551]
+material = SubResource("CanvasItemMaterial_ksdio")
+custom_minimum_size = Vector2(6, 6)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 4
+texture = SubResource("GradientTexture2D_cdpwx")
+expand_mode = 2
+stretch_mode = 5
+
+[node name="RichTextLabel" type="RichTextLabel" parent="." unique_id=1353289110]
+custom_minimum_size = Vector2(240, 0)
+layout_mode = 2
+text = "Elogiar Johnny"
+fit_content = true

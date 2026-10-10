@@ -1,7 +1,9 @@
 ~ start
+$> TaskManager.give_task("compliment_johnny", "Faça Johnny feliz!")
 Johnny: [[Hi|Hello|Howdy]], this is some dialogue.
 Johnny: Here are some choices.
 - hello beautiful
+	$> TaskManager.complete_task("compliment_johnny")
 	Johnny:[#mood=HAPPY] WHOA MAMA!!
 - ...
 	Johnny: taking a good look at my beautiful biceps, eh?

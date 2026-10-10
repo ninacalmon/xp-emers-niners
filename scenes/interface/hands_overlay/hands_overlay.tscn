@@ -112,6 +112,7 @@ metadata/_edit_lock_ = true
 position = Vector2(372, 881)
 
 [node name="ItemSpr" type="Sprite2D" parent="ItemAnimTrack" unique_id=328153989]
+position = Vector2(94.5, 0)
 rotation = -0.34906584
 scale = Vector2(2.226563, 2.226563)
 texture = ExtResource("2_y28gv")
@@ -128,20 +129,18 @@ position = Vector2(950, 647)
 
 [node name="RHandsAnim" type="AnimatedSprite2D" parent="HandAnimTrack" unique_id=1420955992]
 z_index = 1
-position = Vector2(762, -102)
+position = Vector2(713, -102)
 sprite_frames = ExtResource("3_htwhv")
 animation = &"nono"
 frame = 11
 frame_progress = 1.0
-metadata/_edit_lock_ = true
 
 [node name="LHandsAnim" type="AnimatedSprite2D" parent="HandAnimTrack" unique_id=490817015]
 z_index = 1
-position = Vector2(-745, -102)
+position = Vector2(-650.5, -102)
 sprite_frames = ExtResource("4_m8txr")
 animation = &"idle"
 frame = 2
 frame_progress = 0.3958129
 speed_scale = 4.0
 flip_h = true
-metadata/_edit_lock_ = true

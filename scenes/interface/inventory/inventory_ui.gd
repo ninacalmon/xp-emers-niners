@@ -1,7 +1,7 @@
 ## this class manages [InventorySlot]s. It gets and modifies
 ## data in the autoload [InventoryManager].
 class_name InventoryUI
-extends HBoxContainer
+extends VBoxContainer
 
 @export var inventory_slot_ui_scene: PackedScene
 

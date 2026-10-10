@@ -28,6 +28,7 @@ InventoryManager="*uid://36d6iny0a1m1"
 DialogueManager="*uid://c3rodes2l3gxb"
 DialogueData="*uid://tjbeqbolh7r"
 LoadingManager="*uid://dj27kviu1ngr3"
+TaskManager="*uid://q5bhsivqyeol"
 
 [display]
 
