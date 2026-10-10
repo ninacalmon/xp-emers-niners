@@ -13,6 +13,7 @@ config_version=5
 config/name="xp-emers-niners"
 run/main_scene="uid://1158fbu5njsp"
 config/features=PackedStringArray("4.7", "Forward Plus")
+boot_splash/bg_color=Color(0.04755766, 0.047557645, 0.047557645, 1)
 config/icon="res://icon.svg"
 
 [audio]
@@ -26,6 +27,7 @@ ConfigValues="*uid://bm40tncpnmx6g"
 InventoryManager="*uid://36d6iny0a1m1"
 DialogueManager="*uid://c3rodes2l3gxb"
 DialogueData="*uid://tjbeqbolh7r"
+LoadingManager="*uid://dj27kviu1ngr3"
 
 [display]
 
@@ -38,7 +40,7 @@ window/stretch/aspect="expand"
 
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/Hidefolders/plugin.cfg", "res://addons/dialogue_manager/plugin.cfg", "res://addons/phantom_camera/plugin.cfg")
+enabled=PackedStringArray("res://addons/Hidefolders/plugin.cfg", "res://addons/dialogue_manager/plugin.cfg", "res://addons/loading_screen_manager/plugin.cfg", "res://addons/phantom_camera/plugin.cfg")
 
 [global_group]
 
@@ -137,7 +139,7 @@ inventory_down={
 
 [internationalization]
 
-locale/translations_pot_files=PackedStringArray("res://dialogue/tests/jhonny_bravo/jhonny_bravo.dialogue", "res://dialogue/tests/portuguese_test/portuguese_test.dialogue")
+locale/translations_pot_files=PackedStringArray("res://dialogue/tests/jhonny_bravo/jhonny_bravo.dialogue")
 
 [layer_names]
 
