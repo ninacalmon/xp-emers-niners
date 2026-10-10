@@ -25,7 +25,8 @@ func setup_slots():
 			slots.append(s)
 
 	while len(slots) > InventoryManager.inventory_size:
-		slots.pop_at(-1)
+		slots.pop_at(-1).queue_free()
+
 	while len(slots) < InventoryManager.inventory_size:
 		var new_slot = inventory_slot_ui_scene.instantiate()
 		add_child(new_slot)
