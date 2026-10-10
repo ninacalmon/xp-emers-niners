@@ -82,3 +82,7 @@ func discard(slot_idx: int):
 
 	if slot_idx == selected_slot_idx:
 		selected_item = inventory_slots[slot_idx]
+
+
+func tried_wrong_item():
+	pass

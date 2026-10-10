@@ -1,0 +1,21 @@
+[gd_scene format=3 uid="uid://b83qn60b328wo"]
+
+[ext_resource type="Script" uid="uid://b6nxgr6ahhxhw" path="res://scenes/interface/task_bar/task_bar.gd" id="1_e6m1o"]
+
+[node name="TaskBar" type="Control" unique_id=1232893806]
+layout_mode = 3
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+grow_horizontal = 0
+script = ExtResource("1_e6m1o")
+
+[node name="TaskList" type="VBoxContainer" parent="." unique_id=1237672573]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -40.0
+offset_bottom = 40.0
+grow_horizontal = 0
+theme_override_constants/separation = 16

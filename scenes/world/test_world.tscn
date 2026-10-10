@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://dhb4ubn1lv1kq" path="res://examples/interaction_examples/item_giver/key_giver_ball.tscn" id="5_utf6i"]
 [ext_resource type="PackedScene" uid="uid://dm22m11rlg6jn" path="res://examples/interaction_examples/door_key_open/door.tscn" id="6_i3rsd"]
 [ext_resource type="PackedScene" uid="uid://g4ak671rswao" path="res://systems/character/character.tscn" id="8_f38oy"]
+[ext_resource type="PackedScene" uid="uid://b83qn60b328wo" path="res://scenes/interface/task_bar/task_bar.tscn" id="9_m0ivj"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_xl1yy"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
@@ -61,6 +62,18 @@ metadata/_custom_type_script = "uid://bd046eokvcnu2"
 [node name="Player" parent="." unique_id=949902107 instance=ExtResource("2_xl1yy")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.1844378, 0)
 
+[node name="TestPrism" parent="." unique_id=1450271090 instance=ExtResource("3_jlx5v")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.621314, 0.67547035, 0)
+
+[node name="TestDoor" parent="." unique_id=1317123489 instance=ExtResource("6_i3rsd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.60676813, -6.415066)
+
+[node name="TestKeyGiverBall" parent="." unique_id=471407858 instance=ExtResource("5_utf6i")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5898051, 7.0133257)
+
+[node name="Character" parent="." unique_id=1339048520 instance=ExtResource("8_f38oy")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.7879443, 0, -7.926646)
+
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=352556717]
 
 [node name="ColorRect" type="ColorRect" parent="CanvasLayer" unique_id=789905907]
@@ -77,29 +90,32 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 
-[node name="Inventory" parent="CanvasLayer" unique_id=782102103 instance=ExtResource("3_7378n")]
-anchors_preset = 7
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
-anchor_bottom = 1.0
-offset_left = -86.0
-offset_top = -93.0
-offset_right = 86.0
-offset_bottom = -53.0
-grow_horizontal = 2
-grow_vertical = 0
-
 [node name="HandsOverlay" parent="CanvasLayer" unique_id=1915315994 instance=ExtResource("5_i3rsd")]
 
-[node name="TestPrism" parent="." unique_id=1450271090 instance=ExtResource("3_jlx5v")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.621314, 0.67547035, 0)
+[node name="MarginControl" type="Control" parent="CanvasLayer" unique_id=1662287573]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 32.0
+offset_top = 34.0
+offset_right = -32.0
+offset_bottom = -34.0
+grow_horizontal = 2
+grow_vertical = 2
 
-[node name="TestDoor" parent="." unique_id=1317123489 instance=ExtResource("6_i3rsd")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.60676813, -6.415066)
+[node name="Inventory" parent="CanvasLayer/MarginControl" unique_id=782102103 instance=ExtResource("3_7378n")]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_top = -374.0
+offset_right = 64.0
+offset_bottom = 374.0
+grow_vertical = 2
 
-[node name="TestKeyGiverBall" parent="." unique_id=471407858 instance=ExtResource("5_utf6i")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5898051, 7.0133257)
-
-[node name="Character" parent="." unique_id=1339048520 instance=ExtResource("8_f38oy")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.7879443, 0, -7.926646)
+[node name="TaskBar" parent="CanvasLayer" unique_id=1232893806 instance=ExtResource("9_m0ivj")]
+offset_left = -63.0
+offset_top = 88.0
+offset_right = -63.0
+offset_bottom = 88.0

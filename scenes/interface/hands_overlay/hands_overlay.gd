@@ -23,7 +23,6 @@ func _ready() -> void:
 
 
 func play_item_change(item: ItemRes):
-	"5. playing item changed"
 	await play_anim_change()
 
 	if item == null:
@@ -46,24 +45,24 @@ func play_idle():
 	item_animation_player.play("item_idle")
 
 
-func play_interaction():
-	InventoryManager.is_busy = true
-
-	await play_anim_change()
-
-	item_spr.hide()
-	l_hands_anim.stop()
-	r_hands_anim.stop()
-	item_animation_player.stop()
-
-	r_hands_anim.play("interaction")
-	await r_hands_anim.animation_finished
-
-	play_anim_change()
-	item_spr.show()
-
-	InventoryManager.is_busy = false
-	play_idle()
+#func play_interaction():
+	#InventoryManager.is_busy = true
+#
+	#await play_anim_change()
+#
+	#item_spr.hide()
+	#l_hands_anim.stop()
+	#r_hands_anim.stop()
+	#item_animation_player.stop()
+#
+	#r_hands_anim.play("interaction")
+	#await r_hands_anim.animation_finished
+#
+	#play_anim_change()
+	#item_spr.show()
+#
+	#InventoryManager.is_busy = false
+	#play_idle()
 
 
 func play_nono():
