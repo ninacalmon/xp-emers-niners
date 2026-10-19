@@ -1,7 +1,10 @@
 class_name Player
 extends CharacterBody3D
 
-@export var speed = 5.0
+const STEP_HEIGHT: float = 0.25
+
+@export var speed = 7.0
+@export var run_speed = 11.0
 
 @onready var head: Node3D = $Head
 
@@ -39,7 +42,7 @@ func _input(event: InputEvent) -> void:
 	if event is InputEventMouseMotion:
 		rotate_y(-event.relative.x * h_mouse_sensitivity)
 		head.rotate_x(-event.relative.y * v_mouse_sensitivity)
-		head.rotation.x = clamp(head.rotation.x, -1.2, 1.0)
+		head.rotation.x = clamp(head.rotation.x, -1.2, 1.55)
 
 
 func _physics_process(delta: float) -> void:
@@ -54,17 +57,50 @@ func _physics_process(delta: float) -> void:
 		"walk_right",
 		"walk_fowards",
 		"walk_backwards"
+	)
+
+	var current_speed = run_speed if Input.is_action_pressed("run") else speed
+	var direction: Vector3 = (transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
+
+	if direction:
+		velocity.x = direction.x * current_speed
+		velocity.z = direction.z * current_speed
+
+		var horizontal_motion: Vector3 = Vector3(
+			velocity.x * delta,
+			0.0,
+			velocity.z * delta
 		)
 
-	var direction: Vector3 = (transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
-	if direction:
-		velocity.x = direction.x * speed
-		velocity.z = direction.z * speed
+		try_step_up(horizontal_motion)
 	else:
-		velocity.x = move_toward(velocity.x, 0, speed)
-		velocity.z = move_toward(velocity.z, 0, speed)
+		velocity.x = move_toward(velocity.x, 0, current_speed)
+		velocity.z = move_toward(velocity.z, 0, current_speed)
 
 	move_and_slide()
+
+
+# climbing stairs vvv
+func try_step_up(move_direction: Vector3) -> bool:
+	if not is_on_floor():
+		return false
+
+	if not test_move(global_transform, move_direction):
+		return false
+
+	var up_motion: Vector3 = Vector3.UP * STEP_HEIGHT
+
+	if test_move(global_transform, up_motion):
+		return false
+
+	var raised_transform: Transform3D = global_transform
+	raised_transform.origin += up_motion
+
+	if test_move(raised_transform, move_direction):
+		return false
+
+	global_position += up_motion
+	return true
 
 
 func update_config_values(config_field: ConfigValues.ConfigField):

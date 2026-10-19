@@ -6,6 +6,10 @@
 class_name InteractionArea
 extends Area3D
 
+const OUTLINE_SHADER_MATERIAL_2D = preload("uid://dxugeq4hehdak")
+const OUTLINE_SHADER_MATERIAL_3D = preload("uid://dki8i4qf7fofd")
+
+
 var checking_input: bool = false
 
 @export var mesh: MeshInstance3D ## Visual node for 3D objects.
@@ -45,6 +49,9 @@ func _input(event: InputEvent) -> void:
 
 
 func _ready() -> void:
+	## tries to add outline_shader to mesh or animated_sprite.
+	apply_outline_shaders()
+
 	## guarantees that mesh or animated_sprite have outline_shader_material.tres as material overlay. vvv
 	if mesh:
 		assert(
@@ -70,3 +77,12 @@ func _ready() -> void:
 	monitoring = false
 	set_collision_layer_value(1, false)
 	set_collision_layer_value(2, true)
+
+
+
+func apply_outline_shaders():
+	if mesh:
+		mesh.material_overlay = OUTLINE_SHADER_MATERIAL_3D
+
+	elif animated_sprite:
+		animated_sprite.material = OUTLINE_SHADER_MATERIAL_2D

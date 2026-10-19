@@ -1,5 +1,6 @@
 shader_type spatial;
-render_mode blend_mix, cull_front, unshaded;
+render_mode blend_mix, cull_front, unshaded, depth_test_disabled;
+stencil_mode read, compare_not_equal, 1;
 
 instance uniform bool outline_enabled = true;
 instance uniform vec4 color : source_color = vec4(1.0, 1.0, 1.0, 1.0);
@@ -9,7 +10,6 @@ void vertex() {
 	if (outline_enabled) {
 		VERTEX *= size;
 	} else {
-		// Scales the outline geometry down to 0 to make it invisible
 		VERTEX = vec3(0.0);
 	}
 }

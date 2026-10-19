@@ -11,7 +11,7 @@
 radius = 0.32666016
 height = 2.1264648
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_sa1o0"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_lvxji"]
 viewport_path = NodePath("SubViewportSprite")
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_rwxsw"]
@@ -28,7 +28,7 @@ shape = SubResource("CapsuleShape3D_5604n")
 transform = Transform3D(0.16, 0, 0, 0, 0.16, 0, 0, 0, 0.16, 0, 0.69819117, 0)
 offset = Vector2(0, 241.06)
 billboard = 2
-texture = SubResource("ViewportTexture_sa1o0")
+texture = SubResource("ViewportTexture_lvxji")
 
 [node name="InteractionArea" type="Area3D" parent="." unique_id=830411389 node_paths=PackedStringArray("animated_sprite", "action_trigger")]
 script = ExtResource("1_kda5n")
