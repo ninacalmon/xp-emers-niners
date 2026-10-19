@@ -1,7 +1,9 @@
-[gd_resource type="ShaderMaterial" format=3 uid="uid://di60w74uej151"]
+[gd_resource type="ShaderMaterial" format=3 uid="uid://dki8i4qf7fofd"]
 
-[ext_resource type="Shader" uid="uid://dkhctjc3chsjs" path="res://resources/shaders/outline_3d.gdshader" id="1_dbf2a"]
+[ext_resource type="Material" uid="uid://cxy67ivxn22xy" path="res://resources/shader_materials/outline_draw_mat.tres" id="1_ub2ny"]
+[ext_resource type="Shader" uid="uid://dwrb8xvy1ktgo" path="res://resources/shaders/outline_mask.gdshader" id="2_djs3i"]
 
 [resource]
 render_priority = 0
-shader = ExtResource("1_dbf2a")
+next_pass = ExtResource("1_ub2ny")
+shader = ExtResource("2_djs3i")
