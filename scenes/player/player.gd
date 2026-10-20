@@ -64,7 +64,6 @@ func _physics_process(delta: float) -> void:
 	var direction: Vector3 = (transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
 
 	if direction:
-		footstep_player.play_sound()
 		velocity.x = direction.x * current_speed
 		velocity.z = direction.z * current_speed
 
