@@ -4,6 +4,19 @@
 [ext_resource type="Script" uid="uid://csjccrhj5wnx7" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_3d.gd" id="2_gmlin"]
 [ext_resource type="Script" uid="uid://8umksf8e80fw" path="res://addons/phantom_camera/scripts/resources/tween_resource.gd" id="3_lvxji"]
 [ext_resource type="Script" uid="uid://d2t1c1bj6y3t6" path="res://systems/interaction/player_ray_cast.gd" id="4_lvxji"]
+[ext_resource type="AudioStream" uid="uid://cq6pk4vqw75aq" path="res://assets/sound/sound_effects/player/footsteps/stone_floor/heels_on_stone (1).wav" id="5_fm80t"]
+[ext_resource type="Script" uid="uid://b3qtubtiiovgm" path="res://scenes/player/footstep_player.gd" id="5_kvlxm"]
+[ext_resource type="AudioStream" uid="uid://sg27oi3iknv7" path="res://assets/sound/sound_effects/player/footsteps/stone_floor/heels_on_stone (2).wav" id="6_gx1jg"]
+[ext_resource type="AudioStream" uid="uid://cp670jnhh2mkm" path="res://assets/sound/sound_effects/player/footsteps/stone_floor/heels_on_stone (3).wav" id="7_ugbui"]
+[ext_resource type="AudioStream" uid="uid://6kdvwg0x8isk" path="res://assets/sound/sound_effects/player/footsteps/stone_floor/heels_on_stone (4).wav" id="8_fcs02"]
+[ext_resource type="AudioStream" uid="uid://bl4unadjhgnsy" path="res://assets/sound/sound_effects/player/footsteps/stone_floor/heels_on_stone (5).wav" id="9_myrg7"]
+[ext_resource type="AudioStream" uid="uid://du3eo81o1t2dm" path="res://assets/sound/sound_effects/player/footsteps/stone_floor/heels_on_stone (6).wav" id="10_kvlxm"]
+[ext_resource type="AudioStream" uid="uid://c3qtuldm4b45b" path="res://assets/sound/sound_effects/player/footsteps/stone_floor/heels_on_stone (7).wav" id="11_uf5tr"]
+[ext_resource type="AudioStream" uid="uid://d1vjslvpttoew" path="res://assets/sound/sound_effects/player/footsteps/stone_floor/heels_on_stone (8).wav" id="12_lgqa7"]
+[ext_resource type="AudioStream" uid="uid://dn5yxbiovab6o" path="res://assets/sound/sound_effects/player/footsteps/dirt_floor/heels_on_dirt (1).wav" id="13_myrg7"]
+[ext_resource type="AudioStream" uid="uid://b6ndyk8kaop6q" path="res://assets/sound/sound_effects/player/footsteps/dirt_floor/heels_on_dirt (2).wav" id="14_kvlxm"]
+[ext_resource type="AudioStream" uid="uid://bql6l874cmpkr" path="res://assets/sound/sound_effects/player/footsteps/dirt_floor/heels_on_dirt (3).wav" id="15_uf5tr"]
+[ext_resource type="AudioStream" uid="uid://27w56i0xbjwy" path="res://assets/sound/sound_effects/player/footsteps/dirt_floor/heels_on_dirt (4).wav" id="16_lgqa7"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_cdpwx"]
 radius = 0.3
@@ -17,6 +30,28 @@ radius = 0.4
 
 [sub_resource type="Resource" id="Resource_p47bc"]
 script = ExtResource("3_lvxji")
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_7sokl"]
+random_pitch = 1.122462
+random_volume_offset_db = 2.0
+streams_count = 10
+stream_0/stream = ExtResource("5_fm80t")
+stream_1/stream = ExtResource("6_gx1jg")
+stream_2/stream = ExtResource("7_ugbui")
+stream_3/stream = ExtResource("8_fcs02")
+stream_4/stream = ExtResource("9_myrg7")
+stream_5/stream = ExtResource("10_kvlxm")
+stream_6/stream = ExtResource("11_uf5tr")
+stream_7/stream = ExtResource("12_lgqa7")
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_fm80t"]
+random_pitch = 1.122462
+random_volume_offset_db = 1.5
+streams_count = 4
+stream_0/stream = ExtResource("13_myrg7")
+stream_1/stream = ExtResource("14_kvlxm")
+stream_2/stream = ExtResource("15_uf5tr")
+stream_3/stream = ExtResource("16_lgqa7")
 
 [node name="Player" type="CharacterBody3D" unique_id=949902107]
 floor_max_angle = 0.80285144
@@ -57,3 +92,17 @@ collision_mask = 2
 collide_with_areas = true
 collide_with_bodies = false
 script = ExtResource("4_lvxji")
+
+[node name="FootstepPlayer" type="Node" parent="." unique_id=1383212163 node_paths=PackedStringArray("player")]
+script = ExtResource("5_kvlxm")
+player = NodePath("..")
+
+[node name="StoneAudioStreamPlayer" type="AudioStreamPlayer" parent="FootstepPlayer" unique_id=1446625715]
+stream = SubResource("AudioStreamRandomizer_7sokl")
+volume_db = -22.0
+bus = &"Sound Effects / Echo"
+
+[node name="DirtAudioStreamPlayer" type="AudioStreamPlayer" parent="FootstepPlayer" unique_id=455783215]
+stream = SubResource("AudioStreamRandomizer_fm80t")
+volume_db = -6.0
+bus = &"Sound Effects"

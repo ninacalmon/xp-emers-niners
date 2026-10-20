@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://27w56i0xbjwy"
+path="res://.godot/imported/heels_on_dirt (4).wav-e99e586c0a8f909232f6ab7282c09b9c.sample"
+
+[deps]
+
+source_file="res://assets/sound/sound_effects/player/footsteps/dirt_floor/heels_on_dirt (4).wav"
+dest_files=["res://.godot/imported/heels_on_dirt (4).wav-e99e586c0a8f909232f6ab7282c09b9c.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

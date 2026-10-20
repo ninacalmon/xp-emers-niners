@@ -13,7 +13,6 @@
 [ext_resource type="PackedScene" uid="uid://d0dx1ggic73g0" path="res://scenes/characters/julio/julio.tscn" id="10_obw6i"]
 [ext_resource type="PackedScene" uid="uid://c0enf7fvm7uko" path="res://scenes/objects/doors/room_door.tscn" id="13_em46u"]
 [ext_resource type="PackedScene" uid="uid://bl2pudkwwgffr" path="res://assets/3d/scenery/test/blockingv3.glb" id="13_gaq8h"]
-[ext_resource type="Script" uid="uid://v1xwdjmy7kh4" path="res://scenes/objects/doors/open_door_action.gd" id="14_u0e1l"]
 [ext_resource type="Script" uid="uid://cf2auur4umdjl" path="res://systems/interaction/interaction_area.gd" id="15_dc00g"]
 [ext_resource type="Material" uid="uid://dki8i4qf7fofd" path="res://resources/shader_materials/outline_shader_material_3d.tres" id="16_rq54g"]
 
@@ -208,156 +207,141 @@ omni_range = 28.345
 
 [node name="Right" type="Node3D" parent="RoomDoors" unique_id=452435348]
 
-[node name="Door_copy5" type="Node3D" parent="RoomDoors/Right" unique_id=668800733 node_paths=PackedStringArray("collision_shape_3d", "mesh_instance_3d") instance=ExtResource("13_em46u")]
+[node name="Door_copy5" parent="RoomDoors/Right" unique_id=668800733 instance=ExtResource("13_em46u")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 52.548, 1.5745991, -0.9098737)
-script = ExtResource("14_u0e1l")
 flip = true
-collision_shape_3d = NodePath("StaticBody3D/CollisionShape3D")
-mesh_instance_3d = NodePath("MeshInstance3D")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="RoomDoors/Right/Door_copy5" unique_id=446229308]
+[node name="StaticBody3D2" type="StaticBody3D" parent="RoomDoors/Right/Door_copy5" unique_id=446229308]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.57405055, 0)
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="RoomDoors/Right/Door_copy5/StaticBody3D" unique_id=263655624]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="RoomDoors/Right/Door_copy5/StaticBody3D2" unique_id=263655624]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.7862873, 1.5264611, 0.0018532276)
 shape = SubResource("BoxShape3D_cphiy")
 
-[node name="InteractionArea" type="Area3D" parent="RoomDoors/Right/Door_copy5" unique_id=625145354 node_paths=PackedStringArray("mesh", "action_trigger")]
+[node name="InteractionArea2" type="Area3D" parent="RoomDoors/Right/Door_copy5" unique_id=625145354 node_paths=PackedStringArray("mesh", "action_trigger")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.57405055, 0)
 script = ExtResource("15_dc00g")
 mesh = NodePath("../MeshInstance3D")
 action_trigger = NodePath("..")
 metadata/_custom_type_script = "uid://cf2auur4umdjl"
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="RoomDoors/Right/Door_copy5/InteractionArea" unique_id=1557408956]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="RoomDoors/Right/Door_copy5/InteractionArea2" unique_id=1557408956]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.7862873, 1.5264611, -0.6806514)
 shape = SubResource("BoxShape3D_ovqo0")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="RoomDoors/Right/Door_copy5" unique_id=94713837]
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="RoomDoors/Right/Door_copy5" unique_id=94713837]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.57405055, 0.078167856)
 material_overlay = ExtResource("16_rq54g")
 instance_shader_parameters/outline_enabled = false
 mesh = SubResource("ArrayMesh_vhwfq")
 
-[node name="Door_copy6" type="Node3D" parent="RoomDoors/Right" unique_id=2131933676 node_paths=PackedStringArray("collision_shape_3d", "mesh_instance_3d") instance=ExtResource("13_em46u")]
+[node name="Door_copy6" parent="RoomDoors/Right" unique_id=2131933676 instance=ExtResource("13_em46u")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 57.878, 1.5745991, -0.9098737)
-script = ExtResource("14_u0e1l")
 flip = true
-collision_shape_3d = NodePath("StaticBody3D/CollisionShape3D")
-mesh_instance_3d = NodePath("MeshInstance3D")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="RoomDoors/Right/Door_copy6" unique_id=809380210]
+[node name="StaticBody3D2" type="StaticBody3D" parent="RoomDoors/Right/Door_copy6" unique_id=809380210]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.57405055, 0)
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="RoomDoors/Right/Door_copy6/StaticBody3D" unique_id=821867928]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="RoomDoors/Right/Door_copy6/StaticBody3D2" unique_id=821867928]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.7862873, 1.5264611, 0.0018532276)
 shape = SubResource("BoxShape3D_cphiy")
 
-[node name="InteractionArea" type="Area3D" parent="RoomDoors/Right/Door_copy6" unique_id=1342076071 node_paths=PackedStringArray("mesh", "action_trigger")]
+[node name="InteractionArea2" type="Area3D" parent="RoomDoors/Right/Door_copy6" unique_id=1342076071 node_paths=PackedStringArray("mesh", "action_trigger")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.57405055, 0)
 script = ExtResource("15_dc00g")
 mesh = NodePath("../MeshInstance3D")
 action_trigger = NodePath("..")
 metadata/_custom_type_script = "uid://cf2auur4umdjl"
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="RoomDoors/Right/Door_copy6/InteractionArea" unique_id=28361128]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="RoomDoors/Right/Door_copy6/InteractionArea2" unique_id=28361128]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.7862873, 1.5264611, -0.6806514)
 shape = SubResource("BoxShape3D_ovqo0")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="RoomDoors/Right/Door_copy6" unique_id=1992112684]
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="RoomDoors/Right/Door_copy6" unique_id=1992112684]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.57405055, 0.078167856)
 material_overlay = ExtResource("16_rq54g")
 instance_shader_parameters/outline_enabled = false
 mesh = SubResource("ArrayMesh_vhwfq")
 
-[node name="Door_copy7" type="Node3D" parent="RoomDoors/Right" unique_id=1765539975 node_paths=PackedStringArray("collision_shape_3d", "mesh_instance_3d") instance=ExtResource("13_em46u")]
+[node name="Door_copy7" parent="RoomDoors/Right" unique_id=1765539975 instance=ExtResource("13_em46u")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 63.208, 1.5745991, -0.9098737)
-script = ExtResource("14_u0e1l")
 flip = true
-collision_shape_3d = NodePath("StaticBody3D/CollisionShape3D")
-mesh_instance_3d = NodePath("MeshInstance3D")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="RoomDoors/Right/Door_copy7" unique_id=614052166]
+[node name="StaticBody3D2" type="StaticBody3D" parent="RoomDoors/Right/Door_copy7" unique_id=614052166]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.57405055, 0)
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="RoomDoors/Right/Door_copy7/StaticBody3D" unique_id=943150501]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="RoomDoors/Right/Door_copy7/StaticBody3D2" unique_id=943150501]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.7862873, 1.5264611, 0.0018532276)
 shape = SubResource("BoxShape3D_cphiy")
 
-[node name="InteractionArea" type="Area3D" parent="RoomDoors/Right/Door_copy7" unique_id=1877830518 node_paths=PackedStringArray("mesh", "action_trigger")]
+[node name="InteractionArea2" type="Area3D" parent="RoomDoors/Right/Door_copy7" unique_id=1877830518 node_paths=PackedStringArray("mesh", "action_trigger")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.57405055, 0)
 script = ExtResource("15_dc00g")
 mesh = NodePath("../MeshInstance3D")
 action_trigger = NodePath("..")
 metadata/_custom_type_script = "uid://cf2auur4umdjl"
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="RoomDoors/Right/Door_copy7/InteractionArea" unique_id=1112445086]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="RoomDoors/Right/Door_copy7/InteractionArea2" unique_id=1112445086]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.7862873, 1.5264611, -0.6806514)
 shape = SubResource("BoxShape3D_ovqo0")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="RoomDoors/Right/Door_copy7" unique_id=1220717485]
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="RoomDoors/Right/Door_copy7" unique_id=1220717485]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.57405055, 0.078167856)
 material_overlay = ExtResource("16_rq54g")
 instance_shader_parameters/outline_enabled = false
 mesh = SubResource("ArrayMesh_vhwfq")
 
-[node name="Door_copy8" type="Node3D" parent="RoomDoors/Right" unique_id=156263478 node_paths=PackedStringArray("collision_shape_3d", "mesh_instance_3d") instance=ExtResource("13_em46u")]
+[node name="Door_copy8" parent="RoomDoors/Right" unique_id=156263478 instance=ExtResource("13_em46u")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 68.538, 1.5745991, -0.9098737)
-script = ExtResource("14_u0e1l")
 flip = true
-collision_shape_3d = NodePath("StaticBody3D/CollisionShape3D")
-mesh_instance_3d = NodePath("MeshInstance3D")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="RoomDoors/Right/Door_copy8" unique_id=626225970]
+[node name="StaticBody3D2" type="StaticBody3D" parent="RoomDoors/Right/Door_copy8" unique_id=626225970]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.57405055, 0)
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="RoomDoors/Right/Door_copy8/StaticBody3D" unique_id=1773807914]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="RoomDoors/Right/Door_copy8/StaticBody3D2" unique_id=1773807914]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.7862873, 1.5264611, 0.0018532276)
 shape = SubResource("BoxShape3D_cphiy")
 
-[node name="InteractionArea" type="Area3D" parent="RoomDoors/Right/Door_copy8" unique_id=1568442398 node_paths=PackedStringArray("mesh", "action_trigger")]
+[node name="InteractionArea2" type="Area3D" parent="RoomDoors/Right/Door_copy8" unique_id=1568442398 node_paths=PackedStringArray("mesh", "action_trigger")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.57405055, 0)
 script = ExtResource("15_dc00g")
 mesh = NodePath("../MeshInstance3D")
 action_trigger = NodePath("..")
 metadata/_custom_type_script = "uid://cf2auur4umdjl"
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="RoomDoors/Right/Door_copy8/InteractionArea" unique_id=524616140]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="RoomDoors/Right/Door_copy8/InteractionArea2" unique_id=524616140]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.7862873, 1.5264611, -0.6806514)
 shape = SubResource("BoxShape3D_ovqo0")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="RoomDoors/Right/Door_copy8" unique_id=876554310]
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="RoomDoors/Right/Door_copy8" unique_id=876554310]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.57405055, 0.078167856)
 material_overlay = ExtResource("16_rq54g")
 instance_shader_parameters/outline_enabled = false
 mesh = SubResource("ArrayMesh_vhwfq")
 
-[node name="Door_copy9" type="Node3D" parent="RoomDoors/Right" unique_id=997516028 node_paths=PackedStringArray("collision_shape_3d", "mesh_instance_3d") instance=ExtResource("13_em46u")]
+[node name="Door_copy9" parent="RoomDoors/Right" unique_id=997516028 instance=ExtResource("13_em46u")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 73.868, 1.5745991, -0.9098737)
-script = ExtResource("14_u0e1l")
 flip = true
-collision_shape_3d = NodePath("StaticBody3D/CollisionShape3D")
-mesh_instance_3d = NodePath("MeshInstance3D")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="RoomDoors/Right/Door_copy9" unique_id=782495918]
+[node name="StaticBody3D2" type="StaticBody3D" parent="RoomDoors/Right/Door_copy9" unique_id=782495918]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.57405055, 0)
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="RoomDoors/Right/Door_copy9/StaticBody3D" unique_id=366775898]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="RoomDoors/Right/Door_copy9/StaticBody3D2" unique_id=366775898]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.7862873, 1.5264611, 0.0018532276)
 shape = SubResource("BoxShape3D_cphiy")
 
-[node name="InteractionArea" type="Area3D" parent="RoomDoors/Right/Door_copy9" unique_id=524526435 node_paths=PackedStringArray("mesh", "action_trigger")]
+[node name="InteractionArea2" type="Area3D" parent="RoomDoors/Right/Door_copy9" unique_id=524526435 node_paths=PackedStringArray("mesh", "action_trigger")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.57405055, 0)
 script = ExtResource("15_dc00g")
 mesh = NodePath("../MeshInstance3D")
 action_trigger = NodePath("..")
 metadata/_custom_type_script = "uid://cf2auur4umdjl"
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="RoomDoors/Right/Door_copy9/InteractionArea" unique_id=175643234]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="RoomDoors/Right/Door_copy9/InteractionArea2" unique_id=175643234]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.7862873, 1.5264611, -0.6806514)
 shape = SubResource("BoxShape3D_ovqo0")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="RoomDoors/Right/Door_copy9" unique_id=127637664]
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="RoomDoors/Right/Door_copy9" unique_id=127637664]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.57405055, 0.078167856)
 material_overlay = ExtResource("16_rq54g")
 instance_shader_parameters/outline_enabled = false
@@ -368,121 +352,109 @@ mesh = SubResource("ArrayMesh_vhwfq")
 [node name="Door_copy0" parent="RoomDoors/Left" unique_id=1155157874 instance=ExtResource("13_em46u")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 52.548, 1.5745991, -3.0448737)
 
-[node name="Door_copy1" type="Node3D" parent="RoomDoors/Left" unique_id=376096474 node_paths=PackedStringArray("collision_shape_3d", "mesh_instance_3d") instance=ExtResource("13_em46u")]
+[node name="Door_copy1" parent="RoomDoors/Left" unique_id=376096474 instance=ExtResource("13_em46u")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 57.878, 1.5745991, -3.0448737)
-script = ExtResource("14_u0e1l")
-collision_shape_3d = NodePath("StaticBody3D/CollisionShape3D")
-mesh_instance_3d = NodePath("MeshInstance3D")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="RoomDoors/Left/Door_copy1" unique_id=1625310387]
+[node name="StaticBody3D2" type="StaticBody3D" parent="RoomDoors/Left/Door_copy1" unique_id=1625310387]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.57405055, 0)
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="RoomDoors/Left/Door_copy1/StaticBody3D" unique_id=1114601331]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="RoomDoors/Left/Door_copy1/StaticBody3D2" unique_id=1114601331]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.7862873, 1.5264611, 0.0018532276)
 shape = SubResource("BoxShape3D_cphiy")
 
-[node name="InteractionArea" type="Area3D" parent="RoomDoors/Left/Door_copy1" unique_id=305513675 node_paths=PackedStringArray("mesh", "action_trigger")]
+[node name="InteractionArea2" type="Area3D" parent="RoomDoors/Left/Door_copy1" unique_id=305513675 node_paths=PackedStringArray("mesh", "action_trigger")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.57405055, 0)
 script = ExtResource("15_dc00g")
 mesh = NodePath("../MeshInstance3D")
 action_trigger = NodePath("..")
 metadata/_custom_type_script = "uid://cf2auur4umdjl"
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="RoomDoors/Left/Door_copy1/InteractionArea" unique_id=1848491191]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="RoomDoors/Left/Door_copy1/InteractionArea2" unique_id=1848491191]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.7862873, 1.5264611, -0.6806514)
 shape = SubResource("BoxShape3D_ovqo0")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="RoomDoors/Left/Door_copy1" unique_id=1581332547]
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="RoomDoors/Left/Door_copy1" unique_id=1581332547]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.57405055, 0.078167856)
 material_overlay = ExtResource("16_rq54g")
 instance_shader_parameters/outline_enabled = false
 mesh = SubResource("ArrayMesh_vhwfq")
 
-[node name="Door_copy2" type="Node3D" parent="RoomDoors/Left" unique_id=44716260 node_paths=PackedStringArray("collision_shape_3d", "mesh_instance_3d") instance=ExtResource("13_em46u")]
+[node name="Door_copy2" parent="RoomDoors/Left" unique_id=44716260 instance=ExtResource("13_em46u")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 63.208, 1.5745991, -3.0448737)
-script = ExtResource("14_u0e1l")
-collision_shape_3d = NodePath("StaticBody3D/CollisionShape3D")
-mesh_instance_3d = NodePath("MeshInstance3D")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="RoomDoors/Left/Door_copy2" unique_id=1643194084]
+[node name="StaticBody3D2" type="StaticBody3D" parent="RoomDoors/Left/Door_copy2" unique_id=1643194084]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.57405055, 0)
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="RoomDoors/Left/Door_copy2/StaticBody3D" unique_id=1982699898]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="RoomDoors/Left/Door_copy2/StaticBody3D2" unique_id=1982699898]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.7862873, 1.5264611, 0.0018532276)
 shape = SubResource("BoxShape3D_cphiy")
 
-[node name="InteractionArea" type="Area3D" parent="RoomDoors/Left/Door_copy2" unique_id=84777942 node_paths=PackedStringArray("mesh", "action_trigger")]
+[node name="InteractionArea2" type="Area3D" parent="RoomDoors/Left/Door_copy2" unique_id=84777942 node_paths=PackedStringArray("mesh", "action_trigger")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.57405055, 0)
 script = ExtResource("15_dc00g")
 mesh = NodePath("../MeshInstance3D")
 action_trigger = NodePath("..")
 metadata/_custom_type_script = "uid://cf2auur4umdjl"
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="RoomDoors/Left/Door_copy2/InteractionArea" unique_id=1310190379]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="RoomDoors/Left/Door_copy2/InteractionArea2" unique_id=1310190379]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.7862873, 1.5264611, -0.6806514)
 shape = SubResource("BoxShape3D_ovqo0")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="RoomDoors/Left/Door_copy2" unique_id=76602809]
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="RoomDoors/Left/Door_copy2" unique_id=76602809]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.57405055, 0.078167856)
 material_overlay = ExtResource("16_rq54g")
 instance_shader_parameters/outline_enabled = false
 mesh = SubResource("ArrayMesh_vhwfq")
 
-[node name="Door_copy3" type="Node3D" parent="RoomDoors/Left" unique_id=143566255 node_paths=PackedStringArray("collision_shape_3d", "mesh_instance_3d") instance=ExtResource("13_em46u")]
+[node name="Door_copy3" parent="RoomDoors/Left" unique_id=143566255 instance=ExtResource("13_em46u")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 68.538, 1.5745991, -3.0448737)
-script = ExtResource("14_u0e1l")
-collision_shape_3d = NodePath("StaticBody3D/CollisionShape3D")
-mesh_instance_3d = NodePath("MeshInstance3D")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="RoomDoors/Left/Door_copy3" unique_id=532992119]
+[node name="StaticBody3D2" type="StaticBody3D" parent="RoomDoors/Left/Door_copy3" unique_id=532992119]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.57405055, 0)
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="RoomDoors/Left/Door_copy3/StaticBody3D" unique_id=1302327667]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="RoomDoors/Left/Door_copy3/StaticBody3D2" unique_id=1302327667]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.7862873, 1.5264611, 0.0018532276)
 shape = SubResource("BoxShape3D_cphiy")
 
-[node name="InteractionArea" type="Area3D" parent="RoomDoors/Left/Door_copy3" unique_id=108645158 node_paths=PackedStringArray("mesh", "action_trigger")]
+[node name="InteractionArea2" type="Area3D" parent="RoomDoors/Left/Door_copy3" unique_id=108645158 node_paths=PackedStringArray("mesh", "action_trigger")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.57405055, 0)
 script = ExtResource("15_dc00g")
 mesh = NodePath("../MeshInstance3D")
 action_trigger = NodePath("..")
 metadata/_custom_type_script = "uid://cf2auur4umdjl"
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="RoomDoors/Left/Door_copy3/InteractionArea" unique_id=491484027]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="RoomDoors/Left/Door_copy3/InteractionArea2" unique_id=491484027]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.7862873, 1.5264611, -0.6806514)
 shape = SubResource("BoxShape3D_ovqo0")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="RoomDoors/Left/Door_copy3" unique_id=570483821]
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="RoomDoors/Left/Door_copy3" unique_id=570483821]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.57405055, 0.078167856)
 material_overlay = ExtResource("16_rq54g")
 instance_shader_parameters/outline_enabled = false
 mesh = SubResource("ArrayMesh_vhwfq")
 
-[node name="Door_copy4" type="Node3D" parent="RoomDoors/Left" unique_id=1329166490 node_paths=PackedStringArray("collision_shape_3d", "mesh_instance_3d") instance=ExtResource("13_em46u")]
+[node name="Door_copy4" parent="RoomDoors/Left" unique_id=1329166490 instance=ExtResource("13_em46u")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 73.868, 1.5745991, -3.0448737)
-script = ExtResource("14_u0e1l")
-collision_shape_3d = NodePath("StaticBody3D/CollisionShape3D")
-mesh_instance_3d = NodePath("MeshInstance3D")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="RoomDoors/Left/Door_copy4" unique_id=1300450356]
+[node name="StaticBody3D2" type="StaticBody3D" parent="RoomDoors/Left/Door_copy4" unique_id=1300450356]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.57405055, 0)
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="RoomDoors/Left/Door_copy4/StaticBody3D" unique_id=33992360]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="RoomDoors/Left/Door_copy4/StaticBody3D2" unique_id=33992360]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.7862873, 1.5264611, 0.0018532276)
 shape = SubResource("BoxShape3D_cphiy")
 
-[node name="InteractionArea" type="Area3D" parent="RoomDoors/Left/Door_copy4" unique_id=218065772 node_paths=PackedStringArray("mesh", "action_trigger")]
+[node name="InteractionArea2" type="Area3D" parent="RoomDoors/Left/Door_copy4" unique_id=218065772 node_paths=PackedStringArray("mesh", "action_trigger")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.57405055, 0)
 script = ExtResource("15_dc00g")
 mesh = NodePath("../MeshInstance3D")
 action_trigger = NodePath("..")
 metadata/_custom_type_script = "uid://cf2auur4umdjl"
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="RoomDoors/Left/Door_copy4/InteractionArea" unique_id=520262706]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="RoomDoors/Left/Door_copy4/InteractionArea2" unique_id=520262706]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.7862873, 1.5264611, -0.6806514)
 shape = SubResource("BoxShape3D_ovqo0")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="RoomDoors/Left/Door_copy4" unique_id=1676421401]
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="RoomDoors/Left/Door_copy4" unique_id=1676421401]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.57405055, 0.078167856)
 material_overlay = ExtResource("16_rq54g")
 instance_shader_parameters/outline_enabled = false
