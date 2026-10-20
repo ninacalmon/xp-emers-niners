@@ -1,13 +1,23 @@
 class_name OpenDoorAction
 extends ActionTrigger
 
+@export var flip: bool = false
 @export var speed: float = 0.4
+
 @export var collision_shape_3d: CollisionShape3D
 @export var mesh_instance_3d: MeshInstance3D
 
-var is_open: bool = false
-var flip: bool = false
+@onready var interaction_area: InteractionArea = $InteractionArea
 
+var is_open: bool = false
+
+
+
+func _ready() -> void:
+	super()
+
+	if flip:
+		self.scale.z *= -1
 
 func trigger():
 	if is_open:
@@ -29,12 +39,10 @@ func open_door():
 
 	collision_shape_3d.disabled = true
 
-	var angle: int = -95 if flip else 95
-
 	var tween = create_tween()
 	tween.set_ease(Tween.EASE_IN)
 
-	tween.tween_property(self, "rotation:y", deg_to_rad(angle), speed)
+	tween.tween_property(mesh_instance_3d, "rotation:y", deg_to_rad(95), speed)
 
 	await tween.finished
 
@@ -47,7 +55,7 @@ func close_door():
 	var tween = create_tween()
 	tween.set_ease(Tween.EASE_IN)
 
-	tween.tween_property(self, "rotation:y", deg_to_rad(0), speed)
+	tween.tween_property(mesh_instance_3d, "rotation:y", deg_to_rad(0), speed)
 
 	await tween.finished
 
