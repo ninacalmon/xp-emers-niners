@@ -8,7 +8,7 @@
 size = Vector3(1.6016846, 3.0820313, 0.22851563)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_ovqo0"]
-size = Vector3(1.3789063, 3.0820313, 1.0410156)
+size = Vector3(1.3789063, 3.0820313, 1.9853516)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_13eu0"]
 resource_name = "BurnedOrange"
@@ -59,7 +59,7 @@ mesh_instance_3d = NodePath("MeshInstance3D")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.57405055, 0)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" unique_id=263655624]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.7862873, 1.5264611, -0.07257271)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.7862873, 1.5264611, 0.0018532276)
 shape = SubResource("BoxShape3D_cphiy")
 
 [node name="InteractionArea" type="Area3D" parent="." unique_id=625145354 node_paths=PackedStringArray("mesh", "action_trigger")]
@@ -70,11 +70,11 @@ action_trigger = NodePath("..")
 metadata/_custom_type_script = "uid://cf2auur4umdjl"
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="InteractionArea" unique_id=1557408956]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.7862873, 1.5264611, -0.38214302)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.7862873, 1.5264611, -0.6806514)
 shape = SubResource("BoxShape3D_ovqo0")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=94713837]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.57405055, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.57405055, 0.078167856)
 material_overlay = ExtResource("3_7t0mo")
 instance_shader_parameters/outline_enabled = false
 mesh = SubResource("ArrayMesh_vhwfq")
