@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://du3eo81o1t2dm"
+path="res://.godot/imported/heels_on_stone (6).wav-3541c1798dfed03cd928ef9fc7c91d28.sample"
+
+[deps]
+
+source_file="res://assets/sound/sound_effects/player/footsteps/stone_floor/heels_on_stone (6).wav"
+dest_files=["res://.godot/imported/heels_on_stone (6).wav-3541c1798dfed03cd928ef9fc7c91d28.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

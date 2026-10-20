@@ -1,5 +1,10 @@
 [gd_resource type="AudioBusLayout" format=3 uid="uid://bld0f1aecpvvl"]
 
+[sub_resource type="AudioEffectReverb" id="AudioEffectReverb_aovk5"]
+resource_name = "Reverb"
+room_size = 0.4
+damping = 0.0
+
 [resource]
 bus/1/name = &"Sound Effects"
 bus/1/solo = false
@@ -13,3 +18,11 @@ bus/2/mute = false
 bus/2/bypass_fx = false
 bus/2/volume_db = 0.0
 bus/2/send = &"Master"
+bus/3/name = &"Sound Effects / Echo"
+bus/3/solo = false
+bus/3/mute = false
+bus/3/bypass_fx = false
+bus/3/volume_db = 0.06726074
+bus/3/send = &"Sound Effects"
+bus/3/effect/0/effect = SubResource("AudioEffectReverb_aovk5")
+bus/3/effect/0/enabled = true
