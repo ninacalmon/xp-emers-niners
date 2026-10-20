@@ -11,8 +11,8 @@
 [ext_resource type="PackedScene" uid="uid://b83qn60b328wo" path="res://scenes/interface/task_bar/task_bar.tscn" id="9_m0ivj"]
 [ext_resource type="PackedScene" uid="uid://cexq6016xnjw" path="res://scenes/characters/julio/julio_tests.tscn" id="10_56i7j"]
 [ext_resource type="PackedScene" uid="uid://d0dx1ggic73g0" path="res://scenes/characters/julio/julio.tscn" id="10_obw6i"]
+[ext_resource type="PackedScene" uid="uid://babo4jqsyij3i" path="res://scenes/buildings/church.tscn" id="12_h6k38"]
 [ext_resource type="PackedScene" uid="uid://c0enf7fvm7uko" path="res://scenes/objects/doors/room_door.tscn" id="13_em46u"]
-[ext_resource type="PackedScene" uid="uid://bl2pudkwwgffr" path="res://assets/3d/scenery/test/blockingv3.glb" id="13_gaq8h"]
 [ext_resource type="Script" uid="uid://cf2auur4umdjl" path="res://systems/interaction/interaction_area.gd" id="15_dc00g"]
 [ext_resource type="Material" uid="uid://dki8i4qf7fofd" path="res://resources/shader_materials/outline_shader_material_3d.tres" id="16_rq54g"]
 
@@ -102,12 +102,12 @@ shadow_enabled = true
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1902477949]
 environment = SubResource("Environment_7378n")
 
-[node name="Ground" type="StaticBody3D" parent="." unique_id=286959965]
+[node name="Ground" type="StaticBody3D" parent="." unique_id=286959965 groups=["dirt_floor"]]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Ground" unique_id=316747533]
 shape = SubResource("WorldBoundaryShape3D_5604n")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Ground" unique_id=339831810]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Ground" unique_id=339831810 groups=["dirt_floor"]]
 mesh = SubResource("PlaneMesh_ksdio")
 surface_material_override/0 = SubResource("StandardMaterial3D_u1gsd")
 
@@ -188,17 +188,17 @@ offset_bottom = 88.0
 [node name="Julio2" parent="." unique_id=2120726874 instance=ExtResource("10_obw6i")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 2.4898815)
 
-[node name="blockingv3" parent="." unique_id=211989846 instance=ExtResource("13_gaq8h")]
+[node name="Church" parent="." unique_id=1195204425 instance=ExtResource("12_h6k38")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 33.12908, 0, 0)
 
-[node name="OmniLight3D" type="OmniLight3D" parent="blockingv3" unique_id=651640671]
+[node name="OmniLight3D" type="OmniLight3D" parent="Church" unique_id=651640671]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 30.930624, -15.288273)
 light_color = Color(1, 0.60800004, 0.01999998, 1)
 light_energy = 11.549
 light_indirect_energy = 6.363
 omni_range = 18.818
 
-[node name="OmniLight3D2" type="OmniLight3D" parent="blockingv3" unique_id=1015565524]
+[node name="OmniLight3D2" type="OmniLight3D" parent="Church" unique_id=1015565524]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 16.436234, 2.7427387)
 light_color = Color(1, 0.60800004, 0.01999998, 1)
 omni_range = 28.345

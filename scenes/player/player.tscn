@@ -5,7 +5,6 @@
 [ext_resource type="Script" uid="uid://8umksf8e80fw" path="res://addons/phantom_camera/scripts/resources/tween_resource.gd" id="3_lvxji"]
 [ext_resource type="Script" uid="uid://d2t1c1bj6y3t6" path="res://systems/interaction/player_ray_cast.gd" id="4_lvxji"]
 [ext_resource type="AudioStream" uid="uid://cq6pk4vqw75aq" path="res://assets/sound/sound_effects/player/footsteps/stone_floor/heels_on_stone (1).wav" id="5_fm80t"]
-[ext_resource type="Script" uid="uid://b3qtubtiiovgm" path="res://scenes/player/footstep_player.gd" id="5_kvlxm"]
 [ext_resource type="AudioStream" uid="uid://sg27oi3iknv7" path="res://assets/sound/sound_effects/player/footsteps/stone_floor/heels_on_stone (2).wav" id="6_gx1jg"]
 [ext_resource type="AudioStream" uid="uid://cp670jnhh2mkm" path="res://assets/sound/sound_effects/player/footsteps/stone_floor/heels_on_stone (3).wav" id="7_ugbui"]
 [ext_resource type="AudioStream" uid="uid://6kdvwg0x8isk" path="res://assets/sound/sound_effects/player/footsteps/stone_floor/heels_on_stone (4).wav" id="8_fcs02"]
@@ -93,16 +92,12 @@ collide_with_areas = true
 collide_with_bodies = false
 script = ExtResource("4_lvxji")
 
-[node name="FootstepPlayer" type="Node" parent="." unique_id=1383212163 node_paths=PackedStringArray("player")]
-script = ExtResource("5_kvlxm")
-player = NodePath("..")
-
-[node name="StoneAudioStreamPlayer" type="AudioStreamPlayer" parent="FootstepPlayer" unique_id=1446625715]
+[node name="StoneAudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1446625715]
 stream = SubResource("AudioStreamRandomizer_7sokl")
-volume_db = -22.0
+volume_db = -26.0
 bus = &"Sound Effects / Echo"
 
-[node name="DirtAudioStreamPlayer" type="AudioStreamPlayer" parent="FootstepPlayer" unique_id=455783215]
+[node name="DirtAudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=455783215]
 stream = SubResource("AudioStreamRandomizer_fm80t")
-volume_db = -6.0
+volume_db = -10.0
 bus = &"Sound Effects"

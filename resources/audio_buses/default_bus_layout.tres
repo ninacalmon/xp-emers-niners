@@ -2,7 +2,7 @@
 
 [sub_resource type="AudioEffectReverb" id="AudioEffectReverb_aovk5"]
 resource_name = "Reverb"
-room_size = 0.4
+room_size = 0.2
 damping = 0.0
 
 [resource]
