@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://b83qn60b328wo"]
 
 [ext_resource type="Script" uid="uid://b6nxgr6ahhxhw" path="res://scenes/interface/task_bar/task_bar.gd" id="1_e6m1o"]
+[ext_resource type="PackedScene" uid="uid://6lc2b26efhsw" path="res://scenes/interface/task_bar/task_label/task_label.tscn" id="2_e6m1o"]
 
 [node name="TaskBar" type="Control" unique_id=1232893806]
 layout_mode = 3
@@ -9,6 +10,7 @@ anchor_left = 1.0
 anchor_right = 1.0
 grow_horizontal = 0
 script = ExtResource("1_e6m1o")
+task_label_scene = ExtResource("2_e6m1o")
 
 [node name="TaskList" type="VBoxContainer" parent="." unique_id=1237672573]
 layout_mode = 1
@@ -18,4 +20,19 @@ anchor_right = 1.0
 offset_left = -40.0
 offset_bottom = 40.0
 grow_horizontal = 0
-theme_override_constants/separation = 16
+theme_override_constants/separation = 24
+
+[node name="TaskLabel" parent="TaskList" unique_id=1679738931 instance=ExtResource("2_e6m1o")]
+layout_mode = 2
+
+[node name="TaskLabel2" parent="TaskList" unique_id=432491625 instance=ExtResource("2_e6m1o")]
+layout_mode = 2
+
+[node name="TaskLabel3" parent="TaskList" unique_id=617121402 instance=ExtResource("2_e6m1o")]
+layout_mode = 2
+
+[node name="TaskLabel4" parent="TaskList" unique_id=2024656027 instance=ExtResource("2_e6m1o")]
+layout_mode = 2
+
+[node name="TaskLabel5" parent="TaskList" unique_id=2103066729 instance=ExtResource("2_e6m1o")]
+layout_mode = 2
