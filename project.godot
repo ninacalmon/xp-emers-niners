@@ -29,6 +29,7 @@ DialogueManager="*uid://c3rodes2l3gxb"
 DialogueData="*uid://tjbeqbolh7r"
 LoadingManager="*uid://dj27kviu1ngr3"
 TaskManager="*uid://q5bhsivqyeol"
+CharacterData="*uid://1ln1203ajov2"
 
 [display]
 
@@ -144,10 +145,15 @@ run={
 "events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":4194325,"key_label":0,"unicode":0,"location":0,"echo":false,"script":null)
 ]
 }
+skip_dialogue={
+"deadzone": 0.2,
+"events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":32,"key_label":0,"unicode":32,"location":0,"echo":false,"script":null)
+]
+}
 
 [internationalization]
 
-locale/translations_pot_files=PackedStringArray("res://dialogue/tests/jhonny_bravo/jhonny_bravo.dialogue", "res://dialogue/julio/julio_baby_first_speech.dialogue")
+locale/translations_pot_files=PackedStringArray("res://dialogue/tests/jhonny_bravo/jhonny_bravo.dialogue", "res://dialogue/julio/julio_exemple_task.dialogue")
 
 [layer_names]
 

@@ -15,6 +15,7 @@ var selected_slot_idx: int = 0
 
 var is_busy: bool = false
 
+var is_dialogue_locked: bool = false
 
 var selected_item: ItemRes:
 	set(value):
@@ -26,9 +27,13 @@ func _ready() -> void:
 	for i in range(inventory_size):
 		inventory_slots[i] = null
 
+	## dialogue locking to make inventory static during dialogue! vvv
+	DialogueManager.dialogue_started.connect(func(_res): is_dialogue_locked = true)
+	DialogueManager.dialogue_ended.connect(func(_res): is_dialogue_locked = false)
+
 
 func _input(event: InputEvent) -> void:
-	if is_busy:
+	if is_busy or is_dialogue_locked:
 		return
 
 	if event.is_action_pressed("inventory_up"):

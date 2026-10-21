@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://cf2auur4umdjl" path="res://systems/interaction/interaction_area.gd" id="1_kda5n"]
 [ext_resource type="Script" uid="uid://bjidnq65qcjsh" path="res://systems/character/dialogue_action.gd" id="2_gsenr"]
-[ext_resource type="Resource" uid="uid://d3ci2b5e62gc5" path="res://dialogue/julio/julio_baby_first_speech.dialogue" id="3_o0q0w"]
+[ext_resource type="Resource" uid="uid://d3ci2b5e62gc5" path="res://dialogue/julio/julio_exemple_task.dialogue" id="3_o0q0w"]
 [ext_resource type="Script" uid="uid://biodsue5rifq4" path="res://systems/character/character_sprite_handler.gd" id="4_kpkcg"]
 [ext_resource type="Material" uid="uid://dxugeq4hehdak" path="res://resources/shader_materials/outline_shader_material_2d.tres" id="5_o0q0w"]
 [ext_resource type="SpriteFrames" uid="uid://daq8bx0soe2xd" path="res://resources/sprite_frames/characters/julio/julio_sprite_frames.tres" id="6_07clx"]
