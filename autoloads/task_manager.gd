@@ -1,8 +1,10 @@
 extends Node
 
-signal tasks_changed
 
 var tasks: Dictionary = {}
+
+signal task_given(task_id: String)
+signal task_completed(task_id: String)
 
 
 func give_task(id: String, text: String) -> void:
@@ -11,10 +13,11 @@ func give_task(id: String, text: String) -> void:
 
 	tasks[id] = {
 		"text": text,
+		"shown": false,
 		"completed": false
 	}
 
-	tasks_changed.emit()
+	task_given.emit(id)
 
 
 func complete_task(id: String) -> void:
@@ -25,7 +28,7 @@ func complete_task(id: String) -> void:
 		return
 
 	tasks[id]["completed"] = true
-	tasks_changed.emit()
+	task_completed.emit(id)
 
 
 func get_tasks() -> Dictionary:
