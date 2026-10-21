@@ -19,7 +19,7 @@ signal line_finished(line: DialogueLine)
 @export var next_action: StringName = &"ui_accept"
 
 ## The action to use to skip typing the dialogue
-@export var skip_action: StringName = &"ui_cancel"
+@export var skip_action: StringName = &"skip_dialogue"
 
 ## A sound player for voice lines (if they exist).
 @onready var audio_stream_player: AudioStreamPlayer = %AudioStreamPlayer

@@ -7,7 +7,6 @@ const STEP_HEIGHT: float = 0.25
 @export var run_speed = 11.0
 
 @onready var head: Node3D = $Head
-@onready var footstep_player: Node = $FootstepPlayer
 
 var is_dialogue_locked: bool = false
 
