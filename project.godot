@@ -51,6 +51,10 @@ stone_floor=""
 dirt_floor=""
 interaction_overlay=""
 
+[gui]
+
+theme/custom="uid://d150su6jvt18n"
+
 [input]
 
 ui_left={
