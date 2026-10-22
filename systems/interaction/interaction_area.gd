@@ -52,6 +52,7 @@ func _input(event: InputEvent) -> void:
 	## "interact" input action is currently triggered by lmb or 'E' for tests and will be changed.
 	if event.is_action_pressed("interact"):
 		action_trigger.trigger()
+
 		if action_trigger.force_outline_off:
 			force_outline_off()
 

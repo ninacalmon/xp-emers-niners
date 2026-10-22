@@ -6,6 +6,7 @@ class_name InventorySlot
 extends Button
 
 @onready var item_texture: TextureRect = $CenterContainer/ItemTexture
+@onready var center_container: CenterContainer = $CenterContainer
 
 
 @export var item: ItemRes:
@@ -19,3 +20,13 @@ func update_slot():
 		item_texture.texture = item.texture
 	else:
 		item_texture.texture = null
+
+
+func shake_slot() -> void:
+	var origin: Vector2 = center_container.position
+	var tween: Tween = create_tween()
+	tween.tween_property(center_container, "position", origin + Vector2(8, 0), 0.04)
+	tween.tween_property(center_container, "position", origin + Vector2(-8, 0), 0.04)
+	tween.tween_property(center_container, "position", origin + Vector2(8, 0), 0.04)
+	tween.tween_property(center_container, "position", origin + Vector2(-8, 0), 0.04)
+	tween.tween_property(center_container, "position", origin, 0.04)

@@ -12,6 +12,7 @@ var selected_slot_idx: int = 0
 func _ready() -> void:
 	InventoryManager.inventory_item_changed.connect(_on_inventory_item_changed)
 	InventoryManager.selected_slot_changed.connect(_on_selected_slot_changed)
+	InventoryManager.wrong_item.connect(_on_wrong_item_tried)
 
 	setup_slots()
 
@@ -39,3 +40,7 @@ func _on_inventory_item_changed(slot_idx: int):
 
 func _on_selected_slot_changed(slot_idx: int):
 	slots[slot_idx].button_pressed = true
+
+
+func _on_wrong_item_tried(slot_idx: int):
+	slots[slot_idx].shake_slot()
