@@ -106,12 +106,12 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_co3i6")
-metadata/_edit_lock_ = true
 
 [node name="ItemAnimTrack" type="Node2D" parent="." unique_id=289927693]
 position = Vector2(372, 881)
 
 [node name="ItemSpr" type="Sprite2D" parent="ItemAnimTrack" unique_id=328153989]
+z_index = -1
 position = Vector2(94.5, 0)
 rotation = -0.34906584
 scale = Vector2(2.226563, 2.226563)
@@ -128,15 +128,11 @@ speed_scale = 4.0
 position = Vector2(950, 647)
 
 [node name="RHandsAnim" type="AnimatedSprite2D" parent="HandAnimTrack" unique_id=1420955992]
-z_index = 1
 position = Vector2(713, -102)
 sprite_frames = ExtResource("3_htwhv")
-animation = &"nono"
-frame = 11
-frame_progress = 1.0
+animation = &"idle"
 
 [node name="LHandsAnim" type="AnimatedSprite2D" parent="HandAnimTrack" unique_id=490817015]
-z_index = 1
 position = Vector2(-650.5, -102)
 sprite_frames = ExtResource("4_m8txr")
 animation = &"idle"

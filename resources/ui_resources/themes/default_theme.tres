@@ -1,0 +1,16 @@
+[gd_resource type="Theme" format=3 uid="uid://d150su6jvt18n"]
+
+[ext_resource type="FontFile" uid="uid://bg4xruak10ftr" path="res://assets/fonts/grenze/Grenze-ExtraBold.ttf" id="1_e5d12"]
+[ext_resource type="FontFile" uid="uid://crq46n4d4626y" path="res://assets/fonts/grenze/Grenze-ExtraBoldItalic.ttf" id="2_reh6w"]
+[ext_resource type="FontFile" uid="uid://mnihntii2ic0" path="res://assets/fonts/grenze/Grenze-Regular.ttf" id="3_mgcln"]
+[ext_resource type="FontFile" uid="uid://cqdolug283cmk" path="res://assets/fonts/grenze/Grenze-Italic.ttf" id="3_reh6w"]
+
+[resource]
+RichTextLabel/font_sizes/bold_font_size = 25
+RichTextLabel/font_sizes/bold_italics_font_size = 25
+RichTextLabel/font_sizes/italics_font_size = 24
+RichTextLabel/font_sizes/normal_font_size = 24
+RichTextLabel/fonts/bold_font = ExtResource("1_e5d12")
+RichTextLabel/fonts/bold_italics_font = ExtResource("2_reh6w")
+RichTextLabel/fonts/italics_font = ExtResource("3_reh6w")
+RichTextLabel/fonts/normal_font = ExtResource("3_mgcln")

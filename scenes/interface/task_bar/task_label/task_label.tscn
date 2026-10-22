@@ -1,61 +1,65 @@
 [gd_scene format=3 uid="uid://6lc2b26efhsw"]
 
 [ext_resource type="Script" uid="uid://dxswvjuay0e03" path="res://scenes/interface/task_bar/task_label/task_label.gd" id="1_xdmei"]
-[ext_resource type="ButtonGroup" uid="uid://wtonw0r4hcc2" path="res://resources/ui_resources/button_groups/task_label_button_group.tres" id="2_o6v4v"]
+[ext_resource type="Texture2D" uid="uid://ben7jtp1hle12" path="res://assets/2d/interface/tasks/task_paper_anim1.png" id="2_o6v4v"]
+[ext_resource type="Theme" uid="uid://d150su6jvt18n" path="res://resources/ui_resources/themes/default_theme.tres" id="3_hl8qy"]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hl8qy"]
-bg_color = Color(0, 0, 0, 0.35686275)
-corner_radius_top_left = 3
-corner_radius_top_right = 3
-corner_radius_bottom_right = 3
-corner_radius_bottom_left = 3
-corner_detail = 5
+[sub_resource type="AtlasTexture" id="AtlasTexture_hl8qy"]
+atlas = ExtResource("2_o6v4v")
+region = Rect2(0, 384, 663, 128)
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ayg7c"]
-bg_color = Color(0, 0, 0, 0.35686275)
-border_width_left = 1
-border_width_top = 1
-border_width_right = 1
-border_width_bottom = 1
-corner_radius_top_left = 3
-corner_radius_top_right = 3
-corner_radius_bottom_right = 3
-corner_radius_bottom_left = 3
-corner_detail = 5
+[sub_resource type="AtlasTexture" id="AtlasTexture_f0r2g"]
+atlas = ExtResource("2_o6v4v")
+region = Rect2(0, 256, 663, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_iehmc"]
+atlas = ExtResource("2_o6v4v")
+region = Rect2(0, 128, 663, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nm7rp"]
+atlas = ExtResource("2_o6v4v")
+region = Rect2(0, 0, 663, 128)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_cdpwx"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hl8qy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_f0r2g")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_iehmc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nm7rp")
+}],
+"loop": 0,
+"name": &"roll",
+"speed": 8.0
+}]
 
 [node name="TaskLabel" type="Control" unique_id=1679738931]
-custom_minimum_size = Vector2(0, 32)
-propagate_maximum_size = true
 layout_mode = 3
 anchors_preset = 0
 script = ExtResource("1_xdmei")
 
-[node name="TaskButton" type="Button" parent="." unique_id=1719966400]
-custom_minimum_size = Vector2(24, 32)
-clip_contents = true
-layout_mode = 1
-anchors_preset = -1
-anchor_right = 0.214
-offset_right = 24.0
-offset_bottom = 32.0
-theme_override_styles/normal = SubResource("StyleBoxFlat_hl8qy")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_ayg7c")
-toggle_mode = true
-button_group = ExtResource("2_o6v4v")
+[node name="Pivot" type="Control" parent="." unique_id=1984172505]
+anchors_preset = 0
 
-[node name="MarginContainer" type="MarginContainer" parent="TaskButton" unique_id=1724998764]
-layout_mode = 1
-anchors_preset = 1
-anchor_left = 1.0
-anchor_right = 1.0
-offset_left = -264.0
-offset_bottom = 32.0
-grow_horizontal = 0
-theme_override_constants/margin_left = 24
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Pivot" unique_id=469275104]
+position = Vector2(-183, 0)
+sprite_frames = SubResource("SpriteFrames_cdpwx")
+animation = &"roll"
+centered = false
 
-[node name="RichTextLabel" type="RichTextLabel" parent="TaskButton/MarginContainer" unique_id=1353289110]
-custom_minimum_size = Vector2(240, 0)
-layout_mode = 2
+[node name="RichTextLabel" type="RichTextLabel" parent="Pivot" unique_id=637076353]
+layout_mode = 0
+offset_left = 56.0
+offset_top = 135.0
+offset_right = 348.0
+offset_bottom = 175.0
+theme = ExtResource("3_hl8qy")
 bbcode_enabled = true
-text = "Elogiar Johnny"
-fit_content = true
+text = "Entregue flor para [b]Julio[/b]."
