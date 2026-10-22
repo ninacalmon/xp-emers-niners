@@ -46,6 +46,8 @@ func _input(event: InputEvent) -> void:
 	## "interact" input action is currently triggered by lmb or 'E' for tests and will be changed.
 	if event.is_action_pressed("interact"):
 		action_trigger.trigger()
+		if action_trigger.force_outline_off:
+			force_outline_off()
 
 
 func _ready() -> void:
@@ -86,3 +88,12 @@ func apply_outline_shaders():
 
 	elif animated_sprite:
 		animated_sprite.material = OUTLINE_SHADER_MATERIAL_2D
+
+
+
+func force_outline_off():
+	if mesh:
+		mesh.set_instance_shader_parameter("outline_enabled", false)
+
+	elif animated_sprite:
+		animated_sprite.set_instance_shader_parameter("outline_enabled", false)
