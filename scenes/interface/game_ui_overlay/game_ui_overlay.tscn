@@ -1,24 +1,13 @@
 [gd_scene format=3 uid="uid://ondr0bhvtwol"]
 
+[ext_resource type="PackedScene" uid="uid://dbgn8eecexocc" path="res://scenes/interface/interaction_overlay/interaction_overlay.tscn" id="1_nospc"]
 [ext_resource type="PackedScene" uid="uid://bcw7p5ibxxkdk" path="res://scenes/interface/hands_overlay/hands_overlay.tscn" id="1_pu8xj"]
 [ext_resource type="PackedScene" uid="uid://bp8vuh2jyr8ow" path="res://scenes/interface/inventory/inventory_ui.tscn" id="2_nospc"]
 [ext_resource type="PackedScene" uid="uid://b83qn60b328wo" path="res://scenes/interface/task_bar/task_bar.tscn" id="3_nvxsd"]
 
 [node name="GameUiOverlay" type="CanvasLayer" unique_id=472711346]
 
-[node name="ColorRect" type="ColorRect" parent="." unique_id=916915692]
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -2.0
-offset_top = -2.0
-offset_right = 2.0
-offset_bottom = 2.0
-grow_horizontal = 2
-grow_vertical = 2
-mouse_filter = 2
+[node name="InteractionOverlay" parent="." unique_id=18139440 instance=ExtResource("1_nospc")]
 
 [node name="HandsOverlay" parent="." unique_id=1915315994 instance=ExtResource("1_pu8xj")]
 

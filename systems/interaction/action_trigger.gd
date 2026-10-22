@@ -16,6 +16,8 @@ extends Node
 
 var hands_overlay: HandsOverlay
 var force_outline_off: bool = false
+@export var item_interaction: bool = false
+
 
 func _ready() -> void:
 	if get_tree().get_first_node_in_group("hands_overlay") is HandsOverlay:

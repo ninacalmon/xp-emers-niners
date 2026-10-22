@@ -49,6 +49,7 @@ enabled=PackedStringArray("res://addons/Hidefolders/plugin.cfg", "res://addons/a
 hands_overlay=""
 stone_floor=""
 dirt_floor=""
+interaction_overlay=""
 
 [input]
 
@@ -158,7 +159,7 @@ open_tasks={
 
 [internationalization]
 
-locale/translations_pot_files=PackedStringArray("res://dialogue/tests/jhonny_bravo/jhonny_bravo.dialogue", "res://dialogue/julio/julio_exemple_task.dialogue")
+locale/translations_pot_files=PackedStringArray("res://scenes/interface/interaction_overlay/interaction_overlay.gd", "res://dialogue/julio/julio_exemple_task.dialogue", "res://dialogue/tests/jhonny_bravo/jhonny_bravo.dialogue")
 
 [layer_names]
 

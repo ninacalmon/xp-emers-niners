@@ -45,3 +45,4 @@ shape = SubResource("BoxShape3D_yv8hu")
 script = ExtResource("3_eye4s")
 scene_root = NodePath("..")
 key_item_needed = ExtResource("4_eye4s")
+item_interaction = true
