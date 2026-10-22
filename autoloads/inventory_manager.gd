@@ -5,6 +5,7 @@ extends Node
 signal selected_item_changed(item: ItemRes)
 signal inventory_item_changed(slot_idx: int)
 signal selected_slot_changed(slot_idx: int)
+signal wrong_item(slot_idx: int)
 
 
 var inventory_slots: Dictionary = {}
@@ -90,4 +91,4 @@ func discard(slot_idx: int):
 
 
 func tried_wrong_item():
-	pass
+	wrong_item.emit(selected_slot_idx)
