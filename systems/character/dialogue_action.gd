@@ -47,6 +47,8 @@ func ray_exit():
 func _ready() -> void:
 	super()
 
+	force_outline_off = true
+
 	DialogueManager.got_dialogue.connect(_on_dialog_got)
 
 	DialogueManager.dialogue_started.connect(_on_dialogue_started)

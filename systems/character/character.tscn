@@ -55,6 +55,7 @@ debug_color = Color(0.78039217, 0.6, 0.7019608, 0.41960785)
 [node name="DialogueAction" type="Node" parent="." unique_id=1494072435]
 script = ExtResource("3_go1nc")
 dialogue_res = ExtResource("5_b4ncv")
+force_outline_off = true
 
 [node name="CharacterSpriteHandler" type="Node" parent="." unique_id=961269039 node_paths=PackedStringArray("animated_sprite", "dialogue_action")]
 script = ExtResource("6_jv7vh")
