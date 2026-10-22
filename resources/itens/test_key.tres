@@ -6,5 +6,6 @@
 [resource]
 script = ExtResource("1_1dt24")
 id = &"test_key"
+name_tr_key = "TEST_KEY"
 texture = ExtResource("2_lpeu1")
 metadata/_custom_type_script = "uid://doqkh62nh5of1"

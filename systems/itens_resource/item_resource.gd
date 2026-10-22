@@ -12,6 +12,9 @@ extends Resource
 ## id is the name of the item. it should be all lower-case, and spaces should be replaced with '_'
 @export var id: StringName
 
+## name_tr_key is the key to the item name in translation.
+@export var name_tr_key: String
+
 ## permanent means that the item can be used without being immediatly deleted after
 @export var permanent: bool
 
