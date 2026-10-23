@@ -23,10 +23,10 @@ offset_bottom = 40.0
 texture = ExtResource("2_nvxsd")
 
 [node name="TaskBar" parent="." unique_id=1232893806 instance=ExtResource("3_nvxsd")]
-offset_left = -63.0
-offset_top = 88.0
-offset_right = -63.0
-offset_bottom = 88.0
+offset_left = 81.0
+offset_top = 135.0
+offset_right = 81.0
+offset_bottom = 135.0
 
 [node name="Inventory" parent="." unique_id=1245154446 instance=ExtResource("2_nospc")]
 anchors_preset = -1
