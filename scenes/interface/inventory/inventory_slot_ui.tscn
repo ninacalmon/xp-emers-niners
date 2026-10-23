@@ -24,7 +24,7 @@ corner_radius_bottom_left = 3
 corner_detail = 5
 
 [node name="InventorySlot" type="Button" unique_id=90551678]
-custom_minimum_size = Vector2(70, 80)
+custom_minimum_size = Vector2(70, 70)
 offset_right = 40.0
 offset_bottom = 40.0
 theme_override_styles/normal = SubResource("StyleBoxFlat_u0ka6")

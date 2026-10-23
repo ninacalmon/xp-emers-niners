@@ -46,7 +46,7 @@ tracks/2/keys = {
 
 [sub_resource type="Animation" id="Animation_f0r2g"]
 resource_name = "roll"
-length = 0.39999999999999997
+length = 0.4
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -112,9 +112,9 @@ vframes = 4
 clip_contents = true
 anchors_preset = 0
 offset_left = -92.0
-offset_top = 37.0
+offset_top = 39.0
 offset_right = 445.0
-offset_bottom = 91.0
+offset_bottom = 93.0
 
 [node name="RichTextLabel" type="RichTextLabel" parent="Pivot/TextMask" unique_id=637076353]
 layout_mode = 1
@@ -122,7 +122,8 @@ anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
 offset_left = -576.0
-offset_bottom = 54.0
+offset_top = 1.0
+offset_bottom = 55.0
 grow_horizontal = 0
 theme = ExtResource("3_hl8qy")
 theme_override_colors/default_color = Color(0, 0, 0, 1)
@@ -132,14 +133,13 @@ scroll_active = false
 autowrap_mode = 1
 
 [node name="StrikethroughMask" type="Control" parent="Pivot/TextMask" unique_id=2147469934]
-visible = false
 clip_contents = true
 layout_mode = 1
 anchors_preset = 0
 offset_left = -98.0
-offset_top = 3.0
+offset_top = 1.0
 offset_right = -58.0
-offset_bottom = 43.0
+offset_bottom = 41.0
 
 [node name="StrikethroughLine" type="Sprite2D" parent="Pivot/TextMask/StrikethroughMask" unique_id=2080147679]
 texture = ExtResource("4_f0r2g")
