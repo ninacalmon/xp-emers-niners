@@ -95,6 +95,7 @@ light_energy = 0.737
 light_angular_distance = 0.49
 light_specular = 0.0
 shadow_enabled = true
+directional_shadow_blend_splits = true
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1902477949]
 environment = SubResource("Environment_7378n")
@@ -111,6 +112,7 @@ surface_material_override/0 = SubResource("StandardMaterial3D_u1gsd")
 [node name="Camera3D" type="Camera3D" parent="." unique_id=1834340419]
 physics_interpolation_mode = 1
 transform = Transform3D(0.19090813, 0, -0.9816079, 0, 1, 0, 0.9816079, 0, 0.19090813, -5.501732, 3.4578118, 1.6174984)
+top_level = true
 
 [node name="PhantomCameraHost" type="Node" parent="Camera3D" unique_id=845311130]
 process_priority = 300
