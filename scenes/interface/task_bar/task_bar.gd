@@ -11,6 +11,7 @@ var task_labels: Dictionary[String, TaskLabel] = {}
 var selected_label: TaskLabel = null
 
 var is_expanded: bool = false
+var is_busy: bool = false
 
 
 func _ready() -> void:
@@ -53,27 +54,42 @@ func _on_task_completed(task_id: String) -> void:
 	label.complete_anim()
 
 
-func expand_labels():
+
+func _input(event: InputEvent) -> void:
+	if not event.is_action_pressed("open_tasks"):
+		return
+	if is_busy or task_list.get_child_count() == 0:
+		return
+
+	if is_expanded:
+		contract_labels()
+	else:
+		expand_labels()
+
+
+func expand_labels() -> void:
+	is_busy = true
+
 	for label: TaskLabel in task_list.get_children():
+		if not is_instance_valid(label) or label.is_queued_for_deletion():
+			continue
 		await label.open_anim()
 
+	is_expanded = true
+	is_busy = false
 
-func contract_labels():
-	var children = task_list.get_children()
+
+func contract_labels() -> void:
+	is_busy = true
+
+	var children: Array[Node] = task_list.get_children()
 	children.reverse()
 
 	for label: TaskLabel in children:
+		if not is_instance_valid(label) or label.is_queued_for_deletion():
+			continue
 		await label.close_anim()
 
-
-func _input(event: InputEvent) -> void:
-	if event.is_action_pressed("open_tasks"):
-		if not task_list.get_child(0):
-			return
-		if is_expanded:
-			is_expanded = false
-			contract_labels()
-		else:
-			is_expanded = true
-			expand_labels()
+	is_expanded = false
+	is_busy = false
 	
