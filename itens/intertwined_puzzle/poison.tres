@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="ItemRes" format=3 uid="uid://s1b5gx6p2rg1"]
+
+[ext_resource type="Script" uid="uid://doqkh62nh5of1" path="res://systems/itens_resource/item_resource.gd" id="1_mrbuu"]
+[ext_resource type="Texture2D" uid="uid://kka2t2q7totg" path="res://assets/placeholders/veneno_feio.png" id="2_lwpr0"]
+
+[resource]
+script = ExtResource("1_mrbuu")
+id = &"poison"
+name_tr_key = "ITEM_POISON"
+texture = ExtResource("2_lwpr0")
+metadata/_custom_type_script = "uid://doqkh62nh5of1"

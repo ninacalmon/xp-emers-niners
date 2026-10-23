@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="ItemRes" format=3 uid="uid://8dvrkoxmyyx4"]
+
+[ext_resource type="Script" uid="uid://doqkh62nh5of1" path="res://systems/itens_resource/item_resource.gd" id="1_mi885"]
+[ext_resource type="Texture2D" uid="uid://db76tn6ecafjq" path="res://assets/placeholders/astro2_feio.png" id="2_vl434"]
+
+[resource]
+script = ExtResource("1_mi885")
+id = &"astrolab_part"
+name_tr_key = "ITEM_ASTROLAB_PART"
+texture = ExtResource("2_vl434")
+metadata/_custom_type_script = "uid://doqkh62nh5of1"

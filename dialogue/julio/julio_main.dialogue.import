@@ -1,0 +1,16 @@
+[remap]
+
+importer="dialogue_manager"
+importer_version=18
+type="Resource"
+uid="uid://b7o8h8s2mg0hj"
+path="res://.godot/imported/julio_main.dialogue-d3fd79c9e668c87df9917a4dd02ff1b0.tres"
+
+[deps]
+
+source_file="res://dialogue/julio/julio_main.dialogue"
+dest_files=["res://.godot/imported/julio_main.dialogue-d3fd79c9e668c87df9917a4dd02ff1b0.tres"]
+
+[params]
+
+defaults=true

@@ -1,0 +1,16 @@
+[remap]
+
+importer="dialogue_manager"
+importer_version=18
+type="Resource"
+uid="uid://d3ci2b5e62gc5"
+path="res://.godot/imported/julio_exemple_task.dialogue-f67582e01b2a634c66f741ff1ccc6081.tres"
+
+[deps]
+
+source_file="res://dialogue/julio_exemple_task.dialogue"
+dest_files=["res://.godot/imported/julio_exemple_task.dialogue-f67582e01b2a634c66f741ff1ccc6081.tres"]
+
+[params]
+
+defaults=true
