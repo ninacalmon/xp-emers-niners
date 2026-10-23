@@ -7,7 +7,7 @@
 [ext_resource type="Material" uid="uid://dxugeq4hehdak" path="res://resources/shader_materials/outline_shader_material_2d.tres" id="5_o0q0w"]
 [ext_resource type="SpriteFrames" uid="uid://daq8bx0soe2xd" path="res://resources/sprite_frames/characters/julio/julio_sprite_frames.tres" id="6_07clx"]
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_o0q0w"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_gmoyl"]
 viewport_path = NodePath("SubViewportSprite")
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_5604n"]
@@ -28,7 +28,7 @@ height = 2.1726074
 transform = Transform3D(0.18, 0, 0, 0, 0.18, 0, 0, 0, 0.18, 0, 0.7130867, 0)
 offset = Vector2(0, 241.06)
 billboard = 2
-texture = SubResource("ViewportTexture_o0q0w")
+texture = SubResource("ViewportTexture_gmoyl")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="." unique_id=1339048520]
 
@@ -54,6 +54,7 @@ debug_color = Color(0.78039217, 0.6, 0.7019608, 0.41960785)
 
 [node name="DialogueAction" type="Node" parent="." unique_id=1494072435]
 script = ExtResource("2_gsenr")
+character_name = "Julio"
 dialogue_res = ExtResource("3_o0q0w")
 
 [node name="CharacterSpriteHandler" type="Node" parent="." unique_id=961269039 node_paths=PackedStringArray("animated_sprite", "dialogue_action")]

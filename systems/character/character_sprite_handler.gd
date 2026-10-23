@@ -9,20 +9,28 @@ extends Node
 
 var dialogue_res: DialogueResource
 var original_sprite_scale: Vector2
-
+var character_name: String = ""
 
 func _ready() -> void:
+	character_name = dialogue_action.character_name
 	dialogue_res = dialogue_action.dialogue_res
 	original_sprite_scale = animated_sprite.scale
-
 	connect_signals()
+	DialogueData.mood_set.connect(_on_mood_set)
+
+	change_anim("idle")
 
 
 ## this function is called when a line of dialogue have a mood different than
 ## the previous storaged mood in [DialogueAction].
-func _on_mood_changed(new_mood: String):
-	if new_mood in DialogueData.moods:
-		change_anim(new_mood)
+func _on_mood_set(speaker: String, mood_name: String) -> void:
+	if speaker != character_name:
+		return
+	change_anim(mood_name)
+
+
+func _on_dialogue_ended() -> void:
+	change_anim("idle")
 
 
 ## tries to match and play animation with the same name as a mood declared
@@ -66,11 +74,7 @@ func _on_ray_exit():
 
 
 func _on_dialogue_started():
-	bounce_on_it()
-
-
-func _on_dialogue_ended():
-	change_anim("idle")
+	pass
 
 
 func _on_next_dialogue():
@@ -82,7 +86,6 @@ func _on_speech_line_finished():
 
 
 func connect_signals():
-	dialogue_action.mood_changed.connect(_on_mood_changed)
 	dialogue_action.ray_entered.connect(_on_ray_enter)
 	dialogue_action.ray_exited.connect(_on_ray_exit)
 	dialogue_action.dialogue_started.connect(_on_dialogue_started)

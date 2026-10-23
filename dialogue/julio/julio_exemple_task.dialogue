@@ -1,5 +1,6 @@
 ~ start
-Julio:[#mood=WELCOMING] Olá! (Vou sempre dizer essa fala.)
+do DialogueData.set_mood("Julio", DialogueData.JulioMoods.IDLE_HAPPY)
+Julio: Olá! (Vou sempre dizer essa fala.)
 match CharacterData.Julio.quest_status["key_for_julio"]:
 	when [false, false]
 		=> give_key_task
@@ -10,25 +11,26 @@ match CharacterData.Julio.quest_status["key_for_julio"]:
 
 
 ~ give_key_task
-Julio:[#mood=BOTHERED] Perdi minha chave... será que você poderia encontrar?
+do DialogueData.set_mood("Julio", DialogueData.JulioMoods.INTENSE_SAD)
+Julio: Perdi minha chave... será que você poderia encontrar?
 - Não! => END
 - Sim!
-Julio:[#mood=CUTE] Eba! Obrigado!
-$> CharacterData.Julio.quest_status["key_for_julio"] = [true, false]
-$> TaskManager.give_task("key_for_julio", "Traga uma chave para Julio.")
+Julio: Eba! Obrigado!
+do CharacterData.Julio.quest_status["key_for_julio"] = [true, false]
+do TaskManager.give_task("key_for_julio", "Traga uma chave para Julio.")
 => END
 
 ~ receive_key
 - Tchau! => END
 - Entregar chave [if InventoryManager.selected_item == CharacterData.Julio.key_needed /]
-	Julio:[#mood=SURPRISED] MEU DEUS!
-	Julio:[#mood=HAPPY] Você trouxe minha chave! To muito feliz. Tchau.
-$> CharacterData.Julio.quest_status["key_for_julio"] = [true, true]
-$> InventoryManager.use_item()
-$> TaskManager.complete_task("key_for_julio")
+	Julio: MEU DEUS!
+	Julio: Você trouxe minha chave! To muito feliz. Tchau.
+do CharacterData.Julio.quest_status["key_for_julio"] = [true, true]
+do InventoryManager.use_item()
+do TaskManager.complete_task("key_for_julio")
 => END
 
 ~ after_task
-Julio:[#mood=HAPPY] Lembra de quando você trouxe minha chave...?
-Julio:[#mood=CUTE] Foi tão legal!
+Julio: Lembra de quando você trouxe minha chave...?
+Julio: Foi tão legal!
 => END

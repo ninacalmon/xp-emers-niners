@@ -1,8 +1,6 @@
 class_name DialogueAction
 extends ActionTrigger
 
-signal mood_changed(new_mood: String)
-
 signal dialogue_started
 signal dialogue_ended
 
@@ -13,6 +11,7 @@ signal ray_exited
 
 signal speech_line_finished
 
+@export var character_name: String = ""
 @export var dialogue_res: DialogueResource
 @export var first_cue: String = "start"
 
@@ -20,12 +19,6 @@ var is_showing_dialogue: bool = false
 
 @onready var balloon: DialogueManagerExampleBalloon 
 
-
-var cue_mood: String:
-	set(value):
-		if cue_mood != value:
-			mood_changed.emit(value)
-			cue_mood = value
 
 
 func trigger():
@@ -57,10 +50,9 @@ func _ready() -> void:
 
 
 func _on_dialog_got(line: DialogueLine):
+	if line.character != str(character_name):
+		return
 	next_dialogue.emit()
-	var _mood = line.get_tag_value("mood")
-	if _mood and _mood != "":
-		cue_mood = _mood
 
 
 func _on_dialogue_started(resource: DialogueResource):
