@@ -7,28 +7,39 @@
 [ext_resource type="Material" uid="uid://dxugeq4hehdak" path="res://resources/shader_materials/outline_shader_material_2d.tres" id="5_o0q0w"]
 [ext_resource type="SpriteFrames" uid="uid://daq8bx0soe2xd" path="res://resources/sprite_frames/characters/julio/julio_sprite_frames.tres" id="6_07clx"]
 
+[sub_resource type="ViewportTexture" id="ViewportTexture_o0q0w"]
+viewport_path = NodePath("SubViewportSprite")
+
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_5604n"]
 radius = 0.32666016
 height = 2.1264648
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_lvxji"]
-viewport_path = NodePath("SubViewportSprite")
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_cdpwx"]
+radius = 0.2993164
+height = 0.8618164
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_rwxsw"]
 radius = 1.0166016
 height = 2.1726074
 
-[node name="Julio" type="StaticBody3D" unique_id=1339048520]
+[node name="Julio" type="Node3D" unique_id=1758948578]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1213328445]
+[node name="Sprite3D" type="Sprite3D" parent="." unique_id=415751236]
+transform = Transform3D(0.18, 0, 0, 0, 0.18, 0, 0, 0, 0.18, 0, 0.7130867, 0)
+offset = Vector2(0, 241.06)
+billboard = 2
+texture = SubResource("ViewportTexture_o0q0w")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="." unique_id=1339048520]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" unique_id=1213328445]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.0550354, 0)
 shape = SubResource("CapsuleShape3D_5604n")
 
-[node name="Sprite3D" type="Sprite3D" parent="." unique_id=415751236]
-transform = Transform3D(0.16, 0, 0, 0, 0.16, 0, 0, 0, 0.16, 0, 0.69819117, 0)
-offset = Vector2(0, 241.06)
-billboard = 2
-texture = SubResource("ViewportTexture_lvxji")
+[node name="ShadowMesh" type="MeshInstance3D" parent="." unique_id=662778281]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.9330101, 0)
+cast_shadow = 3
+mesh = SubResource("CapsuleMesh_cdpwx")
 
 [node name="InteractionArea" type="Area3D" parent="." unique_id=830411389 node_paths=PackedStringArray("animated_sprite", "action_trigger")]
 script = ExtResource("1_kda5n")
@@ -53,13 +64,12 @@ dialogue_action = NodePath("../DialogueAction")
 [node name="SubViewportSprite" type="SubViewport" parent="." unique_id=1177182945]
 transparent_bg = true
 handle_input_locally = false
-size = Vector2i(555, 1460)
+size = Vector2i(500, 1281)
 render_target_update_mode = 4
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="SubViewportSprite" unique_id=60975985]
 material = ExtResource("5_o0q0w")
 instance_shader_parameters/outline_enabled = true
-scale = Vector2(0.5, 0.5)
 sprite_frames = ExtResource("6_07clx")
 animation = &"idle"
 centered = false
