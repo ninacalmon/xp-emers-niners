@@ -1,44 +1,62 @@
 extends Node
 
-## this is a [Dictionary]! The first value is called a KEY,
-## while the second (after :) is called VALUE.
+signal mood_set(character_name: String, mood_name: String)
 
-## here, it is being used as a HASH-SET!
-## that means we are using it only for it's KEYS.
-## VALUES are not used. set it to true as default.
-
-## we are using it because GdScript does not have native HASH-SETS.
-## hash-sets (or dictionaries, in our case) are usefull because they
-## do not allow duplicate keys and able faster and optmized search for
-## keys in it.
-
-
-var moods: Dictionary[String, bool] = {
-	"DEFAULT": true,
-	"HAPPY": true,
-	"SAD": true,
-	"ANGRY": true,
-	"SERIOUS" : true,
-	"CUTE" : true,
-	"BOTHERED" : true,
-	"WELCOMING" : true,
-	"SHOKED" : true,
-	"SURPRISED" : true,
+const MOODS_BY_CHARACTER: Dictionary = {
+	"Julio": JulioMoods,
+	"Lucio": LucioMoods,
 }
+
+enum JulioMoods {
+	IDLE_ANGRY,
+	IDLE_DEFAULT,
+	IDLE_HAPPY,
+	IDLE_SAD,
+	IDLE_SERIOUS,
+	IDLE_SURPRISED,
+	INTENSE_ANGRY,
+	INTENSE_DEFAULT,
+	INTENSE_HAPPY,
+	INTENSE_SAD,
+	INTENSE_SURPRISED,
+	SILLY_ANGRY,
+	SILLY_DEFAULT,
+	SILLY_HAPPY,
+	SILLY_SAD,
+	SILLY_SURPRISED,
+}
+
+enum LucioMoods {
+	HAND_ANGRY,
+	HAND_DEFAULT,
+	HAND_HAPPY,
+	HAND_SAD,
+	HAND_SURPRISED,
+	HEART_ANGRY,
+	HEART_DEFAULT,
+	HEART_HAPPY,
+	HEART_SAD,
+	HEART_SURPRISED,
+	IDLE_ANGRY,
+	IDLE_DEFAULT,
+	IDLE_HAPPY,
+	IDLE_SAD,
+	IDLE_SINIXTRO,
+	IDLE_SURPRISED,
+}
+
+
+func set_mood(character_name: String, mood: int) -> void:
+	var moods: Dictionary = MOODS_BY_CHARACTER.get(character_name, {})
+	var mood_name: Variant = moods.find_key(mood)
+	if mood_name == null:
+		push_warning("%s has no mood with value %d" % [character_name, mood])
+		return
+	mood_set.emit(character_name, str(mood_name))
+
 
 ## ================== ADDING MOODS/ANIMATIONS ===================
 
 ## to add a NEW ANIMATION, it's name MUST MATCH the name of a MOOD.
 
 ## our guiderule is that all moods should have ALL UPPERCASE names.
-## as stated before, the value of the mood should be 'true', as default.
-
-## the animation's name must MATCH EXACTLY the name of the a mood,
-## that means it should ALSO be ALL UPPERCASE.
-
-## characters DONT have the need to contain a animation for every mood.
-## they should have the animations they'll will use in dialogue.
-
-## anyways, in the case that a line of dialogue is set with a mood
-## that character dont have an animation for, it will not give errors,
-## it will only fail to play it and remain with the previous playing one.
