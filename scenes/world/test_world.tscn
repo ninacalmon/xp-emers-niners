@@ -7,8 +7,11 @@
 [ext_resource type="PackedScene" uid="uid://dm22m11rlg6jn" path="res://examples/interaction_examples/door_key_open/door.tscn" id="6_i3rsd"]
 [ext_resource type="PackedScene" uid="uid://ondr0bhvtwol" path="res://scenes/interface/game_ui_overlay/game_ui_overlay.tscn" id="7_1aw3b"]
 [ext_resource type="PackedScene" uid="uid://d0dx1ggic73g0" path="res://scenes/characters/julio/julio.tscn" id="10_obw6i"]
+[ext_resource type="PackedScene" uid="uid://c6yoqyeo6wfld" path="res://scenes/characters/lucio/lucio.tscn" id="12_1aw3b"]
 [ext_resource type="PackedScene" uid="uid://babo4jqsyij3i" path="res://scenes/buildings/church.tscn" id="12_h6k38"]
 [ext_resource type="PackedScene" uid="uid://c0enf7fvm7uko" path="res://scenes/objects/doors/room_door.tscn" id="13_em46u"]
+[ext_resource type="PackedScene" uid="uid://boht0mv2kyq81" path="res://scenes/characters/hugo/hugo.tscn" id="13_h6k38"]
+[ext_resource type="PackedScene" uid="uid://c1fess8fbyvjb" path="res://scenes/characters/sanson/sanson.tscn" id="14_u0e1l"]
 [ext_resource type="Script" uid="uid://cf2auur4umdjl" path="res://systems/interaction/interaction_area.gd" id="15_dc00g"]
 [ext_resource type="Material" uid="uid://dki8i4qf7fofd" path="res://resources/shader_materials/outline_shader_material_3d.tres" id="16_rq54g"]
 
@@ -111,6 +114,7 @@ surface_material_override/0 = SubResource("StandardMaterial3D_u1gsd")
 [node name="Camera3D" type="Camera3D" parent="." unique_id=1834340419]
 physics_interpolation_mode = 1
 transform = Transform3D(0.19090813, 0, -0.9816079, 0, 1, 0, 0.9816079, 0, 0.19090813, -5.501732, 3.4578118, 1.6174984)
+top_level = true
 
 [node name="PhantomCameraHost" type="Node" parent="Camera3D" unique_id=845311130]
 process_priority = 300
@@ -132,7 +136,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5898051, 7.0133257)
 
 [node name="CanvasLayer" parent="." unique_id=472711346 instance=ExtResource("7_1aw3b")]
 
-[node name="Julio2" parent="." unique_id=2120726874 instance=ExtResource("10_obw6i")]
+[node name="Julio" parent="." unique_id=2120726874 instance=ExtResource("10_obw6i")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 2.4898815)
 
 [node name="Church" parent="." unique_id=1195204425 instance=ExtResource("12_h6k38")]
@@ -406,3 +410,11 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.57405055, 0.078167856)
 material_overlay = ExtResource("16_rq54g")
 instance_shader_parameters/outline_enabled = false
 mesh = SubResource("ArrayMesh_vhwfq")
+
+[node name="Lucio" parent="." unique_id=1758948578 instance=ExtResource("12_1aw3b")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1.1681108)
+
+[node name="Hugo" parent="." unique_id=866134020 instance=ExtResource("13_h6k38")]
+
+[node name="Sanson" parent="." unique_id=1393009698 instance=ExtResource("14_u0e1l")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 3.738492)

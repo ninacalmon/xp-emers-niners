@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="ItemRes" format=3 uid="uid://dltn5dox1dd8c"]
+
+[ext_resource type="Script" uid="uid://doqkh62nh5of1" path="res://systems/itens_resource/item_resource.gd" id="1_gevn1"]
+[ext_resource type="Texture2D" uid="uid://oomjo8hfv21c" path="res://assets/placeholders/flor_feia.png" id="2_q33bw"]
+
+[resource]
+script = ExtResource("1_gevn1")
+id = &"flower"
+name_tr_key = "ITEM_FLOWER"
+texture = ExtResource("2_q33bw")
+metadata/_custom_type_script = "uid://doqkh62nh5of1"

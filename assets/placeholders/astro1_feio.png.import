@@ -2,21 +2,20 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://d0ju0a3dcf0ll"
-path.s3tc="res://.godot/imported/johnny-bravo-wearing-suit.png-9755ba08d7900e0ea96a33b5009acef5.s3tc.ctex"
+uid="uid://dai2qhxsgrcl5"
+path="res://.godot/imported/astro1_feio.png-83866701e335f0096178d59dd92c0842.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
-"vram_texture": true
+"vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/placeholders/johnny-bravo-wearing-suit.png"
-dest_files=["res://.godot/imported/johnny-bravo-wearing-suit.png-9755ba08d7900e0ea96a33b5009acef5.s3tc.ctex"]
+source_file="res://assets/placeholders/astro1_feio.png"
+dest_files=["res://.godot/imported/astro1_feio.png-83866701e335f0096178d59dd92c0842.ctex"]
 
 [params]
 
-compress/mode=2
+compress/mode=0
 compress/high_quality=false
 compress/lossy_quality=0.7
 compress/uastc_level=0
@@ -24,7 +23,7 @@ compress/rdo_quality_loss=0.0
 compress/hdr_compression=1
 compress/normal_map=0
 compress/channel_pack=0
-mipmaps/generate=true
+mipmaps/generate=false
 mipmaps/limit=-1
 roughness/mode=0
 roughness/src_normal=""
@@ -38,4 +37,4 @@ process/normal_map_invert_y=false
 process/hdr_as_srgb=false
 process/hdr_clamp_exposure=false
 process/size_limit=0
-detect_3d/compress_to=0
+detect_3d/compress_to=1

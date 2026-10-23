@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="ItemRes" format=3 uid="uid://l21himrq646r"]
+
+[ext_resource type="Script" uid="uid://doqkh62nh5of1" path="res://systems/itens_resource/item_resource.gd" id="1_j7mvc"]
+[ext_resource type="Texture2D" uid="uid://dg077wawbrbsa" path="res://assets/placeholders/carne_feia.png" id="2_sj06i"]
+
+[resource]
+script = ExtResource("1_j7mvc")
+id = &"rotten_meat"
+name_tr_key = "ITEM_ROTTEN_MEAT"
+texture = ExtResource("2_sj06i")
+metadata/_custom_type_script = "uid://doqkh62nh5of1"

@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="ItemRes" format=3 uid="uid://bkc7dx8duiasn"]
+
+[ext_resource type="Script" uid="uid://doqkh62nh5of1" path="res://systems/itens_resource/item_resource.gd" id="1_wfym0"]
+[ext_resource type="Texture2D" uid="uid://b55gr07yn81od" path="res://assets/placeholders/remedio_feio.png" id="2_nhvka"]
+
+[resource]
+script = ExtResource("1_wfym0")
+id = &"remedy"
+name_tr_key = "ITEM_REMEDY"
+texture = ExtResource("2_nhvka")
+metadata/_custom_type_script = "uid://doqkh62nh5of1"
