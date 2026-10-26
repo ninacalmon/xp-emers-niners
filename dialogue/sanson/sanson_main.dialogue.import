@@ -1,0 +1,16 @@
+[remap]
+
+importer="dialogue_manager"
+importer_version=18
+type="Resource"
+uid="uid://dgynb1dovtr38"
+path="res://.godot/imported/sanson_main.dialogue-22cce42460ba0cb8ad2ce0e4c352a1f5.tres"
+
+[deps]
+
+source_file="res://dialogue/sanson/sanson_main.dialogue"
+dest_files=["res://.godot/imported/sanson_main.dialogue-22cce42460ba0cb8ad2ce0e4c352a1f5.tres"]
+
+[params]
+
+defaults=true

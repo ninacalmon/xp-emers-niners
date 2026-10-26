@@ -13,6 +13,7 @@
 [ext_resource type="PackedScene" uid="uid://boht0mv2kyq81" path="res://scenes/characters/hugo/hugo.tscn" id="13_h6k38"]
 [ext_resource type="PackedScene" uid="uid://c1fess8fbyvjb" path="res://scenes/characters/sanson/sanson.tscn" id="14_u0e1l"]
 [ext_resource type="Script" uid="uid://cf2auur4umdjl" path="res://systems/interaction/interaction_area.gd" id="15_dc00g"]
+[ext_resource type="PackedScene" uid="uid://cb05nxhycwjbf" path="res://scenes/objects/item/item_in_world.tscn" id="15_h6k38"]
 [ext_resource type="Material" uid="uid://dki8i4qf7fofd" path="res://resources/shader_materials/outline_shader_material_3d.tres" id="16_rq54g"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_xl1yy"]
@@ -418,3 +419,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1.1681108)
 
 [node name="Sanson" parent="." unique_id=1393009698 instance=ExtResource("14_u0e1l")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 3.738492)
+
+[node name="ItemInWorld" parent="." unique_id=1067992399 instance=ExtResource("15_h6k38")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 4.8697023)

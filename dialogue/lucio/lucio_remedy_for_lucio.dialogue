@@ -1,0 +1,10 @@
+~ start
+if CharacterData.Julio.get_status("remedy_for_lucio") == 1:
+	Lucio: Trouxe meu remédio...? Mim dê.
+	- -Entregar remédio- [if InventoryManager.selected_item == CharacterData.Item.remedy /]
+		do InventoryManager.use_item()
+		do CharacterData.Julio.lucio_received_medicine = true
+		do DialogueData.set_mood("Lucio", DialogueData.LucioMoods.IDLE_HAPPY)
+		Lucio: Agradeço.
+	- -Finalizar diálogo- => END!
+=> END

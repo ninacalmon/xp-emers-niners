@@ -3,8 +3,8 @@ render_mode unshaded;
 
 instance uniform bool outline_enabled = true;
 
-uniform float outline_width : hint_range(0.0, 32.0) = 4.0;
-uniform vec4 outline_tint : source_color = vec4(1.0, 1.0, 1.0, 1.0);
+instance uniform float outline_width : hint_range(0.0, 32.0) = 4.0;
+instance uniform vec4 outline_tint : source_color = vec4(1.0, 1.0, 1.0, 1.0);
 
 // AtlasTexture region in atlas pixels. These values are explicit because
 // REGION_RECT is unavailable in vertex().

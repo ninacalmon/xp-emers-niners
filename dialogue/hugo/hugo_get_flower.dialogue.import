@@ -1,0 +1,16 @@
+[remap]
+
+importer="dialogue_manager"
+importer_version=18
+type="Resource"
+uid="uid://hogiw5kgfifn"
+path="res://.godot/imported/hugo_get_flower.dialogue-51b3f57d61b399b94b048318ebf85dc7.tres"
+
+[deps]
+
+source_file="res://dialogue/hugo/hugo_get_flower.dialogue"
+dest_files=["res://.godot/imported/hugo_get_flower.dialogue-51b3f57d61b399b94b048318ebf85dc7.tres"]
+
+[params]
+
+defaults=true

@@ -1,0 +1,29 @@
+~ start
+match CharacterData.Sanson.get_status("get_astrolabus"):
+	when 0:
+		- Você tem uma flor?...? => give_task
+		- -Finalizar diálogo- => END!
+	when 1:
+		=> waiting_completion
+=> END
+
+~ give_task
+Sanson: Sim, eu tenho.
+Sanson: Mas ela é muito valiosa para mim...
+Sanson: Quero meu astrólabo perdido em troca.
+do CharacterData.Sanson.give_task("get_astrolabus")
+=> END
+
+~ waiting_completion
+Sanson: Conseguiu meu astrólabo?
+- Aqui está! -Entregar astólabo- [if InventoryManager.selected_item == CharacterData.Item.astrolabus /] => complete_task
+- -Finalizar diálogo- => END!
+=> END
+
+~ complete_task
+do InventoryManager.use_item()
+Sanson: Oh! Muito obrigado.
+Sanson: Aqui está a flor que queria.
+do CharacterData.Sanson.complete_task("get_astrolabus")
+do InventoryManager.add_new_item(CharacterData.Item.flower)
+=> END

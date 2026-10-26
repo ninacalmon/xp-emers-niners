@@ -1,8 +1,13 @@
+import "uid://bjj8v02n0vgan" as remedy_for_lucio
+
 ~ start
-if CharacterData.Julio.get_status("remedy_for_lucio") != 2:
-	=> greetings
-else:
+if CharacterData.Julio.lucio_received_medicine:
 	=> thanks
+elif CharacterData.Julio.get_status("remedy_for_lucio") == 1:
+	=>< greetings
+	=> remedy_for_lucio/start
+else:
+	Lucio: Olá.
 => END
 
 ~ greetings
@@ -13,14 +18,6 @@ do DialogueData.set_mood("Lucio", DialogueData.LucioMoods.HEART_SURPRISED)
 Lucio: Afinal........
 do DialogueData.set_mood("Lucio", DialogueData.LucioMoods.HAND_SAD)
 Lucio: Meu pé está inchado igual uma bexiga!
-if CharacterData.Julio.get_status("remedy_for_lucio") == 1:
-	Lucio: Trouxe meu remédio...? Mim dê.
-	- -Entregar remédio- [if InventoryManager.selected_item == CharacterData.Julio.remedy_item /]
-		do InventoryManager.use_item()
-		do CharacterData.Julio.lucio_received_medicine = true
-		do DialogueData.set_mood("Lucio", DialogueData.LucioMoods.IDLE_HAPPY)
-		Lucio: Agradeço.
-	- Ops não trouxe.
 => END
 
 ~ thanks

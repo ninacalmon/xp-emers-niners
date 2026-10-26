@@ -1,5 +1,8 @@
 extends Node
 
+## custom signal created to enable animation
+signal ready_to_start
+signal balloon_started
 
 ## Emitted when a dialogue balloon is created and dialogue starts
 signal dialogue_started(resource: DialogueResource)
@@ -658,15 +661,19 @@ func static_id_to_line_ids(resource: DialogueResource, static_id: String) -> Pac
 	)
 
 
+
 # Call "start" on the given balloon.
 func _start_balloon(balloon: Node, resource: DialogueResource, cue: String, extra_game_states: Array) -> void:
 	dialogue_started.emit(resource)
+	balloon_started.emit(balloon)
 
 	assert(get_current_scene.is_valid())
 
 	var current_scene: Node = get_current_scene.call()
 
 	assert(is_instance_valid(current_scene))
+
+	await ready_to_start
 
 	current_scene.add_child(balloon)
 
