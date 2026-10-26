@@ -1,0 +1,49 @@
+import "uid://djib057op7qt5" as julio_poison
+
+~ start
+Julio: Olá, amigo.
+Julio: Estamos testando a nova UI de diálogo?
+- Sim.
+	Olá! Estamos sim. Este sou eu falando.
+	Meu papalzinho é preto.
+	Julio: Legal, o meu é branco...
+=> END!
+match CharacterData.Julio.get_status("remedy_for_lucio"):
+	when 0:
+		=> give_task
+	when 1:
+		=> waiting_completion
+=> END
+
+~ give_task
+do DialogueData.set_mood("Julio", DialogueData.JulioMoods.INTENSE_HAPPY)
+Julio: Oie amigo. Belo dia hoje.
+do DialogueData.set_mood("Julio", DialogueData.JulioMoods.IDLE_SURPRISED)
+Julio: Ei!
+do DialogueData.set_mood("Julio", DialogueData.JulioMoods.SILLY_HAPPY)
+Julio: Faz um favor para mim? Leve este remédio para Lucio!
+Julio: Valeu!
+do CharacterData.Julio.give_task("remedy_for_lucio")
+do InventoryManager.add_new_item(CharacterData.Item.remedy)
+=> END
+
+~ waiting_completion
+do DialogueData.set_mood("Julio", DialogueData.JulioMoods.INTENSE_HAPPY)
+Julio: Oie, já fez o que eu pedi?
+- -Concluir tarefa-[if CharacterData.Julio.lucio_received_medicine /] => complete_task
+- O que era para fazer mesmo? =>< explain_task
+- -Finalizar diálogo- => END!
+=> END
+
+~ explain_task
+do DialogueData.set_mood("Julio", DialogueData.JulioMoods.SILLY_ANGRY)
+Julio: Leve o remédio que dei para Lucio e retorne.
+=> END
+
+~ complete_task
+do DialogueData.set_mood("Julio", DialogueData.JulioMoods.SILLY_SURPRISED)
+Julio: UAU!
+do DialogueData.set_mood("Julio", DialogueData.JulioMoods.INTENSE_HAPPY)
+Julio: Você trouxe mesmo... obrigado hehe :)
+do CharacterData.Julio.complete_task("remedy_for_lucio")
+=> julio_poison/start

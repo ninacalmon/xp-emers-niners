@@ -3,6 +3,14 @@ class_name DialogueManagerExampleBalloon extends CanvasLayer
 
 signal line_finished(line: DialogueLine)
 
+signal ready_to_start
+
+signal player_line_started
+
+signal player_line_ended
+
+@export_color_no_alpha var player_color: Color
+
 ## The dialogue resource
 @export var dialogue_resource: DialogueResource
 
@@ -37,6 +45,10 @@ var will_hide_balloon: bool = false
 var locals: Dictionary = {}
 
 var _locale: String = TranslationServer.get_locale()
+
+var default_progress_color: Color
+
+var is_player_themed: bool = false
 
 ## The current line
 var dialogue_line: DialogueLine:
@@ -73,6 +85,8 @@ var mutation_cooldown: Timer = Timer.new()
 
 
 func _ready() -> void:
+	default_progress_color = progress.color
+
 	balloon.hide()
 	Engine.get_singleton("DialogueManager").mutated.connect(_on_mutated)
 
@@ -121,6 +135,7 @@ func _notification(what: int) -> void:
 
 ## Start some dialogue
 func start(with_dialogue_resource: DialogueResource = null, cue: String = "", extra_game_states: Array = []) -> void:
+
 	temporary_game_states = [self] + extra_game_states
 	is_waiting_for_input = false
 	if is_instance_valid(with_dialogue_resource):
@@ -139,6 +154,16 @@ func apply_dialogue_line() -> void:
 	is_waiting_for_input = false
 	balloon.focus_mode = Control.FOCUS_ALL
 	balloon.grab_focus()
+
+	if dialogue_line.character.is_empty():
+		player_line_started.emit()
+		if not is_player_themed:
+			await ready_to_start
+			player_theme(true)
+
+	if is_player_themed and not dialogue_line.character.is_empty():
+		player_theme(false)
+		player_line_ended.emit()
 
 	character_label.visible = not dialogue_line.character.is_empty()
 	character_label.text = tr(dialogue_line.character, "dialogue")
@@ -227,3 +252,24 @@ func _on_responses_menu_response_selected(response: DialogueResponse) -> void:
 
 
 #endregion
+
+
+func player_theme(_bool: bool):
+	if _bool:
+		character_label.add_theme_color_override("default_color", player_color)
+		dialogue_label.add_theme_color_override("default_color", player_color)
+
+		progress.color = player_color
+
+		is_player_themed = true
+
+	else:
+		if character_label.has_theme_color_override("default_color"):
+			character_label.remove_theme_color_override("default_color")
+
+		if dialogue_label.has_theme_color_override("default_color"):
+			dialogue_label.remove_theme_color_override("default_color")
+
+		progress.color = default_progress_color
+
+		is_player_themed = false

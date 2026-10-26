@@ -163,7 +163,7 @@ open_tasks={
 
 [internationalization]
 
-locale/translations_pot_files=PackedStringArray("res://scenes/interface/interaction_overlay/interaction_overlay.gd", "res://dialogue/tests/jhonny_bravo/jhonny_bravo.dialogue", "res://dialogue/julio_exemple_task.dialogue", "res://dialogue/julio/julio_main.dialogue", "res://dialogue/lucio/lucio_main.dialogue")
+locale/translations_pot_files=PackedStringArray("res://scenes/interface/interaction_overlay/interaction_overlay.gd", "res://dialogue/tests/jhonny_bravo/jhonny_bravo.dialogue", "res://dialogue/julio_exemple_task.dialogue", "res://dialogue/julio/julio_main.dialogue", "res://dialogue/lucio/lucio_main.dialogue", "res://dialogue/julio/julio_remedy_for_lucio.dialogue", "res://dialogue/lucio/lucio_remedy_for_lucio.dialogue", "res://dialogue/julio/julio_get_poison.dialogue", "res://dialogue/hugo/hugo_main.dialogue", "res://dialogue/hugo/hugo_get_flower.dialogue", "res://dialogue/sanson/sanson_main.dialogue", "res://dialogue/sanson/sanson_get_astrolabus.dialogue")
 
 [layer_names]
 

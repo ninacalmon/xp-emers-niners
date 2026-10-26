@@ -6,6 +6,7 @@
 [ext_resource type="FontFile" uid="uid://cqdolug283cmk" path="res://assets/fonts/grenze/Grenze-Italic.ttf" id="3_reh6w"]
 
 [resource]
+RichTextLabel/colors/default_color = Color(0.16, 0.042666662, 0, 1)
 RichTextLabel/font_sizes/bold_font_size = 34
 RichTextLabel/font_sizes/bold_italics_font_size = 34
 RichTextLabel/font_sizes/italics_font_size = 32

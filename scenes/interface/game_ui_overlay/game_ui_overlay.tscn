@@ -4,7 +4,88 @@
 [ext_resource type="PackedScene" uid="uid://bcw7p5ibxxkdk" path="res://scenes/interface/hands_overlay/hands_overlay.tscn" id="1_pu8xj"]
 [ext_resource type="PackedScene" uid="uid://bp8vuh2jyr8ow" path="res://scenes/interface/inventory/inventory_ui.tscn" id="2_nospc"]
 [ext_resource type="Texture2D" uid="uid://ci03pn6fm334w" path="res://assets/2d/interface/ui_frame.png" id="2_nvxsd"]
+[ext_resource type="Script" uid="uid://3y7a5ff2yu73" path="res://scenes/interface/game_ui_overlay/dialogue_frame_manager.gd" id="3_em4qa"]
 [ext_resource type="PackedScene" uid="uid://b83qn60b328wo" path="res://scenes/interface/task_bar/task_bar.tscn" id="3_nvxsd"]
+[ext_resource type="Texture2D" uid="uid://4bqn264unoo6" path="res://assets/2d/interface/dialogue/ui_frame_dialogue_anim/frame_dialogue_1.png" id="5_tmmwq"]
+[ext_resource type="Texture2D" uid="uid://dx11r6kq6fcra" path="res://assets/2d/interface/dialogue/ui_frame_dialogue_anim/frame_dialogue_2.png" id="6_fii5u"]
+[ext_resource type="Texture2D" uid="uid://chyi26028kph6" path="res://assets/2d/interface/dialogue/ui_frame_dialogue_anim/frame_dialogue_3.png" id="7_qsdsa"]
+[ext_resource type="Texture2D" uid="uid://b0qqpjkoit45m" path="res://assets/2d/interface/dialogue/ui_frame_dialogue_anim/frame_dialogue_4.png" id="8_r3p3b"]
+[ext_resource type="Texture2D" uid="uid://dm1qky30f8fbt" path="res://assets/2d/interface/dialogue/ui_frame_dialogue_anim/frame_dialogue_5.png" id="9_bqhvv"]
+[ext_resource type="Texture2D" uid="uid://ds43fol4i6jld" path="res://assets/2d/interface/dialogue/ui_player_paper_overlay_anim/dialogue_player.png" id="10_qc4ea"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_cdpwx"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_nvxsd")
+}],
+"loop": 0,
+"name": &"default",
+"speed": 0.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_tmmwq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_fii5u")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_qsdsa")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_r3p3b")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_bqhvv")
+}],
+"loop": 0,
+"name": &"dialogue",
+"speed": 8.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_m26nw"]
+atlas = ExtResource("10_qc4ea")
+region = Rect2(0, 0, 1920, 274)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_14i7j"]
+atlas = ExtResource("10_qc4ea")
+region = Rect2(0, 274, 1920, 274)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_av4ca"]
+atlas = ExtResource("10_qc4ea")
+region = Rect2(0, 548, 1920, 274)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jdapa"]
+atlas = ExtResource("10_qc4ea")
+region = Rect2(0, 822, 1920, 274)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jo5yk"]
+atlas = ExtResource("10_qc4ea")
+region = Rect2(0, 1096, 1920, 274)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_qpbrx"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_m26nw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_14i7j")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_av4ca")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jdapa")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jo5yk")
+}],
+"loop": 0,
+"name": &"dialogue",
+"speed": 8.0
+}]
 
 [node name="GameUiOverlay" type="CanvasLayer" unique_id=472711346]
 
@@ -17,10 +98,24 @@ metadata/_edit_lock_ = true
 
 [node name="InteractionOverlay" parent="." unique_id=18139440 instance=ExtResource("1_nospc")]
 
-[node name="TextureFrame" type="TextureRect" parent="." unique_id=1058164249]
+[node name="DialogueFrameManager" type="Control" parent="." unique_id=495897116]
+layout_mode = 3
+anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
-texture = ExtResource("2_nvxsd")
+script = ExtResource("3_em4qa")
+
+[node name="FrameAnimatedSpr" type="AnimatedSprite2D" parent="DialogueFrameManager" unique_id=540951738]
+sprite_frames = SubResource("SpriteFrames_cdpwx")
+autoplay = "default"
+centered = false
+
+[node name="PlayerSpeechOverlayAnimatedSpr" type="AnimatedSprite2D" parent="DialogueFrameManager" unique_id=1881944721]
+visible = false
+position = Vector2(0, 785)
+sprite_frames = SubResource("SpriteFrames_qpbrx")
+animation = &"dialogue"
+centered = false
 
 [node name="TaskBar" parent="." unique_id=1232893806 instance=ExtResource("3_nvxsd")]
 offset_left = 81.0

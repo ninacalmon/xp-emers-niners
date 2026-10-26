@@ -1,0 +1,74 @@
+[gd_scene format=3 uid="uid://cb05nxhycwjbf"]
+
+[ext_resource type="Script" uid="uid://bo3s2tnmcpdmd" path="res://scenes/objects/item/item_in_world.gd" id="1_nmfgn"]
+[ext_resource type="Texture2D" uid="uid://dai2qhxsgrcl5" path="res://assets/placeholders/astro1_feio.png" id="1_nrulo"]
+[ext_resource type="Resource" uid="uid://3c0ta31odhc6" path="res://itens/intertwined_puzzle/astrolab_body.tres" id="2_tbgqy"]
+[ext_resource type="Script" uid="uid://cf2auur4umdjl" path="res://systems/interaction/interaction_area.gd" id="3_ml8yw"]
+[ext_resource type="Script" uid="uid://b5w5gvkwbcorl" path="res://scenes/objects/item/pick_up_action.gd" id="4_7ljpk"]
+[ext_resource type="Material" uid="uid://dxugeq4hehdak" path="res://resources/shader_materials/outline_shader_material_2d.tres" id="5_rag2s"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_ksdio"]
+height = 1.0
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_cdpwx"]
+viewport_path = NodePath("SubViewportContainer/SubViewport")
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_rag2s"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_nrulo")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_tbgqy"]
+radius = 0.2993164
+height = 0.8618164
+
+[node name="ItemInWorld" type="Node3D" unique_id=1067992399]
+script = ExtResource("1_nmfgn")
+item = ExtResource("2_tbgqy")
+
+[node name="InteractionArea" type="Area3D" parent="." unique_id=834874890 node_paths=PackedStringArray("animated_sprite", "action_trigger")]
+script = ExtResource("3_ml8yw")
+animated_sprite = NodePath("../SubViewportContainer/SubViewport/AnimatedSprite2D")
+action_trigger = NodePath("../PickUpAction")
+metadata/_custom_type_script = "uid://cf2auur4umdjl"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="InteractionArea" unique_id=449843590]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.44763184, 0)
+shape = SubResource("CapsuleShape3D_ksdio")
+
+[node name="PickUpAction" type="Node" parent="." unique_id=1766995311]
+script = ExtResource("4_7ljpk")
+
+[node name="Sprite3D" type="Sprite3D" parent="." unique_id=2083420343]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.066589355, 0)
+axis = 1
+shaded = true
+texture = SubResource("ViewportTexture_cdpwx")
+
+[node name="SubViewportContainer" type="SubViewportContainer" parent="." unique_id=215581007]
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="SubViewport" type="SubViewport" parent="SubViewportContainer" unique_id=1686808557]
+transparent_bg = true
+handle_input_locally = false
+size = Vector2i(130, 130)
+render_target_update_mode = 4
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="SubViewportContainer/SubViewport" unique_id=1106926227]
+material = ExtResource("5_rag2s")
+instance_shader_parameters/outline_enabled = true
+instance_shader_parameters/outline_width = 17.63600083771
+sprite_frames = SubResource("SpriteFrames_rag2s")
+centered = false
+
+[node name="ShadowMesh" type="MeshInstance3D" parent="." unique_id=1713054416]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.49821472, 0)
+cast_shadow = 3
+mesh = SubResource("CapsuleMesh_tbgqy")

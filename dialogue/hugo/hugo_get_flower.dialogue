@@ -1,0 +1,29 @@
+~ start
+match CharacterData.Hugo.get_status("get_flower"):
+	when 0:
+		- Você tem um veneno...? => give_task
+		- -Finalizar diálogo- => END!
+	when 1:
+		=> waiting_completion
+=> END
+
+~ give_task
+Hugo: Na verdade sim!
+Hugo: Mas... Tudo tem um preço!
+Hugo: Quero uma flor em troca.
+do CharacterData.Hugo.give_task("get_flower")
+=> END
+
+~ waiting_completion
+Hugo: Conseguiu a flor?
+- Aqui está! -Entregar flor- [if InventoryManager.selected_item == CharacterData.Item.flower /] => complete_task
+- -Finalizar diálogo- => END!
+=> END
+
+~ complete_task
+do InventoryManager.use_item()
+Hugo: Oh! Muito obrigado.
+Hugo: Aqui está o veneno que queria.
+do CharacterData.Hugo.complete_task("get_flower")
+do InventoryManager.add_new_item(CharacterData.Item.poison)
+=> END

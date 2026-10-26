@@ -1,0 +1,30 @@
+
+~ start
+match CharacterData.Julio.get_status("get_poison"):
+	when 0:
+		=> give_task
+	when 1:
+		=> waiting_completion
+=> END
+
+~ give_task
+do DialogueData.set_mood("Julio", DialogueData.JulioMoods.SILLY_HAPPY)
+Julio: Obrigado por levar o remédio, amigo.
+do DialogueData.set_mood("Julio", DialogueData.JulioMoods.IDLE_SERIOUS)
+Julio: No entanto, tenho um outro pedido para você.
+Julio: Traga um veneno para mim.
+do CharacterData.Julio.give_task("get_poison")
+=> END
+
+~ waiting_completion
+Julio: Conseguiu meu veneno?
+- Aqui está! -Entregar veneno- [if InventoryManager.selected_item == CharacterData.Item.poison /] => complete_task
+- -Finalizar diálogo- => END!
+=> END
+
+~ complete_task
+Julio: Oh! Muito obrigado.
+Julio: Vamos lá para o estábulo agora.
+Julio: Espero que não tenha nenhum animal morto apodrecendo lá... he... hehe...
+do CharacterData.Julio.complete_task("get_poison")
+=> END

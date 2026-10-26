@@ -1,0 +1,16 @@
+[remap]
+
+importer="dialogue_manager"
+importer_version=18
+type="Resource"
+uid="uid://4rnw0u51426k"
+path="res://.godot/imported/julio_remedy_for_lucio.dialogue-c33b5732df0b1e42bcc09b13a4793e19.tres"
+
+[deps]
+
+source_file="res://dialogue/julio/julio_remedy_for_lucio.dialogue"
+dest_files=["res://.godot/imported/julio_remedy_for_lucio.dialogue-c33b5732df0b1e42bcc09b13a4793e19.tres"]
+
+[params]
+
+defaults=true

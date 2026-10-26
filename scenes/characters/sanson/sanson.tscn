@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://cf2auur4umdjl" path="res://systems/interaction/interaction_area.gd" id="1_rsgsq"]
 [ext_resource type="Script" uid="uid://bjidnq65qcjsh" path="res://systems/character/dialogue_action.gd" id="2_f2cgd"]
-[ext_resource type="Resource" uid="uid://d3ci2b5e62gc5" path="res://dialogue/julio_exemple_task.dialogue" id="3_ly3p5"]
+[ext_resource type="Resource" uid="uid://dgynb1dovtr38" path="res://dialogue/sanson/sanson_main.dialogue" id="3_l5pxw"]
 [ext_resource type="Script" uid="uid://biodsue5rifq4" path="res://systems/character/character_sprite_handler.gd" id="4_blyd4"]
 [ext_resource type="Material" uid="uid://dxugeq4hehdak" path="res://resources/shader_materials/outline_shader_material_2d.tres" id="5_0jelh"]
 [ext_resource type="SpriteFrames" uid="uid://daq8bx0soe2xd" path="res://resources/sprite_frames/characters/julio/julio_sprite_frames.tres" id="6_q7181"]
@@ -56,7 +56,7 @@ debug_color = Color(0.78039217, 0.6, 0.7019608, 0.41960785)
 [node name="DialogueAction" type="Node" parent="." unique_id=1494072435]
 script = ExtResource("2_f2cgd")
 character_name = "Sanson"
-dialogue_res = ExtResource("3_ly3p5")
+dialogue_res = ExtResource("3_l5pxw")
 
 [node name="CharacterSpriteHandler" type="Node" parent="." unique_id=961269039 node_paths=PackedStringArray("animated_sprite", "dialogue_action")]
 script = ExtResource("4_blyd4")

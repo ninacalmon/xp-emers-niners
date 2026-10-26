@@ -1,0 +1,16 @@
+[remap]
+
+importer="dialogue_manager"
+importer_version=18
+type="Resource"
+uid="uid://bu7gl6we2o75c"
+path="res://.godot/imported/sanson_get_astrolabus.dialogue-ef63d9dd28f7b420598db8b52160f770.tres"
+
+[deps]
+
+source_file="res://dialogue/sanson/sanson_get_astrolabus.dialogue"
+dest_files=["res://.godot/imported/sanson_get_astrolabus.dialogue-ef63d9dd28f7b420598db8b52160f770.tres"]
+
+[params]
+
+defaults=true

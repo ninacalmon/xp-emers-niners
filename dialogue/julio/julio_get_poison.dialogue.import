@@ -1,0 +1,16 @@
+[remap]
+
+importer="dialogue_manager"
+importer_version=18
+type="Resource"
+uid="uid://djib057op7qt5"
+path="res://.godot/imported/julio_get_poison.dialogue-460842050c79157434077ee0bbca9fbc.tres"
+
+[deps]
+
+source_file="res://dialogue/julio/julio_get_poison.dialogue"
+dest_files=["res://.godot/imported/julio_get_poison.dialogue-460842050c79157434077ee0bbca9fbc.tres"]
+
+[params]
+
+defaults=true

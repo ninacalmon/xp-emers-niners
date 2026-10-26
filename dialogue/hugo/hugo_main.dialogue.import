@@ -1,0 +1,16 @@
+[remap]
+
+importer="dialogue_manager"
+importer_version=18
+type="Resource"
+uid="uid://djymti5s8t1g4"
+path="res://.godot/imported/hugo_main.dialogue-a29b98517b8bded82532241196b1f0f0.tres"
+
+[deps]
+
+source_file="res://dialogue/hugo/hugo_main.dialogue"
+dest_files=["res://.godot/imported/hugo_main.dialogue-a29b98517b8bded82532241196b1f0f0.tres"]
+
+[params]
+
+defaults=true

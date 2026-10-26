@@ -1,0 +1,7 @@
+import "uid://hogiw5kgfifn" as get_flower
+
+~ start
+Hugo: Oi!
+if CharacterData.Julio.get_status("get_poison") == 1:
+	=> get_flower/start
+=> END

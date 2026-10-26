@@ -1,0 +1,7 @@
+import "uid://bu7gl6we2o75c" as get_astrolabus
+
+~ start
+Sanson: Olá...
+if CharacterData.Hugo.get_status("get_flower") == 1:
+	=> get_astrolabus/start
+=> END
