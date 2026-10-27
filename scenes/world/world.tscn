@@ -1,0 +1,189 @@
+[gd_scene format=3 uid="uid://dxwhs1tti7i50"]
+
+[ext_resource type="Script" uid="uid://bd046eokvcnu2" path="res://addons/phantom_camera/scripts/phantom_camera_host/phantom_camera_host.gd" id="1_mxkvs"]
+[ext_resource type="PackedScene" uid="uid://cciw6s8b6nsbw" path="res://scenes/player/player.tscn" id="2_m114p"]
+[ext_resource type="PackedScene" uid="uid://cuxxx8rje22th" path="res://assets/3d/scenery/church/church.glb" id="5_v5dby"]
+[ext_resource type="PackedScene" uid="uid://ondr0bhvtwol" path="res://scenes/interface/game_ui_overlay/game_ui_overlay.tscn" id="6_tytul"]
+[ext_resource type="PackedScene" uid="uid://c0enf7fvm7uko" path="res://scenes/objects/doors/room_door.tscn" id="9_ues17"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_xl1yy"]
+sky_top_color = Color(0.7275567, 0.6954605, 0.59714603, 1)
+sky_horizon_color = Color(0.69289213, 0.66735613, 0.62371135, 1)
+ground_horizon_color = Color(0.69, 0.6279, 0.4416, 1)
+
+[sub_resource type="Sky" id="Sky_jlx5v"]
+sky_material = SubResource("ProceduralSkyMaterial_xl1yy")
+
+[sub_resource type="Environment" id="Environment_7378n"]
+background_mode = 2
+sky = SubResource("Sky_jlx5v")
+glow_enabled = true
+glow_bloom = 0.44
+volumetric_fog_density = 0.002
+volumetric_fog_albedo = Color(1, 0.89666665, 0.8, 1)
+volumetric_fog_emission = Color(0.61, 0.61, 0.61, 1)
+volumetric_fog_anisotropy = 0.19
+volumetric_fog_length = 524.22
+
+[sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_5604n"]
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_ksdio"]
+size = Vector2(500, 500)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_u1gsd"]
+albedo_color = Color(0.66, 0.52536005, 0.4224, 1)
+
+[node name="TestWorld" type="Node3D" unique_id=1370714841]
+
+[node name="CanvasLayer" parent="." unique_id=472711346 instance=ExtResource("6_tytul")]
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1489338464]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 30.18241, 0)
+light_color = Color(1, 0.9411765, 0.8980392, 1)
+light_energy = 0.737
+light_angular_distance = 0.49
+light_specular = 0.0
+shadow_enabled = true
+directional_shadow_blend_splits = true
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1902477949]
+environment = SubResource("Environment_7378n")
+
+[node name="Camera3D" type="Camera3D" parent="WorldEnvironment" unique_id=1834340419]
+physics_interpolation_mode = 1
+transform = Transform3D(0.19090813, 0, -0.9816079, 0, 1, 0, 0.9816079, 0, 0.19090813, -5.501732, 3.4578118, 1.6174984)
+top_level = true
+
+[node name="PhantomCameraHost" type="Node" parent="WorldEnvironment/Camera3D" unique_id=845311130]
+process_priority = 300
+process_physics_priority = 300
+script = ExtResource("1_mxkvs")
+metadata/_custom_type_script = "uid://bd046eokvcnu2"
+
+[node name="Player" parent="WorldEnvironment" unique_id=949902107 instance=ExtResource("2_m114p")]
+transform = Transform3D(0.19090813, 0, -0.98160785, 0, 1, 0, 0.98160785, 0, 0.19090813, -5.501732, 1.5274487, 1.6174984)
+
+[node name="Ground" type="StaticBody3D" parent="." unique_id=286959965]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Ground" unique_id=316747533]
+shape = SubResource("WorldBoundaryShape3D_5604n")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Ground" unique_id=339831810]
+mesh = SubResource("PlaneMesh_ksdio")
+surface_material_override/0 = SubResource("StandardMaterial3D_u1gsd")
+
+[node name="RoomDoors" type="Node3D" parent="." unique_id=1440576113]
+
+[node name="Right" type="Node3D" parent="RoomDoors" unique_id=452435348]
+
+[node name="Door_copy5" parent="RoomDoors/Right" unique_id=668800733 instance=ExtResource("9_ues17")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 52.548, 1.5745991, -0.9098737)
+flip = true
+
+[node name="Door_copy6" parent="RoomDoors/Right" unique_id=2131933676 instance=ExtResource("9_ues17")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 57.878, 1.5745991, -0.9098737)
+flip = true
+
+[node name="Door_copy7" parent="RoomDoors/Right" unique_id=1765539975 instance=ExtResource("9_ues17")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 63.208, 1.5745991, -0.9098737)
+flip = true
+
+[node name="Door_copy8" parent="RoomDoors/Right" unique_id=156263478 instance=ExtResource("9_ues17")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 68.538, 1.5745991, -0.9098737)
+flip = true
+
+[node name="Door_copy9" parent="RoomDoors/Right" unique_id=997516028 instance=ExtResource("9_ues17")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 73.868, 1.5745991, -0.9098737)
+flip = true
+
+[node name="Left" type="Node3D" parent="RoomDoors" unique_id=747903130]
+
+[node name="Door_copy0" parent="RoomDoors/Left" unique_id=1155157874 instance=ExtResource("9_ues17")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 52.548, 1.5745991, -3.0448737)
+
+[node name="Door_copy1" parent="RoomDoors/Left" unique_id=376096474 instance=ExtResource("9_ues17")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 57.878, 1.5745991, -3.0448737)
+
+[node name="Door_copy2" parent="RoomDoors/Left" unique_id=44716260 instance=ExtResource("9_ues17")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 63.208, 1.5745991, -3.0448737)
+
+[node name="Door_copy3" parent="RoomDoors/Left" unique_id=143566255 instance=ExtResource("9_ues17")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 68.538, 1.5745991, -3.0448737)
+
+[node name="Door_copy4" parent="RoomDoors/Left" unique_id=1329166490 instance=ExtResource("9_ues17")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 73.868, 1.5745991, -3.0448737)
+
+[node name="GroundAreas" type="Node3D" parent="." unique_id=364615867]
+
+[node name="HardFloorHighEchoArea" type="Area3D" parent="GroundAreas" unique_id=1551280368 groups=["ground_areas"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 33.282627, 0, 0)
+collision_layer = 0
+collision_mask = 4
+
+[node name="CollisionPolygon3D" type="CollisionPolygon3D" parent="GroundAreas/HardFloorHighEchoArea" unique_id=1794694814]
+transform = Transform3D(0.99999994, 0, 0, 0, -4.3711385e-08, -1, 0, 0.99999994, -4.371139e-08, 0, 0, 0)
+depth = -7.0
+polygon = PackedVector2Array(13.129452, -12.847256, 6.2007904, -12.693287, 6.354763, -13.771078, 6.354763, -16.773497, 4.7380753, -19.544958, 2.2745514, -21.23863, -0.11198044, -21.70054, -2.4215393, -21.315617, -4.423149, -20.083855, -5.9628487, -18.390182, -6.8096848, -15.849674, -6.501747, -13.001226, -13.430405, -12.770271, -13.48477, 9.8820095, 13.0521965, 9.833496)
+
+[node name="HardFloorMedEchoArea" type="Area3D" parent="GroundAreas" unique_id=2068808358 groups=["ground_areas"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 33.093647, 0, 19.156532)
+collision_layer = 0
+collision_mask = 4
+
+[node name="CollisionPolygon3D" type="CollisionPolygon3D" parent="GroundAreas/HardFloorMedEchoArea" unique_id=249217601]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0)
+depth = -7.0
+polygon = PackedVector2Array(-13.29579, -9.614118, 13.192665, -9.75966, 13.14415, -5.053834, -13.198763, -5.3449173)
+
+[node name="CollisionPolygon3D2" type="CollisionPolygon3D" parent="GroundAreas/HardFloorMedEchoArea" unique_id=728601968]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0)
+depth = -7.0
+polygon = PackedVector2Array(13.727425, -28.459743, 13.7934265, -13.807232, 15.113476, -13.74123, 15.047474, -9.12107, 19.469624, -9.12107, 19.073612, -28.459743)
+
+[node name="CollisionPolygon3D3" type="CollisionPolygon3D" parent="GroundAreas/HardFloorMedEchoArea" unique_id=942345675]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0)
+depth = -7.0
+polygon = PackedVector2Array(40.67616, -13.810169, 41.638134, -9.679365, 43.675243, -6.7934628, 47.35335, -4.9827003, 51.201214, -5.6051493, 54.087124, -7.925189, 55.332027, -11.15061, 54.935925, -14.432619, 53.52126, -16.922417, 52.219776, -18.167316, 52.1066, -28.296268, 40.39323, -28.409443)
+
+[node name="HardFloorLowEchoArea" type="Area3D" parent="GroundAreas" unique_id=493486602 groups=["ground_areas"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 65.245255, 0, 0)
+collision_layer = 0
+collision_mask = 4
+
+[node name="CollisionPolygon3D" type="CollisionPolygon3D" parent="GroundAreas/HardFloorLowEchoArea" unique_id=1184846264]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0)
+depth = -7.0
+polygon = PackedVector2Array(-12.457455, 4.73506, -11.995441, -8.993419, 8.5312805, -9.0594225, 8.927292, 4.405049)
+
+[node name="CollisionPolygon3D2" type="CollisionPolygon3D" parent="GroundAreas/HardFloorLowEchoArea" unique_id=681529343]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0)
+depth = -7.0
+polygon = PackedVector2Array(-27.547997, 16.20641, -27.547997, 24.060684, -36.722317, 24.060684, -36.722317, 15.810396, -38.10836, 18.714499, -40.550446, 20.298552, -42.794525, 20.23255, -45.368614, 17.988472, -45.50062, 14.952368, -40.550446, 13.962333, -20.749756, 14.160337, -18.769688, 15.282379, -19.099697, 18.384487, -21.607784, 20.364555, -24.709896, 19.96854, -26.557957, 17.92247)
+
+[node name="HardFloorNoEchoArea" type="Area3D" parent="GroundAreas" unique_id=1659632312 groups=["ground_areas"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 33.093647, 0, 19.156532)
+collision_layer = 0
+collision_mask = 4
+
+[node name="CollisionPolygon3D" type="CollisionPolygon3D" parent="GroundAreas/HardFloorNoEchoArea" unique_id=267386822]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0)
+depth = -7.0
+polygon = PackedVector2Array(-2.964714, 5.1151676, -2.8993149, 8.777512, 2.9865913, 8.74481, 2.9538918, 5.1151676)
+
+[node name="CollisionPolygon3D2" type="CollisionPolygon3D" parent="GroundAreas/HardFloorNoEchoArea" unique_id=299665823]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0)
+depth = -7.0
+polygon = PackedVector2Array(2.956623, 5.1420727, 2.9257088, 8.665823, -2.916298, 8.727644, -2.916298, 4.925701)
+
+[node name="DirtFloor" type="Area3D" parent="GroundAreas" unique_id=1102081533 groups=["ground_areas"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 33.093647, 0, -0.39131546)
+collision_layer = 0
+collision_mask = 4
+
+[node name="CollisionPolygon3D" type="CollisionPolygon3D" parent="GroundAreas/DirtFloor" unique_id=396864030]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0)
+depth = -0.18
+polygon = PackedVector2Array(-73.80234, -62.97614, 98.83095, -63.519016, 103.7168, 64.32734, -80.3168, 65.14163)
+
+[node name="church" parent="." unique_id=1996032734 instance=ExtResource("5_v5dby")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 33.12908, 0, 0)
