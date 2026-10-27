@@ -23,17 +23,32 @@ corner_radius_bottom_right = 3
 corner_radius_bottom_left = 3
 corner_detail = 5
 
-[node name="InventorySlot" type="Button" unique_id=90551678]
+[node name="InventorySlot" type="Control" unique_id=696426154]
 custom_minimum_size = Vector2(70, 70)
+layout_mode = 3
+anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
+script = ExtResource("1_5j1pa")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="." unique_id=391240950]
+custom_minimum_size = Vector2(70, 70)
+custom_maximum_size = Vector2(-1, 70)
+layout_mode = 0
+offset_right = 244.0
+offset_bottom = 113.0
+theme_override_constants/separation = 32
+alignment = 1
+
+[node name="ButtonSlot" type="Button" parent="HBoxContainer" unique_id=90551678]
+custom_minimum_size = Vector2(70, 70)
+layout_mode = 2
 theme_override_styles/normal = SubResource("StyleBoxFlat_u0ka6")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_ayg7c")
 toggle_mode = true
 button_group = ExtResource("1_62esn")
-script = ExtResource("1_5j1pa")
 
-[node name="CenterContainer" type="CenterContainer" parent="." unique_id=864886735]
+[node name="CenterContainer" type="CenterContainer" parent="HBoxContainer/ButtonSlot" unique_id=864886735]
 custom_minimum_size = Vector2(40, 40)
 layout_mode = 1
 anchors_preset = 8
@@ -48,9 +63,19 @@ offset_bottom = 24.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="ItemTexture" type="TextureRect" parent="CenterContainer" unique_id=504278661]
+[node name="ItemTexture" type="TextureRect" parent="HBoxContainer/ButtonSlot/CenterContainer" unique_id=504278661]
 custom_minimum_size = Vector2(48, 48)
 layout_mode = 2
 mouse_filter = 2
 expand_mode = 3
 stretch_mode = 5
+
+[node name="RichTextLabel" type="RichTextLabel" parent="HBoxContainer" unique_id=958535498]
+layout_mode = 2
+theme_override_colors/default_color = Color(1, 1, 1, 1)
+bbcode_enabled = true
+text = "segure[img=50,center, bottom]res://assets/2d/interface/kenney_input_prompts/mouse_left_outline.png[/img]para focar.
+"
+fit_content = true
+autowrap_mode = 0
+vertical_alignment = 1
