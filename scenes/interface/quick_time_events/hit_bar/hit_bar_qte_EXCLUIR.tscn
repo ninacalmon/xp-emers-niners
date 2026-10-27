@@ -1,0 +1,77 @@
+[gd_scene format=3 uid="uid://bt5c06l5hp1hx"]
+
+[ext_resource type="Script" uid="uid://dnxdrghjtmr4s" path="res://scenes/interface/quick_time_events/hit_bar/hit_bar_qte.gd" id="1_1i14x"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1i14x"]
+bg_color = Color(0, 0, 0, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.76, 0.76, 0.76, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ln6ed"]
+bg_color = Color(1, 0.8416667, 0.050000012, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3wwsp"]
+bg_color = Color(0.117885016, 0.87, 0.07829998, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_u0ka6"]
+bg_color = Color(1, 1, 1, 1)
+
+[node name="HitBarQTE" type="Control" unique_id=1814088080]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_1i14x")
+
+[node name="HitBarPanelCont" type="PanelContainer" parent="." unique_id=1288069253]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -180.0
+offset_top = -40.0
+offset_right = 180.0
+offset_bottom = 40.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_1i14x")
+
+[node name="MedHitMarg" type="MarginContainer" parent="HitBarPanelCont" unique_id=2059252393]
+layout_mode = 2
+theme_override_constants/margin_left = 213
+theme_override_constants/margin_right = 79
+
+[node name="Panel" type="Panel" parent="HitBarPanelCont/MedHitMarg" unique_id=1427835532]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_ln6ed")
+
+[node name="FullHitMarg" type="MarginContainer" parent="HitBarPanelCont/MedHitMarg/Panel" unique_id=1972918582]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_right = 16
+
+[node name="Panel" type="Panel" parent="HitBarPanelCont/MedHitMarg/Panel/FullHitMarg" unique_id=1059363350]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_3wwsp")
+
+[node name="IndicatorMarg" type="MarginContainer" parent="HitBarPanelCont" unique_id=1080126614]
+layout_mode = 2
+theme_override_constants/margin_left = 347
+
+[node name="Panel" type="Panel" parent="HitBarPanelCont/IndicatorMarg" unique_id=1145067828]
+custom_minimum_size = Vector2(8, 0)
+layout_mode = 2
+size_flags_horizontal = 0
+theme_override_styles/panel = SubResource("StyleBoxFlat_u0ka6")
