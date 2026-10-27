@@ -2,8 +2,23 @@
 
 [sub_resource type="AudioEffectReverb" id="AudioEffectReverb_aovk5"]
 resource_name = "Reverb"
-room_size = 0.2
+room_size = 0.3
 damping = 0.0
+spread = 0.95
+wet = 0.34
+
+[sub_resource type="AudioEffectReverb" id="AudioEffectReverb_n2srn"]
+resource_name = "Reverb"
+room_size = 0.1
+damping = 0.0
+spread = 0.7
+wet = 0.26
+
+[sub_resource type="AudioEffectReverb" id="AudioEffectReverb_yrdyc"]
+resource_name = "Reverb"
+room_size = 0.01
+damping = 0.0
+wet = 0.12
 
 [resource]
 bus/1/name = &"Sound Effects"
@@ -18,11 +33,27 @@ bus/2/mute = false
 bus/2/bypass_fx = false
 bus/2/volume_db = 0.0
 bus/2/send = &"Master"
-bus/3/name = &"Sound Effects / Echo"
+bus/3/name = &"Sound Effects / HighEcho"
 bus/3/solo = false
 bus/3/mute = false
 bus/3/bypass_fx = false
-bus/3/volume_db = 0.06726074
+bus/3/volume_db = 1.2582531
 bus/3/send = &"Sound Effects"
 bus/3/effect/0/effect = SubResource("AudioEffectReverb_aovk5")
 bus/3/effect/0/enabled = true
+bus/4/name = &"Sound Effects / MedEcho"
+bus/4/solo = false
+bus/4/mute = false
+bus/4/bypass_fx = false
+bus/4/volume_db = 0.0
+bus/4/send = &"Sound Effects"
+bus/4/effect/0/effect = SubResource("AudioEffectReverb_n2srn")
+bus/4/effect/0/enabled = true
+bus/5/name = &"Sound Effects / LowEcho"
+bus/5/solo = false
+bus/5/mute = false
+bus/5/bypass_fx = false
+bus/5/volume_db = 0.0
+bus/5/send = &"Sound Effects"
+bus/5/effect/0/effect = SubResource("AudioEffectReverb_yrdyc")
+bus/5/effect/0/enabled = true
