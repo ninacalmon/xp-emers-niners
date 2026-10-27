@@ -117,10 +117,6 @@ _data = {
 &"progress": SubResource("Animation_qkmqt")
 }
 
-[sub_resource type="Theme" id="Theme_nlsx6"]
-Button/font_sizes/font_size = 32
-RichTextLabel/font_sizes/normal_font_size = 48
-
 [node name="ExampleBalloon" type="CanvasLayer" unique_id=38036521]
 layer = 100
 script = ExtResource("1_36de5")
@@ -199,6 +195,24 @@ polygon = PackedVector2Array(0, 0, 10, 10, 20, 0)
 libraries/ = SubResource("AnimationLibrary_1337t")
 autoplay = &"progress"
 
+[node name="ResponsesMenu" type="VBoxContainer" parent="Balloon" unique_id=1801308483 node_paths=PackedStringArray("response_template")]
+unique_name_in_owner = true
+layout_mode = 1
+offset_left = 1518.0
+offset_top = 586.0
+offset_right = 1770.0
+offset_bottom = 655.0
+size_flags_vertical = 8
+theme_override_constants/separation = 2
+alignment = 1
+script = ExtResource("3_72ixx")
+response_template = NodePath("ResponseExample")
+
+[node name="ResponseExample" type="Button" parent="Balloon/ResponsesMenu" unique_id=1446810977]
+layout_mode = 2
+theme = ExtResource("3_nlsx6")
+text = "Response example"
+
 [node name="CenterContainer" type="CenterContainer" parent="Balloon" unique_id=1087901387]
 layout_mode = 1
 anchors_preset = 15
@@ -207,22 +221,8 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="ResponsesMenu" type="VBoxContainer" parent="Balloon/CenterContainer" unique_id=1801308483 node_paths=PackedStringArray("response_template")]
-unique_name_in_owner = true
-layout_mode = 2
-size_flags_vertical = 8
-theme_override_constants/separation = 2
-alignment = 1
-script = ExtResource("3_72ixx")
-response_template = NodePath("ResponseExample")
-
-[node name="ResponseExample" type="Button" parent="Balloon/CenterContainer/ResponsesMenu" unique_id=1446810977]
-layout_mode = 2
-theme = SubResource("Theme_nlsx6")
-text = "Response example"
-
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1162558754]
 unique_name_in_owner = true
 
 [connection signal="gui_input" from="Balloon" to="." method="_on_balloon_gui_input"]
-[connection signal="response_selected" from="Balloon/CenterContainer/ResponsesMenu" to="." method="_on_responses_menu_response_selected"]
+[connection signal="response_selected" from="Balloon/ResponsesMenu" to="." method="_on_responses_menu_response_selected"]

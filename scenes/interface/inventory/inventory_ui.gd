@@ -16,7 +16,7 @@ func _ready() -> void:
 
 	setup_slots()
 
-	slots[InventoryManager.selected_slot_idx].button_pressed = true
+	slots[InventoryManager.selected_slot_idx].button_slot.button_pressed = true
 
 ## storages and asserts that the number of slots is no greater or lower 
 ## then whats defined on [InventoryManager].
@@ -39,7 +39,7 @@ func _on_inventory_item_changed(slot_idx: int):
 
 
 func _on_selected_slot_changed(slot_idx: int):
-	slots[slot_idx].button_pressed = true
+	slots[slot_idx].button_slot.button_pressed = true
 
 
 func _on_wrong_item_tried(slot_idx: int):
