@@ -14,6 +14,8 @@
 class_name ActionTrigger
 extends Node
 
+signal action_ended
+
 var hands_overlay: HandsOverlay
 var force_outline_off: bool = false
 @export var item_interaction: bool = false

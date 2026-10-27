@@ -3,7 +3,11 @@
 [ext_resource type="Script" uid="uid://bd046eokvcnu2" path="res://addons/phantom_camera/scripts/phantom_camera_host/phantom_camera_host.gd" id="1_mxkvs"]
 [ext_resource type="PackedScene" uid="uid://cciw6s8b6nsbw" path="res://scenes/player/player.tscn" id="2_m114p"]
 [ext_resource type="PackedScene" uid="uid://cuxxx8rje22th" path="res://assets/3d/scenery/church/church.glb" id="5_v5dby"]
+[ext_resource type="PackedScene" uid="uid://boht0mv2kyq81" path="res://scenes/characters/hugo/hugo.tscn" id="6_1yooq"]
 [ext_resource type="PackedScene" uid="uid://ondr0bhvtwol" path="res://scenes/interface/game_ui_overlay/game_ui_overlay.tscn" id="6_tytul"]
+[ext_resource type="PackedScene" uid="uid://d0dx1ggic73g0" path="res://scenes/characters/julio/julio.tscn" id="7_gb53w"]
+[ext_resource type="PackedScene" uid="uid://c6yoqyeo6wfld" path="res://scenes/characters/lucio/lucio.tscn" id="8_5qq27"]
+[ext_resource type="PackedScene" uid="uid://c1fess8fbyvjb" path="res://scenes/characters/sanson/sanson.tscn" id="9_dlabj"]
 [ext_resource type="PackedScene" uid="uid://c0enf7fvm7uko" path="res://scenes/objects/doors/room_door.tscn" id="9_ues17"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_xl1yy"]
@@ -51,7 +55,7 @@ environment = SubResource("Environment_7378n")
 
 [node name="Camera3D" type="Camera3D" parent="WorldEnvironment" unique_id=1834340419]
 physics_interpolation_mode = 1
-transform = Transform3D(0.19090813, 0, -0.9816079, 0, 1, 0, 0.9816079, 0, 0.19090813, -5.501732, 3.4578118, 1.6174984)
+transform = Transform3D(0.19090843, 0, -0.98160785, 0, 1, 0, 0.98160785, 0, 0.19090843, 29.108442, 4.747561, -15.426433)
 top_level = true
 
 [node name="PhantomCameraHost" type="Node" parent="WorldEnvironment/Camera3D" unique_id=845311130]
@@ -61,7 +65,7 @@ script = ExtResource("1_mxkvs")
 metadata/_custom_type_script = "uid://bd046eokvcnu2"
 
 [node name="Player" parent="WorldEnvironment" unique_id=949902107 instance=ExtResource("2_m114p")]
-transform = Transform3D(0.19090813, 0, -0.98160785, 0, 1, 0, 0.98160785, 0, 0.19090813, -5.501732, 1.5274487, 1.6174984)
+transform = Transform3D(0.19090813, 0, -0.98160785, 0, 1, 0, 0.98160785, 0, 0.19090813, 29.108442, 2.8171978, -15.426433)
 
 [node name="Ground" type="StaticBody3D" parent="." unique_id=286959965]
 
@@ -185,5 +189,19 @@ transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0
 depth = -0.18
 polygon = PackedVector2Array(-73.80234, -62.97614, 98.83095, -63.519016, 103.7168, 64.32734, -80.3168, 65.14163)
 
-[node name="church" parent="." unique_id=1996032734 instance=ExtResource("5_v5dby")]
+[node name="Church" parent="." unique_id=1996032734 instance=ExtResource("5_v5dby")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 33.12908, 0, 0)
+
+[node name="Characters" type="Node3D" parent="." unique_id=577653259]
+
+[node name="Hugo" parent="Characters" unique_id=1758948578 instance=ExtResource("6_1yooq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 78.968834, 0.9691608, -5.7140827)
+
+[node name="Julio" parent="Characters" unique_id=1615518148 instance=ExtResource("7_gb53w")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 29.789732, 1.5026748, -4.321762)
+
+[node name="Lucio" parent="Characters" unique_id=1730430442 instance=ExtResource("8_5qq27")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 67.99336, 1.0073677, 2.5791483)
+
+[node name="Sanson" parent="Characters" unique_id=1975172536 instance=ExtResource("9_dlabj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 40.347553, 1.4971457, 0.94463813)

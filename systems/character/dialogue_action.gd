@@ -65,6 +65,7 @@ func _on_dialog_ended(resource: DialogueResource):
 	is_showing_dialogue = false
 	if resource == dialogue_res:
 		dialogue_ended.emit()
+	action_ended.emit()
 
 
 func _on_line_finished(_line: DialogueLine):
