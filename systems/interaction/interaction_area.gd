@@ -54,10 +54,11 @@ func _input(event: InputEvent) -> void:
 		action_trigger.trigger()
 
 		if action_trigger.force_outline_off:
-			force_outline_off()
+			force_outline(false)
 
 
 func _ready() -> void:
+	action_trigger.action_ended.connect(_on_action_trigger_action_ended)
 	interaction_overlay = get_tree().get_first_node_in_group("interaction_overlay")
 
 	## tries to add outline_shader to mesh or animated_sprite.
@@ -100,9 +101,14 @@ func apply_outline_shaders():
 
 
 
-func force_outline_off():
+func force_outline(_bool: bool):
 	if mesh:
-		mesh.set_instance_shader_parameter("outline_enabled", false)
+		mesh.set_instance_shader_parameter("outline_enabled", _bool)
 
 	elif animated_sprite:
-		animated_sprite.set_instance_shader_parameter("outline_enabled", false)
+		animated_sprite.set_instance_shader_parameter("outline_enabled", _bool)
+
+
+func _on_action_trigger_action_ended():
+	if checking_input:
+		force_outline(true)
