@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://ci03pn6fm334w" path="res://assets/2d/interface/ui_frame.png" id="2_nvxsd"]
 [ext_resource type="Script" uid="uid://3y7a5ff2yu73" path="res://scenes/interface/game_ui_overlay/dialogue_frame_manager.gd" id="3_em4qa"]
 [ext_resource type="PackedScene" uid="uid://b83qn60b328wo" path="res://scenes/interface/task_bar/task_bar.tscn" id="3_nvxsd"]
+[ext_resource type="PackedScene" uid="uid://c1gekpuprqfig" path="res://scenes/interface/focus_playground/focus_playground.tscn" id="3_tmmwq"]
 [ext_resource type="Texture2D" uid="uid://4bqn264unoo6" path="res://assets/2d/interface/dialogue/ui_frame_dialogue_anim/frame_dialogue_1.png" id="5_tmmwq"]
 [ext_resource type="Texture2D" uid="uid://dx11r6kq6fcra" path="res://assets/2d/interface/dialogue/ui_frame_dialogue_anim/frame_dialogue_2.png" id="6_fii5u"]
 [ext_resource type="Texture2D" uid="uid://chyi26028kph6" path="res://assets/2d/interface/dialogue/ui_frame_dialogue_anim/frame_dialogue_3.png" id="7_qsdsa"]
@@ -97,6 +98,8 @@ offset_bottom = -39.0
 metadata/_edit_lock_ = true
 
 [node name="InteractionOverlay" parent="." unique_id=18139440 instance=ExtResource("1_nospc")]
+
+[node name="FocusPlayground" parent="." unique_id=1596230636 instance=ExtResource("3_tmmwq")]
 
 [node name="DialogueFrameManager" type="Control" parent="." unique_id=495897116]
 layout_mode = 3

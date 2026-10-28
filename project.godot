@@ -49,6 +49,7 @@ enabled=PackedStringArray("res://addons/Hidefolders/plugin.cfg", "res://addons/a
 hands_overlay=""
 interaction_overlay=""
 ground_areas=""
+focus_playground=""
 
 [gui]
 
@@ -171,6 +172,7 @@ locale/translations_pot_files=PackedStringArray("res://scenes/interface/interact
 
 [layer_names]
 
+3d_render/layer_10="focused"
 3d_physics/layer_2="interactables"
 3d_physics/layer_3="player"
 

@@ -10,8 +10,12 @@ var decay_speed: float = 2.0
 var slot: InventorySlot
 
 var focus_requested: bool = false
+var focus_playground: FocusPlayground
+
 
 func _ready() -> void:
+	focus_playground = get_tree().get_first_node_in_group("focus_playground")
+
 	slot = get_parent() as InventorySlot
 	visible = false
 	setup_bar()
@@ -51,4 +55,5 @@ func setup_bar() -> void:
 
 func request_focus() -> void:
 	focus_requested = true
+	focus_playground.focus_requested.emit()
 	print("focus")
