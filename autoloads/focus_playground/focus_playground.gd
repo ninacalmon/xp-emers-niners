@@ -3,8 +3,10 @@ extends Control
 signal focus(_bool: bool)
 
 const SENSITIVITY: float = 0.005
-
 @export var fade_speed: float = 0.9
+@export var arcball_radius: float = 250.0
+@export var rotation_speed: float = 1.0
+
 @onready var blur_c_rect: ColorRect = $BlurCRect
 @onready var item_mesh_3d: MeshInstance3D = $SubViewport/MeshInstance3D
 
@@ -14,6 +16,7 @@ var is_focused: bool = false
 var focused_item: ItemRes
 var focused_item_slot_idx: int
 
+var _last_arcball_vec: Vector3 = Vector3.ZERO
 
 func _ready() -> void:
 	blur_c_rect.modulate.a = 0
@@ -97,14 +100,35 @@ func _input(event: InputEvent) -> void:
 		disable_focus()
 
 	if event.is_action("lmb"):
-		print("clicl")
 		try_and_combine()
 
 	if event is InputEventMouseButton:
 		var button: InputEventMouseButton = event
 		if button.button_index == MOUSE_BUTTON_RIGHT:
 			_dragging = button.pressed
+			if _dragging:
+				_last_arcball_vec = _get_arcball_vector(button.position)
 	elif event is InputEventMouseMotion and _dragging:
 		var motion: InputEventMouseMotion = event
-		item_mesh_3d.global_rotate(Vector3.UP, motion.relative.x * SENSITIVITY)
-		item_mesh_3d.global_rotate(Vector3.RIGHT, motion.relative.y * SENSITIVITY)
+		var current_vec: Vector3 = _get_arcball_vector(motion.position)
+		var axis: Vector3 = _last_arcball_vec.cross(current_vec)
+
+		if axis.length_squared() > 0.000001:
+			var angle: float = _last_arcball_vec.angle_to(current_vec) * rotation_speed
+			item_mesh_3d.global_rotate(axis.normalized(), angle)
+
+		_last_arcball_vec = current_vec
+
+		item_mesh_3d.transform = item_mesh_3d.transform.orthonormalized()
+
+
+func _get_arcball_vector(screen_pos: Vector2) -> Vector3:
+	var center: Vector2 = get_viewport_rect().size * 0.5
+	var p: Vector2 = (screen_pos - center) / arcball_radius
+	p.y = -p.y
+
+	var length_sq: float = p.length_squared()
+	if length_sq <= 1.0:
+		return Vector3(p.x, p.y, sqrt(1.0 - length_sq))
+
+	return Vector3(p.x, p.y, 0.0).normalized()
