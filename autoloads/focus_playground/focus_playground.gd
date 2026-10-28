@@ -34,7 +34,7 @@ func try_and_combine():
 	if focused_item.combining_item == combining_item:
 		InventoryManager.use_item(focused_item_slot_idx)
 		InventoryManager.use_item(combining_item_slot_idx)
-		InventoryManager.add_new_item(get_combined_item(), focused_item_slot_idx)
+		InventoryManager.add_new_item(get_combined_item(), true)
 		return true
 	else:
 		InventoryManager.tried_wrong_item(combining_item_slot_idx)
@@ -97,6 +97,7 @@ func _input(event: InputEvent) -> void:
 		disable_focus()
 
 	if event.is_action("lmb"):
+		print("clicl")
 		try_and_combine()
 
 	if event is InputEventMouseButton:
