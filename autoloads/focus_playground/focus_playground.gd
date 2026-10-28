@@ -4,6 +4,7 @@ signal focus(_bool: bool)
 
 const SENSITIVITY: float = 0.005
 
+@export var fade_speed: float = 0.9
 @onready var blur_c_rect: ColorRect = $BlurCRect
 @onready var item_mesh_3d: MeshInstance3D = $SubViewport/MeshInstance3D
 
@@ -86,7 +87,7 @@ func fade(_bool: bool):
 	else:
 		_val = 0
 
-	tween.tween_property(blur_c_rect, "modulate:a", _val, 0.8)
+	tween.tween_property(blur_c_rect, "modulate:a", _val, fade_speed)
 
 
 func _input(event: InputEvent) -> void:
