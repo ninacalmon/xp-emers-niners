@@ -9,6 +9,7 @@ const STEP_HEIGHT: float = 0.25
 @onready var head: Node3D = $Head
 
 var is_dialogue_locked: bool = false
+var is_focus_locked: bool = false
 
 #region ConfigVariables
 var h_mouse_sensitivity: float
@@ -23,12 +24,13 @@ func _ready() -> void:
 	## dialogue locking to make player static during dialogue! vvv
 	DialogueManager.dialogue_started.connect(func(_res): is_dialogue_locked = true)
 	DialogueManager.dialogue_ended.connect(func(_res): is_dialogue_locked = false)
+	FocusPlayground.focus.connect(func(_bool: bool): is_focus_locked = _bool)
 
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 
 
 func _input(event: InputEvent) -> void:
-	if is_dialogue_locked:
+	if is_dialogue_locked or is_focus_locked:
 		return
 
 	## NOTE: mouse capturing and freeing, temporary and for DEBUG ONLY!
@@ -46,7 +48,7 @@ func _input(event: InputEvent) -> void:
 
 
 func _physics_process(delta: float) -> void:
-	if is_dialogue_locked:
+	if is_dialogue_locked or is_focus_locked:
 		return
 
 	if not is_on_floor():
