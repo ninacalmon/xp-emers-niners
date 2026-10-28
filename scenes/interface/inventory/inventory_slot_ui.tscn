@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://24y8yucs0b77" path="res://scenes/interface/inventory/inventory_slot_ui.gd" id="1_5j1pa"]
 [ext_resource type="ButtonGroup" uid="uid://d316b2ljki2ev" path="res://resources/ui_resources/button_groups/inventory_slot_button_group.tres" id="1_62esn"]
+[ext_resource type="Script" uid="uid://bplm61v3eakb6" path="res://scenes/interface/inventory/focus_progress_bar.gd" id="3_6ulvo"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_u0ka6"]
 bg_color = Color(0, 0, 0, 0)
@@ -22,6 +23,21 @@ corner_radius_top_right = 3
 corner_radius_bottom_right = 3
 corner_radius_bottom_left = 3
 corner_detail = 5
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_cdpwx"]
+viewport_path = NodePath("SubViewport")
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_cdpwx"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
 
 [node name="InventorySlot" type="Control" unique_id=696426154]
 custom_minimum_size = Vector2(70, 70)
@@ -71,6 +87,7 @@ expand_mode = 3
 stretch_mode = 5
 
 [node name="RichTextLabel" type="RichTextLabel" parent="HBoxContainer" unique_id=958535498]
+modulate = Color(1, 1, 1, 0)
 layout_mode = 2
 theme_override_colors/default_color = Color(1, 1, 1, 1)
 bbcode_enabled = true
@@ -79,3 +96,23 @@ text = "segure[img=50,center, bottom]res://assets/2d/interface/kenney_input_prom
 fit_content = true
 autowrap_mode = 0
 vertical_alignment = 1
+
+[node name="FocusProgressBar" type="TextureProgressBar" parent="." unique_id=69529781]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+step = 0.001
+fill_mode = 5
+texture_progress = SubResource("ViewportTexture_cdpwx")
+script = ExtResource("3_6ulvo")
+
+[node name="SubViewport" type="SubViewport" parent="." unique_id=694025527]
+transparent_bg = true
+size = Vector2i(70, 70)
+
+[node name="Panel" type="Panel" parent="SubViewport" unique_id=1435764755]
+custom_minimum_size = Vector2(70, 70)
+custom_maximum_size = Vector2(70, 70)
+offset_right = 40.0
+offset_bottom = 40.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_cdpwx")
