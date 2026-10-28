@@ -8,7 +8,6 @@ const SENSITIVITY: float = 0.005
 @onready var blur_c_rect: ColorRect = $BlurCRect
 @onready var item_mesh_3d: MeshInstance3D = $SubViewport/MeshInstance3D
 
-
 var _dragging: bool = false
 var is_focused: bool = false
 
@@ -41,7 +40,6 @@ func try_and_combine():
 		InventoryManager.tried_wrong_item(combining_item_slot_idx)
 
 
-
 func get_combined_item() -> ItemRes:
 	focused_item.texture = focused_item.combined_texture
 	#focused_item.mesh = focused_item.combined_mesh
@@ -51,12 +49,11 @@ func get_combined_item() -> ItemRes:
 	return focused_item
 
 
-
 func enable_focus():
 	if is_focused:
 		return
 
-	#Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
+	Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
 	is_focused = true
 	focus.emit(true)
 	focused_item = InventoryManager.selected_item
@@ -65,10 +62,12 @@ func enable_focus():
 
 	fade(true)
 
+
 func disable_focus():
 	if not is_focused:
 		return
 
+	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 	is_focused = false
 	focus.emit(false)
 	focused_item = null

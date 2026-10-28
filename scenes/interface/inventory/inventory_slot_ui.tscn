@@ -59,6 +59,7 @@ alignment = 1
 [node name="ButtonSlot" type="Button" parent="HBoxContainer" unique_id=90551678]
 custom_minimum_size = Vector2(70, 70)
 layout_mode = 2
+mouse_filter = 2
 theme_override_styles/normal = SubResource("StyleBoxFlat_u0ka6")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_ayg7c")
 toggle_mode = true

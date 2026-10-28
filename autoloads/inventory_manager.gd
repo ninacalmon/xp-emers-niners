@@ -57,7 +57,8 @@ func change_slot(direction: int):
 ## storaging the new_item inside it.
 func add_new_item(new_item: ItemRes, combining: bool = false):
 	for i in range(inventory_size):
-		if inventory_slots[i] == null or (combining and i == FocusPlayground.focused_item_slot_idx):
+		if (not combining and inventory_slots[i] == null) or \
+		(combining and i == FocusPlayground.focused_item_slot_idx):
 			#print(combining)
 			inventory_slots[i] = new_item
 			print(i, " ", new_item)
@@ -65,6 +66,8 @@ func add_new_item(new_item: ItemRes, combining: bool = false):
 			print("new item here: ", i)
 			if i == selected_slot_idx:
 				selected_item = inventory_slots[i]
+			elif combining:
+				change_slot(i - selected_slot_idx)
 			return
 
 	## this part runs only if no avaiable slot were found.

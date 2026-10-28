@@ -20,7 +20,6 @@ var is_showing_dialogue: bool = false
 @onready var balloon: DialogueManagerExampleBalloon 
 
 
-
 func trigger():
 	if is_showing_dialogue:
 		return
@@ -35,6 +34,7 @@ func ray_enter():
 
 func ray_exit():
 	ray_exited.emit()
+
 
 
 func _ready() -> void:
@@ -59,6 +59,7 @@ func _on_dialogue_started(resource: DialogueResource):
 	is_showing_dialogue = true
 	if resource == dialogue_res:
 		dialogue_started.emit()
+
 
 
 func _on_dialog_ended(resource: DialogueResource):

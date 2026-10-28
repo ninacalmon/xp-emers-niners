@@ -9,12 +9,18 @@ const SHOW_DELAY: float = 0.5
 const FADE_DURATION: float = 0.2
 const VISIBLE_DURATION: float = 3.0
 
+const SHAKE_OFFSET: float = 8.0
+const SHAKE_STEP: float = 0.04
+
 @onready var button_slot: Button = $HBoxContainer/ButtonSlot
 @onready var center_container: CenterContainer = $HBoxContainer/ButtonSlot/CenterContainer
 @onready var item_texture: TextureRect = $HBoxContainer/ButtonSlot/CenterContainer/ItemTexture
 @onready var rich_text_label: RichTextLabel = $HBoxContainer/RichTextLabel
 
 var _label_tween: Tween
+
+var _shake_tween: Tween
+var _shake_origin: Vector2
 
 
 @export var item: ItemRes:
@@ -32,16 +38,20 @@ func update_slot():
 
 
 func shake_slot() -> void:
-	var origin: Vector2 = center_container.position
-	var tween: Tween = create_tween()
-	tween.tween_property(center_container, "position", origin + Vector2(8, 0), 0.04)
-	tween.tween_property(center_container, "position", origin + Vector2(-8, 0), 0.04)
-	tween.tween_property(center_container, "position", origin + Vector2(8, 0), 0.04)
-	tween.tween_property(center_container, "position", origin + Vector2(-8, 0), 0.04)
-	tween.tween_property(center_container, "position", origin, 0.04)
+	if _shake_tween != null and _shake_tween.is_valid():
+		_shake_tween.kill()
+	center_container.position = _shake_origin
+
+	_shake_tween = create_tween()
+	_shake_tween.tween_property(center_container, "position", _shake_origin + Vector2(SHAKE_OFFSET, 0.0), SHAKE_STEP)
+	_shake_tween.tween_property(center_container, "position", _shake_origin + Vector2(-SHAKE_OFFSET, 0.0), SHAKE_STEP)
+	_shake_tween.tween_property(center_container, "position", _shake_origin + Vector2(SHAKE_OFFSET, 0.0), SHAKE_STEP)
+	_shake_tween.tween_property(center_container, "position", _shake_origin + Vector2(-SHAKE_OFFSET, 0.0), SHAKE_STEP)
+	_shake_tween.tween_property(center_container, "position", _shake_origin, SHAKE_STEP)
 
 
 func _ready() -> void:
+	_shake_origin = center_container.position
 	button_slot.toggled.connect(_on_button_slot_toggled)
 	rich_text_label.modulate.a = 1.0 if button_slot.button_pressed else 0.0
 

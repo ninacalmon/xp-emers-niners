@@ -15,7 +15,6 @@ viewport_path = NodePath("SubViewport")
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_33hsx"]
 
 [node name="FocusPlayground" type="Control" unique_id=1596230636 groups=["focus_playground"]]
-z_index = 1
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
