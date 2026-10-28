@@ -1,15 +1,5 @@
 import "uid://djib057op7qt5" as julio_poison
 
-~ start
-Julio: Olá, amigo.
-Julio: Estamos testando a nova UI de diálogo?
-
-- Sim.
-	Olá! Estamos sim. Este sou eu falando.
-	Meu papalzinho é preto.
-	Julio: Legal, o meu é branco...
-- Não.
-
 => END!
 match CharacterData.Julio.get_status("remedy_for_lucio"):
 	when 0:
