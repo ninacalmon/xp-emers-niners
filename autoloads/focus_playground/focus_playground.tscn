@@ -1,10 +1,10 @@
 [gd_scene format=3 uid="uid://c1gekpuprqfig"]
 
-[ext_resource type="Script" uid="uid://c513mvanth1sg" path="res://scenes/interface/focus_playground/focus_playground.gd" id="1_33hsx"]
-[ext_resource type="Shader" uid="uid://k5k3sfidw42d" path="res://resources/shaders/blur.gdshader" id="1_caoyh"]
+[ext_resource type="Script" uid="uid://c513mvanth1sg" path="res://autoloads/focus_playground/focus_playground.gd" id="1_057li"]
+[ext_resource type="Shader" uid="uid://k5k3sfidw42d" path="res://resources/shaders/blur.gdshader" id="2_vreke"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_ksdio"]
-shader = ExtResource("1_caoyh")
+shader = ExtResource("2_vreke")
 shader_parameter/blur_lod = 3.5
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_xrivr"]
@@ -21,7 +21,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_33hsx")
+script = ExtResource("1_057li")
 
 [node name="BlurCRect" type="ColorRect" parent="." unique_id=512982508]
 material = SubResource("ShaderMaterial_ksdio")

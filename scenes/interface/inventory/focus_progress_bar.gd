@@ -10,19 +10,19 @@ var decay_speed: float = 2.0
 var slot: InventorySlot
 
 var focus_requested: bool = false
-var focus_playground: FocusPlayground
 
+var self_is_focused: bool = false
+var focus_mode_on: bool = false
 
 func _ready() -> void:
-	focus_playground = get_tree().get_first_node_in_group("focus_playground")
-
+	FocusPlayground.focus.connect(_on_playground_focused)
 	slot = get_parent() as InventorySlot
 	visible = false
 	setup_bar()
 
 
 func _process(delta: float) -> void:
-	if not slot.button_slot.button_pressed:
+	if not slot.button_slot.button_pressed or focus_mode_on:
 		return
 
 	var holding: bool = Input.is_action_pressed("focus_item")
@@ -53,7 +53,11 @@ func setup_bar() -> void:
 	value = hold_time
 
 
-func request_focus() -> void:
+func request_focus():
 	focus_requested = true
-	focus_playground.focus_requested.emit()
-	print("focus")
+	if FocusPlayground.focus_request():
+		self_is_focused = true
+
+
+func _on_playground_focused(_bool: bool):
+	focus_mode_on = _bool

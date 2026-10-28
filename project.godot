@@ -30,6 +30,7 @@ DialogueData="*uid://tjbeqbolh7r"
 LoadingManager="*uid://dj27kviu1ngr3"
 TaskManager="*uid://q5bhsivqyeol"
 CharacterData="*uid://1ln1203ajov2"
+FocusPlayground="*uid://c1gekpuprqfig"
 
 [display]
 
