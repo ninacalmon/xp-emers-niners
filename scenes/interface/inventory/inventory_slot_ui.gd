@@ -25,7 +25,8 @@ var _label_tween: Tween
 func update_slot():
 	if item:
 		item_texture.texture = item.texture
-		_show_label()
+		if button_slot.button_pressed:
+			_show_label()
 	else:
 		item_texture.texture = null
 
@@ -44,7 +45,11 @@ func _ready() -> void:
 	button_slot.toggled.connect(_on_button_slot_toggled)
 	rich_text_label.modulate.a = 1.0 if button_slot.button_pressed else 0.0
 
+
 func _on_button_slot_toggled(toggled_on: bool) -> void:
+	if FocusPlayground.is_focused:
+		return
+
 	if toggled_on and item:
 		_show_label()
 	else:

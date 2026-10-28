@@ -20,3 +20,12 @@ extends Resource
 
 ## texture will be the [Texture2D] used in the inventory UI and also as sprite in the game world.
 @export var texture: Texture2D
+
+
+## combining_item is the item to combine in focus mode.
+@export var combining_item: ItemRes = null
+
+@export var combining_id: StringName
+@export var combining_name_tr_key: String
+@export var combined_texture: Texture2D
+#@export var combined_mesh 

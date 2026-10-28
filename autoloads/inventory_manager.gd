@@ -55,14 +55,23 @@ func change_slot(direction: int):
 
 ## this function passes by every slot on inventory, looking for the first empty spot and
 ## storaging the new_item inside it.
-func add_new_item(new_item: ItemRes):
+func add_new_item(new_item: ItemRes, combining: bool = false):
+	if combining:
+		var idx = FocusPlayground.focused_item_slot_idx
+		inventory_slots[idx] = null
+		inventory_slots[idx] = new_item
+		inventory_item_changed.emit(idx)
+		if idx == selected_slot_idx:
+			selected_item = inventory_slots[idx]
+		return
+
 	for i in range(inventory_size):
 		if inventory_slots[i] == null:
 			inventory_slots[i] = new_item
 			inventory_item_changed.emit(i)
 			print("new item here: ", i)
-			if i == selected_slot_idx:
-				selected_item = inventory_slots[i]
+		if i == selected_slot_idx:
+			selected_item = inventory_slots[i]
 			return
 
 	## this part runs only if no avaiable slot were found.
@@ -70,13 +79,13 @@ func add_new_item(new_item: ItemRes):
 	print("sem espaço no inventário.")
 
 
-func use_item():
-	var item: ItemRes = inventory_slots[selected_slot_idx]
+func use_item(idx: int = selected_slot_idx):
+	var item: ItemRes = inventory_slots[idx]
 
 	if item.permanent:
 		return
 
-	discard(selected_slot_idx)
+	discard(idx)
 
 
 func discard(slot_idx: int):
@@ -90,5 +99,13 @@ func discard(slot_idx: int):
 		selected_item = inventory_slots[slot_idx]
 
 
-func tried_wrong_item():
-	wrong_item.emit(selected_slot_idx)
+func combine():
+	use_item(FocusPlayground.focused_item_slot_idx)
+	use_item()
+	add_new_item(FocusPlayground.combine())
+	return true
+
+
+
+func tried_wrong_item(idx: int = selected_slot_idx):
+	wrong_item.emit(idx)
