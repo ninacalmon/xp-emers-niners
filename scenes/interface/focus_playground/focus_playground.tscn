@@ -1,20 +1,29 @@
 [gd_scene format=3 uid="uid://c1gekpuprqfig"]
 
+[ext_resource type="Script" uid="uid://c513mvanth1sg" path="res://scenes/interface/focus_playground/focus_playground.gd" id="1_33hsx"]
 [ext_resource type="Shader" uid="uid://k5k3sfidw42d" path="res://resources/shaders/blur.gdshader" id="1_caoyh"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_ksdio"]
 shader = ExtResource("1_caoyh")
 shader_parameter/blur_lod = 3.5
 
-[node name="FocusPlayground" type="Control" unique_id=1596230636]
+[sub_resource type="ViewportTexture" id="ViewportTexture_xrivr"]
+viewport_path = NodePath("SubViewport")
+
+[sub_resource type="BoxMesh" id="BoxMesh_xrivr"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_33hsx"]
+
+[node name="FocusPlayground" type="Control" unique_id=1596230636 groups=["focus_playground"]]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_33hsx")
 
-[node name="ColorRect" type="ColorRect" parent="." unique_id=512982508]
+[node name="BlurCRect" type="ColorRect" parent="." unique_id=512982508]
 material = SubResource("ShaderMaterial_ksdio")
 layout_mode = 1
 anchors_preset = 15
@@ -22,3 +31,62 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
+color = Color(1, 1, 1, 0)
+
+[node name="CenterContainer" type="CenterContainer" parent="BlurCRect" unique_id=899684553]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="TextureRect" type="TextureRect" parent="BlurCRect/CenterContainer" unique_id=2028512328]
+layout_mode = 2
+texture = SubResource("ViewportTexture_xrivr")
+
+[node name="SubViewport" type="SubViewport" parent="." unique_id=1821175945]
+transparent_bg = true
+handle_input_locally = false
+render_target_update_mode = 4
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="SubViewport" unique_id=806649699]
+transform = Transform3D(1, 0, 0, 0, 0.91802067, -0.39653257, 0, 0.39653257, 0.91802067, 0, 0, 0)
+layers = 512
+cast_shadow = 0
+mesh = SubResource("BoxMesh_xrivr")
+surface_material_override/0 = SubResource("StandardMaterial3D_33hsx")
+
+[node name="Camera3D" type="Camera3D" parent="SubViewport" unique_id=1080977402]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.18875432, 2.2296114)
+cull_mask = 512
+
+[node name="Lights" type="Node3D" parent="SubViewport" unique_id=1113270910]
+
+[node name="KeyLight" type="SpotLight3D" parent="SubViewport/Lights" unique_id=720887551]
+transform = Transform3D(0.91966534, -4.440892e-16, -0.39270303, 0.07540774, 0.9813906, 0.17659625, 0.38539505, -0.19202231, 0.9025509, -1.9619832, 0.59379816, 3.4050393)
+layers = 512
+light_energy = 3.375
+spot_range = 4.114
+spot_attenuation = 0.22
+
+[node name="FillLight" type="SpotLight3D" parent="SubViewport/Lights" unique_id=1545625679]
+transform = Transform3D(0.8577985, -0.15414329, 0.49032813, 0.07540775, 0.98139066, 0.17659627, -0.5084245, -0.11450947, 0.85345894, 2.467955, 0.59379816, 3.4063945)
+layers = 512
+light_energy = 2.0
+
+[node name="RimLight" type="SpotLight3D" parent="SubViewport/Lights" unique_id=957220787]
+transform = Transform3D(-1, 3.65575e-15, 8.7422755e-08, 3.9508492e-08, 0.89205617, 0.4519245, -7.7986016e-08, 0.4519245, -0.89205617, 0, 2.6522634, -1.4370193)
+layers = 512
+light_energy = 3.0
+spot_range = 13.255
+spot_attenuation = 2.72
+spot_angle = 68.74986
+
+[node name="OmniLight3D" type="OmniLight3D" parent="SubViewport/Lights" unique_id=479283700]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.237011, -1.2699603)
+layers = 512
+light_energy = 4.625
+omni_range = 25.381
