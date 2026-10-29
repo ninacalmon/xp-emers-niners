@@ -9,6 +9,9 @@ const SENSITIVITY: float = 0.005
 
 @onready var blur_c_rect: ColorRect = $BlurCRect
 @onready var item_mesh_3d: MeshInstance3D = $SubViewport/MeshInstance3D
+@onready var follow_mouse_spr: Sprite2D = $BlurCRect/FollowMouseSpr
+@onready var exit_tex_button: TextureButton = $BlurCRect/MarginContainer/VBoxContainer/ExitTexButton
+
 
 var _dragging: bool = false
 var is_focused: bool = false
@@ -18,8 +21,13 @@ var focused_item_slot_idx: int
 
 var _last_arcball_vec: Vector3 = Vector3.ZERO
 
+var tex_follow_mouse: bool = false
+
 func _ready() -> void:
 	blur_c_rect.modulate.a = 0
+
+	InventoryManager.selected_item_changed.connect(_on_inventory_selected_object_changed)
+	exit_tex_button.pressed.connect(disable_focus)
 
 
 func focus_request() -> bool:
@@ -71,6 +79,7 @@ func disable_focus():
 		return
 
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
+	InventoryManager.change_slot(focused_item_slot_idx - InventoryManager.selected_slot_idx)
 	is_focused = false
 	focus.emit(false)
 	focused_item = null
@@ -99,15 +108,14 @@ func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("ui_cancel"):
 		disable_focus()
 
-	if event.is_action("lmb"):
+	if event.is_action("focus_combine_item"):
 		try_and_combine()
 
 	if event is InputEventMouseButton:
 		var button: InputEventMouseButton = event
-		if button.button_index == MOUSE_BUTTON_RIGHT:
-			_dragging = button.pressed
-			if _dragging:
-				_last_arcball_vec = _get_arcball_vector(button.position)
+		_dragging = button.is_action_pressed("focus_rotate_item")
+		if _dragging:
+			_last_arcball_vec = _get_arcball_vector(button.position)
 	elif event is InputEventMouseMotion and _dragging:
 		var motion: InputEventMouseMotion = event
 		var current_vec: Vector3 = _get_arcball_vector(motion.position)
@@ -132,3 +140,30 @@ func _get_arcball_vector(screen_pos: Vector2) -> Vector3:
 		return Vector3(p.x, p.y, sqrt(1.0 - length_sq))
 
 	return Vector3(p.x, p.y, 0.0).normalized()
+
+
+func _on_inventory_selected_object_changed(item: ItemRes):
+	if not is_focused:
+		return
+
+	if item == focused_item or not item:
+		follow_mouse_spr.hide()
+		item_follow_mouse()
+		return
+
+	follow_mouse_spr.show()
+	item_follow_mouse(item.texture)
+
+
+func item_follow_mouse(item_tex: Texture2D = null):
+	follow_mouse_spr.texture = item_tex
+
+
+func _process(_delta: float) -> void:
+	follow_mouse_spr.global_position = get_global_mouse_position()
+
+
+func attach_to_slot(slot: Control) -> void:
+	if get_parent() != null:
+		get_parent().remove_child(self)
+	slot.add_child(self)
