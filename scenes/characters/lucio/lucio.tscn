@@ -56,6 +56,7 @@ debug_color = Color(0.78039217, 0.6, 0.7019608, 0.41960785)
 script = ExtResource("2_gbimr")
 character_name = "Lucio"
 dialogue_res = ExtResource("3_e7h64")
+is_chatting = true
 
 [node name="CharacterSpriteHandler" type="Node" parent="." unique_id=961269039 node_paths=PackedStringArray("animated_sprite", "dialogue_action")]
 script = ExtResource("4_k0wxe")
