@@ -200,10 +200,10 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 33.12908, 0, 0)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 78.968834, 0.9691608, -5.7140827)
 
 [node name="Julio" parent="Characters" unique_id=1615518148 instance=ExtResource("7_gb53w")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 29.789732, 1.5026748, -4.321762)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 29.789732, 1.5026748, 2.4989138)
 
 [node name="Lucio" parent="Characters" unique_id=1730430442 instance=ExtResource("8_5qq27")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 67.99336, 1.0073677, 2.5791483)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 29.015802, 1.5068, 2.3516684)
 
 [node name="Sanson" parent="Characters" unique_id=1975172536 instance=ExtResource("9_dlabj")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 40.347553, 1.4971457, 0.94463813)
