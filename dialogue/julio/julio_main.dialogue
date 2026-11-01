@@ -1,4 +1,4 @@
-import "uid://4rnw0u51426k" as remedy_for_lucio
+import "uid://4rnw0u51426k" as medication_for_lucio
 import "uid://djib057op7qt5" as get_poison
 
 Julio: Olá amigo. Eu falo da esquerda.
@@ -8,8 +8,8 @@ Julio: Beleza! Tchau.
 
 ~ start
 
-if CharacterData.Julio.get_status("remedy_for_lucio") != 2:
-	=> remedy_for_lucio/start
+if CharacterData.Julio.get_status("medication_for_lucio") != 2:
+	=> medication_for_lucio/start
 elif CharacterData.Julio.get_status("get_poison") != 2:
 	=> get_poison/start
 => END

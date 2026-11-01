@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://bqyhv0yuttcvs" path="res://scenes/item_focus_view/item_focus_view.gd" id="1_e76ir"]
 [ext_resource type="PackedScene" uid="uid://3ke0t8mctl7h" path="res://assets/3d/items/candle/candle.tscn" id="2_e76ir"]
 
-[node name="CandleFocusView" type="Node3D" unique_id=1453891134 node_paths=PackedStringArray("item_mesh")]
+[node name="FocusView" type="Node3D" unique_id=1453891134 node_paths=PackedStringArray("item_mesh")]
 script = ExtResource("1_e76ir")
 item_mesh = NodePath("candle")
 

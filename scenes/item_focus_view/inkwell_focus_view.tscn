@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://bqyhv0yuttcvs" path="res://scenes/item_focus_view/item_focus_view.gd" id="1_f25mm"]
 [ext_resource type="PackedScene" uid="uid://bo0yitv0382lx" path="res://assets/3d/items/inkwell/inkwell.tscn" id="2_f25mm"]
 
-[node name="InkwellFocusView" type="Node3D" unique_id=1453891134 node_paths=PackedStringArray("item_mesh")]
+[node name="FocusView" type="Node3D" unique_id=1453891134 node_paths=PackedStringArray("item_mesh")]
 script = ExtResource("1_f25mm")
 item_mesh = NodePath("inkwell")
 

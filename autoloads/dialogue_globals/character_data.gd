@@ -38,7 +38,7 @@ class TaskOwner:
 class JulioData extends TaskOwner:
 	func _init() -> void:
 		tasks = {
-			"remedy_for_lucio": {
+			"medication_for_lucio": {
 				"status": [false, false],
 				"txt": "Leve remédio para Lucio e retorne.",
 			},
@@ -78,7 +78,7 @@ class SansonData extends TaskOwner:
 
 
 class ItemData:
-	var remedy: ItemRes = preload("uid://bkc7dx8duiasn")
+	var medication: ItemRes = preload("uid://bkc7dx8duiasn")
 	var poison: ItemRes = preload("uid://s1b5gx6p2rg1")
 	var flower: ItemRes = preload("uid://dltn5dox1dd8c")
 	var astrolabus: = preload("uid://3c0ta31odhc6")
