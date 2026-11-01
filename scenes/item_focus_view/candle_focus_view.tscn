@@ -42,4 +42,16 @@ light_energy = 4.625
 omni_range = 5.081
 
 [node name="candle" parent="." unique_id=752277995 instance=ExtResource("2_e76ir")]
-transform = Transform3D(0.8477233, 0.013225705, -0.5302738, -0.054498427, 0.9965703, -0.062268265, 0.5276317, 0.08168532, 0.84553653, 0, -0.08070922, 0)
+transform = Transform3D(0.8477233, 0.013225705, -0.5302738, -0.054498427, 0.9965703, -0.062268265, 0.5276317, 0.08168532, 0.84553653, 0, 0, 0)
+
+[node name="Candle" parent="candle" index="0" unique_id=781616279]
+layers = 512
+surface_material_override/0 = null
+
+[node name="Line" parent="candle" index="1" unique_id=1092025889]
+layers = 512
+
+[node name="Point" parent="candle" index="2" unique_id=1324986836]
+layers = 512
+
+[editable path="candle"]

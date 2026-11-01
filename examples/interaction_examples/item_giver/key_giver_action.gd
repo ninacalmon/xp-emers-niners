@@ -7,6 +7,8 @@ func trigger():
 	InventoryManager.add_new_item(preload("uid://3c0ta31odhc6"))
 	InventoryManager.add_new_item(preload("uid://8dvrkoxmyyx4"))
 	InventoryManager.add_new_item(preload("uid://koxeqrufqjyl"))
+	InventoryManager.add_new_item(preload("uid://s1b5gx6p2rg1"))
+	InventoryManager.add_new_item(preload("uid://dltn5dox1dd8c"))
 
 
 func ray_enter():
