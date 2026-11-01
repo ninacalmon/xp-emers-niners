@@ -1,0 +1,31 @@
+[gd_scene format=3 uid="uid://bo0yitv0382lx"]
+
+[ext_resource type="PackedScene" uid="uid://yw4o4sibpoa1" path="res://assets/3d/items/inkwell/inkwell.glb" id="1_ls7w5"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_wtswk"]
+transparency = 2
+alpha_scissor_threshold = 0.5
+alpha_antialiasing_mode = 0
+albedo_color = Color(1, 1, 1, 0)
+roughness = 0.1
+refraction_enabled = true
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4nrue"]
+albedo_color = Color(0.0445, 0.025999999, 0.1, 1)
+roughness = 0.0
+
+[node name="inkwell" unique_id=1029120835 instance=ExtResource("1_ls7w5")]
+
+[node name="Cap" parent="." index="0" unique_id=1458592210]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -0.00023842731, 0.1210243, -0.00016841444)
+
+[node name="Glass" parent="." index="1" unique_id=1820851040]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 0.00063228095, 0, -0.00027823608)
+surface_material_override/0 = SubResource("StandardMaterial3D_wtswk")
+
+[node name="Inside" parent="." index="2" unique_id=1536364687]
+transform = Transform3D(-4.421149e-08, 0, -1.011441, 0, 1.011441, 0, 1.011441, 0, -4.421149e-08, 0.00063228095, 0, -0.00027823608)
+surface_material_override/0 = SubResource("StandardMaterial3D_4nrue")
+
+[node name="Sticker" parent="." index="3" unique_id=1156705681]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 0.0008694956, 0, 0.0016024933)

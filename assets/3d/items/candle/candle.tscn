@@ -28,17 +28,7 @@ roughness_texture = SubResource("NoiseTexture2D_4gr2r")
 subsurf_scatter_enabled = true
 subsurf_scatter_strength = 1.0
 
-[node name="candle" unique_id=752277995 instance=ExtResource("1_4gr2r")]
+[node name="candle" unique_id=459729295 instance=ExtResource("1_4gr2r")]
 
-[node name="Candle" parent="." index="0" unique_id=1535147609]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.006289224, -0.4317842, 0)
-layers = 512
+[node name="Candle" parent="." index="0" unique_id=781616279]
 surface_material_override/0 = SubResource("StandardMaterial3D_45rj0")
-
-[node name="Line" parent="." index="1" unique_id=621819452]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.006289224, -0.4317842, 0)
-layers = 512
-
-[node name="Point" parent="." index="2" unique_id=1572181012]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.018757401, 0.39384353, 3.6785612e-05)
-layers = 512

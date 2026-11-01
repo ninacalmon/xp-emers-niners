@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="ItemRes" format=3 uid="uid://s1b5gx6p2rg1"]
+
+[ext_resource type="PackedScene" uid="uid://c4rp7p135u3mw" path="res://scenes/item_focus_view/inkwell_focus_view.tscn" id="1_vo1s0"]
+[ext_resource type="Script" uid="uid://doqkh62nh5of1" path="res://systems/items_resource/item_resource.gd" id="1_yp7c1"]
+[ext_resource type="Texture2D" uid="uid://dtfp4rnwqrh6r" path="res://assets/2d/interface/items_capture/inkwell.png" id="3_vo1s0"]
+
+[resource]
+script = ExtResource("1_yp7c1")
+id = &"inkwell"
+name_tr_key = "ITEM_INKWELL"
+texture = ExtResource("3_vo1s0")
+item_focus_view = ExtResource("1_vo1s0")
+metadata/_custom_type_script = "uid://doqkh62nh5of1"
