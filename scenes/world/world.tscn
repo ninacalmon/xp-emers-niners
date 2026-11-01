@@ -57,7 +57,6 @@ environment = SubResource("Environment_7378n")
 [node name="Camera3D" type="Camera3D" parent="WorldEnvironment" unique_id=1834340419]
 physics_interpolation_mode = 1
 transform = Transform3D(0.19090843, 0, -0.98160785, 0, 1, 0, 0.98160785, 0, 0.19090843, 29.108442, 4.747561, -15.426433)
-top_level = true
 cull_mask = 1048063
 
 [node name="PhantomCameraHost" type="Node" parent="WorldEnvironment/Camera3D" unique_id=845311130]
