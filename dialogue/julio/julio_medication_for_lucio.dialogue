@@ -1,7 +1,7 @@
 import "uid://djib057op7qt5" as julio_poison
 
 ~ start
-match CharacterData.Julio.get_status("remedy_for_lucio"):
+match CharacterData.Julio.get_status("medication_for_lucio"):
 	when 0:
 		=> give_task
 	when 1:
@@ -16,8 +16,8 @@ Julio: Ei!
 do DialogueData.set_mood("Julio", DialogueData.JulioMoods.SILLY_HAPPY)
 Julio: Faz um favor para mim? Leve este remédio para Lucio!
 Julio: Valeu!
-do CharacterData.Julio.give_task("remedy_for_lucio")
-do InventoryManager.add_new_item(CharacterData.Item.remedy)
+do CharacterData.Julio.give_task("medication_for_lucio")
+do InventoryManager.add_new_item(CharacterData.Item.medication)
 => END
 
 ~ waiting_completion
@@ -38,5 +38,5 @@ do DialogueData.set_mood("Julio", DialogueData.JulioMoods.SILLY_SURPRISED)
 Julio: UAU!
 do DialogueData.set_mood("Julio", DialogueData.JulioMoods.INTENSE_HAPPY)
 Julio: Você trouxe mesmo... obrigado hehe :)
-do CharacterData.Julio.complete_task("remedy_for_lucio")
+do CharacterData.Julio.complete_task("medication_for_lucio")
 => julio_poison/start

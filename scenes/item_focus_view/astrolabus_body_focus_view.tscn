@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://bqyhv0yuttcvs" path="res://scenes/item_focus_view/item_focus_view.gd" id="1_e1wqh"]
 [ext_resource type="PackedScene" uid="uid://dvqw4lptsejty" path="res://assets/3d/items/astrolabus/astrolabus_body.glb" id="2_hrh2w"]
 
-[node name="AstrolabusBodyFocusView" type="Node3D" unique_id=1453891134 node_paths=PackedStringArray("item_mesh")]
+[node name="FocusView" type="Node3D" unique_id=1453891134 node_paths=PackedStringArray("item_mesh")]
 script = ExtResource("1_e1wqh")
 item_mesh = NodePath("astrolabus")
 

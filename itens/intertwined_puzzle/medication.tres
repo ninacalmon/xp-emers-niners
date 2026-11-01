@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="ItemRes" format=3 uid="uid://bkc7dx8duiasn"]
+
+[ext_resource type="Script" uid="uid://doqkh62nh5of1" path="res://systems/items_resource/item_resource.gd" id="1_kh6ld"]
+[ext_resource type="PackedScene" uid="uid://dxol706uca0yp" path="res://scenes/item_focus_view/medication_focus_view.tscn" id="1_p8cw6"]
+[ext_resource type="Texture2D" uid="uid://dtcfnjb8vemw5" path="res://assets/2d/interface/items_capture/medication.png" id="3_p8cw6"]
+
+[resource]
+script = ExtResource("1_kh6ld")
+id = &"medication"
+name_tr_key = "ITEM_MEDICATION"
+texture = ExtResource("3_p8cw6")
+item_focus_view = ExtResource("1_p8cw6")
+metadata/_custom_type_script = "uid://doqkh62nh5of1"

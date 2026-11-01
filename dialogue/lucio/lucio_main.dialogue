@@ -1,11 +1,11 @@
-import "uid://bjj8v02n0vgan" as remedy_for_lucio
+import "uid://bjj8v02n0vgan" as medication_for_lucio
 
 ~ start
 if CharacterData.Julio.lucio_received_medicine:
 	=> thanks
-elif CharacterData.Julio.get_status("remedy_for_lucio") == 1:
+elif CharacterData.Julio.get_status("medication_for_lucio") == 1:
 	=>< greetings
-	=> remedy_for_lucio/start
+	=> medication_for_lucio/start
 else:
 	Lucio: Olá.
 => END
