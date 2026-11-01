@@ -2,20 +2,20 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://mo2wb8wlmkpq"
-path.s3tc="res://.godot/imported/astrolabus_body_astrolabe_mater.png-a3b0862c571ab0e725becd5081eca2c6.s3tc.ctex"
+uid="uid://ct4niayh0wgtb"
+path.s3tc="res://.godot/imported/astrolabus_pointer_astrolabe_rule.png-44f60bdb83e8ce008498c3dfe55b457d.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
 }
 generator_parameters={
-"md5": "108724ca8a058982a32e87675f5d8e6b"
+"md5": "39b5523dd8786ba09e785f9f040401b6"
 }
 
 [deps]
 
-source_file="res://assets/3d/scenery/itens/astrolabus_body_astrolabe_mater.png"
-dest_files=["res://.godot/imported/astrolabus_body_astrolabe_mater.png-a3b0862c571ab0e725becd5081eca2c6.s3tc.ctex"]
+source_file="res://assets/3d/items/astrolabus/astrolabus_pointer_astrolabe_rule.png"
+dest_files=["res://.godot/imported/astrolabus_pointer_astrolabe_rule.png-44f60bdb83e8ce008498c3dfe55b457d.s3tc.ctex"]
 
 [params]
 

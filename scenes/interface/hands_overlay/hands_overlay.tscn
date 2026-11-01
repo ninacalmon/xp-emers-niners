@@ -112,9 +112,8 @@ position = Vector2(372, 881)
 
 [node name="ItemSpr" type="Sprite2D" parent="ItemAnimTrack" unique_id=328153989]
 z_index = -1
-position = Vector2(94.5, 0)
+position = Vector2(112, -52.000004)
 rotation = -0.34906584
-scale = Vector2(2.226563, 2.226563)
 texture = ExtResource("2_y28gv")
 
 [node name="HandAnimationPlayer" type="AnimationPlayer" parent="." unique_id=1244864455]

@@ -1,11 +1,13 @@
 [gd_resource type="Resource" script_class="ItemRes" format=3 uid="uid://8dvrkoxmyyx4"]
 
-[ext_resource type="Script" uid="uid://doqkh62nh5of1" path="res://systems/itens_resource/item_resource.gd" id="1_mi885"]
-[ext_resource type="Texture2D" uid="uid://db76tn6ecafjq" path="res://assets/placeholders/astro2_feio.png" id="2_vl434"]
+[ext_resource type="PackedScene" uid="uid://lm0eryfbbq1k" path="res://scenes/item_focus_view/astrolabus_pointer_focus_view.tscn" id="1_0o3rc"]
+[ext_resource type="Script" uid="uid://doqkh62nh5of1" path="res://systems/items_resource/item_resource.gd" id="2_oixcm"]
+[ext_resource type="Texture2D" uid="uid://dnw7hcs6ydctf" path="res://assets/2d/interface/items_capture/astrolab_pointer.png" id="3_0o3rc"]
 
 [resource]
-script = ExtResource("1_mi885")
-id = &"astrolab_part"
-name_tr_key = "ITEM_ASTROLAB_PART"
-texture = ExtResource("2_vl434")
+script = ExtResource("2_oixcm")
+id = &"astrolab_pointer"
+name_tr_key = "ITEM_ASTROLAB_POINTER"
+texture = ExtResource("3_0o3rc")
+item_focus_view = ExtResource("1_0o3rc")
 metadata/_custom_type_script = "uid://doqkh62nh5of1"
