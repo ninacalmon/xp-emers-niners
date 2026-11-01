@@ -87,6 +87,10 @@ func enable_focus():
 
 	fade(true)
 
+	## WARNING: this function should only be activated if you wish to save a new capture
+	## of the item.
+	#save_viewport_png()
+
 
 func disable_focus():
 	if not is_focused:
@@ -204,3 +208,19 @@ func attach_to_slot(slot: Control) -> void:
 	if get_parent() != null:
 		get_parent().remove_child(self)
 	slot.add_child(self)
+
+
+## this function saves the sub_viewport render as a png.
+func save_viewport_png(dir_path: String = "res://assets/2d/interface/items_capture/") -> void:
+	sub_viewport.size = Vector2i(240, 240)
+	sub_viewport.render_target_update_mode = SubViewport.UPDATE_ONCE
+	await RenderingServer.frame_post_draw
+
+	DirAccess.make_dir_recursive_absolute(dir_path)
+
+	var img: Image = sub_viewport.get_texture().get_image()
+	var full_path: String = dir_path.path_join(focused_item.id + ".png")
+
+	var err: Error = img.save_png(full_path)
+	if err != OK:
+		push_error("Failed to save PNG: %s" % error_string(err))

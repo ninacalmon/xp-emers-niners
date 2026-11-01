@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://dvqw4lptsejty"
-path="res://.godot/imported/astrolabus.glb-2c0588cf8cc7a38c30c8e6066e8bbfdf.scn"
+path="res://.godot/imported/astrolabus_body.glb-6b678e89df44d37d6dd264fa5e89029e.scn"
 
 [deps]
 
-source_file="res://assets/3d/scenery/itens/astrolabus.glb"
-dest_files=["res://.godot/imported/astrolabus.glb-2c0588cf8cc7a38c30c8e6066e8bbfdf.scn"]
+source_file="res://assets/3d/scenery/itens/astrolabus_body.glb"
+dest_files=["res://.godot/imported/astrolabus_body.glb-6b678e89df44d37d6dd264fa5e89029e.scn"]
 
 [params]
 

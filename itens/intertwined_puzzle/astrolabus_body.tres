@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="ItemRes" format=3 uid="uid://3c0ta31odhc6"]
+
+[ext_resource type="PackedScene" uid="uid://b0xmygh7fy035" path="res://scenes/item_focus_view/astrolab_focus_view.tscn" id="1_pixxb"]
+[ext_resource type="Script" uid="uid://doqkh62nh5of1" path="res://systems/itens_resource/item_resource.gd" id="1_xgk1n"]
+[ext_resource type="Texture2D" uid="uid://h4we4oylwdb5" path="res://assets/2d/interface/items_capture/astrolabus_body.png" id="3_pixxb"]
+
+[resource]
+script = ExtResource("1_xgk1n")
+id = &"astrolabus_body"
+name_tr_key = "ITEM_ASTROLABUS_BODY"
+texture = ExtResource("3_pixxb")
+item_focus_view = ExtResource("1_pixxb")
+metadata/_custom_type_script = "uid://doqkh62nh5of1"

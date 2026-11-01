@@ -24,6 +24,7 @@ extends Resource
 ## mesh to be displayed at focus playground.
 @export var item_focus_view: PackedScene
 
+#region Combination
 ## combining_item is the item to combine in focus mode.
 @export var combining_item: ItemRes = null
 
@@ -31,3 +32,4 @@ extends Resource
 @export var combining_name_tr_key: String
 @export var combined_texture: Texture2D
 @export var combined_mesh_glb: PackedScene
+#endregion
