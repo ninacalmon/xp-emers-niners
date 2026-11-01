@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="ItemRes" format=3 uid="uid://koxeqrufqjyl"]
+
+[ext_resource type="Script" uid="uid://doqkh62nh5of1" path="res://systems/items_resource/item_resource.gd" id="1_8li7j"]
+[ext_resource type="PackedScene" uid="uid://b1xmcfq8ahfxk" path="res://scenes/item_focus_view/candle_focus_view.tscn" id="1_omnq3"]
+[ext_resource type="Texture2D" uid="uid://ce1uwl75rtp0k" path="res://assets/2d/interface/items_capture/candle.png" id="3_omnq3"]
+
+[resource]
+script = ExtResource("1_8li7j")
+id = &"candle"
+name_tr_key = "ITEM_CANDLE"
+permanent = true
+texture = ExtResource("3_omnq3")
+item_focus_view = ExtResource("1_omnq3")
+metadata/_custom_type_script = "uid://doqkh62nh5of1"
