@@ -18,9 +18,11 @@ extends Resource
 ## permanent means that the item can be used without being immediatly deleted after
 @export var permanent: bool
 
-## texture will be the [Texture2D] used in the inventory UI and also as sprite in the game world.
+## texture will be the [Texture2D] used in the inventory UI.
 @export var texture: Texture2D
 
+## mesh to be displayed at focus playground.
+@export var item_focus_view: PackedScene
 
 ## combining_item is the item to combine in focus mode.
 @export var combining_item: ItemRes = null
@@ -28,4 +30,4 @@ extends Resource
 @export var combining_id: StringName
 @export var combining_name_tr_key: String
 @export var combined_texture: Texture2D
-#@export var combined_mesh 
+@export var combined_mesh_glb: PackedScene

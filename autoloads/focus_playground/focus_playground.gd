@@ -8,10 +8,11 @@ const SENSITIVITY: float = 0.005
 @export var rotation_speed: float = 1.0
 
 @onready var blur_c_rect: ColorRect = $BlurCRect
-@onready var item_mesh_3d: MeshInstance3D = $SubViewport/MeshInstance3D
+@onready var sub_viewport: SubViewport = $SubViewport
 @onready var follow_mouse_spr: Sprite2D = $BlurCRect/FollowMouseSpr
 @onready var exit_tex_button: TextureButton = $BlurCRect/MarginContainer/VBoxContainer/ExitTexButton
 
+var item_mesh_3d: Node3D
 
 var _dragging: bool = false
 var is_focused: bool = false
@@ -22,6 +23,9 @@ var focused_item_slot_idx: int
 var _last_arcball_vec: Vector3 = Vector3.ZERO
 
 var tex_follow_mouse: bool = false
+
+var _new_focus_item: ItemFocusView
+
 
 func _ready() -> void:
 	blur_c_rect.modulate.a = 0
@@ -69,7 +73,17 @@ func enable_focus():
 	focus.emit(true)
 	focused_item = InventoryManager.selected_item
 	focused_item_slot_idx = InventoryManager.selected_slot_idx
-	#item_mesh_3d = focused_item.mesh
+
+	for c in sub_viewport.get_children():
+		c.queue_free()
+
+	_new_focus_item = focused_item.item_focus_view.instantiate()
+	sub_viewport.add_child(_new_focus_item)
+
+	item_mesh_3d = _new_focus_item.item_mesh
+
+	_new_focus_item.is_active = true
+
 
 	fade(true)
 
@@ -83,8 +97,11 @@ func disable_focus():
 	is_focused = false
 	focus.emit(false)
 	focused_item = null
+	_new_focus_item.is_active = false
 
-	fade(false)
+	await fade(false)
+
+	_new_focus_item.revert_rotation()
 
 
 func fade(_bool: bool):
@@ -99,11 +116,22 @@ func fade(_bool: bool):
 		_val = 0
 
 	tween.tween_property(blur_c_rect, "modulate:a", _val, fade_speed)
+	await tween.finished
 
 
 func _input(event: InputEvent) -> void:
 	if not is_focused:
 		return
+
+	if Input.is_action_pressed("zoom_toggle"):
+			if event.is_action_pressed("zoom_in"):
+				_zoom_focus_item(-1)
+				get_viewport().set_input_as_handled()
+				return
+			elif event.is_action_pressed("zoom_out"):
+				_zoom_focus_item(1)
+				get_viewport().set_input_as_handled()
+				return
 
 	if event.is_action_pressed("ui_cancel"):
 		disable_focus()
@@ -140,6 +168,15 @@ func _get_arcball_vector(screen_pos: Vector2) -> Vector3:
 		return Vector3(p.x, p.y, sqrt(1.0 - length_sq))
 
 	return Vector3(p.x, p.y, 0.0).normalized()
+
+
+
+
+
+func _zoom_focus_item(direction: int) -> void:
+	if _new_focus_item and _new_focus_item.has_method("zoom"):
+		_new_focus_item.zoom(direction)
+
 
 
 func _on_inventory_selected_object_changed(item: ItemRes):
