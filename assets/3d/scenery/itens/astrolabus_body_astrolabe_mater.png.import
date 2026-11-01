@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b7k7uuvsj2bch"
-path.s3tc="res://.godot/imported/astrolabus_astrolabe_mater.png-13d39e888f99fee6d561ebac7cc0b833.s3tc.ctex"
+uid="uid://mo2wb8wlmkpq"
+path.s3tc="res://.godot/imported/astrolabus_body_astrolabe_mater.png-a3b0862c571ab0e725becd5081eca2c6.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -14,8 +14,8 @@ generator_parameters={
 
 [deps]
 
-source_file="res://assets/3d/scenery/itens/astrolabus_astrolabe_mater.png"
-dest_files=["res://.godot/imported/astrolabus_astrolabe_mater.png-13d39e888f99fee6d561ebac7cc0b833.s3tc.ctex"]
+source_file="res://assets/3d/scenery/itens/astrolabus_body_astrolabe_mater.png"
+dest_files=["res://.godot/imported/astrolabus_body_astrolabe_mater.png-a3b0862c571ab0e725becd5081eca2c6.s3tc.ctex"]
 
 [params]
 
