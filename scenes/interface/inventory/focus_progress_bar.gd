@@ -22,7 +22,9 @@ func _ready() -> void:
 
 
 func _process(delta: float) -> void:
-	if not slot.button_slot.button_pressed or focus_mode_on:
+	if not slot.button_slot.button_pressed \
+	or focus_mode_on \
+	or not slot.item:
 		return
 
 	var holding: bool = Input.is_action_pressed("focus_item")

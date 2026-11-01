@@ -4,14 +4,15 @@
 [ext_resource type="Texture2D" uid="uid://kka2t2q7totg" path="res://assets/placeholders/veneno_feio.png" id="1_ylu4c"]
 [ext_resource type="Texture2D" uid="uid://brwdotei4p56b" path="res://icon.svg" id="2_lpeu1"]
 [ext_resource type="Resource" uid="uid://dltn5dox1dd8c" path="res://itens/intertwined_puzzle/flower.tres" id="2_lq5gp"]
+[ext_resource type="PackedScene" uid="uid://b0xmygh7fy035" path="res://scenes/item_focus_view/astrolab_focus_view.tscn" id="3_lq5gp"]
 
 [resource]
 script = ExtResource("1_1dt24")
 id = &"test_key"
 name_tr_key = "TEST_KEY"
 texture = ExtResource("2_lpeu1")
+item_focus_view = ExtResource("3_lq5gp")
 combining_item = ExtResource("2_lq5gp")
-combined_id = &"test_key_combined"
 combining_name_tr_key = "TEST_KEY_COMBINED"
 combined_texture = ExtResource("1_ylu4c")
 metadata/_custom_type_script = "uid://doqkh62nh5of1"
