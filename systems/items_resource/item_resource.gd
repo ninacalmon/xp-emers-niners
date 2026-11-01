@@ -26,10 +26,7 @@ extends Resource
 
 #region Combination
 ## combining_item is the item to combine in focus mode.
+@export_group("Combination")
 @export var combining_item: ItemRes = null
-
-@export var combining_id: StringName
-@export var combining_name_tr_key: String
-@export var combined_texture: Texture2D
-@export var combined_mesh_glb: PackedScene
+@export var result_item: ItemRes
 #endregion

@@ -42,55 +42,74 @@ func focus_request() -> bool:
 	return true
 
 
-func try_and_combine():
+func try_and_combine() -> void:
 	var combining_item: ItemRes = InventoryManager.selected_item
 	var combining_item_slot_idx: int = InventoryManager.selected_slot_idx
 
+	if combining_item == null:
+		return
+
 	if focused_item.combining_item == combining_item:
+		var result_item: ItemRes = focused_item.result_item
+
 		InventoryManager.use_item(focused_item_slot_idx)
 		InventoryManager.use_item(combining_item_slot_idx)
-		InventoryManager.add_new_item(get_combined_item(), true)
-		return true
+		InventoryManager.add_new_item(result_item, true)
+
+		_swap_focused_item(result_item)
 	else:
 		InventoryManager.tried_wrong_item(combining_item_slot_idx)
 
 
-func get_combined_item() -> ItemRes:
-	focused_item.texture = focused_item.combined_texture
-	#focused_item.mesh = focused_item.combined_mesh
-	focused_item.id = focused_item.combining_id
-	focused_item.name_tr_key = focused_item.combining_name_tr_key
+func _swap_focused_item(item: ItemRes) -> void:
+	focused_item = item
 
-	return focused_item
+	follow_mouse_spr.hide()
+	item_follow_mouse()
+
+	_build_focus_view()
 
 
-func enable_focus():
+func _build_focus_view() -> void:
+	for c in sub_viewport.get_children():
+		c.queue_free()
+
+	_new_focus_item = focused_item.item_focus_view.instantiate() as ItemFocusView
+	sub_viewport.add_child(_new_focus_item)
+
+	item_mesh_3d = _new_focus_item.item_mesh
+	_new_focus_item.is_active = true
+
+
+func enable_focus() -> void:
 	if is_focused:
 		return
 
 	Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
 	is_focused = true
 	focus.emit(true)
+
 	focused_item = InventoryManager.selected_item
 	focused_item_slot_idx = InventoryManager.selected_slot_idx
 
-	for c in sub_viewport.get_children():
-		c.queue_free()
-
-	_new_focus_item = focused_item.item_focus_view.instantiate()
-	sub_viewport.add_child(_new_focus_item)
-
-	item_mesh_3d = _new_focus_item.item_mesh
-
-	_new_focus_item.is_active = true
-
-
+	_build_focus_view()
 	fade(true)
+#
+#func get_combined_item() -> ItemRes:
+	#focused_item.texture = focused_item.combined_texture
+	##focused_item.mesh = focused_item.combined_mesh
+	#focused_item.id = focused_item.combining_id
+	#focused_item.name_tr_key = focused_item.combining_name_tr_key
+#
+	#return focused_item
 
+
+
+##########################################################################################
 	## WARNING: this function should only be activated if you wish to save a new capture
 	## of the item.
 	#save_viewport_png()
-
+##########################################################################################
 
 func disable_focus():
 	if not is_focused:
@@ -212,7 +231,7 @@ func attach_to_slot(slot: Control) -> void:
 
 ## this function saves the sub_viewport render as a png.
 func save_viewport_png(dir_path: String = "res://assets/2d/interface/items_capture/") -> void:
-	sub_viewport.size = Vector2i(240, 240)
+	sub_viewport.size = Vector2i(480, 480)
 	sub_viewport.render_target_update_mode = SubViewport.UPDATE_ONCE
 	await RenderingServer.frame_post_draw
 
@@ -224,3 +243,4 @@ func save_viewport_png(dir_path: String = "res://assets/2d/interface/items_captu
 	var err: Error = img.save_png(full_path)
 	if err != OK:
 		push_error("Failed to save PNG: %s" % error_string(err))
+	print("captured! - ", focused_item.id)

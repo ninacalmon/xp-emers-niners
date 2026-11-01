@@ -1,30 +1,22 @@
-[gd_scene format=3 uid="uid://b0xmygh7fy035"]
+[gd_scene format=3 uid="uid://lm0eryfbbq1k"]
 
-[ext_resource type="PackedScene" uid="uid://dvqw4lptsejty" path="res://assets/3d/scenery/itens/astrolabus_body.glb" id="1_pcjkd"]
-[ext_resource type="Script" uid="uid://bqyhv0yuttcvs" path="res://scenes/item_focus_view/item_focus_view.gd" id="1_t8qgd"]
+[ext_resource type="Script" uid="uid://bqyhv0yuttcvs" path="res://scenes/item_focus_view/item_focus_view.gd" id="1_nod0g"]
+[ext_resource type="PackedScene" uid="uid://dv6muq7ftqubi" path="res://assets/3d/items/astrolabus/astrolabus_pointer.glb" id="2_nod0g"]
 
-[node name="AstrolabFocusView" type="Node3D" unique_id=1453891134 node_paths=PackedStringArray("item_mesh")]
-script = ExtResource("1_t8qgd")
-item_mesh = NodePath("astrolabus")
+[node name="AstrolabusPointerFocusView" type="Node3D" unique_id=1453891134 node_paths=PackedStringArray("item_mesh")]
+script = ExtResource("1_nod0g")
+item_mesh = NodePath("astrolabus_pointer")
 
 [node name="Camera3D" type="Camera3D" parent="." unique_id=2085724]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.121)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.0942268)
 cull_mask = 512
+current = true
 size = 0.074
 
-[node name="astrolabus" parent="." unique_id=99851961 instance=ExtResource("1_pcjkd")]
-transform = Transform3D(0.7886729, 0.61116534, 0.066872, -0.15425536, 0.3019915, -0.9407478, -0.5951473, 0.73162705, 0.33244804, 0, 0, 0)
+[node name="astrolabus_pointer" parent="." unique_id=1590928587 instance=ExtResource("2_nod0g")]
+transform = Transform3D(0.72614086, -0.23833604, 0.6449151, 0.6537199, -0.0512623, -0.7549986, 0.21300305, 0.9698288, 0.118581444, 0, 0, 0)
 
-[node name="InnerRim" parent="astrolabus" index="0" unique_id=1662869585]
-layers = 512
-
-[node name="MainFrame" parent="astrolabus" index="1" unique_id=170283677]
-layers = 512
-
-[node name="OuterRim" parent="astrolabus" index="2" unique_id=447445360]
-layers = 512
-
-[node name="RoundPart" parent="astrolabus" index="3" unique_id=82522752]
+[node name="PointerTex" parent="astrolabus_pointer" index="0" unique_id=733426601]
 layers = 512
 
 [node name="Lights" type="Node3D" parent="." unique_id=247008827]
@@ -55,4 +47,4 @@ layers = 512
 light_energy = 4.625
 omni_range = 25.381
 
-[editable path="astrolabus"]
+[editable path="astrolabus_pointer"]
