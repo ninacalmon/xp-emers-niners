@@ -12,6 +12,7 @@ func trigger():
 	InventoryManager.add_new_item(MEDICATION)
 	InventoryManager.add_new_item(LOCKPICK)
 	InventoryManager.add_new_item(ROTTEN_MEAT)
+	InventoryManager.add_new_item(DRINK)
 
 
 func ray_enter():
@@ -24,3 +25,4 @@ func ray_exit():
 const MEDICATION = preload("uid://bkc7dx8duiasn")
 const LOCKPICK = preload("uid://cb0fdb2g5cmw2")
 const ROTTEN_MEAT = preload("uid://cefbvxaw1bbrf")
+const DRINK = preload("uid://bugvpvu1atehq")

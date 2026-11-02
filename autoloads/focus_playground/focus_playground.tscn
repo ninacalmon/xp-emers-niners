@@ -68,8 +68,11 @@ layout_mode = 2
 size_flags_vertical = 3
 theme_override_colors/default_color = Color(1, 1, 1, 1)
 bbcode_enabled = true
-text = "Troque de item e clique[img=50]res://assets/2d/interface/kenney_input_prompts/mouse_right_outline.png[/img]
-para tentar juntá-los."
+text = "Role[img=50]res://assets/2d/interface/kenney_input_prompts/mouse_scroll_vertical_outline.png[/img]para trocar item.
+
+Aperte [img=50]res://assets/2d/interface/kenney_input_prompts/keyboard_c_outline.png[/img] para entrar
+no [b]modo de combinação.
+"
 
 [node name="ExitTexButton" type="TextureButton" parent="BlurCRect/MarginContainer/VBoxContainer" unique_id=1245066888]
 custom_minimum_size = Vector2(70, 70)
@@ -99,7 +102,7 @@ size_flags_horizontal = 3
 size_flags_vertical = 3
 theme_override_colors/default_color = Color(1, 1, 1, 1)
 bbcode_enabled = true
-text = "Arraste[img=50]res://assets/2d/interface/kenney_input_prompts/mouse_left_outline.png[/img]para rotacionar item."
+text = "Arraste[img=50]res://assets/2d/interface/kenney_input_prompts/mouse_scroll_outline.png[/img]para rotacionar item."
 horizontal_alignment = 2
 vertical_alignment = 2
 

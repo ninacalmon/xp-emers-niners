@@ -1,14 +1,14 @@
 [gd_scene format=3 uid="uid://cb6iooinv1hin"]
 
 [ext_resource type="Script" uid="uid://bqyhv0yuttcvs" path="res://scenes/item_focus_view/item_focus_view.gd" id="1_di2ck"]
-[ext_resource type="PackedScene" uid="uid://bcfsohxni6kwu" path="res://assets/3d/items/flower/flower.glb" id="2_di2ck"]
+[ext_resource type="PackedScene" uid="uid://cjsl8ioec82c3" path="res://assets/3d/items/flower/flower_one.glb" id="2_di2ck"]
 
 [node name="FocusView" type="Node3D" unique_id=1453891134 node_paths=PackedStringArray("item_mesh")]
 script = ExtResource("1_di2ck")
-item_mesh = NodePath("flower")
+item_mesh = NodePath("flower_one")
 
 [node name="Camera3D" type="Camera3D" parent="." unique_id=2085724]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.026543438, 0.64177704)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.026543438, 0.7415925)
 cull_mask = 512
 size = 0.074
 
@@ -40,18 +40,14 @@ layers = 512
 light_energy = 4.625
 omni_range = 25.381
 
-[node name="flower" parent="." unique_id=2081111722 instance=ExtResource("2_di2ck")]
+[node name="flower_one" parent="." unique_id=733658988 instance=ExtResource("2_di2ck")]
 
-[node name="FlowerLeft" parent="flower" index="0" unique_id=1850996658]
+[node name="FlowerLeft" parent="flower_one" index="0" unique_id=697578107]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0.05426261, 0, 0.03942729)
 layers = 512
 
-[node name="FlowerRight" parent="flower" index="1" unique_id=387884434]
+[node name="LeafLeft" parent="flower_one" index="1" unique_id=285557758]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0.03465797, 0.01533173, 0.030930169)
 layers = 512
 
-[node name="LeafLeft" parent="flower" index="2" unique_id=1979299126]
-layers = 512
-
-[node name="LeafRight" parent="flower" index="3" unique_id=549412177]
-layers = 512
-
-[editable path="flower"]
+[editable path="flower_one"]

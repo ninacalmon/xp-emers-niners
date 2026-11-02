@@ -41,24 +41,24 @@ func focus_request() -> bool:
 	enable_focus()
 	return true
 
-
-func try_and_combine() -> void:
-	var combining_item: ItemRes = InventoryManager.selected_item
-	var combining_item_slot_idx: int = InventoryManager.selected_slot_idx
-
-	if combining_item == null:
-		return
-
-	if focused_item.combining_item == combining_item:
-		var result_item: ItemRes = focused_item.result_item
-
-		InventoryManager.use_item(focused_item_slot_idx)
-		InventoryManager.use_item(combining_item_slot_idx)
-		InventoryManager.add_new_item(result_item, true)
-
-		_swap_focused_item(result_item)
-	else:
-		InventoryManager.tried_wrong_item(combining_item_slot_idx)
+#
+#func try_and_combine() -> void:
+	#var combining_item: ItemRes = InventoryManager.selected_item
+	#var combining_item_slot_idx: int = InventoryManager.selected_slot_idx
+#
+	#if combining_item == null:
+		#return
+#
+	#if focused_item.combining_item == combining_item:
+		#var result_item: ItemRes = focused_item.result_item
+#
+		#InventoryManager.use_item(focused_item_slot_idx)
+		#InventoryManager.use_item(combining_item_slot_idx)
+		#InventoryManager.add_new_item(result_item, true)
+#
+		#_swap_focused_item(result_item)
+	#else:
+		#InventoryManager.tried_wrong_item(combining_item_slot_idx)
 
 
 func _swap_focused_item(item: ItemRes) -> void:
@@ -66,6 +66,7 @@ func _swap_focused_item(item: ItemRes) -> void:
 
 	follow_mouse_spr.hide()
 	item_follow_mouse()
+	
 
 	_build_focus_view()
 
@@ -159,8 +160,8 @@ func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("ui_cancel"):
 		disable_focus()
 
-	if event.is_action("focus_combine_item"):
-		try_and_combine()
+	#if event.is_action("focus_combine_item"):
+		#try_and_combine()
 
 	if event is InputEventMouseButton:
 		var button: InputEventMouseButton = event
@@ -203,16 +204,17 @@ func _zoom_focus_item(direction: int) -> void:
 
 
 func _on_inventory_selected_object_changed(item: ItemRes):
-	if not is_focused:
+	if not is_focused or not item:
 		return
+	_swap_focused_item(item)
 
-	if item == focused_item or not item:
-		follow_mouse_spr.hide()
-		item_follow_mouse()
-		return
-
-	follow_mouse_spr.show()
-	item_follow_mouse(item.texture)
+	#if item == focused_item or not item:
+		#follow_mouse_spr.hide()
+		#item_follow_mouse()
+		#return
+#
+	#follow_mouse_spr.show()
+	#item_follow_mouse(item.texture)
 
 
 func item_follow_mouse(item_tex: Texture2D = null):
@@ -231,7 +233,7 @@ func attach_to_slot(slot: Control) -> void:
 
 ## this function saves the sub_viewport render as a png.
 func save_viewport_png(dir_path: String = "res://assets/2d/interface/items_capture/") -> void:
-	sub_viewport.size = Vector2i(480, 480)
+	sub_viewport.size = Vector2i(480*2, 480*2)
 	sub_viewport.render_target_update_mode = SubViewport.UPDATE_ONCE
 	await RenderingServer.frame_post_draw
 

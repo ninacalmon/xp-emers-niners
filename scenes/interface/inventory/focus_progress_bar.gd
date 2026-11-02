@@ -3,7 +3,7 @@ extends TextureProgressBar
 
 
 @export var hold_duration: float = 1.0
-@export var show_delay: float = 0.08
+@export var show_delay: float = 0.1
 
 var hold_time: float = 0.0
 var decay_speed: float = 2.0
@@ -23,13 +23,13 @@ func _ready() -> void:
 
 func _process(delta: float) -> void:
 	if not slot.button_slot.button_pressed \
-	or focus_mode_on \
+	#or focus_mode_on \
 	or not slot.item:
 		return
 
 	var holding: bool = Input.is_action_pressed("focus_item")
 
-	if holding:
+	if holding and not focus_mode_on:
 		hold_time += delta
 		if hold_time >= show_delay:
 			visible = true
