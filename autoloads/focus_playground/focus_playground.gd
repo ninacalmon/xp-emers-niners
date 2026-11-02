@@ -26,6 +26,8 @@ var tex_follow_mouse: bool = false
 
 var _new_focus_item: ItemFocusView
 
+var _dragging_item: ItemRes
+var _dragging_item_slot_idx: int
 
 func _ready() -> void:
 	blur_c_rect.modulate.a = 0
@@ -42,23 +44,24 @@ func focus_request() -> bool:
 	return true
 
 #
-#func try_and_combine() -> void:
-	#var combining_item: ItemRes = InventoryManager.selected_item
-	#var combining_item_slot_idx: int = InventoryManager.selected_slot_idx
-#
-	#if combining_item == null:
-		#return
-#
-	#if focused_item.combining_item == combining_item:
-		#var result_item: ItemRes = focused_item.result_item
-#
-		#InventoryManager.use_item(focused_item_slot_idx)
-		#InventoryManager.use_item(combining_item_slot_idx)
-		#InventoryManager.add_new_item(result_item, true)
-#
-		#_swap_focused_item(result_item)
-	#else:
-		#InventoryManager.tried_wrong_item(combining_item_slot_idx)
+func try_and_combine() -> void:
+	var combining_item: ItemRes = _dragging_item
+	var combining_item_slot_idx: int = _dragging_item_slot_idx
+
+	if combining_item == null:
+		return
+
+	if focused_item.combining_item == combining_item:
+		var result_item: ItemRes = focused_item.result_item
+
+		InventoryManager.use_item(focused_item_slot_idx)
+		InventoryManager.use_item(combining_item_slot_idx)
+		InventoryManager.add_new_item(result_item, true)
+
+		_swap_focused_item(result_item)
+	else:
+		InventoryManager.tried_wrong_item(combining_item_slot_idx)
+
 
 
 func _swap_focused_item(item: ItemRes) -> void:
@@ -208,13 +211,7 @@ func _on_inventory_selected_object_changed(item: ItemRes):
 		return
 	_swap_focused_item(item)
 
-	#if item == focused_item or not item:
-		#follow_mouse_spr.hide()
-		#item_follow_mouse()
-		#return
-#
-	#follow_mouse_spr.show()
-	#item_follow_mouse(item.texture)
+
 
 
 func item_follow_mouse(item_tex: Texture2D = null):
@@ -246,3 +243,24 @@ func save_viewport_png(dir_path: String = "res://assets/2d/interface/items_captu
 	if err != OK:
 		push_error("Failed to save PNG: %s" % error_string(err))
 	print("captured! - ", focused_item.id)
+
+
+func item_drag_request(item: ItemRes, slot_idx: int) -> bool:
+	if item == focused_item or not item:
+		return false
+	_dragging_item = item
+	_dragging_item_slot_idx = slot_idx
+	follow_mouse_spr.show()
+	item_follow_mouse(_dragging_item.texture)
+	return true
+	#if item == focused_item or not item:
+		#follow_mouse_spr.hide()
+		#item_follow_mouse()
+		#return
+#
+
+
+func item_let_down():
+	try_and_combine()
+	follow_mouse_spr.hide()
+	item_follow_mouse()

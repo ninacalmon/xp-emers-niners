@@ -68,10 +68,12 @@ layout_mode = 2
 size_flags_vertical = 3
 theme_override_colors/default_color = Color(1, 1, 1, 1)
 bbcode_enabled = true
-text = "Role[img=50]res://assets/2d/interface/kenney_input_prompts/mouse_scroll_vertical_outline.png[/img]para trocar item.
+text = "Arraste[img=50]res://assets/2d/interface/kenney_input_prompts/mouse_left_outline.png[/img] itens para
+tentar combinar.
 
-Aperte [img=50]res://assets/2d/interface/kenney_input_prompts/keyboard_c_outline.png[/img] para entrar
-no [b]modo de combinação.
+Role[img=50]res://assets/2d/interface/kenney_input_prompts/mouse_scroll_vertical_outline.png[/img]para trocar item.
+
+
 "
 
 [node name="ExitTexButton" type="TextureButton" parent="BlurCRect/MarginContainer/VBoxContainer" unique_id=1245066888]
