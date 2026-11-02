@@ -17,11 +17,14 @@ const SHAKE_STEP: float = 0.04
 @onready var item_texture: TextureRect = $HBoxContainer/ButtonSlot/CenterContainer/ItemTexture
 @onready var rich_text_label: RichTextLabel = $HBoxContainer/RichTextLabel
 
+var slot_idx: int = 0
+
 var _label_tween: Tween
 
 var _shake_tween: Tween
 var _shake_origin: Vector2
 
+var _is_being_dragged: bool = false
 
 @export var item: ItemRes:
 	set(value):
@@ -53,8 +56,11 @@ func shake_slot() -> void:
 func _ready() -> void:
 	_shake_origin = center_container.position
 	button_slot.toggled.connect(_on_button_slot_toggled)
+	button_slot.button_down.connect(_on_button_down)
+	button_slot.button_up.connect(_on_button_up)
 	rich_text_label.modulate.a = 1.0 if button_slot.button_pressed else 0.0
 	FocusPlayground.focus.connect(_on_focus)
+	
 
 
 func _on_button_slot_toggled(toggled_on: bool) -> void:
@@ -96,3 +102,12 @@ func _kill_label_tween() -> void:
 
 func _on_focus(active: bool):
 	button_slot.mouse_filter = Control.MOUSE_FILTER_STOP if active else Control.MOUSE_FILTER_IGNORE
+
+
+func _on_button_down():
+	_is_being_dragged = FocusPlayground.item_drag_request(item, slot_idx)
+
+
+func _on_button_up():
+	if _is_being_dragged:
+		FocusPlayground.item_let_down()

@@ -21,17 +21,22 @@ func _ready() -> void:
 ## storages and asserts that the number of slots is no greater or lower 
 ## then whats defined on [InventoryManager].
 func setup_slots():
+	var idx: int = 0
 	for s in get_children():
 		if s is InventorySlot:
 			slots.append(s)
+			s.slot_idx = idx
+			idx += 1
 
 	while len(slots) > InventoryManager.inventory_size:
 		slots.pop_at(-1).queue_free()
 
 	while len(slots) < InventoryManager.inventory_size:
-		var new_slot = inventory_slot_ui_scene.instantiate()
+		var new_slot: InventorySlot = inventory_slot_ui_scene.instantiate()
 		add_child(new_slot)
 		slots.append(new_slot)
+		new_slot.slot_idx = idx
+		idx += 1
 
 
 func _on_inventory_item_changed(slot_idx: int):
