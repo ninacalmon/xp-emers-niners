@@ -209,9 +209,8 @@ func _zoom_focus_item(direction: int) -> void:
 func _on_inventory_selected_object_changed(item: ItemRes):
 	if not is_focused or not item:
 		return
+	focused_item_slot_idx = InventoryManager.selected_slot_idx
 	_swap_focused_item(item)
-
-
 
 
 func item_follow_mouse(item_tex: Texture2D = null):
