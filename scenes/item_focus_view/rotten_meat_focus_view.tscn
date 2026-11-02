@@ -125,6 +125,36 @@ local_coords = true
 process_material = SubResource("ParticleProcessMaterial_cdpwx")
 draw_pass_1 = SubResource("CapsuleMesh_c4kkv")
 
+[node name="GPUParticles3D9" type="GPUParticles3D" parent="rotten_meat" unique_id=899190302]
+transform = Transform3D(-0.8406757, -0.53031397, -0.109690264, 0.51485276, -0.8454827, 0.1417321, -0.16790332, 0.062676616, 0.98381114, -0.03307289, -0.06890273, 0.029973269)
+layers = 512
+amount = 100
+lifetime = 3.0
+randomness = 0.5
+local_coords = true
+process_material = SubResource("ParticleProcessMaterial_cdpwx")
+draw_pass_1 = SubResource("CapsuleMesh_c4kkv")
+
+[node name="GPUParticles3D10" type="GPUParticles3D" parent="rotten_meat" unique_id=1361209528]
+transform = Transform3D(-0.8406757, -0.530314, -0.10969029, 0.51485276, -0.8454828, 0.14173216, -0.16790332, 0.06267668, 0.9838114, -0.030286947, -0.052160487, 0.06736221)
+layers = 512
+amount = 100
+lifetime = 3.0
+randomness = 0.5
+local_coords = true
+process_material = SubResource("ParticleProcessMaterial_cdpwx")
+draw_pass_1 = SubResource("CapsuleMesh_c4kkv")
+
+[node name="GPUParticles3D11" type="GPUParticles3D" parent="rotten_meat" unique_id=1632940440]
+transform = Transform3D(-0.8406757, -0.5303141, -0.10969038, 0.51485276, -0.845483, 0.14173242, -0.16790332, 0.06267677, 0.9838124, -0.039727896, -0.05149186, 0.037422054)
+layers = 512
+amount = 100
+lifetime = 3.0
+randomness = 0.5
+local_coords = true
+process_material = SubResource("ParticleProcessMaterial_cdpwx")
+draw_pass_1 = SubResource("CapsuleMesh_c4kkv")
+
 [node name="GPUParticles3D2" type="GPUParticles3D" parent="rotten_meat" unique_id=1897089614]
 transform = Transform3D(-0.8406757, -0.53031397, -0.109690234, 0.51485276, -0.8454827, 0.141732, -0.16790332, 0.062676534, 0.98381084, -0.055691753, -0.033308383, 0.0044474765)
 layers = 512
@@ -176,7 +206,7 @@ process_material = SubResource("ParticleProcessMaterial_cdpwx")
 draw_pass_1 = SubResource("CapsuleMesh_c4kkv")
 
 [node name="GPUParticles3D6" type="GPUParticles3D" parent="rotten_meat" unique_id=1285518549]
-transform = Transform3D(-0.8406757, -0.53031397, -0.109690264, 0.51485276, -0.8454827, 0.1417321, -0.16790332, 0.062676616, 0.98381114, 0.09510828, -0.03983409, 0.014742733)
+transform = Transform3D(-0.8406757, -0.530314, -0.10969029, 0.51485276, -0.8454828, 0.14173216, -0.16790332, 0.06267668, 0.9838114, 0.07346634, -0.01479361, 0.011502286)
 layers = 512
 amount = 100
 lifetime = 3.0

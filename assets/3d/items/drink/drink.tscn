@@ -1,0 +1,29 @@
+[gd_scene format=3 uid="uid://byoewwsdxvjg4"]
+
+[ext_resource type="PackedScene" uid="uid://c2juynb3tlhs0" path="res://assets/3d/items/drink/drink.glb" id="1_4xgay"]
+[ext_resource type="Texture2D" uid="uid://ch8vmcsu7k0d6" path="res://assets/3d/items/drink/scratchesnormal.png" id="2_5rtwt"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_2d6y5"]
+transparency = 1
+albedo_color = Color(0.12672001, 0.18, 0.0936, 0.88235295)
+metallic = 0.62
+roughness = 0.01
+normal_scale = 16.0
+normal_texture = ExtResource("2_5rtwt")
+subsurf_scatter_transmittance_enabled = true
+subsurf_scatter_transmittance_color = Color(1, 0.029999971, 0.029999971, 1)
+refraction_enabled = true
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_8pyhc"]
+albedo_color = Color(0.030286666, 0.07, 0.018199999, 1)
+roughness = 0.0
+
+[node name="drink" unique_id=101293523 instance=ExtResource("1_4xgay")]
+
+[node name="Bottle" parent="." index="0" unique_id=1713956664]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.22374049, 0)
+surface_material_override/0 = SubResource("StandardMaterial3D_2d6y5")
+
+[node name="drink" parent="." index="1" unique_id=1500159281]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.22374049, 0)
+surface_material_override/0 = SubResource("StandardMaterial3D_8pyhc")

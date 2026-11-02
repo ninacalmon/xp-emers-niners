@@ -5,9 +5,9 @@
 class_name InventorySlot
 extends Node
 
-const SHOW_DELAY: float = 0.5
+const SHOW_DELAY: float = 0.3
 const FADE_DURATION: float = 0.2
-const VISIBLE_DURATION: float = 3.0
+const VISIBLE_DURATION: float = 1
 
 const SHAKE_OFFSET: float = 8.0
 const SHAKE_STEP: float = 0.04
@@ -54,6 +54,7 @@ func _ready() -> void:
 	_shake_origin = center_container.position
 	button_slot.toggled.connect(_on_button_slot_toggled)
 	rich_text_label.modulate.a = 1.0 if button_slot.button_pressed else 0.0
+	FocusPlayground.focus.connect(_on_focus)
 
 
 func _on_button_slot_toggled(toggled_on: bool) -> void:
@@ -91,3 +92,7 @@ func _hide_label() -> void:
 func _kill_label_tween() -> void:
 	if _label_tween != null and _label_tween.is_valid():
 		_label_tween.kill()
+
+
+func _on_focus(active: bool):
+	button_slot.mouse_filter = Control.MOUSE_FILTER_STOP if active else Control.MOUSE_FILTER_IGNORE
