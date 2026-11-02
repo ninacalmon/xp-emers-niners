@@ -34,7 +34,7 @@ var _is_being_dragged: bool = false
 func update_slot():
 	if item:
 		item_texture.texture = item.texture
-		if button_slot.button_pressed:
+		if button_slot.button_pressed and not FocusPlayground.is_focused:
 			_show_label()
 	else:
 		item_texture.texture = null
@@ -110,4 +110,5 @@ func _on_button_down():
 
 func _on_button_up():
 	if _is_being_dragged:
+		_is_being_dragged = false
 		FocusPlayground.item_let_down()
