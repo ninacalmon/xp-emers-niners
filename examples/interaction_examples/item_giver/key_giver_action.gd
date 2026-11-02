@@ -10,6 +10,7 @@ func trigger():
 	InventoryManager.add_new_item(preload("uid://s1b5gx6p2rg1"))
 	InventoryManager.add_new_item(preload("uid://dltn5dox1dd8c"))
 	InventoryManager.add_new_item(MEDICATION)
+	InventoryManager.add_new_item(LOCKPICK)
 
 
 func ray_enter():
@@ -20,3 +21,4 @@ func ray_exit():
 
 
 const MEDICATION = preload("uid://bkc7dx8duiasn")
+const LOCKPICK = preload("uid://cb0fdb2g5cmw2")

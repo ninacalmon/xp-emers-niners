@@ -1,0 +1,61 @@
+[gd_scene format=3 uid="uid://b7hqridy7b772"]
+
+[ext_resource type="Script" uid="uid://bqyhv0yuttcvs" path="res://scenes/item_focus_view/item_focus_view.gd" id="1_mp6q7"]
+[ext_resource type="PackedScene" uid="uid://delbjqfq3giv7" path="res://assets/3d/items/lockpick/lockpick.glb" id="2_avpo1"]
+
+[node name="FocusView" type="Node3D" unique_id=1453891134 node_paths=PackedStringArray("item_mesh")]
+script = ExtResource("1_mp6q7")
+item_mesh = NodePath("lockpick")
+
+[node name="Camera3D" type="Camera3D" parent="." unique_id=2085724]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.4183572)
+cull_mask = 512
+size = 0.074
+
+[node name="Lights" type="Node3D" parent="." unique_id=247008827]
+
+[node name="KeyLight" type="SpotLight3D" parent="Lights" unique_id=1312923543]
+transform = Transform3D(0.91966534, -4.440892e-16, -0.39270303, 0.07540774, 0.9813906, 0.17659625, 0.38539505, -0.19202231, 0.9025509, -1.9619832, 0.59379816, 3.4050393)
+layers = 512
+light_energy = 3.375
+spot_range = 7.828
+spot_attenuation = 0.22
+
+[node name="FillLight" type="SpotLight3D" parent="Lights" unique_id=861530297]
+transform = Transform3D(0.8577985, -0.15414329, 0.49032813, 0.07540775, 0.98139066, 0.17659627, -0.5084245, -0.11450947, 0.85345894, 2.467955, 0.59379816, 3.4063945)
+layers = 512
+light_energy = 2.0
+
+[node name="RimLight" type="SpotLight3D" parent="Lights" unique_id=1400708046]
+transform = Transform3D(-1, 3.65575e-15, 8.7422755e-08, 3.9508492e-08, 0.89205617, 0.4519245, -7.7986016e-08, 0.4519245, -0.89205617, 0, 2.6522634, -1.4370193)
+layers = 512
+light_energy = 3.0
+spot_range = 13.255
+spot_attenuation = 2.72
+spot_angle = 68.74986
+
+[node name="OmniLight3D" type="OmniLight3D" parent="Lights" unique_id=953454531]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.237011, -1.2699603)
+layers = 512
+light_energy = 4.625
+omni_range = 25.381
+
+[node name="lockpick" parent="." unique_id=1879390745 instance=ExtResource("2_avpo1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.065228075, 0, 0)
+
+[node name="Key1_002" parent="lockpick" index="0" unique_id=1931424264]
+layers = 512
+
+[node name="Key2_002" parent="lockpick" index="1" unique_id=336414756]
+layers = 512
+
+[node name="Key3_002" parent="lockpick" index="2" unique_id=85695300]
+layers = 512
+
+[node name="Key4_002" parent="lockpick" index="3" unique_id=141010761]
+layers = 512
+
+[node name="Loop_002" parent="lockpick" index="4" unique_id=708519900]
+layers = 512
+
+[editable path="lockpick"]

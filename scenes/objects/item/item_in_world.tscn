@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://bo3s2tnmcpdmd" path="res://scenes/objects/item/item_in_world.gd" id="1_nmfgn"]
 [ext_resource type="Texture2D" uid="uid://dai2qhxsgrcl5" path="res://assets/placeholders/astro1_feio.png" id="1_nrulo"]
-[ext_resource type="Resource" uid="uid://3c0ta31odhc6" path="res://itens/intertwined_puzzle/astrolabus_body.tres" id="2_tbgqy"]
+[ext_resource type="Resource" uid="uid://3c0ta31odhc6" path="res://items/intertwined_puzzle/astrolabus_body.tres" id="2_tbgqy"]
 [ext_resource type="Script" uid="uid://cf2auur4umdjl" path="res://systems/interaction/interaction_area.gd" id="3_ml8yw"]
 [ext_resource type="Script" uid="uid://b5w5gvkwbcorl" path="res://scenes/objects/item/pick_up_action.gd" id="4_7ljpk"]
 [ext_resource type="Material" uid="uid://dxugeq4hehdak" path="res://resources/shader_materials/outline_shader_material_2d.tres" id="5_rag2s"]

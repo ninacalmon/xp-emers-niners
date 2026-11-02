@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="ItemRes" format=3 uid="uid://cb0fdb2g5cmw2"]
+
+[ext_resource type="PackedScene" uid="uid://b7hqridy7b772" path="res://scenes/item_focus_view/lockpick_focus_view.tscn" id="1_1xl24"]
+[ext_resource type="Script" uid="uid://doqkh62nh5of1" path="res://systems/items_resource/item_resource.gd" id="1_j61ov"]
+[ext_resource type="Texture2D" uid="uid://byp87qi7vykxy" path="res://assets/2d/interface/items_capture/lockpick.png" id="3_gcxye"]
+
+[resource]
+script = ExtResource("1_j61ov")
+id = &"lockpick"
+name_tr_key = "ITEM_LOCKPICK"
+permanent = true
+texture = ExtResource("3_gcxye")
+item_focus_view = ExtResource("1_1xl24")
+metadata/_custom_type_script = "uid://doqkh62nh5of1"
