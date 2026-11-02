@@ -1,11 +1,13 @@
-[gd_resource type="Resource" script_class="ItemRes" format=3 uid="uid://l21himrq646r"]
+[gd_resource type="Resource" script_class="ItemRes" format=3 uid="uid://cefbvxaw1bbrf"]
 
 [ext_resource type="Script" uid="uid://doqkh62nh5of1" path="res://systems/items_resource/item_resource.gd" id="1_j7mvc"]
-[ext_resource type="Texture2D" uid="uid://dg077wawbrbsa" path="res://assets/placeholders/carne_feia.png" id="2_sj06i"]
+[ext_resource type="PackedScene" uid="uid://umqpwgymstly" path="res://scenes/item_focus_view/rotten_meat_focus_view.tscn" id="1_mok0f"]
+[ext_resource type="Texture2D" uid="uid://ccvqsa2vq1k1s" path="res://assets/2d/interface/items_capture/rotten_meat.png" id="3_nly44"]
 
 [resource]
 script = ExtResource("1_j7mvc")
 id = &"rotten_meat"
 name_tr_key = "ITEM_ROTTEN_MEAT"
-texture = ExtResource("2_sj06i")
+texture = ExtResource("3_nly44")
+item_focus_view = ExtResource("1_mok0f")
 metadata/_custom_type_script = "uid://doqkh62nh5of1"
