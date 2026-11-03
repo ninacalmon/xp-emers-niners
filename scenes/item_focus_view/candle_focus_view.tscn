@@ -77,4 +77,10 @@ layers = 512
 [node name="Point" parent="candle" index="2" unique_id=1324986836]
 layers = 512
 
+[node name="GPUParticles3D" parent="candle" index="3" unique_id=148304037]
+layers = 512
+
+[node name="GPUParticles3D2" parent="candle" index="4" unique_id=1842188326]
+layers = 512
+
 [editable path="candle"]

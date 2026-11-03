@@ -2,6 +2,8 @@
 
 [ext_resource type="PackedScene" uid="uid://keq7nnk8cayo" path="res://assets/3d/items/candle/candle.glb" id="1_4gr2r"]
 [ext_resource type="Texture2D" uid="uid://bhj86bqpspx28" path="res://assets/3d/items/candle/candle_roughness_map.png" id="2_d2yuh"]
+[ext_resource type="Material" uid="uid://dk38n7nu6nkk0" path="res://resources/materials/candle_light.tres" id="3_45rj0"]
+[ext_resource type="Texture2D" uid="uid://conaobdexvy1d" path="res://resources/materials/smoke_01.png" id="4_t7ded"]
 
 [sub_resource type="Gradient" id="Gradient_iujk5"]
 colors = PackedColorArray(0.39, 0.39, 0.39, 1, 0.83, 0.83, 0.83, 1)
@@ -28,7 +30,59 @@ roughness_texture = SubResource("NoiseTexture2D_4gr2r")
 subsurf_scatter_enabled = true
 subsurf_scatter_strength = 1.0
 
+[sub_resource type="Curve" id="Curve_nx7y6"]
+_data = [Vector2(0, 0.015706897), 0.0, 0.0, 0, 0, Vector2(0.38543895, 1), 0.0, 0.0, 0, 0, Vector2(0.99571735, 0.005235672), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_7khsh"]
+curve = SubResource("Curve_nx7y6")
+
+[sub_resource type="CurveTexture" id="CurveTexture_7qy06"]
+
+[sub_resource type="CurveTexture" id="CurveTexture_qudhj"]
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_ksdio"]
+emission_shape = 1
+emission_sphere_radius = 0.01
+use_rotation_3d = true
+rotation_3d_min = Vector3(0, 0, 0)
+rotation_3d_max = Vector3(35.835, 36.48, 0)
+gravity = Vector3(0, 2, 0)
+scale_curve = SubResource("CurveTexture_7qy06")
+scale_over_velocity_curve = SubResource("CurveTexture_qudhj")
+alpha_curve = SubResource("CurveTexture_7khsh")
+
+[sub_resource type="QuadMesh" id="QuadMesh_5604n"]
+size = Vector2(0.05, 0.05)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_iujk5"]
+render_priority = -1
+transparency = 1
+vertex_color_use_as_albedo = true
+albedo_texture = ExtResource("4_t7ded")
+emission_enabled = true
+emission = Color(0.84313726, 0, 0, 1)
+emission_energy_multiplier = 4.9
+billboard_mode = 1
+
 [node name="candle" unique_id=459729295 instance=ExtResource("1_4gr2r")]
 
 [node name="Candle" parent="." index="0" unique_id=781616279]
 surface_material_override/0 = SubResource("StandardMaterial3D_45rj0")
+
+[node name="GPUParticles3D" type="GPUParticles3D" parent="." index="3" unique_id=148304037]
+transform = Transform3D(0.6689333, 0, 0, 0, 0.6689333, 0, 0, 0, 0.6689333, -0.01689747, 0.28069574, 0.0011828477)
+material_override = ExtResource("3_45rj0")
+lifetime = 0.3
+interp_to_end = 0.1
+process_material = SubResource("ParticleProcessMaterial_ksdio")
+draw_pass_1 = SubResource("QuadMesh_5604n")
+
+[node name="GPUParticles3D2" type="GPUParticles3D" parent="." index="4" unique_id=1842188326]
+transform = Transform3D(0.6689333, 0, 0, 0, 0.6689333, 0, 0, 0, 0.6689333, -0.01689747, 0.28069574, 0.0011828477)
+material_override = SubResource("StandardMaterial3D_iujk5")
+lifetime = 0.3
+interp_to_end = 0.1
+randomness = 1.0
+process_material = SubResource("ParticleProcessMaterial_ksdio")
+draw_pass_1 = SubResource("QuadMesh_5604n")
