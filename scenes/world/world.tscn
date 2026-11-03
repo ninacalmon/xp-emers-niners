@@ -10,6 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://c1fess8fbyvjb" path="res://scenes/characters/sanson/sanson.tscn" id="9_dlabj"]
 [ext_resource type="PackedScene" uid="uid://c0enf7fvm7uko" path="res://scenes/objects/doors/room_door.tscn" id="9_ues17"]
 [ext_resource type="PackedScene" uid="uid://dhb4ubn1lv1kq" path="res://examples/interaction_examples/item_giver/key_giver_ball.tscn" id="10_gb53w"]
+[ext_resource type="PackedScene" uid="uid://cgxxromd5ia45" path="res://scenes/puzzles/astrolabus/astrolablus_puzzle.tscn" id="11_5qq27"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_xl1yy"]
 sky_top_color = Color(0.7275567, 0.6954605, 0.59714603, 1)
@@ -40,7 +41,7 @@ albedo_color = Color(0.66, 0.52536005, 0.4224, 1)
 
 [node name="TestWorld" type="Node3D" unique_id=1370714841]
 
-[node name="CanvasLayer" parent="." unique_id=472711346 instance=ExtResource("6_tytul")]
+[node name="GameUiOverlay" parent="." unique_id=472711346 instance=ExtResource("6_tytul")]
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1489338464]
 transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 30.18241, 0)
@@ -210,3 +211,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 40.347553, 1.4971457, 0.94463
 
 [node name="TestKeyGiverBall" parent="." unique_id=471407858 instance=ExtResource("10_gb53w")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 25.826788, 2.7359483, 0)
+
+[node name="AstrolablusPuzzle" parent="." unique_id=572576743 instance=ExtResource("11_5qq27")]
+transform = Transform3D(-0.18439692, 0, -0.98285186, 0, 1, 0, 0.98285186, 0, -0.18439692, 33.05535, 2.3888822, -14.218501)

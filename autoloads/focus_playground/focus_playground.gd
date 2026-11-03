@@ -197,9 +197,6 @@ func _get_arcball_vector(screen_pos: Vector2) -> Vector3:
 	return Vector3(p.x, p.y, 0.0).normalized()
 
 
-
-
-
 func _zoom_focus_item(direction: int) -> void:
 	if _new_focus_item and _new_focus_item.has_method("zoom"):
 		_new_focus_item.zoom(direction)

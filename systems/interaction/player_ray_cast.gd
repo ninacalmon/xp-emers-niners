@@ -5,6 +5,7 @@
 class_name PlayerRayCast
 extends RayCast3D
 
+@onready var interaction_overlay: InteractionOverlay = $InteractionOverlay
 
 var inter: InteractionArea
 
@@ -26,3 +27,8 @@ func _process(_delta: float) -> void:
 		if inter:
 			inter.on_ray_exit()
 			inter = null
+
+
+func deactivate(_bool: bool):
+	enabled = not _bool
+	interaction_overlay.visible = not _bool

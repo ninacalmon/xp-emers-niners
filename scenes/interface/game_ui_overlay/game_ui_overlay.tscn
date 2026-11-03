@@ -1,6 +1,5 @@
 [gd_scene format=3 uid="uid://ondr0bhvtwol"]
 
-[ext_resource type="PackedScene" uid="uid://dbgn8eecexocc" path="res://scenes/interface/interaction_overlay/interaction_overlay.tscn" id="1_nospc"]
 [ext_resource type="PackedScene" uid="uid://bcw7p5ibxxkdk" path="res://scenes/interface/hands_overlay/hands_overlay.tscn" id="1_pu8xj"]
 [ext_resource type="Script" uid="uid://dhd01rs2lo14c" path="res://scenes/interface/game_ui_overlay/ui_manager.gd" id="1_tmmwq"]
 [ext_resource type="PackedScene" uid="uid://bp8vuh2jyr8ow" path="res://scenes/interface/inventory/inventory_ui.tscn" id="2_nospc"]
@@ -96,9 +95,8 @@ offset_left = -3.0
 offset_top = -39.0
 offset_right = -3.0
 offset_bottom = -39.0
+mouse_filter = 2
 metadata/_edit_lock_ = true
-
-[node name="InteractionOverlay" parent="." unique_id=18139440 instance=ExtResource("1_nospc")]
 
 [node name="FocusPlaygroundSlot" type="Control" parent="." unique_id=1149634072]
 layout_mode = 3
@@ -107,6 +105,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
 
 [node name="DialogueFrameManager" type="Control" parent="." unique_id=495897116]
 z_index = 2
@@ -134,6 +133,7 @@ offset_left = 81.0
 offset_top = 135.0
 offset_right = 81.0
 offset_bottom = 135.0
+mouse_filter = 2
 
 [node name="Inventory" parent="." unique_id=1245154446 instance=ExtResource("2_nospc")]
 z_index = 2

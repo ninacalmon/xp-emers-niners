@@ -10,7 +10,6 @@ extends Puzzle
 const STARTING_VALUE: int = 0
 const CORRECT_VALUE: int = 75
 
-
 const STEP: int = 5
 const TURN_SPEED: float = 0.2
 const FULL_TURN: int = 360
@@ -20,31 +19,54 @@ var is_moving: bool = false
 
 var dial_value: int
 
+var puzzle_already_started: bool = false
+var is_active: bool = false
+
+
 
 func start():
-	setup_puzzle()
+	is_active = true
+	PuzzleManager.puzzle_started.emit(lock_player_movement)
+	if not puzzle_already_started:
+		puzzle_already_started = true
+	phantom_camera_3d.priority = 100
+	Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
+
 
 func finish(solved: bool):
-	pass
+	is_active = false
+
+	if solved:
+		print("VOCÊ CONSEGUIU")
+		await get_tree().create_timer(1).timeout
+
+	phantom_camera_3d.priority = 0
+	PuzzleManager.puzzle_ended.emit()
+	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
+
+
 
 func _ready() -> void:
 	button_action_trigger.button_pressed.connect(_on_button_pressed)
 	button_action_trigger.button_released.connect(_on_button_released)
-	#setup_puzzle()
+	setup_puzzle()
 
 
 func _input(event: InputEvent) -> void:
+	if not is_active:
+		return
+
 	if event.is_action_pressed("astrolabus_pointer_left"):
 		await move_pointer(1)
 	elif event.is_action_pressed("astrolabus_pointer_right"):
 		await move_pointer(-1)
+	elif event.is_action_pressed("ui_cancel"):
+		finish(false)
 
 
 func setup_puzzle() -> void:
 	astrolabus_pointer.rotation.y = deg_to_rad(-49.973)
 	pointer_pivot.rotation.y = deg_to_rad(STARTING_VALUE)
-
-	phantom_camera_3d.priority = 1
 
 
 func move_pointer(dir: int) -> void:
@@ -86,6 +108,7 @@ func _on_button_pressed():
 func _on_button_released():
 	button_press_visual(false)
 	if dial_value == CORRECT_VALUE:
+		finish(true)
 		print("solved!")
 	else:
 		print("wrong value")
