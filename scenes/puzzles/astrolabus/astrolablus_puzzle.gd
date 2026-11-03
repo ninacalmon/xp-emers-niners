@@ -3,6 +3,7 @@ extends Puzzle
 
 @onready var pointer_pivot: Node3D = $PointerPivot
 @onready var phantom_camera_3d: PhantomCamera3D = $PhantomCamera3D
+@onready var interaction_area: InteractionArea = $InteractionArea
 @export var button_action_trigger: ButtonActionTrigger
 @export var astrolabus_pointer: Node3D
 @export var button_mesh: MeshInstance3D
@@ -22,6 +23,11 @@ var dial_value: int
 var puzzle_already_started: bool = false
 var is_active: bool = false
 
+var puzzle_solved: bool = false:
+	set(value):
+		puzzle_solved = value
+		if value == true:
+			interaction_area.queue_free()
 
 
 func start():
@@ -38,6 +44,7 @@ func finish(solved: bool):
 
 	if solved:
 		print("VOCÊ CONSEGUIU")
+		puzzle_solved = true
 		await get_tree().create_timer(1).timeout
 
 	phantom_camera_3d.priority = 0

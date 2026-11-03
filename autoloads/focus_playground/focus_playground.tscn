@@ -48,6 +48,7 @@ mouse_filter = 2
 texture = SubResource("ViewportTexture_xrivr")
 
 [node name="FollowMouseSpr" type="Sprite2D" parent="BlurCRect" unique_id=417413712]
+scale = Vector2(1.1, 1.1)
 
 [node name="MarginContainer" type="MarginContainer" parent="BlurCRect" unique_id=1800939768]
 layout_mode = 1
