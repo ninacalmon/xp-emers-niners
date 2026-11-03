@@ -9,9 +9,12 @@
 [ext_resource type="Material" uid="uid://dki8i4qf7fofd" path="res://resources/shader_materials/outline_shader_material_3d.tres" id="7_cs2rg"]
 [ext_resource type="Script" uid="uid://cf2auur4umdjl" path="res://systems/interaction/interaction_area.gd" id="8_wbk0m"]
 [ext_resource type="Script" uid="uid://bpobg6ssmnlny" path="res://scenes/puzzles/astrolabus/button_action_trigger.gd" id="9_f6mmc"]
+[ext_resource type="Script" uid="uid://cmfudvx52x4we" path="res://scenes/puzzles/start_puzzle_action.gd" id="10_6dn17"]
 
-[sub_resource type="Resource" id="Resource_oanbi"]
+[sub_resource type="Resource" id="Resource_p47bc"]
 script = ExtResource("3_fcaj1")
+duration = 0.8
+transition = 3
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_cdpwx"]
 
@@ -32,21 +35,21 @@ roughness = 0.25
 [sub_resource type="SphereShape3D" id="SphereShape3D_ksdio"]
 radius = 0.02
 
+[sub_resource type="SphereShape3D" id="SphereShape3D_cdpwx"]
+radius = 1.605
+
 [node name="AstrolablusPuzzle" type="Node3D" unique_id=572576743 node_paths=PackedStringArray("button_action_trigger", "astrolabus_pointer", "button_mesh") groups=["puzzles"]]
 script = ExtResource("1_tc74g")
 button_action_trigger = NodePath("Button/InteractionArea/ButtonActionTrigger")
 astrolabus_pointer = NodePath("PointerPivot/astrolabus_pointer")
 button_mesh = NodePath("Button/ButtonMesh")
+lock_player_movement = true
 
 [node name="PhantomCamera3D" type="Node3D" parent="." unique_id=1007361020]
 transform = Transform3D(1.0000001, 0, 0, 0, -4.371139e-08, 0.99999994, 0, -1, -4.3711385e-08, 0.041039407, 1.3036839, 0.006399274)
 script = ExtResource("2_6dn17")
-tween_resource = SubResource("Resource_oanbi")
+tween_resource = SubResource("Resource_p47bc")
 metadata/_custom_type_script = "uid://csjccrhj5wnx7"
-
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=717993996]
-transform = Transform3D(-0.8660254, -0.43301278, 0.25, 0, 0.49999997, 0.86602545, -0.50000006, 0.75, -0.43301266, 0, 0, 0)
-shadow_enabled = true
 
 [node name="Table" type="StaticBody3D" parent="." unique_id=1685460299]
 
@@ -101,3 +104,16 @@ shape = SubResource("SphereShape3D_ksdio")
 
 [node name="ButtonActionTrigger" type="Node" parent="Button/InteractionArea" unique_id=213519699]
 script = ExtResource("9_f6mmc")
+
+[node name="InteractionArea" type="Area3D" parent="." unique_id=1893375073 node_paths=PackedStringArray("mesh", "action_trigger")]
+script = ExtResource("8_wbk0m")
+clickable = true
+mesh = NodePath("../Table/MeshInstance3D")
+action_trigger = NodePath("StartPuzzleAction")
+metadata/_custom_type_script = "uid://cf2auur4umdjl"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="InteractionArea" unique_id=1051231944]
+shape = SubResource("SphereShape3D_cdpwx")
+
+[node name="StartPuzzleAction" type="Node" parent="InteractionArea" unique_id=1232823712]
+script = ExtResource("10_6dn17")

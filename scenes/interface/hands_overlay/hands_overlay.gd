@@ -9,17 +9,21 @@ extends Control
 @onready var hand_animation_player: AnimationPlayer = $HandAnimationPlayer
 @onready var item_animation_player: AnimationPlayer = $ItemAnimationPlayer
 
-
 var current_item: ItemRes
 var current_selected_idx: int
 var anim_override: bool = false
 
+var hand_is_down: bool = false
+
 func _ready() -> void:
 	InventoryManager.selected_item_changed.connect(_on_selected_item_changed)
+	PuzzleManager.puzzle_started.connect(func(lock_player: bool):
+		if lock_player:
+			play_hand_down())
+	PuzzleManager.puzzle_ended.connect(play_hand_up)
 
 	item_spr.texture = null
 	play_idle()
-
 
 
 func play_item_change(item: ItemRes):
@@ -90,6 +94,40 @@ func play_anim_change():
 	await get_tree().create_timer(
 	hand_animation_player.current_animation_length / 1.2
 		).timeout
+
+
+func play_hand_down():
+	if hand_is_down:
+		return
+
+	hand_is_down = true
+
+	l_hands_anim.stop()
+	r_hands_anim.stop()
+	item_animation_player.stop()
+
+	hand_animation_player.play("hand_down")
+	item_animation_player.play("item_down")
+
+
+
+func play_hand_up():
+	if not hand_is_down:
+		return
+
+	l_hands_anim.stop()
+	r_hands_anim.stop()
+	item_animation_player.stop()
+
+	hand_animation_player.play_backwards("hand_down")
+	item_animation_player.play_backwards("item_down")
+
+	await item_animation_player.animation_finished
+
+	hand_is_down = false
+
+	play_idle()
+
 
 
 func _process(_delta: float) -> void:

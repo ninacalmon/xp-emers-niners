@@ -36,10 +36,26 @@ tracks/0/keys = {
 "values": [Vector2(950, 647), Vector2(950, 1050), Vector2(950, 647)]
 }
 
+[sub_resource type="Animation" id="Animation_htwhv"]
+length = 0.19999999999999998
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("HandAnimTrack:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(950, 647), Vector2(950, 1050)]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_j7eej"]
 _data = {
 &"RESET": SubResource("Animation_vfjwr"),
-&"hand_anim_change": SubResource("Animation_25ap1")
+&"hand_anim_change": SubResource("Animation_25ap1"),
+&"hand_down": SubResource("Animation_htwhv")
 }
 
 [sub_resource type="Animation" id="Animation_pgsq4"]
@@ -73,6 +89,22 @@ tracks/0/keys = {
 "values": [Vector2(372, 881), Vector2(372, 1280), Vector2(372, 881)]
 }
 
+[sub_resource type="Animation" id="Animation_m8txr"]
+resource_name = "item_down"
+length = 0.8
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ItemAnimTrack:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.8),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(372, 881), Vector2(372, 1280)]
+}
+
 [sub_resource type="Animation" id="Animation_y28gv"]
 resource_name = "item_idle"
 length = 4.0
@@ -95,6 +127,7 @@ tracks/0/keys = {
 _data = {
 &"RESET": SubResource("Animation_pgsq4"),
 &"item_anim_change": SubResource("Animation_2gk0g"),
+&"item_down": SubResource("Animation_m8txr"),
 &"item_idle": SubResource("Animation_y28gv")
 }
 

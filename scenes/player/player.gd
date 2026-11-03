@@ -1,15 +1,31 @@
 class_name Player
 extends CharacterBody3D
 
+
 const STEP_HEIGHT: float = 0.25
+
+@export var player_ray_cast: PlayerRayCast
 
 @export var speed = 7.0
 @export var run_speed = 11.0
 
 @onready var head: Node3D = $Head
 
-var is_dialogue_locked: bool = false
-var is_focus_locked: bool = false
+var is_dialogue_locked: bool = false:
+	set(value):
+		is_dialogue_locked = value
+		player_ray_cast.deactivate(value)
+
+var is_focus_locked: bool = false:
+	set(value):
+		is_focus_locked = value
+		player_ray_cast.deactivate(value)
+
+var is_puzzle_locked: bool = false:
+	set(value):
+		is_puzzle_locked = value
+		player_ray_cast.deactivate(value)
+
 
 #region ConfigVariables
 var h_mouse_sensitivity: float
@@ -21,24 +37,26 @@ func _ready() -> void:
 	ConfigValues.update_config_values.connect(update_config_values)
 	update_config_values(ConfigValues.ConfigField.CONTROLS)
 
-	## dialogue locking to make player static during dialogue! vvv
+	## dialogue locking to make player static during dialogue, focus and puzzle! vvv
 	DialogueManager.dialogue_started.connect(func(_res): is_dialogue_locked = true)
 	DialogueManager.dialogue_ended.connect(func(_res): is_dialogue_locked = false)
 	FocusPlayground.focus.connect(func(_bool: bool): is_focus_locked = _bool)
+	PuzzleManager.puzzle_started.connect(func(lock_player: bool): is_puzzle_locked = lock_player)
+	PuzzleManager.puzzle_ended.connect(func(): is_puzzle_locked = false)
 
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 
 
 func _input(event: InputEvent) -> void:
-	if is_dialogue_locked or is_focus_locked:
+	if is_dialogue_locked or is_focus_locked or is_puzzle_locked:
 		return
 
 	## NOTE: mouse capturing and freeing, temporary and for DEBUG ONLY!
-	if event.is_action_pressed("rmb"):
-		Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
-
-	if Input.mouse_mode == Input.MOUSE_MODE_VISIBLE and event.is_action_pressed("lmb"):
-		Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
+	#if event.is_action_pressed("rmb"):
+		#Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
+#
+	#if Input.mouse_mode == Input.MOUSE_MODE_VISIBLE and event.is_action_pressed("lmb"):
+		#Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 
 	# player and camera rotation
 	if event is InputEventMouseMotion:
@@ -48,7 +66,7 @@ func _input(event: InputEvent) -> void:
 
 
 func _physics_process(delta: float) -> void:
-	if is_dialogue_locked or is_focus_locked:
+	if is_dialogue_locked or is_focus_locked or is_puzzle_locked:
 		return
 
 	if not is_on_floor():
@@ -103,6 +121,7 @@ func try_step_up(move_direction: Vector3) -> bool:
 
 	global_position += up_motion
 	return true
+
 
 
 func update_config_values(config_field: ConfigValues.ConfigField):

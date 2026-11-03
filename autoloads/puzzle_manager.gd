@@ -1,10 +1,13 @@
 extends Node
 
+signal puzzle_started(lock_player: bool)
+signal puzzle_ended()
+
 enum Puzzles {
 	ASTROLABUS_PUZZLE,
 	}
 
-var puzzle_scripts: Dictionary[Puzzles, Node] = {
+var puzzle_scripts: Dictionary[Puzzles, Puzzle] = {
 	Puzzles.ASTROLABUS_PUZZLE : null,
 }
 
@@ -17,6 +20,6 @@ func _ready() -> void:
 			print("astrolab got")
 
 
-func start_puzzle(puzzle: Puzzles):
-	var p: Node = puzzle_scripts[puzzle]
-	
+#func start_puzzle(puzzle: Puzzles):
+	#var p: Puzzle = puzzle_scripts[puzzle]
+	#p.start()
