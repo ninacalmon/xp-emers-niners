@@ -1,13 +1,15 @@
-extends Node3D
+class_name AstrolabusPuzzle
+extends Puzzle
 
 @onready var pointer_pivot: Node3D = $PointerPivot
+@onready var phantom_camera_3d: PhantomCamera3D = $PhantomCamera3D
 @export var button_action_trigger: ButtonActionTrigger
 @export var astrolabus_pointer: Node3D
 @export var button_mesh: MeshInstance3D
 
+const STARTING_VALUE: int = 0
 const CORRECT_VALUE: int = 75
-const STARTING_VALUE_MIN: int = -350
-const STARTING_VALUE_MAX: int = -150
+
 
 const STEP: int = 5
 const TURN_SPEED: float = 0.2
@@ -18,10 +20,17 @@ var is_moving: bool = false
 
 var dial_value: int
 
+
+func start():
+	setup_puzzle()
+
+func finish(solved: bool):
+	pass
+
 func _ready() -> void:
 	button_action_trigger.button_pressed.connect(_on_button_pressed)
 	button_action_trigger.button_released.connect(_on_button_released)
-	setup_puzzle()
+	#setup_puzzle()
 
 
 func _input(event: InputEvent) -> void:
@@ -33,11 +42,9 @@ func _input(event: InputEvent) -> void:
 
 func setup_puzzle() -> void:
 	astrolabus_pointer.rotation.y = deg_to_rad(-49.973)
-	current_value = posmod(
-		random_multiple_of(STEP, STARTING_VALUE_MIN, STARTING_VALUE_MAX),
-		FULL_TURN
-	)
-	pointer_pivot.rotation.y = deg_to_rad(float(current_value))
+	pointer_pivot.rotation.y = deg_to_rad(STARTING_VALUE)
+
+	phantom_camera_3d.priority = 1
 
 
 func move_pointer(dir: int) -> void:
@@ -70,10 +77,6 @@ func move_pointer(dir: int) -> void:
 func get_dial_value() -> int:
 	return posmod(-current_value, FULL_TURN)
 
-
-func random_multiple_of(mult: int, min_val: int, max_val: int) -> int:
-	@warning_ignore("integer_division")
-	return randi_range(ceili(min_val / mult), floori(max_val / mult)) * mult
 
 
 func _on_button_pressed():

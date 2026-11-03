@@ -31,6 +31,7 @@ LoadingManager="*uid://dj27kviu1ngr3"
 TaskManager="*uid://q5bhsivqyeol"
 CharacterData="*uid://1ln1203ajov2"
 FocusPlayground="*uid://c1gekpuprqfig"
+PuzzleManager="*uid://d0b7g7dp5e5te"
 
 [display]
 
@@ -51,6 +52,7 @@ hands_overlay=""
 interaction_overlay=""
 ground_areas=""
 focus_playground=""
+puzzles=""
 
 [gui]
 
