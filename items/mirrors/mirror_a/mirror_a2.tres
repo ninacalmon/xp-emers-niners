@@ -1,7 +1,7 @@
 [gd_resource type="Resource" script_class="ItemRes" format=3 uid="uid://ttdlndp7d6el"]
 
 [ext_resource type="Script" uid="uid://doqkh62nh5of1" path="res://systems/items_resource/item_resource.gd" id="1_d5u5x"]
-[ext_resource type="PackedScene" uid="uid://d0dsxcmymwkpf" path="res://scenes/item_focus_view/mirror_a2_focus_view.tscn" id="1_hcsyg"]
+[ext_resource type="PackedScene" uid="uid://d0dsxcmymwkpf" path="res://scenes/item_focus_view/mirrors/mirror_a/mirror_a2_focus_view.tscn" id="1_hcsyg"]
 [ext_resource type="Resource" uid="uid://cka13d4wlnvfr" path="res://items/mirrors/mirror_a/mirror_a_full.tres" id="2_ug13f"]
 [ext_resource type="Texture2D" uid="uid://bmtjc73r1bfcq" path="res://assets/2d/interface/items_capture/mirror_a2.png" id="4_t65qs"]
 

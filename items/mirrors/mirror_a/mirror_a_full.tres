@@ -1,7 +1,7 @@
 [gd_resource type="Resource" script_class="ItemRes" format=3 uid="uid://cka13d4wlnvfr"]
 
+[ext_resource type="PackedScene" uid="uid://ll55tejdipl" path="res://scenes/item_focus_view/mirrors/mirror_a/mirror_a_full_focus_view.tscn" id="1_ncte5"]
 [ext_resource type="Script" uid="uid://doqkh62nh5of1" path="res://systems/items_resource/item_resource.gd" id="1_nlbhs"]
-[ext_resource type="PackedScene" uid="uid://ll55tejdipl" path="res://scenes/item_focus_view/mirror_a_full_focus_view.tscn" id="1_v4bwv"]
 [ext_resource type="Texture2D" uid="uid://dcfct1wg4oags" path="res://assets/2d/interface/items_capture/mirror_a_full.png" id="3_ncte5"]
 
 [resource]
@@ -9,5 +9,5 @@ script = ExtResource("1_nlbhs")
 id = &"mirror_a_full"
 name_tr_key = "ITEM_MIRROR_FULL"
 texture = ExtResource("3_ncte5")
-item_focus_view = ExtResource("1_v4bwv")
+item_focus_view = ExtResource("1_ncte5")
 metadata/_custom_type_script = "uid://doqkh62nh5of1"

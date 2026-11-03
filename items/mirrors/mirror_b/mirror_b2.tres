@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="ItemRes" format=3 uid="uid://cgutcfta1002v"]
+
+[ext_resource type="PackedScene" uid="uid://b2ikp0uky6ob4" path="res://scenes/item_focus_view/mirrors/mirror_b/mirror_b2_focus_view.tscn" id="1_8rwr0"]
+[ext_resource type="Resource" uid="uid://dymw8vckx5n6n" path="res://items/mirrors/mirror_b/mirror_b_full.tres" id="2_ynlov"]
+[ext_resource type="Script" uid="uid://doqkh62nh5of1" path="res://systems/items_resource/item_resource.gd" id="3_0ehjj"]
+[ext_resource type="Texture2D" uid="uid://ctncyyx5s7gun" path="res://assets/2d/interface/items_capture/mirror_b2.png" id="4_8rwr0"]
+
+[resource]
+script = ExtResource("3_0ehjj")
+id = &"mirror_b2"
+name_tr_key = "ITEM_MIRROR_PART"
+texture = ExtResource("4_8rwr0")
+item_focus_view = ExtResource("1_8rwr0")
+combining_item_id = &"mirror_b1"
+result_item = ExtResource("2_ynlov")
+metadata/_custom_type_script = "uid://doqkh62nh5of1"
