@@ -3,9 +3,32 @@
 [ext_resource type="Script" uid="uid://bqyhv0yuttcvs" path="res://scenes/item_focus_view/item_focus_view.gd" id="1_e1wqh"]
 [ext_resource type="PackedScene" uid="uid://dvqw4lptsejty" path="res://assets/3d/items/astrolabus/astrolabus_body.glb" id="2_hrh2w"]
 
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_e1wqh"]
+sky_top_color = Color(0.7275567, 0.6954605, 0.59714603, 1)
+sky_horizon_color = Color(0.69289213, 0.66735613, 0.62371135, 1)
+ground_bottom_color = Color(0.23, 0.15084168, 0.09430001, 1)
+ground_horizon_color = Color(0.69, 0.6279, 0.4416, 1)
+
+[sub_resource type="Sky" id="Sky_hrh2w"]
+sky_material = SubResource("ProceduralSkyMaterial_e1wqh")
+
+[sub_resource type="Environment" id="Environment_klqlk"]
+background_mode = 2
+sky = SubResource("Sky_hrh2w")
+glow_enabled = true
+glow_bloom = 0.44
+volumetric_fog_density = 0.002
+volumetric_fog_albedo = Color(1, 0.89666665, 0.8, 1)
+volumetric_fog_emission = Color(0.61, 0.61, 0.61, 1)
+volumetric_fog_anisotropy = 0.19
+volumetric_fog_length = 524.22
+
 [node name="FocusView" type="Node3D" unique_id=1453891134 node_paths=PackedStringArray("item_mesh")]
 script = ExtResource("1_e1wqh")
 item_mesh = NodePath("astrolabus")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1927836619]
+environment = SubResource("Environment_klqlk")
 
 [node name="Camera3D" type="Camera3D" parent="." unique_id=2085724]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.3)

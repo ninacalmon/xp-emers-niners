@@ -2,12 +2,14 @@
 
 [ext_resource type="PackedScene" uid="uid://bbcy7j5tv2m8d" path="res://scenes/item_focus_view/astrolabus_full_focus_view.tscn" id="1_i64yx"]
 [ext_resource type="Script" uid="uid://doqkh62nh5of1" path="res://systems/items_resource/item_resource.gd" id="2_al8xx"]
-[ext_resource type="Texture2D" uid="uid://dia5nihyhwo7i" path="res://assets/2d/interface/items_capture/astrolabus_full.png" id="3_i64yx"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_des0s"]
+load_path = "res://.godot/imported/astrolabus_full.png-2d75d17cd885909d5c18d039b49928c6.ctex"
 
 [resource]
 script = ExtResource("2_al8xx")
 id = &"astrolabus_full"
 name_tr_key = "ITEM_ASTROLABUS_FULL"
-texture = ExtResource("3_i64yx")
+texture = SubResource("CompressedTexture2D_des0s")
 item_focus_view = ExtResource("1_i64yx")
 metadata/_custom_type_script = "uid://doqkh62nh5of1"

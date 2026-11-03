@@ -3,9 +3,32 @@
 [ext_resource type="Script" uid="uid://bqyhv0yuttcvs" path="res://scenes/item_focus_view/item_focus_view.gd" id="1_f25mm"]
 [ext_resource type="PackedScene" uid="uid://bo0yitv0382lx" path="res://assets/3d/items/inkwell/inkwell.tscn" id="2_f25mm"]
 
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_f25mm"]
+sky_top_color = Color(0.7275567, 0.6954605, 0.59714603, 1)
+sky_horizon_color = Color(0.69289213, 0.66735613, 0.62371135, 1)
+ground_bottom_color = Color(0.23, 0.15084168, 0.09430001, 1)
+ground_horizon_color = Color(0.69, 0.6279, 0.4416, 1)
+
+[sub_resource type="Sky" id="Sky_rjv3v"]
+sky_material = SubResource("ProceduralSkyMaterial_f25mm")
+
+[sub_resource type="Environment" id="Environment_ctyka"]
+background_mode = 2
+sky = SubResource("Sky_rjv3v")
+glow_enabled = true
+glow_bloom = 0.44
+volumetric_fog_density = 0.002
+volumetric_fog_albedo = Color(1, 0.89666665, 0.8, 1)
+volumetric_fog_emission = Color(0.61, 0.61, 0.61, 1)
+volumetric_fog_anisotropy = 0.19
+volumetric_fog_length = 524.22
+
 [node name="FocusView" type="Node3D" unique_id=1453891134 node_paths=PackedStringArray("item_mesh")]
 script = ExtResource("1_f25mm")
 item_mesh = NodePath("inkwell")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=503727401]
+environment = SubResource("Environment_ctyka")
 
 [node name="Camera3D" type="Camera3D" parent="." unique_id=2085724]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.41467744)

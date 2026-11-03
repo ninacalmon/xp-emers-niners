@@ -12,9 +12,9 @@ func trigger():
 	InventoryManager.add_new_item(MEDICATION)
 	InventoryManager.add_new_item(LOCKPICK)
 	InventoryManager.add_new_item(ROTTEN_MEAT)
-	#InventoryManager.add_new_item(DRINK)
+	InventoryManager.add_new_item(DRINK)
 	InventoryManager.add_new_item(MIRROR_A_1)
-	InventoryManager.add_new_item(MIRROR_A_2)
+	#InventoryManager.add_new_item(MIRROR_A_2)
 	#InventoryManager.add_new_item()
 
 
