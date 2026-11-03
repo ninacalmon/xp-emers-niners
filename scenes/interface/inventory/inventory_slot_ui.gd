@@ -26,6 +26,7 @@ var _shake_origin: Vector2
 
 var _is_being_dragged: bool = false
 
+
 @export var item: ItemRes:
 	set(value):
 		item = value
@@ -60,6 +61,8 @@ func _ready() -> void:
 	button_slot.button_up.connect(_on_button_up)
 	rich_text_label.modulate.a = 1.0 if button_slot.button_pressed else 0.0
 	FocusPlayground.focus.connect(_on_focus)
+
+
 	
 
 
