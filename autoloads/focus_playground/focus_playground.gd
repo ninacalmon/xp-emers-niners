@@ -40,6 +40,7 @@ func _ready() -> void:
 	exit_tex_button.pressed.connect(disable_focus)
 
 
+
 func _process(_delta: float) -> void:
 	follow_mouse_spr.global_position = get_global_mouse_position()
 
@@ -108,6 +109,12 @@ func enable_focus() -> void:
 
 	_build_focus_view()
 	fade(true)
+
+	##########################################################################################
+	## WARNING: this function should only be activated if you wish to save a new capture
+	## of the item.
+	#save_viewport_png()
+########################################################################################
 
 
 func disable_focus():
@@ -272,15 +279,10 @@ func _on_inventory_selected_object_changed(item: ItemRes):
 
 #region screenshot
 
-##########################################################################################
-	## WARNING: this function should only be activated if you wish to save a new capture
-	## of the item.
-	#save_viewport_png()
-##########################################################################################
 
 ## this function saves the sub_viewport render as a png.
 func save_viewport_png(dir_path: String = "res://assets/2d/interface/items_capture/") -> void:
-	sub_viewport.size = Vector2i(480, 480)
+	sub_viewport.size = Vector2i(480*2, 480*2)
 	sub_viewport.render_target_update_mode = SubViewport.UPDATE_ONCE
 	await RenderingServer.frame_post_draw
 
