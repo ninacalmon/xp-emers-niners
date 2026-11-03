@@ -1,0 +1,103 @@
+[gd_scene format=3 uid="uid://cgxxromd5ia45"]
+
+[ext_resource type="Script" uid="uid://cq7bm6thmmuba" path="res://scenes/puzzles/astrolabus/astrolablus_puzzle.gd" id="1_tc74g"]
+[ext_resource type="Script" uid="uid://csjccrhj5wnx7" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_3d.gd" id="2_6dn17"]
+[ext_resource type="Script" uid="uid://8umksf8e80fw" path="res://addons/phantom_camera/scripts/resources/tween_resource.gd" id="3_fcaj1"]
+[ext_resource type="Script" uid="uid://bd046eokvcnu2" path="res://addons/phantom_camera/scripts/phantom_camera_host/phantom_camera_host.gd" id="4_svmea"]
+[ext_resource type="PackedScene" uid="uid://dvqw4lptsejty" path="res://assets/3d/items/astrolabus/astrolabus_body.glb" id="5_w1bex"]
+[ext_resource type="PackedScene" uid="uid://dv6muq7ftqubi" path="res://assets/3d/items/astrolabus/astrolabus_pointer.glb" id="6_5ev72"]
+[ext_resource type="Material" uid="uid://dki8i4qf7fofd" path="res://resources/shader_materials/outline_shader_material_3d.tres" id="7_cs2rg"]
+[ext_resource type="Script" uid="uid://cf2auur4umdjl" path="res://systems/interaction/interaction_area.gd" id="8_wbk0m"]
+[ext_resource type="Script" uid="uid://bpobg6ssmnlny" path="res://scenes/puzzles/astrolabus/button_action_trigger.gd" id="9_f6mmc"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_cdpwx"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_cdpwx"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ksdio"]
+albedo_color = Color(0.41, 0.24026, 0.1271, 1)
+
+[sub_resource type="Resource" id="Resource_oanbi"]
+script = ExtResource("3_fcaj1")
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_n3kkv"]
+radius = 0.01
+height = 0.04
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_5604n"]
+albedo_color = Color(0.27450982, 0.35686275, 1, 1)
+metallic = 1.0
+roughness = 0.25
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_ksdio"]
+radius = 0.02
+
+[node name="AstrolablusPuzzle" type="Node3D" unique_id=572576743 node_paths=PackedStringArray("button_action_trigger", "astrolabus_pointer", "button_mesh")]
+script = ExtResource("1_tc74g")
+button_action_trigger = NodePath("Button/InteractionArea/ButtonActionTrigger")
+astrolabus_pointer = NodePath("PointerPivot/astrolabus_pointer")
+button_mesh = NodePath("Button/ButtonMesh")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=717993996]
+transform = Transform3D(-0.8660254, -0.43301278, 0.25, 0, 0.49999997, 0.86602545, -0.50000006, 0.75, -0.43301266, 0, 0, 0)
+shadow_enabled = true
+
+[node name="Table" type="StaticBody3D" parent="." unique_id=1685460299]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Table" unique_id=759516503]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.48867738, 0)
+shape = SubResource("BoxShape3D_cdpwx")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Table" unique_id=1711685298]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.48983818, 0)
+mesh = SubResource("BoxMesh_cdpwx")
+surface_material_override/0 = SubResource("StandardMaterial3D_ksdio")
+
+[node name="PhantomCamera3D" type="Node3D" parent="." unique_id=1007361020]
+transform = Transform3D(1.0000001, 0, 0, 0, -4.371139e-08, 0.99999994, 0, -1, -4.3711385e-08, 0.041039407, 1.3036839, 0.006399274)
+script = ExtResource("2_6dn17")
+tween_resource = SubResource("Resource_oanbi")
+metadata/_custom_type_script = "uid://csjccrhj5wnx7"
+
+[node name="Camera3D" type="Camera3D" parent="." unique_id=1300242329]
+transform = Transform3D(1.0000001, 0, 0, 0, -4.371139e-08, 0.99999994, 0, -1, -4.3711385e-08, 0.041039407, 1.3036839, 0.006399274)
+top_level = true
+
+[node name="PhantomCameraHost" type="Node" parent="Camera3D" unique_id=312065187]
+process_priority = 300
+process_physics_priority = 300
+script = ExtResource("4_svmea")
+metadata/_custom_type_script = "uid://bd046eokvcnu2"
+
+[node name="astrolabus_body" parent="." unique_id=1927840522 instance=ExtResource("5_w1bex")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.024691, 0)
+
+[node name="PointerPivot" type="Node3D" parent="." unique_id=728286195]
+transform = Transform3D(-0.8048938, 0, -0.5934189, 0, 1, 0, 0.5934189, 0, -0.8048938, 0, 1.0313907, 0)
+
+[node name="astrolabus_pointer" parent="PointerPivot" unique_id=224618642 instance=ExtResource("6_5ev72")]
+transform = Transform3D(0.6320293, 0, -0.7749445, 0, 1, 0, 0.7749445, 0, 0.6320293, 0, -0.00647521, 0)
+
+[node name="Button" type="Node3D" parent="." unique_id=662101304]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.0250621, 0)
+
+[node name="ButtonMesh" type="MeshInstance3D" parent="Button" unique_id=946235747]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0021959543, 0)
+material_overlay = ExtResource("7_cs2rg")
+instance_shader_parameters/size = 1.0999999977648
+mesh = SubResource("CapsuleMesh_n3kkv")
+surface_material_override/0 = SubResource("StandardMaterial3D_5604n")
+
+[node name="InteractionArea" type="Area3D" parent="Button" unique_id=345987906 node_paths=PackedStringArray("mesh", "action_trigger")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0027666092, 0)
+script = ExtResource("8_wbk0m")
+clickable = true
+mesh = NodePath("../ButtonMesh")
+action_trigger = NodePath("ButtonActionTrigger")
+metadata/_custom_type_script = "uid://cf2auur4umdjl"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Button/InteractionArea" unique_id=1294876275]
+shape = SubResource("SphereShape3D_ksdio")
+
+[node name="ButtonActionTrigger" type="Node" parent="Button/InteractionArea" unique_id=213519699]
+script = ExtResource("9_f6mmc")
