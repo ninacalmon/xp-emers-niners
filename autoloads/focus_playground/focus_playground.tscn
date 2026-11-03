@@ -19,6 +19,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
 script = ExtResource("1_057li")
 
 [node name="BlurCRect" type="ColorRect" parent="." unique_id=512982508]
@@ -43,6 +44,7 @@ mouse_filter = 2
 
 [node name="TextureRect" type="TextureRect" parent="BlurCRect/CenterContainer" unique_id=2028512328]
 layout_mode = 2
+mouse_filter = 2
 texture = SubResource("ViewportTexture_xrivr")
 
 [node name="FollowMouseSpr" type="Sprite2D" parent="BlurCRect" unique_id=417413712]
@@ -54,6 +56,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
 theme_override_constants/margin_left = 142
 theme_override_constants/margin_top = 134
 theme_override_constants/margin_right = 220
@@ -61,11 +64,13 @@ theme_override_constants/margin_bottom = 64
 
 [node name="VBoxContainer" type="VBoxContainer" parent="BlurCRect/MarginContainer" unique_id=211758838]
 layout_mode = 2
+mouse_filter = 2
 alignment = 1
 
 [node name="ItemLabel" type="RichTextLabel" parent="BlurCRect/MarginContainer/VBoxContainer" unique_id=1321749748]
 layout_mode = 2
 size_flags_vertical = 3
+mouse_filter = 2
 theme_override_colors/default_color = Color(1, 1, 1, 1)
 bbcode_enabled = true
 text = "Arraste[img=50]res://assets/2d/interface/kenney_input_prompts/mouse_left_outline.png[/img] itens para
@@ -82,17 +87,20 @@ custom_maximum_size = Vector2(70, 70)
 layout_mode = 2
 size_flags_horizontal = 8
 size_flags_vertical = 4
+mouse_filter = 2
 texture_normal = ExtResource("3_vreke")
 stretch_mode = 5
 
 [node name="HBoxContainer" type="HBoxContainer" parent="BlurCRect/MarginContainer/VBoxContainer" unique_id=427593086]
 layout_mode = 2
 size_flags_vertical = 3
+mouse_filter = 2
 
 [node name="ZoomLabel" type="RichTextLabel" parent="BlurCRect/MarginContainer/VBoxContainer/HBoxContainer" unique_id=525078861]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
+mouse_filter = 2
 theme_override_colors/default_color = Color(1, 1, 1, 1)
 bbcode_enabled = true
 text = "		Segure [img=70]res://assets/2d/interface/kenney_input_prompts/keyboard_ctrl_outline.png[/img] e role [img=50]res://assets/2d/interface/kenney_input_prompts/mouse_scroll_vertical_outline.png[/img] para dar zoom."
@@ -102,6 +110,7 @@ vertical_alignment = 2
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
+mouse_filter = 2
 theme_override_colors/default_color = Color(1, 1, 1, 1)
 bbcode_enabled = true
 text = "Arraste[img=50]res://assets/2d/interface/kenney_input_prompts/mouse_scroll_outline.png[/img]para rotacionar item."

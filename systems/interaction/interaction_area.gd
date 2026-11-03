@@ -12,9 +12,10 @@ const OUTLINE_SHADER_MATERIAL_3D = preload("uid://dki8i4qf7fofd")
 
 var checking_input: bool = false
 
-var interaction_overlay: InteractionOverlay
+#var interaction_overlay: InteractionOverlay
 
-@export var mesh: MeshInstance3D ## Visual node for 3D objects.
+@export var clickable: bool = false
+@export var mesh: MeshInstance3D ## visual node for 3D objects.
 @export var animated_sprite: AnimatedSprite2D ## visual node for 2D (billboarded) objects.
 @export var action_trigger: ActionTrigger
 
@@ -29,7 +30,7 @@ func on_ray_enter():
 	elif animated_sprite:
 		animated_sprite.set_instance_shader_parameter("outline_enabled", true)
 
-	interaction_overlay.show_inter_text(action_trigger)
+	#interaction_overlay.show_inter_text(action_trigger)
 
 
 ## called by [PlayerRayCast]. means player is not close enough anymore or looked away.
@@ -42,14 +43,14 @@ func on_ray_exit():
 	elif animated_sprite:
 		animated_sprite.set_instance_shader_parameter("outline_enabled", false)
 
-	interaction_overlay.hide_inter_text()
+	#interaction_overlay.hide_inter_text()
 
 
 func _input(event: InputEvent) -> void:
 	if not checking_input:
 		return
 
-	## "interact" input action is currently triggered by lmb or 'E' for tests and will be changed.
+	## "interact" input action is currently triggered by lmb.
 	if event.is_action_pressed("interact"):
 		action_trigger.trigger()
 
@@ -58,8 +59,14 @@ func _input(event: InputEvent) -> void:
 
 
 func _ready() -> void:
+	if clickable:
+		input_ray_pickable = true
+		mouse_entered.connect(on_ray_enter)
+		mouse_exited.connect(on_ray_exit)
+		print("im pickable")
+
 	action_trigger.action_ended.connect(_on_action_trigger_action_ended)
-	interaction_overlay = get_tree().get_first_node_in_group("interaction_overlay")
+	#interaction_overlay = get_tree().get_first_node_in_group("interaction_overlay")
 
 	## tries to add outline_shader to mesh or animated_sprite.
 	apply_outline_shaders()
