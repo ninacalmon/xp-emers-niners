@@ -10,6 +10,9 @@
 [ext_resource type="Script" uid="uid://cf2auur4umdjl" path="res://systems/interaction/interaction_area.gd" id="8_wbk0m"]
 [ext_resource type="Script" uid="uid://bpobg6ssmnlny" path="res://scenes/puzzles/astrolabus/button_action_trigger.gd" id="9_f6mmc"]
 
+[sub_resource type="Resource" id="Resource_oanbi"]
+script = ExtResource("3_fcaj1")
+
 [sub_resource type="BoxShape3D" id="BoxShape3D_cdpwx"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_cdpwx"]
@@ -17,26 +20,29 @@
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ksdio"]
 albedo_color = Color(0.41, 0.24026, 0.1271, 1)
 
-[sub_resource type="Resource" id="Resource_oanbi"]
-script = ExtResource("3_fcaj1")
-
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_n3kkv"]
 radius = 0.01
 height = 0.04
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_5604n"]
 albedo_color = Color(0.27450982, 0.35686275, 1, 1)
-metallic = 1.0
+metallic = 0.8
 roughness = 0.25
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_ksdio"]
 radius = 0.02
 
-[node name="AstrolablusPuzzle" type="Node3D" unique_id=572576743 node_paths=PackedStringArray("button_action_trigger", "astrolabus_pointer", "button_mesh")]
+[node name="AstrolablusPuzzle" type="Node3D" unique_id=572576743 node_paths=PackedStringArray("button_action_trigger", "astrolabus_pointer", "button_mesh") groups=["puzzles"]]
 script = ExtResource("1_tc74g")
 button_action_trigger = NodePath("Button/InteractionArea/ButtonActionTrigger")
 astrolabus_pointer = NodePath("PointerPivot/astrolabus_pointer")
 button_mesh = NodePath("Button/ButtonMesh")
+
+[node name="PhantomCamera3D" type="Node3D" parent="." unique_id=1007361020]
+transform = Transform3D(1.0000001, 0, 0, 0, -4.371139e-08, 0.99999994, 0, -1, -4.3711385e-08, 0.041039407, 1.3036839, 0.006399274)
+script = ExtResource("2_6dn17")
+tween_resource = SubResource("Resource_oanbi")
+metadata/_custom_type_script = "uid://csjccrhj5wnx7"
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=717993996]
 transform = Transform3D(-0.8660254, -0.43301278, 0.25, 0, 0.49999997, 0.86602545, -0.50000006, 0.75, -0.43301266, 0, 0, 0)
@@ -52,12 +58,6 @@ shape = SubResource("BoxShape3D_cdpwx")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.48983818, 0)
 mesh = SubResource("BoxMesh_cdpwx")
 surface_material_override/0 = SubResource("StandardMaterial3D_ksdio")
-
-[node name="PhantomCamera3D" type="Node3D" parent="." unique_id=1007361020]
-transform = Transform3D(1.0000001, 0, 0, 0, -4.371139e-08, 0.99999994, 0, -1, -4.3711385e-08, 0.041039407, 1.3036839, 0.006399274)
-script = ExtResource("2_6dn17")
-tween_resource = SubResource("Resource_oanbi")
-metadata/_custom_type_script = "uid://csjccrhj5wnx7"
 
 [node name="Camera3D" type="Camera3D" parent="." unique_id=1300242329]
 transform = Transform3D(1.0000001, 0, 0, 0, -4.371139e-08, 0.99999994, 0, -1, -4.3711385e-08, 0.041039407, 1.3036839, 0.006399274)
