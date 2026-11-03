@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="ItemRes" format=3 uid="uid://dmi136l0r18xj"]
+
+[ext_resource type="Script" uid="uid://doqkh62nh5of1" path="res://systems/items_resource/item_resource.gd" id="1_ft1wv"]
+[ext_resource type="PackedScene" uid="uid://do2eggnvi14th" path="res://scenes/item_focus_view/toxic_plant_focus_view.tscn" id="1_j05ig"]
+[ext_resource type="Texture2D" uid="uid://djrfmftdwhcll" path="res://assets/2d/interface/items_capture/toxic_plant.png" id="2_vclvj"]
+
+[resource]
+script = ExtResource("1_ft1wv")
+id = &"toxic_plant"
+name_tr_key = "ITEM_TOXIC_PLANT"
+texture = ExtResource("2_vclvj")
+item_focus_view = ExtResource("1_j05ig")
+metadata/_custom_type_script = "uid://doqkh62nh5of1"
