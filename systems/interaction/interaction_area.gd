@@ -22,6 +22,7 @@ var checking_input: bool = false
 
 ## called by [PlayerRayCast]. means player is close enough and looking directly at.
 func on_ray_enter():
+	print("enter ", get_path(), " frame ", Engine.get_process_frames())
 	checking_input = true
 	action_trigger.ray_enter()
 	if mesh:
@@ -35,6 +36,7 @@ func on_ray_enter():
 
 ## called by [PlayerRayCast]. means player is not close enough anymore or looked away.
 func on_ray_exit():
+	print("out ", get_path(), " frame ", Engine.get_process_frames())
 	checking_input = false
 	action_trigger.ray_exit()
 	if mesh:
@@ -59,6 +61,9 @@ func _input(event: InputEvent) -> void:
 
 
 func _ready() -> void:
+	assert(mesh != null or animated_sprite != null,
+	"InteractionArea needs a mesh or an animated_sprite!")
+	
 	if clickable:
 		input_ray_pickable = true
 		mouse_entered.connect(on_ray_enter)

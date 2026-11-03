@@ -7,8 +7,10 @@
 [ext_resource type="PackedScene" uid="uid://dvqw4lptsejty" path="res://assets/3d/items/astrolabus/astrolabus_body.glb" id="5_w1bex"]
 [ext_resource type="PackedScene" uid="uid://dv6muq7ftqubi" path="res://assets/3d/items/astrolabus/astrolabus_pointer.glb" id="6_5ev72"]
 [ext_resource type="Material" uid="uid://dki8i4qf7fofd" path="res://resources/shader_materials/outline_shader_material_3d.tres" id="7_cs2rg"]
+[ext_resource type="Material" uid="uid://cxy67ivxn22xy" path="res://resources/shader_materials/outline_draw_mat.tres" id="8_svmea"]
 [ext_resource type="Script" uid="uid://cf2auur4umdjl" path="res://systems/interaction/interaction_area.gd" id="8_wbk0m"]
 [ext_resource type="Script" uid="uid://bpobg6ssmnlny" path="res://scenes/puzzles/astrolabus/button_action_trigger.gd" id="9_f6mmc"]
+[ext_resource type="Shader" uid="uid://dwrb8xvy1ktgo" path="res://resources/shaders/outline_mask.gdshader" id="9_w1bex"]
 [ext_resource type="Script" uid="uid://cmfudvx52x4we" path="res://scenes/puzzles/start_puzzle_action.gd" id="10_6dn17"]
 
 [sub_resource type="Resource" id="Resource_p47bc"]
@@ -23,6 +25,11 @@ transition = 3
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ksdio"]
 albedo_color = Color(0.41, 0.24026, 0.1271, 1)
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_5ev72"]
+render_priority = 0
+next_pass = ExtResource("8_svmea")
+shader = ExtResource("9_w1bex")
+
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_n3kkv"]
 radius = 0.01
 height = 0.04
@@ -36,7 +43,7 @@ roughness = 0.25
 radius = 0.02
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_cdpwx"]
-radius = 1.605
+radius = 0.86783373
 
 [node name="AstrolablusPuzzle" type="Node3D" unique_id=572576743 node_paths=PackedStringArray("button_action_trigger", "astrolabus_pointer", "button_mesh") groups=["puzzles"]]
 script = ExtResource("1_tc74g")
@@ -59,6 +66,8 @@ shape = SubResource("BoxShape3D_cdpwx")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Table" unique_id=1711685298]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.48983818, 0)
+material_overlay = ExtResource("7_cs2rg")
+instance_shader_parameters/outline_enabled = false
 mesh = SubResource("BoxMesh_cdpwx")
 surface_material_override/0 = SubResource("StandardMaterial3D_ksdio")
 
@@ -86,7 +95,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.0250621, 0)
 
 [node name="ButtonMesh" type="MeshInstance3D" parent="Button" unique_id=946235747]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0021959543, 0)
-material_overlay = ExtResource("7_cs2rg")
+material_overlay = SubResource("ShaderMaterial_5ev72")
+instance_shader_parameters/outline_enabled = true
 instance_shader_parameters/size = 1.0999999977648
 mesh = SubResource("CapsuleMesh_n3kkv")
 surface_material_override/0 = SubResource("StandardMaterial3D_5604n")
@@ -107,13 +117,14 @@ script = ExtResource("9_f6mmc")
 
 [node name="InteractionArea" type="Area3D" parent="." unique_id=1893375073 node_paths=PackedStringArray("mesh", "action_trigger")]
 script = ExtResource("8_wbk0m")
-clickable = true
 mesh = NodePath("../Table/MeshInstance3D")
 action_trigger = NodePath("StartPuzzleAction")
 metadata/_custom_type_script = "uid://cf2auur4umdjl"
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="InteractionArea" unique_id=1051231944]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5492842, 0)
 shape = SubResource("SphereShape3D_cdpwx")
 
-[node name="StartPuzzleAction" type="Node" parent="InteractionArea" unique_id=1232823712]
+[node name="StartPuzzleAction" type="Node" parent="InteractionArea" unique_id=1232823712 node_paths=PackedStringArray("mesh_instance_3d")]
 script = ExtResource("10_6dn17")
+mesh_instance_3d = NodePath("../../Table/MeshInstance3D")
