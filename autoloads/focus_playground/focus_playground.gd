@@ -51,7 +51,7 @@ func try_and_combine() -> void:
 	if combining_item == null:
 		return
 
-	if focused_item.combining_item == combining_item:
+	if focused_item.combining_item_id == combining_item.id:
 		var result_item: ItemRes = focused_item.result_item
 
 		InventoryManager.use_item(focused_item_slot_idx)

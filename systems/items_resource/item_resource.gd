@@ -27,6 +27,6 @@ extends Resource
 #region Combination
 ## combining_item is the item to combine in focus mode.
 @export_group("Combination")
-@export var combining_item: ItemRes = null
+@export var combining_item_id: StringName = ""
 @export var result_item: ItemRes
 #endregion
