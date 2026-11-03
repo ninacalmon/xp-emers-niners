@@ -282,7 +282,7 @@ func _on_inventory_selected_object_changed(item: ItemRes):
 
 ## this function saves the sub_viewport render as a png.
 func save_viewport_png(dir_path: String = "res://assets/2d/interface/items_capture/") -> void:
-	sub_viewport.size = Vector2i(480*2, 480*2)
+	sub_viewport.size = Vector2i(480, 480)
 	sub_viewport.render_target_update_mode = SubViewport.UPDATE_ONCE
 	await RenderingServer.frame_post_draw
 
