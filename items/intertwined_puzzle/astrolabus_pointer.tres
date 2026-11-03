@@ -3,7 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://lm0eryfbbq1k" path="res://scenes/item_focus_view/astrolabus_pointer_focus_view.tscn" id="1_0o3rc"]
 [ext_resource type="Resource" uid="uid://c6akotlps2yoe" path="res://items/intertwined_puzzle/astrolabus_full.tres" id="2_iqec5"]
 [ext_resource type="Script" uid="uid://doqkh62nh5of1" path="res://systems/items_resource/item_resource.gd" id="2_oixcm"]
-[ext_resource type="Texture2D" uid="uid://dnw7hcs6ydctf" path="res://assets/2d/interface/items_capture/astrolab_pointer.png" id="3_0o3rc"]
+[ext_resource type="Texture2D" uid="uid://7x7wrovdoi0" path="res://assets/2d/interface/items_capture/astrolab_pointer.png" id="3_0o3rc"]
 
 [resource]
 script = ExtResource("2_oixcm")

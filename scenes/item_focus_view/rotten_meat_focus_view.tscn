@@ -5,6 +5,26 @@
 [ext_resource type="Texture2D" uid="uid://ciqj7dunu8oi0" path="res://assets/3d/items/rotten_meat/baked_texture.png" id="3_l7skp"]
 [ext_resource type="Texture2D" uid="uid://b1eq1vimat1he" path="res://assets/3d/items/rotten_meat/baked_normal.png" id="4_dmio2"]
 
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_c4kkv"]
+sky_top_color = Color(0.7275567, 0.6954605, 0.59714603, 1)
+sky_horizon_color = Color(0.69289213, 0.66735613, 0.62371135, 1)
+ground_bottom_color = Color(0.23, 0.15084168, 0.09430001, 1)
+ground_horizon_color = Color(0.69, 0.6279, 0.4416, 1)
+
+[sub_resource type="Sky" id="Sky_l7skp"]
+sky_material = SubResource("ProceduralSkyMaterial_c4kkv")
+
+[sub_resource type="Environment" id="Environment_dmio2"]
+background_mode = 2
+sky = SubResource("Sky_l7skp")
+glow_enabled = true
+glow_bloom = 0.44
+volumetric_fog_density = 0.002
+volumetric_fog_albedo = Color(1, 0.89666665, 0.8, 1)
+volumetric_fog_emission = Color(0.61, 0.61, 0.61, 1)
+volumetric_fog_anisotropy = 0.19
+volumetric_fog_length = 524.22
+
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_6fpkb"]
 resource_name = "meat"
 cull_mode = 2
@@ -63,6 +83,9 @@ height = 0.01
 [node name="FocusView" type="Node3D" unique_id=1453891134 node_paths=PackedStringArray("item_mesh")]
 script = ExtResource("1_jn6vp")
 item_mesh = NodePath("rotten_meat")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1803587823]
+environment = SubResource("Environment_dmio2")
 
 [node name="Camera3D" type="Camera3D" parent="." unique_id=2085724]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.45716292)
