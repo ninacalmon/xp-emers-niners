@@ -1,7 +1,9 @@
 [gd_scene format=3 uid="uid://dxwhs1tti7i50"]
 
 [ext_resource type="Script" uid="uid://bd046eokvcnu2" path="res://addons/phantom_camera/scripts/phantom_camera_host/phantom_camera_host.gd" id="1_mxkvs"]
+[ext_resource type="Script" uid="uid://bbu3di48o4k0c" path="res://addons/DayNightCycle/DayNightCycle.gd" id="1_umvgx"]
 [ext_resource type="PackedScene" uid="uid://cciw6s8b6nsbw" path="res://scenes/player/player.tscn" id="2_m114p"]
+[ext_resource type="Material" uid="uid://wyikf3yxoy6x" path="res://addons/DayNightCycle/Sky_Day.tres" id="2_mxkvs"]
 [ext_resource type="PackedScene" uid="uid://cuxxx8rje22th" path="res://assets/3d/scenery/church/church.glb" id="5_v5dby"]
 [ext_resource type="PackedScene" uid="uid://boht0mv2kyq81" path="res://scenes/characters/hugo/hugo.tscn" id="6_1yooq"]
 [ext_resource type="PackedScene" uid="uid://ondr0bhvtwol" path="res://scenes/interface/game_ui_overlay/game_ui_overlay.tscn" id="6_tytul"]
@@ -13,25 +15,13 @@
 [ext_resource type="PackedScene" uid="uid://cgxxromd5ia45" path="res://scenes/puzzles/astrolabus/astrolablus_puzzle.tscn" id="11_5qq27"]
 [ext_resource type="Script" uid="uid://dh1ltto8wru1y" path="res://screenshots/screenshots.gd" id="12_dlabj"]
 
-[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_dlabj"]
-sky_top_color = Color(0.7275567, 0.6954605, 0.59714603, 1)
-sky_horizon_color = Color(0.69289213, 0.66735613, 0.62371135, 1)
-ground_bottom_color = Color(0.23, 0.15084168, 0.09430001, 1)
-ground_horizon_color = Color(0.69, 0.6279, 0.4416, 1)
+[sub_resource type="Sky" id="Sky_m114p"]
+sky_material = ExtResource("2_mxkvs")
 
-[sub_resource type="Sky" id="Sky_jlx5v"]
-sky_material = SubResource("ProceduralSkyMaterial_dlabj")
-
-[sub_resource type="Environment" id="Environment_srmg5"]
+[sub_resource type="Environment" id="Environment_71ii3"]
 background_mode = 2
-sky = SubResource("Sky_jlx5v")
+sky = SubResource("Sky_m114p")
 glow_enabled = true
-glow_bloom = 0.44
-volumetric_fog_density = 0.002
-volumetric_fog_albedo = Color(1, 0.89666665, 0.8, 1)
-volumetric_fog_emission = Color(0.61, 0.61, 0.61, 1)
-volumetric_fog_anisotropy = 0.19
-volumetric_fog_length = 524.22
 
 [sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_5604n"]
 
@@ -43,19 +33,32 @@ albedo_color = Color(0.66, 0.52536005, 0.4224, 1)
 
 [node name="TestWorld" type="Node3D" unique_id=1370714841]
 
-[node name="GameUiOverlay" parent="." unique_id=472711346 instance=ExtResource("6_tytul")]
-
-[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1178398214]
-environment = SubResource("Environment_srmg5")
-
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1489338464]
-transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 30.18241, 0)
-light_color = Color(1, 0.9411765, 0.8980392, 1)
-light_energy = 0.737
-light_angular_distance = 0.49
-light_specular = 0.0
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=593969480 node_paths=PackedStringArray("worldEnvironment", "nightLight")]
+transform = Transform3D(-0.8660254, -0.43301278, 0.25, 0, 0.49999997, 0.86602545, -0.50000006, 0.75, -0.43301266, 0, 0, 0)
 shadow_enabled = true
-directional_shadow_blend_splits = true
+directional_shadow_mode = 0
+script = ExtResource("1_umvgx")
+worldEnvironment = NodePath("../WorldEnvironment")
+nightLight = NodePath("DirectionalLight3D")
+rotationOffset = Vector3(18, 0, 0)
+currentTime = 720.0
+speedMultiplier = 100.0
+sunriseHour = 4
+sunsetHour = 24
+sunriseColor = Color(0.41, 0.27524665, 0.1312, 1)
+dayColor = Color(0.75, 0.638625, 0.5475, 1)
+sunsetColor = Color(0.42, 0.17653999, 0.10919999, 1)
+nightColor = Color(0.05, 0.06500002, 0.2, 1)
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="DirectionalLight3D" unique_id=437149957]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 0, 0)
+light_energy = 0.0
+directional_shadow_mode = 0
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=312656508]
+environment = SubResource("Environment_71ii3")
+
+[node name="GameUiOverlay" parent="." unique_id=472711346 instance=ExtResource("6_tytul")]
 
 [node name="Camera3D" type="Camera3D" parent="." unique_id=1834340419]
 physics_interpolation_mode = 1
@@ -215,7 +218,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 40.347553, 1.4971457, 0.94463
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 25.826788, 2.7359483, 0)
 
 [node name="AstrolablusPuzzle" parent="." unique_id=572576743 instance=ExtResource("11_5qq27")]
-transform = Transform3D(-0.18439692, 0, -0.98285186, 0, 1, 0, 0.98285186, 0, -0.18439692, 33.05535, 2.3888822, -14.218501)
+transform = Transform3D(-0.18439692, 0, -0.98285186, 0, 1, 0, 0.98285186, 0, -0.18439692, 37.01739, 2.3888822, -19.243153)
 
 [node name="ScreenshotTaker" type="Node" parent="." unique_id=811109235]
 script = ExtResource("12_dlabj")
