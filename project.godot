@@ -32,6 +32,7 @@ TaskManager="*uid://q5bhsivqyeol"
 CharacterData="*uid://1ln1203ajov2"
 FocusPlayground="*uid://c1gekpuprqfig"
 PuzzleManager="*uid://d0b7g7dp5e5te"
+TimeManager="*uid://iv75j075cl7l"
 
 [display]
 

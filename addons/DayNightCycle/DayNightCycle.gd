@@ -1,3 +1,4 @@
+class_name Sun
 extends DirectionalLight3D
 
 @export var worldEnvironment: WorldEnvironment
