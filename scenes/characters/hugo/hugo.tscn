@@ -5,8 +5,36 @@
 [ext_resource type="Resource" uid="uid://djymti5s8t1g4" path="res://dialogue/hugo/hugo_main.dialogue" id="3_hcqp7"]
 [ext_resource type="Script" uid="uid://biodsue5rifq4" path="res://systems/character/character_sprite_handler.gd" id="4_e1ver"]
 [ext_resource type="Material" uid="uid://dxugeq4hehdak" path="res://resources/shader_materials/outline_shader_material_2d.tres" id="5_syy5x"]
-[ext_resource type="SpriteFrames" uid="uid://daq8bx0soe2xd" path="res://resources/sprite_frames/characters/julio/julio_sprite_frames.tres" id="6_vr6xv"]
+[ext_resource type="Texture2D" uid="uid://bixe6ui6wxqon" path="res://assets/2d/characters/julio/idle/julio_idle_angry_closed.png" id="6_l85td"]
 [ext_resource type="Texture2D" uid="uid://bqsqjmuxomccs" path="res://assets/placeholders/hugo_feio.png" id="7_l5pxw"]
+[ext_resource type="Texture2D" uid="uid://c4rgoaymj3ly5" path="res://assets/2d/characters/julio/idle/julio_idle_angry_open.png" id="7_l60nr"]
+[ext_resource type="Texture2D" uid="uid://bej8cscfqopvi" path="res://assets/2d/characters/julio/idle/julio_idle_default_closed.png" id="8_ni6c5"]
+[ext_resource type="Texture2D" uid="uid://b7odv81u7xaa0" path="res://assets/2d/characters/julio/idle/julio_idle_default_open.png" id="9_01o8v"]
+[ext_resource type="Texture2D" uid="uid://bic4oyjqrlcyo" path="res://assets/2d/characters/julio/idle/julio_idle_happy_closed.png" id="10_rsmfo"]
+[ext_resource type="Texture2D" uid="uid://6s312py73w0c" path="res://assets/2d/characters/julio/idle/julio_idle_happy_open.png" id="11_flb3q"]
+[ext_resource type="Texture2D" uid="uid://ffglnj1sydna" path="res://assets/2d/characters/julio/idle/julio_idle_sad_closed.png" id="12_1m30w"]
+[ext_resource type="Texture2D" uid="uid://g5emi4q56bel" path="res://assets/2d/characters/julio/idle/julio_idle_sad_open.png" id="13_m2ngq"]
+[ext_resource type="Texture2D" uid="uid://brtnmym271woj" path="res://assets/2d/characters/julio/idle/julio_idle_serious_closed.png" id="14_8nab3"]
+[ext_resource type="Texture2D" uid="uid://blnpj1qh1b83g" path="res://assets/2d/characters/julio/idle/julio_idle_serious_open.png" id="15_ahm7k"]
+[ext_resource type="Texture2D" uid="uid://dpxheopsyd2dv" path="res://assets/2d/characters/julio/idle/julio_idle_surprised.png" id="16_818oo"]
+[ext_resource type="Texture2D" uid="uid://dtm6rbundaid8" path="res://assets/2d/characters/julio/intense/julio_intense_angry_closed.png" id="17_8s4u7"]
+[ext_resource type="Texture2D" uid="uid://0dfvcl320xne" path="res://assets/2d/characters/julio/intense/julio_intense_angry_open.png" id="18_embjo"]
+[ext_resource type="Texture2D" uid="uid://c2bi0v3r7t7qu" path="res://assets/2d/characters/julio/intense/julio_intense_default_closed.png" id="19_7ex8s"]
+[ext_resource type="Texture2D" uid="uid://dk8efkie1ffy8" path="res://assets/2d/characters/julio/intense/julio_intense_default_open.png" id="20_omc4r"]
+[ext_resource type="Texture2D" uid="uid://ceije1irebwe2" path="res://assets/2d/characters/julio/intense/julio_intense_happy_closed.png" id="21_d2d0j"]
+[ext_resource type="Texture2D" uid="uid://dksfuvjt8x0d1" path="res://assets/2d/characters/julio/intense/julio_intense_happy_open.png" id="22_6gc58"]
+[ext_resource type="Texture2D" uid="uid://p8538x2fdlqu" path="res://assets/2d/characters/julio/intense/julio_intense_sad_closed.png" id="23_1m2lp"]
+[ext_resource type="Texture2D" uid="uid://dxc4y7b6xluro" path="res://assets/2d/characters/julio/intense/julio_intense_sad_open.png" id="24_806qa"]
+[ext_resource type="Texture2D" uid="uid://c6vvxgjh066kq" path="res://assets/2d/characters/julio/intense/julio_intense_surprised.png" id="25_nv5jq"]
+[ext_resource type="Texture2D" uid="uid://x0kq8aul8w84" path="res://assets/2d/characters/julio/silly/julio_silly_angry_closed.png" id="26_cwk33"]
+[ext_resource type="Texture2D" uid="uid://chc5u7d0364vb" path="res://assets/2d/characters/julio/silly/julio_silly_angry_open.png" id="27_lh4yy"]
+[ext_resource type="Texture2D" uid="uid://dre838axpj4x1" path="res://assets/2d/characters/julio/silly/julio_silly_default_closed.png" id="28_bvvde"]
+[ext_resource type="Texture2D" uid="uid://b0bpm26jgthea" path="res://assets/2d/characters/julio/silly/julio_silly_default_open.png" id="29_ih2hf"]
+[ext_resource type="Texture2D" uid="uid://dhe7u7srqhhe7" path="res://assets/2d/characters/julio/silly/julio_silly_happy_closed.png" id="30_gqidq"]
+[ext_resource type="Texture2D" uid="uid://cr4pcm8fwqre0" path="res://assets/2d/characters/julio/silly/julio_silly_happy_open.png" id="31_td3u1"]
+[ext_resource type="Texture2D" uid="uid://dlgg3oedrxav7" path="res://assets/2d/characters/julio/silly/julio_silly_sad_closed.png" id="32_7ykww"]
+[ext_resource type="Texture2D" uid="uid://cyv8q5t05kj8q" path="res://assets/2d/characters/julio/silly/julio_silly_sad_open.png" id="33_vmnoe"]
+[ext_resource type="Texture2D" uid="uid://chx1vkc7pxlkk" path="res://assets/2d/characters/julio/silly/julio_silly_surprised.png" id="34_mstiv"]
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_gmoyl"]
 viewport_path = NodePath("SubViewportSprite")
@@ -22,6 +50,184 @@ height = 0.8618164
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_rwxsw"]
 radius = 0.44921875
 height = 2.1726074
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_38uxq"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("6_l85td")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_l60nr")
+}],
+"loop": 1,
+"name": &"IDLE_ANGRY",
+"speed": 6.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("8_ni6c5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_01o8v")
+}],
+"loop": 1,
+"name": &"IDLE_DEFAULT",
+"speed": 6.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("10_rsmfo")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_flb3q")
+}],
+"loop": 1,
+"name": &"IDLE_HAPPY",
+"speed": 6.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("12_1m30w")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_m2ngq")
+}],
+"loop": 1,
+"name": &"IDLE_SAD",
+"speed": 6.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("14_8nab3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15_ahm7k")
+}],
+"loop": 1,
+"name": &"IDLE_SERIOUS",
+"speed": 6.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("16_818oo")
+}],
+"loop": 1,
+"name": &"IDLE_SURPRISED",
+"speed": 6.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("17_8s4u7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("18_embjo")
+}],
+"loop": 1,
+"name": &"INTENSE_ANGRY",
+"speed": 6.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("19_7ex8s")
+}, {
+"duration": 1.0,
+"texture": ExtResource("20_omc4r")
+}],
+"loop": 1,
+"name": &"INTENSE_DEFAULT",
+"speed": 6.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("21_d2d0j")
+}, {
+"duration": 1.0,
+"texture": ExtResource("22_6gc58")
+}],
+"loop": 1,
+"name": &"INTENSE_HAPPY",
+"speed": 6.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("23_1m2lp")
+}, {
+"duration": 1.0,
+"texture": ExtResource("24_806qa")
+}],
+"loop": 1,
+"name": &"INTENSE_SAD",
+"speed": 6.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("25_nv5jq")
+}],
+"loop": 1,
+"name": &"INTENSE_SURPRISED",
+"speed": 6.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("26_cwk33")
+}, {
+"duration": 1.0,
+"texture": ExtResource("27_lh4yy")
+}],
+"loop": 1,
+"name": &"SILLY_ANGRY",
+"speed": 6.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("28_bvvde")
+}, {
+"duration": 1.0,
+"texture": ExtResource("29_ih2hf")
+}],
+"loop": 1,
+"name": &"SILLY_DEFAULT",
+"speed": 6.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("30_gqidq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("31_td3u1")
+}],
+"loop": 1,
+"name": &"SILLY_HAPPY",
+"speed": 6.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("32_7ykww")
+}, {
+"duration": 1.0,
+"texture": ExtResource("33_vmnoe")
+}],
+"loop": 1,
+"name": &"SILLY_SAD",
+"speed": 6.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("34_mstiv")
+}],
+"loop": 1,
+"name": &"SILLY_SURPRISED",
+"speed": 6.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("8_ni6c5")
+}],
+"loop": 1,
+"name": &"idle",
+"speed": 5.0
+}]
 
 [node name="Hugo" type="Node3D" unique_id=1758948578]
 
@@ -73,8 +279,8 @@ render_target_update_mode = 4
 visible = false
 material = ExtResource("5_syy5x")
 instance_shader_parameters/outline_enabled = true
-sprite_frames = ExtResource("6_vr6xv")
-animation = &"idle"
+sprite_frames = SubResource("SpriteFrames_38uxq")
+animation = &"IDLE_ANGRY"
 centered = false
 
 [node name="Sprite2D" type="Sprite2D" parent="SubViewportSprite" unique_id=561545839]
