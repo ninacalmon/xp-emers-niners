@@ -63,8 +63,6 @@ func _ready() -> void:
 	FocusPlayground.focus.connect(_on_focus)
 
 
-	
-
 
 func _on_button_slot_toggled(toggled_on: bool) -> void:
 	if FocusPlayground.is_focused:
