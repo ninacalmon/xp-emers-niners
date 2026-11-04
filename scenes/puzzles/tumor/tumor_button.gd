@@ -2,7 +2,7 @@ class_name TumorButton
 extends TextureButton
 
 
-var tumor_id: StringName = &""
+@export var tumor_id: TumorPuzzle.TumorOptions
 
 
 func _ready() -> void:
