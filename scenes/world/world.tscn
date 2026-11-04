@@ -14,6 +14,7 @@
 [ext_resource type="PackedScene" uid="uid://dhb4ubn1lv1kq" path="res://examples/interaction_examples/item_giver/key_giver_ball.tscn" id="10_gb53w"]
 [ext_resource type="PackedScene" uid="uid://cgxxromd5ia45" path="res://scenes/puzzles/astrolabus/astrolablus_puzzle.tscn" id="11_5qq27"]
 [ext_resource type="Script" uid="uid://dh1ltto8wru1y" path="res://screenshots/screenshots.gd" id="12_dlabj"]
+[ext_resource type="PackedScene" uid="uid://dwmg7dr5nvosc" path="res://scenes/objects/church_bell/church_bell.tscn" id="15_mxkvs"]
 
 [sub_resource type="Sky" id="Sky_m114p"]
 sky_material = ExtResource("2_mxkvs")
@@ -21,7 +22,13 @@ sky_material = ExtResource("2_mxkvs")
 [sub_resource type="Environment" id="Environment_71ii3"]
 background_mode = 2
 sky = SubResource("Sky_m114p")
+ambient_light_source = 2
+ambient_light_color = Color(0.6609872, 0.6166821, 0.5360584, 1)
+ambient_light_sky_contribution = 0.3
+reflected_light_source = 1
+tonemap_mode = 4
 glow_enabled = true
+glow_bloom = 0.28
 
 [sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_5604n"]
 
@@ -36,7 +43,7 @@ albedo_color = Color(0.66, 0.52536005, 0.4224, 1)
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=593969480 node_paths=PackedStringArray("worldEnvironment", "nightLight") groups=["sun"]]
 transform = Transform3D(-0.8660254, -0.43301278, 0.25, 0, 0.49999997, 0.86602545, -0.50000006, 0.75, -0.43301266, 0, 0, 0)
 shadow_enabled = true
-directional_shadow_mode = 0
+directional_shadow_mode = 1
 script = ExtResource("1_umvgx")
 worldEnvironment = NodePath("../WorldEnvironment")
 nightLight = NodePath("DirectionalLight3D")
@@ -47,14 +54,14 @@ dayLengthHours = 5
 sunriseHour = 0
 sunsetHour = 5
 sunriseColor = Color(0.41, 0.27524665, 0.1312, 1)
-dayColor = Color(0.75, 0.638625, 0.5475, 1)
+dayColor = Color(0.63, 0.50862, 0.41579998, 1)
 sunsetColor = Color(0.42, 0.17653999, 0.10919999, 1)
 nightColor = Color(0.05, 0.06500002, 0.2, 1)
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="DirectionalLight3D" unique_id=437149957]
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 0, 0)
 light_energy = 0.0
-directional_shadow_mode = 0
+directional_shadow_mode = 1
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=312656508]
 environment = SubResource("Environment_71ii3")
@@ -219,7 +226,10 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 40.347553, 1.4971457, 0.94463
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 25.826788, 2.7359483, 0)
 
 [node name="AstrolablusPuzzle" parent="." unique_id=572576743 instance=ExtResource("11_5qq27")]
-transform = Transform3D(-0.18439692, 0, -0.98285186, 0, 1, 0, 0.98285186, 0, -0.18439692, 37.01739, 2.3888822, -19.243153)
+transform = Transform3D(-0.18439692, 0, -0.98285186, 0, 1, 0, 0.98285186, 0, -0.18439692, 33.181755, 2.3888822, -15.953909)
 
 [node name="ScreenshotTaker" type="Node" parent="." unique_id=811109235]
 script = ExtResource("12_dlabj")
+
+[node name="ChurchBell" parent="." unique_id=2031355543 instance=ExtResource("15_mxkvs")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 82, 19.19202, 7)

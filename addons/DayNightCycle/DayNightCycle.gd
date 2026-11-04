@@ -25,6 +25,9 @@ var sky: ShaderMaterial
 @export_group("Colors")
 @export var transitionSpeed: float = 0.001
 @export_subgroup("Sky")
+@export var top_color: Color
+@export var bottom_color: Color
+
 @export var sunriseColor := Color("ffa052")
 @export var dayColor := Color("037dff")
 @export var sunsetColor := Color("ffa052")
@@ -97,8 +100,9 @@ func _physics_process(delta):
 	
 	var lerpSpeed: float = transitionSpeed * speedMultiplier
 	colorToLerp = colorToLerp.lerp(currentColor, lerpSpeed)
-	sky.set_shader_parameter("top_color", colorToLerp)
-	sky.set_shader_parameter("bottom_color", colorToLerp)
+	############################################
+	sky.set_shader_parameter("top_color", top_color)
+	sky.set_shader_parameter("bottom_color", bottom_color)
 	
 	if hours >= sunriseHour && hours <= sunsetHour - 1:
 		# Lighting
