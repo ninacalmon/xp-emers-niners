@@ -13,16 +13,19 @@ enum Times {at1200, at1500, at1800, at2100, at2300, at2400}
 var current_time: Times = Times.at1200
 
 
-## TESTING
-func _input(event: InputEvent) -> void:
-	if event.is_action_pressed("interact"):
-		current_time = wrapi(current_time + 1, 0, Times.size()) as Times
-		set_time(current_time)
-##################################
+### TESTING
+#func _input(event: InputEvent) -> void:
+	#if event.is_action_pressed("interact"):
+		#current_time = wrapi(current_time + 1, 0, Times.size()) as Times
+		#set_time(current_time)
+###################################
 
 
 func _ready() -> void:
 	sun = get_tree().get_first_node_in_group("sun")
+	if not sun:
+		return
+
 	environment_sky_shader = sun.worldEnvironment.environment.sky.sky_material
 	set_time(current_time)
 

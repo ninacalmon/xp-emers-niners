@@ -4,8 +4,32 @@
 [ext_resource type="Script" uid="uid://befccjr1bdccc" path="res://scenes/puzzles/tumor/tumor_puzzle.gd" id="1_rsngm"]
 [ext_resource type="Texture2D" uid="uid://dcbrqhkqrlvnu" path="res://assets/placeholders/pereba1.png" id="2_rsngm"]
 [ext_resource type="Script" uid="uid://c2wvtve3pygab" path="res://scenes/puzzles/tumor/tumor_button.gd" id="4_flpmj"]
+[ext_resource type="Texture2D" uid="uid://j1rawwwgam1s" path="res://assets/placeholders/pereba2.png" id="5_1qg5d"]
+[ext_resource type="Texture2D" uid="uid://ds2xfcm6x00j0" path="res://assets/placeholders/pereba3.png" id="6_iyt7t"]
+[ext_resource type="Texture2D" uid="uid://x5lwi40vqhk3" path="res://assets/placeholders/pereba4.png" id="7_6rc1b"]
+[ext_resource type="Texture2D" uid="uid://cmpste7ys0wo8" path="res://assets/placeholders/pereba5.png" id="8_30874"]
 
-[node name="TumorPuzzle" type="Control" unique_id=2035267022 node_paths=PackedStringArray("submit_button", "time_label", "wanted_displays")]
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_wsepm"]
+blend_mode = 1
+
+[sub_resource type="Gradient" id="Gradient_upyd3"]
+colors = PackedColorArray(0, 0, 0, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_u7xt4"]
+gradient = SubResource("Gradient_upyd3")
+
+[sub_resource type="Gradient" id="Gradient_4sefm"]
+offsets = PackedFloat32Array(0.6363636, 0.6490486, 0.6828753, 0.6913319)
+colors = PackedColorArray(0, 0, 0, 1, 0.86, 0, 0, 1, 1, 0, 0, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_24y03"]
+gradient = SubResource("Gradient_4sefm")
+width = 120
+height = 120
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+
+[node name="TumorPuzzle" type="Control" unique_id=2035267022 node_paths=PackedStringArray("submit_button", "time_label")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -15,7 +39,6 @@ grow_vertical = 2
 script = ExtResource("1_rsngm")
 submit_button = NodePath("Submit")
 time_label = NodePath("Timer")
-wanted_displays = [NodePath("TextureRect"), NodePath("TextureRect"), NodePath("TextureRect3")]
 
 [node name="BellyBackground" type="TextureRect" parent="." unique_id=839017084]
 layout_mode = 1
@@ -44,67 +67,86 @@ theme_override_constants/margin_bottom = 294
 layout_mode = 2
 
 [node name="TumorButton" type="TextureButton" parent="MarginContainer/TumorsControl" unique_id=1020270010]
-custom_minimum_size = Vector2(100, 100)
+material = SubResource("CanvasItemMaterial_wsepm")
+custom_minimum_size = Vector2(120, 120)
+custom_maximum_size = Vector2(120, 120)
 layout_mode = 0
-offset_left = 11.0
-offset_top = 8.0
-offset_right = 111.0
-offset_bottom = 108.0
-texture_normal = ExtResource("2_rsngm")
-texture_pressed = ExtResource("2_rsngm")
-texture_hover = ExtResource("2_rsngm")
+offset_left = 19.0
+offset_top = 26.0
+offset_right = 139.0
+offset_bottom = 146.0
+toggle_mode = true
+texture_normal = SubResource("GradientTexture2D_u7xt4")
+texture_pressed = SubResource("GradientTexture2D_24y03")
+texture_hover = SubResource("GradientTexture2D_24y03")
 stretch_mode = 0
 script = ExtResource("4_flpmj")
+tumor_id = 2
 
-[node name="TumorButton2" type="TextureButton" parent="MarginContainer/TumorsControl" unique_id=1183535341]
-custom_minimum_size = Vector2(100, 100)
+[node name="TumorButton2" type="TextureButton" parent="MarginContainer/TumorsControl" unique_id=1976037629]
+material = SubResource("CanvasItemMaterial_wsepm")
+custom_minimum_size = Vector2(120, 120)
+custom_maximum_size = Vector2(120, 120)
 layout_mode = 0
-offset_left = 54.0
-offset_top = 213.0
-offset_right = 154.0
-offset_bottom = 313.0
-texture_normal = ExtResource("2_rsngm")
-texture_pressed = ExtResource("2_rsngm")
-texture_hover = ExtResource("2_rsngm")
+offset_left = 298.0
+offset_top = 20.0
+offset_right = 418.0
+offset_bottom = 140.0
+toggle_mode = true
+texture_normal = SubResource("GradientTexture2D_u7xt4")
+texture_pressed = SubResource("GradientTexture2D_24y03")
+texture_hover = SubResource("GradientTexture2D_24y03")
 stretch_mode = 0
 script = ExtResource("4_flpmj")
+tumor_id = 1
 
-[node name="TumorButton3" type="TextureButton" parent="MarginContainer/TumorsControl" unique_id=143162573]
-custom_minimum_size = Vector2(100, 100)
+[node name="TumorButton3" type="TextureButton" parent="MarginContainer/TumorsControl" unique_id=534240231]
+material = SubResource("CanvasItemMaterial_wsepm")
+custom_minimum_size = Vector2(120, 120)
+custom_maximum_size = Vector2(120, 120)
 layout_mode = 0
-offset_left = 225.0
-offset_top = 156.0
-offset_right = 325.0
-offset_bottom = 256.0
-texture_normal = ExtResource("2_rsngm")
-texture_pressed = ExtResource("2_rsngm")
-texture_hover = ExtResource("2_rsngm")
+offset_left = 370.0
+offset_top = 223.0
+offset_right = 490.0
+offset_bottom = 343.0
+toggle_mode = true
+texture_normal = SubResource("GradientTexture2D_u7xt4")
+texture_pressed = SubResource("GradientTexture2D_24y03")
+texture_hover = SubResource("GradientTexture2D_24y03")
 stretch_mode = 0
 script = ExtResource("4_flpmj")
+tumor_id = 3
 
-[node name="TumorButton4" type="TextureButton" parent="MarginContainer/TumorsControl" unique_id=1618921529]
-custom_minimum_size = Vector2(100, 100)
+[node name="TumorButton4" type="TextureButton" parent="MarginContainer/TumorsControl" unique_id=600567008]
+material = SubResource("CanvasItemMaterial_wsepm")
+custom_minimum_size = Vector2(120, 120)
+custom_maximum_size = Vector2(120, 120)
 layout_mode = 0
-offset_left = 328.0
-offset_top = 22.0
-offset_right = 428.0
-offset_bottom = 122.0
-texture_normal = ExtResource("2_rsngm")
-texture_pressed = ExtResource("2_rsngm")
-texture_hover = ExtResource("2_rsngm")
+offset_left = 132.0
+offset_top = 313.0
+offset_right = 252.0
+offset_bottom = 433.0
+toggle_mode = true
+texture_normal = SubResource("GradientTexture2D_u7xt4")
+texture_pressed = SubResource("GradientTexture2D_24y03")
+texture_hover = SubResource("GradientTexture2D_24y03")
 stretch_mode = 0
 script = ExtResource("4_flpmj")
+tumor_id = 4
 
-[node name="TumorButton5" type="TextureButton" parent="MarginContainer/TumorsControl" unique_id=1583873411]
-custom_minimum_size = Vector2(100, 100)
+[node name="TumorButton5" type="TextureButton" parent="MarginContainer/TumorsControl" unique_id=1420759657]
+material = SubResource("CanvasItemMaterial_wsepm")
+custom_minimum_size = Vector2(120, 120)
+custom_maximum_size = Vector2(120, 120)
 layout_mode = 0
-offset_left = 171.0
-offset_top = 14.0
-offset_right = 271.0
-offset_bottom = 114.0
-texture_normal = ExtResource("2_rsngm")
-texture_pressed = ExtResource("2_rsngm")
-texture_hover = ExtResource("2_rsngm")
+offset_left = -47.0
+offset_top = 212.0
+offset_right = 73.0
+offset_bottom = 332.0
+toggle_mode = true
+texture_normal = SubResource("GradientTexture2D_u7xt4")
+texture_pressed = SubResource("GradientTexture2D_24y03")
+texture_hover = SubResource("GradientTexture2D_24y03")
 stretch_mode = 0
 script = ExtResource("4_flpmj")
 
@@ -116,22 +158,41 @@ offset_right = 939.0
 offset_bottom = 342.0
 
 [node name="Submit" type="Button" parent="." unique_id=202239832]
-layout_mode = 0
-offset_right = 8.0
-offset_bottom = 8.0
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -125.0
+offset_top = 454.0
+offset_right = -35.0
+offset_bottom = 511.0
+grow_horizontal = 2
+grow_vertical = 2
 text = "Submit"
 
-[node name="TextureRect" type="TextureRect" parent="." unique_id=1888065703]
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
+[node name="Pereba1" type="Sprite2D" parent="." unique_id=465057538]
+position = Vector2(696.99994, 625)
+scale = Vector2(2.7, 2.7)
+texture = ExtResource("2_rsngm")
 
-[node name="TextureRect2" type="TextureRect" parent="." unique_id=897291121]
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
+[node name="Pereba2" type="Sprite2D" parent="." unique_id=1916287306]
+position = Vector2(1032, 446)
+scale = Vector2(2.7, 2.7)
+texture = ExtResource("5_1qg5d")
 
-[node name="TextureRect3" type="TextureRect" parent="." unique_id=1000402069]
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
+[node name="Pereba3" type="Sprite2D" parent="." unique_id=1334510083]
+position = Vector2(1112, 638)
+scale = Vector2(2.7, 2.7)
+texture = ExtResource("6_iyt7t")
+
+[node name="Pereba4" type="Sprite2D" parent="." unique_id=1718411970]
+position = Vector2(868, 736)
+scale = Vector2(2.7, 2.7)
+texture = ExtResource("7_6rc1b")
+
+[node name="Pereba5" type="Sprite2D" parent="." unique_id=689660637]
+position = Vector2(767, 456.99997)
+scale = Vector2(2.7, 2.7)
+texture = ExtResource("8_30874")
