@@ -33,7 +33,7 @@ albedo_color = Color(0.66, 0.52536005, 0.4224, 1)
 
 [node name="TestWorld" type="Node3D" unique_id=1370714841]
 
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=593969480 node_paths=PackedStringArray("worldEnvironment", "nightLight")]
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=593969480 node_paths=PackedStringArray("worldEnvironment", "nightLight") groups=["sun"]]
 transform = Transform3D(-0.8660254, -0.43301278, 0.25, 0, 0.49999997, 0.86602545, -0.50000006, 0.75, -0.43301266, 0, 0, 0)
 shadow_enabled = true
 directional_shadow_mode = 0
@@ -41,10 +41,11 @@ script = ExtResource("1_umvgx")
 worldEnvironment = NodePath("../WorldEnvironment")
 nightLight = NodePath("DirectionalLight3D")
 rotationOffset = Vector3(18, 0, 0)
-currentTime = 720.0
-speedMultiplier = 100.0
-sunriseHour = 4
-sunsetHour = 24
+currentTime = 120.0
+speedMultiplier = 0.0
+dayLengthHours = 5
+sunriseHour = 0
+sunsetHour = 5
 sunriseColor = Color(0.41, 0.27524665, 0.1312, 1)
 dayColor = Color(0.75, 0.638625, 0.5475, 1)
 sunsetColor = Color(0.42, 0.17653999, 0.10919999, 1)
