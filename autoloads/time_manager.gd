@@ -60,12 +60,12 @@ func setup_sky(time: Times):
 	match time:
 		Times.at1200:
 			sun_current_minutes = 120
-			sun.top_color = Color(0.9, 0.87, 0.72, 1.0)
-			sun.bottom_color = Color(0.898, 0.82, 0.62, 1.0)
+			sun.top_color = Color(1.0, 0.843, 0.549)
+			sun.bottom_color = Color(1.0, 0.627, 0.302)
 		Times.at1500:
 			sun_current_minutes = 157.5
-			sun.top_color = Color(0.9, 0.803, 0.558, 1.0)
-			sun.bottom_color = Color(0.9, 0.648, 0.36, 1.0)
+			sun.top_color = Color(1.0, 0.843, 0.549)
+			sun.bottom_color = Color(1.0, 0.627, 0.302)
 		Times.at1800:
 			sun_current_minutes = 195
 			sun_current_scale = 8

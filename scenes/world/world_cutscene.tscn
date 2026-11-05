@@ -1,0 +1,547 @@
+[gd_scene format=3 uid="uid://dkrs7lq02aurx"]
+
+[ext_resource type="Script" uid="uid://bbu3di48o4k0c" path="res://addons/DayNightCycle/DayNightCycle.gd" id="1_imuo2"]
+[ext_resource type="Material" uid="uid://wyikf3yxoy6x" path="res://addons/DayNightCycle/Sky_Day.tres" id="2_vxxqi"]
+[ext_resource type="Script" uid="uid://bd046eokvcnu2" path="res://addons/phantom_camera/scripts/phantom_camera_host/phantom_camera_host.gd" id="4_itq1n"]
+[ext_resource type="PackedScene" uid="uid://c0enf7fvm7uko" path="res://scenes/objects/doors/room_door.tscn" id="6_t214a"]
+[ext_resource type="PackedScene" uid="uid://cuxxx8rje22th" path="res://assets/3d/scenery/church/church.glb" id="7_fqma7"]
+[ext_resource type="PackedScene" uid="uid://dwmg7dr5nvosc" path="res://scenes/objects/church_bell/church_bell.tscn" id="8_1a8jm"]
+[ext_resource type="PackedScene" uid="uid://boht0mv2kyq81" path="res://scenes/characters/hugo/hugo.tscn" id="9_kttsr"]
+[ext_resource type="PackedScene" uid="uid://d0dx1ggic73g0" path="res://scenes/characters/julio/julio.tscn" id="10_ani7x"]
+[ext_resource type="PackedScene" uid="uid://c6yoqyeo6wfld" path="res://scenes/characters/lucio/lucio.tscn" id="11_jlsnk"]
+[ext_resource type="PackedScene" uid="uid://c1fess8fbyvjb" path="res://scenes/characters/sanson/sanson.tscn" id="12_fxk1m"]
+[ext_resource type="PackedScene" uid="uid://d3olgro5mbcu5" path="res://assets/3d/objects/confessional/confessional.glb" id="13_nbfxi"]
+[ext_resource type="PackedScene" uid="uid://camyicact7evh" path="res://scenes/objects/doors/confissional_door.tscn" id="14_rssnk"]
+[ext_resource type="PackedScene" uid="uid://yxprk6gbltgl" path="res://scenes/characters/confessor/confessor.tscn" id="15_f5cue"]
+[ext_resource type="Script" uid="uid://csjccrhj5wnx7" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_3d.gd" id="15_vxxqi"]
+[ext_resource type="Script" uid="uid://3y7a5ff2yu73" path="res://scenes/interface/game_ui_overlay/dialogue_frame_manager.gd" id="16_ani7x"]
+[ext_resource type="Script" uid="uid://8umksf8e80fw" path="res://addons/phantom_camera/scripts/resources/tween_resource.gd" id="16_py508"]
+[ext_resource type="Texture2D" uid="uid://ci03pn6fm334w" path="res://assets/2d/interface/ui_frame.png" id="17_jlsnk"]
+[ext_resource type="Texture2D" uid="uid://4bqn264unoo6" path="res://assets/2d/interface/dialogue/ui_frame_dialogue_anim/frame_dialogue_1.png" id="18_fxk1m"]
+[ext_resource type="Texture2D" uid="uid://dx11r6kq6fcra" path="res://assets/2d/interface/dialogue/ui_frame_dialogue_anim/frame_dialogue_2.png" id="19_nbfxi"]
+[ext_resource type="Texture2D" uid="uid://chyi26028kph6" path="res://assets/2d/interface/dialogue/ui_frame_dialogue_anim/frame_dialogue_3.png" id="20_rssnk"]
+[ext_resource type="Texture2D" uid="uid://b0qqpjkoit45m" path="res://assets/2d/interface/dialogue/ui_frame_dialogue_anim/frame_dialogue_4.png" id="21_f5cue"]
+[ext_resource type="Texture2D" uid="uid://dm1qky30f8fbt" path="res://assets/2d/interface/dialogue/ui_frame_dialogue_anim/frame_dialogue_5.png" id="22_wusyv"]
+[ext_resource type="Texture2D" uid="uid://ds43fol4i6jld" path="res://assets/2d/interface/dialogue/ui_player_paper_overlay_anim/dialogue_player.png" id="23_mpydg"]
+[ext_resource type="Script" uid="uid://c0ap06u37lvac" path="res://scenes/world/cutscene_world/cutscene.gd" id="24_qm16u"]
+
+[sub_resource type="Sky" id="Sky_m114p"]
+sky_material = ExtResource("2_vxxqi")
+
+[sub_resource type="Environment" id="Environment_71ii3"]
+background_mode = 2
+background_color = Color(0.43529412, 0.22352941, 0.09019608, 1)
+background_energy_multiplier = 0.7
+sky = SubResource("Sky_m114p")
+tonemap_mode = 4
+glow_enabled = true
+glow_bloom = 0.44
+
+[sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_5604n"]
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_ksdio"]
+size = Vector2(500, 500)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_u1gsd"]
+albedo_color = Color(0.66, 0.52536005, 0.4224, 1)
+
+[sub_resource type="Resource" id="Resource_kttsr"]
+script = ExtResource("16_py508")
+duration = 0.0
+metadata/_custom_type_script = "uid://8umksf8e80fw"
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ai0jl"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("17_jlsnk")
+}],
+"loop": 0,
+"name": &"default",
+"speed": 0.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("18_fxk1m")
+}, {
+"duration": 1.0,
+"texture": ExtResource("19_nbfxi")
+}, {
+"duration": 1.0,
+"texture": ExtResource("20_rssnk")
+}, {
+"duration": 1.0,
+"texture": ExtResource("21_f5cue")
+}, {
+"duration": 1.0,
+"texture": ExtResource("22_wusyv")
+}],
+"loop": 0,
+"name": &"dialogue",
+"speed": 8.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_m26nw"]
+atlas = ExtResource("23_mpydg")
+region = Rect2(0, 0, 1920, 274)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_14i7j"]
+atlas = ExtResource("23_mpydg")
+region = Rect2(0, 274, 1920, 274)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_av4ca"]
+atlas = ExtResource("23_mpydg")
+region = Rect2(0, 548, 1920, 274)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jdapa"]
+atlas = ExtResource("23_mpydg")
+region = Rect2(0, 822, 1920, 274)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jo5yk"]
+atlas = ExtResource("23_mpydg")
+region = Rect2(0, 1096, 1920, 274)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_5qvlp"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_m26nw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_14i7j")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_av4ca")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jdapa")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jo5yk")
+}],
+"loop": 0,
+"name": &"dialogue",
+"speed": 8.0
+}]
+
+[sub_resource type="Animation" id="Animation_ani7x"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Cameras/PhantomCameraMonasteryView:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(-19.481197, 19.5139, 86.27424)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Cameras/PhantomCameraMonasteryView:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(-0.017453313, -0.6850418, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Cameras/PhantomCameraCorridorView:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Cameras/PhantomCameraBrothersView:rotation")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, -6.2831855, 0)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Cameras/PhantomCameraSunView:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(33.15585, 35.47854, -14.867261)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Camera3D:fov")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [10.0]
+}
+
+[sub_resource type="Animation" id="Animation_nbfxi"]
+resource_name = "brothers_view"
+length = 10.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Cameras/PhantomCameraBrothersView:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 10),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, -1.9373155, 0), Vector3(0, -4.209734, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_fxk1m"]
+resource_name = "corridor_view"
+length = 10.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Cameras/PhantomCameraCorridorView:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 10),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(46.093826, 3.6118984, -1.7418296), Vector3(47.978146, 3.6118984, -1.7418296)]
+}
+
+[sub_resource type="Animation" id="Animation_jlsnk"]
+resource_name = "monastery_view"
+length = 10.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Cameras/PhantomCameraMonasteryView:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 9.766666),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(-19.481197, 19.5139, 86.27424), Vector3(27.676756, 19.212154, 92.04475)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Cameras/PhantomCameraMonasteryView:rotation")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 9.766666),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(-0.017453313, -0.6850418, 0), Vector3(-0.017453313, -0.28797957, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_rssnk"]
+resource_name = "sun_view"
+length = 30.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Cameras/PhantomCameraSunView:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 29.400002),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(33.15585, 35.47854, -14.867261), Vector3(33.15585, 27.750164, -14.867261)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Camera3D:fov")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 30),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [10.0, 50.2]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_fxk1m"]
+_data = {
+&"RESET": SubResource("Animation_ani7x"),
+&"brothers_view": SubResource("Animation_nbfxi"),
+&"corridor_view": SubResource("Animation_fxk1m"),
+&"monastery_view": SubResource("Animation_jlsnk"),
+&"sun_view": SubResource("Animation_rssnk")
+}
+
+[node name="TestWorld" type="Node3D" unique_id=1370714841]
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=593969480 node_paths=PackedStringArray("worldEnvironment", "nightLight") groups=["sun"]]
+transform = Transform3D(-0.8660254, -0.43301278, 0.25, 0, 0.49999997, 0.86602545, -0.50000006, 0.75, -0.43301266, 0, 0, 0)
+shadow_enabled = true
+directional_shadow_mode = 1
+script = ExtResource("1_imuo2")
+worldEnvironment = NodePath("../WorldEnvironment")
+nightLight = NodePath("DirectionalLight3D")
+rotationOffset = Vector3(18, 0, 0)
+currentTime = 120.0
+speedMultiplier = 0.0
+dayLengthHours = 5
+sunriseHour = 0
+sunsetHour = 5
+sunriseColor = Color(0.41, 0.27524665, 0.1312, 1)
+dayColor = Color(0.63, 0.50862, 0.41579998, 1)
+sunsetColor = Color(0.42, 0.17653999, 0.10919999, 1)
+nightColor = Color(0.05, 0.06500002, 0.2, 1)
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="DirectionalLight3D" unique_id=437149957]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 0, 0)
+light_energy = 0.0
+directional_shadow_mode = 1
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=312656508]
+environment = SubResource("Environment_71ii3")
+
+[node name="Camera3D" type="Camera3D" parent="." unique_id=1834340419]
+transform = Transform3D(0.7743926, 0.011042244, -0.632609, 0, 0.9998477, 0.017452426, 0.6327054, -0.01351503, 0.77427465, -19.481197, 19.5139, 86.27424)
+top_level = true
+cull_mask = 1048063
+fov = 10.0
+
+[node name="PhantomCameraHost" type="Node" parent="Camera3D" unique_id=845311130]
+process_priority = 300
+process_physics_priority = 300
+script = ExtResource("4_itq1n")
+metadata/_custom_type_script = "uid://bd046eokvcnu2"
+
+[node name="Ground" type="StaticBody3D" parent="." unique_id=286959965]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Ground" unique_id=316747533]
+shape = SubResource("WorldBoundaryShape3D_5604n")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Ground" unique_id=339831810]
+mesh = SubResource("PlaneMesh_ksdio")
+surface_material_override/0 = SubResource("StandardMaterial3D_u1gsd")
+
+[node name="RoomDoors" type="Node3D" parent="." unique_id=1440576113]
+
+[node name="Right" type="Node3D" parent="RoomDoors" unique_id=452435348]
+
+[node name="Door_copy5" parent="RoomDoors/Right" unique_id=668800733 instance=ExtResource("6_t214a")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 52.548, 1.5745991, -0.9098737)
+flip = true
+
+[node name="Door_copy6" parent="RoomDoors/Right" unique_id=2131933676 instance=ExtResource("6_t214a")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 57.878, 1.5745991, -0.9098737)
+flip = true
+
+[node name="Door_copy7" parent="RoomDoors/Right" unique_id=1765539975 instance=ExtResource("6_t214a")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 63.208, 1.5745991, -0.9098737)
+flip = true
+
+[node name="Door_copy8" parent="RoomDoors/Right" unique_id=156263478 instance=ExtResource("6_t214a")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 68.538, 1.5745991, -0.9098737)
+flip = true
+
+[node name="Door_copy9" parent="RoomDoors/Right" unique_id=997516028 instance=ExtResource("6_t214a")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 73.868, 1.5745991, -0.9098737)
+flip = true
+
+[node name="Left" type="Node3D" parent="RoomDoors" unique_id=747903130]
+
+[node name="Door_copy0" parent="RoomDoors/Left" unique_id=1155157874 instance=ExtResource("6_t214a")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 52.548, 1.5745991, -3.0448737)
+
+[node name="Door_copy1" parent="RoomDoors/Left" unique_id=376096474 instance=ExtResource("6_t214a")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 57.878, 1.5745991, -3.0448737)
+
+[node name="Door_copy2" parent="RoomDoors/Left" unique_id=44716260 instance=ExtResource("6_t214a")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 63.208, 1.5745991, -3.0448737)
+
+[node name="Door_copy3" parent="RoomDoors/Left" unique_id=143566255 instance=ExtResource("6_t214a")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 68.538, 1.5745991, -3.0448737)
+
+[node name="Door_copy4" parent="RoomDoors/Left" unique_id=1329166490 instance=ExtResource("6_t214a")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 73.868, 1.5745991, -3.0448737)
+
+[node name="GroundAreas" type="Node3D" parent="." unique_id=364615867]
+
+[node name="HardFloorHighEchoArea" type="Area3D" parent="GroundAreas" unique_id=1551280368 groups=["ground_areas"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 33.282627, 0, 0)
+collision_layer = 0
+collision_mask = 4
+
+[node name="CollisionPolygon3D" type="CollisionPolygon3D" parent="GroundAreas/HardFloorHighEchoArea" unique_id=1794694814]
+transform = Transform3D(0.99999994, 0, 0, 0, -4.3711385e-08, -1, 0, 0.99999994, -4.371139e-08, 0, 0, 0)
+depth = -7.0
+polygon = PackedVector2Array(13.129452, -12.847256, 6.2007904, -12.693287, 6.354763, -13.771078, 6.354763, -16.773497, 4.7380753, -19.544958, 2.2745514, -21.23863, -0.11198044, -21.70054, -2.4215393, -21.315617, -4.423149, -20.083855, -5.9628487, -18.390182, -6.8096848, -15.849674, -6.501747, -13.001226, -13.430405, -12.770271, -13.48477, 9.8820095, 13.0521965, 9.833496)
+
+[node name="HardFloorMedEchoArea" type="Area3D" parent="GroundAreas" unique_id=2068808358 groups=["ground_areas"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 33.093647, 0, 19.156532)
+collision_layer = 0
+collision_mask = 4
+
+[node name="CollisionPolygon3D" type="CollisionPolygon3D" parent="GroundAreas/HardFloorMedEchoArea" unique_id=249217601]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0)
+depth = -7.0
+polygon = PackedVector2Array(-13.29579, -9.614118, 13.192665, -9.75966, 13.14415, -5.053834, -13.198763, -5.3449173)
+
+[node name="CollisionPolygon3D2" type="CollisionPolygon3D" parent="GroundAreas/HardFloorMedEchoArea" unique_id=728601968]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0)
+depth = -7.0
+polygon = PackedVector2Array(13.727425, -28.459743, 13.7934265, -13.807232, 15.113476, -13.74123, 15.047474, -9.12107, 19.469624, -9.12107, 19.073612, -28.459743)
+
+[node name="CollisionPolygon3D3" type="CollisionPolygon3D" parent="GroundAreas/HardFloorMedEchoArea" unique_id=942345675]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0)
+depth = -7.0
+polygon = PackedVector2Array(40.67616, -13.810169, 41.638134, -9.679365, 43.675243, -6.7934628, 47.35335, -4.9827003, 51.201214, -5.6051493, 54.087124, -7.925189, 55.332027, -11.15061, 54.935925, -14.432619, 53.52126, -16.922417, 52.219776, -18.167316, 52.1066, -28.296268, 40.39323, -28.409443)
+
+[node name="HardFloorLowEchoArea" type="Area3D" parent="GroundAreas" unique_id=493486602 groups=["ground_areas"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 65.245255, 0, 0)
+collision_layer = 0
+collision_mask = 4
+
+[node name="CollisionPolygon3D" type="CollisionPolygon3D" parent="GroundAreas/HardFloorLowEchoArea" unique_id=1184846264]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0)
+depth = -7.0
+polygon = PackedVector2Array(-12.457455, 4.73506, -11.995441, -8.993419, 8.5312805, -9.0594225, 8.927292, 4.405049)
+
+[node name="CollisionPolygon3D2" type="CollisionPolygon3D" parent="GroundAreas/HardFloorLowEchoArea" unique_id=681529343]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0)
+depth = -7.0
+polygon = PackedVector2Array(-27.547997, 16.20641, -27.547997, 24.060684, -36.722317, 24.060684, -36.722317, 15.810396, -38.10836, 18.714499, -40.550446, 20.298552, -42.794525, 20.23255, -45.368614, 17.988472, -45.50062, 14.952368, -40.550446, 13.962333, -20.749756, 14.160337, -18.769688, 15.282379, -19.099697, 18.384487, -21.607784, 20.364555, -24.709896, 19.96854, -26.557957, 17.92247)
+
+[node name="HardFloorNoEchoArea" type="Area3D" parent="GroundAreas" unique_id=1659632312 groups=["ground_areas"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 33.093647, 0, 19.156532)
+collision_layer = 0
+collision_mask = 4
+
+[node name="CollisionPolygon3D" type="CollisionPolygon3D" parent="GroundAreas/HardFloorNoEchoArea" unique_id=267386822]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0)
+depth = -7.0
+polygon = PackedVector2Array(-2.964714, 5.1151676, -2.8993149, 8.777512, 2.9865913, 8.74481, 2.9538918, 5.1151676)
+
+[node name="CollisionPolygon3D2" type="CollisionPolygon3D" parent="GroundAreas/HardFloorNoEchoArea" unique_id=299665823]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0)
+depth = -7.0
+polygon = PackedVector2Array(2.956623, 5.1420727, 2.9257088, 8.665823, -2.916298, 8.727644, -2.916298, 4.925701)
+
+[node name="DirtFloor" type="Area3D" parent="GroundAreas" unique_id=1102081533 groups=["ground_areas"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 33.093647, 0, -0.39131546)
+collision_layer = 0
+collision_mask = 4
+
+[node name="CollisionPolygon3D" type="CollisionPolygon3D" parent="GroundAreas/DirtFloor" unique_id=396864030]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0)
+depth = -0.18
+polygon = PackedVector2Array(-73.80234, -62.97614, 98.83095, -63.519016, 103.7168, 64.32734, -80.3168, 65.14163)
+
+[node name="Church" parent="." unique_id=1996032734 instance=ExtResource("7_fqma7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 33.12908, 0, 0)
+
+[node name="ChurchBell" parent="Church" unique_id=2031355543 instance=ExtResource("8_1a8jm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 48.87092, 19.19202, 7)
+
+[node name="Characters" type="Node3D" parent="." unique_id=577653259]
+
+[node name="Hugo" parent="Characters" unique_id=1758948578 instance=ExtResource("9_kttsr")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 35.013767, 2.414, -13.082071)
+
+[node name="Julio" parent="Characters" unique_id=1615518148 instance=ExtResource("10_ani7x")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 31.115225, 2.4144657, -13.07054)
+
+[node name="Lucio" parent="Characters" unique_id=1730430442 instance=ExtResource("11_jlsnk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 32.215176, 2.414, -12.361891)
+
+[node name="Sanson" parent="Characters" unique_id=1975172536 instance=ExtResource("12_fxk1m")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 33.776108, 2.414, -12.325241)
+
+[node name="confessional" parent="." unique_id=795866384 instance=ExtResource("13_nbfxi")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 22.11916, 1.4938962, -3.886547)
+
+[node name="ConfissionalDoor" parent="confessional" unique_id=1442656140 instance=ExtResource("14_rssnk")]
+
+[node name="Confessor" parent="confessional" unique_id=1536527608 instance=ExtResource("15_f5cue")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.81791425, -0.1650207, -0.5594902)
+
+[node name="Cameras" type="Node" parent="." unique_id=1043992799]
+
+[node name="PhantomCameraSunView" type="Node3D" parent="Cameras" unique_id=2097840950]
+transform = Transform3D(-1, 1.509958e-07, -6.600236e-15, 0, -4.371139e-08, -1, -1.509958e-07, -1, 4.371139e-08, 33.15585, 35.47854, -14.867261)
+script = ExtResource("15_vxxqi")
+priority = 7
+tween_resource = SubResource("Resource_kttsr")
+tween_on_load = false
+metadata/_custom_type_script = "uid://csjccrhj5wnx7"
+
+[node name="PhantomCameraBrothersView" type="Node3D" parent="Cameras" unique_id=1122159051]
+transform = Transform3D(1, 0, -1.7484555e-07, 0, 1, 0, 1.7484555e-07, 0, 1, 33.06002, 4.0557556, -15.037871)
+script = ExtResource("15_vxxqi")
+priority = 8
+tween_resource = SubResource("Resource_kttsr")
+tween_on_load = false
+metadata/_custom_type_script = "uid://csjccrhj5wnx7"
+
+[node name="PhantomCameraMonasteryView" type="Node3D" parent="Cameras" unique_id=1423064640]
+transform = Transform3D(0.7743926, 0.011042244, -0.632609, 0, 0.9998477, 0.017452426, 0.6327054, -0.01351503, 0.77427465, -19.481197, 19.5139, 86.27424)
+script = ExtResource("15_vxxqi")
+priority = 10
+tween_resource = SubResource("Resource_kttsr")
+tween_on_load = false
+metadata/_custom_type_script = "uid://csjccrhj5wnx7"
+
+[node name="PhantomCameraCorridorView" type="Node3D" parent="Cameras" unique_id=222085617]
+transform = Transform3D(-0.14349706, 0.12917513, -0.9811842, 0, 0.9914449, 0.13052598, 0.9896508, 0.018730093, -0.14226945, 0, 0, 0)
+script = ExtResource("15_vxxqi")
+priority = 9
+tween_resource = SubResource("Resource_kttsr")
+tween_on_load = false
+metadata/_custom_type_script = "uid://csjccrhj5wnx7"
+
+[node name="DialogueFrameManager" type="Control" parent="." unique_id=1577098396]
+z_index = 2
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("16_ani7x")
+
+[node name="FrameAnimatedSpr" type="AnimatedSprite2D" parent="DialogueFrameManager" unique_id=836332046]
+sprite_frames = SubResource("SpriteFrames_ai0jl")
+autoplay = "default"
+centered = false
+
+[node name="PlayerSpeechOverlayAnimatedSpr" type="AnimatedSprite2D" parent="DialogueFrameManager" unique_id=1865036350]
+visible = false
+position = Vector2(0, 785)
+sprite_frames = SubResource("SpriteFrames_5qvlp")
+animation = &"dialogue"
+centered = false
+
+[node name="Cutscene" type="Node" parent="." unique_id=579430310]
+script = ExtResource("24_qm16u")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1406962050]
+libraries/ = SubResource("AnimationLibrary_fxk1m")

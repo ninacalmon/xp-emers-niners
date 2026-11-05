@@ -1,0 +1,16 @@
+[remap]
+
+importer="dialogue_manager"
+importer_version=18
+type="Resource"
+uid="uid://dhu5fv6qml7oi"
+path="res://.godot/imported/sun_main.dialogue-a0266f91514359820e5592a899648f3e.tres"
+
+[deps]
+
+source_file="res://dialogue/sun/sun_main.dialogue"
+dest_files=["res://.godot/imported/sun_main.dialogue-a0266f91514359820e5592a899648f3e.tres"]
+
+[params]
+
+defaults=true

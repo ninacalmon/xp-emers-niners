@@ -11,9 +11,6 @@
 [ext_resource type="PackedScene" uid="uid://c6yoqyeo6wfld" path="res://scenes/characters/lucio/lucio.tscn" id="8_5qq27"]
 [ext_resource type="PackedScene" uid="uid://c1fess8fbyvjb" path="res://scenes/characters/sanson/sanson.tscn" id="9_dlabj"]
 [ext_resource type="PackedScene" uid="uid://c0enf7fvm7uko" path="res://scenes/objects/doors/room_door.tscn" id="9_ues17"]
-[ext_resource type="PackedScene" uid="uid://dhb4ubn1lv1kq" path="res://examples/interaction_examples/item_giver/key_giver_ball.tscn" id="10_gb53w"]
-[ext_resource type="PackedScene" uid="uid://cgxxromd5ia45" path="res://scenes/puzzles/astrolabus/astrolablus_puzzle.tscn" id="11_5qq27"]
-[ext_resource type="Script" uid="uid://dh1ltto8wru1y" path="res://screenshots/screenshots.gd" id="12_dlabj"]
 [ext_resource type="PackedScene" uid="uid://dwmg7dr5nvosc" path="res://scenes/objects/church_bell/church_bell.tscn" id="15_mxkvs"]
 [ext_resource type="PackedScene" uid="uid://d3olgro5mbcu5" path="res://assets/3d/objects/confessional/confessional.glb" id="16_m114p"]
 [ext_resource type="PackedScene" uid="uid://camyicact7evh" path="res://scenes/objects/doors/confissional_door.tscn" id="17_71ii3"]
@@ -25,7 +22,7 @@ sky_material = ExtResource("2_mxkvs")
 [sub_resource type="Environment" id="Environment_71ii3"]
 background_mode = 2
 background_color = Color(0.43529412, 0.22352941, 0.09019608, 1)
-background_energy_multiplier = 0.6
+background_energy_multiplier = 0.7
 sky = SubResource("Sky_m114p")
 tonemap_mode = 4
 glow_enabled = true
@@ -209,6 +206,9 @@ polygon = PackedVector2Array(-73.80234, -62.97614, 98.83095, -63.519016, 103.716
 [node name="Church" parent="." unique_id=1996032734 instance=ExtResource("5_v5dby")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 33.12908, 0, 0)
 
+[node name="ChurchBell" parent="Church" unique_id=2031355543 instance=ExtResource("15_mxkvs")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 48.87092, 19.19202, 7)
+
 [node name="Characters" type="Node3D" parent="." unique_id=577653259]
 
 [node name="Hugo" parent="Characters" unique_id=1758948578 instance=ExtResource("6_1yooq")]
@@ -222,18 +222,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 63.51454, 1.0062575, 3.502448
 
 [node name="Sanson" parent="Characters" unique_id=1975172536 instance=ExtResource("9_dlabj")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 40.347553, 1.4971457, 0.94463813)
-
-[node name="TestKeyGiverBall" parent="." unique_id=471407858 instance=ExtResource("10_gb53w")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 25.826788, 2.7359483, 0)
-
-[node name="AstrolablusPuzzle" parent="." unique_id=572576743 instance=ExtResource("11_5qq27")]
-transform = Transform3D(-0.18439692, 0, -0.98285186, 0, 1, 0, 0.98285186, 0, -0.18439692, 33.181755, 2.3888822, -15.953909)
-
-[node name="ScreenshotTaker" type="Node" parent="." unique_id=811109235]
-script = ExtResource("12_dlabj")
-
-[node name="ChurchBell" parent="." unique_id=2031355543 instance=ExtResource("15_mxkvs")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 82, 19.19202, 7)
 
 [node name="confessional" parent="." unique_id=795866384 instance=ExtResource("16_m114p")]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 22.11916, 1.4938962, -3.886547)
