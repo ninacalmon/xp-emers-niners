@@ -5,6 +5,7 @@ signal mood_set(character_name: String, mood_name: String)
 const MOODS_BY_CHARACTER: Dictionary = {
 	"Julio": JulioMoods,
 	"Lucio": LucioMoods,
+	"Hugo": HugoMoods
 }
 
 enum JulioMoods {
@@ -45,6 +46,28 @@ enum LucioMoods {
 	IDLE_SURPRISED,
 }
 
+
+enum HugoMoods {
+	IDLE_ANGRY,
+	IDLE_DEFAULT,
+	IDLE_HAPPY,
+	IDLE_SAD,
+	IDLE_SUPERHAPPY,
+	IDLE_SURPRISED,
+	IDLE_WINK,
+	MISCHIVEOUS_DEFAULT,
+	MISCHIVEOUS_HAPPY,
+	MISCHIVEOUS_SUPERHAPPY,
+	MISCHIVEOUS_SURPRISED,
+	MISCHIVEOUS_WINK,
+	OPENARMS_ANGRY,
+	OPENARMS_DEFAULT,
+	OPENARMS_HAPPY,
+	OPENARMS_SUPERHAPPY,
+	OPENARMS_SURPRISED,
+	OPENARMS_WINK,
+	TUMOR
+}
 
 func set_mood(character_name: String, mood: int) -> void:
 	var moods: Dictionary = MOODS_BY_CHARACTER.get(character_name, {})

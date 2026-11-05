@@ -50,13 +50,14 @@ func _process(_delta: float) -> void:
 
 
 func start() -> void:
-	tumor_puzzle_control.show()
 	PuzzleManager.puzzle_started.emit(lock_player_movement)
+	puzzle_started.emit(lock_player_movement)
 	#setup_round()
+	await get_tree().create_timer(1.5).timeout
+	tumor_puzzle_control.show()
 	is_running = true
 	timer.start(time_limit)
 	set_process(true)
-	puzzle_started.emit(true)
 	Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
 
 

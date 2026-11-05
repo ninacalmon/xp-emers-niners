@@ -1,0 +1,256 @@
+[gd_resource type="SpriteFrames" format=3 uid="uid://cscfn2bh2y4xj"]
+
+[ext_resource type="Texture2D" uid="uid://b6yef8s0hh3ha" path="res://assets/2d/characters/hugo/idle/hugo_idle_angry_closed.png" id="1_jhfvd"]
+[ext_resource type="Texture2D" uid="uid://dvnw6hdpxb38w" path="res://assets/2d/characters/hugo/idle/hugo_idle_angry_open.png" id="2_7ah80"]
+[ext_resource type="Texture2D" uid="uid://cak1b4bmg6py6" path="res://assets/2d/characters/hugo/idle/hugo_idle_default_closed.png" id="3_wsd04"]
+[ext_resource type="Texture2D" uid="uid://qdtqxob1k0lp" path="res://assets/2d/characters/hugo/idle/hugo_idle_default_open.png" id="4_6j7am"]
+[ext_resource type="Texture2D" uid="uid://bhwh32w24ek6" path="res://assets/2d/characters/hugo/idle/hugo_idle_happy_closed.png" id="5_hqhre"]
+[ext_resource type="Texture2D" uid="uid://dh48cyesovahl" path="res://assets/2d/characters/hugo/idle/hugo_idle_happy_open.png" id="6_0d5fp"]
+[ext_resource type="Texture2D" uid="uid://dl4uw6adbltxh" path="res://assets/2d/characters/hugo/idle/hugo_idle_sad_closed.png" id="7_0nvd2"]
+[ext_resource type="Texture2D" uid="uid://chtgu370inuul" path="res://assets/2d/characters/hugo/idle/hugo_idle_sad_open.png" id="8_wlmt5"]
+[ext_resource type="Texture2D" uid="uid://sdr6pa2w46da" path="res://assets/2d/characters/hugo/idle/hugo_idle_superhappy_closed.png" id="9_oj56w"]
+[ext_resource type="Texture2D" uid="uid://cglenuv24l1ya" path="res://assets/2d/characters/hugo/idle/hugo_idle_superhappy_open.png" id="10_b2ds6"]
+[ext_resource type="Texture2D" uid="uid://40ap0swrav81" path="res://assets/2d/characters/hugo/idle/hugo_idle_surprised_closed.png" id="11_y48it"]
+[ext_resource type="Texture2D" uid="uid://dwvb71qlbcyur" path="res://assets/2d/characters/hugo/idle/hugo_idle_surprised_open.png" id="12_oyme3"]
+[ext_resource type="Texture2D" uid="uid://dnb0k55kbj3f8" path="res://assets/2d/characters/hugo/idle/hugo_idle_wink_closed.png" id="13_0u1hn"]
+[ext_resource type="Texture2D" uid="uid://hihjj3nlrq5l" path="res://assets/2d/characters/hugo/idle/hugo_idle_wink_open.png" id="14_fncok"]
+[ext_resource type="Texture2D" uid="uid://b77n61aqwme6r" path="res://assets/2d/characters/hugo/mischievous/hugo_mischiveous_default_closed.png" id="15_eicif"]
+[ext_resource type="Texture2D" uid="uid://slhasf2rrqlk" path="res://assets/2d/characters/hugo/mischievous/hugo_mischiveous_default_open.png" id="16_tws4b"]
+[ext_resource type="Texture2D" uid="uid://cxubcqw5156r" path="res://assets/2d/characters/hugo/mischievous/hugo_mischiveous_happy_closed.png" id="17_yucol"]
+[ext_resource type="Texture2D" uid="uid://b21i0qnj87x5x" path="res://assets/2d/characters/hugo/mischievous/hugo_mischiveous_happy_open.png" id="18_0vhhf"]
+[ext_resource type="Texture2D" uid="uid://dh5s0u2e1vf7p" path="res://assets/2d/characters/hugo/mischievous/hugo_mischiveous_superhappy_closed.png" id="19_t8fnl"]
+[ext_resource type="Texture2D" uid="uid://dbgokr8uodns4" path="res://assets/2d/characters/hugo/mischievous/hugo_mischiveous_superhappy_open.png" id="20_e37ni"]
+[ext_resource type="Texture2D" uid="uid://tuixx8epc3v6" path="res://assets/2d/characters/hugo/mischievous/hugo_mischiveous_surprised_closed.png" id="21_xt205"]
+[ext_resource type="Texture2D" uid="uid://ckb6f5x3th638" path="res://assets/2d/characters/hugo/mischievous/hugo_mischiveous_surprised_open.png" id="22_wifnn"]
+[ext_resource type="Texture2D" uid="uid://boysw1mrqr5kh" path="res://assets/2d/characters/hugo/mischievous/hugo_mischiveous_wink_closed.png" id="23_jkeux"]
+[ext_resource type="Texture2D" uid="uid://bqbwvdqyp8eem" path="res://assets/2d/characters/hugo/mischievous/hugo_mischiveous_wink_open.png" id="24_pl1jm"]
+[ext_resource type="Texture2D" uid="uid://rarv087nkhrh" path="res://assets/2d/characters/hugo/openarms/hugo_openarms_angry_closed.png" id="25_v2ke0"]
+[ext_resource type="Texture2D" uid="uid://bcl88wbb7bags" path="res://assets/2d/characters/hugo/openarms/hugo_openarms_angry_open.png" id="26_t0e4q"]
+[ext_resource type="Texture2D" uid="uid://coovsb0tgngm6" path="res://assets/2d/characters/hugo/openarms/hugo_openarms_default_closed.png" id="27_bpfpj"]
+[ext_resource type="Texture2D" uid="uid://bgce32ifiv1x4" path="res://assets/2d/characters/hugo/openarms/hugo_openarms_default_open.png" id="28_vyp8c"]
+[ext_resource type="Texture2D" uid="uid://kmw84qxqw7hs" path="res://assets/2d/characters/hugo/openarms/hugo_openarms_happy_closed.png" id="29_nv575"]
+[ext_resource type="Texture2D" uid="uid://g3nv8e7yae8q" path="res://assets/2d/characters/hugo/openarms/hugo_openarms_happy_open.png" id="30_xk4pn"]
+[ext_resource type="Texture2D" uid="uid://cx1xfeqr85vjc" path="res://assets/2d/characters/hugo/openarms/hugo_openarms_superhappy_closed.png" id="31_32gv4"]
+[ext_resource type="Texture2D" uid="uid://luwy1rr64l1f" path="res://assets/2d/characters/hugo/openarms/hugo_openarms_superhappy_open.png" id="32_38kia"]
+[ext_resource type="Texture2D" uid="uid://yrdjxfqe4jjx" path="res://assets/2d/characters/hugo/openarms/hugo_openarms_surprised_closed.png" id="33_xnrj4"]
+[ext_resource type="Texture2D" uid="uid://dkvpg6acmbw81" path="res://assets/2d/characters/hugo/openarms/hugo_openarms_surprised_open.png" id="34_ulaoy"]
+[ext_resource type="Texture2D" uid="uid://cona6oh1ierqq" path="res://assets/2d/characters/hugo/openarms/hugo_openarms_wink_closed.png" id="35_j3jy7"]
+[ext_resource type="Texture2D" uid="uid://2ajqccqij57m" path="res://assets/2d/characters/hugo/openarms/hugo_openarms_wink_open.png" id="36_5nisj"]
+[ext_resource type="Texture2D" uid="uid://d0rkn80mjkbqh" path="res://assets/2d/characters/hugo/tumours - hugo sprite etc/hugo_tumour.png" id="37_7ah80"]
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_jhfvd")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_7ah80")
+}],
+"loop": 1,
+"name": &"IDLE_ANGRY",
+"speed": 6.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_wsd04")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_6j7am")
+}],
+"loop": 1,
+"name": &"IDLE_DEFAULT",
+"speed": 6.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_hqhre")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_0d5fp")
+}],
+"loop": 1,
+"name": &"IDLE_HAPPY",
+"speed": 6.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("7_0nvd2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_wlmt5")
+}],
+"loop": 1,
+"name": &"IDLE_SAD",
+"speed": 6.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("9_oj56w")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_b2ds6")
+}],
+"loop": 1,
+"name": &"IDLE_SUPERHAPPY",
+"speed": 6.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("11_y48it")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_oyme3")
+}],
+"loop": 1,
+"name": &"IDLE_SURPRISED",
+"speed": 6.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("13_0u1hn")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_fncok")
+}],
+"loop": 1,
+"name": &"IDLE_WINK",
+"speed": 6.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("15_eicif")
+}, {
+"duration": 1.0,
+"texture": ExtResource("16_tws4b")
+}],
+"loop": 1,
+"name": &"MISCHIVEOUS_DEFAULT",
+"speed": 6.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("17_yucol")
+}, {
+"duration": 1.0,
+"texture": ExtResource("18_0vhhf")
+}],
+"loop": 1,
+"name": &"MISCHIVEOUS_HAPPY",
+"speed": 6.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("19_t8fnl")
+}, {
+"duration": 1.0,
+"texture": ExtResource("20_e37ni")
+}],
+"loop": 1,
+"name": &"MISCHIVEOUS_SUPERHAPPY",
+"speed": 6.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("21_xt205")
+}, {
+"duration": 1.0,
+"texture": ExtResource("22_wifnn")
+}],
+"loop": 1,
+"name": &"MISCHIVEOUS_SURPRISED",
+"speed": 6.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("23_jkeux")
+}, {
+"duration": 1.0,
+"texture": ExtResource("24_pl1jm")
+}],
+"loop": 1,
+"name": &"MISCHIVEOUS_WINK",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("25_v2ke0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("26_t0e4q")
+}],
+"loop": 1,
+"name": &"OPENARMS_ANGRY",
+"speed": 6.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("27_bpfpj")
+}, {
+"duration": 1.0,
+"texture": ExtResource("28_vyp8c")
+}],
+"loop": 1,
+"name": &"OPENARMS_DEFAULT",
+"speed": 6.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("29_nv575")
+}, {
+"duration": 1.0,
+"texture": ExtResource("30_xk4pn")
+}],
+"loop": 1,
+"name": &"OPENARMS_HAPPY",
+"speed": 6.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("31_32gv4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("32_38kia")
+}],
+"loop": 1,
+"name": &"OPENARMS_SUPERHAPPY",
+"speed": 6.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("33_xnrj4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("34_ulaoy")
+}],
+"loop": 1,
+"name": &"OPENARMS_SURPRISED",
+"speed": 6.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("35_j3jy7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("36_5nisj")
+}],
+"loop": 1,
+"name": &"OPENARMS_WINK",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("37_7ah80")
+}],
+"loop": 1,
+"name": &"TUMOR",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_wsd04")
+}],
+"loop": 1,
+"name": &"idle",
+"speed": 5.0
+}]
