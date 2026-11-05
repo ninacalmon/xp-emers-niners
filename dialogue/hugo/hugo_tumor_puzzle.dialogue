@@ -15,6 +15,7 @@ $> locals.wanted_tumors = locals.tumor_puzzle.get_wanted_tumor_textures_path()
 Hugo: Por favor, encontre para mim:
 Hugo: [img=80]{{locals.wanted_tumors[0]}}[/img] [img=80]{{locals.wanted_tumors[1]}}[/img] [img=80]{{locals.wanted_tumors[2]}}[/img]
 Hugo: Vamos lá!
+do DialogueData.set_mood("Hugo", DialogueData.HugoMoods.TUMOR)
 do locals.tumor_puzzle.start()
 => END
 

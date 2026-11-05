@@ -73,5 +73,5 @@ render_target_update_mode = 4
 material = ExtResource("5_o0q0w")
 instance_shader_parameters/outline_enabled = true
 sprite_frames = ExtResource("6_07clx")
-animation = &"idle"
+animation = &"IDLE_DEFAULT"
 centered = false

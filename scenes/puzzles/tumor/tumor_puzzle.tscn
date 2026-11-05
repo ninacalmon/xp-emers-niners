@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://ndxtkrboiso5"]
 
-[ext_resource type="Texture2D" uid="uid://brpmlahlmb03" path="res://assets/placeholders/belly.jpg" id="1_6rwyu"]
 [ext_resource type="Script" uid="uid://befccjr1bdccc" path="res://scenes/puzzles/tumor/tumor_puzzle.gd" id="1_rsngm"]
+[ext_resource type="Texture2D" uid="uid://df55s5b3vb6x7" path="res://assets/2d/characters/hugo/tumours - hugo sprite etc/hugo_tumour_zoom.png" id="2_1qg5d"]
 [ext_resource type="Texture2D" uid="uid://dcbrqhkqrlvnu" path="res://assets/placeholders/pereba1.png" id="2_rsngm"]
 [ext_resource type="Script" uid="uid://c2wvtve3pygab" path="res://scenes/puzzles/tumor/tumor_button.gd" id="4_flpmj"]
 [ext_resource type="Texture2D" uid="uid://j1rawwwgam1s" path="res://assets/placeholders/pereba2.png" id="5_1qg5d"]
@@ -52,9 +52,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 0
-texture = ExtResource("1_6rwyu")
-expand_mode = 2
-stretch_mode = 6
+texture = ExtResource("2_1qg5d")
 
 [node name="MarginContainer" type="MarginContainer" parent="TumorPuzzleControl" unique_id=455683951]
 layout_mode = 1
