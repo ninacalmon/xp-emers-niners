@@ -22,6 +22,22 @@ var current_time: Times = Times.at1200
 
 
 func _ready() -> void:
+	get_tree().scene_changed.connect(_on_scene_changed)
+	await get_tree().process_frame
+	_initialize_scene()
+	sun = get_tree().get_first_node_in_group("sun")
+	if not sun:
+		return
+
+	environment_sky_shader = sun.worldEnvironment.environment.sky.sky_material
+	set_time(current_time)
+
+
+func _on_scene_changed() -> void:
+	_initialize_scene()
+
+
+func _initialize_scene() -> void:
 	sun = get_tree().get_first_node_in_group("sun")
 	if not sun:
 		return

@@ -1,10 +1,12 @@
 [gd_scene format=3 uid="uid://bdyvh251a705f"]
 
 [ext_resource type="Script" uid="uid://j6hwg20v6l6b" path="res://addons/loading_screen_manager/loading_screen.gd" id="1_7eg82"]
+[ext_resource type="Script" uid="uid://djf0nglrtcg7q" path="res://addons/loading_screen_manager/sun_path_2d.gd" id="2_v6vhv"]
+[ext_resource type="Texture2D" uid="uid://bwbbgoafj6kuy" path="res://assets/2d/interface/loading_screen/sun_loadingscreen.png" id="2_w5k4x"]
 
 [sub_resource type="Animation" id="Animation_ymhu6"]
 resource_name = "fade_in"
-length = 0.19999999999999998
+length = 0.2
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -20,7 +22,7 @@ tracks/0/keys = {
 
 [sub_resource type="Animation" id="Animation_tapf6"]
 resource_name = "fade_out"
-length = 0.19999999999999998
+length = 0.2
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -39,6 +41,12 @@ _data = {
 &"fade_in": SubResource("Animation_ymhu6"),
 &"fade_out": SubResource("Animation_tapf6")
 }
+
+[sub_resource type="Curve2D" id="Curve2D_lqwic"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, -104, 1266, -660.4767, -9.431793, 660.4767, 9.431793, 949, 572, 0, 0, 0, 0, 2031, 1261)
+}
+point_count = 3
 
 [node name="LoadingScreen" type="CanvasLayer" unique_id=937876760 node_paths=PackedStringArray("progress_bar", "status_text", "percent_text", "anim", "done_sound")]
 layer = 20
@@ -86,25 +94,20 @@ layout_mode = 2
 size_flags_horizontal = 4
 text = "Loading..."
 
-[node name="RichTextLabel" type="RichTextLabel" parent="ColorRect" unique_id=202312653]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -216.0
-offset_top = -22.5
-offset_right = 216.0
-offset_bottom = 22.5
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_font_sizes/normal_font_size = 32
-text = "ANIMAÇÃO SOLZINHO AQUI"
-fit_content = true
-autowrap_mode = 0
-
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1182574532]
 libraries/ = SubResource("AnimationLibrary_qqpgy")
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=624902599]
+
+[node name="SunPath2D" type="Path2D" parent="." unique_id=1967086955]
+curve = SubResource("Curve2D_lqwic")
+script = ExtResource("2_v6vhv")
+
+[node name="PathFollow2D" type="PathFollow2D" parent="SunPath2D" unique_id=1090574591]
+position = Vector2(-104, 1266)
+rotation = -1.0618228
+scale = Vector2(0.5, 0.5)
+
+[node name="Sprite2D" type="Sprite2D" parent="SunPath2D/PathFollow2D" unique_id=197087350]
+modulate = Color(1, 1, 1, 0.3019608)
+texture = ExtResource("2_w5k4x")
