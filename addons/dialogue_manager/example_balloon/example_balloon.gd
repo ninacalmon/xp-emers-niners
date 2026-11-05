@@ -155,18 +155,24 @@ func apply_dialogue_line() -> void:
 	balloon.focus_mode = Control.FOCUS_ALL
 	balloon.grab_focus()
 
-	if dialogue_line.character.is_empty():
+	var is_current_line_player: bool = is_player_line(dialogue_line)
+
+	if is_current_line_player:
 		player_line_started.emit()
 		if not is_player_themed:
 			await ready_to_start
 			player_theme(true)
 
-	if is_player_themed and not dialogue_line.character.is_empty():
+	if is_player_themed and not is_current_line_player:
 		player_theme(false)
 		player_line_ended.emit()
 
-	character_label.visible = not dialogue_line.character.is_empty()
+	character_label.visible = true
+	if not dialogue_line.character:
+		dialogue_line.character = " "
 	character_label.text = tr(dialogue_line.character, "dialogue")
+
+
 
 	dialogue_label.hide()
 	dialogue_label.dialogue_line = dialogue_line
@@ -273,3 +279,9 @@ func player_theme(_bool: bool):
 		progress.color = default_progress_color
 
 		is_player_themed = false
+
+
+
+## a player line is either spoken by "Você" or has no character at all.
+func is_player_line(line: DialogueLine) -> bool:
+	return line.character == "Você" or line.character.is_empty()

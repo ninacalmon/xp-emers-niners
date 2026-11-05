@@ -153,6 +153,7 @@ theme_override_styles/panel = SubResource("StyleBoxEmpty_p8ed4")
 
 [node name="MarginContainer" type="MarginContainer" parent="Balloon/MarginContainer/PanelContainer" unique_id=903640783]
 layout_mode = 2
+theme_override_constants/margin_right = 100
 
 [node name="HBoxContainer" type="HBoxContainer" parent="Balloon/MarginContainer/PanelContainer/MarginContainer" unique_id=1685890612]
 layout_mode = 2
