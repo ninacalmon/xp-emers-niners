@@ -229,7 +229,10 @@ animations = [{
 "speed": 5.0
 }]
 
-[node name="Hugo" type="Node3D" unique_id=1758948578]
+[node name="Hugo" type="Node3D" unique_id=1758948578 groups=["hugo"]]
+script = ExtResource("2_ih5dt")
+character_name = "Hugo"
+dialogue_res = ExtResource("3_hcqp7")
 
 [node name="Sprite3D" type="Sprite3D" parent="." unique_id=415751236]
 transform = Transform3D(0.18, 0, 0, 0, 0.18, 0, 0, 0, 0.18, 0, 0.7130867, 0)
@@ -252,7 +255,7 @@ mesh = SubResource("CapsuleMesh_cdpwx")
 [node name="InteractionArea" type="Area3D" parent="." unique_id=830411389 node_paths=PackedStringArray("animated_sprite", "action_trigger")]
 script = ExtResource("1_8hfrc")
 animated_sprite = NodePath("../SubViewportSprite/AnimatedSprite2D")
-action_trigger = NodePath("../DialogueAction")
+action_trigger = NodePath("..")
 metadata/_custom_type_script = "uid://cf2auur4umdjl"
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="InteractionArea" unique_id=538184214]
@@ -261,14 +264,11 @@ shape = SubResource("CapsuleShape3D_rwxsw")
 debug_color = Color(0.78039217, 0.6, 0.7019608, 0.41960785)
 
 [node name="DialogueAction" type="Node" parent="." unique_id=1494072435]
-script = ExtResource("2_ih5dt")
-character_name = "Hugo"
-dialogue_res = ExtResource("3_hcqp7")
 
 [node name="CharacterSpriteHandler" type="Node" parent="." unique_id=961269039 node_paths=PackedStringArray("animated_sprite", "dialogue_action")]
 script = ExtResource("4_e1ver")
 animated_sprite = NodePath("../SubViewportSprite/AnimatedSprite2D")
-dialogue_action = NodePath("../DialogueAction")
+dialogue_action = NodePath("..")
 
 [node name="SubViewportSprite" type="SubViewport" parent="." unique_id=1177182945]
 transparent_bg = true

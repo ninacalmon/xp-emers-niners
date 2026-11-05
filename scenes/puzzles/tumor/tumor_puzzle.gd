@@ -61,11 +61,18 @@ func start() -> void:
 
 
 func finish(solved: bool) -> void:
+	tumor_puzzle_control.hide()
 	is_running = false
 	timer.stop()
 	set_process(false)
-	puzzle_finished.emit()
+	puzzle_finished.emit(solved)
 	print(solved)
+	PuzzleManager.puzzle_ended.emit()
+	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
+	CharacterData.Hugo.just_tried_puzzle = true
+
+	self.queue_free()
+
 
 
 func setup_round() -> void:
@@ -112,16 +119,11 @@ func _evaluate() -> bool:
 	if selected_tumors.size() != WANTED_COUNT:
 		return false
 
-	var picked: Array[TumorOptions] = []
 	for t: TumorButton in selected_tumors:
-		picked.append(t.tumor_id)
-
-	var wanted: Array[int] = []
-	wanted.assign(wanted_tumors)
-
-	picked.sort()
-	wanted.sort()
-	return picked == wanted
+		print("picked: ", t.tumor_id, " | wanted: ", wanted_tumors)
+		if not wanted_tumors.has(t.tumor_id):
+			return false
+	return true
 
 
 
