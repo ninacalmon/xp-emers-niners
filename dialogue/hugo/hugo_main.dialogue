@@ -2,8 +2,14 @@ import "uid://hogiw5kgfifn" as get_flower
 import "uid://dt4dpnkm6fpxo" as tumor_puzzle
 
 ~ start
-Hugo: Oi!
-=> tumor_puzzle/start
+if CharacterData.Hugo.get_status("find_correct_tumors") == 0:
+	=> tumor_puzzle/start
+elif CharacterData.Hugo.get_status("find_correct_tumors") == 1:
+	=> tumor_puzzle/try_again
+elif CharacterData.Hugo.get_status("find_correct_tumors") == 2:
+	Hugo: Valeu! Parabéns!
+	=> END!
+
 if CharacterData.Julio.get_status("get_poison") == 1:
 	=> get_flower/start
 => END

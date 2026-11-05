@@ -14,17 +14,17 @@ const STEP_HEIGHT: float = 0.25
 var is_dialogue_locked: bool = false:
 	set(value):
 		is_dialogue_locked = value
-		player_ray_cast.deactivate(value)
+		player_ray_cast.deactivate("dialogue", value)
 
 var is_focus_locked: bool = false:
 	set(value):
 		is_focus_locked = value
-		player_ray_cast.deactivate(value)
+		player_ray_cast.deactivate("focus", value)
 
 var is_puzzle_locked: bool = false:
 	set(value):
 		is_puzzle_locked = value
-		player_ray_cast.deactivate(value)
+		player_ray_cast.deactivate("puzzle", value)
 
 
 #region ConfigVariables

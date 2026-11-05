@@ -8,9 +8,13 @@ extends RayCast3D
 @onready var interaction_overlay: InteractionOverlay = $InteractionOverlay
 
 var inter: InteractionArea
-
+var deactive_callers: Array[String]
+var _is_deactivated: bool = false
 
 func _process(_delta: float) -> void:
+	if _is_deactivated:
+		return
+
 	var collider: Node3D = get_collider()
 
 	if collider is InteractionArea:
@@ -29,6 +33,21 @@ func _process(_delta: float) -> void:
 			inter = null
 
 
-func deactivate(_bool: bool):
-	enabled = not _bool
-	interaction_overlay.visible = not _bool
+
+func deactivate(variation: String, is_deactivated: bool) -> void:
+	if is_deactivated:
+		if not deactive_callers.has(variation):
+			deactive_callers.append(variation)
+	else:
+		deactive_callers.erase(variation)
+
+	var is_free: bool = deactive_callers.is_empty()
+	enabled = is_free
+	interaction_overlay.visible = is_free
+	_is_deactivated = not is_free
+
+	if inter:
+		if not is_free:
+			inter.on_ray_exit()
+			inter = null
+	print("deactive_callers: ", deactive_callers)

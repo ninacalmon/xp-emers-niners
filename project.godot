@@ -54,6 +54,7 @@ interaction_overlay=""
 ground_areas=""
 focus_playground=""
 puzzles=""
+hugo=""
 
 [gui]
 

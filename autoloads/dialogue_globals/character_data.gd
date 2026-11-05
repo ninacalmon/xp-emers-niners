@@ -1,6 +1,6 @@
 extends Node
 
-class TaskOwner:
+class TaskOwner extends Node:
 	## each task is: {"status": [given, completed], "txt": String}
 	var tasks: Dictionary = {}
 
@@ -69,8 +69,34 @@ class HugoData extends TaskOwner:
 				
 		}
 
+	var Hugo: DialogueAction
+
 	var tumor_puzzle = preload("uid://ndxtkrboiso5")
 	var wanted_tumors_textures: Array[Texture2D]
+	var tumors_solved: bool
+	var just_tried_puzzle: bool
+
+	func _get_hugo() -> DialogueAction:
+		if is_instance_valid(Hugo):
+			return Hugo
+		var tree: SceneTree = CharacterData.get_tree()
+		Hugo = tree.get_first_node_in_group("hugo") as DialogueAction
+		return Hugo
+
+
+	func _on_tumor_puzzle_finished(solved: bool) -> void:
+		print("tumor puzzle finished, solved: ", solved)
+		tumors_solved = solved
+		if solved:
+			CharacterData.Hugo.complete_task("find_correct_tumors")
+			print("status after complete_task: ", get_status("find_correct_tumors"))
+
+		var hugo: DialogueAction = _get_hugo()
+		if hugo == null:
+			push_warning("Hugo not found in group 'hugo'")
+			return
+
+		hugo.trigger()
 
 
 class SansonData extends TaskOwner:
