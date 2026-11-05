@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://dkrs7lq02aurx"]
 
 [ext_resource type="Script" uid="uid://bbu3di48o4k0c" path="res://addons/DayNightCycle/DayNightCycle.gd" id="1_imuo2"]
+[ext_resource type="PackedScene" uid="uid://bcw7p5ibxxkdk" path="res://scenes/interface/hands_overlay/hands_overlay.tscn" id="1_jlsnk"]
 [ext_resource type="Material" uid="uid://wyikf3yxoy6x" path="res://addons/DayNightCycle/Sky_Day.tres" id="2_vxxqi"]
 [ext_resource type="Script" uid="uid://bd046eokvcnu2" path="res://addons/phantom_camera/scripts/phantom_camera_host/phantom_camera_host.gd" id="4_itq1n"]
 [ext_resource type="PackedScene" uid="uid://c0enf7fvm7uko" path="res://scenes/objects/doors/room_door.tscn" id="6_t214a"]
@@ -141,62 +142,74 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("Cameras/PhantomCameraMonasteryView:rotation")
+tracks/1/path = NodePath("Cameras/PhantomCameraCorridorView:position")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector3(-0.017453313, -0.6850418, 0)]
+"values": [Vector3(0, 0, 0)]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("Cameras/PhantomCameraCorridorView:position")
+tracks/2/path = NodePath("Cameras/PhantomCameraSunView:position")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector3(0, 0, 0)]
+"values": [Vector3(33.15585, 35.47854, -14.867261)]
 }
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("Cameras/PhantomCameraBrothersView:rotation")
+tracks/3/path = NodePath("Camera3D:fov")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector3(0, -6.2831855, 0)]
+"values": [10.0]
 }
 tracks/4/type = "value"
 tracks/4/imported = false
 tracks/4/enabled = true
-tracks/4/path = NodePath("Cameras/PhantomCameraSunView:position")
+tracks/4/path = NodePath("Cameras/PhantomCameraBrothersView:rotation")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector3(33.15585, 35.47854, -14.867261)]
+"values": [Vector3(1.4713125, 0, 0)]
 }
 tracks/5/type = "value"
 tracks/5/imported = false
 tracks/5/enabled = true
-tracks/5/path = NodePath("Camera3D:fov")
+tracks/5/path = NodePath("Cameras/PhantomCameraBrothersView:rotation:y")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [10.0]
+"update": 1,
+"values": [1.5195609]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Cameras/PhantomCameraBrothersView:rotation:x")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0.060893774]
 }
 
 [sub_resource type="Animation" id="Animation_nbfxi"]
@@ -205,14 +218,26 @@ length = 10.0
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Cameras/PhantomCameraBrothersView:rotation")
-tracks/0/interp = 1
+tracks/0/path = NodePath("Cameras/PhantomCameraBrothersView:rotation:y")
+tracks/0/interp = 2
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 10),
+"times": PackedFloat32Array(0.4, 5.4, 7),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [2.035, 4.34, 3.26]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Cameras/PhantomCameraBrothersView:rotation:x")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1.5666667),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Vector3(0, -1.9373155, 0), Vector3(0, -4.209734, 0)]
+"values": [1.5859999999999999, 0.0]
 }
 
 [sub_resource type="Animation" id="Animation_fxk1m"]
@@ -233,7 +258,7 @@ tracks/0/keys = {
 
 [sub_resource type="Animation" id="Animation_jlsnk"]
 resource_name = "monastery_view"
-length = 10.0
+length = 20.0
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -241,22 +266,10 @@ tracks/0/path = NodePath("Cameras/PhantomCameraMonasteryView:position")
 tracks/0/interp = 2
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 9.766666),
+"times": PackedFloat32Array(0, 20),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [Vector3(-19.481197, 19.5139, 86.27424), Vector3(27.676756, 19.212154, 92.04475)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Cameras/PhantomCameraMonasteryView:rotation")
-tracks/1/interp = 2
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 9.766666),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector3(-0.017453313, -0.6850418, 0), Vector3(-0.017453313, -0.28797957, 0)]
 }
 
 [sub_resource type="Animation" id="Animation_rssnk"]
@@ -297,6 +310,8 @@ _data = {
 }
 
 [node name="TestWorld" type="Node3D" unique_id=1370714841]
+
+[node name="HandsOverlay" parent="." unique_id=1915315994 instance=ExtResource("1_jlsnk")]
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=593969480 node_paths=PackedStringArray("worldEnvironment", "nightLight") groups=["sun"]]
 transform = Transform3D(-0.8660254, -0.43301278, 0.25, 0, 0.49999997, 0.86602545, -0.50000006, 0.75, -0.43301266, 0, 0, 0)
@@ -467,16 +482,16 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 48.87092, 19.19202, 7)
 [node name="Characters" type="Node3D" parent="." unique_id=577653259]
 
 [node name="Hugo" parent="Characters" unique_id=1758948578 instance=ExtResource("9_kttsr")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 35.013767, 2.414, -13.082071)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 34.899055, 2.414, -13.082071)
 
 [node name="Julio" parent="Characters" unique_id=1615518148 instance=ExtResource("10_ani7x")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 31.115225, 2.4144657, -13.07054)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 31.731825, 2.4144657, -13.07054)
 
 [node name="Lucio" parent="Characters" unique_id=1730430442 instance=ExtResource("11_jlsnk")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 32.215176, 2.414, -12.361891)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 32.831776, 2.414, -12.361891)
 
 [node name="Sanson" parent="Characters" unique_id=1975172536 instance=ExtResource("12_fxk1m")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 33.776108, 2.414, -12.325241)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 33.912334, 2.414, -12.325241)
 
 [node name="confessional" parent="." unique_id=795866384 instance=ExtResource("13_nbfxi")]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 22.11916, 1.4938962, -3.886547)
@@ -491,15 +506,15 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.81791425, -0.1650207, -0.5
 [node name="PhantomCameraSunView" type="Node3D" parent="Cameras" unique_id=2097840950]
 transform = Transform3D(-1, 1.509958e-07, -6.600236e-15, 0, -4.371139e-08, -1, -1.509958e-07, -1, 4.371139e-08, 33.15585, 35.47854, -14.867261)
 script = ExtResource("15_vxxqi")
-priority = 7
+priority = 99
 tween_resource = SubResource("Resource_kttsr")
 tween_on_load = false
 metadata/_custom_type_script = "uid://csjccrhj5wnx7"
 
 [node name="PhantomCameraBrothersView" type="Node3D" parent="Cameras" unique_id=1122159051]
-transform = Transform3D(1, 0, -1.7484555e-07, 0, 1, 0, 1.7484555e-07, 0, 1, 33.06002, 4.0557556, -15.037871)
+transform = Transform3D(1, 0, 0, 0, 0.099319786, -0.99505556, 0, 0.99505556, 0.099319786, 33.06002, 4.0557556, -15.037871)
 script = ExtResource("15_vxxqi")
-priority = 8
+priority = 98
 tween_resource = SubResource("Resource_kttsr")
 tween_on_load = false
 metadata/_custom_type_script = "uid://csjccrhj5wnx7"
@@ -507,15 +522,15 @@ metadata/_custom_type_script = "uid://csjccrhj5wnx7"
 [node name="PhantomCameraMonasteryView" type="Node3D" parent="Cameras" unique_id=1423064640]
 transform = Transform3D(0.7743926, 0.011042244, -0.632609, 0, 0.9998477, 0.017452426, 0.6327054, -0.01351503, 0.77427465, -19.481197, 19.5139, 86.27424)
 script = ExtResource("15_vxxqi")
-priority = 10
+priority = 100
 tween_resource = SubResource("Resource_kttsr")
 tween_on_load = false
 metadata/_custom_type_script = "uid://csjccrhj5wnx7"
 
 [node name="PhantomCameraCorridorView" type="Node3D" parent="Cameras" unique_id=222085617]
 transform = Transform3D(-0.14349706, 0.12917513, -0.9811842, 0, 0.9914449, 0.13052598, 0.9896508, 0.018730093, -0.14226945, 0, 0, 0)
+visible = false
 script = ExtResource("15_vxxqi")
-priority = 9
 tween_resource = SubResource("Resource_kttsr")
 tween_on_load = false
 metadata/_custom_type_script = "uid://csjccrhj5wnx7"

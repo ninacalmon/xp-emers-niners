@@ -73,5 +73,5 @@ material = ExtResource("5_syy5x")
 instance_shader_parameters/outline_enabled = true
 position = Vector2(0, 36)
 sprite_frames = ExtResource("6_fkhlk")
-animation = &"TUMOR"
+animation = &"idle"
 centered = false

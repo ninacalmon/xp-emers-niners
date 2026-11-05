@@ -1,0 +1,15 @@
+[gd_scene format=3 uid="uid://bhudkgwvtx1vp"]
+
+[ext_resource type="Script" uid="uid://cjpusv33ylxyb" path="res://autoloads/fade_in_out/fade_in_out.gd" id="1_yiuj0"]
+
+[node name="FadeInOut" type="CanvasLayer" unique_id=1900194388]
+script = ExtResource("1_yiuj0")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1357156955]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0, 0, 0, 1)

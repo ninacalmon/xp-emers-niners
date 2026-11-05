@@ -23,10 +23,11 @@ func _ready() -> void:
 
 ## this function is called when a line of dialogue have a mood different than
 ## the previous storaged mood in [DialogueAction].
-func _on_mood_set(speaker: String, mood_name: String) -> void:
+func _on_mood_set(speaker: String, mood_name: String, mouth_shut: bool = false) -> void:
 	if speaker != character_name:
 		return
 	change_anim(mood_name)
+	animated_sprite.stop()
 
 
 func _on_dialogue_ended() -> void:

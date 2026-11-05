@@ -76,13 +76,13 @@ enum ConfessorMoods {
 	VARIATION
 }
 
-func set_mood(character_name: String, mood: int) -> void:
+func set_mood(character_name: String, mood: int, mouth_shut: bool = false) -> void:
 	var moods: Dictionary = MOODS_BY_CHARACTER.get(character_name, {})
 	var mood_name: Variant = moods.find_key(mood)
 	if mood_name == null:
 		push_warning("%s has no mood with value %d" % [character_name, mood])
 		return
-	mood_set.emit(character_name, str(mood_name))
+	mood_set.emit(character_name, str(mood_name), mouth_shut)
 
 
 ## ================== ADDING MOODS/ANIMATIONS ===================
