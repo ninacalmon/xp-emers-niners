@@ -54,14 +54,21 @@ func shake_slot() -> void:
 	_shake_tween.tween_property(center_container, "position", _shake_origin, SHAKE_STEP)
 
 
+func _is_focus_active() -> bool:
+	if Engine.is_editor_hint():
+		return false
+	return FocusPlayground.is_focused
+
+
 func _ready() -> void:
 	_shake_origin = center_container.position
 	button_slot.toggled.connect(_on_button_slot_toggled)
 	button_slot.button_down.connect(_on_button_down)
 	button_slot.button_up.connect(_on_button_up)
 	rich_text_label.modulate.a = 1.0 if button_slot.button_pressed else 0.0
-	FocusPlayground.focus.connect(_on_focus)
 
+	if not Engine.is_editor_hint():
+		FocusPlayground.focus.connect(_on_focus)
 
 
 func _on_button_slot_toggled(toggled_on: bool) -> void:

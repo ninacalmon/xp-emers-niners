@@ -29,18 +29,22 @@ height = 120
 fill = 1
 fill_from = Vector2(0.5, 0.5)
 
-[node name="TumorPuzzle" type="Control" unique_id=2035267022 node_paths=PackedStringArray("submit_button", "time_label")]
+[node name="TumorPuzzle" type="CanvasLayer" unique_id=833658300 node_paths=PackedStringArray("submit_button", "time_label") groups=["puzzles"]]
+script = ExtResource("1_rsngm")
+submit_button = NodePath("TumorPuzzleControl/Submit")
+time_label = NodePath("TumorPuzzleControl/Timer")
+lock_player_movement = true
+
+[node name="TumorPuzzleControl" type="Control" parent="." unique_id=2035267022]
+z_index = 1
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_rsngm")
-submit_button = NodePath("Submit")
-time_label = NodePath("Timer")
 
-[node name="BellyBackground" type="TextureRect" parent="." unique_id=839017084]
+[node name="BellyBackground" type="TextureRect" parent="TumorPuzzleControl" unique_id=839017084]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -51,7 +55,7 @@ texture = ExtResource("1_6rwyu")
 expand_mode = 2
 stretch_mode = 6
 
-[node name="MarginContainer" type="MarginContainer" parent="." unique_id=455683951]
+[node name="MarginContainer" type="MarginContainer" parent="TumorPuzzleControl" unique_id=455683951]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -63,10 +67,10 @@ theme_override_constants/margin_top = 367
 theme_override_constants/margin_right = 712
 theme_override_constants/margin_bottom = 294
 
-[node name="TumorsControl" type="Control" parent="MarginContainer" unique_id=1444001277]
+[node name="TumorsControl" type="Control" parent="TumorPuzzleControl/MarginContainer" unique_id=1444001277]
 layout_mode = 2
 
-[node name="TumorButton" type="TextureButton" parent="MarginContainer/TumorsControl" unique_id=1020270010]
+[node name="TumorButton" type="TextureButton" parent="TumorPuzzleControl/MarginContainer/TumorsControl" unique_id=1020270010]
 material = SubResource("CanvasItemMaterial_wsepm")
 custom_minimum_size = Vector2(120, 120)
 custom_maximum_size = Vector2(120, 120)
@@ -83,7 +87,7 @@ stretch_mode = 0
 script = ExtResource("4_flpmj")
 tumor_id = 2
 
-[node name="TumorButton2" type="TextureButton" parent="MarginContainer/TumorsControl" unique_id=1976037629]
+[node name="TumorButton2" type="TextureButton" parent="TumorPuzzleControl/MarginContainer/TumorsControl" unique_id=1976037629]
 material = SubResource("CanvasItemMaterial_wsepm")
 custom_minimum_size = Vector2(120, 120)
 custom_maximum_size = Vector2(120, 120)
@@ -100,7 +104,7 @@ stretch_mode = 0
 script = ExtResource("4_flpmj")
 tumor_id = 1
 
-[node name="TumorButton3" type="TextureButton" parent="MarginContainer/TumorsControl" unique_id=534240231]
+[node name="TumorButton3" type="TextureButton" parent="TumorPuzzleControl/MarginContainer/TumorsControl" unique_id=534240231]
 material = SubResource("CanvasItemMaterial_wsepm")
 custom_minimum_size = Vector2(120, 120)
 custom_maximum_size = Vector2(120, 120)
@@ -117,7 +121,7 @@ stretch_mode = 0
 script = ExtResource("4_flpmj")
 tumor_id = 3
 
-[node name="TumorButton4" type="TextureButton" parent="MarginContainer/TumorsControl" unique_id=600567008]
+[node name="TumorButton4" type="TextureButton" parent="TumorPuzzleControl/MarginContainer/TumorsControl" unique_id=600567008]
 material = SubResource("CanvasItemMaterial_wsepm")
 custom_minimum_size = Vector2(120, 120)
 custom_maximum_size = Vector2(120, 120)
@@ -134,7 +138,7 @@ stretch_mode = 0
 script = ExtResource("4_flpmj")
 tumor_id = 4
 
-[node name="TumorButton5" type="TextureButton" parent="MarginContainer/TumorsControl" unique_id=1420759657]
+[node name="TumorButton5" type="TextureButton" parent="TumorPuzzleControl/MarginContainer/TumorsControl" unique_id=1420759657]
 material = SubResource("CanvasItemMaterial_wsepm")
 custom_minimum_size = Vector2(120, 120)
 custom_maximum_size = Vector2(120, 120)
@@ -150,14 +154,14 @@ texture_hover = SubResource("GradientTexture2D_24y03")
 stretch_mode = 0
 script = ExtResource("4_flpmj")
 
-[node name="Timer" type="Label" parent="." unique_id=1374730915]
+[node name="Timer" type="Label" parent="TumorPuzzleControl" unique_id=1374730915]
 layout_mode = 0
 offset_left = 899.0
 offset_top = 317.0
 offset_right = 939.0
 offset_bottom = 342.0
 
-[node name="Submit" type="Button" parent="." unique_id=202239832]
+[node name="Submit" type="Button" parent="TumorPuzzleControl" unique_id=202239832]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -172,27 +176,27 @@ grow_horizontal = 2
 grow_vertical = 2
 text = "Submit"
 
-[node name="Pereba1" type="Sprite2D" parent="." unique_id=465057538]
+[node name="Pereba1" type="Sprite2D" parent="TumorPuzzleControl" unique_id=465057538]
 position = Vector2(696.99994, 625)
 scale = Vector2(2.7, 2.7)
 texture = ExtResource("2_rsngm")
 
-[node name="Pereba2" type="Sprite2D" parent="." unique_id=1916287306]
+[node name="Pereba2" type="Sprite2D" parent="TumorPuzzleControl" unique_id=1916287306]
 position = Vector2(1032, 446)
 scale = Vector2(2.7, 2.7)
 texture = ExtResource("5_1qg5d")
 
-[node name="Pereba3" type="Sprite2D" parent="." unique_id=1334510083]
+[node name="Pereba3" type="Sprite2D" parent="TumorPuzzleControl" unique_id=1334510083]
 position = Vector2(1112, 638)
 scale = Vector2(2.7, 2.7)
 texture = ExtResource("6_iyt7t")
 
-[node name="Pereba4" type="Sprite2D" parent="." unique_id=1718411970]
+[node name="Pereba4" type="Sprite2D" parent="TumorPuzzleControl" unique_id=1718411970]
 position = Vector2(868, 736)
 scale = Vector2(2.7, 2.7)
 texture = ExtResource("7_6rc1b")
 
-[node name="Pereba5" type="Sprite2D" parent="." unique_id=689660637]
+[node name="Pereba5" type="Sprite2D" parent="TumorPuzzleControl" unique_id=689660637]
 position = Vector2(767, 456.99997)
 scale = Vector2(2.7, 2.7)
 texture = ExtResource("8_30874")

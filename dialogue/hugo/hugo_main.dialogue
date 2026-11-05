@@ -1,7 +1,9 @@
 import "uid://hogiw5kgfifn" as get_flower
+import "uid://dt4dpnkm6fpxo" as tumor_puzzle
 
 ~ start
 Hugo: Oi!
+=> tumor_puzzle/start
 if CharacterData.Julio.get_status("get_poison") == 1:
 	=> get_flower/start
 => END

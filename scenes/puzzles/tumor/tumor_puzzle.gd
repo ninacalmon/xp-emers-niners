@@ -17,10 +17,15 @@ var selected_tumors: Array[TumorButton] = []
 var timer: Timer = Timer.new()
 var is_running: bool = false
 
-@onready var tumors_control: Control = $MarginContainer/TumorsControl
+@onready var tumors_control: Control = $TumorPuzzleControl/MarginContainer/TumorsControl
+@onready var tumor_puzzle_control: Control = $TumorPuzzleControl
+
 
 
 func _ready() -> void:
+	print("puzzle parent: ", get_parent(), " | in tree: ", is_inside_tree())
+	tumor_puzzle_control.hide()
+
 	for child: Node in tumors_control.get_children():
 		var t: TumorButton = child as TumorButton
 		if t == null:
@@ -36,7 +41,7 @@ func _ready() -> void:
 
 	set_process(false)
 
-	start()
+	#start()
 
 
 func _process(_delta: float) -> void:
@@ -45,11 +50,14 @@ func _process(_delta: float) -> void:
 
 
 func start() -> void:
-	setup_round()
+	tumor_puzzle_control.show()
+	PuzzleManager.puzzle_started.emit(lock_player_movement)
+	#setup_round()
 	is_running = true
 	timer.start(time_limit)
 	set_process(true)
 	puzzle_started.emit(true)
+	Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
 
 
 func finish(solved: bool) -> void:
@@ -66,7 +74,7 @@ func setup_round() -> void:
 	ids.shuffle()
 	wanted_tumors.assign(ids.slice(0, WANTED_COUNT))
 
-	print("wanted tumors:\n%s" % str(wanted_tumors))
+	print("wanted tumors: %s" % ", ".join(_tumor_names(wanted_tumors)))
 
 
 	if submit_button != null:
@@ -114,3 +122,36 @@ func _evaluate() -> bool:
 	picked.sort()
 	wanted.sort()
 	return picked == wanted
+
+
+
+
+func _tumor_names(options: Array[TumorOptions]) -> Array[String]:
+	var names: Array[String] = []
+	for option: TumorOptions in options:
+		var option_name: String = TumorOptions.find_key(option)
+		names.append(option_name)
+	return names
+
+
+func get_wanted_tumor_textures_path() -> Array[String]:
+	if wanted_tumors.size() <= 0:
+		return []
+
+	var textures: Array[String] = []
+	var tex: String
+	for tumor: TumorOptions in wanted_tumors:
+		match tumor:
+			TumorOptions.HEART:
+				tex = "uid://dcbrqhkqrlvnu"
+			TumorOptions.STAR:
+				tex = "uid://j1rawwwgam1s"
+			TumorOptions.CIRCLE:
+				tex = "uid://cmpste7ys0wo8"
+			TumorOptions.CLOUD:
+				tex = "uid://ds2xfcm6x00j0"
+			TumorOptions.STARSIX:
+				tex = "uid://x5lwi40vqhk3"
+		textures.append(tex)
+
+	return textures
