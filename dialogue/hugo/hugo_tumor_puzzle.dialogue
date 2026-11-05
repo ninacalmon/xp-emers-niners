@@ -1,0 +1,16 @@
+~ start
+do locals.tumor_puzzle = CharacterData.Hugo.tumor_puzzle.instantiate()
+do PuzzleManager.add_puzzle_to_scene(locals.tumor_puzzle)
+do locals.tumor_puzzle.setup_round()
+$> locals.wanted_tumors = locals.tumor_puzzle.get_wanted_tumor_textures_path()
+Hugo: Quero que você escolha três das minhas perebas mais lindas!
+Hugo: Por favor, encontre para mim:
+Hugo: [img=80]{{locals.wanted_tumors[0]}}[/img] [img=80]{{locals.wanted_tumors[1]}}[/img] [img=80]{{locals.wanted_tumors[2]}}[/img]
+- -Iniciar- => start_puzzle
+- Sair => END!
+=> END
+
+~ start_puzzle
+Hugo: Vamos lá!
+do locals.tumor_puzzle.start()
+=> END

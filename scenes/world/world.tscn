@@ -21,11 +21,12 @@ sky_material = ExtResource("2_mxkvs")
 
 [sub_resource type="Environment" id="Environment_71ii3"]
 background_mode = 2
+background_color = Color(0.43529412, 0.22352941, 0.09019608, 1)
 sky = SubResource("Sky_m114p")
 ambient_light_source = 2
 ambient_light_color = Color(0.6609872, 0.6166821, 0.5360584, 1)
-ambient_light_sky_contribution = 0.3
-reflected_light_source = 1
+ambient_light_energy = 0.8
+reflected_light_source = 2
 tonemap_mode = 4
 glow_enabled = true
 glow_bloom = 0.28
@@ -211,7 +212,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 33.12908, 0, 0)
 [node name="Characters" type="Node3D" parent="." unique_id=577653259]
 
 [node name="Hugo" parent="Characters" unique_id=1758948578 instance=ExtResource("6_1yooq")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 78.968834, 0.9691608, -5.7140827)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 35.92966, 2.3716393, -12.179092)
 
 [node name="Julio" parent="Characters" unique_id=1615518148 instance=ExtResource("7_gb53w")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 29.789732, 1.5026748, 2.4989138)

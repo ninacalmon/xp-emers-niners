@@ -62,8 +62,15 @@ class HugoData extends TaskOwner:
 				"status": [false, false],
 				"txt": "Encontre e traga uma flor para Hugo.",
 			},
+			"find_correct_tumors":{
+				"status" : [false, false],
+				"txt" : "Ajude hugo a presentar uma 'parte de si mesmo'"
+			}
+				
 		}
 
+	var tumor_puzzle = preload("uid://ndxtkrboiso5")
+	var wanted_tumors_textures: Array[Texture2D]
 
 
 class SansonData extends TaskOwner:

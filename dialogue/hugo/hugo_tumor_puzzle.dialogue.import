@@ -1,0 +1,16 @@
+[remap]
+
+importer="dialogue_manager"
+importer_version=18
+type="Resource"
+uid="uid://dt4dpnkm6fpxo"
+path="res://.godot/imported/hugo_tumor_puzzle.dialogue-d74293612ad2b3f208affcbfb0a1c92f.tres"
+
+[deps]
+
+source_file="res://dialogue/hugo/hugo_tumor_puzzle.dialogue"
+dest_files=["res://.godot/imported/hugo_tumor_puzzle.dialogue-d74293612ad2b3f208affcbfb0a1c92f.tres"]
+
+[params]
+
+defaults=true
