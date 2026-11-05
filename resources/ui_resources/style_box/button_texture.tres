@@ -1,0 +1,11 @@
+[gd_resource type="StyleBoxTexture" format=3 uid="uid://ccfo1laq13y2f"]
+
+[ext_resource type="Texture2D" uid="uid://d0pk8jj31igd" path="res://assets/2d/interface/buttons/button_lowres.png" id="1_ve5fd"]
+
+[resource]
+texture = ExtResource("1_ve5fd")
+texture_margin_left = 25.0
+texture_margin_top = 25.0
+texture_margin_right = 25.0
+texture_margin_bottom = 25.0
+modulate_color = Color(0.64, 0.59007996, 0.5632, 1)

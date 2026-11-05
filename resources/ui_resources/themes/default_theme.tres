@@ -1,14 +1,40 @@
 [gd_resource type="Theme" format=3 uid="uid://d150su6jvt18n"]
 
 [ext_resource type="FontFile" uid="uid://bg4xruak10ftr" path="res://assets/fonts/grenze/Grenze-ExtraBold.ttf" id="1_e5d12"]
+[ext_resource type="StyleBox" uid="uid://bffrug6r24tnx" path="res://resources/ui_resources/style_box/button_texture_disabled.tres" id="2_2oyok"]
 [ext_resource type="FontFile" uid="uid://crq46n4d4626y" path="res://assets/fonts/grenze/Grenze-ExtraBoldItalic.ttf" id="2_reh6w"]
+[ext_resource type="StyleBox" uid="uid://ccfo1laq13y2f" path="res://resources/ui_resources/style_box/button_texture.tres" id="3_kha8d"]
 [ext_resource type="FontFile" uid="uid://mnihntii2ic0" path="res://assets/fonts/grenze/Grenze-Regular.ttf" id="3_mgcln"]
 [ext_resource type="FontFile" uid="uid://cqdolug283cmk" path="res://assets/fonts/grenze/Grenze-Italic.ttf" id="3_reh6w"]
+[ext_resource type="Texture2D" uid="uid://d0pk8jj31igd" path="res://assets/2d/interface/buttons/button_lowres.png" id="4_kexxg"]
+[ext_resource type="StyleBox" uid="uid://cldfqcuj4c17q" path="res://resources/ui_resources/style_box/button_texture_pressed.tres" id="5_00jal"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_2oyok"]
+texture = ExtResource("4_kexxg")
+texture_margin_left = 25.0
+texture_margin_top = 25.0
+texture_margin_right = 25.0
+texture_margin_bottom = 25.0
+modulate_color = Color(1.1755697, 1.0978086, 0, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_tmlpw"]
+texture = ExtResource("4_kexxg")
+texture_margin_left = 25.0
+texture_margin_top = 25.0
+texture_margin_right = 25.0
+texture_margin_bottom = 25.0
+modulate_color = Color(1, 0.5466666, 0.19999999, 1)
 
 [resource]
 default_font = ExtResource("3_mgcln")
 Button/font_sizes/font_size = 32
 Button/fonts/font = ExtResource("3_mgcln")
+Button/styles/disabled = ExtResource("2_2oyok")
+Button/styles/focus = SubResource("StyleBoxTexture_2oyok")
+Button/styles/hover = SubResource("StyleBoxTexture_tmlpw")
+Button/styles/hover_pressed = SubResource("StyleBoxTexture_tmlpw")
+Button/styles/normal = ExtResource("3_kha8d")
+Button/styles/pressed = ExtResource("5_00jal")
 RichTextLabel/colors/default_color = Color(0.16, 0.042666662, 0, 1)
 RichTextLabel/font_sizes/bold_font_size = 34
 RichTextLabel/font_sizes/bold_italics_font_size = 34
