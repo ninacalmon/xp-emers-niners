@@ -37,7 +37,7 @@ tracks/0/keys = {
 }
 
 [sub_resource type="Animation" id="Animation_htwhv"]
-length = 0.19999999999999998
+length = 0.2
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -160,11 +160,13 @@ speed_scale = 4.0
 position = Vector2(950, 647)
 
 [node name="RHandsAnim" type="AnimatedSprite2D" parent="HandAnimTrack" unique_id=1420955992]
+modulate = Color(1, 0.47800004, 0.13, 1)
 position = Vector2(713, -102)
 sprite_frames = ExtResource("3_htwhv")
 animation = &"idle"
 
 [node name="LHandsAnim" type="AnimatedSprite2D" parent="HandAnimTrack" unique_id=490817015]
+modulate = Color(1, 0.47800004, 0.13, 1)
 position = Vector2(-650.5, -102)
 sprite_frames = ExtResource("4_m8txr")
 animation = &"idle"

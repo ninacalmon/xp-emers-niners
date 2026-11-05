@@ -9,6 +9,9 @@ extends ActionTrigger
 
 @onready var interaction_area: InteractionArea = $InteractionArea
 
+@export var locked: bool = false
+@export var locked_stream_player: AudioStreamPlayer
+
 var is_open: bool = false
 
 
@@ -20,6 +23,11 @@ func _ready() -> void:
 		self.scale.z *= -1
 
 func trigger():
+	if locked:
+		locked_stream_player.play()
+		await shake_door()
+		return
+
 	if is_open:
 		await close_door()
 	else:
@@ -60,3 +68,17 @@ func close_door():
 	await tween.finished
 
 	collision_shape_3d.disabled = false
+
+
+func shake_door():
+	var original_rotation = mesh_instance_3d.rotation.y
+	var shake_amount = deg_to_rad(3.0)
+	var shake_duration = 0.06
+
+	var tween = create_tween()
+	tween.tween_property(mesh_instance_3d, "rotation:y", original_rotation + shake_amount, shake_duration)
+	tween.tween_property(mesh_instance_3d, "rotation:y", original_rotation - shake_amount, shake_duration)
+	tween.tween_property(mesh_instance_3d, "rotation:y", original_rotation + shake_amount * 0.5, shake_duration)
+	tween.tween_property(mesh_instance_3d, "rotation:y", original_rotation, shake_duration)
+
+	await tween.finished
