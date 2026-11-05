@@ -22,7 +22,7 @@ func _ready() -> void:
 func _on_time_pass(time: TimeManager.Times) -> void:
 	match time:
 		TimeManager.Times.at1200:
-			_toll_times = 12
+			_toll_times = 0
 		TimeManager.Times.at1500:
 			_toll_times = 3
 		TimeManager.Times.at1800:

@@ -15,6 +15,9 @@
 [ext_resource type="PackedScene" uid="uid://cgxxromd5ia45" path="res://scenes/puzzles/astrolabus/astrolablus_puzzle.tscn" id="11_5qq27"]
 [ext_resource type="Script" uid="uid://dh1ltto8wru1y" path="res://screenshots/screenshots.gd" id="12_dlabj"]
 [ext_resource type="PackedScene" uid="uid://dwmg7dr5nvosc" path="res://scenes/objects/church_bell/church_bell.tscn" id="15_mxkvs"]
+[ext_resource type="PackedScene" uid="uid://d3olgro5mbcu5" path="res://assets/3d/objects/confessional/confessional.glb" id="16_m114p"]
+[ext_resource type="PackedScene" uid="uid://camyicact7evh" path="res://scenes/objects/doors/confissional_door.tscn" id="17_71ii3"]
+[ext_resource type="PackedScene" uid="uid://yxprk6gbltgl" path="res://scenes/characters/confessor/confessor.tscn" id="18_bt7bg"]
 
 [sub_resource type="Sky" id="Sky_m114p"]
 sky_material = ExtResource("2_mxkvs")
@@ -22,15 +25,11 @@ sky_material = ExtResource("2_mxkvs")
 [sub_resource type="Environment" id="Environment_71ii3"]
 background_mode = 2
 background_color = Color(0.43529412, 0.22352941, 0.09019608, 1)
+background_energy_multiplier = 0.6
 sky = SubResource("Sky_m114p")
-ambient_light_source = 2
-ambient_light_color = Color(0.681543, 0.6107742, 0.5090659, 1)
-ambient_light_sky_contribution = 0.29
-ambient_light_energy = 0.8
-reflected_light_source = 2
 tonemap_mode = 4
 glow_enabled = true
-glow_bloom = 0.28
+glow_bloom = 0.44
 
 [sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_5604n"]
 
@@ -235,3 +234,11 @@ script = ExtResource("12_dlabj")
 
 [node name="ChurchBell" parent="." unique_id=2031355543 instance=ExtResource("15_mxkvs")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 82, 19.19202, 7)
+
+[node name="confessional" parent="." unique_id=795866384 instance=ExtResource("16_m114p")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 22.11916, 1.4938962, -3.886547)
+
+[node name="ConfissionalDoor" parent="confessional" unique_id=1442656140 instance=ExtResource("17_71ii3")]
+
+[node name="Confessor" parent="confessional" unique_id=1536527608 instance=ExtResource("18_bt7bg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.81791425, -0.1650207, -0.5594902)

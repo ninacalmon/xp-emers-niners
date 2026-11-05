@@ -1,0 +1,16 @@
+[remap]
+
+importer="dialogue_manager"
+importer_version=18
+type="Resource"
+uid="uid://cdxegtuh7g6l4"
+path="res://.godot/imported/confessor_main.dialogue-a16e00b20f9ada4fdc2e2f13423f456c.tres"
+
+[deps]
+
+source_file="res://dialogue/confessor/confessor_main.dialogue"
+dest_files=["res://.godot/imported/confessor_main.dialogue-a16e00b20f9ada4fdc2e2f13423f456c.tres"]
+
+[params]
+
+defaults=true

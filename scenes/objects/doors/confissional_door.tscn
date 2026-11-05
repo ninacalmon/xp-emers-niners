@@ -1,0 +1,47 @@
+[gd_scene format=3 uid="uid://camyicact7evh"]
+
+[ext_resource type="Script" uid="uid://v1xwdjmy7kh4" path="res://scenes/objects/doors/open_door_action.gd" id="1_cpnfb"]
+[ext_resource type="Script" uid="uid://cf2auur4umdjl" path="res://systems/interaction/interaction_area.gd" id="2_f1k4b"]
+[ext_resource type="PackedScene" uid="uid://cxh8nvoonwwrl" path="res://assets/3d/objects/confessional/confessional_door.glb" id="3_cpnfb"]
+[ext_resource type="AudioStream" uid="uid://c3e8y6a84737w" path="res://assets/sound/sound_effects/door/locked_door.mp3" id="4_f1k4b"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_cphiy"]
+size = Vector3(1.6016846, 3.0820313, 0.22851563)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_f1k4b"]
+size = Vector3(0.8446045, 3.0820313, 0.22607422)
+
+[node name="ConfissionalDoor" type="Node3D" unique_id=668800733 node_paths=PackedStringArray("collision_shape_3d", "mesh_instance_3d", "locked_stream_player")]
+script = ExtResource("1_cpnfb")
+collision_shape_3d = NodePath("StaticBody3D/CollisionShape3D")
+mesh_instance_3d = NodePath("confessional_door/Door")
+locked = true
+locked_stream_player = NodePath("AudioStreamPlayer")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="." unique_id=446229308]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.4563234, 0.019053817, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" unique_id=263655624]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.7862873, 1.5264611, 0.0018532276)
+shape = SubResource("BoxShape3D_cphiy")
+
+[node name="InteractionArea" type="Area3D" parent="." unique_id=625145354 node_paths=PackedStringArray("mesh", "action_trigger")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.4563234, 0.019053817, 0)
+script = ExtResource("2_f1k4b")
+mesh = NodePath("../confessional_door/Door")
+action_trigger = NodePath("..")
+metadata/_custom_type_script = "uid://cf2auur4umdjl"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="InteractionArea" unique_id=1557408956]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.73495674, 1.5264611, -0.093981504)
+shape = SubResource("BoxShape3D_f1k4b")
+
+[node name="confessional_door" parent="." unique_id=1917928000 instance=ExtResource("3_cpnfb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0040483475, 0.041208625, 0)
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1586650229]
+stream = ExtResource("4_f1k4b")
+volume_db = -7.0
+bus = &"Sound Effects"
+
+[editable path="confessional_door"]

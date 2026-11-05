@@ -1,0 +1,96 @@
+[gd_scene format=3 uid="uid://yxprk6gbltgl"]
+
+[ext_resource type="Script" uid="uid://bjidnq65qcjsh" path="res://systems/character/dialogue_action.gd" id="1_s30ev"]
+[ext_resource type="Resource" uid="uid://cdxegtuh7g6l4" path="res://dialogue/confessor/confessor_main.dialogue" id="2_s30ev"]
+[ext_resource type="Script" uid="uid://cf2auur4umdjl" path="res://systems/interaction/interaction_area.gd" id="3_ebku2"]
+[ext_resource type="Script" uid="uid://biodsue5rifq4" path="res://systems/character/character_sprite_handler.gd" id="4_bhsrc"]
+[ext_resource type="Material" uid="uid://dxugeq4hehdak" path="res://resources/shader_materials/outline_shader_material_2d.tres" id="5_qi7xh"]
+[ext_resource type="Texture2D" uid="uid://felrwpvyt7mq" path="res://assets/2d/characters/confessor/confessionaryguy1.png" id="6_qbrc5"]
+[ext_resource type="Texture2D" uid="uid://c0k4sm6pc4lyb" path="res://assets/2d/characters/confessor/confessionaryguy2.png" id="7_7rydx"]
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_gmoyl"]
+viewport_path = NodePath("SubViewportSprite")
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_5604n"]
+radius = 0.32666016
+height = 2.1264648
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_cdpwx"]
+radius = 0.2993164
+height = 0.8618164
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_rwxsw"]
+radius = 0.44921875
+height = 2.1726074
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_sy5pn"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("6_qbrc5")
+}],
+"loop": 2,
+"name": &"VARIATION",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("7_7rydx")
+}],
+"loop": 0,
+"name": &"idle",
+"speed": 4.0
+}]
+
+[node name="Confessor" type="Node3D" unique_id=1758948578 groups=["hugo"]]
+script = ExtResource("1_s30ev")
+character_name = "Hugo"
+dialogue_res = ExtResource("2_s30ev")
+
+[node name="Sprite3D" type="Sprite3D" parent="." unique_id=415751236]
+transform = Transform3D(0.215, 0, 0, 0, 0.215, 0, 0, 0, 0.215, 0.13092422, 0.89784014, 0)
+offset = Vector2(0, 241.06)
+billboard = 2
+shaded = true
+texture = SubResource("ViewportTexture_gmoyl")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="." unique_id=1339048520]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" unique_id=1213328445]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.0550354, 0)
+shape = SubResource("CapsuleShape3D_5604n")
+
+[node name="ShadowMesh" type="MeshInstance3D" parent="." unique_id=662778281]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.9330101, 0)
+cast_shadow = 3
+mesh = SubResource("CapsuleMesh_cdpwx")
+
+[node name="InteractionArea" type="Area3D" parent="." unique_id=830411389 node_paths=PackedStringArray("animated_sprite", "action_trigger")]
+script = ExtResource("3_ebku2")
+animated_sprite = NodePath("../SubViewportSprite/AnimatedSprite2D")
+action_trigger = NodePath("..")
+metadata/_custom_type_script = "uid://cf2auur4umdjl"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="InteractionArea" unique_id=538184214]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.0781066, 0)
+shape = SubResource("CapsuleShape3D_rwxsw")
+debug_color = Color(0.78039217, 0.6, 0.7019608, 0.41960785)
+
+[node name="CharacterSpriteHandler" type="Node" parent="." unique_id=961269039 node_paths=PackedStringArray("animated_sprite", "dialogue_action")]
+script = ExtResource("4_bhsrc")
+animated_sprite = NodePath("../SubViewportSprite/AnimatedSprite2D")
+dialogue_action = NodePath("..")
+
+[node name="SubViewportSprite" type="SubViewport" parent="." unique_id=1177182945]
+transparent_bg = true
+handle_input_locally = false
+size = Vector2i(632, 1318)
+render_target_update_mode = 4
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="SubViewportSprite" unique_id=60975985]
+material = ExtResource("5_qi7xh")
+instance_shader_parameters/outline_enabled = true
+position = Vector2(0, 39)
+sprite_frames = SubResource("SpriteFrames_sy5pn")
+animation = &"idle"
+centered = false

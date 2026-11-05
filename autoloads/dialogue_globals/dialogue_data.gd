@@ -69,6 +69,13 @@ enum HugoMoods {
 	TUMOR
 }
 
+
+enum SansonMoods {}
+
+enum ConfessorMoods {
+	VARIATION
+}
+
 func set_mood(character_name: String, mood: int) -> void:
 	var moods: Dictionary = MOODS_BY_CHARACTER.get(character_name, {})
 	var mood_name: Variant = moods.find_key(mood)
