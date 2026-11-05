@@ -226,10 +226,11 @@ autoplay = "default"
 centered = false
 
 [node name="PlayerSpeechOverlayAnimatedSpr" type="AnimatedSprite2D" parent="DialogueFrameManager" unique_id=1881944721]
-visible = false
 position = Vector2(0, 785)
 sprite_frames = SubResource("SpriteFrames_qpbrx")
 animation = &"dialogue"
+frame = 4
+frame_progress = 1.0
 centered = false
 
 [node name="SunUI" type="Control" parent="." unique_id=2131573264]

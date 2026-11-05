@@ -31,7 +31,6 @@ dialogue_res = ExtResource("3_hcqp7")
 transform = Transform3D(0.18, 0, 0, 0, 0.18, 0, 0, 0, 0.18, 0, 0.7130867, 0)
 offset = Vector2(0, 241.06)
 billboard = 2
-shaded = true
 texture = SubResource("ViewportTexture_gmoyl")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="." unique_id=1339048520]
