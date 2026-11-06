@@ -193,6 +193,7 @@ animations = [{
 }]
 
 [node name="GameUiOverlay" type="CanvasLayer" unique_id=472711346]
+layer = 100
 script = ExtResource("1_tmmwq")
 
 [node name="HandsOverlay" parent="." unique_id=1915315994 instance=ExtResource("1_pu8xj")]

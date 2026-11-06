@@ -101,3 +101,16 @@ func discard(slot_idx: int):
 
 func tried_wrong_item(idx: int = selected_slot_idx):
 	wrong_item.emit(idx)
+
+
+## returns the index of the first slot that holds the given item.
+## returns -1 if the item is not in the inventory.
+func get_item_idx(item: ItemRes) -> int:
+	if item == null:
+		return -1
+
+	for i: int in range(inventory_size):
+		if inventory_slots[i] == item:
+			return i
+
+	return -1

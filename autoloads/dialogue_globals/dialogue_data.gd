@@ -1,11 +1,17 @@
 extends Node
 
+signal medication_quest_completed
+signal inkwell_quest_completed
+
+
 signal mood_set(character_name: String, mood_name: String)
+
 
 const MOODS_BY_CHARACTER: Dictionary = {
 	"Julio": JulioMoods,
 	"Lucio": LucioMoods,
-	"Hugo": HugoMoods
+	"Hugo": HugoMoods,
+	"Confessor" : ConfessorMoods,
 }
 
 enum JulioMoods {
@@ -72,9 +78,12 @@ enum HugoMoods {
 
 enum SansonMoods {}
 
+
 enum ConfessorMoods {
-	VARIATION
+	VARIATION,
+	idle
 }
+
 
 func set_mood(character_name: String, mood: int, mouth_shut: bool = false) -> void:
 	var moods: Dictionary = MOODS_BY_CHARACTER.get(character_name, {})
@@ -83,6 +92,16 @@ func set_mood(character_name: String, mood: int, mouth_shut: bool = false) -> vo
 		push_warning("%s has no mood with value %d" % [character_name, mood])
 		return
 	mood_set.emit(character_name, str(mood_name), mouth_shut)
+
+
+func player_in_booth(_player: Player):
+	_player.global_position = Vector3(21.437, 1.539, -3.2)
+	_player.global_rotation = Vector3(0, -180, 0)
+	_player.rotation = Vector3.ZERO
+	_player.head.rotation.x = deg_to_rad(-2)
+	_player.head.rotation.y = deg_to_rad(180)
+
+
 
 
 ## ================== ADDING MOODS/ANIMATIONS ===================

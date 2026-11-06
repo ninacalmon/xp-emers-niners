@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://cjpusv33ylxyb" path="res://autoloads/fade_in_out/fade_in_out.gd" id="1_yiuj0"]
 
 [node name="FadeInOut" type="CanvasLayer" unique_id=1900194388]
+layer = 99
 script = ExtResource("1_yiuj0")
 
 [node name="ColorRect" type="ColorRect" parent="." unique_id=1357156955]

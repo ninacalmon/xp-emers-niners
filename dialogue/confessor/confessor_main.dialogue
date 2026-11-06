@@ -1,3 +1,134 @@
 ~ start
-Confissorr: Oi.
+do InventoryManager.add_new_item(CharacterData.Item.rotten_meat)
+if InventoryManager.selected_item == CharacterData.Item.rotten_meat:
+	=> meat
+do locals.confessed = false
+if CharacterData.Confessor.hunger == false:
+	Confissor: Olá, meu jovem.
+	do DialogueData.set_mood("Confessor", DialogueData.ConfessorMoods.VARIATION)
+	Confissor: Não estou aberto para confissões no momento...
+	do DialogueData.set_mood("Confessor", DialogueData.ConfessorMoods.idle)
+	Confissor: Volte mais tarde... Uma fome avassaladora me abala.
+else:
+	do DialogueData.set_mood("Confessor", DialogueData.ConfessorMoods.VARIATION)
+	Confissor: “Olá, meu jovem.“
+	- > Confessar o que o Sol disse a você < =>< sun
+	- > Admitir que está desconfiado < =>< others
+	if locals.confessed == true:
+		- “Ei… você está com fome?” => hunger
 => END
+
+~ sun
+do locals.confessed = true
+Você repete exatamente o que o Sol lhe disse, recorrendo à sua memória. Você consegue ouvir cada palavra e cada sílaba que o Sol pronunciou com tamanha clareza... ou, pelo menos, é o que você acha.
+Você: “Mais cedo, o sol me contou que tudo iria pegar fogo. Estou preocupado, com medo.”
+O Confissor, te responde com a mesma frase reconfortante de todas as outras vezes꞉
+do DialogueData.set_mood("Confessor", DialogueData.ConfessorMoods.idle)
+Confissor: “[b]Siga agora, em paz, para a luz d’Ele.[/b]”
+=> END
+
+~ others
+do locals.confessed = true
+Você: “Estou desconfiado de que estão tramando algo, os monges, o abade, o prior… algo que não querem que eu saiba. Algo horrível.”
+Você sente, por um breve momento, uma leveza, como se um peso enorme tivesse sido retirado de seus ombros.
+do DialogueData.set_mood("Confessor", DialogueData.ConfessorMoods.idle)
+Confissor: “[b]Siga agora, em paz, para a luz d’Ele.[/b]”
+=> END
+
+~ hunger
+do DialogueData.set_mood("Confessor", DialogueData.ConfessorMoods.VARIATION)
+Confissor: “...Sim. Estou esperando o [b]Prior[/b] aparecer, mas, por algum motivo, ele está atrasado hoje. Ele sempre me traz algo para comer!”
+=> END
+
+
+~ meat
+Você: “Olá, ainda está com fome? Já conseguiu algo para comer?”
+do DialogueData.set_mood("Confessor", DialogueData.ConfessorMoods.VARIATION)
+Confissor: “…Não.”
+- > Entregar carne <
+	do InventoryManager.use_item()
+	Confissor: “Isso não é aquelas carnes estranhas que o Julio traz não, ou é?… hum, de qualquer forma… estou morrendo de fome!” 
+	* … Ele está comendo como se fosse sua última refeição. *
+	Confissor: “Isso está… *urk* o que? O que era isso? O QUE você me deu?!”
+	Confissor: “Eu vou… HRRHK-“
+	do FadeInOut.fade_in(2)
+	O Confessor sai correndo de sua cabine.
+	- > Entrar na cabine e se passar pelo Confessor <
+		* Sempre quis entrar aqui. É… mais limpo do que eu imaginei. *
+		do GetEntity.get_confessor_booth().confissor_is_there = false
+		do DialogueData.player_in_booth(GetEntity.get_player())
+		do FadeInOut.fade_out(2)
+		=> inside_booth
+=> END
+
+~ inside_booth
+...
+Alguns momentos se passam...
+do CharacterData.Sanson.flower_got = true
+if CharacterData.Sanson.flower_got:
+	=> hugo_conf_flower
+
+=> END
+
+~ hugo_conf_flower
+do locals.hugo_pos = GetEntity.get_hugo().global_position
+do GetEntity.put_entity_at(GetEntity.get_hugo(), GetEntity.get_confessing_pos().global_position)
+do DialogueData.set_mood("Hugo", DialogueData.HugoMoods.OPENARMS_HAPPY)
+Hugo: “Saudações, Confissor!”
+do DialogueData.set_mood("Hugo", DialogueData.HugoMoods.MISCHIVEOUS_WINK)
+Hugo: “Estou aqui para cobrar aquele favor que você me deve.”
+do DialogueData.set_mood("Hugo", DialogueData.HugoMoods.IDLE_SURPRISED)
+do InventoryManager.add_new_item(CharacterData.Item.flower)
+Hugo: “Dê isto ao... [font_size=20]Julio...[/font_size]”
+do DialogueData.set_mood("Hugo", DialogueData.HugoMoods.MISCHIVEOUS_SUPERHAPPY)
+Hugo: “D-diga que fui eu quem deu, fale para ele me encontrar no nosso canto.”
+do GetEntity.put_entity_at(GetEntity.get_hugo(), locals.hugo_pos)
+...
+=> julio_conf_flower
+=> END
+
+~ julio_conf_flower
+do wait(2)
+do locals.julio_pos = GetEntity.get_julio().global_position
+do GetEntity.put_entity_at(GetEntity.get_julio(), GetEntity.get_confessing_pos().global_position)
+do DialogueData.set_mood("Julio", DialogueData.JulioMoods.INTENSE_SAD, true)
+Julio: “Olá… Estou muito triste. Os animais, eles… eu os matei. Os matei da pior forma. A falta de tempo nos mata. Sinto muito”
+Você: “…meu jovem, Julio, se te alegras… trago a ti este presente enviado por Hugo..”
+do InventoryManager.use_item(InventoryManager.get_item_idx(CharacterData.Item.flower))
+do DialogueData.set_mood("Julio", DialogueData.JulioMoods.IDLE_SURPRISED)
+Julio: “?!”
+do DialogueData.set_mood("Julio", DialogueData.JulioMoods.INTENSE_SAD)
+Julio: “Ooh céuUuUs!”
+do GetEntity.put_entity_at(GetEntity.get_julio(), locals.julio_pos)
+...
+...
+...
+=> prior_conf_flower
+=> END
+
+
+~ prior_conf_flower
+do wait(2)
+do locals.prior_pos = GetEntity.get_prior().global_position
+do GetEntity.put_entity_at(GetEntity.get_prior(), GetEntity.get_confessing_pos().global_position)
+Prior: “Peço mil desculpas; eu tentei, mas não consegui encontrar mais nada para você comer.”
+Prior: “Ah… estou exausto; sinto uma dor de cabeça lancinante, como se minhas têmporas estivessem latejando.”
+Prior: “O Abade e eu estivemos ocupados o dia e a noite inteiros. Mas tudo está correndo conforme o planejado; deve prosseguir sem contratempos.”
+Prior: “Sinto-me culpado por ter deixado as [b]chaves[/b] com [b]Sanson[/b]. Não deveria envolver os monges em questões tão estressantes...”
+Prior: “Especialmente Sanson… ele já carrega fardos suficientes. Mas, um único passo em falso, e tudo sairá dos eixos. Ele é o mais responsável de todos; era inevitável.”
+Prior: “Bem… hoje, tudo, absolutamente tudo, pode acontecer. Espero que você tenha reunido tudo de que precisa e se livrado de tudo de que não precisa.”
+Você: “…”
+Prior: “...Você está… quieto. Isso é raro. Sinto muito por não ter conseguido encontrar mais lanchinhos. Sei o quanto eles são importantes para você.”
+Você: “…Não tem problema.”
+Prior: “Ah… agora está me tratando assim? Indiferente? Pode acreditar, não estou guardando nada para mim.”
+Prior: “...Vou sentir falta das nossas conversas da noite. Você sabe onde deve estar mais tarde. A gente se vê lá.”
+Você: “Siga agora... em paz..?, para a luz d’Ele!”
+do GetEntity.put_entity_at(GetEntity.get_prior(), locals.prior_pos)
+do FadeInOut.fade_in(2)
+do wait(2)
+Mais ninguém virá confessar hoje.
+do GetEntity.put_entity_at(GetEntity.get_player(), GetEntity.get_confessing_pos().global_position)
+do GetEntity.get_player().head.rotation = GetEntity.get_player().original_head_rot
+do FadeInOut.fade_out(2)
+=> END
+

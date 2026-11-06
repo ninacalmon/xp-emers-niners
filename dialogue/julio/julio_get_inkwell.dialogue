@@ -40,6 +40,7 @@ elif InventoryManager.selected_item == CharacterData.Item.toxic_plant:
 Você: “Aqui está a tinta!”
 do DialogueData.set_mood("Julio", DialogueData.JulioMoods.IDLE_SERIOUS)
 Julio: “Ah! A tinta. Sim, obrigado.”
+do InventoryManager.use_item()
 do CharacterData.Julio.complete_task("get_inkwell")
 do FadeInOut.fade_in(2)
 do wait(1.5)
@@ -52,6 +53,7 @@ Há animais mortos no chão, com a boca suja de tinta.
 Um cheiro forte no ar, parece que alguns dos animais já não estavam mais suportando o calor.
 - > Pegar carne podre <
 do InventoryManager.add_new_item(CharacterData.Item.rotten_meat)
+Você retorna ao monastério.
 do FadeInOut.fade_out(2)
 => END
 
@@ -60,6 +62,8 @@ do FadeInOut.fade_out(2)
 Você: “Sobre isso… mil desculpas, Julio. Mas, peguei isso do Sanson. Ele me disse que tem como o triturar em uma pastinha e usar como tinta, se é isso que você-“
 Julio: “Perfeito.”
 Julio: “Por favor, me entregue”
+do InventoryManager.use_item()
+do CharacterData.Julio.complete_task("get_inkwell")
 Você: “Cuidado, Sanson disse para não ingerir.”
 Julio: “Venha comigo.”
 do FadeInOut.fade_in(2)
@@ -67,8 +71,7 @@ do wait(1.5)
 Julio leva você até o cercado das cabras.
 Julio está colocando pedaços da folha entre a comida dos animais…
 Julio: “Shh, shh… pronto, pronto… está tudo bem. Durmam bem, pequeninhas.”
-Você e Julio retornam ao monastério.
-do FadeInOut.fade_out(2)
+...
 Julio: “Obrigado, Francisco. Você tem a minha gratidão eterna.”
 Julio: “Ahh... Sabes que amo a graça de nosso sol, porém elas não estavam aguentando neste calor...”
 Julio: “Agora elas podem dormir em paz.”
@@ -77,4 +80,6 @@ Você: “De nada… espero que elas estejam em paz agora.”
 Julio: “Bem, sei que não é muito, mas… e quero te dar isso.”
 Julio: “Eu estava guardando... mas você merece isso muito mais do que eu. E… eu não preciso mais disso. Bom apetite!” 
 do InventoryManager.add_new_item(CharacterData.Item.rotten_meat)
+Você retorna ao monastério.
+do FadeInOut.fade_out(2)
 => END

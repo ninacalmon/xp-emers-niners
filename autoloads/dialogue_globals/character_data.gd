@@ -55,6 +55,10 @@ class LucioData extends TaskOwner:
 	pass # no tasks yet
 
 
+class ConfessorData extends TaskOwner:
+	var hunger: bool = false
+
+
 class HugoData extends TaskOwner:
 	func _init() -> void:
 		tasks = {
@@ -108,6 +112,7 @@ class SansonData extends TaskOwner:
 			},
 		}
 
+	var flower_got: bool = false
 
 
 class ItemData:
@@ -124,4 +129,5 @@ var Julio: JulioData = JulioData.new()
 var Lucio: LucioData = LucioData.new()
 var Hugo: HugoData = HugoData.new()
 var Sanson: SansonData = SansonData.new()
+var Confessor: ConfessorData = ConfessorData.new()
 var Item: ItemData = ItemData.new()

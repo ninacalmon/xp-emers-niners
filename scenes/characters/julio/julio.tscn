@@ -23,7 +23,7 @@ height = 0.8618164
 radius = 0.44921875
 height = 2.1726074
 
-[node name="Julio" type="Node3D" unique_id=1758948578]
+[node name="Julio" type="Node3D" unique_id=1758948578 groups=["julio"]]
 script = ExtResource("1_07clx")
 
 [node name="Sprite3D" type="Sprite3D" parent="." unique_id=415751236]
