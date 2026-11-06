@@ -12,6 +12,7 @@
 [ext_resource type="PackedScene" uid="uid://c1fess8fbyvjb" path="res://scenes/characters/sanson/sanson.tscn" id="9_dlabj"]
 [ext_resource type="PackedScene" uid="uid://c0enf7fvm7uko" path="res://scenes/objects/doors/room_door.tscn" id="9_ues17"]
 [ext_resource type="PackedScene" uid="uid://8o48qryyi7n0" path="res://scenes/objects/confessional_booth/confessional_booth.tscn" id="13_srmg5"]
+[ext_resource type="PackedScene" uid="uid://dhb4ubn1lv1kq" path="res://examples/interaction_examples/item_giver/key_giver_ball.tscn" id="14_umvgx"]
 [ext_resource type="PackedScene" uid="uid://dwmg7dr5nvosc" path="res://scenes/objects/church_bell/church_bell.tscn" id="15_mxkvs"]
 
 [sub_resource type="Sky" id="Sky_srmg5"]
@@ -36,7 +37,7 @@ size = Vector2(500, 500)
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_u1gsd"]
 albedo_color = Color(0.66, 0.52536005, 0.4224, 1)
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_umvgx"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_mxkvs"]
 viewport_path = NodePath("SubViewportSprite")
 
 [node name="TestWorld" type="Node3D" unique_id=1370714841]
@@ -228,12 +229,15 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 63.51454, 1.0062575, 3.502448
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 78.78419, 0.9976957, -5.94999)
 
 [node name="Sprite3D" parent="Characters/Sanson" index="0" unique_id=415751236]
-texture = SubResource("ViewportTexture_umvgx")
+texture = SubResource("ViewportTexture_mxkvs")
 
 [node name="DialogueAction" parent="Characters/Sanson" index="4" unique_id=1494072435]
 is_chatting = true
 
 [node name="ConfessionalBooth" parent="." unique_id=321162436 instance=ExtResource("13_srmg5")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 21.046339, 1.6670088, -3.19987)
+
+[node name="TestKeyGiverBall" parent="." unique_id=471407858 instance=ExtResource("14_umvgx")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 30.922817, 1.8428121, 0)
 
 [editable path="Characters/Sanson"]

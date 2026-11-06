@@ -88,7 +88,6 @@ custom_maximum_size = Vector2(70, 70)
 layout_mode = 2
 size_flags_horizontal = 8
 size_flags_vertical = 4
-mouse_filter = 2
 texture_normal = ExtResource("3_vreke")
 stretch_mode = 5
 
