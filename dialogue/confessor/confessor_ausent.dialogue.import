@@ -1,0 +1,16 @@
+[remap]
+
+importer="dialogue_manager"
+importer_version=18
+type="Resource"
+uid="uid://dbjgecmd6hewe"
+path="res://.godot/imported/confessor_ausent.dialogue-aab41666947899c22ad11102e4fca736.tres"
+
+[deps]
+
+source_file="res://dialogue/confessor/confessor_ausent.dialogue"
+dest_files=["res://.godot/imported/confessor_ausent.dialogue-aab41666947899c22ad11102e4fca736.tres"]
+
+[params]
+
+defaults=true

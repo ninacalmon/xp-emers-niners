@@ -40,11 +40,11 @@ class JulioData extends TaskOwner:
 		tasks = {
 			"medication_for_lucio": {
 				"status": [false, false],
-				"txt": "Leve remédio para Lucio e retorne.",
+				"txt": "Leve o remédio para Lucio e retorne.",
 			},
-			"get_poison": {
+			"get_inkwell": {
 				"status": [false, false],
-				"txt": "Traga veneno para os animais.",
+				"txt": "Traga um tinteiro para Julio.",
 			},
 		}
 
@@ -112,7 +112,7 @@ class SansonData extends TaskOwner:
 
 class ItemData:
 	var medication: ItemRes = preload("uid://bkc7dx8duiasn")
-	var poison: ItemRes = preload("uid://s1b5gx6p2rg1")
+	var inkwell: ItemRes = preload("uid://s1b5gx6p2rg1")
 	var flower: ItemRes = preload("uid://dltn5dox1dd8c")
 	var astrolabus: = preload("uid://3c0ta31odhc6")
 

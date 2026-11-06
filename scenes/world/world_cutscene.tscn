@@ -9,7 +9,6 @@
 [ext_resource type="PackedScene" uid="uid://dwmg7dr5nvosc" path="res://scenes/objects/church_bell/church_bell.tscn" id="8_1a8jm"]
 [ext_resource type="PackedScene" uid="uid://boht0mv2kyq81" path="res://scenes/characters/hugo/hugo.tscn" id="9_kttsr"]
 [ext_resource type="PackedScene" uid="uid://d0dx1ggic73g0" path="res://scenes/characters/julio/julio.tscn" id="10_ani7x"]
-[ext_resource type="PackedScene" uid="uid://c6yoqyeo6wfld" path="res://scenes/characters/lucio/lucio.tscn" id="11_jlsnk"]
 [ext_resource type="PackedScene" uid="uid://c1fess8fbyvjb" path="res://scenes/characters/sanson/sanson.tscn" id="12_fxk1m"]
 [ext_resource type="PackedScene" uid="uid://d3olgro5mbcu5" path="res://assets/3d/objects/confessional/confessional.glb" id="13_nbfxi"]
 [ext_resource type="PackedScene" uid="uid://camyicact7evh" path="res://scenes/objects/doors/confissional_door.tscn" id="14_rssnk"]
@@ -237,7 +236,7 @@ tracks/1/keys = {
 "times": PackedFloat32Array(0, 1.5666667),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [1.5859999999999999, 0.0]
+"values": [1.586, 0.0]
 }
 
 [sub_resource type="Animation" id="Animation_fxk1m"]
@@ -486,9 +485,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 34.899055, 2.414, -13.082071)
 
 [node name="Julio" parent="Characters" unique_id=1615518148 instance=ExtResource("10_ani7x")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 31.731825, 2.4144657, -13.07054)
-
-[node name="Lucio" parent="Characters" unique_id=1730430442 instance=ExtResource("11_jlsnk")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 32.831776, 2.414, -12.361891)
 
 [node name="Sanson" parent="Characters" unique_id=1975172536 instance=ExtResource("12_fxk1m")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 33.912334, 2.414, -12.325241)

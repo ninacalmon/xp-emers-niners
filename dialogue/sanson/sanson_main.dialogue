@@ -1,7 +1,8 @@
 import "uid://bu7gl6we2o75c" as get_astrolabus
 
 ~ start
-Sanson: Olá...
-if CharacterData.Hugo.get_status("get_flower") == 1:
+if CharacterData.Julio.get_status("medication_for_lucio") == 1:
+	Sanson: “Agora não, agora não! Vou perder o fio do pensamento!”
+	=> END!
 	=> get_astrolabus/start
 => END

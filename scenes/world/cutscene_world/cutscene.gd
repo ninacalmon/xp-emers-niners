@@ -13,6 +13,8 @@ extends Node
 var dialogue_res = preload("uid://dhu5fv6qml7oi")
 
 var is_francisco_talking: bool = false
+var balloon: DialogueManagerExampleBalloon
+var seconds_per_step
 
 func _ready() -> void:
 	hands_overlay.hide()
@@ -27,7 +29,10 @@ func _ready() -> void:
 
 	await get_tree().create_timer(5).timeout
 
-	DialogueManager.show_dialogue_balloon(dialogue_res, "sun")
+	balloon = DialogueManager.show_dialogue_balloon(dialogue_res, "sun")
+	await balloon.ready
+	seconds_per_step = balloon.dialogue_label.seconds_per_step
+	balloon.dialogue_label.seconds_per_step = 0.08
 
 	DialogueManager.dialogue_ended.connect(_on_dialogue_ended)
 
@@ -38,6 +43,7 @@ func _on_dialogue_ended(_res: DialogueResource):
 		return await FadeInOut.change_scene_to("res://scenes/world/world.tscn")
 
 	is_francisco_talking = true
+	balloon.dialogue_label.seconds_per_step = seconds_per_step
 
 	animation_player.stop()
 

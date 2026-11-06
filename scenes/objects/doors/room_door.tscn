@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://cf2auur4umdjl" path="res://systems/interaction/interaction_area.gd" id="1_xn45g"]
 [ext_resource type="Script" uid="uid://v1xwdjmy7kh4" path="res://scenes/objects/doors/open_door_action.gd" id="2_ovqo0"]
 [ext_resource type="Material" uid="uid://dki8i4qf7fofd" path="res://resources/shader_materials/outline_shader_material_3d.tres" id="3_7t0mo"]
+[ext_resource type="AudioStream" uid="uid://c3e8y6a84737w" path="res://assets/sound/sound_effects/door/locked_door.mp3" id="4_uhfgv"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_cphiy"]
 size = Vector3(1.6016846, 3.0820313, 0.22851563)
@@ -50,10 +51,11 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_7t0mo")
 
-[node name="RoomDoor" type="Node3D" unique_id=668800733 node_paths=PackedStringArray("collision_shape_3d", "mesh_instance_3d")]
+[node name="RoomDoor" type="Node3D" unique_id=668800733 node_paths=PackedStringArray("collision_shape_3d", "mesh_instance_3d", "locked_stream_player")]
 script = ExtResource("2_ovqo0")
 collision_shape_3d = NodePath("StaticBody3D/CollisionShape3D")
 mesh_instance_3d = NodePath("MeshInstance3D")
+locked_stream_player = NodePath("AudioStreamPlayer")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="." unique_id=446229308]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.57405055, 0)
@@ -78,3 +80,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.57405055, 0.078167856)
 material_overlay = ExtResource("3_7t0mo")
 instance_shader_parameters/outline_enabled = false
 mesh = SubResource("ArrayMesh_vhwfq")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=994142045]
+stream = ExtResource("4_uhfgv")
+volume_db = -7.0
+bus = &"Sound Effects"

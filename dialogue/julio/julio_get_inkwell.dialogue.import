@@ -1,0 +1,16 @@
+[remap]
+
+importer="dialogue_manager"
+importer_version=18
+type="Resource"
+uid="uid://djib057op7qt5"
+path="res://.godot/imported/julio_get_inkwell.dialogue-a217a53b51e40ef8cf245d36a9c645c6.tres"
+
+[deps]
+
+source_file="res://dialogue/julio/julio_get_inkwell.dialogue"
+dest_files=["res://.godot/imported/julio_get_inkwell.dialogue-a217a53b51e40ef8cf245d36a9c645c6.tres"]
+
+[params]
+
+defaults=true
