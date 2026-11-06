@@ -27,7 +27,8 @@ func _on_mood_set(speaker: String, mood_name: String, mouth_shut: bool = false) 
 	if speaker != character_name:
 		return
 	change_anim(mood_name)
-	animated_sprite.stop()
+	if mouth_shut:
+		animated_sprite.stop()
 
 
 func _on_dialogue_ended() -> void:
@@ -92,4 +93,5 @@ func connect_signals():
 	dialogue_action.dialogue_started.connect(_on_dialogue_started)
 	dialogue_action.dialogue_ended.connect(_on_dialogue_ended)
 	dialogue_action.next_dialogue.connect(_on_next_dialogue)
+	#DialogueManagerExampleBalloon.speec
 	dialogue_action.speech_line_finished.connect(_on_speech_line_finished)

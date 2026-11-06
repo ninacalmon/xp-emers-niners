@@ -33,8 +33,9 @@ size = Vector3(0.9193878, 1.3876343, 0.2625122)
 [sub_resource type="ViewportTexture" id="ViewportTexture_qnmy4"]
 viewport_path = NodePath("SubViewportSprite")
 
-[node name="ConfessionalBooth" type="Node3D" unique_id=321162436]
+[node name="ConfessionalBooth" type="Node3D" unique_id=321162436 groups=["confessor_booth"]]
 script = ExtResource("1_jcfus")
+confissor_is_there = true
 
 [node name="confessional" parent="." unique_id=187697213 instance=ExtResource("1_n7luk")]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 1.0728207, -0.17311251, -0.686677)

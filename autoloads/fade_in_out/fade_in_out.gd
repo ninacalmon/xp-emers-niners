@@ -6,7 +6,7 @@ var _tween: Tween = null
 
 
 func _ready() -> void:
-	layer = 1000
+	layer = 99
 	color_rect.color = Color.BLACK
 	color_rect.set_anchors_preset(Control.PRESET_FULL_RECT)
 	color_rect.modulate.a = 0.0

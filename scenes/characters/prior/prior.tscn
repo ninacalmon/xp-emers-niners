@@ -1,0 +1,251 @@
+[gd_scene format=3 uid="uid://bifi36nxacdg4"]
+
+[ext_resource type="Texture2D" uid="uid://bixe6ui6wxqon" path="res://assets/2d/characters/julio/idle/julio_idle_angry_closed.png" id="2_0tryx"]
+[ext_resource type="Texture2D" uid="uid://c4rgoaymj3ly5" path="res://assets/2d/characters/julio/idle/julio_idle_angry_open.png" id="3_lbivn"]
+[ext_resource type="Texture2D" uid="uid://bej8cscfqopvi" path="res://assets/2d/characters/julio/idle/julio_idle_default_closed.png" id="4_etgr3"]
+[ext_resource type="Texture2D" uid="uid://b7odv81u7xaa0" path="res://assets/2d/characters/julio/idle/julio_idle_default_open.png" id="5_utlxq"]
+[ext_resource type="Texture2D" uid="uid://bic4oyjqrlcyo" path="res://assets/2d/characters/julio/idle/julio_idle_happy_closed.png" id="6_43x5v"]
+[ext_resource type="Texture2D" uid="uid://6s312py73w0c" path="res://assets/2d/characters/julio/idle/julio_idle_happy_open.png" id="7_gmw27"]
+[ext_resource type="Texture2D" uid="uid://ffglnj1sydna" path="res://assets/2d/characters/julio/idle/julio_idle_sad_closed.png" id="8_ydikl"]
+[ext_resource type="Texture2D" uid="uid://g5emi4q56bel" path="res://assets/2d/characters/julio/idle/julio_idle_sad_open.png" id="9_ndubd"]
+[ext_resource type="Texture2D" uid="uid://brtnmym271woj" path="res://assets/2d/characters/julio/idle/julio_idle_serious_closed.png" id="10_aadnr"]
+[ext_resource type="Texture2D" uid="uid://blnpj1qh1b83g" path="res://assets/2d/characters/julio/idle/julio_idle_serious_open.png" id="11_ofjga"]
+[ext_resource type="Texture2D" uid="uid://dpxheopsyd2dv" path="res://assets/2d/characters/julio/idle/julio_idle_surprised.png" id="12_u8ncj"]
+[ext_resource type="Texture2D" uid="uid://dtm6rbundaid8" path="res://assets/2d/characters/julio/intense/julio_intense_angry_closed.png" id="13_ihoqj"]
+[ext_resource type="Texture2D" uid="uid://0dfvcl320xne" path="res://assets/2d/characters/julio/intense/julio_intense_angry_open.png" id="14_twhqh"]
+[ext_resource type="Texture2D" uid="uid://c2bi0v3r7t7qu" path="res://assets/2d/characters/julio/intense/julio_intense_default_closed.png" id="15_mnix0"]
+[ext_resource type="Texture2D" uid="uid://dk8efkie1ffy8" path="res://assets/2d/characters/julio/intense/julio_intense_default_open.png" id="16_5wf8i"]
+[ext_resource type="Texture2D" uid="uid://ceije1irebwe2" path="res://assets/2d/characters/julio/intense/julio_intense_happy_closed.png" id="17_flu3b"]
+[ext_resource type="Texture2D" uid="uid://dksfuvjt8x0d1" path="res://assets/2d/characters/julio/intense/julio_intense_happy_open.png" id="18_5ihp6"]
+[ext_resource type="Texture2D" uid="uid://p8538x2fdlqu" path="res://assets/2d/characters/julio/intense/julio_intense_sad_closed.png" id="19_1w4gw"]
+[ext_resource type="Texture2D" uid="uid://dxc4y7b6xluro" path="res://assets/2d/characters/julio/intense/julio_intense_sad_open.png" id="20_ma3m1"]
+[ext_resource type="Texture2D" uid="uid://c6vvxgjh066kq" path="res://assets/2d/characters/julio/intense/julio_intense_surprised.png" id="21_sfgni"]
+[ext_resource type="Texture2D" uid="uid://x0kq8aul8w84" path="res://assets/2d/characters/julio/silly/julio_silly_angry_closed.png" id="22_btqpx"]
+[ext_resource type="Texture2D" uid="uid://chc5u7d0364vb" path="res://assets/2d/characters/julio/silly/julio_silly_angry_open.png" id="23_ke14c"]
+[ext_resource type="Texture2D" uid="uid://dre838axpj4x1" path="res://assets/2d/characters/julio/silly/julio_silly_default_closed.png" id="24_4ksv1"]
+[ext_resource type="Texture2D" uid="uid://b0bpm26jgthea" path="res://assets/2d/characters/julio/silly/julio_silly_default_open.png" id="25_f34p7"]
+[ext_resource type="Texture2D" uid="uid://dhe7u7srqhhe7" path="res://assets/2d/characters/julio/silly/julio_silly_happy_closed.png" id="26_cr0vg"]
+[ext_resource type="Texture2D" uid="uid://cr4pcm8fwqre0" path="res://assets/2d/characters/julio/silly/julio_silly_happy_open.png" id="27_tont8"]
+[ext_resource type="Texture2D" uid="uid://dlgg3oedrxav7" path="res://assets/2d/characters/julio/silly/julio_silly_sad_closed.png" id="28_d1iat"]
+[ext_resource type="Texture2D" uid="uid://cyv8q5t05kj8q" path="res://assets/2d/characters/julio/silly/julio_silly_sad_open.png" id="29_26rnd"]
+[ext_resource type="Texture2D" uid="uid://chx1vkc7pxlkk" path="res://assets/2d/characters/julio/silly/julio_silly_surprised.png" id="30_c6njq"]
+[ext_resource type="Texture2D" uid="uid://d0rkn80mjkbqh" path="res://assets/2d/characters/hugo/tumours - hugo sprite etc/hugo_tumour.png" id="31_lbivn"]
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_gmoyl"]
+viewport_path = NodePath("SubViewportSprite")
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_5604n"]
+radius = 0.32666016
+height = 2.1264648
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_cdpwx"]
+radius = 0.2993164
+height = 0.8618164
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_f4qfx"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_0tryx")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_lbivn")
+}],
+"loop": 1,
+"name": &"IDLE_ANGRY",
+"speed": 6.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_etgr3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_utlxq")
+}],
+"loop": 1,
+"name": &"IDLE_DEFAULT",
+"speed": 6.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("6_43x5v")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_gmw27")
+}],
+"loop": 1,
+"name": &"IDLE_HAPPY",
+"speed": 6.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("8_ydikl")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_ndubd")
+}],
+"loop": 1,
+"name": &"IDLE_SAD",
+"speed": 6.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("10_aadnr")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_ofjga")
+}],
+"loop": 1,
+"name": &"IDLE_SERIOUS",
+"speed": 6.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("12_u8ncj")
+}],
+"loop": 1,
+"name": &"IDLE_SURPRISED",
+"speed": 6.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("13_ihoqj")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_twhqh")
+}],
+"loop": 1,
+"name": &"INTENSE_ANGRY",
+"speed": 6.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("15_mnix0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("16_5wf8i")
+}],
+"loop": 1,
+"name": &"INTENSE_DEFAULT",
+"speed": 6.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("17_flu3b")
+}, {
+"duration": 1.0,
+"texture": ExtResource("18_5ihp6")
+}],
+"loop": 1,
+"name": &"INTENSE_HAPPY",
+"speed": 6.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("19_1w4gw")
+}, {
+"duration": 1.0,
+"texture": ExtResource("20_ma3m1")
+}],
+"loop": 1,
+"name": &"INTENSE_SAD",
+"speed": 6.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("21_sfgni")
+}],
+"loop": 1,
+"name": &"INTENSE_SURPRISED",
+"speed": 6.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("22_btqpx")
+}, {
+"duration": 1.0,
+"texture": ExtResource("23_ke14c")
+}],
+"loop": 1,
+"name": &"SILLY_ANGRY",
+"speed": 6.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("24_4ksv1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("25_f34p7")
+}],
+"loop": 1,
+"name": &"SILLY_DEFAULT",
+"speed": 6.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("26_cr0vg")
+}, {
+"duration": 1.0,
+"texture": ExtResource("27_tont8")
+}],
+"loop": 1,
+"name": &"SILLY_HAPPY",
+"speed": 6.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("28_d1iat")
+}, {
+"duration": 1.0,
+"texture": ExtResource("29_26rnd")
+}],
+"loop": 1,
+"name": &"SILLY_SAD",
+"speed": 6.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("30_c6njq")
+}],
+"loop": 1,
+"name": &"SILLY_SURPRISED",
+"speed": 6.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("31_lbivn")
+}],
+"loop": 1,
+"name": &"idle",
+"speed": 5.0
+}]
+
+[node name="Prior" type="Node3D" unique_id=1758948578 groups=["prior"]]
+
+[node name="Sprite3D" type="Sprite3D" parent="." unique_id=415751236]
+transform = Transform3D(0.18, 0, 0, 0, 0.18, 0, 0, 0, 0.18, 0, 0.7130867, 0)
+offset = Vector2(0, 241.06)
+billboard = 2
+texture = SubResource("ViewportTexture_gmoyl")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="." unique_id=1339048520]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" unique_id=1213328445]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.0550354, 0)
+shape = SubResource("CapsuleShape3D_5604n")
+
+[node name="ShadowMesh" type="MeshInstance3D" parent="." unique_id=662778281]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.9330101, 0)
+cast_shadow = 3
+mesh = SubResource("CapsuleMesh_cdpwx")
+
+[node name="SubViewportSprite" type="SubViewport" parent="." unique_id=1177182945]
+transparent_bg = true
+handle_input_locally = false
+size = Vector2i(629, 1281)
+render_target_update_mode = 4
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="SubViewportSprite" unique_id=60975985]
+sprite_frames = SubResource("SpriteFrames_f4qfx")
+animation = &"idle"
+centered = false

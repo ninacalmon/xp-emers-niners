@@ -32,8 +32,11 @@ var h_mouse_sensitivity: float
 var v_mouse_sensitivity: float
 #endregion
 
+var original_head_rot: Vector3
 
 func _ready() -> void:
+	original_head_rot = head.rotation
+	#DialogueData.player_in_booth(self)
 	ConfigValues.update_config_values.connect(update_config_values)
 	update_config_values(ConfigValues.ConfigField.CONTROLS)
 

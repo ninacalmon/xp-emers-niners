@@ -34,6 +34,7 @@ FocusPlayground="*uid://c1gekpuprqfig"
 PuzzleManager="*uid://d0b7g7dp5e5te"
 TimeManager="*uid://iv75j075cl7l"
 FadeInOut="*uid://bhudkgwvtx1vp"
+GetEntity="*uid://1l1dumk31mwc"
 
 [display]
 
@@ -57,6 +58,14 @@ focus_playground=""
 puzzles=""
 hugo=""
 doors=""
+player=""
+confessor=""
+confessor_booth=""
+lucio=""
+sanson=""
+confessing_pos=""
+julio=""
+prior=""
 
 [gui]
 

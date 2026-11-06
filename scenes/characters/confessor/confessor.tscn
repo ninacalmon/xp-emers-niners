@@ -1,7 +1,6 @@
 [gd_scene format=3 uid="uid://yxprk6gbltgl"]
 
 [ext_resource type="Script" uid="uid://biodsue5rifq4" path="res://systems/character/character_sprite_handler.gd" id="4_bhsrc"]
-[ext_resource type="Material" uid="uid://dxugeq4hehdak" path="res://resources/shader_materials/outline_shader_material_2d.tres" id="5_qi7xh"]
 [ext_resource type="Texture2D" uid="uid://felrwpvyt7mq" path="res://assets/2d/characters/confessor/confessionaryguy1.png" id="6_qbrc5"]
 [ext_resource type="Texture2D" uid="uid://c0k4sm6pc4lyb" path="res://assets/2d/characters/confessor/confessionaryguy2.png" id="7_7rydx"]
 
@@ -35,7 +34,7 @@ animations = [{
 "speed": 4.0
 }]
 
-[node name="Confessor" type="Node3D" unique_id=1758948578 groups=["hugo"]]
+[node name="Confessor" type="Node3D" unique_id=1758948578 groups=["confessor"]]
 
 [node name="Sprite3D" type="Sprite3D" parent="." unique_id=415751236]
 transform = Transform3D(0.215, 0, 0, 0, 0.215, 0, 0, 0, 0.215, 0.13092422, 0.89784014, 0)
@@ -66,8 +65,6 @@ size = Vector2i(632, 1318)
 render_target_update_mode = 4
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="SubViewportSprite" unique_id=60975985]
-material = ExtResource("5_qi7xh")
-instance_shader_parameters/outline_enabled = true
 position = Vector2(0, 39)
 sprite_frames = SubResource("SpriteFrames_sy5pn")
 animation = &"idle"

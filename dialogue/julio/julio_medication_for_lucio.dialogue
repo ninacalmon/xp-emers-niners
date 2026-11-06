@@ -45,5 +45,6 @@ Você: “Na verdade, tem algo que eu gostaria de perguntar...”
 Você: “Sobre o homem do confessionário… Você já o viu sair de lá?”
 do DialogueData.set_mood("Julio", DialogueData.JulioMoods.SILLY_HAPPY)
 Julio: “Ah. Não, nunca vi. Imagino que ele só saia para ir ao banheiro… haha. Mas isso é raro. Ele nunca come suas pequenas porções de comida. Talvez seja exigente. Haha!”
+do CharacterData.Confessor.hunger = true
 => julio_get_inkwell/start
 
