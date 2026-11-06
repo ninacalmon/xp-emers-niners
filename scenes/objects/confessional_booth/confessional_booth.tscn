@@ -1,0 +1,81 @@
+[gd_scene format=3 uid="uid://8o48qryyi7n0"]
+
+[ext_resource type="Script" uid="uid://dea5tmee3jjv2" path="res://scenes/objects/confessional_booth/confessional_booth.gd" id="1_jcfus"]
+[ext_resource type="PackedScene" uid="uid://d3olgro5mbcu5" path="res://assets/3d/objects/confessional/confessional.glb" id="1_n7luk"]
+[ext_resource type="PackedScene" uid="uid://camyicact7evh" path="res://scenes/objects/doors/confissional_door.tscn" id="2_jcfus"]
+[ext_resource type="PackedScene" uid="uid://yxprk6gbltgl" path="res://scenes/characters/confessor/confessor.tscn" id="3_fssyi"]
+[ext_resource type="Script" uid="uid://cf2auur4umdjl" path="res://systems/interaction/interaction_area.gd" id="4_qnmy4"]
+[ext_resource type="Material" uid="uid://wyikf3yxoy6x" path="res://addons/DayNightCycle/Sky_Day.tres" id="5_fssyi"]
+[ext_resource type="Script" uid="uid://bjidnq65qcjsh" path="res://systems/character/dialogue_action.gd" id="7_t738r"]
+[ext_resource type="Resource" uid="uid://cdxegtuh7g6l4" path="res://dialogue/confessor/confessor_main.dialogue" id="8_ygvyi"]
+
+[sub_resource type="FogMaterial" id="FogMaterial_cdpwx"]
+density = 2.2229
+albedo = Color(0.09, 0.064500004, 0.045, 1)
+
+[sub_resource type="Sky" id="Sky_m114p"]
+sky_material = ExtResource("5_fssyi")
+
+[sub_resource type="Environment" id="Environment_y2t4r"]
+background_mode = 2
+background_color = Color(0.43529412, 0.22352941, 0.09019608, 1)
+background_energy_multiplier = 0.7
+sky = SubResource("Sky_m114p")
+tonemap_mode = 4
+glow_enabled = true
+glow_bloom = 0.44
+volumetric_fog_enabled = true
+volumetric_fog_density = 0.0
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_cdpwx"]
+size = Vector3(0.9193878, 1.3876343, 0.2625122)
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_qnmy4"]
+viewport_path = NodePath("SubViewportSprite")
+
+[node name="ConfessionalBooth" type="Node3D" unique_id=321162436]
+script = ExtResource("1_jcfus")
+
+[node name="confessional" parent="." unique_id=187697213 instance=ExtResource("1_n7luk")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 1.0728207, -0.17311251, -0.686677)
+
+[node name="FogVolume" type="FogVolume" parent="." unique_id=963147684]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.40475535, 1.5076447, -0.052825928)
+size = Vector3(1.328186, 3.3296204, 1.2929077)
+material = SubResource("FogMaterial_cdpwx")
+
+[node name="Camera3D" type="Camera3D" parent="." unique_id=430217490]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.9622834, 2.2201777)
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1849930465]
+environment = SubResource("Environment_y2t4r")
+
+[node name="InteractionArea" type="Area3D" parent="." unique_id=2051083365 node_paths=PackedStringArray("mesh", "action_trigger")]
+script = ExtResource("4_qnmy4")
+mesh = NodePath("../confessional/Plane")
+action_trigger = NodePath("../DialogueAction")
+metadata/_custom_type_script = "uid://cf2auur4umdjl"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="InteractionArea" unique_id=1776177741]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.3561325, 2.0223694, 0.7026062)
+shape = SubResource("BoxShape3D_cdpwx")
+
+[node name="ConfissionalDoor" parent="." unique_id=668800733 instance=ExtResource("2_jcfus")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 1.0728207, -0.17311251, -0.686677)
+
+[node name="Confessor" parent="." unique_id=1758948578 instance=ExtResource("3_fssyi")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0.5138207, -0.33811253, 0.13132304)
+
+[node name="Sprite3D" parent="Confessor" index="0" unique_id=415751236]
+texture = SubResource("ViewportTexture_qnmy4")
+
+[node name="CharacterSpriteHandler" parent="Confessor" index="3" unique_id=961269039 node_paths=PackedStringArray("dialogue_action")]
+dialogue_action = NodePath("../../DialogueAction")
+
+[node name="DialogueAction" type="Node" parent="." unique_id=1312312846]
+script = ExtResource("7_t738r")
+character_name = "Confessor"
+dialogue_res = ExtResource("8_ygvyi")
+
+[editable path="confessional"]
+[editable path="Confessor"]

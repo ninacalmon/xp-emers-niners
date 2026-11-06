@@ -1,0 +1,41 @@
+
+~ start
+match CharacterData.Julio.get_status("get_poison"):
+	when 0:
+		=> give_task
+	when 1:
+		=> waiting_completion
+=> END
+
+~ give_task
+do DialogueData.set_mood("Julio", DialogueData.JulioMoods.IDLE_DEFAULT)
+Julio: “Ah… espere. Francisco… preciso da sua ajuda com algo mais.”
+do DialogueData.set_mood("Julio", DialogueData.JulioMoods.SILLY_DEFAULT)
+Julio: “É, hummm…”
+do DialogueData.set_mood("Julio", DialogueData.JulioMoods.IDLE_DEFAULT)
+Julio: “Ah, sim. Tinta. Eu preciso de um tinteiro, por favor.”
+Você: “Tinteiro? Tudo bem, certo.”
+Julio: “Obrigado!”
+do CharacterData.Julio.give_task("get_inkwell")
+=> END
+
+~ waiting_completion
+do DialogueData.set_mood("Julio", DialogueData.JulioMoods.IDLE_DEFAULT)
+Julio: “Olá! Já fez o que eu pedi?“
+- > Concluir tarefa <[if InventoryManager.selected_item == CharacterData.Item.inkwell /] => complete_task
+- “O que era para fazer mesmo?“ => explain_task
+- > Finalizar diálogo < => END!
+=> END
+
+~ explain_task
+do DialogueData.set_mood("Julio", DialogueData.JulioMoods.IDLE_DEFAULT)
+Julio: “Traga um tinteiro para mim, por favor!“
+=> END
+
+~ complete_task
+Julio: Oh! Muito obrigado.
+Julio: Vamos lá para o estábulo agora.
+Julio: Espero que não tenha nenhum animal morto apodrecendo lá... he... hehe...
+do CharacterData.Julio.complete_task("get_poison")
+=> END
+

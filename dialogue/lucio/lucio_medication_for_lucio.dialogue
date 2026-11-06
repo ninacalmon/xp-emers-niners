@@ -1,10 +1,73 @@
 ~ start
-if CharacterData.Julio.get_status("medication_for_lucio") == 1:
-	Lucio: Trouxe meu remédio...? Mim dê.
-	- -Entregar remédio- [if InventoryManager.selected_item == CharacterData.Item.medication /]
-		do InventoryManager.use_item()
-		do CharacterData.Julio.lucio_received_medicine = true
-		do DialogueData.set_mood("Lucio", DialogueData.LucioMoods.IDLE_HAPPY)
-		Lucio: Agradeço.
-	- -Finalizar diálogo- => END!
+Você: “Como está se sentindo agora?”
+do DialogueData.set_mood("Lucio", DialogueData.LucioMoods.HEART_SAD)
+Antes de responder, Lucio estende a mão até a mesa de cabeceira e pega um garrafão de álcool quase puro.\n Ele dá um bom gole, respondendo à sua pergunta com o ato.
+- > Entregar remédio. <[if InventoryManager.selected_item == CharacterData.Item.medication /] => complete_task
+- > Finalizar diálogo < => END!
 => END
+
+~ complete_task
+do InventoryManager.use_item()
+Você lhe entrega o remédio rapidamente, e ele mesmo faz a aplicação.\nDepois, retorna à garrafa.
+- “O álcool disfarça a dor?”
+	do DialogueData.set_mood("Lucio", DialogueData.LucioMoods.HAND_SAD)
+	Lucio: “O álcool resfria a mente e o corpo. Extingue essa… sensação febril que me aflige.”
+- “Qual o gosto?”
+	do DialogueData.set_mood("Lucio", DialogueData.LucioMoods.HAND_SAD)
+	Lucio: “Lembra-me cheiro que o depósito costumava ter. Ainda assim, me refresca. Tornou-se um sabor reconfortante em momentos penosos.”
+Ao observá-lo encontrar alívio para sua dor, você se lembra desta manhã e nota que Lucio não estava lá. Ele costuma perder muita coisa. Como cuida dos arquivos e dos livros, ele deve saber de algo.
+Você: “Você ficou sabendo de algo… [shake rate=10 level=5]estranho[/shake] recentemente?”
+do DialogueData.set_mood("Lucio", DialogueData.LucioMoods.IDLE_SURPRISED)
+Lucio: “O que quer dizer?”
+Você: “Algo que pareça errado. Algo suspeito. Você sabe de alguma coisa do tipo? Algo que viu nos livros?”
+Lucio: “Não, não sei. Porém... sei sobre... algo…”
+Você: “Por favor. Qualquer coisa serve.”
+do DialogueData.set_mood("Lucio", DialogueData.LucioMoods.IDLE_ANGRY)
+Lucio: “É… complicado. Não tenho certeza se você vai entender por completo. É muita coisa para assimilar.”
+Você: “Por favor. Acho que aconteceu algo… Algo horrível. e acho que…”
+do DialogueData.set_mood("Lucio", DialogueData.LucioMoods.HEART_SURPRISED)
+Lucio: “Hum?”
+Você: “Acho que todos estão escondendo um segredo de mim.”
+Lucio: “Que tipo de segredo?”
+=> question
+=> END
+
+~ question
+- “Eu acho que o monastério pegará fogo esta noite.”
+	do DialogueData.set_mood("Lucio", DialogueData.LucioMoods.IDLE_SINIXTRO)
+	Lucio: “Ó! Tenho outra preocupação que já me inquieta há algum tempo... Tenho notado que o [b]Prior[/b] visita o [b]Confessionário[/b] todos os dias... Inúmeras vezes. Fico imaginando o que será que pesa tanto em sua alma, a ponto de ele precisar recorrer constantemente ao confessionário.”
+- “Acho que… deixa pra lá. Eu confio neles, sim...\nTalvez todos estejam planejando algo bom, tipo uma festa…?”[if locals.negation == false /]
+	Lucio: “Você realmente acha isso?…”
+	- “Sim” => lucio_monologue
+	- “Não”
+		do locals.negation = true
+		=> question
+=> END
+
+~ lucio_monologue
+do locals.negation = true
+do DialogueData.set_mood("Lucio", DialogueData.LucioMoods.HEART_ANGRY)
+Lucio: “Que… absurdo… Você é incrivelmente absurdo…”
+Lucio: “Ouça bem, então, Francisco. Vou compartilhar com você aquilo que tem me atormentado. Visões persistem em minha mente há muito tempo. Todas elas brotam da mesma podre raiz: [b]a dúvida[/b].”
+do DialogueData.set_mood("Lucio", DialogueData.LucioMoods.IDLE_SINIXTRO)
+Lucio: “Nutro uma suspeita sombria… Algo nefasto está se agitando sob o manto sagrado do mosteiro. Parta sem demora e desvende esse mal.”
+do DialogueData.set_mood("Lucio", DialogueData.LucioMoods.HEART_SAD)
+Lucio: “Contudo, não questione o calor esplêndido que nosso Sol nos concede; em vez disso, deixe-se consumir inteiramente por sua luz e expulse a maldade que tem apodrecido na escuridão.”
+do DialogueData.set_mood("Lucio", DialogueData.LucioMoods.HAND_HAPPY)
+Lucio: “Ah… oferecer a [b]própria carne e o próprio sangue[/b] ao nosso [b]divino Sol[/b], que permanece muito além do nosso alcance, embora seus tentáculos ardentes se aproximem cada dia mais. É a forma mais pura de devoção.
+Lucio: É por isso que, apesar da minha terrível maldição, ainda me entrego ao abraço doloroso do nosso misericordioso Sol.”
+Ele dá um gole do álcool.
+Você: “O que você quer dizer? O que está acontecendo?”
+Lucio: “É uma teoria sobre a qual venho refletindo há bastante tempo.”
+Você: “Você tem alguma prova disso?”
+do DialogueData.set_mood("Lucio", DialogueData.LucioMoods.IDLE_SAD)
+Lucio: “…Ó… bem… veja…”
+do DialogueData.set_mood("Lucio", DialogueData.LucioMoods.IDLE_ANGRY)
+Lucio: “Não.”
+Lucio: “Não, não tenho… [i]ainda.[/i]”
+Você: “Entendi... bom...”
+Você: “Obrigado, Lucio.”
+do DialogueData.set_mood("Lucio", DialogueData.LucioMoods.IDLE_DEFAULT)
+Lucio: “Venha me ver novamente mais tarde. Compartilharei mais detalhes, se assim desejar...”
+Lucio: “Não esqueça de agradecer Julio, por mim!...“
+=> END!

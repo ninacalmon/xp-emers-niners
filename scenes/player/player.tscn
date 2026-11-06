@@ -74,10 +74,10 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.99488306, 0)
 shape = SubResource("CapsuleShape3D_cdpwx")
 
 [node name="Head" type="Node3D" parent="." unique_id=1162371294]
-transform = Transform3D(1, 0, 0, 0, 0.99999994, 0, 0, 0, 0.99999994, 0, 1.9303632, 0)
+transform = Transform3D(1, 0, 0, 0, 0.9870879, 0.16017854, 0, -0.16017854, 0.9870879, 0, 1.9303632, 0)
 
 [node name="PlayerCam" type="Node3D" parent="Head" unique_id=296005120 node_paths=PackedStringArray("follow_target", "look_at_target")]
-transform = Transform3D(0.99999696, 0, 0, 0, 0.9999985, 0, 0, 0, 0.9999955, 0, 1.9303632, 0)
+transform = Transform3D(0.99999696, 0, 0, 0, 0.98708564, 0.16017745, 0, -0.16017818, 0.98708117, 0, 1.9303632, 0)
 top_level = true
 script = ExtResource("2_gmlin")
 priority = 50

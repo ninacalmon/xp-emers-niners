@@ -22,7 +22,7 @@ func fade_out(duration: float = 0.5) -> void:
 	await _fade_to(0.0, duration)
 
 func change_scene_to(scene: String, dur_in: float = 1.0, dur_out: float = 1.0):
-	fade_in(dur_in)
+	await fade_in(dur_in)
 	get_tree().change_scene_to_file(scene)
 	await  get_tree().create_timer(2.0).timeout
 	fade_out(dur_out)

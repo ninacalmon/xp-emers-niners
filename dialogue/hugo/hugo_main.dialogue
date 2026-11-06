@@ -2,6 +2,10 @@ import "uid://hogiw5kgfifn" as get_flower
 import "uid://dt4dpnkm6fpxo" as tumor_puzzle
 
 ~ start
+if CharacterData.Julio.get_status("medication_for_lucio") == 1:
+	Sanson: “Estou ocupado agora.”
+	=> END!
+
 if CharacterData.Hugo.get_status("find_correct_tumors") == 0:
 	=> tumor_puzzle/start
 elif CharacterData.Hugo.get_status("find_correct_tumors") == 1:

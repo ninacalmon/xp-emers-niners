@@ -1,5 +1,6 @@
 [gd_scene format=3 uid="uid://d0dx1ggic73g0"]
 
+[ext_resource type="Script" uid="uid://dkcej6bkk2smm" path="res://scenes/characters/julio/julio.gd" id="1_07clx"]
 [ext_resource type="Script" uid="uid://cf2auur4umdjl" path="res://systems/interaction/interaction_area.gd" id="1_kda5n"]
 [ext_resource type="Script" uid="uid://bjidnq65qcjsh" path="res://systems/character/dialogue_action.gd" id="2_gsenr"]
 [ext_resource type="Resource" uid="uid://b7o8h8s2mg0hj" path="res://dialogue/julio/julio_main.dialogue" id="3_o0q0w"]
@@ -23,6 +24,7 @@ radius = 0.44921875
 height = 2.1726074
 
 [node name="Julio" type="Node3D" unique_id=1758948578]
+script = ExtResource("1_07clx")
 
 [node name="Sprite3D" type="Sprite3D" parent="." unique_id=415751236]
 transform = Transform3D(0.18, 0, 0, 0, 0.18, 0, 0, 0, 0.18, 0, 0.7130867, 0)

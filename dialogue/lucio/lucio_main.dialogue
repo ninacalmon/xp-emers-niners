@@ -4,21 +4,11 @@ import "uid://bjj8v02n0vgan" as medication_for_lucio
 if CharacterData.Julio.lucio_received_medicine:
 	=> thanks
 elif CharacterData.Julio.get_status("medication_for_lucio") == 1:
-	=>< greetings
 	=> medication_for_lucio/start
 else:
 	Lucio: Olá.
 => END
 
-~ greetings
-Lucio: Olá.
-do DialogueData.set_mood("Lucio", DialogueData.LucioMoods.HEART_DEFAULT)
-Lucio: Sei que sou muito sedutor... Mas, por favor, tente não se destraír...
-do DialogueData.set_mood("Lucio", DialogueData.LucioMoods.HEART_SURPRISED)
-Lucio: Afinal........
-do DialogueData.set_mood("Lucio", DialogueData.LucioMoods.HAND_SAD)
-Lucio: Meu pé está inchado igual uma bexiga!
-=> END
 
 ~ thanks
 Julio: Obrigado pelo remédio.
