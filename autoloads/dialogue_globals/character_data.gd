@@ -115,6 +115,8 @@ class ItemData:
 	var inkwell: ItemRes = preload("uid://s1b5gx6p2rg1")
 	var flower: ItemRes = preload("uid://dltn5dox1dd8c")
 	var astrolabus: = preload("uid://3c0ta31odhc6")
+	var toxic_plant: ItemRes = preload("uid://dmi136l0r18xj")
+	var rotten_meat: ItemRes = preload("uid://cefbvxaw1bbrf")
 
 
 

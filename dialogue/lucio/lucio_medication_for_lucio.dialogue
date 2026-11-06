@@ -8,6 +8,7 @@ Antes de responder, Lucio estende a mão até a mesa de cabeceira e pega um garr
 
 ~ complete_task
 do InventoryManager.use_item()
+do CharacterData.Julio.lucio_received_medicine = true
 Você lhe entrega o remédio rapidamente, e ele mesmo faz a aplicação.\nDepois, retorna à garrafa.
 - “O álcool disfarça a dor?”
 	do DialogueData.set_mood("Lucio", DialogueData.LucioMoods.HAND_SAD)
@@ -35,13 +36,16 @@ Lucio: “Que tipo de segredo?”
 ~ question
 - “Eu acho que o monastério pegará fogo esta noite.”
 	do DialogueData.set_mood("Lucio", DialogueData.LucioMoods.IDLE_SINIXTRO)
-	Lucio: “Ó! Tenho outra preocupação que já me inquieta há algum tempo... Tenho notado que o [b]Prior[/b] visita o [b]Confessionário[/b] todos os dias... Inúmeras vezes. Fico imaginando o que será que pesa tanto em sua alma, a ponto de ele precisar recorrer constantemente ao confessionário.”
+	Lucio: “Oh! Tenho outra preocupação que já me inquieta há algum tempo... Tenho notado que o [b]Prior[/b] visita o [b]Confessionário[/b] todos os dias... Inúmeras vezes. Fico imaginando o que será que pesa tanto em sua alma, a ponto de ele precisar recorrer constantemente ao confessionário.”
 - “Acho que… deixa pra lá. Eu confio neles, sim...\nTalvez todos estejam planejando algo bom, tipo uma festa…?”[if locals.negation == false /]
 	Lucio: “Você realmente acha isso?…”
 	- “Sim” => lucio_monologue
 	- “Não”
 		do locals.negation = true
 		=> question
+do DialogueData.set_mood("Lucio", DialogueData.LucioMoods.IDLE_DEFAULT)
+Lucio: “Venha me ver novamente mais tarde. Compartilharei mais detalhes, se assim desejar...”
+Lucio: “Não esqueça de agradecer Julio, por mim!...“
 => END
 
 ~ lucio_monologue
@@ -50,7 +54,7 @@ do DialogueData.set_mood("Lucio", DialogueData.LucioMoods.HEART_ANGRY)
 Lucio: “Que… absurdo… Você é incrivelmente absurdo…”
 Lucio: “Ouça bem, então, Francisco. Vou compartilhar com você aquilo que tem me atormentado. Visões persistem em minha mente há muito tempo. Todas elas brotam da mesma podre raiz: [b]a dúvida[/b].”
 do DialogueData.set_mood("Lucio", DialogueData.LucioMoods.IDLE_SINIXTRO)
-Lucio: “Nutro uma suspeita sombria… Algo nefasto está se agitando sob o manto sagrado do mosteiro. Parta sem demora e desvende esse mal.”
+Lucio: “Nutro uma suspeita sombria… Algo nefasto está se agitando sob o manto sagrado do mosteiro. Parta sem demora e [b]desvende esse mal.[/b]”
 do DialogueData.set_mood("Lucio", DialogueData.LucioMoods.HEART_SAD)
 Lucio: “Contudo, não questione o calor esplêndido que nosso Sol nos concede; em vez disso, deixe-se consumir inteiramente por sua luz e expulse a maldade que tem apodrecido na escuridão.”
 do DialogueData.set_mood("Lucio", DialogueData.LucioMoods.HAND_HAPPY)
@@ -67,7 +71,4 @@ Lucio: “Não.”
 Lucio: “Não, não tenho… [i]ainda.[/i]”
 Você: “Entendi... bom...”
 Você: “Obrigado, Lucio.”
-do DialogueData.set_mood("Lucio", DialogueData.LucioMoods.IDLE_DEFAULT)
-Lucio: “Venha me ver novamente mais tarde. Compartilharei mais detalhes, se assim desejar...”
-Lucio: “Não esqueça de agradecer Julio, por mim!...“
-=> END!
+=> question

@@ -1,4 +1,5 @@
-import "uid://djib057op7qt5" as julio_inkwell
+import "uid://djib057op7qt5" as julio_get_inkwell
+
 
 ~ start
 match CharacterData.Julio.get_status("medication_for_lucio"):
@@ -44,5 +45,5 @@ Você: “Na verdade, tem algo que eu gostaria de perguntar...”
 Você: “Sobre o homem do confessionário… Você já o viu sair de lá?”
 do DialogueData.set_mood("Julio", DialogueData.JulioMoods.SILLY_HAPPY)
 Julio: “Ah. Não, nunca vi. Imagino que ele só saia para ir ao banheiro… haha. Mas isso é raro. Ele nunca come suas pequenas porções de comida. Talvez seja exigente. Haha!”
-=> julio_inkwell/start
+=> julio_get_inkwell/start
 
