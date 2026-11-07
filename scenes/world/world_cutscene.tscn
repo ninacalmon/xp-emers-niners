@@ -51,6 +51,12 @@ sky = SubResource("Sky_jqp8s")
 tonemap_mode = 4
 glow_enabled = true
 glow_bloom = 0.44
+volumetric_fog_enabled = true
+volumetric_fog_density = 0.02
+volumetric_fog_albedo = Color(1, 0.91764706, 0.7882353, 1)
+volumetric_fog_emission = Color(0.16078432, 0.16078432, 0.16078432, 1)
+volumetric_fog_gi_inject = 0.08
+volumetric_fog_length = 16.0
 
 [sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_5604n"]
 

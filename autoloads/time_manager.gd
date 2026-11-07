@@ -73,8 +73,8 @@ func setup_sky(time: Times):
 			sun_current_minutes = 195
 			sun_current_scale = 8
 			sun_current_tint = Color(1.0, 0.948, 0.69, 1.0)
-			sun.top_color = Color(0.9, 0.717, 0.378, 1.0)
-			sun.bottom_color = Color(0.9, 0.558, 0.297, 1.0)
+			sun.top_color = Color(0.9, 0.587, 0.378, 1.0)
+			sun.bottom_color = Color(0.9, 0.347, 0.297, 1.0)
 		Times.at2100:
 			sun_current_minutes = 232.5
 			sun_current_scale = 6.5

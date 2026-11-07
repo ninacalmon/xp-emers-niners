@@ -59,7 +59,7 @@ Um cheiro forte no ar, parece que alguns dos animais já não estavam mais supor
 do InventoryManager.add_new_item(CharacterData.Item.rotten_meat)
 Você retorna ao monastério.
 do FadeInOut.fade_out(2)
-#do TimeManager.set_time(TimeManager.Times.at1800)
+do TimeManager.set_time(TimeManager.Times.at1800)
 => END
 
 

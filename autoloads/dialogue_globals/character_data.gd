@@ -59,6 +59,16 @@ class ConfessorData extends TaskOwner:
 	var hunger: bool = false
 
 
+class PriorData extends TaskOwner:
+	func _init() -> void:
+		tasks = {
+			"get_keys": {
+				"status": [false, false],
+				"txt": "Consiga as chaves do Prior.",
+			},
+		}
+
+
 class HugoData extends TaskOwner:
 	func _init() -> void:
 		tasks = {
@@ -80,6 +90,7 @@ class HugoData extends TaskOwner:
 	var wanted_tumors_textures: Array[Texture2D]
 	var tumors_solved: bool
 	var just_tried_puzzle: bool
+	var flower_given_to_julio: bool = false
 
 	func _get_hugo() -> DialogueAction:
 		if is_instance_valid(Hugo):
@@ -137,4 +148,5 @@ var Lucio: LucioData = LucioData.new()
 var Hugo: HugoData = HugoData.new()
 var Sanson: SansonData = SansonData.new()
 var Confessor: ConfessorData = ConfessorData.new()
+var Prior: PriorData = PriorData.new()
 var Item: ItemData = ItemData.new()
