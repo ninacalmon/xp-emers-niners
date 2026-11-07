@@ -15,12 +15,17 @@
 [ext_resource type="PackedScene" uid="uid://8o48qryyi7n0" path="res://scenes/objects/confessional_booth/confessional_booth.tscn" id="13_srmg5"]
 [ext_resource type="PackedScene" uid="uid://cgxxromd5ia45" path="res://scenes/puzzles/astrolabus/astrolablus_puzzle.tscn" id="14_m114p"]
 [ext_resource type="PackedScene" uid="uid://dhb4ubn1lv1kq" path="res://examples/interaction_examples/item_giver/key_giver_ball.tscn" id="14_umvgx"]
+[ext_resource type="Resource" uid="uid://cb0fdb2g5cmw2" path="res://items/lockpick.tres" id="14_x0nq1"]
+[ext_resource type="PackedScene" uid="uid://delbjqfq3giv7" path="res://assets/3d/items/lockpick/lockpick.glb" id="14_xq18t"]
 [ext_resource type="PackedScene" uid="uid://dwmg7dr5nvosc" path="res://scenes/objects/church_bell/church_bell.tscn" id="15_mxkvs"]
+[ext_resource type="Script" uid="uid://dlm0hnvbr2c0j" path="res://scenes/puzzles/sleep/sleep_event.gd" id="16_x0nq1"]
 [ext_resource type="PackedScene" uid="uid://cb05nxhycwjbf" path="res://scenes/objects/item/item_in_world.tscn" id="17_bt7bg"]
+[ext_resource type="Resource" uid="uid://cyc1mv4jblj4j" path="res://dialogue/sanson/sanson_asleep.dialogue" id="18_rwifv"]
 [ext_resource type="PackedScene" uid="uid://dvqw4lptsejty" path="res://assets/3d/items/astrolabus/astrolabus_body.glb" id="18_wbwoo"]
 [ext_resource type="Material" uid="uid://dki8i4qf7fofd" path="res://resources/shader_materials/outline_shader_material_3d.tres" id="19_tytul"]
 [ext_resource type="PackedScene" uid="uid://dv6muq7ftqubi" path="res://assets/3d/items/astrolabus/astrolabus_pointer.glb" id="19_wbwoo"]
 [ext_resource type="Resource" uid="uid://8dvrkoxmyyx4" path="res://items/intertwined_puzzle/astrolabus_pointer.tres" id="20_t634p"]
+[ext_resource type="PackedScene" uid="uid://dhk5e4bt07a2o" path="res://scenes/objects/chair/chair.tscn" id="22_6hctx"]
 
 [sub_resource type="Sky" id="Sky_m114p"]
 sky_material = ExtResource("2_mxkvs")
@@ -49,13 +54,19 @@ size = Vector2(500, 500)
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_u1gsd"]
 albedo_color = Color(0.66, 0.52536005, 0.4224, 1)
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_t634p"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_rwifv"]
 viewport_path = NodePath("SubViewportSprite")
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_6hctx"]
+[sub_resource type="BoxShape3D" id="BoxShape3D_cdpwx"]
+size = Vector3(2.1645508, 3.0518951, 1.1044922)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ksdio"]
+size = Vector3(4.8632813, 1, 0.6602173)
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_ckok1"]
 viewport_path = NodePath("SubViewportSprite")
 
-[node name="TestWorld" type="Node3D" unique_id=1370714841]
+[node name="World" type="Node3D" unique_id=1370714841]
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1845690643 node_paths=PackedStringArray("worldEnvironment", "nightLight") groups=["sun"]]
 transform = Transform3D(-0.8660254, -0.43301278, 0.25, 0, 0.49999997, 0.86602545, -0.50000006, 0.75, -0.43301266, 0, 0, 0)
@@ -247,19 +258,63 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 78.78419, 0.9976957, -5.94999
 is_chatting = true
 
 [node name="Sprite3D" parent="Characters/Sanson" index="0" unique_id=415751236]
-texture = SubResource("ViewportTexture_t634p")
+texture = SubResource("ViewportTexture_rwifv")
 
 [node name="Prior" parent="Characters" unique_id=1738876710 instance=ExtResource("13_mxkvs")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 50.518864, 6.3510294, 0.53256416)
 
 [node name="AstrolablusPuzzle" parent="Characters" unique_id=572576743 instance=ExtResource("14_m114p")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 74.157394, 1.0101616, -6.74111)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 74.455536, 1.0101616, -6.621845)
+
+[node name="SleepPuzzle" type="Node3D" parent="Characters" unique_id=875274494]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 74.53745, 2.1546106, -3.4635518)
+
+[node name="SleepEvent" type="Node" parent="Characters/SleepPuzzle" unique_id=220625159 node_paths=PackedStringArray("item_in_world", "player_detection", "animated_sprite_2d", "sanson", "door_blocker", "sanson_interact_collision_shape_3d")]
+script = ExtResource("16_x0nq1")
+sanson_asleep_dialogue_res = ExtResource("18_rwifv")
+item_in_world = NodePath("../LockPick")
+player_detection = NodePath("../PlayerDetection")
+animated_sprite_2d = NodePath("../../Sanson/SubViewportSprite/AnimatedSprite2D")
+sanson = NodePath("../../Sanson")
+door_blocker = NodePath("../PlayerBlocker/CollisionShape3D")
+sanson_interact_collision_shape_3d = NodePath("../../Sanson/InteractionArea/CollisionShape3D")
+
+[node name="LockPick" parent="Characters/SleepPuzzle" unique_id=1067992399 instance=ExtResource("17_bt7bg")]
+transform = Transform3D(0.4183646, 0, 0.9082792, 0, 1, 0, -0.9082792, 0, 0.4183646, 0, 0, -4.7363977)
+item = ExtResource("14_x0nq1")
+deactivate = true
+
+[node name="InteractionArea" parent="Characters/SleepPuzzle/LockPick" index="0" unique_id=834874890 node_paths=PackedStringArray("mesh")]
+mesh = NodePath("../lockpick/Loop_002")
+
+[node name="lockpick" parent="Characters/SleepPuzzle/LockPick" unique_id=43559986 instance=ExtResource("14_xq18t")]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 0, 0)
+
+[node name="Loop_002" parent="Characters/SleepPuzzle/LockPick/lockpick" index="4" unique_id=708519900]
+material_overlay = ExtResource("19_tytul")
+instance_shader_parameters/outline_enabled = false
+instance_shader_parameters/size = 1.07999999821184
+
+[node name="PlayerDetection" type="Area3D" parent="Characters/SleepPuzzle" unique_id=584724546]
+collision_layer = 0
+collision_mask = 4
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Characters/SleepPuzzle/PlayerDetection" unique_id=1840320059]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.05102539, 0.19530487, -0.5307617)
+shape = SubResource("BoxShape3D_cdpwx")
+
+[node name="PlayerBlocker" type="StaticBody3D" parent="Characters/SleepPuzzle" unique_id=1998723415]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.5741503)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Characters/SleepPuzzle/PlayerBlocker" unique_id=1743168441]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.10620117, 0, -0.36514235)
+shape = SubResource("BoxShape3D_ksdio")
 
 [node name="ConfessionalBooth" parent="." unique_id=321162436 instance=ExtResource("13_srmg5")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 21.046339, 1.6670088, -3.19987)
 
 [node name="Sprite3D" parent="ConfessionalBooth/Confessor" parent_id_path=PackedInt32Array(321162436, 1758948578) index="0" unique_id=415751236]
-texture = SubResource("ViewportTexture_6hctx")
+texture = SubResource("ViewportTexture_ckok1")
 
 [node name="TestKeyGiverBall" parent="." unique_id=471407858 instance=ExtResource("14_umvgx")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 30.922817, 1.8428121, 0)
@@ -275,7 +330,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 75.828415, 1.006, -6.383174)
 
 [node name="Items" type="Node3D" parent="." unique_id=1366467441]
 
-[node name="AstrolabusBody" parent="Items" unique_id=1067992399 instance=ExtResource("17_bt7bg")]
+[node name="AstrolabusBody" parent="Items" unique_id=218661795 instance=ExtResource("17_bt7bg")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 40.742638, 1.6569824, 19.055292)
 
 [node name="InteractionArea" parent="Items/AstrolabusBody" index="0" unique_id=834874890 node_paths=PackedStringArray("mesh")]
@@ -305,7 +360,27 @@ instance_shader_parameters/size = 1.22999999485904
 [node name="RoomDoor" parent="." unique_id=230216749 instance=ExtResource("9_ues17")]
 transform = Transform3D(-4.3711385e-08, 0, -0.99999994, 0, 1, 0, 0.99999994, 0, -4.3711385e-08, 45.89097, 8.685315, -2.8387032)
 
+[node name="Chair" parent="." unique_id=708079133 instance=ExtResource("22_6hctx")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 76.05981, 1.0000007, -6.876649)
+
+[node name="LockPick" parent="." unique_id=741135573 instance=ExtResource("17_bt7bg")]
+transform = Transform3D(0.4183646, 0, 0.9082792, 0, 1, 0, -0.9082792, 0, 0.4183646, 69.37862, 2.2043726, -8.285088)
+item = ExtResource("14_x0nq1")
+
+[node name="InteractionArea" parent="LockPick" index="0" unique_id=834874890 node_paths=PackedStringArray("mesh")]
+mesh = NodePath("../lockpick/Loop_002")
+
+[node name="lockpick" parent="LockPick" unique_id=1844345666 instance=ExtResource("14_xq18t")]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 0, 0)
+
+[node name="Loop_002" parent="LockPick/lockpick" index="4" unique_id=708519900]
+material_overlay = ExtResource("19_tytul")
+instance_shader_parameters/outline_enabled = false
+instance_shader_parameters/size = 1.07999999821184
+
 [editable path="Characters/Sanson"]
+[editable path="Characters/SleepPuzzle/LockPick"]
+[editable path="Characters/SleepPuzzle/LockPick/lockpick"]
 [editable path="ConfessionalBooth"]
 [editable path="ConfessionalBooth/confessional"]
 [editable path="ConfessionalBooth/Confessor"]
@@ -313,3 +388,5 @@ transform = Transform3D(-4.3711385e-08, 0, -0.99999994, 0, 1, 0, 0.99999994, 0, 
 [editable path="Items/AstrolabusBody/astrolabus_body"]
 [editable path="AstrolabusPointer"]
 [editable path="AstrolabusPointer/astrolabus_pointer"]
+[editable path="LockPick"]
+[editable path="LockPick/lockpick"]

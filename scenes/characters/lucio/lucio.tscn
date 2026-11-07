@@ -22,7 +22,7 @@ height = 0.8618164
 radius = 0.44921875
 height = 2.1726074
 
-[node name="Lucio" type="Node3D" unique_id=1758948578]
+[node name="Lucio" type="Node3D" unique_id=1758948578 groups=["lucio"]]
 
 [node name="Sprite3D" type="Sprite3D" parent="." unique_id=415751236]
 transform = Transform3D(0.18, 0, 0, 0, 0.18, 0, 0, 0, 0.18, 0, 0.7130867, 0)

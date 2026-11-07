@@ -1,0 +1,16 @@
+[remap]
+
+importer="dialogue_manager"
+importer_version=18
+type="Resource"
+uid="uid://cyc1mv4jblj4j"
+path="res://.godot/imported/sanson_asleep.dialogue-7b9bfc73888433fdb14bd695a2304249.tres"
+
+[deps]
+
+source_file="res://dialogue/sanson/sanson_asleep.dialogue"
+dest_files=["res://.godot/imported/sanson_asleep.dialogue-7b9bfc73888433fdb14bd695a2304249.tres"]
+
+[params]
+
+defaults=true

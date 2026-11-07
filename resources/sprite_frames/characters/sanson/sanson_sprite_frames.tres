@@ -1,9 +1,13 @@
 [gd_resource type="SpriteFrames" format=3 uid="uid://dn0joqocceig4"]
 
+[ext_resource type="Texture2D" uid="uid://dg8i2x5vxilg3" path="res://assets/2d/characters/sanson/asleep/sanson_asleep_closed.png" id="1_pphwt"]
 [ext_resource type="Texture2D" uid="uid://bch1k41ghrepw" path="res://assets/2d/characters/sanson/crazy/sanson_crazy_default.png" id="1_uavog"]
 [ext_resource type="Texture2D" uid="uid://cdghc3571elnj" path="res://assets/2d/characters/sanson/crazy/sanson_crazy_smile.png" id="2_13v25"]
+[ext_resource type="Texture2D" uid="uid://c7vhj4roays4b" path="res://assets/2d/characters/sanson/asleep/sanson_asleep_open.png" id="2_my6wn"]
 [ext_resource type="Texture2D" uid="uid://qvmhnp1r6bcv" path="res://assets/2d/characters/sanson/hand/sanson_idle2_angry_closed.png" id="3_d5ejr"]
+[ext_resource type="Texture2D" uid="uid://dka5dx403wyme" path="res://assets/2d/characters/sanson/asleep/sanson_awake_closed.png" id="3_ldxcw"]
 [ext_resource type="Texture2D" uid="uid://bwe0ih2laqu3h" path="res://assets/2d/characters/sanson/hand/sanson_idle2_angry_open.png" id="4_43toy"]
+[ext_resource type="Texture2D" uid="uid://cegt2h5yj2uhd" path="res://assets/2d/characters/sanson/asleep/sanson_awake_open.png" id="4_hqege"]
 [ext_resource type="Texture2D" uid="uid://xuptadif8bb0" path="res://assets/2d/characters/sanson/hand/sanson_idle2_default_closed.png" id="5_pphwt"]
 [ext_resource type="Texture2D" uid="uid://8c54qohseqwj" path="res://assets/2d/characters/sanson/hand/sanson_idle2_default_open.png" id="6_my6wn"]
 [ext_resource type="Texture2D" uid="uid://ce5tv7ebnvmwg" path="res://assets/2d/characters/sanson/hand/sanson_idle2_happy_closed.png" id="7_ldxcw"]
@@ -31,6 +35,28 @@
 
 [resource]
 animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_pphwt")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_my6wn")
+}],
+"loop": 1,
+"name": &"ASLEEP",
+"speed": 1.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_ldxcw")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_hqege")
+}],
+"loop": 1,
+"name": &"AWAKE",
+"speed": 6.0
+}, {
 "frames": [{
 "duration": 1.0,
 "texture": ExtResource("1_uavog")

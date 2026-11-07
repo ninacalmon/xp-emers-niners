@@ -1,0 +1,57 @@
+~ start
+do DialogueData.set_mood("Lucio", DialogueData.LucioMoods.IDLE_SAD)
+do locals.eff = "[wave amp=20.0 freq=3.0 connected=0][shake rate=3 level=10]"
+do locals.end = "[/shake][/wave]"
+Lucio: {{locals.eff}}“Ah… você voltou.”
+Lucio: {{locals.eff}}“C-como… *hic* você está?”
+Você: “Eu estou… bem. Você parece meio… está tudo bem?”
+do DialogueData.set_mood("Lucio", DialogueData.LucioMoods.HEART_SAD)
+Lucio: {{locals.eff}}“...Eis-me aqui.”
+Lucio: {{locals.eff}}“Isso não responde à sua pergunta?”
+Você: “É...”
+Você: “...”
+do DialogueData.set_mood("Lucio", DialogueData.LucioMoods.IDLE_ANGRY)
+Lucio: {{locals.eff}}“Diga-me, você conhece os primórdios do mosteiro, a razão pela qual nosso sagrado santuário foi criado? [b]Não[/b]. É claro que não. Você não passava de um bebê quando o Abade o encontrou. Naturalmente, você os segue com tanta dedicação.”
+do DialogueData.set_mood("Lucio", DialogueData.LucioMoods.IDLE_DEFAULT)
+Lucio: {{locals.eff}}“Contudo, também não posso esclarecê-lo sobre esse assunto. Pois o [b]Abade[/b] levou consigo o primeiro de todos os livros de registros.”
+Lucio: {{locals.eff}}“Examinei minuciosamente todos os que não foram destruídos. Li-os repetidas vezes, uma, outra, e mais outra, e ainda outra vez.”
+do DialogueData.set_mood("Lucio", DialogueData.LucioMoods.IDLE_SURPRISED)
+Lucio: {{locals.eff}}“Não fecho os olhos para a luz gloriosa que nosso Sol nos concede; mas existe uma sombra persistente, uma espécie de parasita que drena a Sua divindade, algo que não posso mais ignorar.”
+do DialogueData.set_mood("Lucio", DialogueData.LucioMoods.IDLE_SINIXTRO)
+Lucio: {{locals.eff}}[b]O Abade.
+Lucio: {{locals.eff}}“E eu sei... eu sei o que eles estão tramando...”
+do DialogueData.set_mood("Lucio", DialogueData.LucioMoods.HEART_SAD)
+Lucio: {{locals.eff}}“Como eu fui… *hic*… tolo.”
+Você: “… o que?”
+Você: “O abade não é assim… é?”
+do DialogueData.set_mood("Lucio", DialogueData.LucioMoods.HAND_ANGRY)
+Lucio: {{locals.eff}}“Você não notou que eles estão agindo de forma estranha? Já se passaram dias desde que se trancaram no próprio quarto, impedindo a entrada de qualquer um.”
+Lucio: {{locals.eff}}“Você realmente acredita que eles ainda estão inteiros? Estão fragmentados, além de qualquer possibilidade de reparo; não passam de uma casca vazia. Por dentro, só existe uma maldade vil. Uma amálgama deplorável de medo e ódio.”
+do DialogueData.set_mood("Lucio", DialogueData.LucioMoods.IDLE_SINIXTRO)
+Lucio: {{locals.eff}}“Francisco… preste muita atenção…”
+do DialogueData.set_mood("Lucio", DialogueData.LucioMoods.HEART_ANGRY)
+Lucio: {{locals.eff}}“O Abade, esse [b]parasita asqueroso[/b], pretende consumir nossas almas para ascender aos céus. Ele tem capturado aqueles que estavam à beira da morte, roubando-lhes a chance de escapar deste mundo desolado.”
+Lucio: {{locals.eff}}“Como era de se esperar da minha sorte, ninguém me daria ouvidos… [b]exceto você.”
+do DialogueData.set_mood("Lucio", DialogueData.LucioMoods.HEART_SAD)
+Lucio: {{locals.eff}}“Você… você acredita em mim… não acredita?”
+Você: “...”
+Lucio: {{locals.eff}}“Bem… não fique aí só me encarando. [b]Fale.”
+do DialogueData.set_mood("Lucio", DialogueData.LucioMoods.IDLE_ANGRY)
+Lucio: {{locals.eff}}[font_size=40][b]“FALE.”
+Você: “Sim!... sim. Eu acho.”
+do DialogueData.set_mood("Lucio", DialogueData.LucioMoods.IDLE_DEFAULT)
+Lucio: {{locals.eff}}“Ó, Francisco… você deve ver por si só...”
+Você: “Eu devo o impedir… devo impedir isso tudo. O que o Sol me avisou... eu...”
+Você: “Lucio. Eu preciso da sua garrafa.”
+do DialogueData.set_mood("Lucio", DialogueData.LucioMoods.HEART_DEFAULT)
+Lucio: {{locals.eff}}“Garoto, ergo esta garrafa para aliviar minhas tristezas.”
+do DialogueData.set_mood("Lucio", DialogueData.LucioMoods.HEART_SAD)
+Lucio: {{locals.eff}}[font_size=20]“…eu não quero morrer…”
+do FadeInOut.fade_in(2)
+do wait(1)
+Lucio caiu desacordado sobre a mesa.
+do wait(1)
+do InventoryManager.add_new_item(CharacterData.Item.drink)
+do GetEntity.get_lucio().queue_free()#CORRIGIR AQUI
+do FadeInOut.fade_out(2)
+=> END!

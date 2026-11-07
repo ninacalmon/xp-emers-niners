@@ -1,0 +1,8 @@
+[gd_scene format=3 uid="uid://dhk5e4bt07a2o"]
+
+[ext_resource type="PackedScene" uid="uid://bn2gna10fk1jr" path="res://assets/3d/objects/chair/mdvl_interiors_chair_01.glb" id="1_rk0p6"]
+
+[node name="Chair" type="Node3D" unique_id=708079133]
+
+[node name="mdvl_interiors_chair_012" parent="." unique_id=1477034428 instance=ExtResource("1_rk0p6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.31190634)

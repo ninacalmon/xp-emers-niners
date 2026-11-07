@@ -11,6 +11,9 @@ const STEP_HEIGHT: float = 0.25
 
 @onready var head: Node3D = $Head
 
+var is_drunk: bool = false
+
+
 var is_dialogue_locked: bool = false:
 	set(value):
 		is_dialogue_locked = value
