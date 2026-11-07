@@ -17,6 +17,10 @@ var balloon: DialogueManagerExampleBalloon
 var seconds_per_step
 
 func _ready() -> void:
+	#TimeManager.set_time(TimeManager.Times.at1200)
+
+	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
+
 	hands_overlay.hide()
 
 	camera_3d.fov = 75.0

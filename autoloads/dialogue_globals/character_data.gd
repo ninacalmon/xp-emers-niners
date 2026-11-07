@@ -113,12 +113,12 @@ class SansonData extends TaskOwner:
 			},
 			"fix_astrolabus" : {
 				"status": [false, false],
-				"txt": "Alinhe o astrolábio Sanson com o Sol.",
+				"txt": "Alinhe o astrolábio de Sanson com o Sol.",
 			}
 		}
 
 	var flower_got: bool = false
-	
+	var astrolabus_aligned: bool = false
 
 
 class ItemData:

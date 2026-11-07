@@ -1,6 +1,8 @@
 extends Node
 
+@warning_ignore("unused_signal")
 signal medication_quest_completed
+@warning_ignore("unused_signal")
 signal inkwell_quest_completed
 
 
@@ -122,6 +124,14 @@ func astrolabus_in_desk():
 	#_astrolab_desk = GetEntity.
 	pass
 
+func _ready() -> void:
+	PuzzleManager.puzzle_ended.connect(_on_puzzle_ended)
+
+
+func _on_puzzle_ended(puzzle: Puzzle):
+	if puzzle is AstrolabusPuzzle:
+		if puzzle.puzzle_solved:
+			CharacterData.Sanson.astrolabus_aligned = true
 
 ## ================== ADDING MOODS/ANIMATIONS ===================
 

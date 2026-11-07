@@ -12,6 +12,7 @@ var original_sprite_scale: Vector2
 var character_name: String = ""
 
 func _ready() -> void:
+	print(get_parent().name)
 	character_name = dialogue_action.character_name
 	dialogue_res = dialogue_action.dialogue_res
 	original_sprite_scale = animated_sprite.scale

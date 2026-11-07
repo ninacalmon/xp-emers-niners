@@ -14,6 +14,7 @@
 class_name ActionTrigger
 extends Node
 
+@warning_ignore("unused_signal")
 signal action_ended
 
 var hands_overlay: HandsOverlay

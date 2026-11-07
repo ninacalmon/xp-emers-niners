@@ -28,7 +28,7 @@ func _ready() -> void:
 	DialogueManager.dialogue_started.connect(func(_res): is_dialogue_locked = true)
 	DialogueManager.dialogue_ended.connect(func(_res): is_dialogue_locked = false)
 	PuzzleManager.puzzle_started.connect(func(lock_player): is_puzzle_locked = lock_player)
-	PuzzleManager.puzzle_ended.connect(func(): is_puzzle_locked = false)
+	PuzzleManager.puzzle_ended.connect(func(_p): is_puzzle_locked = false)
 
 
 func _process(delta: float) -> void:

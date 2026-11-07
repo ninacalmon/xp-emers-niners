@@ -111,7 +111,7 @@ func play_hand_down():
 
 
 
-func play_hand_up():
+func play_hand_up(_p):
 	if not hand_is_down:
 		return
 

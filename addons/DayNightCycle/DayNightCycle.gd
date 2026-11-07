@@ -58,7 +58,7 @@ func _ready():
 	daylightDuration = (sunsetHour - sunriseHour) * 60.0
 	myRotation = 180.0 / daylightDuration
 	
-	update_clock()
+	#update_clock()
 	
 	# Start settings
 	if hours == sunriseHour: currentColor = sunriseColor
@@ -81,64 +81,66 @@ func _ready():
 		sky.set_shader_parameter("stars_intensity", nightStarIntensity)
 		sky.set_shader_parameter("clouds_light_color", nightCloudColor)
 		sky.set_shader_parameter("sun_scatter", nightSunScatter)
-		
-func _physics_process(delta):
-	# Sun and moon rotation
-	currentTime += delta / secondsPerMinute * speedMultiplier
-	if currentTime >= totalGameMinutes: currentTime = 0.0
-	
+
+func change_astros_rotation() -> void:
+	var dayMinutes: float = (sunsetHour - sunriseHour) * 60.0
+	var degreesPerMinute: float = 180.0 / dayMinutes
 	var timeSinceSunrise: float = currentTime - sunriseHour * 60.0
-	rotation_degrees = Vector3(timeSinceSunrise * myRotation + 180.0, 0.0, 0.0) + rotationOffset
-	
-	update_clock()
-	
-	# Sky color
-	if hours == sunriseHour: currentColor = sunriseColor
-	elif hours == sunriseHour + 1: currentColor = dayColor
-	elif hours == sunsetHour - 1: currentColor = sunsetColor
-	elif hours == sunsetHour: currentColor = nightColor
-	
-	var lerpSpeed: float = transitionSpeed * speedMultiplier
-	colorToLerp = colorToLerp.lerp(currentColor, lerpSpeed)
-	############################################
-	sky.set_shader_parameter("top_color", top_color)
-	sky.set_shader_parameter("bottom_color", bottom_color)
-	
-	if hours >= sunriseHour && hours <= sunsetHour - 1:
-		# Lighting
-		light_energy = lerp(light_energy, dayLightEnergy, lerpSpeed)
-		nightLight.light_energy = lerp(nightLight.light_energy, 0.0, lerpSpeed)
-		
-		# Stars
-		sky.set_shader_parameter("stars_intensity", lerp(sky.get_shader_parameter("stars_intensity"), dayStarIntensity, lerpSpeed))
-		
-		# Cloud color
-		var cloudLerp: Color = sky.get_shader_parameter("clouds_light_color")
-		cloudLerp = cloudLerp.lerp(dayCloudColor, lerpSpeed)
-		sky.set_shader_parameter("clouds_light_color", cloudLerp)
-		
-		# Sun scatter
-		var sunLerp: Color = sky.get_shader_parameter("sun_scatter")
-		sunLerp = sunLerp.lerp(daySunScatter, lerpSpeed)
-		sky.set_shader_parameter("sun_scatter", sunLerp)
-	else:
-		# Lighting
-		light_energy = lerp(light_energy, 0.0, lerpSpeed)
-		nightLight.light_energy = lerp(nightLight.light_energy, nightLightEnergy, lerpSpeed)
-		
-		# Stars
-		sky.set_shader_parameter("stars_intensity", lerp(sky.get_shader_parameter("stars_intensity"), nightStarIntensity, lerpSpeed))
-		
-		# Cloud color
-		var cloudLerp: Color = sky.get_shader_parameter("clouds_light_color")
-		cloudLerp = cloudLerp.lerp(nightCloudColor, lerpSpeed)
-		sky.set_shader_parameter("clouds_light_color", cloudLerp)
-		
-		# Sun scatter
-		var sunLerp: Color = sky.get_shader_parameter("sun_scatter")
-		sunLerp = sunLerp.lerp(nightSunScatter, lerpSpeed)
-		sky.set_shader_parameter("sun_scatter", sunLerp)
-		
-func update_clock():
-	hours = int(currentTime / 60)
-	minutes = int(currentTime) % 60
+	rotation_degrees = Vector3(timeSinceSunrise * degreesPerMinute + 180.0, 0.0, 0.0) + rotationOffset
+
+
+#func _physics_process(delta):
+	## Sun and moon rotation
+#
+	##update_clock()
+	#
+	## Sky color
+	#if hours == sunriseHour: currentColor = sunriseColor
+	#elif hours == sunriseHour + 1: currentColor = dayColor
+	#elif hours == sunsetHour - 1: currentColor = sunsetColor
+	#elif hours == sunsetHour: currentColor = nightColor
+	#
+	#var lerpSpeed: float = transitionSpeed * speedMultiplier
+	#colorToLerp = colorToLerp.lerp(currentColor, lerpSpeed)
+	#############################################
+	#sky.set_shader_parameter("top_color", top_color)
+	#sky.set_shader_parameter("bottom_color", bottom_color)
+	#
+	#if hours >= sunriseHour && hours <= sunsetHour - 1:
+		## Lighting
+		#light_energy = lerp(light_energy, dayLightEnergy, lerpSpeed)
+		#nightLight.light_energy = lerp(nightLight.light_energy, 0.0, lerpSpeed)
+		#
+		## Stars
+		#sky.set_shader_parameter("stars_intensity", lerp(sky.get_shader_parameter("stars_intensity"), dayStarIntensity, lerpSpeed))
+		#
+		## Cloud color
+		#var cloudLerp: Color = sky.get_shader_parameter("clouds_light_color")
+		#cloudLerp = cloudLerp.lerp(dayCloudColor, lerpSpeed)
+		#sky.set_shader_parameter("clouds_light_color", cloudLerp)
+		#
+		## Sun scatter
+		#var sunLerp: Color = sky.get_shader_parameter("sun_scatter")
+		#sunLerp = sunLerp.lerp(daySunScatter, lerpSpeed)
+		#sky.set_shader_parameter("sun_scatter", sunLerp)
+	#else:
+		## Lighting
+		#light_energy = lerp(light_energy, 0.0, lerpSpeed)
+		#nightLight.light_energy = lerp(nightLight.light_energy, nightLightEnergy, lerpSpeed)
+		#
+		## Stars
+		#sky.set_shader_parameter("stars_intensity", lerp(sky.get_shader_parameter("stars_intensity"), nightStarIntensity, lerpSpeed))
+		#
+		## Cloud color
+		#var cloudLerp: Color = sky.get_shader_parameter("clouds_light_color")
+		#cloudLerp = cloudLerp.lerp(nightCloudColor, lerpSpeed)
+		#sky.set_shader_parameter("clouds_light_color", cloudLerp)
+		#
+		## Sun scatter
+		#var sunLerp: Color = sky.get_shader_parameter("sun_scatter")
+		#sunLerp = sunLerp.lerp(nightSunScatter, lerpSpeed)
+		#sky.set_shader_parameter("sun_scatter", sunLerp)
+		#
+#func update_clock():
+	#hours = int(currentTime / 60)
+	#minutes = int(currentTime) % 60

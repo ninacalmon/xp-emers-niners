@@ -68,7 +68,7 @@ func finish(solved: bool) -> void:
 	set_process(false)
 	puzzle_finished.emit(solved)
 	print(solved)
-	PuzzleManager.puzzle_ended.emit()
+	PuzzleManager.puzzle_ended.emit(self)
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 	CharacterData.Hugo.just_tried_puzzle = true
 

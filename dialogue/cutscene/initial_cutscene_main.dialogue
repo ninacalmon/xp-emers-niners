@@ -6,14 +6,16 @@ SOL: [shake rate=10 level=5]"Quando o último badalar do sino tocar[/shake], [sh
 ~ francisco
 do DialogueData.set_mood("Julio", DialogueData.JulioMoods.IDLE_SURPRISED)
 Julio: "Francisco... Você... Está bem?!"
-Você: "Queimar… Queimar? Isso não pode… Escutem-me, irmãos!"
+Você: "Queimar… Queimar? Não pode ser… Escutem-me, irmãos!"
 do DialogueData.set_mood("Julio", DialogueData.JulioMoods.INTENSE_SURPRISED, true)
 do DialogueData.set_mood("Lucio", DialogueData.LucioMoods.IDLE_SURPRISED, true)
+do DialogueData.set_mood("Sanson", DialogueData.SansonMoods.IDLE_HAPPY, true)
 do DialogueData.set_mood("Hugo", DialogueData.HugoMoods.MISCHIVEOUS_SURPRISED, true)
 ## set Sanson later!!
 Você: "Algo vai acontecer esta noite. Algo… Um incêndio. Um fogo terrível vai reduzir tudo a cinzas. [b]Tudo vai queimar![/b] O Sol-"
-do DialogueData.set_mood("Julio", DialogueData.JulioMoods.INTENSE_HAPPY, true)
+do DialogueData.set_mood("Julio", DialogueData.JulioMoods.IDLE_HAPPY, true)
 do DialogueData.set_mood("Lucio", DialogueData.LucioMoods.IDLE_HAPPY, true)
+do DialogueData.set_mood("Sanson", DialogueData.SansonMoods.IDLE_HAPPY, true)
 do DialogueData.set_mood("Hugo", DialogueData.HugoMoods.MISCHIVEOUS_SUPERHAPPY, true)
 ## set Sanson later!!
 * Estão todos apenas olhando para mim, como se fizessem parte de um segredo do qual eu estou de fora…*

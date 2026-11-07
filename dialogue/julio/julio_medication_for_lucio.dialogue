@@ -14,9 +14,9 @@ do DialogueData.set_mood("Julio", DialogueData.JulioMoods.IDLE_DEFAULT)
 Julio: “Ah… Francisco! Estava pensando se você-“
 Você: “Julio, você não entende o significado disso, não-“
 do DialogueData.set_mood("Julio", DialogueData.JulioMoods.IDLE_SAD)
-Julio: “Preciso da sua ajuda. Estou preocupado com o Lucio… ele deve estar com dor. Você poderia levar este remédio para ele, por favor?”
-do InventoryManager.add_new_item(CharacterData.Item.medication)
+Julio: “Preciso da sua ajuda. Estou preocupado com o Lucio… ele deve estar com dor. Você poderia levar este remédio que vou te dar para ele, por favor?”
 Você: “… tudo bem.”
+do InventoryManager.add_new_item(CharacterData.Item.medication)
 Julio: “Espero que ele se sinta melhor logo.”
 do CharacterData.Julio.give_task("medication_for_lucio")
 => END

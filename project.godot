@@ -40,8 +40,7 @@ GetEntity="*uid://1l1dumk31mwc"
 
 window/size/viewport_width=1920
 window/size/viewport_height=1080
-window/size/window_width_override=1440
-window/size/window_height_override=810
+window/size/mode=4
 window/stretch/mode="canvas_items"
 window/stretch/aspect="expand"
 
@@ -68,6 +67,7 @@ julio=""
 prior=""
 sanson_room_pos=""
 hugo_room_pos=""
+sun=""
 
 [gui]
 
@@ -220,7 +220,7 @@ astrolabus_pointer_right={
 
 [internationalization]
 
-locale/translations_pot_files=PackedStringArray("res://scenes/interface/interaction_overlay/interaction_overlay.gd", "res://dialogue/hugo/hugo_get_flower.dialogue", "res://dialogue/hugo/hugo_main.dialogue", "res://dialogue/julio/julio_main.dialogue", "res://dialogue/lucio/lucio_main.dialogue", "res://dialogue/sanson/sanson_get_astrolabus.dialogue", "res://dialogue/sanson/sanson_main.dialogue", "res://dialogue/tests/jhonny_bravo/jhonny_bravo.dialogue", "res://dialogue/julio/julio_medication_for_lucio.dialogue", "res://dialogue/lucio/lucio_medication_for_lucio.dialogue", "res://dialogue/hugo/hugo_tumor_puzzle.dialogue", "res://dialogue/confessor/confessor_main.dialogue", "res://dialogue/cutscene/initial_cutscene_main.dialogue", "res://dialogue/julio/julio_get_inkwell.dialogue", "res://dialogue/confessor/confessor_ausent.dialogue")
+locale/translations_pot_files=PackedStringArray("res://scenes/interface/interaction_overlay/interaction_overlay.gd", "res://dialogue/hugo/hugo_get_flower.dialogue", "res://dialogue/hugo/hugo_main.dialogue", "res://dialogue/julio/julio_main.dialogue", "res://dialogue/lucio/lucio_main.dialogue", "res://dialogue/sanson/sanson_get_astrolabus.dialogue", "res://dialogue/sanson/sanson_main.dialogue", "res://dialogue/tests/jhonny_bravo/jhonny_bravo.dialogue", "res://dialogue/julio/julio_medication_for_lucio.dialogue", "res://dialogue/lucio/lucio_medication_for_lucio.dialogue", "res://dialogue/hugo/hugo_tumor_puzzle.dialogue", "res://dialogue/confessor/confessor_main.dialogue", "res://dialogue/cutscene/initial_cutscene_main.dialogue", "res://dialogue/julio/julio_get_inkwell.dialogue", "res://dialogue/confessor/confessor_ausent.dialogue", "res://dialogue/sanson/sanson_fix_astrolabus.dialogue")
 
 [layer_names]
 
