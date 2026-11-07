@@ -16,20 +16,23 @@
 [ext_resource type="PackedScene" uid="uid://cgxxromd5ia45" path="res://scenes/puzzles/astrolabus/astrolablus_puzzle.tscn" id="14_m114p"]
 [ext_resource type="PackedScene" uid="uid://dhb4ubn1lv1kq" path="res://examples/interaction_examples/item_giver/key_giver_ball.tscn" id="14_umvgx"]
 [ext_resource type="PackedScene" uid="uid://dwmg7dr5nvosc" path="res://scenes/objects/church_bell/church_bell.tscn" id="15_mxkvs"]
+[ext_resource type="PackedScene" uid="uid://cb05nxhycwjbf" path="res://scenes/objects/item/item_in_world.tscn" id="17_bt7bg"]
+[ext_resource type="PackedScene" uid="uid://dvqw4lptsejty" path="res://assets/3d/items/astrolabus/astrolabus_body.glb" id="18_wbwoo"]
+[ext_resource type="Material" uid="uid://dki8i4qf7fofd" path="res://resources/shader_materials/outline_shader_material_3d.tres" id="19_tytul"]
+[ext_resource type="PackedScene" uid="uid://dv6muq7ftqubi" path="res://assets/3d/items/astrolabus/astrolabus_pointer.glb" id="19_wbwoo"]
+[ext_resource type="Resource" uid="uid://8dvrkoxmyyx4" path="res://items/intertwined_puzzle/astrolabus_pointer.tres" id="20_t634p"]
 
-[sub_resource type="Sky" id="Sky_srmg5"]
+[sub_resource type="Sky" id="Sky_m114p"]
 sky_material = ExtResource("2_mxkvs")
 
-[sub_resource type="Environment" id="Environment_71ii3"]
+[sub_resource type="Environment" id="Environment_t634p"]
 background_mode = 2
 background_color = Color(0.43529412, 0.22352941, 0.09019608, 1)
 background_energy_multiplier = 0.7
-sky = SubResource("Sky_srmg5")
+sky = SubResource("Sky_m114p")
 tonemap_mode = 4
 glow_enabled = true
 glow_bloom = 0.44
-volumetric_fog_enabled = true
-volumetric_fog_density = 0.0
 
 [sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_5604n"]
 
@@ -39,15 +42,15 @@ size = Vector2(500, 500)
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_u1gsd"]
 albedo_color = Color(0.66, 0.52536005, 0.4224, 1)
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_71ii3"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_t634p"]
 viewport_path = NodePath("SubViewportSprite")
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_bt7bg"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_6hctx"]
 viewport_path = NodePath("SubViewportSprite")
 
 [node name="TestWorld" type="Node3D" unique_id=1370714841]
 
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=593969480 node_paths=PackedStringArray("worldEnvironment", "nightLight") groups=["sun"]]
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1845690643 node_paths=PackedStringArray("worldEnvironment", "nightLight") groups=["sun"]]
 transform = Transform3D(-0.8660254, -0.43301278, 0.25, 0, 0.49999997, 0.86602545, -0.50000006, 0.75, -0.43301266, 0, 0, 0)
 shadow_enabled = true
 directional_shadow_mode = 1
@@ -60,24 +63,26 @@ speedMultiplier = 0.0
 dayLengthHours = 5
 sunriseHour = 0
 sunsetHour = 5
+top_color = Color(1, 0.843, 0.549, 1)
+bottom_color = Color(1, 0.627, 0.302, 1)
 sunriseColor = Color(0.41, 0.27524665, 0.1312, 1)
 dayColor = Color(0.63, 0.50862, 0.41579998, 1)
 sunsetColor = Color(0.42, 0.17653999, 0.10919999, 1)
 nightColor = Color(0.05, 0.06500002, 0.2, 1)
 
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="DirectionalLight3D" unique_id=437149957]
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="DirectionalLight3D" unique_id=1507991689]
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 0, 0)
 light_energy = 0.0
 directional_shadow_mode = 1
 
-[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=312656508]
-environment = SubResource("Environment_71ii3")
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1029648191]
+environment = SubResource("Environment_t634p")
 
 [node name="GameUiOverlay" parent="." unique_id=472711346 instance=ExtResource("6_tytul")]
 
 [node name="Camera3D" type="Camera3D" parent="." unique_id=1834340419]
 physics_interpolation_mode = 1
-transform = Transform3D(-1, 0, 0, 0, 0.9870881, 0.16017866, 0, 0.16017866, -0.9870881, 32.898373, 4.3787794, -15.426433)
+transform = Transform3D(-1, 0, 0, 0, 0.987088, 0.16017865, 0, 0.16017865, -0.9870881, 32.898373, 4.3787794, -15.426433)
 top_level = true
 cull_mask = 1048063
 
@@ -232,9 +237,10 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 63.51454, 1.0062575, 3.502448
 
 [node name="Sanson" parent="Characters" unique_id=1975172536 instance=ExtResource("9_dlabj")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 78.78419, 0.9976957, -5.94999)
+is_chatting = true
 
 [node name="Sprite3D" parent="Characters/Sanson" index="0" unique_id=415751236]
-texture = SubResource("ViewportTexture_71ii3")
+texture = SubResource("ViewportTexture_t634p")
 
 [node name="Prior" parent="Characters" unique_id=1738876710 instance=ExtResource("13_mxkvs")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 50.518864, 6.3510294, 0.53256416)
@@ -246,7 +252,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 74.157394, 1.0101616, -6.7411
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 21.046339, 1.6670088, -3.19987)
 
 [node name="Sprite3D" parent="ConfessionalBooth/Confessor" parent_id_path=PackedInt32Array(321162436, 1758948578) index="0" unique_id=415751236]
-texture = SubResource("ViewportTexture_bt7bg")
+texture = SubResource("ViewportTexture_6hctx")
 
 [node name="TestKeyGiverBall" parent="." unique_id=471407858 instance=ExtResource("14_umvgx")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 30.922817, 1.8428121, 0)
@@ -260,7 +266,40 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 51.954063, 1.006, -6.383174)
 [node name="SansonRoomPosition" type="Node3D" parent="." unique_id=1188660050 groups=["sanson_room_pos"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 75.828415, 1.006, -6.383174)
 
+[node name="Items" type="Node3D" parent="." unique_id=1366467441]
+
+[node name="AstrolabusBody" parent="Items" unique_id=1067992399 instance=ExtResource("17_bt7bg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 40.742638, 1.6569824, 19.055292)
+
+[node name="InteractionArea" parent="Items/AstrolabusBody" index="0" unique_id=834874890 node_paths=PackedStringArray("mesh")]
+mesh = NodePath("../astrolabus_body/MainFrame")
+
+[node name="astrolabus_body" parent="Items/AstrolabusBody" unique_id=1927840522 instance=ExtResource("18_wbwoo")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.023144484, 0)
+
+[node name="MainFrame" parent="Items/AstrolabusBody/astrolabus_body" index="1" unique_id=1366137940]
+material_overlay = ExtResource("19_tytul")
+instance_shader_parameters/size = 1.12999999709424
+
+[node name="AstrolabusPointer" parent="." unique_id=232292779 instance=ExtResource("17_bt7bg")]
+transform = Transform3D(0.5487381, 0, 0.8359943, 0, 1, 0, -0.8359943, 0, 0.5487381, 82.57156, 1.7054374, 11.0183935)
+item = ExtResource("20_t634p")
+
+[node name="InteractionArea" parent="AstrolabusPointer" index="0" unique_id=834874890 node_paths=PackedStringArray("mesh")]
+mesh = NodePath("../astrolabus_pointer/PointerTex")
+
+[node name="astrolabus_pointer" parent="AstrolabusPointer" unique_id=224618642 instance=ExtResource("19_wbwoo")]
+
+[node name="PointerTex" parent="AstrolabusPointer/astrolabus_pointer" index="0" unique_id=270399608]
+material_overlay = ExtResource("19_tytul")
+instance_shader_parameters/outline_enabled = true
+instance_shader_parameters/size = 1.22999999485904
+
 [editable path="Characters/Sanson"]
 [editable path="ConfessionalBooth"]
 [editable path="ConfessionalBooth/confessional"]
 [editable path="ConfessionalBooth/Confessor"]
+[editable path="Items/AstrolabusBody"]
+[editable path="Items/AstrolabusBody/astrolabus_body"]
+[editable path="AstrolabusPointer"]
+[editable path="AstrolabusPointer/astrolabus_pointer"]

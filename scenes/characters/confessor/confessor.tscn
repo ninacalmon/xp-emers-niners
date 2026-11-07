@@ -56,7 +56,7 @@ mesh = SubResource("CapsuleMesh_cdpwx")
 [node name="CharacterSpriteHandler" type="Node" parent="." unique_id=961269039 node_paths=PackedStringArray("animated_sprite", "dialogue_action")]
 script = ExtResource("4_bhsrc")
 animated_sprite = NodePath("../SubViewportSprite/AnimatedSprite2D")
-dialogue_action = NodePath("..")
+dialogue_action = NodePath("")
 
 [node name="SubViewportSprite" type="SubViewport" parent="." unique_id=1177182945]
 transparent_bg = true

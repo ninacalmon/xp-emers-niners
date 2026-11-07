@@ -45,7 +45,7 @@ func _ready() -> void:
 	DialogueManager.dialogue_ended.connect(func(_res): is_dialogue_locked = false)
 	FocusPlayground.focus.connect(func(_bool: bool): is_focus_locked = _bool)
 	PuzzleManager.puzzle_started.connect(func(lock_player: bool): is_puzzle_locked = lock_player)
-	PuzzleManager.puzzle_ended.connect(func(): is_puzzle_locked = false)
+	PuzzleManager.puzzle_ended.connect(func(_p): is_puzzle_locked = false)
 
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 

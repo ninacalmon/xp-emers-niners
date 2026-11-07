@@ -2,34 +2,41 @@
 
 [ext_resource type="FontFile" uid="uid://m4150rl53s6t" path="res://assets/fonts/UncialAntiqua-Regular.ttf" id="1_1srod"]
 [ext_resource type="Script" uid="uid://deq1v5upcwhi3" path="res://scenes/interface/main_menu/button_start.gd" id="1_65o3d"]
-[ext_resource type="Texture2D" uid="uid://bdn5jqrfwx86u" path="res://assets/2d/interface/menu/menu_background.png" id="1_xuvgo"]
+[ext_resource type="Texture2D" uid="uid://c6oj10c8mcji1" path="res://assets/2d/interface/menu/menu_new/background_menu_rabisco.png" id="1_ljqjx"]
 [ext_resource type="Script" uid="uid://cbsj7w520xsyl" path="res://scenes/interface/main_menu/button_language.gd" id="2_pvcxm"]
-[ext_resource type="Texture2D" uid="uid://duojguourflos" path="res://assets/2d/interface/buttons/button_transparent.png" id="3_ljqjx"]
+[ext_resource type="FontFile" uid="uid://bg4xruak10ftr" path="res://assets/fonts/grenze/Grenze-ExtraBold.ttf" id="3_8anu6"]
 [ext_resource type="Script" uid="uid://8tar21xrjawd" path="res://scenes/interface/main_menu/button_exit.gd" id="3_tpyxh"]
+[ext_resource type="Texture2D" uid="uid://b7oa1f2db2bgr" path="res://assets/2d/interface/menu/menu_new/button_menu_rabisco.png" id="4_j8k4c"]
 [ext_resource type="PackedScene" uid="uid://cdgtb0r0au0fw" path="res://scenes/interface/language_select/language_select.tscn" id="4_tpyxh"]
 [ext_resource type="Script" uid="uid://bs3461cyhqoac" path="res://scenes/interface/main_menu/sun.gd" id="5_5etk7"]
-[ext_resource type="Texture2D" uid="uid://bnfixjknskanv" path="res://assets/2d/interface/menu/sun_parts/sun_sclera_hr.png" id="8_ljqjx"]
-[ext_resource type="Texture2D" uid="uid://coghw2nqbqevv" path="res://assets/2d/interface/menu/sun_parts/sunrays_hr.png" id="9_8anu6"]
-[ext_resource type="Texture2D" uid="uid://bi4rswklahvy4" path="res://assets/2d/interface/menu/sun_parts/sun_iris_hr.png" id="10_j8k4c"]
-[ext_resource type="Texture2D" uid="uid://c2bhojq1ifoxy" path="res://assets/2d/interface/menu/sun_parts/sun_face_open_hr.png" id="11_rhmmx"]
-[ext_resource type="Texture2D" uid="uid://poba60i7pi" path="res://assets/2d/interface/menu/sun_parts/sun_face_closing_hr.png" id="12_7tn5r"]
-[ext_resource type="Texture2D" uid="uid://nstfyogtrlg5" path="res://assets/2d/interface/menu/sun_parts/sun_face_closed_hr.png" id="13_qdaa3"]
-[ext_resource type="Texture2D" uid="uid://d8gy12n5nk57" path="res://assets/2d/interface/menu/frame_menu.png" id="15_ljqjx"]
+[ext_resource type="Texture2D" uid="uid://tm40cklb2w66" path="res://assets/2d/interface/menu/menu_new/sun/menu_sol_esclera_rabisco.png" id="9_rhmmx"]
+[ext_resource type="Texture2D" uid="uid://b7qdsvw7fs50x" path="res://assets/2d/interface/menu/menu_new/sun/menu_sol_raios_rabisco.png" id="10_7tn5r"]
+[ext_resource type="Texture2D" uid="uid://dccy2bhujmlj4" path="res://assets/2d/interface/menu/menu_new/sun/menu_sol_iris_rabisco.png" id="11_qdaa3"]
+[ext_resource type="Texture2D" uid="uid://dby78ac0shokd" path="res://assets/2d/interface/menu/menu_new/sun/menu_sol_aberto_rabisco.png" id="12_fdc5b"]
+[ext_resource type="Texture2D" uid="uid://qx8g0fjbwy2v" path="res://assets/2d/interface/menu/menu_new/sun/menu_sol_fechando_rabisco.png" id="13_xm64a"]
+[ext_resource type="Texture2D" uid="uid://dyty7e2lqqub8" path="res://assets/2d/interface/menu/menu_new/sun/menu_sol_fechado_rabisco.png" id="14_24hju"]
+[ext_resource type="Texture2D" uid="uid://lpvjnv1i27ak" path="res://assets/2d/interface/menu/menu_new/frame_menu_rabisco.png" id="15_yn6hw"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_v6vhv"]
-texture = ExtResource("3_ljqjx")
+texture = ExtResource("4_j8k4c")
+texture_margin_left = 25.0
+texture_margin_top = 25.0
+texture_margin_right = 25.0
+texture_margin_bottom = 25.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ljqjx"]
+texture = ExtResource("4_j8k4c")
+texture_margin_left = 25.0
+texture_margin_top = 25.0
+texture_margin_right = 25.0
+texture_margin_bottom = 25.0
+modulate_color = Color(18.892157, 8.969594, 3.6266747, 1)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_cdpwx"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("11_rhmmx")
-}, {
-"duration": 1.0,
-"texture": ExtResource("12_7tn5r")
-}, {
-"duration": 1.0,
-"texture": ExtResource("13_qdaa3")
+"texture": ExtResource("14_24hju")
 }],
 "loop": 0,
 "name": &"close_eyes",
@@ -37,19 +44,30 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("12_7tn5r")
+"texture": ExtResource("13_xm64a")
 }],
-"loop": 1,
+"loop": 0,
 "name": &"closing_eyes",
-"speed": 5.0
+"speed": 4.0
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("11_rhmmx")
+"texture": ExtResource("12_fdc5b")
 }],
 "loop": 1,
 "name": &"idle",
 "speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("13_xm64a")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_fdc5b")
+}],
+"loop": 0,
+"name": &"opening",
+"speed": 4.0
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_cdpwx"]
@@ -72,14 +90,15 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
-texture = ExtResource("1_xuvgo")
+texture = ExtResource("1_ljqjx")
 
 [node name="NameLabel" type="RichTextLabel" parent="." unique_id=1033469605]
 layout_mode = 0
-offset_left = 51.0
-offset_top = 41.0
-offset_right = 1837.0
-offset_bottom = 329.0
+offset_left = 89.0
+offset_top = 67.0
+offset_right = 1875.0
+offset_bottom = 355.0
+theme_override_colors/default_color = Color(0.043137256, 0.03529412, 0.019607844, 1)
 theme_override_fonts/normal_font = ExtResource("1_1srod")
 theme_override_font_sizes/normal_font_size = 190
 text = "SUNSURGENCE"
@@ -91,19 +110,37 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -714.0
-offset_top = -172.5
-offset_right = -480.0
-offset_bottom = 172.5
+offset_left = -791.0
+offset_top = -204.0
+offset_right = -323.0
+offset_bottom = 163.5
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/separation = 24
 
 [node name="ButtonStart" type="Button" parent="VBoxButtons" unique_id=844787894]
 layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_8anu6")
+theme_override_font_sizes/font_size = 54
 theme_override_styles/normal = SubResource("StyleBoxTexture_v6vhv")
-text = "INICIAR"
+theme_override_styles/hover = SubResource("StyleBoxTexture_ljqjx")
+text = "Iniciar"
 script = ExtResource("1_65o3d")
+
+[node name="ButtonExit" type="Button" parent="VBoxButtons" unique_id=1215672585]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_8anu6")
+theme_override_font_sizes/font_size = 54
+theme_override_styles/normal = SubResource("StyleBoxTexture_v6vhv")
+theme_override_styles/hover = SubResource("StyleBoxTexture_ljqjx")
+text = "Sair"
+script = ExtResource("3_tpyxh")
 
 [node name="ButtonLanguage" type="Button" parent="VBoxButtons" unique_id=1391714175 node_paths=PackedStringArray("language_select")]
 visible = false
@@ -112,13 +149,6 @@ theme_override_styles/normal = SubResource("StyleBoxTexture_v6vhv")
 text = "INICIAR"
 script = ExtResource("2_pvcxm")
 language_select = NodePath("../../LanguageSelect")
-
-[node name="ButtonExit" type="Button" parent="VBoxButtons" unique_id=1702131834]
-visible = false
-layout_mode = 2
-theme_override_styles/normal = SubResource("StyleBoxTexture_v6vhv")
-text = "INICIAR"
-script = ExtResource("3_tpyxh")
 
 [node name="LanguageSelect" parent="." unique_id=1767081159 instance=ExtResource("4_tpyxh")]
 visible = false
@@ -144,63 +174,42 @@ mouse_filter = 2
 script = ExtResource("5_5etk7")
 
 [node name="SunSclera" type="Sprite2D" parent="Sun" unique_id=942038139]
-position = Vector2(1390, 988.99994)
-scale = Vector2(0.485, 0.485)
-texture = ExtResource("8_ljqjx")
+position = Vector2(1479, 771)
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("9_rhmmx")
 
 [node name="SunRaysPivot" type="Node2D" parent="Sun" unique_id=356201941]
-position = Vector2(1378.605, 1092.4525)
+position = Vector2(1477, 840)
 
 [node name="SunRays" type="Sprite2D" parent="Sun/SunRaysPivot" unique_id=938323830]
-scale = Vector2(0.485, 0.485)
-texture = ExtResource("9_8anu6")
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("10_7tn5r")
 
 [node name="SunIrisPivot" type="Node2D" parent="Sun" unique_id=913951388]
-position = Vector2(1143, 985)
+position = Vector2(1480, 749)
 
 [node name="SunIris" type="Sprite2D" parent="Sun/SunIrisPivot" unique_id=1348417804]
-position = Vector2(262.00006, 12.9999695)
-scale = Vector2(0.485, 0.485)
-texture = ExtResource("10_j8k4c")
+position = Vector2(-4.9999237, 25.999971)
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("11_qdaa3")
 
 [node name="SunFace" type="AnimatedSprite2D" parent="Sun" unique_id=1534516574]
-position = Vector2(1378.605, 1092.4525)
-scale = Vector2(0.485, 0.485)
+position = Vector2(1477, 840)
+scale = Vector2(0.4, 0.4)
 sprite_frames = SubResource("SpriteFrames_cdpwx")
-animation = &"idle"
+animation = &"close_eyes"
+autoplay = "idle"
 
 [node name="EyesArea" type="Area2D" parent="Sun" unique_id=2080935386]
-position = Vector2(1379, 985)
+position = Vector2(1450, 755)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Sun/EyesArea" unique_id=1286449411]
 position = Vector2(0, -26.5)
 shape = SubResource("RectangleShape2D_cdpwx")
-
-[node name="CloseGameLabel" type="RichTextLabel" parent="Sun" unique_id=617020036]
-layout_mode = 1
-anchors_preset = 3
-anchor_left = 1.0
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = -645.0
-offset_top = -258.0
-offset_right = -418.0
-offset_bottom = -207.0
-grow_horizontal = 0
-grow_vertical = 0
-theme_override_colors/default_color = Color(0.55, 0.027500007, 0, 1)
-theme_override_font_sizes/normal_font_size = 52
-bbcode_enabled = true
-text = "[b]FECHAR JOGO?"
-fit_content = true
-scroll_active = false
-autowrap_mode = 1
-horizontal_alignment = 1
 
 [node name="FrameTextureRect" type="TextureRect" parent="." unique_id=1329343873]
 layout_mode = 0
 offset_right = 40.0
 offset_bottom = 40.0
 mouse_filter = 2
-texture = ExtResource("15_ljqjx")
+texture = ExtResource("15_yn6hw")

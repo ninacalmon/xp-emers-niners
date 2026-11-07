@@ -1,4 +1,6 @@
 import "uid://bu7gl6we2o75c" as get_astrolabus
+import "uid://ony2o4n8ig0a" as fix_astrolabus
+
 
 ~ start
 if CharacterData.Julio.get_status("medication_for_lucio") == 1:
@@ -7,6 +9,8 @@ if CharacterData.Julio.get_status("medication_for_lucio") == 1:
 elif CharacterData.Hugo.get_status("get_flower") == 0:
 	Sanson: “Perdão, estou ocupado no momento.”
 	=> END!
+elif CharacterData.Sanson.get_status("fix_astrolabus") != 0:
+	=> fix_astrolabus/start
 elif CharacterData.Hugo.get_status("get_flower") == 1:
 	=> get_astrolabus/start
 => END

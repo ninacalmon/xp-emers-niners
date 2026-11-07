@@ -9,15 +9,13 @@ extends Control
 @onready var sun_iris_pivot: Node2D = $SunIrisPivot
 @onready var sun_face: AnimatedSprite2D = $SunFace
 @onready var eyes_area: Area2D = $EyesArea
-@onready var close_game_label: RichTextLabel = $CloseGameLabel
 
 var iris_origin: Vector2 = Vector2.ZERO
 var is_hovering_eyes: bool = false
-var is_closing_game: bool = false
+#var is_closing_game: bool = false
 
 
 func _ready() -> void:
-	close_game_label.hide()
 	iris_origin = sun_iris_pivot.position
 	sun_face.play(idle_animation)
 	eyes_area.mouse_entered.connect(_on_eyes_mouse_entered)
@@ -58,29 +56,26 @@ func follow_mouse_iris(delta: float) -> void:
 
 
 func close_eyes_mouse() -> void:
-	if is_closing_game:
-		return
-	is_closing_game = true
+	#if is_closing_game:
+		#return
+	#is_closing_game = true
 	sun_face.play(&"close_eyes")
-	await get_tree().create_timer(1).timeout
-	get_tree().quit()
+	#await get_tree().create_timer(1).timeout
+	#get_tree().quit()
 
 
 func _on_eyes_mouse_entered() -> void:
-	print("neee")
-	if is_closing_game:
-		return
+	#if is_closing_game:
+		#return
 	is_hovering_eyes = true
-	close_game_label.show()
-	#sun_face.play(&"closing_eyes")
+	sun_face.play(&"closing_eyes")
 
 
 func _on_eyes_mouse_exited() -> void:
-	if is_closing_game:
-		return
+	#if is_closing_game:
+		#return
 	is_hovering_eyes = false
-	sun_face.play(idle_animation)
-	close_game_label.hide()
+	sun_face.play("opening")
 
 
 func _on_eyes_input_event(_viewport: Node, event: InputEvent, _shape_idx: int) -> void:

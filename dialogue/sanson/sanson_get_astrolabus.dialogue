@@ -1,3 +1,5 @@
+import "uid://ony2o4n8ig0a" as fix_astrolabus
+
 ~ start
 match CharacterData.Sanson.get_status("get_astrolabus"):
 	when 0:
@@ -14,7 +16,6 @@ Você: “Eu precisava te pedir um favor… gostaria de saber se pode me-“
 Sanson: “Ah, sim! Falando em favor... já que o assunto ainda está fresco na minha mente... eu gostaria de lhe pedir algo, já que você está aqui.”
 do DialogueData.set_mood("Sanson", DialogueData.SansonMoods.IDLE_SAD)
 Sanson: “Meu [b]astrolábio[/b] sumiu, eu o perdi.”
-do CharacterData.Sanson.give_task("get_astrolabus")
 Você: “O disco circular dourado que você segura, isso?”
 do DialogueData.set_mood("Sanson", DialogueData.SansonMoods.IDLE_DEFAULT)
 Sanson: “Sim, de fato. Estou [i]prestes[/i] a concluir minha pesquisa! Preciso disso de volta imediatamente, o tempo é um fator crucial.”
@@ -29,7 +30,7 @@ Sanson: “Exatamente. É isto mesmo. Eu estava lá fora e me lembro de que esta
 Você: “... ta certo. Vou procurar ele.”
 do DialogueData.set_mood("Sanson", DialogueData.SansonMoods.IDLE_HAPPY)
 Sanson: “Muito obrigado!”
-do TaskManager.give_task(CharacterData.Sanson.give_task("get_astrolabus"))
+do CharacterData.Sanson.give_task("get_astrolabus")
 => END
 
 ~ waiting_completion
@@ -60,11 +61,4 @@ do CharacterData.Sanson.complete_task("get_astrolabus")
 do DialogueData.set_mood("Sanson", DialogueData.SansonMoods.HAND_HAPPY)
 Sanson: “Obrigado! Mas…”
 do DialogueData.set_mood("Sanson", DialogueData.SansonMoods.HAND_DEFAULT)
-Sanson: “Francisco. Tenho mais uma pequena coisa a lhe pedir.”
-Sanson: “Gostaria que você pegasse o astrolábio e o alinhasse com o Sol.”
-Você: “Ah. Claro. Como eu faço isso?”
-Sanson: “Aqui, dê uma olhada. [b]Ao meio-dia, marca 30 graus; à meia-noite, 210 graus.[/b]”
-do TaskManager.give_task(CharacterData.Sanson.give_task("fix_astrolabus"))
-do PuzzleManager.puzzle_scripts[PuzzleManager.Puzzles.ASTROLABUS_PUZZLE].enable_interaction()
-#do InventoryManager.add_new_item(CharacterData.Item.flower)
-=> END
+=> fix_astrolabus/start

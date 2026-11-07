@@ -24,11 +24,15 @@ transform = Transform3D(0.015, 0, 0, 0, 0.015, 0, 0, 0, 0.015, 0, -6.4121304, 0)
 [node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="." unique_id=775314752]
 stream = SubResource("AudioStreamRandomizer_uax26")
 volume_db = 80.0
+unit_size = 3.0
 pitch_scale = 0.7
+max_distance = 150.0
 bus = &"Sound Effects / HighEcho"
 
 [node name="AudioStreamPlayer3D2" type="AudioStreamPlayer3D" parent="." unique_id=860868632]
 stream = SubResource("AudioStreamRandomizer_uax26")
 volume_db = 80.0
+unit_size = 3.0
 pitch_scale = 0.7
+max_distance = 150.0
 bus = &"Sound Effects / HighEcho"

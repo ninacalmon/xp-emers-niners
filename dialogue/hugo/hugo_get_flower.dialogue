@@ -41,7 +41,7 @@ Hugo: “Muito bem! Imagine o seguinte, você precisa escolher um... presente, p
 ~ waiting_completion
 do DialogueData.set_mood("Hugo", DialogueData.HugoMoods.OPENARMS_DEFAULT)
 Hugo: “Ah, você já trouxe a flor? Não? Bem, que a sorte do sol esteja com você.”
-- “Na verdadem aqui está!” > Entregar flor < [if InventoryManager.selected_item == CharacterData.Item.flower /] => complete_task
+- “Na verdade aqui está!” > Entregar flor < [if InventoryManager.selected_item == CharacterData.Item.flower /] => complete_task
 - -Finalizar diálogo- => END!
 => END
 
