@@ -11,6 +11,7 @@ const MOODS_BY_CHARACTER: Dictionary = {
 	"Julio": JulioMoods,
 	"Lucio": LucioMoods,
 	"Hugo": HugoMoods,
+	"Sanson" : SansonMoods,
 	"Confessor" : ConfessorMoods,
 }
 
@@ -76,7 +77,23 @@ enum HugoMoods {
 }
 
 
-enum SansonMoods {}
+enum SansonMoods {
+	CRAZY_DEFAULT,
+	CRAZY_HAPPY,
+	HAND_ANGRY,
+	HAND_DEFAULT,
+	HAND_HAPPY,
+	HAND_SAD,
+	IDLE_ANGRY,
+	IDLE_DEFAULT,
+	IDLE_HAPPY,
+	IDLE_SAD,
+	POSING_ANGRY,
+	POSING_HAPPY,
+	POSING_HAPPYSAD,
+	POSING_POUT,
+	POSING_SAD,
+}
 
 
 enum ConfessorMoods {
@@ -101,7 +118,9 @@ func player_in_booth(_player: Player):
 	_player.head.rotation.x = deg_to_rad(-2)
 	_player.head.rotation.y = deg_to_rad(180)
 
-
+func astrolabus_in_desk():
+	#_astrolab_desk = GetEntity.
+	pass
 
 
 ## ================== ADDING MOODS/ANIMATIONS ===================

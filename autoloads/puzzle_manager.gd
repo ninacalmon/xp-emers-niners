@@ -19,6 +19,7 @@ func _ready() -> void:
 			puzzle_scripts[Puzzles.ASTROLABUS_PUZZLE] = p
 			print("astrolab got")
 
+
 func add_puzzle_to_scene(puzzle: Puzzle) -> void:
 	get_tree().current_scene.add_child(puzzle)
 #func start_puzzle(puzzle: Puzzles):

@@ -66,6 +66,8 @@ sanson=""
 confessing_pos=""
 julio=""
 prior=""
+sanson_room_pos=""
+hugo_room_pos=""
 
 [gui]
 

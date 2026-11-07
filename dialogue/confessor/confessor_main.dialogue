@@ -1,5 +1,4 @@
 ~ start
-do InventoryManager.add_new_item(CharacterData.Item.rotten_meat)
 if InventoryManager.selected_item == CharacterData.Item.rotten_meat:
 	=> meat
 do locals.confessed = false

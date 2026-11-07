@@ -60,7 +60,7 @@ func _ready() -> void:
 func _on_dialog_got(line: DialogueLine):
 	if line.character != str(character_name):
 		return
-	next_dialogue.emit()
+	next_dialogue.emit(line)
 
 
 func _on_dialogue_started(resource: DialogueResource):
@@ -91,6 +91,7 @@ func start_chatting() -> void:
 func stop_chatting() -> void:
 	is_chatting = false
 	_resume_chatting = false
+	dialogue_ended.emit()
 
 
 func pause_chatting() -> void:

@@ -5,15 +5,25 @@ import "uid://dt4dpnkm6fpxo" as tumor_puzzle
 if CharacterData.Julio.get_status("medication_for_lucio") == 1:
 	Sanson: “Estou ocupado agora.”
 	=> END!
+elif CharacterData.Julio.get_status("get_inkwell") == 1:
+	if CharacterData.Hugo.asked_lucio_inkwell == false:
+		Você: “Hugo, por acaso você tem um tinteiro?”
+		do DialogueData.set_mood("Hugo", DialogueData.HugoMoods.MISCHIVEOUS_WINK)
+		Hugo: “Talvez sim… talvez não. Procure em outro lugar.”
+		=> END
+	else:
+		=> get_flower/start
+	
 
-if CharacterData.Hugo.get_status("find_correct_tumors") == 0:
-	=> tumor_puzzle/start
-elif CharacterData.Hugo.get_status("find_correct_tumors") == 1:
-	=> tumor_puzzle/try_again
-elif CharacterData.Hugo.get_status("find_correct_tumors") == 2:
-	Hugo: Valeu! Parabéns!
-	=> END!
 
-if CharacterData.Julio.get_status("get_poison") == 1:
-	=> get_flower/start
-=> END
+#if CharacterData.Hugo.get_status("find_correct_tumors") == 0:
+#	=> tumor_puzzle/start
+#elif CharacterData.Hugo.get_status("find_correct_tumors") == 1:
+#	=> tumor_puzzle/try_again
+#elif CharacterData.Hugo.get_status("find_correct_tumors") == 2:
+#	Hugo: Valeu! Parabéns!
+#	=> END!
+#
+#if CharacterData.Julio.get_status("get_poison") == 1:
+#	=> get_flower/start
+#=> END

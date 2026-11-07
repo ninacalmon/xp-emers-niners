@@ -7,8 +7,13 @@ var hugo: Node3D = null
 var sanson: Node3D = null
 var confessor: Node3D = null
 var prior: Node3D = null
+
+var astrolabus_desk: Node3D = null
+
 var confessor_booth: Node3D = null
 var confessing_pos: Node3D = null
+var hugo_room_pos: Node3D = null
+var sanson_room_pos: Node3D = null
 
 
 func get_player() -> Player:
@@ -57,6 +62,21 @@ func get_confessor_booth() -> Node3D:
 func get_confessing_pos() -> Node3D:
 	confessing_pos = _find_cached(confessing_pos, &"confessing_pos")
 	return confessing_pos
+
+
+func get_hugo_room_pos() -> Node3D:
+	hugo_room_pos = _find_cached(hugo_room_pos, &"hugo_room_pos")
+	return hugo_room_pos
+
+
+func get_sanson_room_pos() -> Node3D:
+	sanson_room_pos = _find_cached(sanson_room_pos, &"sanson_room_pos")
+	return sanson_room_pos
+
+
+func get_astrolabus_desk() -> Node3D:
+	astrolabus_desk = _find_cached(astrolabus_desk, &"astrolabus_desk")
+	return astrolabus_desk
 
 
 func _find_cached(cached: Node3D, group_name: StringName) -> Node3D:

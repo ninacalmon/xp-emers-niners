@@ -10,6 +10,10 @@ match CharacterData.Julio.get_status("get_inkwell"):
 => END
 
 ~ give_task
+do GetEntity.put_entity_at(GetEntity.get_hugo(), GetEntity.get_hugo_room_pos().global_position)
+do GetEntity.put_entity_at(GetEntity.get_sanson(), GetEntity.get_sanson_room_pos().global_position)
+do GetEntity.get_hugo().stop_chatting()
+do GetEntity.get_sanson().stop_chatting()
 do DialogueData.set_mood("Julio", DialogueData.JulioMoods.IDLE_DEFAULT)
 Julio: “Ah… espere. Francisco… preciso da sua ajuda com algo mais.”
 do DialogueData.set_mood("Julio", DialogueData.JulioMoods.SILLY_DEFAULT)

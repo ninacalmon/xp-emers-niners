@@ -1,10 +1,14 @@
 import "uid://bjj8v02n0vgan" as medication_for_lucio
 
 ~ start
-if CharacterData.Julio.lucio_received_medicine:
+if CharacterData.Julio.lucio_received_medicine and CharacterData.Julio.get_status("get_inkwell") == 0:
 	=> thanks
 elif CharacterData.Julio.get_status("medication_for_lucio") == 1:
 	=> medication_for_lucio/start
+elif CharacterData.Julio.get_status("get_inkwell") == 1:
+	do CharacterData.Hugo.asked_lucio_inkwell = true
+	Você: “Olá, Lucio. Por acaso você tem um tinteiro?”
+	Lucio: “O hugo passou por aqui apressado e o levou. Ele disse que estava ‘pegando emprestado por uma questão de extrema importância’.”
 else:
 	Lucio: Olá.
 => END

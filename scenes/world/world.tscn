@@ -13,6 +13,7 @@
 [ext_resource type="PackedScene" uid="uid://c0enf7fvm7uko" path="res://scenes/objects/doors/room_door.tscn" id="9_ues17"]
 [ext_resource type="PackedScene" uid="uid://bifi36nxacdg4" path="res://scenes/characters/prior/prior.tscn" id="13_mxkvs"]
 [ext_resource type="PackedScene" uid="uid://8o48qryyi7n0" path="res://scenes/objects/confessional_booth/confessional_booth.tscn" id="13_srmg5"]
+[ext_resource type="PackedScene" uid="uid://cgxxromd5ia45" path="res://scenes/puzzles/astrolabus/astrolablus_puzzle.tscn" id="14_m114p"]
 [ext_resource type="PackedScene" uid="uid://dhb4ubn1lv1kq" path="res://examples/interaction_examples/item_giver/key_giver_ball.tscn" id="14_umvgx"]
 [ext_resource type="PackedScene" uid="uid://dwmg7dr5nvosc" path="res://scenes/objects/church_bell/church_bell.tscn" id="15_mxkvs"]
 
@@ -38,10 +39,10 @@ size = Vector2(500, 500)
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_u1gsd"]
 albedo_color = Color(0.66, 0.52536005, 0.4224, 1)
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_m114p"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_71ii3"]
 viewport_path = NodePath("SubViewportSprite")
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_71ii3"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_bt7bg"]
 viewport_path = NodePath("SubViewportSprite")
 
 [node name="TestWorld" type="Node3D" unique_id=1370714841]
@@ -76,7 +77,7 @@ environment = SubResource("Environment_71ii3")
 
 [node name="Camera3D" type="Camera3D" parent="." unique_id=1834340419]
 physics_interpolation_mode = 1
-transform = Transform3D(-1, 0, 0, 0, 0.987088, 0.16017865, 0, 0.16017865, -0.9870881, 32.898373, 4.3787794, -15.426433)
+transform = Transform3D(-1, 0, 0, 0, 0.9870881, 0.16017866, 0, 0.16017866, -0.9870881, 32.898373, 4.3787794, -15.426433)
 top_level = true
 cull_mask = 1048063
 
@@ -233,25 +234,31 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 63.51454, 1.0062575, 3.502448
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 78.78419, 0.9976957, -5.94999)
 
 [node name="Sprite3D" parent="Characters/Sanson" index="0" unique_id=415751236]
-texture = SubResource("ViewportTexture_m114p")
-
-[node name="DialogueAction" parent="Characters/Sanson" index="4" unique_id=1494072435]
-is_chatting = true
+texture = SubResource("ViewportTexture_71ii3")
 
 [node name="Prior" parent="Characters" unique_id=1738876710 instance=ExtResource("13_mxkvs")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 50.518864, 6.3510294, 0.53256416)
+
+[node name="AstrolablusPuzzle" parent="Characters" unique_id=572576743 instance=ExtResource("14_m114p")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 74.157394, 1.0101616, -6.74111)
 
 [node name="ConfessionalBooth" parent="." unique_id=321162436 instance=ExtResource("13_srmg5")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 21.046339, 1.6670088, -3.19987)
 
 [node name="Sprite3D" parent="ConfessionalBooth/Confessor" parent_id_path=PackedInt32Array(321162436, 1758948578) index="0" unique_id=415751236]
-texture = SubResource("ViewportTexture_71ii3")
+texture = SubResource("ViewportTexture_bt7bg")
 
 [node name="TestKeyGiverBall" parent="." unique_id=471407858 instance=ExtResource("14_umvgx")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 30.922817, 1.8428121, 0)
 
 [node name="CharactherConfesingPosition" type="Node3D" parent="." unique_id=228115067 groups=["confessing_pos"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 21.404587, 1.5257708, -2.079492)
+
+[node name="HugoRoomPosition" type="Node3D" parent="." unique_id=1636040360 groups=["hugo_room_pos"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 51.954063, 1.006, -6.383174)
+
+[node name="SansonRoomPosition" type="Node3D" parent="." unique_id=1188660050 groups=["sanson_room_pos"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 75.828415, 1.006, -6.383174)
 
 [editable path="Characters/Sanson"]
 [editable path="ConfessionalBooth"]

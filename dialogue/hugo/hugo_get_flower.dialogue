@@ -1,29 +1,57 @@
 ~ start
 match CharacterData.Hugo.get_status("get_flower"):
 	when 0:
-		- Você tem um veneno...? => give_task
-		- -Finalizar diálogo- => END!
+		=> give_task
 	when 1:
 		=> waiting_completion
 => END
 
 ~ give_task
-Hugo: Na verdade sim!
-Hugo: Mas... Tudo tem um preço!
-Hugo: Quero uma flor em troca.
-do CharacterData.Hugo.give_task("get_flower")
+Você: “Ei, eu realmente preciso do tinteiro. É importante”
+do DialogueData.set_mood("Hugo", DialogueData.HugoMoods.OPENARMS_DEFAULT)
+Hugo: “Kehehe… Nosso caro futuro abade – e tão jovem, ainda por cima – vem me visitar por causa de um pouco de tinta. Para que exatamente você precisa dele? Estou com um prazo beem apertado no momento.”
+Você: “Por favor! Eu imploro.”
+do DialogueData.set_mood("Hugo", DialogueData.HugoMoods.OPENARMS_SURPRISED)
+Hugo: “Credo, é tão importante assim? Tudo bem. Mas gostaria de lhe pedir um favor em troca!” 
+Você: “O que seria?”
+do DialogueData.set_mood("Hugo", DialogueData.HugoMoods.MISCHIVEOUS_DEFAULT)
+Hugo: “…não sei.”
+Hugo: “Muito bem! Imagine o seguinte, você precisa escolher um... presente, por assim dizer, para algo ou alguém muito querido. O que você sente, lá no fundo, seria forte o suficiente para querer transmitir centenas, milhares de palavras profundas? Algo que esteja à altura disso…”
+- “Um pedaço de si mesmo, a mais pura forma de devoção.” [if true == false /]
+- “Uma flor...?”
+	do DialogueData.set_mood("Hugo", DialogueData.HugoMoods.OPENARMS_DEFAULT)
+	Hugo: “Ah, sim, uma clássica escolha poética… Pois bem. Diga-me onde você encontraria uma flor, quando a própria terra já não consegue mais sustentar nem sequer batatas!?”
+	Você: “...”
+	do DialogueData.set_mood("Hugo", DialogueData.HugoMoods.OPENARMS_WINK)
+	Hugo: “...Ah, é verdade… Sabia de uma coisa? [b]Sanson[/b] tem um pequeno… segredo que ele vem guardando.”
+	Hugo: “Ele tem uma flor, eu sei que tem. Sei que ele ainda a tem… Sim, seria perfeito. Mas…”
+	do DialogueData.set_mood("Hugo", DialogueData.HugoMoods.MISCHIVEOUS_HAPPY)
+	Hugo: “Sanson não abriria mão dela tão facilmente. Mas aposto que, com jeitinho, você a conseguiria para mim.”
+	Você: “Uma flor?”
+	do DialogueData.set_mood("Hugo", DialogueData.HugoMoods.MISCHIVEOUS_SUPERHAPPY)
+	Hugo: “Ah, não me olha desse jeito, foi você quem sugeriu isso! Além do mais, eu ficaria agradecido! E depois você vai sair daqui com o que precisa, prometo.”
+	Hugo: “Fechado?”
+	Você: “Tudo bem, mas você tem certeza que o Sanson ficaria bem com isso?”
+	do DialogueData.set_mood("Hugo", DialogueData.HugoMoods.IDLE_SURPRISED)
+	Hugo: “... você tem?”
+	Você: “Certo.”
+	do CharacterData.Hugo.give_task("get_flower")
 => END
 
 ~ waiting_completion
-Hugo: Conseguiu a flor?
-- Aqui está! -Entregar flor- [if InventoryManager.selected_item == CharacterData.Item.flower /] => complete_task
+do DialogueData.set_mood("Hugo", DialogueData.HugoMoods.OPENARMS_DEFAULT)
+Hugo: “Ah, você já trouxe a flor? Não? Bem, que a sorte do sol esteja com você.”
+- “Na verdadem aqui está!” > Entregar flor < [if InventoryManager.selected_item == CharacterData.Item.flower /] => complete_task
 - -Finalizar diálogo- => END!
 => END
 
 ~ complete_task
 do InventoryManager.use_item()
-Hugo: Oh! Muito obrigado.
-Hugo: Aqui está o veneno que queria.
+do DialogueData.set_mood("Hugo", DialogueData.HugoMoods.OPENARMS_SURPRISED)
+Hugo: “Não posso acreditar… você realmente conseguiu.”
+Você: “É, você me deve por isso.”
+do DialogueData.set_mood("Hugo", DialogueData.HugoMoods.OPENARMS_SUPERHAPPY)
+Hugo: “De fato… você ganhou o seu tinteirinho. Pegue!”
 do CharacterData.Hugo.complete_task("get_flower")
-do InventoryManager.add_new_item(CharacterData.Item.poison)
+do InventoryManager.add_new_item(CharacterData.Item.inkwell)
 => END

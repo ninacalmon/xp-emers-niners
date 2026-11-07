@@ -64,17 +64,18 @@ class HugoData extends TaskOwner:
 		tasks = {
 			"get_flower": {
 				"status": [false, false],
-				"txt": "Encontre e traga uma flor para Hugo.",
+				"txt": "Traga a flor de Sanson para Hugo.",
 			},
 			"find_correct_tumors":{
 				"status" : [false, false],
-				"txt" : "Ajude hugo a presentar uma 'parte de si mesmo'"
+				"txt" : "Ajude hugo a presentear uma 'parte de si mesmo'"
 			}
 				
 		}
 
 	var Hugo: DialogueAction
 
+	var asked_lucio_inkwell: bool = false
 	var tumor_puzzle = preload("uid://ndxtkrboiso5")
 	var wanted_tumors_textures: Array[Texture2D]
 	var tumors_solved: bool
@@ -108,21 +109,27 @@ class SansonData extends TaskOwner:
 		tasks = {
 			"get_astrolabus": {
 				"status": [false, false],
-				"txt": "Encontre o Astrólabo perdido de Sanson.",
+				"txt": "Encontre o Astrolábio perdido de Sanson.",
 			},
+			"fix_astrolabus" : {
+				"status": [false, false],
+				"txt": "Alinhe o astrolábio Sanson com o Sol.",
+			}
 		}
 
 	var flower_got: bool = false
+	
 
 
 class ItemData:
 	var medication: ItemRes = preload("uid://bkc7dx8duiasn")
 	var inkwell: ItemRes = preload("uid://s1b5gx6p2rg1")
 	var flower: ItemRes = preload("uid://dltn5dox1dd8c")
-	var astrolabus: = preload("uid://3c0ta31odhc6")
 	var toxic_plant: ItemRes = preload("uid://dmi136l0r18xj")
 	var rotten_meat: ItemRes = preload("uid://cefbvxaw1bbrf")
-
+	var astrolabus_body: ItemRes = preload("uid://3c0ta31odhc6")
+	var astrolabus_pointer: ItemRes = preload("uid://8dvrkoxmyyx4")
+	var astrolabus_full: ItemRes = preload("uid://c6akotlps2yoe")
 
 
 var Julio: JulioData = JulioData.new()
