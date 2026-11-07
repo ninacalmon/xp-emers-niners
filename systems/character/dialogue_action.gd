@@ -112,7 +112,13 @@ func resume_chatting() -> void:
 
 func _pick_mood(moods: Dictionary) -> Variant:
 	if _chatting_mood_bag.is_empty():
-		_chatting_mood_bag = moods.values()
+		for key: Variant in moods.keys():
+			if str(key).begins_with("IDLE"):
+				_chatting_mood_bag.append(moods[key])
+
+		if _chatting_mood_bag.is_empty():
+			return null
+
 		_chatting_mood_bag.shuffle()
 
 		if _chatting_mood_bag.size() > 1 and _chatting_mood_bag[0] == _chatting_last_mood:

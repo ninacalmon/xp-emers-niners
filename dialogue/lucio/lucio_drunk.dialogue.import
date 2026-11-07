@@ -1,0 +1,16 @@
+[remap]
+
+importer="dialogue_manager"
+importer_version=18
+type="Resource"
+uid="uid://fl7wxpluqdk4"
+path="res://.godot/imported/lucio_drunk.dialogue-e42d4c980ff50f2b45274f4494d39c6c.tres"
+
+[deps]
+
+source_file="res://dialogue/lucio/lucio_drunk.dialogue"
+dest_files=["res://.godot/imported/lucio_drunk.dialogue-e42d4c980ff50f2b45274f4494d39c6c.tres"]
+
+[params]
+
+defaults=true

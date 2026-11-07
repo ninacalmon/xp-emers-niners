@@ -96,6 +96,8 @@ enum SansonMoods {
 	POSING_HAPPYSAD,
 	POSING_POUT,
 	POSING_SAD,
+	AWAKE,
+	ASLEEP,
 }
 
 
@@ -135,6 +137,11 @@ func player_in_booth(_player: Player):
 func astrolabus_in_desk():
 	#_astrolab_desk = GetEntity.
 	pass
+
+
+signal start_sanson_sleep
+func sanson_sleep():
+	start_sanson_sleep.emit()
 
 func _ready() -> void:
 	PuzzleManager.puzzle_ended.connect(_on_puzzle_ended)

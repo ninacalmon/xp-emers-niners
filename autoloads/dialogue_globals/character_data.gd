@@ -130,6 +130,7 @@ class SansonData extends TaskOwner:
 
 	var flower_got: bool = false
 	var astrolabus_aligned: bool = false
+	var sleep_talked_once: bool = false
 
 
 class ItemData:
@@ -141,6 +142,7 @@ class ItemData:
 	var astrolabus_body: ItemRes = preload("uid://3c0ta31odhc6")
 	var astrolabus_pointer: ItemRes = preload("uid://8dvrkoxmyyx4")
 	var astrolabus_full: ItemRes = preload("uid://c6akotlps2yoe")
+	var drink: ItemRes = preload("uid://bugvpvu1atehq")
 
 
 var Julio: JulioData = JulioData.new()

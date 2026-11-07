@@ -1,0 +1,16 @@
+~ start
+if not CharacterData.Sanson.sleep_talked_once:
+	do DialogueData.set_mood("Sanson", DialogueData.SansonMoods.AWAKE)
+	Sanson: “Quem está ai? Quem é?”
+	Você: “Ah-“
+	Sanson: “Francisco… sabia que era você. Qual a sua razão para atrapalhar o meu sono?”
+	Você: “Eu só… preciso da gazua...”
+	do DialogueData.set_mood("Sanson", DialogueData.SansonMoods.IDLE_ANGRY)
+	Sanson: “Gazua? De jeito nenhum. Não se intrometa nisso. E nem pense em me perguntar de novo; seria uma perda de tempo para nós dois. Preciso descansar e esvaziar a mente. Talvez, quando eu acordar, consiga terminar meu trabalho, e não quero você aqui me atrapalhando.”
+	Você: “…”
+	Sanson: “Ainda estou sentindo você aqui. Não se iluda achando que, desta vez, vou mudar de ideia. Pode ir embora. Sinto o calor sufocante do seu corpo. Ele está atrapalhando meu descanso, não consigo relaxar.”
+	do CharacterData.Sanson.sleep_talked_once = true
+else:
+	do DialogueData.set_mood("Sanson", DialogueData.SansonMoods.AWAKE)
+	Sanson: “Estou sentindo seu calor aqui.”
+=> END

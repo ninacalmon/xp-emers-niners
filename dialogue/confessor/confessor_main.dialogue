@@ -1,6 +1,4 @@
 ~ start
-do InventoryManager.add_new_item(CharacterData.Item.rotten_meat)
-do TimeManager.set_time(TimeManager.Times.at1800)
 if InventoryManager.selected_item == CharacterData.Item.rotten_meat:
 	=> meat
 do locals.confessed = false
@@ -16,6 +14,8 @@ else:
 	- > Confessar o que o Sol disse a você < =>< sun
 	- > Admitir que está desconfiado < =>< others
 	if locals.confessed == true:
+		- > Confessar o que o Sol disse a você < =>< sun
+		- > Admitir que está desconfiado < =>< others
 		- “Ei… você está com fome?” => hunger
 => END
 
@@ -140,5 +140,6 @@ Mais ninguém virá confessar hoje.
 do GetEntity.put_entity_at(GetEntity.get_player(), GetEntity.get_confessing_pos().global_position)
 do GetEntity.get_player().head.rotation = GetEntity.get_player().original_head_rot
 do FadeInOut.fade_out(2)
+do DialogueData.sanson_sleep()
 => END
 
