@@ -33,6 +33,13 @@ sky = SubResource("Sky_m114p")
 tonemap_mode = 4
 glow_enabled = true
 glow_bloom = 0.44
+fog_density = 0.0
+volumetric_fog_enabled = true
+volumetric_fog_density = 0.02
+volumetric_fog_albedo = Color(1, 0.9195, 0.79, 1)
+volumetric_fog_emission = Color(0.16, 0.16, 0.16, 1)
+volumetric_fog_gi_inject = 0.08
+volumetric_fog_length = 16.1
 
 [sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_5604n"]
 
@@ -294,6 +301,9 @@ mesh = NodePath("../astrolabus_pointer/PointerTex")
 material_overlay = ExtResource("19_tytul")
 instance_shader_parameters/outline_enabled = true
 instance_shader_parameters/size = 1.22999999485904
+
+[node name="RoomDoor" parent="." unique_id=230216749 instance=ExtResource("9_ues17")]
+transform = Transform3D(-4.3711385e-08, 0, -0.99999994, 0, 1, 0, 0.99999994, 0, -4.3711385e-08, 45.89097, 8.685315, -2.8387032)
 
 [editable path="Characters/Sanson"]
 [editable path="ConfessionalBooth"]

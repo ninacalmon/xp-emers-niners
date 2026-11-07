@@ -7,5 +7,8 @@ if CharacterData.Julio.get_status("medication_for_lucio") != 2:
 	=> medication_for_lucio/start
 elif CharacterData.Julio.get_status("get_inkwell") != 2:
 	=> get_inkwell/start
+elif CharacterData.Hugo.flower_given_to_julio:
+	do DialogueData.set_mood("Julio", DialogueData.JulioMoods.INTENSE_SAD)
+	Julio: “...”
 => END
 

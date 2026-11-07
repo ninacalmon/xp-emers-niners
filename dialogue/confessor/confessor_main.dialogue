@@ -1,5 +1,6 @@
 ~ start
 do InventoryManager.add_new_item(CharacterData.Item.rotten_meat)
+do TimeManager.set_time(TimeManager.Times.at1800)
 if InventoryManager.selected_item == CharacterData.Item.rotten_meat:
 	=> meat
 do locals.confessed = false
@@ -100,6 +101,7 @@ Julio: “?!”
 do DialogueData.set_mood("Julio", DialogueData.JulioMoods.INTENSE_SAD)
 Julio: “Ooh céuUuUs!”
 do GetEntity.put_entity_at(GetEntity.get_julio(), locals.julio_pos)
+do CharacterData.Hugo.flower_given_to_julio = true
 ...
 ...
 ...
@@ -117,6 +119,7 @@ do DialogueData.set_mood("Prior", DialogueData.PriorMoods.IDLE_SAD)
 Prior: “Ah… estou exausto; sinto uma dor de cabeça lancinante, como se minhas têmporas estivessem latejando.”
 Prior: “O Abade e eu estivemos ocupados o dia e a noite inteiros. Mas tudo está correndo conforme o planejado; deve prosseguir sem contratempos.”
 Prior: “Sinto-me culpado por ter deixado as [b]chaves[/b] com [b]Sanson[/b]. Não deveria envolver os monges em questões tão estressantes...”
+* O que...? O Sanson está com as chaves do prior...? *
 Prior: “Especialmente Sanson… ele já carrega fardos suficientes. Mas, um único passo em falso, e tudo sairá dos eixos. Ele é o mais responsável de todos; era inevitável.”
 Prior: “Bem… hoje, tudo, absolutamente tudo, pode acontecer. Espero que você tenha reunido tudo de que precisa e se livrado de tudo de que não precisa.”
 do DialogueData.set_mood("Prior", DialogueData.PriorMoods.IDLE_SAD, true)
@@ -130,6 +133,7 @@ Prior: “...Vou sentir falta das nossas conversas da noite. Você sabe onde dev
 do DialogueData.set_mood("Prior", DialogueData.PriorMoods.IDLE_DEFAULT, true)
 Você: “Siga agora... em paz..?, para a luz d’Ele!”
 do GetEntity.put_entity_at(GetEntity.get_prior(), locals.prior_pos)
+do CharacterData.Prior.give_task("get_keys")
 do FadeInOut.fade_in(2)
 do wait(2)
 Mais ninguém virá confessar hoje.

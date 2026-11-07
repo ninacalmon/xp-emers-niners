@@ -13,8 +13,11 @@ elif CharacterData.Julio.get_status("get_inkwell") == 1:
 		=> END
 	else:
 		=> get_flower/start
-	
-
+elif CharacterData.Hugo.get_status("get_flower") == 2 and not CharacterData.Hugo.flower_given_to_julio:
+	=> get_flower/thanks
+elif CharacterData.Hugo.flower_given_to_julio:
+	do DialogueData.set_mood("Hugo", DialogueData.HugoMoods.IDLE_SAD)
+	Hugo: “...”
 
 #if CharacterData.Hugo.get_status("find_correct_tumors") == 0:
 #	=> tumor_puzzle/start

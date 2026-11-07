@@ -4,6 +4,8 @@ match CharacterData.Hugo.get_status("get_flower"):
 		=> give_task
 	when 1:
 		=> waiting_completion
+	when 2:
+		=> thanks
 => END
 
 ~ give_task
@@ -54,4 +56,9 @@ do DialogueData.set_mood("Hugo", DialogueData.HugoMoods.OPENARMS_SUPERHAPPY)
 Hugo: “De fato… você ganhou o seu tinteirinho. Pegue!”
 do CharacterData.Hugo.complete_task("get_flower")
 do InventoryManager.add_new_item(CharacterData.Item.inkwell)
+=> END
+
+~ thanks
+do DialogueData.set_mood("Hugo", DialogueData.HugoMoods.MISCHIVEOUS_SUPERHAPPY)
+Hugo: “Kehehehe, obrigado pela flor.”
 => END
