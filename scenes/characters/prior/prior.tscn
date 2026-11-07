@@ -1,20 +1,10 @@
 [gd_scene format=3 uid="uid://bifi36nxacdg4"]
 
-[ext_resource type="Texture2D" uid="uid://d3vrjarxf54bt" path="res://assets/2d/characters/prior/idle/prior_idle_angry_closed.png" id="1_3l4ag"]
-[ext_resource type="Texture2D" uid="uid://b20cp3ui6jmoa" path="res://assets/2d/characters/prior/bell/prior_run1.png" id="1_nxc3t"]
-[ext_resource type="Texture2D" uid="uid://4iw64rqk3w61" path="res://assets/2d/characters/prior/bell/prior_run2.png" id="2_kgehx"]
-[ext_resource type="Texture2D" uid="uid://cw5enui7bjt2t" path="res://assets/2d/characters/prior/idle/prior_idle_angry_open.png" id="2_ugur0"]
-[ext_resource type="Texture2D" uid="uid://ftqmsarey2aj" path="res://assets/2d/characters/prior/idle/prior_idle_default_closed.png" id="3_8y30u"]
-[ext_resource type="Texture2D" uid="uid://dgl628k2r3oks" path="res://assets/2d/characters/prior/bell/prior_bell.png" id="3_cbh3g"]
-[ext_resource type="Texture2D" uid="uid://b7edwxxgcjd03" path="res://assets/2d/characters/prior/bell/prior_yell_closed.png" id="4_aoctg"]
-[ext_resource type="Texture2D" uid="uid://cirfhslj5jmk4" path="res://assets/2d/characters/prior/idle/prior_idle_default_open.png" id="4_vguae"]
-[ext_resource type="Texture2D" uid="uid://bbnp16oujvjj2" path="res://assets/2d/characters/prior/bell/prior_yell_open.png" id="5_qw6uy"]
-[ext_resource type="Texture2D" uid="uid://cjfdb7qy3vtfr" path="res://assets/2d/characters/prior/idle/prior_idle_happy_closed.png" id="5_ysx14"]
-[ext_resource type="Texture2D" uid="uid://c4mruggwbnal4" path="res://assets/2d/characters/prior/idle/prior_idle_happy_open.png" id="6_nxc3t"]
-[ext_resource type="Texture2D" uid="uid://bjwcjo6n4m0t7" path="res://assets/2d/characters/prior/idle/prior_idle_sad_closed.png" id="7_kgehx"]
-[ext_resource type="Texture2D" uid="uid://c82si18fm2lyb" path="res://assets/2d/characters/prior/idle/prior_idle_sad_open.png" id="8_cbh3g"]
+[ext_resource type="SpriteFrames" uid="uid://bejpvjes1smak" path="res://resources/sprite_frames/characters/prior/prior_sprite_frames.tres" id="1_t217v"]
+[ext_resource type="Script" uid="uid://biodsue5rifq4" path="res://systems/character/character_sprite_handler.gd" id="2_gashb"]
+[ext_resource type="Script" uid="uid://bjidnq65qcjsh" path="res://systems/character/dialogue_action.gd" id="3_t1d7s"]
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_3l4ag"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_aovk5"]
 viewport_path = NodePath("SubViewportSprite")
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_5604n"]
@@ -25,98 +15,13 @@ height = 2.1264648
 radius = 0.2993164
 height = 0.8618164
 
-[sub_resource type="SpriteFrames" id="SpriteFrames_f4qfx"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("1_nxc3t")
-}, {
-"duration": 1.0,
-"texture": ExtResource("2_kgehx")
-}],
-"loop": 1,
-"name": &"BELL_RUN",
-"speed": 4.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("3_cbh3g")
-}],
-"loop": 1,
-"name": &"BELL_SOUND",
-"speed": 6.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("4_aoctg")
-}, {
-"duration": 1.0,
-"texture": ExtResource("5_qw6uy")
-}],
-"loop": 1,
-"name": &"BELL_YELL",
-"speed": 8.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("1_3l4ag")
-}, {
-"duration": 1.0,
-"texture": ExtResource("2_ugur0")
-}],
-"loop": 1,
-"name": &"IDLE_ANGRY",
-"speed": 6.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("3_8y30u")
-}, {
-"duration": 1.0,
-"texture": ExtResource("4_vguae")
-}],
-"loop": 1,
-"name": &"IDLE_DEFAULT",
-"speed": 6.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("5_ysx14")
-}, {
-"duration": 1.0,
-"texture": ExtResource("6_nxc3t")
-}],
-"loop": 1,
-"name": &"IDLE_HAPPY",
-"speed": 6.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("7_kgehx")
-}, {
-"duration": 1.0,
-"texture": ExtResource("8_cbh3g")
-}],
-"loop": 1,
-"name": &"IDLE_SAD",
-"speed": 6.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("3_8y30u")
-}],
-"loop": 1,
-"name": &"idle",
-"speed": 5.0
-}]
-
 [node name="Prior" type="Node3D" unique_id=1758948578 groups=["prior"]]
 
 [node name="Sprite3D" type="Sprite3D" parent="." unique_id=415751236]
 transform = Transform3D(0.18, 0, 0, 0, 0.18, 0, 0, 0, 0.18, 0, 0.7130867, 0)
 offset = Vector2(0, 241.06)
 billboard = 2
-texture = SubResource("ViewportTexture_3l4ag")
+texture = SubResource("ViewportTexture_aovk5")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="." unique_id=1339048520]
 
@@ -136,6 +41,16 @@ size = Vector2i(629, 1281)
 render_target_update_mode = 4
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="SubViewportSprite" unique_id=60975985]
-sprite_frames = SubResource("SpriteFrames_f4qfx")
+sprite_frames = ExtResource("1_t217v")
 animation = &"idle"
 centered = false
+
+[node name="SpriteHandler" type="Node" parent="." unique_id=534702306 node_paths=PackedStringArray("animated_sprite", "dialogue_action")]
+script = ExtResource("2_gashb")
+bounce_duration = 0.07
+animated_sprite = NodePath("../SubViewportSprite/AnimatedSprite2D")
+dialogue_action = NodePath("../DialogueAction")
+
+[node name="DialogueAction" type="Node" parent="." unique_id=2095900101]
+script = ExtResource("3_t1d7s")
+character_name = "Prior"

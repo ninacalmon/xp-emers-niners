@@ -1,0 +1,100 @@
+[gd_resource type="SpriteFrames" format=3 uid="uid://bejpvjes1smak"]
+
+[ext_resource type="Texture2D" uid="uid://b20cp3ui6jmoa" path="res://assets/2d/characters/prior/bell/prior_run1.png" id="1_4dxx8"]
+[ext_resource type="Texture2D" uid="uid://4iw64rqk3w61" path="res://assets/2d/characters/prior/bell/prior_run2.png" id="2_xvi8e"]
+[ext_resource type="Texture2D" uid="uid://dgl628k2r3oks" path="res://assets/2d/characters/prior/bell/prior_bell.png" id="3_tn8ko"]
+[ext_resource type="Texture2D" uid="uid://b7edwxxgcjd03" path="res://assets/2d/characters/prior/bell/prior_yell_closed.png" id="4_24bkr"]
+[ext_resource type="Texture2D" uid="uid://bbnp16oujvjj2" path="res://assets/2d/characters/prior/bell/prior_yell_open.png" id="5_jkeir"]
+[ext_resource type="Texture2D" uid="uid://d3vrjarxf54bt" path="res://assets/2d/characters/prior/idle/prior_idle_angry_closed.png" id="6_0si5d"]
+[ext_resource type="Texture2D" uid="uid://cw5enui7bjt2t" path="res://assets/2d/characters/prior/idle/prior_idle_angry_open.png" id="7_jt6tm"]
+[ext_resource type="Texture2D" uid="uid://ftqmsarey2aj" path="res://assets/2d/characters/prior/idle/prior_idle_default_closed.png" id="8_xrjuo"]
+[ext_resource type="Texture2D" uid="uid://cirfhslj5jmk4" path="res://assets/2d/characters/prior/idle/prior_idle_default_open.png" id="9_mj21x"]
+[ext_resource type="Texture2D" uid="uid://cjfdb7qy3vtfr" path="res://assets/2d/characters/prior/idle/prior_idle_happy_closed.png" id="10_gmxip"]
+[ext_resource type="Texture2D" uid="uid://c4mruggwbnal4" path="res://assets/2d/characters/prior/idle/prior_idle_happy_open.png" id="11_i7pks"]
+[ext_resource type="Texture2D" uid="uid://bjwcjo6n4m0t7" path="res://assets/2d/characters/prior/idle/prior_idle_sad_closed.png" id="12_ig8sf"]
+[ext_resource type="Texture2D" uid="uid://c82si18fm2lyb" path="res://assets/2d/characters/prior/idle/prior_idle_sad_open.png" id="13_djntt"]
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_4dxx8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_xvi8e")
+}],
+"loop": 1,
+"name": &"BELL_RUN",
+"speed": 4.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_tn8ko")
+}],
+"loop": 1,
+"name": &"BELL_SOUND",
+"speed": 6.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_24bkr")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_jkeir")
+}],
+"loop": 1,
+"name": &"BELL_YELL",
+"speed": 8.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("6_0si5d")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_jt6tm")
+}],
+"loop": 1,
+"name": &"IDLE_ANGRY",
+"speed": 6.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("8_xrjuo")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_mj21x")
+}],
+"loop": 1,
+"name": &"IDLE_DEFAULT",
+"speed": 6.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("10_gmxip")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_i7pks")
+}],
+"loop": 1,
+"name": &"IDLE_HAPPY",
+"speed": 6.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("12_ig8sf")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_djntt")
+}],
+"loop": 1,
+"name": &"IDLE_SAD",
+"speed": 6.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("8_xrjuo")
+}],
+"loop": 1,
+"name": &"idle",
+"speed": 5.0
+}]
