@@ -1,0 +1,200 @@
+[gd_resource type="SpriteFrames" format=3 uid="uid://dn0joqocceig4"]
+
+[ext_resource type="Texture2D" uid="uid://bch1k41ghrepw" path="res://assets/2d/characters/sanson/crazy/sanson_crazy_default.png" id="1_uavog"]
+[ext_resource type="Texture2D" uid="uid://cdghc3571elnj" path="res://assets/2d/characters/sanson/crazy/sanson_crazy_smile.png" id="2_13v25"]
+[ext_resource type="Texture2D" uid="uid://qvmhnp1r6bcv" path="res://assets/2d/characters/sanson/hand/sanson_idle2_angry_closed.png" id="3_d5ejr"]
+[ext_resource type="Texture2D" uid="uid://bwe0ih2laqu3h" path="res://assets/2d/characters/sanson/hand/sanson_idle2_angry_open.png" id="4_43toy"]
+[ext_resource type="Texture2D" uid="uid://xuptadif8bb0" path="res://assets/2d/characters/sanson/hand/sanson_idle2_default_closed.png" id="5_pphwt"]
+[ext_resource type="Texture2D" uid="uid://8c54qohseqwj" path="res://assets/2d/characters/sanson/hand/sanson_idle2_default_open.png" id="6_my6wn"]
+[ext_resource type="Texture2D" uid="uid://ce5tv7ebnvmwg" path="res://assets/2d/characters/sanson/hand/sanson_idle2_happy_closed.png" id="7_ldxcw"]
+[ext_resource type="Texture2D" uid="uid://c0t4alr8i7t5r" path="res://assets/2d/characters/sanson/hand/sanson_idle2_happy_open.png" id="8_hqege"]
+[ext_resource type="Texture2D" uid="uid://b0sbg8fbbs63v" path="res://assets/2d/characters/sanson/hand/sanson_idle2_sad_closed.png" id="9_6huyq"]
+[ext_resource type="Texture2D" uid="uid://0tkttralyygw" path="res://assets/2d/characters/sanson/hand/sanson_idle2_sad_open.png" id="10_dgcdp"]
+[ext_resource type="Texture2D" uid="uid://cc78gsnpn1f6b" path="res://assets/2d/characters/sanson/idle/sanson_idle_angry_closed.png" id="11_ngrkw"]
+[ext_resource type="Texture2D" uid="uid://3660fj7bt8nh" path="res://assets/2d/characters/sanson/idle/sanson_idle_angry_open.png" id="12_axsfc"]
+[ext_resource type="Texture2D" uid="uid://dhqv020pxd6jk" path="res://assets/2d/characters/sanson/idle/sanson_idle_default_closed.png" id="13_5emyo"]
+[ext_resource type="Texture2D" uid="uid://h5wqr3is55qq" path="res://assets/2d/characters/sanson/idle/sanson_idle_default_open.png" id="14_ahtf5"]
+[ext_resource type="Texture2D" uid="uid://bdllxib2x76ax" path="res://assets/2d/characters/sanson/idle/sanson_idle_happy_closed.png" id="15_r082s"]
+[ext_resource type="Texture2D" uid="uid://cvv4bhkogynyb" path="res://assets/2d/characters/sanson/idle/sanson_idle_happy_open.png" id="16_gfwab"]
+[ext_resource type="Texture2D" uid="uid://b4lw1wirqoo55" path="res://assets/2d/characters/sanson/idle/sanson_idle_sad_closed.png" id="17_l1d4k"]
+[ext_resource type="Texture2D" uid="uid://bnmfhwt104a11" path="res://assets/2d/characters/sanson/idle/sanson_idle_sad_open.png" id="18_v8gpp"]
+[ext_resource type="Texture2D" uid="uid://codoooxa5cfyq" path="res://assets/2d/characters/sanson/posing/sanson_hihi_angry_closed.png" id="19_70ir4"]
+[ext_resource type="Texture2D" uid="uid://bjkf5vsxrjjqp" path="res://assets/2d/characters/sanson/posing/sanson_hihi_angry_open.png" id="20_2hqo3"]
+[ext_resource type="Texture2D" uid="uid://ck060vaabjsmd" path="res://assets/2d/characters/sanson/posing/sanson_hihi_happy_closed.png" id="21_e3x3l"]
+[ext_resource type="Texture2D" uid="uid://berx5rwfpjj5c" path="res://assets/2d/characters/sanson/posing/sanson_hihi_happy_open.png" id="22_1v2s1"]
+[ext_resource type="Texture2D" uid="uid://bdk3ppxjfhgi8" path="res://assets/2d/characters/sanson/posing/sanson_hihi_happysad_closed.png" id="23_d8sxp"]
+[ext_resource type="Texture2D" uid="uid://dpydmjcob1hyj" path="res://assets/2d/characters/sanson/posing/sanson_hihi_happysad_open.png" id="24_vt4xc"]
+[ext_resource type="Texture2D" uid="uid://b2m6d26ya1rh5" path="res://assets/2d/characters/sanson/posing/sanson_hihi_pout_closed.png" id="25_fgoi5"]
+[ext_resource type="Texture2D" uid="uid://din3pgfgvs7wc" path="res://assets/2d/characters/sanson/posing/sanson_hihi_pout_open.png" id="26_u7tm2"]
+[ext_resource type="Texture2D" uid="uid://d0jo8yceyp8r2" path="res://assets/2d/characters/sanson/posing/sanson_hihi_sad_closed.png" id="27_0oamr"]
+[ext_resource type="Texture2D" uid="uid://dya1ggoo53281" path="res://assets/2d/characters/sanson/posing/sanson_hihi_sad_open.png" id="28_mr6x4"]
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_uavog")
+}],
+"loop": 1,
+"name": &"CRAZY_DEFAULT",
+"speed": 6.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_13v25")
+}],
+"loop": 1,
+"name": &"CRAZY_HAPPY",
+"speed": 6.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_d5ejr")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_43toy")
+}],
+"loop": 1,
+"name": &"HAND_ANGRY",
+"speed": 6.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_pphwt")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_my6wn")
+}],
+"loop": 1,
+"name": &"HAND_DEFAULT",
+"speed": 6.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("7_ldxcw")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_hqege")
+}],
+"loop": 1,
+"name": &"HAND_HAPPY",
+"speed": 6.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("9_6huyq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_dgcdp")
+}],
+"loop": 1,
+"name": &"HAND_SAD",
+"speed": 6.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("11_ngrkw")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_axsfc")
+}],
+"loop": 1,
+"name": &"IDLE_ANGRY",
+"speed": 6.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("13_5emyo")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_ahtf5")
+}],
+"loop": 1,
+"name": &"IDLE_DEFAULT",
+"speed": 6.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("15_r082s")
+}, {
+"duration": 1.0,
+"texture": ExtResource("16_gfwab")
+}],
+"loop": 1,
+"name": &"IDLE_HAPPY",
+"speed": 6.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("17_l1d4k")
+}, {
+"duration": 1.0,
+"texture": ExtResource("18_v8gpp")
+}],
+"loop": 1,
+"name": &"IDLE_SAD",
+"speed": 6.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("19_70ir4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("20_2hqo3")
+}],
+"loop": 1,
+"name": &"POSING_ANGRY",
+"speed": 6.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("21_e3x3l")
+}, {
+"duration": 1.0,
+"texture": ExtResource("22_1v2s1")
+}],
+"loop": 1,
+"name": &"POSING_HAPPY",
+"speed": 6.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("23_d8sxp")
+}, {
+"duration": 1.0,
+"texture": ExtResource("24_vt4xc")
+}],
+"loop": 1,
+"name": &"POSING_HAPPYSAD",
+"speed": 6.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("25_fgoi5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("26_u7tm2")
+}],
+"loop": 1,
+"name": &"POSING_POUT",
+"speed": 6.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("27_0oamr")
+}, {
+"duration": 1.0,
+"texture": ExtResource("28_mr6x4")
+}],
+"loop": 1,
+"name": &"POSING_SAD",
+"speed": 6.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("13_5emyo")
+}],
+"loop": 1,
+"name": &"idle",
+"speed": 5.0
+}]

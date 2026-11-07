@@ -45,11 +45,14 @@ radius = 0.02
 [sub_resource type="SphereShape3D" id="SphereShape3D_cdpwx"]
 radius = 0.86783373
 
-[node name="AstrolablusPuzzle" type="Node3D" unique_id=572576743 node_paths=PackedStringArray("button_action_trigger", "astrolabus_pointer", "button_mesh") groups=["puzzles"]]
+[node name="AstrolablusPuzzle" type="Node3D" unique_id=572576743 node_paths=PackedStringArray("interaction_area_collision", "pointer_pivot", "button_action_trigger", "astrolabus_pointer", "button_mesh", "astrolabus") groups=["puzzles"]]
 script = ExtResource("1_tc74g")
-button_action_trigger = NodePath("Button/InteractionArea/ButtonActionTrigger")
-astrolabus_pointer = NodePath("PointerPivot/astrolabus_pointer")
-button_mesh = NodePath("Button/ButtonMesh")
+interaction_area_collision = NodePath("InteractionArea/CollisionShape3D")
+pointer_pivot = NodePath("Astrolabus/PointerPivot")
+button_action_trigger = NodePath("Astrolabus/Button/InteractionArea/ButtonActionTrigger")
+astrolabus_pointer = NodePath("Astrolabus/PointerPivot/astrolabus_pointer")
+button_mesh = NodePath("Astrolabus/Button/ButtonMesh")
+astrolabus = NodePath("Astrolabus")
 lock_player_movement = true
 
 [node name="PhantomCamera3D" type="Node3D" parent="." unique_id=1007361020]
@@ -81,19 +84,21 @@ process_physics_priority = 300
 script = ExtResource("4_svmea")
 metadata/_custom_type_script = "uid://bd046eokvcnu2"
 
-[node name="astrolabus_body" parent="." unique_id=1927840522 instance=ExtResource("5_w1bex")]
+[node name="Astrolabus" type="Node3D" parent="." unique_id=1617164093]
+
+[node name="astrolabus_body" parent="Astrolabus" unique_id=1927840522 instance=ExtResource("5_w1bex")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.024691, 0)
 
-[node name="PointerPivot" type="Node3D" parent="." unique_id=728286195]
+[node name="PointerPivot" type="Node3D" parent="Astrolabus" unique_id=728286195]
 transform = Transform3D(-0.8048938, 0, -0.5934189, 0, 1, 0, 0.5934189, 0, -0.8048938, 0, 1.0313907, 0)
 
-[node name="astrolabus_pointer" parent="PointerPivot" unique_id=224618642 instance=ExtResource("6_5ev72")]
+[node name="astrolabus_pointer" parent="Astrolabus/PointerPivot" unique_id=224618642 instance=ExtResource("6_5ev72")]
 transform = Transform3D(0.6320293, 0, -0.7749445, 0, 1, 0, 0.7749445, 0, 0.6320293, 0, -0.00647521, 0)
 
-[node name="Button" type="Node3D" parent="." unique_id=662101304]
+[node name="Button" type="Node3D" parent="Astrolabus" unique_id=662101304]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.0250621, 0)
 
-[node name="ButtonMesh" type="MeshInstance3D" parent="Button" unique_id=946235747]
+[node name="ButtonMesh" type="MeshInstance3D" parent="Astrolabus/Button" unique_id=946235747]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0021959543, 0)
 material_overlay = SubResource("ShaderMaterial_5ev72")
 instance_shader_parameters/outline_enabled = true
@@ -101,7 +106,7 @@ instance_shader_parameters/size = 1.0999999977648
 mesh = SubResource("CapsuleMesh_n3kkv")
 surface_material_override/0 = SubResource("StandardMaterial3D_5604n")
 
-[node name="InteractionArea" type="Area3D" parent="Button" unique_id=345987906 node_paths=PackedStringArray("mesh", "action_trigger")]
+[node name="InteractionArea" type="Area3D" parent="Astrolabus/Button" unique_id=345987906 node_paths=PackedStringArray("mesh", "action_trigger")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0027666092, 0)
 script = ExtResource("8_wbk0m")
 clickable = true
@@ -109,10 +114,10 @@ mesh = NodePath("../ButtonMesh")
 action_trigger = NodePath("ButtonActionTrigger")
 metadata/_custom_type_script = "uid://cf2auur4umdjl"
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Button/InteractionArea" unique_id=1294876275]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Astrolabus/Button/InteractionArea" unique_id=1294876275]
 shape = SubResource("SphereShape3D_ksdio")
 
-[node name="ButtonActionTrigger" type="Node" parent="Button/InteractionArea" unique_id=213519699]
+[node name="ButtonActionTrigger" type="Node" parent="Astrolabus/Button/InteractionArea" unique_id=213519699]
 script = ExtResource("9_f6mmc")
 
 [node name="InteractionArea" type="Area3D" parent="." unique_id=1893375073 node_paths=PackedStringArray("mesh", "action_trigger")]

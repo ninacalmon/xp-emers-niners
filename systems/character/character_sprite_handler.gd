@@ -79,7 +79,9 @@ func _on_dialogue_started():
 	pass
 
 
-func _on_next_dialogue():
+func _on_next_dialogue(line: DialogueLine):
+	if line.character != dialogue_action.character_name:
+		return
 	animated_sprite.play()
 
 

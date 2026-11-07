@@ -1,29 +1,70 @@
 ~ start
 match CharacterData.Sanson.get_status("get_astrolabus"):
 	when 0:
-		- Você tem uma flor?...? => give_task
-		- -Finalizar diálogo- => END!
+		=> give_task
 	when 1:
 		=> waiting_completion
 => END
 
 ~ give_task
-Sanson: Sim, eu tenho.
-Sanson: Mas ela é muito valiosa para mim...
-Sanson: Quero meu astrólabo perdido em troca.
+Você: “Oi, sanson. Você está ocupado?”
+do DialogueData.set_mood("Sanson", DialogueData.SansonMoods.IDLE_HAPPY)
+Sanson: “Não, não estou mais. O que te traz aqui, Francisco?”
+Você: “Eu precisava te pedir um favor… gostaria de saber se pode me-“
+Sanson: “Ah, sim! Falando em favor... já que o assunto ainda está fresco na minha mente... eu gostaria de lhe pedir algo, já que você está aqui.”
+do DialogueData.set_mood("Sanson", DialogueData.SansonMoods.IDLE_SAD)
+Sanson: “Meu [b]astrolábio[/b] sumiu, eu o perdi.”
 do CharacterData.Sanson.give_task("get_astrolabus")
+Você: “O disco circular dourado que você segura, isso?”
+do DialogueData.set_mood("Sanson", DialogueData.SansonMoods.IDLE_DEFAULT)
+Sanson: “Sim, de fato. Estou [i]prestes[/i] a concluir minha pesquisa! Preciso disso de volta imediatamente, o tempo é um fator crucial.”
+Você: “Quando foi a última vez que o viu? [font_size=20]Isto é, se você conseguisse enxergar...”
+Sanson: “Eu estava lá fora… estudando o......”
+do DialogueData.set_mood("Sanson", DialogueData.SansonMoods.CRAZY_HAPPY)
+Sanson: “NOSSO [b]GLORIOOOOOOOOSO SOL[/b]! E O QUÃO [b]BELOS[/b] SÃO [b]SEUS RAIOS~![/b]“
+do DialogueData.set_mood("Sanson", DialogueData.SansonMoods.POSING_HAPPY)
+Sanson: “Sem ele… Não seríamos nada… Existimos apenas como um testemunho biológico de sua [b]perfeição cósmica...[/b] Depois que Ele queimou e consumiu minha visão mortal e imperfeita, Ele me concedeu a visão mais divina de todas: a de [b]ver apenas a Ele.[/b]“ 
+do DialogueData.set_mood("Sanson", DialogueData.SansonMoods.IDLE_DEFAULT)
+Sanson: “Exatamente. É isto mesmo. Eu estava lá fora e me lembro de que estava com meu astrolábio comigo.” 
+Você: “... ta certo. Vou procurar ele.”
+do DialogueData.set_mood("Sanson", DialogueData.SansonMoods.IDLE_HAPPY)
+Sanson: “Muito obrigado!”
+do TaskManager.give_task(CharacterData.Sanson.give_task("get_astrolabus"))
 => END
 
 ~ waiting_completion
-Sanson: Conseguiu meu astrólabo?
-- Aqui está! -Entregar astólabo- [if InventoryManager.selected_item == CharacterData.Item.astrolabus /] => complete_task
-- -Finalizar diálogo- => END!
+- > Entregar astrolábio < [if InventoryManager.selected_item == CharacterData.Item.astrolabus_body or InventoryManager.selected_item == CharacterData.Item.astrolabus_pointer or InventoryManager.selected_item == CharacterData.Item.astrolabus_full /] => broken
+- “O que você quer que eu encontre mesmo?” => explain
+- > Finalizar diálogo < => END!
 => END
+
+~ broken
+if InventoryManager.selected_item == CharacterData.Item.astrolabus_full:
+	=> complete_task
+else:
+	do DialogueData.set_mood("Sanson", DialogueData.SansonMoods.POSING_SAD)
+	Sanson: “Ah, puxa vida. Aparentemente está quebrado. Está faltando a outra parte. Tenho quase certeza de que a outra peça está em algum lugar! Não perca nem mais um segundo de seu tempo aqui! Por favor, vá encontrá-la para mim.”
+=> END
+
+
+~ explain
+Sanson: “Meu [b]astrolábio[/b]. É aquele disco circular dourado que sempre carrego comigo. Ele também tem um ponteiro.”
+=> END
+
 
 ~ complete_task
 do InventoryManager.use_item()
-Sanson: Oh! Muito obrigado.
-Sanson: Aqui está a flor que queria.
+do DialogueData.set_mood("Sanson", DialogueData.SansonMoods.POSING_HAPPY)
+Sanson: “ESPLENDOROSO! Deixe-me senti-lo.”
 do CharacterData.Sanson.complete_task("get_astrolabus")
-do InventoryManager.add_new_item(CharacterData.Item.flower)
+do DialogueData.set_mood("Sanson", DialogueData.SansonMoods.HAND_HAPPY)
+Sanson: “Obrigado! Mas…”
+do DialogueData.set_mood("Sanson", DialogueData.SansonMoods.HAND_DEFAULT)
+Sanson: “Francisco. Tenho mais uma pequena coisa a lhe pedir.”
+Sanson: “Gostaria que você pegasse o astrolábio e o alinhasse com o Sol.”
+Você: “Ah. Claro. Como eu faço isso?”
+Sanson: “Aqui, dê uma olhada. [b]Ao meio-dia, marca 30 graus; à meia-noite, 210 graus.[/b]”
+do TaskManager.give_task(CharacterData.Sanson.give_task("fix_astrolabus"))
+do PuzzleManager.puzzle_scripts[PuzzleManager.Puzzles.ASTROLABUS_PUZZLE].enable_interaction()
+#do InventoryManager.add_new_item(CharacterData.Item.flower)
 => END

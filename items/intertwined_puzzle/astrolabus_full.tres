@@ -2,13 +2,12 @@
 
 [ext_resource type="PackedScene" uid="uid://bbcy7j5tv2m8d" path="res://scenes/item_focus_view/astrolabus_full_focus_view.tscn" id="1_i64yx"]
 [ext_resource type="Script" uid="uid://doqkh62nh5of1" path="res://systems/items_resource/item_resource.gd" id="2_al8xx"]
-
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_des0s"]
+[ext_resource type="Texture2D" uid="uid://dqbklwddv2oux" path="res://assets/2d/interface/items_capture/astrolabus_full.png" id="3_q4ptv"]
 
 [resource]
 script = ExtResource("2_al8xx")
 id = &"astrolabus_full"
 name_tr_key = "ITEM_ASTROLABUS_FULL"
-texture = SubResource("CompressedTexture2D_des0s")
+texture = ExtResource("3_q4ptv")
 item_focus_view = ExtResource("1_i64yx")
 metadata/_custom_type_script = "uid://doqkh62nh5of1"

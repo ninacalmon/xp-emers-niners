@@ -2,12 +2,16 @@ class_name AstrolabusPuzzle
 extends Puzzle
 
 
-@onready var pointer_pivot: Node3D = $PointerPivot
 @onready var phantom_camera_3d: PhantomCamera3D = $PhantomCamera3D
 @onready var interaction_area: InteractionArea = $InteractionArea
+
+@export var interaction_area_collision: CollisionShape3D
+
+@export var pointer_pivot: Node3D
 @export var button_action_trigger: ButtonActionTrigger
 @export var astrolabus_pointer: Node3D
 @export var button_mesh: MeshInstance3D
+@export var astrolabus: Node3D
 
 const STARTING_VALUE: int = 0
 const CORRECT_VALUE: int = 75
@@ -67,6 +71,9 @@ func _ready() -> void:
 	button_action_trigger.button_pressed.connect(_on_button_pressed)
 	button_action_trigger.button_released.connect(_on_button_released)
 	setup_puzzle()
+
+	astrolabus.hide()
+	interaction_area_collision.disabled = true
 
 
 func _input(event: InputEvent) -> void:
@@ -192,3 +199,8 @@ func _end_drag() -> void:
 	pointer_pivot.rotation.y = deg_to_rad(float(current_value))
 	dial_value = get_dial_value()
 	is_moving = false
+
+
+func enable_interaction():
+	astrolabus.show()
+	interaction_area_collision.disabled = false

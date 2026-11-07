@@ -24,6 +24,14 @@ corner_radius_bottom_right = 3
 corner_radius_bottom_left = 3
 corner_detail = 5
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6ulvo"]
+bg_color = Color(0, 0, 0, 0.38039216)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+corner_detail = 5
+
 [sub_resource type="ViewportTexture" id="ViewportTexture_cdpwx"]
 viewport_path = NodePath("SubViewport")
 
@@ -62,6 +70,10 @@ layout_mode = 2
 mouse_filter = 2
 theme_override_styles/normal = SubResource("StyleBoxFlat_u0ka6")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_ayg7c")
+theme_override_styles/hover = SubResource("StyleBoxFlat_6ulvo")
+theme_override_styles/hover_pressed = SubResource("StyleBoxFlat_6ulvo")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_6ulvo")
+theme_override_styles/focus = SubResource("StyleBoxFlat_6ulvo")
 toggle_mode = true
 button_group = ExtResource("1_62esn")
 

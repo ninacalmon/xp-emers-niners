@@ -1,7 +1,7 @@
 ~ start
 Você: “Como está se sentindo agora?”
-do DialogueData.set_mood("Lucio", DialogueData.LucioMoods.HEART_SAD)
-Antes de responder, Lucio estende a mão até a mesa de cabeceira e pega um garrafão de álcool quase puro.\n Ele dá um bom gole, respondendo à sua pergunta com o ato.
+do DialogueData.set_mood("Lucio", DialogueData.LucioMoods.HEART_SAD, true)
+Antes de responder, Lucio estende a mão até a mesa de cabeceira e pega um garrafão de álcool quase puro. Ele dá um bom gole, respondendo à sua pergunta com o ato.
 - > Entregar remédio. <[if InventoryManager.selected_item == CharacterData.Item.medication /] => complete_task
 - > Finalizar diálogo < => END!
 => END
@@ -9,7 +9,7 @@ Antes de responder, Lucio estende a mão até a mesa de cabeceira e pega um garr
 ~ complete_task
 do InventoryManager.use_item()
 do CharacterData.Julio.lucio_received_medicine = true
-Você lhe entrega o remédio rapidamente, e ele mesmo faz a aplicação.\nDepois, retorna à garrafa.
+Você lhe entrega o remédio rapidamente, e ele mesmo faz a aplicação. Depois, retorna à garrafa.
 - “O álcool disfarça a dor?”
 	do DialogueData.set_mood("Lucio", DialogueData.LucioMoods.HAND_SAD)
 	Lucio: “O álcool resfria a mente e o corpo. Extingue essa… sensação febril que me aflige.”
