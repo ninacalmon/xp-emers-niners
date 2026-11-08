@@ -20,6 +20,7 @@ signal action_ended
 var hands_overlay: HandsOverlay
 var force_outline_off: bool = false
 @export var item_interaction: bool = false
+@export var wanted_item: ItemRes
 
 
 func _ready() -> void:

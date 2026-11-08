@@ -1,33 +1,30 @@
 [gd_scene format=3 uid="uid://bifi36nxacdg4"]
 
+[ext_resource type="Script" uid="uid://b1wkj3h0eak7k" path="res://scenes/characters/prior/prior.gd" id="1_gashb"]
 [ext_resource type="SpriteFrames" uid="uid://bejpvjes1smak" path="res://resources/sprite_frames/characters/prior/prior_sprite_frames.tres" id="1_t217v"]
 [ext_resource type="Script" uid="uid://biodsue5rifq4" path="res://systems/character/character_sprite_handler.gd" id="2_gashb"]
 [ext_resource type="Script" uid="uid://bjidnq65qcjsh" path="res://systems/character/dialogue_action.gd" id="3_t1d7s"]
+[ext_resource type="Resource" uid="uid://cvsck2yxr2v1s" path="res://dialogue/prior/prior_main.dialogue" id="5_t1d7s"]
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_aovk5"]
 viewport_path = NodePath("SubViewportSprite")
-
-[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_5604n"]
-radius = 0.32666016
-height = 2.1264648
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_cdpwx"]
 radius = 0.2993164
 height = 0.8618164
 
-[node name="Prior" type="Node3D" unique_id=1758948578 groups=["prior"]]
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_5604n"]
+radius = 0.32666016
+height = 2.1264648
+
+[node name="Prior" type="CharacterBody3D" unique_id=1667144442 groups=["prior"]]
+script = ExtResource("1_gashb")
 
 [node name="Sprite3D" type="Sprite3D" parent="." unique_id=415751236]
 transform = Transform3D(0.18, 0, 0, 0, 0.18, 0, 0, 0, 0.18, 0, 0.7130867, 0)
 offset = Vector2(0, 241.06)
 billboard = 2
 texture = SubResource("ViewportTexture_aovk5")
-
-[node name="StaticBody3D" type="StaticBody3D" parent="." unique_id=1339048520]
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" unique_id=1213328445]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.0550354, 0)
-shape = SubResource("CapsuleShape3D_5604n")
 
 [node name="ShadowMesh" type="MeshInstance3D" parent="." unique_id=662778281]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.9330101, 0)
@@ -42,7 +39,9 @@ render_target_update_mode = 4
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="SubViewportSprite" unique_id=60975985]
 sprite_frames = ExtResource("1_t217v")
-animation = &"idle"
+animation = &"BELL_RUN"
+frame = 1
+frame_progress = 0.9280047
 centered = false
 
 [node name="SpriteHandler" type="Node" parent="." unique_id=534702306 node_paths=PackedStringArray("animated_sprite", "dialogue_action")]
@@ -54,3 +53,10 @@ dialogue_action = NodePath("../DialogueAction")
 [node name="DialogueAction" type="Node" parent="." unique_id=2095900101]
 script = ExtResource("3_t1d7s")
 character_name = "Prior"
+dialogue_res = ExtResource("5_t1d7s")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1213328445]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.0550354, 0)
+shape = SubResource("CapsuleShape3D_5604n")
+
+[node name="NavigationAgent3D" type="NavigationAgent3D" parent="." unique_id=315093953]

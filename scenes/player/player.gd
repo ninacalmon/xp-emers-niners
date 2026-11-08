@@ -2,16 +2,23 @@ class_name Player
 extends CharacterBody3D
 
 
-const STEP_HEIGHT: float = 0.25
+const STEP_HEIGHT: float = 0.32
 
 @export var player_ray_cast: PlayerRayCast
 
 @export var speed = 7.0
 @export var run_speed = 11.0
 
+@export var drunk_overlay: ColorRect
+
 @onready var head: Node3D = $Head
 
-var is_drunk: bool = false
+var _is_drunk: bool = false
+const DRUNK_DURATION: float = 30.0
+var _drunk_time: float = 0.0
+var _drunk_id: int = 0
+var drunk_dialogue: DialogueResource = preload("uid://bvnutokokwyyg")
+var _first_time_drunk: bool = true
 
 
 var is_dialogue_locked: bool = false:
@@ -28,6 +35,11 @@ var is_puzzle_locked: bool = false:
 	set(value):
 		is_puzzle_locked = value
 		player_ray_cast.deactivate("puzzle", value)
+
+var is_cutscene_locked: bool = false:
+	set(value):
+		is_cutscene_locked = value
+		player_ray_cast.deactivate("cutscene", value)
 
 
 #region ConfigVariables
@@ -52,9 +64,11 @@ func _ready() -> void:
 
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 
+	drunk_overlay.hide()
+
 
 func _input(event: InputEvent) -> void:
-	if is_dialogue_locked or is_focus_locked or is_puzzle_locked:
+	if is_dialogue_locked or is_focus_locked or is_puzzle_locked or is_cutscene_locked:
 		return
 
 	## NOTE: mouse capturing and freeing, temporary and for DEBUG ONLY!
@@ -72,7 +86,7 @@ func _input(event: InputEvent) -> void:
 
 
 func _physics_process(delta: float) -> void:
-	if is_dialogue_locked or is_focus_locked or is_puzzle_locked:
+	if is_dialogue_locked or is_focus_locked or is_puzzle_locked or is_cutscene_locked:
 		return
 
 	if not is_on_floor():
@@ -84,6 +98,10 @@ func _physics_process(delta: float) -> void:
 		"walk_fowards",
 		"walk_backwards"
 	)
+
+	if _is_drunk:
+		_drunk_time += delta
+		input_dir = input_dir.rotated(sin(_drunk_time * 2.0) * 0.6)
 
 	var current_speed = run_speed if Input.is_action_pressed("run") else speed
 	var direction: Vector3 = (transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
@@ -135,3 +153,54 @@ func update_config_values(config_field: ConfigValues.ConfigField):
 		ConfigValues.ConfigField.CONTROLS:
 			h_mouse_sensitivity = ConfigValues.h_mouse_sensitivity
 			v_mouse_sensitivity = ConfigValues.v_mouse_sensitivity
+
+
+func get_drunk() -> void:
+	if _first_time_drunk:
+		_first_time_drunk = false
+		DialogueManager.show_dialogue_balloon(drunk_dialogue, "start")
+		await DialogueManager.dialogue_ended
+
+
+	_drunk_id += 1
+	var my_id: int = _drunk_id
+
+	_is_drunk = true
+	drunk_overlay.show()
+
+
+	await get_tree().create_timer(DRUNK_DURATION).timeout
+
+	if my_id != _drunk_id:
+		return
+
+	_is_drunk = false
+	drunk_overlay.hide()
+
+
+func look_at_target(target_pos: Vector3, duration: float = 0.5) -> void:
+	var to_target: Vector3 = target_pos - head.global_position
+	var horizontal: Vector3 = Vector3(to_target.x, 0.0, to_target.z)
+
+	var target_yaw: float = atan2(-horizontal.x, -horizontal.z)
+	var target_pitch: float = clampf(
+		atan2(to_target.y, horizontal.length()),
+		-1.2,
+		1.55
+	)
+
+
+	var start_yaw: float = rotation.y
+	var tween: Tween = create_tween()
+	tween.set_parallel(true)
+	tween.set_trans(Tween.TRANS_SINE)
+	tween.set_ease(Tween.EASE_IN_OUT)
+	tween.tween_method(
+		func(weight: float) -> void: rotation.y = lerp_angle(start_yaw, target_yaw, weight),
+		0.0,
+		1.0,
+		duration
+	)
+	tween.tween_property(head, "rotation:x", target_pitch, duration)
+
+	await tween.finished

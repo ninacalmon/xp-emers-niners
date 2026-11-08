@@ -67,7 +67,7 @@ func _on_player_detection_body_entered(body: Node3D) -> void:
 
 	_player_inside = true
 
-	var is_drunk: bool = body.is_drunk
+	var is_drunk: bool = body._is_drunk
 	print("[SleepPuzzle] is_drunk: ", is_drunk)
 	if is_drunk or _sanson_awake:
 		return

@@ -3,7 +3,7 @@ import "uid://fl7wxpluqdk4" as lucio_drunk
 
 
 ~ start
-=> lucio_drunk/start
+
 if CharacterData.Julio.lucio_received_medicine and CharacterData.Julio.get_status("get_inkwell") == 0:
 	=> thanks
 elif CharacterData.Julio.get_status("medication_for_lucio") == 1:

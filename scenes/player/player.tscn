@@ -18,6 +18,7 @@
 [ext_resource type="AudioStream" uid="uid://b6ndyk8kaop6q" path="res://assets/sound/sound_effects/player/footsteps/dirt_floor/heels_on_dirt (2).wav" id="14_kvlxm"]
 [ext_resource type="AudioStream" uid="uid://bql6l874cmpkr" path="res://assets/sound/sound_effects/player/footsteps/dirt_floor/heels_on_dirt (3).wav" id="15_uf5tr"]
 [ext_resource type="AudioStream" uid="uid://27w56i0xbjwy" path="res://assets/sound/sound_effects/player/footsteps/dirt_floor/heels_on_dirt (4).wav" id="16_lgqa7"]
+[ext_resource type="Shader" uid="uid://ba1q0gbjlc5a4" path="res://resources/shaders/drunk.gdshader" id="19_lgqa7"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_cdpwx"]
 radius = 0.3
@@ -56,12 +57,16 @@ stream_1/stream = ExtResource("14_kvlxm")
 stream_2/stream = ExtResource("15_uf5tr")
 stream_3/stream = ExtResource("16_lgqa7")
 
-[node name="Player" type="CharacterBody3D" unique_id=949902107 node_paths=PackedStringArray("player_ray_cast") groups=["player"]]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_cdpwx"]
+shader = ExtResource("19_lgqa7")
+
+[node name="Player" type="CharacterBody3D" unique_id=949902107 node_paths=PackedStringArray("player_ray_cast", "drunk_overlay") groups=["player"]]
 collision_layer = 5
 floor_max_angle = 0.80285144
 floor_snap_length = 0.3
 script = ExtResource("1_8afob")
 player_ray_cast = NodePath("Head/PlayerCam/PlayerRayCast")
+drunk_overlay = NodePath("CanvasLayer/ColorRect")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1467503010]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.8991411, 0)
@@ -114,3 +119,13 @@ bus = &"Sound Effects / LowEcho"
 stream = SubResource("AudioStreamRandomizer_fm80t")
 volume_db = -10.0
 bus = &"Sound Effects"
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=9629417]
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer" unique_id=1078939946]
+material = SubResource("ShaderMaterial_cdpwx")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2

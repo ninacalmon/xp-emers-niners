@@ -1,0 +1,16 @@
+[remap]
+
+importer="dialogue_manager"
+importer_version=18
+type="Resource"
+uid="uid://cvsck2yxr2v1s"
+path="res://.godot/imported/prior_main.dialogue-4d2a3bf11ff9c11a79e8661a25a54748.tres"
+
+[deps]
+
+source_file="res://dialogue/prior/prior_main.dialogue"
+dest_files=["res://.godot/imported/prior_main.dialogue-4d2a3bf11ff9c11a79e8661a25a54748.tres"]
+
+[params]
+
+defaults=true

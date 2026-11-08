@@ -152,6 +152,11 @@ func _on_puzzle_ended(puzzle: Puzzle):
 		if puzzle.puzzle_solved:
 			CharacterData.Sanson.astrolabus_aligned = true
 
+
+func hide_after_dialogue(character: Node3D):
+	character.global_position = Vector3(0, -10, 0)
+
+
 ## ================== ADDING MOODS/ANIMATIONS ===================
 
 ## to add a NEW ANIMATION, it's name MUST MATCH the name of a MOOD.

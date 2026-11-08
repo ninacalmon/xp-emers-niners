@@ -1,11 +1,12 @@
 class_name OpenDoorAction
 extends ActionTrigger
 
+@export var open_rotation: int = 95
 @export var flip: bool = false
 @export var speed: float = 0.4
 
 @export var collision_shape_3d: CollisionShape3D
-@export var mesh_instance_3d: MeshInstance3D
+@export var mesh_instance_3d: Node3D
 
 @onready var interaction_area: InteractionArea = $InteractionArea
 
@@ -22,11 +23,17 @@ func _ready() -> void:
 	if flip:
 		self.scale.z *= -1
 
+
 func trigger():
 	if locked:
-		locked_stream_player.play()
-		await shake_door()
-		return
+		if InventoryManager.selected_item == wanted_item:
+			locked = false
+			locked_stream_player.play()
+			await locked_stream_player.finished
+		else:
+			locked_stream_player.play()
+			await shake_door()
+			return
 
 	if is_open:
 		await close_door()
@@ -50,7 +57,7 @@ func open_door():
 	var tween = create_tween()
 	tween.set_ease(Tween.EASE_IN)
 
-	tween.tween_property(mesh_instance_3d, "rotation:y", deg_to_rad(95), speed)
+	tween.tween_property(mesh_instance_3d, "rotation:y", deg_to_rad(open_rotation), speed)
 
 	await tween.finished
 

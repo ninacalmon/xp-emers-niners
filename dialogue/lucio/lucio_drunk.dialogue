@@ -2,9 +2,9 @@
 do DialogueData.set_mood("Lucio", DialogueData.LucioMoods.IDLE_SAD)
 do locals.eff = "[wave amp=20.0 freq=3.0 connected=0][shake rate=3 level=10]"
 do locals.end = "[/shake][/wave]"
-Lucio: {{locals.eff}}“Ah… você voltou.”
-Lucio: {{locals.eff}}“C-como… *hic* você está?”
-Você: “Eu estou… bem. Você parece meio… está tudo bem?”
+Lucio: {{locals.eff}}“Ah... você voltou.”
+Lucio: {{locals.eff}}“C-como... *hic* você está?”
+Você: “Eu estou... bem. Você parece meio... está tudo bem?”
 do DialogueData.set_mood("Lucio", DialogueData.LucioMoods.HEART_SAD)
 Lucio: {{locals.eff}}“...Eis-me aqui.”
 Lucio: {{locals.eff}}“Isso não responde à sua pergunta?”
@@ -21,37 +21,37 @@ do DialogueData.set_mood("Lucio", DialogueData.LucioMoods.IDLE_SINIXTRO)
 Lucio: {{locals.eff}}[b]O Abade.
 Lucio: {{locals.eff}}“E eu sei... eu sei o que eles estão tramando...”
 do DialogueData.set_mood("Lucio", DialogueData.LucioMoods.HEART_SAD)
-Lucio: {{locals.eff}}“Como eu fui… *hic*… tolo.”
-Você: “… o que?”
-Você: “O abade não é assim… é?”
+Lucio: {{locals.eff}}“Como eu fui... *hic*... tolo.”
+Você: “... o que?”
+Você: “O abade não é assim... é?”
 do DialogueData.set_mood("Lucio", DialogueData.LucioMoods.HAND_ANGRY)
 Lucio: {{locals.eff}}“Você não notou que eles estão agindo de forma estranha? Já se passaram dias desde que se trancaram no próprio quarto, impedindo a entrada de qualquer um.”
 Lucio: {{locals.eff}}“Você realmente acredita que eles ainda estão inteiros? Estão fragmentados, além de qualquer possibilidade de reparo; não passam de uma casca vazia. Por dentro, só existe uma maldade vil. Uma amálgama deplorável de medo e ódio.”
 do DialogueData.set_mood("Lucio", DialogueData.LucioMoods.IDLE_SINIXTRO)
-Lucio: {{locals.eff}}“Francisco… preste muita atenção…”
+Lucio: {{locals.eff}}“Francisco... preste muita atenção...”
 do DialogueData.set_mood("Lucio", DialogueData.LucioMoods.HEART_ANGRY)
 Lucio: {{locals.eff}}“O Abade, esse [b]parasita asqueroso[/b], pretende consumir nossas almas para ascender aos céus. Ele tem capturado aqueles que estavam à beira da morte, roubando-lhes a chance de escapar deste mundo desolado.”
-Lucio: {{locals.eff}}“Como era de se esperar da minha sorte, ninguém me daria ouvidos… [b]exceto você.”
+Lucio: {{locals.eff}}“Como era de se esperar da minha sorte, ninguém me daria ouvidos... [b]exceto você.”
 do DialogueData.set_mood("Lucio", DialogueData.LucioMoods.HEART_SAD)
-Lucio: {{locals.eff}}“Você… você acredita em mim… não acredita?”
+Lucio: {{locals.eff}}“Você... você acredita em mim... não acredita?”
 Você: “...”
-Lucio: {{locals.eff}}“Bem… não fique aí só me encarando. [b]Fale.”
+Lucio: {{locals.eff}}“Bem... não fique aí só me encarando. [b]Fale.”
 do DialogueData.set_mood("Lucio", DialogueData.LucioMoods.IDLE_ANGRY)
 Lucio: {{locals.eff}}[font_size=40][b]“FALE.”
 Você: “Sim!... sim. Eu acho.”
 do DialogueData.set_mood("Lucio", DialogueData.LucioMoods.IDLE_DEFAULT)
-Lucio: {{locals.eff}}“Ó, Francisco… você deve ver por si só...”
-Você: “Eu devo o impedir… devo impedir isso tudo. O que o Sol me avisou... eu...”
+Lucio: {{locals.eff}}“Ó, Francisco... você deve ver por si só...”
+Você: “Eu devo o impedir... devo impedir isso tudo. O que o Sol me avisou... eu...”
 Você: “Lucio. Eu preciso da sua garrafa.”
 do DialogueData.set_mood("Lucio", DialogueData.LucioMoods.HEART_DEFAULT)
 Lucio: {{locals.eff}}“Garoto, ergo esta garrafa para aliviar minhas tristezas.”
 do DialogueData.set_mood("Lucio", DialogueData.LucioMoods.HEART_SAD)
-Lucio: {{locals.eff}}[font_size=20]“…eu não quero morrer…”
+Lucio: {{locals.eff}}[font_size=20]“...eu não quero morrer...”
 do FadeInOut.fade_in(2)
 do wait(1)
 Lucio caiu desacordado sobre a mesa.
 do wait(1)
 do InventoryManager.add_new_item(CharacterData.Item.drink)
-do GetEntity.get_lucio().queue_free()#CORRIGIR AQUI
+do DialogueData.hide_after_dialogue(GetEntity.get_lucio())
 do FadeInOut.fade_out(2)
 => END!
