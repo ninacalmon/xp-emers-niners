@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="ItemRes" format=3 uid="uid://bae56sx733f7o"]
+
+[ext_resource type="PackedScene" uid="uid://d1qho87epp7o4" path="res://scenes/item_focus_view/blank_paper_focus_view.tscn" id="1_1egti"]
+[ext_resource type="Resource" uid="uid://cpslu57eyvore" path="res://items/papers/written_paper.tres" id="1_bwh83"]
+[ext_resource type="Script" uid="uid://doqkh62nh5of1" path="res://systems/items_resource/item_resource.gd" id="1_ga35c"]
+[ext_resource type="Texture2D" uid="uid://dwvunuwg4yfn2" path="res://assets/2d/interface/items_capture/blank_paper_blank_paper(1).png" id="4_1egti"]
+
+[resource]
+script = ExtResource("1_ga35c")
+id = &"blank_paper"
+name_tr_key = "ITEM_BLANK_PAPER"
+texture = ExtResource("4_1egti")
+item_focus_view = ExtResource("1_1egti")
+combining_item_id = &"candle"
+result_item = ExtResource("1_bwh83")
+metadata/_custom_type_script = "uid://doqkh62nh5of1"

@@ -1,0 +1,74 @@
+[gd_scene format=3 uid="uid://d1qho87epp7o4"]
+
+[ext_resource type="Script" uid="uid://bqyhv0yuttcvs" path="res://scenes/item_focus_view/item_focus_view.gd" id="1_q3e2b"]
+[ext_resource type="PackedScene" uid="uid://x67lk35re62k" path="res://assets/3d/items/paper_mirrors/blank_paper.glb" id="2_fsih6"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_hcckq"]
+sky_top_color = Color(0.7275567, 0.6954605, 0.59714603, 1)
+sky_horizon_color = Color(0.69289213, 0.66735613, 0.62371135, 1)
+ground_bottom_color = Color(0.23, 0.15084168, 0.09430001, 1)
+ground_horizon_color = Color(0.69, 0.6279, 0.4416, 1)
+
+[sub_resource type="Sky" id="Sky_puegj"]
+sky_material = SubResource("ProceduralSkyMaterial_hcckq")
+
+[sub_resource type="Environment" id="Environment_o8qg2"]
+background_mode = 2
+sky = SubResource("Sky_puegj")
+ambient_light_source = 2
+ambient_light_color = Color(0.43, 0.3784, 0.3268, 1)
+glow_enabled = true
+glow_bloom = 0.44
+volumetric_fog_density = 0.002
+volumetric_fog_albedo = Color(1, 0.89666665, 0.8, 1)
+volumetric_fog_emission = Color(0.61, 0.61, 0.61, 1)
+volumetric_fog_anisotropy = 0.19
+volumetric_fog_length = 524.22
+
+[node name="FocusView" type="Node3D" unique_id=1453891134 node_paths=PackedStringArray("item_mesh")]
+script = ExtResource("1_q3e2b")
+item_mesh = NodePath("blank_paper")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1628038083]
+environment = SubResource("Environment_o8qg2")
+
+[node name="Camera3D" type="Camera3D" parent="." unique_id=2085724]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.33838725)
+cull_mask = 512
+size = 0.074
+
+[node name="Lights" type="Node3D" parent="." unique_id=247008827]
+
+[node name="KeyLight" type="SpotLight3D" parent="Lights" unique_id=1312923543]
+transform = Transform3D(0.91966534, -4.440892e-16, -0.39270303, 0.07540774, 0.9813906, 0.17659625, 0.38539505, -0.19202231, 0.9025509, -1.9619832, 0.59379816, 3.4050393)
+layers = 512
+light_energy = 3.375
+spot_range = 4.114
+spot_attenuation = 0.22
+
+[node name="FillLight" type="SpotLight3D" parent="Lights" unique_id=861530297]
+transform = Transform3D(0.8577985, -0.15414329, 0.49032813, 0.07540775, 0.98139066, 0.17659627, -0.5084245, -0.11450947, 0.85345894, 2.467955, 0.59379816, 3.4063945)
+layers = 512
+light_energy = 2.0
+
+[node name="RimLight" type="SpotLight3D" parent="Lights" unique_id=1400708046]
+transform = Transform3D(-1, 3.65575e-15, 8.7422755e-08, 3.9508492e-08, 0.89205617, 0.4519245, -7.7986016e-08, 0.4519245, -0.89205617, 0, 2.6522634, -1.4370193)
+layers = 512
+light_energy = 3.0
+spot_range = 13.255
+spot_attenuation = 2.72
+spot_angle = 68.74986
+
+[node name="OmniLight3D" type="OmniLight3D" parent="Lights" unique_id=953454531]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.237011, -1.2699603)
+layers = 512
+light_energy = 4.625
+omni_range = 25.381
+
+[node name="blank_paper" parent="." unique_id=431428558 instance=ExtResource("2_fsih6")]
+
+[node name="Plane" parent="blank_paper" index="0" unique_id=1510959534]
+transform = Transform3D(-0.031084906, 0.089029744, -0.9957798, -1.3320738, -0.29740918, -0.005229341, 0.41385186, -0.95059013, -0.091625996, -0.11177039, 0.023458958, 0.012546971)
+layers = 512
+
+[editable path="blank_paper"]

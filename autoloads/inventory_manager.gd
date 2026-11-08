@@ -6,7 +6,7 @@ signal selected_item_changed(item: ItemRes)
 signal inventory_item_changed(slot_idx: int)
 signal selected_slot_changed(slot_idx: int)
 signal wrong_item(slot_idx: int)
-
+signal inventory_full(item: ItemRes)
 
 var inventory_slots: Dictionary = {}
 
@@ -58,20 +58,22 @@ func change_slot(direction: int):
 
 ## this function passes by every slot on inventory, looking for the first empty spot and
 ## storaging the new_item inside it.
-func add_new_item(new_item: ItemRes, combining: bool = false):
-	for i in range(inventory_size):
+func add_new_item(new_item: ItemRes, combining: bool = false) -> bool:
+	for i: int in range(inventory_size):
 		if (not combining and inventory_slots[i] == null) or \
 		(combining and i == FocusPlayground.focused_item_slot_idx):
-			#print(combining)
 			inventory_slots[i] = new_item
-			print(i, " ", new_item)
 			inventory_item_changed.emit(i)
-			print("new item here: ", i)
+
 			if i == selected_slot_idx:
 				selected_item = inventory_slots[i]
 			elif combining:
 				change_slot(i - selected_slot_idx)
-			return
+			return true
+
+	## no available slot was found, so nothing was added.
+	inventory_full.emit(new_item)
+	return false
 
 	## this part runs only if no avaiable slot were found.
 	## NOTE: later, we need to give a proper feedback in the game!

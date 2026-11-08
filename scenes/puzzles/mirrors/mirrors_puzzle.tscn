@@ -1,0 +1,136 @@
+[gd_scene format=3 uid="uid://bv7pwu6dc6q6l"]
+
+[ext_resource type="Script" uid="uid://0udcvhgb0xee" path="res://scenes/puzzles/mirrors/mirrors_puzzle.gd" id="1_pxgf3"]
+[ext_resource type="Script" uid="uid://csjccrhj5wnx7" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_3d.gd" id="2_f6yj6"]
+[ext_resource type="Script" uid="uid://8umksf8e80fw" path="res://addons/phantom_camera/scripts/resources/tween_resource.gd" id="3_bpbbp"]
+[ext_resource type="Material" uid="uid://dki8i4qf7fofd" path="res://resources/shader_materials/outline_shader_material_3d.tres" id="4_drt17"]
+[ext_resource type="Script" uid="uid://bd046eokvcnu2" path="res://addons/phantom_camera/scripts/phantom_camera_host/phantom_camera_host.gd" id="5_2yj18"]
+[ext_resource type="Texture2D" uid="uid://cos1fefqwe0hv" path="res://assets/3d/objects/confessional/confessional_rosewood_veneer1_diff_1k.jpg" id="5_fq2rl"]
+[ext_resource type="Texture2D" uid="uid://b41uvfxs6bjos" path="res://assets/3d/objects/confessional/confessional_rosewood_veneer1_rough_1k.png" id="6_m5yl5"]
+[ext_resource type="Texture2D" uid="uid://cqraxx8kcmmwx" path="res://assets/3d/objects/confessional/confessional_rosewood_veneer1_nor_gl_1k.png" id="7_7qgf8"]
+[ext_resource type="Script" uid="uid://cf2auur4umdjl" path="res://systems/interaction/interaction_area.gd" id="10_68tg4"]
+[ext_resource type="PackedScene" uid="uid://c5j2qsi5minjv" path="res://assets/3d/items/mirrors/mirror_a/mirror_a_full.glb" id="11_7qgf8"]
+[ext_resource type="PackedScene" uid="uid://db8352k03vonw" path="res://assets/3d/items/mirrors/mirror_b/mirror_b_full.glb" id="12_lstdq"]
+[ext_resource type="Script" uid="uid://cmfudvx52x4we" path="res://scenes/puzzles/start_puzzle_action.gd" id="12_wwym8"]
+[ext_resource type="PackedScene" uid="uid://na8xw2uvry6" path="res://assets/3d/items/mirrors/mirror_c/mirror_c_full.glb" id="13_pu08e"]
+
+[sub_resource type="Resource" id="Resource_p47bc"]
+script = ExtResource("3_bpbbp")
+duration = 0.8
+transition = 3
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_cdpwx"]
+size = Vector3(1.4318848, 1, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_cdpwx"]
+size = Vector3(1.5390625, 1, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_w2yfw"]
+resource_name = "wood"
+cull_mode = 2
+albedo_texture = ExtResource("5_fq2rl")
+metallic_texture = ExtResource("6_m5yl5")
+metallic_texture_channel = 2
+roughness_texture = ExtResource("6_m5yl5")
+roughness_texture_channel = 1
+normal_enabled = true
+normal_texture = ExtResource("7_7qgf8")
+metadata/_gltf_primary_texture_coord = 0
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_cdpwx"]
+radius = 1.013298
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_cdpwx"]
+size = Vector2(0.35, 0.47)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_lstdq"]
+resource_name = "wood"
+cull_mode = 2
+albedo_color = Color(0.28, 0.13962668, 0.10080001, 1)
+metallic_texture = ExtResource("6_m5yl5")
+metallic_texture_channel = 2
+roughness_texture = ExtResource("6_m5yl5")
+roughness_texture_channel = 1
+normal_enabled = true
+normal_texture = ExtResource("7_7qgf8")
+metadata/_gltf_primary_texture_coord = 0
+
+[node name="MirrorsPuzzle" type="Node3D" unique_id=572576743 node_paths=PackedStringArray("interaction_area_collision") groups=["puzzles"]]
+script = ExtResource("1_pxgf3")
+interaction_area_collision = NodePath("InteractionArea/CollisionShape3D")
+
+[node name="PhantomCamera3D" type="Node3D" parent="." unique_id=1007361020]
+transform = Transform3D(1.0000001, 0, 0, 0, 0.21267746, 0.97712237, 0, -0.9771224, 0.21267745, -0.020072728, 1.6667821, 0.20644537)
+script = ExtResource("2_f6yj6")
+tween_resource = SubResource("Resource_p47bc")
+metadata/_custom_type_script = "uid://csjccrhj5wnx7"
+
+[node name="Table" type="StaticBody3D" parent="." unique_id=1685460299]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Table" unique_id=759516503]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.48867738, 0)
+shape = SubResource("BoxShape3D_cdpwx")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Table" unique_id=1711685298]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.48983818, 0)
+material_overlay = ExtResource("4_drt17")
+instance_shader_parameters/outline_enabled = false
+mesh = SubResource("BoxMesh_cdpwx")
+surface_material_override/0 = SubResource("StandardMaterial3D_w2yfw")
+
+[node name="Camera3D" type="Camera3D" parent="." unique_id=1300242329]
+transform = Transform3D(1.0000001, 0, 0, 0, 0.21267746, 0.97712237, 0, -0.9771224, 0.21267745, -0.020072728, 1.6667821, 0.20644537)
+top_level = true
+
+[node name="PhantomCameraHost" type="Node" parent="Camera3D" unique_id=312065187]
+process_priority = 300
+process_physics_priority = 300
+script = ExtResource("5_2yj18")
+metadata/_custom_type_script = "uid://bd046eokvcnu2"
+
+[node name="InteractionArea" type="Area3D" parent="." unique_id=1893375073 node_paths=PackedStringArray("mesh", "action_trigger")]
+script = ExtResource("10_68tg4")
+mesh = NodePath("../Table/MeshInstance3D")
+action_trigger = NodePath("StartPuzzleAction")
+metadata/_custom_type_script = "uid://cf2auur4umdjl"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="InteractionArea" unique_id=1051231944]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5492842, 0)
+shape = SubResource("SphereShape3D_cdpwx")
+
+[node name="StartPuzzleAction" type="Node" parent="InteractionArea" unique_id=1232823712 node_paths=PackedStringArray("mesh_instance_3d")]
+script = ExtResource("12_wwym8")
+mesh_instance_3d = NodePath("../../Table/MeshInstance3D")
+
+[node name="mirror_slot1" type="MeshInstance3D" parent="." unique_id=693175067]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.4428341, 1.0134221, 0)
+mesh = SubResource("PlaneMesh_cdpwx")
+surface_material_override/0 = SubResource("StandardMaterial3D_lstdq")
+
+[node name="mirror_slot2" type="MeshInstance3D" parent="." unique_id=891436985]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.020392269, 1.0134221, 0)
+mesh = SubResource("PlaneMesh_cdpwx")
+surface_material_override/0 = SubResource("StandardMaterial3D_lstdq")
+
+[node name="mirror_slot3" type="MeshInstance3D" parent="." unique_id=1497115096]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.46777213, 1.0134221, 0)
+mesh = SubResource("PlaneMesh_cdpwx")
+surface_material_override/0 = SubResource("StandardMaterial3D_lstdq")
+
+[node name="mirror_a_full" parent="." unique_id=658029145 instance=ExtResource("11_7qgf8")]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, -0.006341547, 1.0445015, -0.016792312)
+
+[node name="mirror_b_full" parent="." unique_id=89306926 instance=ExtResource("12_lstdq")]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0.4568208, 1.0445015, -0.016792312)
+
+[node name="mirror_c_full" parent="." unique_id=297561418 instance=ExtResource("13_pu08e")]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, -0.40185592, 1.0445015, -0.016792312)
+
+[node name="Slot1" type="Marker3D" parent="." unique_id=118546070]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.46482027, 1.0380498, 0)
+
+[node name="Slot2" type="Marker3D" parent="." unique_id=294715614]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.016954154, 1.0380498, 0)
+
+[node name="Slot3" type="Marker3D" parent="." unique_id=1589007748]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.51663435, 1.0380498, 0)

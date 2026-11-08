@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="ItemRes" format=3 uid="uid://l32ivj0agrb2"]
+
+[ext_resource type="PackedScene" uid="uid://bwrw7l8biita3" path="res://scenes/item_focus_view/abbots_key_focus_view.tscn" id="1_5xx3b"]
+[ext_resource type="Script" uid="uid://doqkh62nh5of1" path="res://systems/items_resource/item_resource.gd" id="2_kguwj"]
+[ext_resource type="Texture2D" uid="uid://dsml7ylpyb6el" path="res://assets/2d/interface/items_capture/abbots_key_key.png" id="3_5xx3b"]
+
+[resource]
+script = ExtResource("2_kguwj")
+id = &"abbot_door"
+name_tr_key = "ITEM_ABBOT_DOOR"
+texture = ExtResource("3_5xx3b")
+item_focus_view = ExtResource("1_5xx3b")
+metadata/_custom_type_script = "uid://doqkh62nh5of1"
