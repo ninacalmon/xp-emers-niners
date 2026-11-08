@@ -1,3 +1,18 @@
-~ start
-Prior: “Francisco...? Você aqui?! [b]SAIA JÁ!!![/b]”
+~ first
+do DialogueData.set_mood("Prior", DialogueData.PriorMoods.IDLE_DEFAULT)
+Prior: “Francisco...? Você aqui?!”
+do DialogueData.set_mood("Prior", DialogueData.PriorMoods.BELL_YELL)
+Prior: [b]SAIA JÁ!!![/b]
+=> END
+
+~ repeat
+do DialogueData.set_mood("Prior", DialogueData.PriorMoods.BELL_YELL)
+Prior: [b]SAIA JÁ!!![/b]
+=> END
+
+~ bell
+do DialogueData.set_mood("Prior", DialogueData.PriorMoods.BELL_YELL)
+Prior: “Aaahyyyy!! Que zumbido horrível! Egh-!”
+do DialogueData.set_mood("Prior", DialogueData.PriorMoods.BELL_SOUND)
+do wait(0.5)
 => END

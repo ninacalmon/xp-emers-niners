@@ -1,5 +1,7 @@
 extends Node3D
+class_name ChurchBell
 
+signal bell_toll
 
 @export_range(0.3, 5.0, 0.05) var toll_interval_min: float = 1.5
 @export_range(0.3, 5.0, 0.05) var toll_interval_max: float = 2.3
@@ -36,13 +38,13 @@ func _on_time_pass(time: TimeManager.Times) -> void:
 		TimeManager.Times.at2400:
 			_toll_times = 12
 
-	toll_bell()
+	toll_bell(_toll_times)
 
 
-func toll_bell() -> void:
+func toll_bell(times: int) -> void:
 	var direction: float = -1.0
 
-	for i: int in range(_toll_times):
+	for i: int in range(times):
 		var duration: float = randf_range(toll_interval_min, toll_interval_max)
 		var amplitude: float = _swing_angle * randf_range(0.92, 1.0)
 

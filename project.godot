@@ -68,6 +68,7 @@ prior=""
 sanson_room_pos=""
 hugo_room_pos=""
 sun=""
+bell=""
 
 [gui]
 

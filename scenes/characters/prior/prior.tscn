@@ -18,6 +18,8 @@ radius = 0.32666016
 height = 2.1264648
 
 [node name="Prior" type="CharacterBody3D" unique_id=1667144442 groups=["prior"]]
+floor_max_angle = 1.3962634
+floor_snap_length = 0.5
 script = ExtResource("1_gashb")
 
 [node name="Sprite3D" type="Sprite3D" parent="." unique_id=415751236]
@@ -39,9 +41,8 @@ render_target_update_mode = 4
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="SubViewportSprite" unique_id=60975985]
 sprite_frames = ExtResource("1_t217v")
-animation = &"BELL_RUN"
-frame = 1
-frame_progress = 0.9280047
+animation = &"BELL_YELL"
+frame_progress = 0.47847685
 centered = false
 
 [node name="SpriteHandler" type="Node" parent="." unique_id=534702306 node_paths=PackedStringArray("animated_sprite", "dialogue_action")]

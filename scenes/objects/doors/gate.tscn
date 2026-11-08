@@ -50,6 +50,7 @@ roughness = 0.5
 [node name="Gate" type="Node3D" unique_id=668800733 node_paths=PackedStringArray("collision_shape_3d", "mesh_instance_3d", "locked_stream_player")]
 script = ExtResource("1_yhf13")
 open_rotation = 75
+speed = 0.2
 collision_shape_3d = NodePath("StaticBody3D/CollisionShape3D")
 mesh_instance_3d = NodePath("GatePivot")
 locked = true
