@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://dk30fvwvt4iit"
+path="res://.godot/imported/House of Sun.mp3-9bb8af0a2667c27723d0bbfc5f836dd7.mp3str"
+
+[deps]
+
+source_file="res://assets/sound/music/House of Sun.mp3"
+dest_files=["res://.godot/imported/House of Sun.mp3-9bb8af0a2667c27723d0bbfc5f836dd7.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

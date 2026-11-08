@@ -27,6 +27,10 @@
 [ext_resource type="Resource" uid="uid://8dvrkoxmyyx4" path="res://items/intertwined_puzzle/astrolabus_pointer.tres" id="20_t634p"]
 [ext_resource type="PackedScene" uid="uid://dhk5e4bt07a2o" path="res://scenes/objects/chair/chair.tscn" id="22_6hctx"]
 [ext_resource type="PackedScene" uid="uid://bq0g7rwr88eri" path="res://scenes/objects/doors/gate.tscn" id="27_ckok1"]
+[ext_resource type="AudioStream" uid="uid://dk0pbedy4mbac" path="res://assets/sound/sound_effects/ambient/outside_the_shroud.mp3" id="28_2x71e"]
+[ext_resource type="Script" uid="uid://peejkdrmwsea" path="res://scenes/world/music.gd" id="29_wnndm"]
+[ext_resource type="AudioStream" uid="uid://21vhu4ot54ph" path="res://assets/sound/music/Aguirre I (l'acrime di rei).mp3" id="30_jyr8v"]
+[ext_resource type="AudioStream" uid="uid://bc05muurqbflr" path="res://assets/sound/music/Entropy.mp3" id="31_5o5dd"]
 
 [sub_resource type="Sky" id="Sky_m114p"]
 sky_material = ExtResource("2_mxkvs")
@@ -602,6 +606,17 @@ debug_color = Color(0.5600001, 0.39999998, 1, 0.92941177)
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 14.814552, 2.407837, -11.577156)
 shape = SubResource("BoxShape3D_sh7a8")
 debug_color = Color(0.5600001, 0.39999998, 1, 0.92941177)
+
+[node name="Ambient" type="AudioStreamPlayer" parent="." unique_id=249666659]
+stream = ExtResource("28_2x71e")
+volume_db = -20.0
+autoplay = true
+bus = &"Sound Effects"
+
+[node name="Music" type="Node" parent="." unique_id=189480702]
+script = ExtResource("29_wnndm")
+track_a = ExtResource("30_jyr8v")
+track_b = ExtResource("31_5o5dd")
 
 [editable path="Characters/Sanson"]
 [editable path="Characters/SleepPuzzle/LockPick"]

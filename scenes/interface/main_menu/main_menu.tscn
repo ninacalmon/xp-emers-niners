@@ -16,6 +16,7 @@
 [ext_resource type="Texture2D" uid="uid://qx8g0fjbwy2v" path="res://assets/2d/interface/menu/menu_new/sun/menu_sol_fechando_rabisco.png" id="13_xm64a"]
 [ext_resource type="Texture2D" uid="uid://dyty7e2lqqub8" path="res://assets/2d/interface/menu/menu_new/sun/menu_sol_fechado_rabisco.png" id="14_24hju"]
 [ext_resource type="Texture2D" uid="uid://lpvjnv1i27ak" path="res://assets/2d/interface/menu/menu_new/frame_menu_rabisco.png" id="15_yn6hw"]
+[ext_resource type="AudioStream" uid="uid://dk30fvwvt4iit" path="res://assets/sound/music/House of Sun.mp3" id="17_j8k4c"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_v6vhv"]
 texture = ExtResource("4_j8k4c")
@@ -213,3 +214,9 @@ offset_right = 40.0
 offset_bottom = 40.0
 mouse_filter = 2
 texture = ExtResource("15_yn6hw")
+
+[node name="Music" type="AudioStreamPlayer" parent="." unique_id=1680940317]
+stream = ExtResource("17_j8k4c")
+volume_db = -20.0
+autoplay = true
+bus = &"Music"
