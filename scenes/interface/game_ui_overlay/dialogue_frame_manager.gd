@@ -2,6 +2,7 @@ extends Control
 
 @onready var frame_animated_spr: AnimatedSprite2D = $FrameAnimatedSpr
 @onready var player_speech_overlay_animated_spr: AnimatedSprite2D = $PlayerSpeechOverlayAnimatedSpr
+@onready var rich_text_label: RichTextLabel = $RichTextLabel
 
 var _balloon: DialogueManagerExampleBalloon
 var _overlay_token: int = 0
@@ -10,6 +11,7 @@ var is_player_talking: bool = false
 
 
 func _ready() -> void:
+	rich_text_label.hide()
 	player_speech_overlay_animated_spr.hide()
 	frame_animated_spr.play("default")
 
@@ -22,9 +24,11 @@ func _on_dialogue_started(_res: DialogueResource) -> void:
 	frame_animated_spr.play("dialogue")
 	await frame_animated_spr.animation_finished
 	DialogueManager.ready_to_start.emit()
+	rich_text_label.show()
 
 
 func _on_dialogue_ended(_res: DialogueResource) -> void:
+	rich_text_label.hide()
 	_close_player_overlay()
 	frame_animated_spr.play_backwards("dialogue")
 	await frame_animated_spr.animation_finished

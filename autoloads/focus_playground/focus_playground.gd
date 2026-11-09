@@ -62,6 +62,11 @@ func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("ui_cancel"):
 		disable_focus()
 
+	if event.is_action_pressed("rmb"):
+			save_viewport_png()
+			get_viewport().set_input_as_handled()
+			return
+
 	#if event.is_action("focus_combine_item"):
 		#try_and_combine()
 
@@ -280,20 +285,61 @@ func _on_inventory_selected_object_changed(item: ItemRes):
 #region screenshot
 
 
-## this function saves the sub_viewport render as a png.
-func save_viewport_png(dir_path: String = "res://assets/2d/interface/items_capture/") -> void:
-	sub_viewport.size = Vector2i(480, 480)
-	sub_viewport.render_target_update_mode = SubViewport.UPDATE_ONCE
+### this function saves the sub_viewport render as a png.
+#func save_viewport_png(dir_path: String = "res://assets/2d/interface/items_capture/EXCLUIR/") -> void:
+	#sub_viewport.size = Vector2i(1080, 1080)
+	#sub_viewport.render_target_update_mode = SubViewport.UPDATE_ONCE
+	#await RenderingServer.frame_post_draw
+#
+	#DirAccess.make_dir_recursive_absolute(dir_path)
+#
+	#var img: Image = sub_viewport.get_texture().get_image()
+	#var full_path: String = dir_path.path_join(focused_item.id + ".png")
+#
+	#var err: Error = img.save_png(full_path)
+	#if err != OK:
+		#push_error("Failed to save PNG: %s" % error_string(err))
+	#print("captured! - ", focused_item.id)
+
+#endregion
+var _is_capturing: bool = false
+
+func save_viewport_png (dir_path: String = "res://assets/2d/interface/items_capture/EXCLUIR/") -> void:
+	if _is_capturing or focused_item == null or item_mesh_3d == null:
+		return
+	_is_capturing = true
+
+	# Cache the id now, since focused_item may change while we await frames.
+	var item_id: String = focused_item.id
+
+	var capture_viewport: SubViewport = SubViewport.new()
+	capture_viewport.size = Vector2i(1080, 1080)
+	capture_viewport.transparent_bg = sub_viewport.transparent_bg
+	capture_viewport.msaa_3d = sub_viewport.msaa_3d
+	capture_viewport.own_world_3d = true
+	capture_viewport.render_target_update_mode = SubViewport.UPDATE_ONCE
+	add_child(capture_viewport)
+
+	var capture_view: ItemFocusView = focused_item.item_focus_view.instantiate() as ItemFocusView
+	capture_viewport.add_child(capture_view)
+	# Same orientation the player is currently looking at.
+	capture_view.item_mesh.transform = item_mesh_3d.transform
+
+	await get_tree().process_frame
 	await RenderingServer.frame_post_draw
 
-	DirAccess.make_dir_recursive_absolute(dir_path)
+	var img: Image = capture_viewport.get_texture().get_image()
+	capture_viewport.queue_free()
 
-	var img: Image = sub_viewport.get_texture().get_image()
-	var full_path: String = dir_path.path_join(focused_item.id + ".png")
+	DirAccess.make_dir_recursive_absolute(dir_path)
+	var full_path: String = dir_path.path_join(item_id + ".png")
 
 	var err: Error = img.save_png(full_path)
 	if err != OK:
 		push_error("Failed to save PNG: %s" % error_string(err))
-	print("captured! - ", focused_item.id)
+	else:
+		print("captured! - ", item_id)
+
+	_is_capturing = false
 
 #endregion

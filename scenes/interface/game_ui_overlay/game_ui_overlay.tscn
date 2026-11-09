@@ -223,16 +223,32 @@ script = ExtResource("3_em4qa")
 
 [node name="FrameAnimatedSpr" type="AnimatedSprite2D" parent="DialogueFrameManager" unique_id=540951738]
 sprite_frames = SubResource("SpriteFrames_cdpwx")
+animation = &"dialogue"
 autoplay = "default"
+frame = 4
+frame_progress = 1.0
 centered = false
 
 [node name="PlayerSpeechOverlayAnimatedSpr" type="AnimatedSprite2D" parent="DialogueFrameManager" unique_id=1881944721]
+visible = false
 position = Vector2(0, 785)
 sprite_frames = SubResource("SpriteFrames_qpbrx")
 animation = &"dialogue"
 frame = 4
 frame_progress = 1.0
 centered = false
+
+[node name="RichTextLabel" type="RichTextLabel" parent="DialogueFrameManager" unique_id=1822052500]
+visible = false
+layout_mode = 0
+offset_left = 192.0
+offset_top = 715.0
+offset_right = 1300.0
+offset_bottom = 813.0
+theme_override_colors/default_color = Color(1, 1, 1, 1)
+bbcode_enabled = true
+text = "pressione [img]res://assets/2d/interface/kenney_input_prompts/keyboard_space_outline.png[/img] para avançar diálogo."
+fit_content = true
 
 [node name="SunUI" type="Control" parent="." unique_id=2131573264]
 z_index = 2
@@ -279,3 +295,21 @@ offset_top = 54.0
 offset_right = 2.0
 offset_bottom = 54.0
 metadata/_edit_use_anchors_ = true
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=1048329979]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 153
+theme_override_constants/margin_top = 38
+theme_override_constants/margin_right = 212
+theme_override_constants/margin_bottom = 795
+
+[node name="RichTextLabel" type="RichTextLabel" parent="MarginContainer" unique_id=1469978814]
+layout_mode = 2
+theme_override_colors/default_color = Color(1, 1, 1, 1)
+bbcode_enabled = true
+text = "Pressione [img=50]res://assets/2d/interface/kenney_input_prompts/keyboard_t_outline.png[/img] para checar tarefas."
+horizontal_alignment = 2

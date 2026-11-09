@@ -9,6 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://b7oa1f2db2bgr" path="res://assets/2d/interface/menu/menu_new/button_menu_rabisco.png" id="4_j8k4c"]
 [ext_resource type="PackedScene" uid="uid://cdgtb0r0au0fw" path="res://scenes/interface/language_select/language_select.tscn" id="4_tpyxh"]
 [ext_resource type="Script" uid="uid://bs3461cyhqoac" path="res://scenes/interface/main_menu/sun.gd" id="5_5etk7"]
+[ext_resource type="Script" uid="uid://ihdlicnldj2p" path="res://scenes/interface/main_menu/button_credits.gd" id="6_rhmmx"]
 [ext_resource type="Texture2D" uid="uid://tm40cklb2w66" path="res://assets/2d/interface/menu/menu_new/sun/menu_sol_esclera_rabisco.png" id="9_rhmmx"]
 [ext_resource type="Texture2D" uid="uid://b7qdsvw7fs50x" path="res://assets/2d/interface/menu/menu_new/sun/menu_sol_raios_rabisco.png" id="10_7tn5r"]
 [ext_resource type="Texture2D" uid="uid://dccy2bhujmlj4" path="res://assets/2d/interface/menu/menu_new/sun/menu_sol_iris_rabisco.png" id="11_qdaa3"]
@@ -74,6 +75,9 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_cdpwx"]
 size = Vector2(894, 185)
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_cdpwx"]
+bg_color = Color(0.105882354, 0.07058824, 0.039215688, 1)
+
 [node name="MainMenu" type="Control" unique_id=438514198]
 layout_mode = 3
 anchors_preset = 15
@@ -130,6 +134,18 @@ theme_override_styles/normal = SubResource("StyleBoxTexture_v6vhv")
 theme_override_styles/hover = SubResource("StyleBoxTexture_ljqjx")
 text = "Iniciar"
 script = ExtResource("1_65o3d")
+
+[node name="ButtonCredits" type="Button" parent="VBoxButtons" unique_id=475841029]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_8anu6")
+theme_override_font_sizes/font_size = 54
+theme_override_styles/normal = SubResource("StyleBoxTexture_v6vhv")
+theme_override_styles/hover = SubResource("StyleBoxTexture_ljqjx")
+text = "Ver créditos"
+script = ExtResource("6_rhmmx")
 
 [node name="ButtonExit" type="Button" parent="VBoxButtons" unique_id=1215672585]
 layout_mode = 2
@@ -217,6 +233,45 @@ texture = ExtResource("15_yn6hw")
 
 [node name="Music" type="AudioStreamPlayer" parent="." unique_id=1680940317]
 stream = ExtResource("17_j8k4c")
-volume_db = -20.0
+volume_db = -30.0
 autoplay = true
 bus = &"Music"
+
+[node name="RichTextLabel" type="RichTextLabel" parent="." unique_id=1587451953]
+visible = false
+z_index = 3
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -662.0
+offset_top = -318.5
+offset_right = 662.0
+offset_bottom = 318.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/default_color = Color(1, 1, 1, 1)
+theme_override_styles/normal = SubResource("StyleBoxFlat_cdpwx")
+text = "✸ Programação:
+Lead Developer: Morgothe 
+
+✸ Arte:
+2D art: Bakdorl 
+
+3D art: Bakdorl and Morgothe
+
+✸ Narrative:
+Bakdorl and Morgothe
+
+— EXTERNAL CREDITS  —
+Special thanks to Zen for the songs and narrative / dialogues assistance! You are the best!
+
+Music:
+Sun Araw
+All My Wishes Were Thrown Down a Well and Should Die There
+Popol Vuh
+Seadrum"
+fit_content = true
+horizontal_alignment = 1

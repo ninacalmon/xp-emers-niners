@@ -57,6 +57,7 @@ func finish(solved: bool) -> void:
 func _on_item_picked_up() -> void:
 	if not _started:
 		return
+	TimeManager.set_time(TimeManager.Times.at2100)
 	finish(true)
 
 

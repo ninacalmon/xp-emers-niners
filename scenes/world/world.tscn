@@ -14,7 +14,6 @@
 [ext_resource type="PackedScene" uid="uid://bifi36nxacdg4" path="res://scenes/characters/prior/prior.tscn" id="13_mxkvs"]
 [ext_resource type="PackedScene" uid="uid://8o48qryyi7n0" path="res://scenes/objects/confessional_booth/confessional_booth.tscn" id="13_srmg5"]
 [ext_resource type="PackedScene" uid="uid://cgxxromd5ia45" path="res://scenes/puzzles/astrolabus/astrolablus_puzzle.tscn" id="14_m114p"]
-[ext_resource type="PackedScene" uid="uid://dhb4ubn1lv1kq" path="res://examples/interaction_examples/item_giver/key_giver_ball.tscn" id="14_umvgx"]
 [ext_resource type="Resource" uid="uid://cb0fdb2g5cmw2" path="res://items/lockpick.tres" id="14_x0nq1"]
 [ext_resource type="PackedScene" uid="uid://delbjqfq3giv7" path="res://assets/3d/items/lockpick/lockpick.glb" id="14_xq18t"]
 [ext_resource type="PackedScene" uid="uid://dwmg7dr5nvosc" path="res://scenes/objects/church_bell/church_bell.tscn" id="15_mxkvs"]
@@ -40,6 +39,8 @@
 [ext_resource type="PackedScene" uid="uid://gmh3po5m0pml" path="res://scenes/objects/doors/abbots_door.tscn" id="32_5o5dd"]
 [ext_resource type="Resource" uid="uid://koxeqrufqjyl" path="res://items/candle.tres" id="34_lbnhc"]
 [ext_resource type="PackedScene" uid="uid://3ke0t8mctl7h" path="res://assets/3d/items/candle/candle.tscn" id="35_sygq6"]
+[ext_resource type="Script" uid="uid://dct2i5sj5m7v2" path="res://scenes/world/end_cutscene.gd" id="37_j0rhc"]
+[ext_resource type="Resource" uid="uid://bgfegur82b8ly" path="res://dialogue/final.dialogue" id="38_4jq4u"]
 [ext_resource type="Resource" uid="uid://dybsg8b6ndlrh" path="res://items/mirrors/mirror_c/mirror_c2.tres" id="38_4v0p3"]
 [ext_resource type="PackedScene" uid="uid://cbgxrmm318b3u" path="res://assets/3d/items/mirrors/mirror_c/mirror_c2.glb" id="39_fqf7g"]
 [ext_resource type="Resource" uid="uid://ttdlndp7d6el" path="res://items/mirrors/mirror_a/mirror_a2.tres" id="42_jum6b"]
@@ -79,7 +80,7 @@ size = Vector2(500, 500)
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_u1gsd"]
 albedo_color = Color(0.66, 0.52536005, 0.4224, 1)
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_q3hpu"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_j0rhc"]
 viewport_path = NodePath("SubViewportSprite")
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_cdpwx"]
@@ -88,7 +89,7 @@ size = Vector3(2.1645508, 3.0518951, 1.1044922)
 [sub_resource type="BoxShape3D" id="BoxShape3D_ksdio"]
 size = Vector3(4.8632813, 1, 0.6602173)
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_j0rhc"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_4jq4u"]
 viewport_path = NodePath("SubViewportSprite")
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_u0ka6"]
@@ -159,6 +160,9 @@ size = Vector3(0.43078613, 5.815674, 31.34771)
 top_radius = 2.0
 bottom_radius = 2.0
 height = 1.0
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_jn1yg"]
+size = Vector3(3.7597656, 2.6875, 1)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_sd0hj"]
 size = Vector3(2.2953491, 1.7250977, 1.362793)
@@ -359,7 +363,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 78.78419, 0.9976957, -5.94999
 is_chatting = true
 
 [node name="Sprite3D" parent="Characters/Sanson" index="0" unique_id=415751236]
-texture = SubResource("ViewportTexture_q3hpu")
+texture = SubResource("ViewportTexture_j0rhc")
 
 [node name="AstrolablusPuzzle" parent="Characters" unique_id=572576743 instance=ExtResource("14_m114p")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 74.455536, 1.0101616, -6.621845)
@@ -412,10 +416,7 @@ shape = SubResource("BoxShape3D_ksdio")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 21.046339, 1.6670088, -3.19987)
 
 [node name="Sprite3D" parent="ConfessionalBooth/Confessor" parent_id_path=PackedInt32Array(321162436, 1758948578) index="0" unique_id=415751236]
-texture = SubResource("ViewportTexture_j0rhc")
-
-[node name="TestKeyGiverBall" parent="." unique_id=471407858 instance=ExtResource("14_umvgx")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 30.922817, 1.8428121, 0)
+texture = SubResource("ViewportTexture_4jq4u")
 
 [node name="CharactherConfesingPosition" type="Node3D" parent="." unique_id=228115067 groups=["confessing_pos"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 21.404587, 1.5257708, -2.079492)
@@ -681,7 +682,7 @@ transform = Transform3D(0.6860497, 0, 0.7275547, 0, 1, 0, -0.7275547, 0, 0.68604
 
 [node name="Ambient" type="AudioStreamPlayer" parent="." unique_id=249666659]
 stream = ExtResource("28_2x71e")
-volume_db = -20.0
+volume_db = -30.0
 autoplay = true
 bus = &"Sound Effects"
 
@@ -689,9 +690,22 @@ bus = &"Sound Effects"
 script = ExtResource("29_wnndm")
 track_a = ExtResource("30_jyr8v")
 track_b = ExtResource("31_5o5dd")
+volume_a = -32.0
+volume_b = -33.0
 
 [node name="AbbotsDoor" parent="." unique_id=48858221 instance=ExtResource("32_5o5dd")]
 transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, 34.85143, 12.232245, 17.74777)
+
+[node name="EndCutscene" type="Area3D" parent="." unique_id=1146276114]
+transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, 32.97939, 14.233998, 15.665138)
+collision_layer = 0
+collision_mask = 4
+script = ExtResource("37_j0rhc")
+dialogue_res = ExtResource("38_4jq4u")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="EndCutscene" unique_id=12401525]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.84375, 0)
+shape = SubResource("BoxShape3D_jn1yg")
 
 [node name="Candles" type="Node3D" parent="." unique_id=1349123184]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 25.417309, 1.6569831, 19.568079)

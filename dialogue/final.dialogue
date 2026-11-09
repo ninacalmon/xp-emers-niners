@@ -1,0 +1,22 @@
+~ start
+do FadeInOut.fade_in(2)
+do wait(2)
+do GetEntity.get_player().queue_free()
+Você entra na sala... todos estão lá dentro de pé em um círculo, o Abade no centro? Está com seu rosto escondido, como sempre.
+Abade: “Francisco! O que significa isso?!”
+Você: “VOCÊ!...”
+Abade: “Licença?”
+Você: “Você… você nos enganou… Você enganou a todos nós, nos fazendo acreditar em uma mentira doentia, só para nos USAR no seu plano egoísta!”
+Abade: “Olhe essa língua, rapaz.”
+O Abade retira o manto de seu rosto... revelando, pela primeira vez, seu asqueroso rosto.
+Abade: “Sob a luz de quem você está?”
+Você: “O que…? Ah- AHHHH!!!”
+O forte calor dos raios solares queimam suas costas, acompanhado por um forte aroma e químico do resquício úmido que evapora de suas roupas.
+Abade: “FRANCISCO!!”
+O Abade se envolve imediatamente em torno de você para protegê-lo de uma morte dolorosa, mas já é tarde demais. 
+Ambos são tomados pelas chamas. 
+O Abade e todas as almas ali presentes, em meio ao pânico, debatem-se desesperadamente. 
+Sua carne se expande, espalhando-se e cobrindo todo o lugar, até que o vidro se estilhaça e o fogo se alastra rapidamente.
+Sua carne derretida cai como uma chuva.
+O calor voraz envolve e consome tudo o que lhe é caro. Não resta mais nada. Tudo o que foi e tudo o que um dia seria, tudo foi reduzido a cinzas.
+=> END
