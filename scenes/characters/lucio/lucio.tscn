@@ -19,8 +19,8 @@ radius = 0.2993164
 height = 0.8618164
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_rwxsw"]
-radius = 0.44921875
-height = 2.1726074
+radius = 0.21972656
+height = 0.56075287
 
 [node name="Lucio" type="Node3D" unique_id=1758948578 groups=["lucio"]]
 
@@ -48,7 +48,7 @@ action_trigger = NodePath("../DialogueAction")
 metadata/_custom_type_script = "uid://cf2auur4umdjl"
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="InteractionArea" unique_id=538184214]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.0781066, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.905072, 0)
 shape = SubResource("CapsuleShape3D_rwxsw")
 debug_color = Color(0.78039217, 0.6, 0.7019608, 0.41960785)
 

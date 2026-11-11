@@ -3,15 +3,20 @@ extends CharacterBody3D
 
 
 const STEP_HEIGHT: float = 0.32
+const CROUCH_HEIGHT: float = 1.2
+const CROUCH_SPEED_LERP: float = 10.0
+const STAND_HEIGHT: float = 1.85
 
 @export var player_ray_cast: PlayerRayCast
 
 @export var speed = 7.0
 @export var run_speed = 11.0
+@export var crouch_speed = 2.0
 
 @export var drunk_overlay: ColorRect
 
 @onready var head: Node3D = $Head
+@onready var collision_shape: CollisionShape3D = $CollisionShape3D
 
 var _is_drunk: bool = false
 const DRUNK_DURATION: float = 30.0
@@ -67,6 +72,7 @@ func _ready() -> void:
 	drunk_overlay.hide()
 
 
+
 func _input(event: InputEvent) -> void:
 	if is_dialogue_locked or is_focus_locked or is_puzzle_locked or is_cutscene_locked:
 		return
@@ -92,6 +98,8 @@ func _physics_process(delta: float) -> void:
 	if not is_on_floor():
 		velocity += get_gravity() * delta
 
+	_update_crouch(delta)
+
 	var input_dir: Vector2 = Input.get_vector(
 		"walk_left",
 		"walk_right",
@@ -103,7 +111,12 @@ func _physics_process(delta: float) -> void:
 		_drunk_time += delta
 		input_dir = input_dir.rotated(sin(_drunk_time * 2.0) * 0.6)
 
-	var current_speed = run_speed if Input.is_action_pressed("run") else speed
+	var current_speed: float = speed
+	if Input.is_action_pressed("crouch"):
+		current_speed = crouch_speed
+	elif Input.is_action_pressed("run"):
+		current_speed = run_speed
+
 	var direction: Vector3 = (transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
 
 	if direction:
@@ -146,6 +159,16 @@ func try_step_up(move_direction: Vector3) -> bool:
 	global_position += up_motion
 	return true
 
+# crouching
+func _update_crouch(delta: float) -> void:
+	var target_height: float = STAND_HEIGHT
+	if Input.is_action_pressed("crouch"):
+		target_height = CROUCH_HEIGHT
+
+	var capsule: CapsuleShape3D = collision_shape.shape as CapsuleShape3D
+	capsule.height = lerpf(capsule.height, target_height, CROUCH_SPEED_LERP * delta)
+	collision_shape.position.y = capsule.height * 0.5
+	head.position.y = capsule.height
 
 
 func update_config_values(config_field: ConfigValues.ConfigField):

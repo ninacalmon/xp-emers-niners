@@ -16,6 +16,7 @@ script = ExtResource("1_cpnfb")
 collision_shape_3d = NodePath("StaticBody3D/CollisionShape3D")
 mesh_instance_3d = NodePath("confessional_door/Door")
 locked = true
+unlockeable = false
 locked_stream_player = NodePath("AudioStreamPlayer")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="." unique_id=446229308]

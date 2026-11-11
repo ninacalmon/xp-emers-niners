@@ -11,6 +11,7 @@ extends ActionTrigger
 @onready var interaction_area: InteractionArea = $InteractionArea
 
 @export var locked: bool = false
+@export var unlockeable: bool = true
 @export var locked_stream_player: AudioStreamPlayer
 
 var is_open: bool = false
@@ -25,8 +26,8 @@ func _ready() -> void:
 
 
 func trigger():
-	if locked and wanted_item:
-		if InventoryManager.selected_item == wanted_item:
+	if locked:
+		if unlockeable and InventoryManager.selected_item == wanted_item:
 			locked = false
 			locked_stream_player.play()
 		else:

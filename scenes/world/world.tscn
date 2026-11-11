@@ -204,7 +204,7 @@ environment = SubResource("Environment_t634p")
 
 [node name="Camera3D" type="Camera3D" parent="." unique_id=1834340419]
 physics_interpolation_mode = 1
-transform = Transform3D(-1, 0, 0, 0, 0.987088, 0.16017865, 0, 0.16017865, -0.9870881, 32.898373, 4.3787794, -15.426433)
+transform = Transform3D(-1, 0, 0, 0, 0.9999407, 0.01089096, 0, 0.01089096, -0.99994063, 32.898373, 4.2865257, -15.426433)
 top_level = true
 cull_mask = 1048063
 
@@ -215,7 +215,7 @@ script = ExtResource("1_mxkvs")
 metadata/_custom_type_script = "uid://bd046eokvcnu2"
 
 [node name="Player" parent="." unique_id=949902107 instance=ExtResource("2_m114p")]
-transform = Transform3D(-0.99999994, 0, -1.5099579e-07, 0, 1, 0, 1.5099579e-07, 0, -0.99999994, 32.898373, 2.4484162, -15.426433)
+transform = Transform3D(-0.99999994, 0, -1.5099579e-07, 0, 1, 0, 1.5099579e-07, 0, -0.99999994, 32.898373, 2.4565258, -15.426433)
 
 [node name="Ground" type="StaticBody3D" parent="." unique_id=286959965]
 
@@ -414,6 +414,11 @@ shape = SubResource("BoxShape3D_ksdio")
 
 [node name="ConfessionalBooth" parent="." unique_id=321162436 instance=ExtResource("13_srmg5")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 21.046339, 1.6670088, -3.19987)
+
+[node name="Camera3D" parent="ConfessionalBooth" index="2" unique_id=430217490]
+physics_interpolation_mode = 1
+transform = Transform3D(-1, 0, 0, 0, 0.9999407, 0.01089096, 0, 0.01089096, -0.99994063, 32.898373, 4.2865257, -15.426433)
+top_level = true
 
 [node name="Sprite3D" parent="ConfessionalBooth/Confessor" parent_id_path=PackedInt32Array(321162436, 1758948578) index="0" unique_id=415751236]
 texture = SubResource("ViewportTexture_4jq4u")

@@ -9,7 +9,7 @@
 size = Vector3(1.6016846, 3.0820313, 0.22851563)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_ovqo0"]
-size = Vector3(1.3789063, 3.0820313, 1.9853516)
+size = Vector3(1.3789063, 3.0820313, 2.125)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_13eu0"]
 resource_name = "BurnedOrange"
@@ -72,8 +72,9 @@ action_trigger = NodePath("..")
 metadata/_custom_type_script = "uid://cf2auur4umdjl"
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="InteractionArea" unique_id=1557408956]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.7862873, 1.5264611, -0.6806514)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.7862873, 1.5264611, -0.6108272)
 shape = SubResource("BoxShape3D_ovqo0")
+debug_color = Color(0.7005236, 0.409311, 0.71423554, 0.41960785)
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=94713837]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.57405055, 0.078167856)
