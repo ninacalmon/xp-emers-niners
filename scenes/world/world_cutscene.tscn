@@ -451,6 +451,7 @@ environment = SubResource("Environment_71ii3")
 
 [node name="Camera3D" type="Camera3D" parent="." unique_id=1834340419]
 transform = Transform3D(0.7743926, 0.011042244, -0.632609, 0, 0.9998477, 0.017452426, 0.6327054, -0.01351503, 0.77427465, -19.481197, 19.5139, 86.27424)
+top_level = true
 cull_mask = 1048063
 fov = 10.0
 
@@ -653,6 +654,18 @@ position = Vector2(0, 785)
 sprite_frames = SubResource("SpriteFrames_5qvlp")
 animation = &"dialogue"
 centered = false
+
+[node name="RichTextLabel" type="RichTextLabel" parent="DialogueFrameManager" unique_id=2046332316]
+visible = false
+layout_mode = 0
+offset_left = 192.0
+offset_top = 715.0
+offset_right = 1300.0
+offset_bottom = 813.0
+theme_override_colors/default_color = Color(1, 1, 1, 1)
+bbcode_enabled = true
+text = "pressione [img]res://assets/2d/interface/kenney_input_prompts/keyboard_space_outline.png[/img] para avançar diálogo."
+fit_content = true
 
 [node name="Cutscene" type="Node" parent="." unique_id=579430310]
 script = ExtResource("24_qm16u")
