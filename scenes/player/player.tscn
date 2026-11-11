@@ -61,6 +61,10 @@ stream_3/stream = ExtResource("16_lgqa7")
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_cdpwx"]
 shader = ExtResource("19_lgqa7")
 
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_lgqa7"]
+radius = 0.2993164
+height = 0.8618164
+
 [node name="Player" type="CharacterBody3D" unique_id=949902107 node_paths=PackedStringArray("player_ray_cast", "drunk_overlay") groups=["player"]]
 collision_layer = 5
 collision_mask = 5
@@ -131,3 +135,8 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+
+[node name="ShadowMesh" type="MeshInstance3D" parent="." unique_id=1652562128]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.9330101, 0)
+cast_shadow = 3
+mesh = SubResource("CapsuleMesh_lgqa7")

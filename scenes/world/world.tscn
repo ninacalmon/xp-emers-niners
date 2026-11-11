@@ -79,7 +79,7 @@ size = Vector2(500, 500)
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_u1gsd"]
 albedo_color = Color(0.66, 0.52536005, 0.4224, 1)
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_j0rhc"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_q3hpu"]
 viewport_path = NodePath("SubViewportSprite")
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_cdpwx"]
@@ -88,7 +88,7 @@ size = Vector3(2.1645508, 3.0518951, 1.1044922)
 [sub_resource type="BoxShape3D" id="BoxShape3D_ksdio"]
 size = Vector3(4.8632813, 1, 0.6602173)
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_4jq4u"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_j0rhc"]
 viewport_path = NodePath("SubViewportSprite")
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_u0ka6"]
@@ -358,7 +358,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 78.78419, 0.9976957, -5.94999
 is_chatting = true
 
 [node name="Sprite3D" parent="Characters/Sanson" index="0" unique_id=415751236]
-texture = SubResource("ViewportTexture_j0rhc")
+texture = SubResource("ViewportTexture_q3hpu")
 
 [node name="AstrolablusPuzzle" parent="Characters" unique_id=572576743 instance=ExtResource("14_m114p")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 74.455536, 1.0101616, -6.621845)
@@ -415,7 +415,7 @@ transform = Transform3D(-1, 0, 0, 0, 0.9971555, 0.07537224, 0, 0.07537224, -0.99
 top_level = true
 
 [node name="Sprite3D" parent="ConfessionalBooth/Confessor" parent_id_path=PackedInt32Array(321162436, 1758948578) index="0" unique_id=415751236]
-texture = SubResource("ViewportTexture_4jq4u")
+texture = SubResource("ViewportTexture_j0rhc")
 
 [node name="CharactherConfesingPosition" type="Node3D" parent="." unique_id=228115067 groups=["confessing_pos"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 21.404587, 1.5257708, -2.079492)
