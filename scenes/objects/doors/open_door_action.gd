@@ -25,7 +25,7 @@ func _ready() -> void:
 
 
 func trigger():
-	if locked:
+	if locked and wanted_item:
 		if InventoryManager.selected_item == wanted_item:
 			locked = false
 			locked_stream_player.play()

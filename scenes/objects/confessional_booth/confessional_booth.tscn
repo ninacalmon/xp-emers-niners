@@ -9,8 +9,6 @@
 [ext_resource type="Material" uid="uid://wyikf3yxoy6x" path="res://addons/DayNightCycle/Sky_Day.tres" id="5_fssyi"]
 [ext_resource type="Script" uid="uid://bjidnq65qcjsh" path="res://systems/character/dialogue_action.gd" id="7_t738r"]
 [ext_resource type="Resource" uid="uid://cdxegtuh7g6l4" path="res://dialogue/confessor/confessor_main.dialogue" id="8_ygvyi"]
-[ext_resource type="Script" uid="uid://csjccrhj5wnx7" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_3d.gd" id="10_tno2q"]
-[ext_resource type="Script" uid="uid://8umksf8e80fw" path="res://addons/phantom_camera/scripts/resources/tween_resource.gd" id="11_l7d7c"]
 
 [sub_resource type="FogMaterial" id="FogMaterial_cdpwx"]
 density = 2.2229
@@ -33,11 +31,8 @@ volumetric_fog_density = 0.0
 [sub_resource type="BoxShape3D" id="BoxShape3D_cdpwx"]
 size = Vector3(0.9193878, 1.3876343, 0.2625122)
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_i1cln"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_t738r"]
 viewport_path = NodePath("SubViewportSprite")
-
-[sub_resource type="Resource" id="Resource_qg7r7"]
-script = ExtResource("11_l7d7c")
 
 [node name="ConfessionalBooth" type="Node3D" unique_id=321162436 groups=["confessor_booth"]]
 script = ExtResource("1_jcfus")
@@ -53,7 +48,6 @@ material = SubResource("FogMaterial_cdpwx")
 
 [node name="Camera3D" type="Camera3D" parent="." unique_id=430217490]
 transform = Transform3D(0.8265897, 0.0734608, -0.55799013, 0, 0.9914449, 0.13052621, 0.562805, -0.10789163, 0.81951815, -0.15106422, 2.0306358, 1.6058204)
-top_level = true
 
 [node name="PhantomCameraHost" type="Node" parent="Camera3D" unique_id=449424333]
 process_priority = 300
@@ -80,7 +74,7 @@ transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 1.07
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0.5138207, -0.33811253, 0.13132304)
 
 [node name="Sprite3D" parent="Confessor" index="0" unique_id=415751236]
-texture = SubResource("ViewportTexture_i1cln")
+texture = SubResource("ViewportTexture_t738r")
 
 [node name="CharacterSpriteHandler" parent="Confessor" index="3" unique_id=961269039 node_paths=PackedStringArray("dialogue_action")]
 dialogue_action = NodePath("../../DialogueAction")
@@ -89,13 +83,6 @@ dialogue_action = NodePath("../../DialogueAction")
 script = ExtResource("7_t738r")
 character_name = "Confessor"
 dialogue_res = ExtResource("8_ygvyi")
-
-[node name="Camera3D2" type="Camera3D" parent="." unique_id=1299851018]
-
-[node name="PhantomCamera3D" type="Node3D" parent="." unique_id=1787969652]
-transform = Transform3D(0.8265897, 0.0734608, -0.55799013, 0, 0.9914449, 0.13052621, 0.562805, -0.10789163, 0.81951815, -0.15106422, 2.0306358, 1.6058204)
-script = ExtResource("10_tno2q")
-tween_resource = SubResource("Resource_qg7r7")
 
 [editable path="confessional"]
 [editable path="Confessor"]
