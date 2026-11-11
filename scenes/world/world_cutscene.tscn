@@ -4,9 +4,8 @@
 [ext_resource type="PackedScene" uid="uid://bcw7p5ibxxkdk" path="res://scenes/interface/hands_overlay/hands_overlay.tscn" id="1_jlsnk"]
 [ext_resource type="Material" uid="uid://wyikf3yxoy6x" path="res://addons/DayNightCycle/Sky_Day.tres" id="2_vxxqi"]
 [ext_resource type="Script" uid="uid://bd046eokvcnu2" path="res://addons/phantom_camera/scripts/phantom_camera_host/phantom_camera_host.gd" id="4_itq1n"]
+[ext_resource type="PackedScene" uid="uid://babo4jqsyij3i" path="res://scenes/buildings/church.tscn" id="6_jqp8s"]
 [ext_resource type="PackedScene" uid="uid://c0enf7fvm7uko" path="res://scenes/objects/doors/room_door.tscn" id="6_t214a"]
-[ext_resource type="PackedScene" uid="uid://cuxxx8rje22th" path="res://assets/3d/scenery/church/church.glb" id="7_fqma7"]
-[ext_resource type="PackedScene" uid="uid://dwmg7dr5nvosc" path="res://scenes/objects/church_bell/church_bell.tscn" id="8_1a8jm"]
 [ext_resource type="PackedScene" uid="uid://boht0mv2kyq81" path="res://scenes/characters/hugo/hugo.tscn" id="9_kttsr"]
 [ext_resource type="PackedScene" uid="uid://d0dx1ggic73g0" path="res://scenes/characters/julio/julio.tscn" id="10_ani7x"]
 [ext_resource type="PackedScene" uid="uid://c1fess8fbyvjb" path="res://scenes/characters/sanson/sanson.tscn" id="12_fxk1m"]
@@ -583,11 +582,8 @@ transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0
 depth = -0.18
 polygon = PackedVector2Array(-73.80234, -62.97614, 98.83095, -63.519016, 103.7168, 64.32734, -80.3168, 65.14163)
 
-[node name="Church" parent="." unique_id=1996032734 instance=ExtResource("7_fqma7")]
+[node name="Church2" parent="." unique_id=151423155 instance=ExtResource("6_jqp8s")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 33.12908, 0, 0)
-
-[node name="ChurchBell" parent="Church" unique_id=2031355543 instance=ExtResource("8_1a8jm")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 48.87092, 19.19202, 7)
 
 [node name="Characters" type="Node3D" parent="." unique_id=577653259]
 

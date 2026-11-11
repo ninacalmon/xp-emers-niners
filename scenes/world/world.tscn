@@ -4,10 +4,10 @@
 [ext_resource type="Script" uid="uid://bbu3di48o4k0c" path="res://addons/DayNightCycle/DayNightCycle.gd" id="1_umvgx"]
 [ext_resource type="PackedScene" uid="uid://cciw6s8b6nsbw" path="res://scenes/player/player.tscn" id="2_m114p"]
 [ext_resource type="Material" uid="uid://wyikf3yxoy6x" path="res://addons/DayNightCycle/Sky_Day.tres" id="2_mxkvs"]
-[ext_resource type="PackedScene" uid="uid://cuxxx8rje22th" path="res://assets/3d/scenery/church/church.glb" id="5_v5dby"]
 [ext_resource type="PackedScene" uid="uid://boht0mv2kyq81" path="res://scenes/characters/hugo/hugo.tscn" id="6_1yooq"]
 [ext_resource type="PackedScene" uid="uid://ondr0bhvtwol" path="res://scenes/interface/game_ui_overlay/game_ui_overlay.tscn" id="6_tytul"]
 [ext_resource type="PackedScene" uid="uid://d0dx1ggic73g0" path="res://scenes/characters/julio/julio.tscn" id="7_gb53w"]
+[ext_resource type="PackedScene" uid="uid://babo4jqsyij3i" path="res://scenes/buildings/church.tscn" id="7_q3hpu"]
 [ext_resource type="PackedScene" uid="uid://c6yoqyeo6wfld" path="res://scenes/characters/lucio/lucio.tscn" id="8_5qq27"]
 [ext_resource type="PackedScene" uid="uid://c1fess8fbyvjb" path="res://scenes/characters/sanson/sanson.tscn" id="9_dlabj"]
 [ext_resource type="PackedScene" uid="uid://c0enf7fvm7uko" path="res://scenes/objects/doors/room_door.tscn" id="9_ues17"]
@@ -16,7 +16,6 @@
 [ext_resource type="PackedScene" uid="uid://cgxxromd5ia45" path="res://scenes/puzzles/astrolabus/astrolablus_puzzle.tscn" id="14_m114p"]
 [ext_resource type="Resource" uid="uid://cb0fdb2g5cmw2" path="res://items/lockpick.tres" id="14_x0nq1"]
 [ext_resource type="PackedScene" uid="uid://delbjqfq3giv7" path="res://assets/3d/items/lockpick/lockpick.glb" id="14_xq18t"]
-[ext_resource type="PackedScene" uid="uid://dwmg7dr5nvosc" path="res://scenes/objects/church_bell/church_bell.tscn" id="15_mxkvs"]
 [ext_resource type="Script" uid="uid://dlm0hnvbr2c0j" path="res://scenes/puzzles/sleep/sleep_event.gd" id="16_x0nq1"]
 [ext_resource type="PackedScene" uid="uid://cb05nxhycwjbf" path="res://scenes/objects/item/item_in_world.tscn" id="17_bt7bg"]
 [ext_resource type="Resource" uid="uid://cyc1mv4jblj4j" path="res://dialogue/sanson/sanson_asleep.dialogue" id="18_rwifv"]
@@ -204,7 +203,7 @@ environment = SubResource("Environment_t634p")
 
 [node name="Camera3D" type="Camera3D" parent="." unique_id=1834340419]
 physics_interpolation_mode = 1
-transform = Transform3D(-1, 0, 0, 0, 0.9999407, 0.01089096, 0, 0.01089096, -0.99994063, 32.898373, 4.2865257, -15.426433)
+transform = Transform3D(-1, 0, 0, 0, 0.9971555, 0.07537224, 0, 0.07537224, -0.9971554, 32.898373, 4.2865257, -15.426433)
 top_level = true
 cull_mask = 1048063
 
@@ -339,12 +338,8 @@ transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0
 depth = -0.18
 polygon = PackedVector2Array(-73.80234, -62.97614, 98.83095, -63.519016, 103.7168, 64.32734, -80.3168, 65.14163)
 
-[node name="Church" parent="." unique_id=1996032734 instance=ExtResource("5_v5dby")]
+[node name="Church" parent="." unique_id=151423155 instance=ExtResource("7_q3hpu")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 33.12908, 0, 0)
-metadata/_edit_lock_ = true
-
-[node name="ChurchBell" parent="Church" unique_id=2031355543 instance=ExtResource("15_mxkvs")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 48.87092, 19.19202, 7)
 
 [node name="Characters" type="Node3D" parent="." unique_id=577653259]
 
@@ -416,8 +411,7 @@ shape = SubResource("BoxShape3D_ksdio")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 21.046339, 1.6670088, -3.19987)
 
 [node name="Camera3D" parent="ConfessionalBooth" index="2" unique_id=430217490]
-physics_interpolation_mode = 1
-transform = Transform3D(-1, 0, 0, 0, 0.9999407, 0.01089096, 0, 0.01089096, -0.99994063, 32.898373, 4.2865257, -15.426433)
+transform = Transform3D(-1, 0, 0, 0, 0.9971555, 0.07537224, 0, 0.07537224, -0.9971554, 32.898373, 4.2865257, -15.426433)
 top_level = true
 
 [node name="Sprite3D" parent="ConfessionalBooth/Confessor" parent_id_path=PackedInt32Array(321162436, 1758948578) index="0" unique_id=415751236]
