@@ -3,7 +3,6 @@
 [ext_resource type="Texture2D" uid="uid://cqnc7ckfcn7cm" path="res://assets/3d/scenery/church/church_texture.png" id="1_gh0gj"]
 [ext_resource type="PackedScene" uid="uid://dwmg7dr5nvosc" path="res://scenes/objects/church_bell/church_bell.tscn" id="2_wlwdi"]
 [ext_resource type="PackedScene" uid="uid://cydbhqp0n65i7" path="res://scenes/buildings/decoration/wall_torch.tscn" id="3_yfdoq"]
-[ext_resource type="Script" uid="uid://cw0b3l8yy0lqb" path="res://scenes/buildings/decoration/wall_torch.gd" id="4_7eskf"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_2pwo5"]
 
@@ -4791,23 +4790,22 @@ transform = Transform3D(-2.6226832e-07, -3.496911e-07, 1, 1, -6.1141935e-14, 2.6
 [node name="WallTorch2" parent="Lights/Corridor/Corridor" unique_id=58368360 instance=ExtResource("3_yfdoq")]
 transform = Transform3D(-1.7484554e-07, 0, -1, 1, 0, -1.7484554e-07, 0, -1, 0, 22.471533, 3.2, -1.129)
 
-[node name="WallTorch_copy1" type="Node3D" parent="Lights/Corridor/Corridor" unique_id=1076433656 instance=ExtResource("3_yfdoq")]
+[node name="WallTorch_copy1" parent="Lights/Corridor/Corridor" unique_id=1076433656 instance=ExtResource("3_yfdoq")]
 transform = Transform3D(-2.6226832e-07, -3.496911e-07, 1, 1, -6.1141935e-14, 2.6226832e-07, -3.0570967e-14, 1, 3.496911e-07, 28.098, 3.2, -2.845)
-script = ExtResource("4_7eskf")
 
-[node name="Base" type="MeshInstance3D" parent="Lights/Corridor/Corridor/WallTorch_copy1" unique_id=105642809]
+[node name="Base2" type="MeshInstance3D" parent="Lights/Corridor/Corridor/WallTorch_copy1" unique_id=105642809]
 transform = Transform3D(-4.3711385e-08, 0.99999994, 4.3711385e-08, 0, -4.3711385e-08, 0.9999999, 0.99999994, 4.3711385e-08, 1.9106853e-15, -0.10247786, 0.0042393208, -0.16166349)
 layers = 1024
 mesh = SubResource("ArrayMesh_hi76u")
 surface_material_override/0 = SubResource("StandardMaterial3D_rw3j0")
 
-[node name="CapBot_001" type="MeshInstance3D" parent="Lights/Corridor/Corridor/WallTorch_copy1" unique_id=1258747716]
+[node name="CapBot_002" type="MeshInstance3D" parent="Lights/Corridor/Corridor/WallTorch_copy1" unique_id=1258747716]
 transform = Transform3D(-4.3711385e-08, 0.99999994, 4.3711385e-08, 0, -4.3711385e-08, 0.9999999, 0.99999994, 4.3711385e-08, 1.9106853e-15, 0.03387522, 0.3088503, -0.15805519)
 layers = 1024
 mesh = SubResource("ArrayMesh_3tbe6")
 surface_material_override/0 = SubResource("StandardMaterial3D_rw3j0")
 
-[node name="OmniLight3D" type="OmniLight3D" parent="Lights/Corridor/Corridor/WallTorch_copy1" unique_id=879248543]
+[node name="OmniLight3D2" type="OmniLight3D" parent="Lights/Corridor/Corridor/WallTorch_copy1" unique_id=879248543]
 transform = Transform3D(-4.371139e-08, 1, 4.371139e-08, 0, -4.371139e-08, 1, 1, 4.371139e-08, 1.9106855e-15, 0.070673615, 0.25655636, -0.15458031)
 light_color = Color(0.8483857, 0.5341511, 0.23270911, 1)
 light_energy = 0.5
@@ -4816,28 +4814,27 @@ shadow_opacity = 0.8
 shadow_caster_mask = 4294966271
 omni_attenuation = 2.0
 
-[node name="Candle" type="MeshInstance3D" parent="Lights/Corridor/Corridor/WallTorch_copy1" unique_id=921514331]
+[node name="Candle2" type="MeshInstance3D" parent="Lights/Corridor/Corridor/WallTorch_copy1" unique_id=921514331]
 transform = Transform3D(-4.3711385e-08, 0.99999994, 4.3711385e-08, 0, -4.3711385e-08, 0.9999999, 0.99999994, 4.3711385e-08, 1.9106853e-15, 0.03387522, 0.3088503, -0.15805519)
 mesh = SubResource("ArrayMesh_jpahk")
 surface_material_override/0 = SubResource("StandardMaterial3D_s6xpe")
 
-[node name="WallTorch_copy2" type="Node3D" parent="Lights/Corridor/Corridor" unique_id=1365216942 instance=ExtResource("3_yfdoq")]
+[node name="WallTorch_copy2" parent="Lights/Corridor/Corridor" unique_id=1365216942 instance=ExtResource("3_yfdoq")]
 transform = Transform3D(-2.6226832e-07, -3.496911e-07, 1, 1, -6.1141935e-14, 2.6226832e-07, -3.0570967e-14, 1, 3.496911e-07, 33.373, 3.2, -2.845)
-script = ExtResource("4_7eskf")
 
-[node name="Base" type="MeshInstance3D" parent="Lights/Corridor/Corridor/WallTorch_copy2" unique_id=362123050]
+[node name="Base2" type="MeshInstance3D" parent="Lights/Corridor/Corridor/WallTorch_copy2" unique_id=362123050]
 transform = Transform3D(-4.3711385e-08, 0.99999994, 4.3711385e-08, 0, -4.3711385e-08, 0.9999999, 0.99999994, 4.3711385e-08, 1.9106853e-15, -0.10247786, 0.0042393208, -0.16166349)
 layers = 1024
 mesh = SubResource("ArrayMesh_hi76u")
 surface_material_override/0 = SubResource("StandardMaterial3D_rw3j0")
 
-[node name="CapBot_001" type="MeshInstance3D" parent="Lights/Corridor/Corridor/WallTorch_copy2" unique_id=1185531993]
+[node name="CapBot_002" type="MeshInstance3D" parent="Lights/Corridor/Corridor/WallTorch_copy2" unique_id=1185531993]
 transform = Transform3D(-4.3711385e-08, 0.99999994, 4.3711385e-08, 0, -4.3711385e-08, 0.9999999, 0.99999994, 4.3711385e-08, 1.9106853e-15, 0.03387522, 0.3088503, -0.15805519)
 layers = 1024
 mesh = SubResource("ArrayMesh_3tbe6")
 surface_material_override/0 = SubResource("StandardMaterial3D_rw3j0")
 
-[node name="OmniLight3D" type="OmniLight3D" parent="Lights/Corridor/Corridor/WallTorch_copy2" unique_id=1583700780]
+[node name="OmniLight3D2" type="OmniLight3D" parent="Lights/Corridor/Corridor/WallTorch_copy2" unique_id=1583700780]
 transform = Transform3D(-4.371139e-08, 1, 4.371139e-08, 0, -4.371139e-08, 1, 1, 4.371139e-08, 1.9106855e-15, 0.070673615, 0.25655636, -0.15458031)
 light_color = Color(0.8483857, 0.5341511, 0.23270911, 1)
 light_energy = 0.5
@@ -4846,28 +4843,27 @@ shadow_opacity = 0.8
 shadow_caster_mask = 4294966271
 omni_attenuation = 2.0
 
-[node name="Candle" type="MeshInstance3D" parent="Lights/Corridor/Corridor/WallTorch_copy2" unique_id=932593018]
+[node name="Candle2" type="MeshInstance3D" parent="Lights/Corridor/Corridor/WallTorch_copy2" unique_id=932593018]
 transform = Transform3D(-4.3711385e-08, 0.99999994, 4.3711385e-08, 0, -4.3711385e-08, 0.9999999, 0.99999994, 4.3711385e-08, 1.9106853e-15, 0.03387522, 0.3088503, -0.15805519)
 mesh = SubResource("ArrayMesh_jpahk")
 surface_material_override/0 = SubResource("StandardMaterial3D_s6xpe")
 
-[node name="WallTorch_copy3" type="Node3D" parent="Lights/Corridor/Corridor" unique_id=1361807359 instance=ExtResource("3_yfdoq")]
+[node name="WallTorch_copy3" parent="Lights/Corridor/Corridor" unique_id=1361807359 instance=ExtResource("3_yfdoq")]
 transform = Transform3D(-2.6226832e-07, -3.496911e-07, 1, 1, -6.1141935e-14, 2.6226832e-07, -3.0570967e-14, 1, 3.496911e-07, 38.648, 3.2, -2.845)
-script = ExtResource("4_7eskf")
 
-[node name="Base" type="MeshInstance3D" parent="Lights/Corridor/Corridor/WallTorch_copy3" unique_id=675799474]
+[node name="Base2" type="MeshInstance3D" parent="Lights/Corridor/Corridor/WallTorch_copy3" unique_id=675799474]
 transform = Transform3D(-4.3711385e-08, 0.99999994, 4.3711385e-08, 0, -4.3711385e-08, 0.9999999, 0.99999994, 4.3711385e-08, 1.9106853e-15, -0.10247786, 0.0042393208, -0.16166349)
 layers = 1024
 mesh = SubResource("ArrayMesh_hi76u")
 surface_material_override/0 = SubResource("StandardMaterial3D_rw3j0")
 
-[node name="CapBot_001" type="MeshInstance3D" parent="Lights/Corridor/Corridor/WallTorch_copy3" unique_id=1455968824]
+[node name="CapBot_002" type="MeshInstance3D" parent="Lights/Corridor/Corridor/WallTorch_copy3" unique_id=1455968824]
 transform = Transform3D(-4.3711385e-08, 0.99999994, 4.3711385e-08, 0, -4.3711385e-08, 0.9999999, 0.99999994, 4.3711385e-08, 1.9106853e-15, 0.03387522, 0.3088503, -0.15805519)
 layers = 1024
 mesh = SubResource("ArrayMesh_3tbe6")
 surface_material_override/0 = SubResource("StandardMaterial3D_rw3j0")
 
-[node name="OmniLight3D" type="OmniLight3D" parent="Lights/Corridor/Corridor/WallTorch_copy3" unique_id=1796592239]
+[node name="OmniLight3D2" type="OmniLight3D" parent="Lights/Corridor/Corridor/WallTorch_copy3" unique_id=1796592239]
 transform = Transform3D(-4.371139e-08, 1, 4.371139e-08, 0, -4.371139e-08, 1, 1, 4.371139e-08, 1.9106855e-15, 0.070673615, 0.25655636, -0.15458031)
 light_color = Color(0.8483857, 0.5341511, 0.23270911, 1)
 light_energy = 0.5
@@ -4876,28 +4872,27 @@ shadow_opacity = 0.8
 shadow_caster_mask = 4294966271
 omni_attenuation = 2.0
 
-[node name="Candle" type="MeshInstance3D" parent="Lights/Corridor/Corridor/WallTorch_copy3" unique_id=1547947388]
+[node name="Candle2" type="MeshInstance3D" parent="Lights/Corridor/Corridor/WallTorch_copy3" unique_id=1547947388]
 transform = Transform3D(-4.3711385e-08, 0.99999994, 4.3711385e-08, 0, -4.3711385e-08, 0.9999999, 0.99999994, 4.3711385e-08, 1.9106853e-15, 0.03387522, 0.3088503, -0.15805519)
 mesh = SubResource("ArrayMesh_jpahk")
 surface_material_override/0 = SubResource("StandardMaterial3D_s6xpe")
 
-[node name="WallTorch2_copy1" type="Node3D" parent="Lights/Corridor/Corridor" unique_id=2110442660 instance=ExtResource("3_yfdoq")]
+[node name="WallTorch2_copy1" parent="Lights/Corridor/Corridor" unique_id=2110442660 instance=ExtResource("3_yfdoq")]
 transform = Transform3D(-1.7484554e-07, 0, -1, 1, 0, -1.7484554e-07, 0, -1, 0, 27.746532, 3.2, -1.129)
-script = ExtResource("4_7eskf")
 
-[node name="Base" type="MeshInstance3D" parent="Lights/Corridor/Corridor/WallTorch2_copy1" unique_id=1553119917]
+[node name="Base2" type="MeshInstance3D" parent="Lights/Corridor/Corridor/WallTorch2_copy1" unique_id=1553119917]
 transform = Transform3D(-4.3711385e-08, 0.99999994, 4.3711385e-08, 0, -4.3711385e-08, 0.9999999, 0.99999994, 4.3711385e-08, 1.9106853e-15, -0.10247786, 0.0042393208, -0.16166349)
 layers = 1024
 mesh = SubResource("ArrayMesh_hi76u")
 surface_material_override/0 = SubResource("StandardMaterial3D_rw3j0")
 
-[node name="CapBot_001" type="MeshInstance3D" parent="Lights/Corridor/Corridor/WallTorch2_copy1" unique_id=2027983987]
+[node name="CapBot_002" type="MeshInstance3D" parent="Lights/Corridor/Corridor/WallTorch2_copy1" unique_id=2027983987]
 transform = Transform3D(-4.3711385e-08, 0.99999994, 4.3711385e-08, 0, -4.3711385e-08, 0.9999999, 0.99999994, 4.3711385e-08, 1.9106853e-15, 0.03387522, 0.3088503, -0.15805519)
 layers = 1024
 mesh = SubResource("ArrayMesh_3tbe6")
 surface_material_override/0 = SubResource("StandardMaterial3D_rw3j0")
 
-[node name="OmniLight3D" type="OmniLight3D" parent="Lights/Corridor/Corridor/WallTorch2_copy1" unique_id=396270628]
+[node name="OmniLight3D2" type="OmniLight3D" parent="Lights/Corridor/Corridor/WallTorch2_copy1" unique_id=396270628]
 transform = Transform3D(-4.371139e-08, 1, 4.371139e-08, 0, -4.371139e-08, 1, 1, 4.371139e-08, 1.9106855e-15, 0.070673615, 0.25655636, -0.15458031)
 light_color = Color(0.8483857, 0.5341511, 0.23270911, 1)
 light_energy = 0.5
@@ -4906,28 +4901,27 @@ shadow_opacity = 0.8
 shadow_caster_mask = 4294966271
 omni_attenuation = 2.0
 
-[node name="Candle" type="MeshInstance3D" parent="Lights/Corridor/Corridor/WallTorch2_copy1" unique_id=339475241]
+[node name="Candle2" type="MeshInstance3D" parent="Lights/Corridor/Corridor/WallTorch2_copy1" unique_id=339475241]
 transform = Transform3D(-4.3711385e-08, 0.99999994, 4.3711385e-08, 0, -4.3711385e-08, 0.9999999, 0.99999994, 4.3711385e-08, 1.9106853e-15, 0.03387522, 0.3088503, -0.15805519)
 mesh = SubResource("ArrayMesh_jpahk")
 surface_material_override/0 = SubResource("StandardMaterial3D_s6xpe")
 
-[node name="WallTorch2_copy2" type="Node3D" parent="Lights/Corridor/Corridor" unique_id=1120833345 instance=ExtResource("3_yfdoq")]
+[node name="WallTorch2_copy2" parent="Lights/Corridor/Corridor" unique_id=1120833345 instance=ExtResource("3_yfdoq")]
 transform = Transform3D(-1.7484554e-07, 0, -1, 1, 0, -1.7484554e-07, 0, -1, 0, 33.021534, 3.2, -1.129)
-script = ExtResource("4_7eskf")
 
-[node name="Base" type="MeshInstance3D" parent="Lights/Corridor/Corridor/WallTorch2_copy2" unique_id=1169377689]
+[node name="Base2" type="MeshInstance3D" parent="Lights/Corridor/Corridor/WallTorch2_copy2" unique_id=1169377689]
 transform = Transform3D(-4.3711385e-08, 0.99999994, 4.3711385e-08, 0, -4.3711385e-08, 0.9999999, 0.99999994, 4.3711385e-08, 1.9106853e-15, -0.10247786, 0.0042393208, -0.16166349)
 layers = 1024
 mesh = SubResource("ArrayMesh_hi76u")
 surface_material_override/0 = SubResource("StandardMaterial3D_rw3j0")
 
-[node name="CapBot_001" type="MeshInstance3D" parent="Lights/Corridor/Corridor/WallTorch2_copy2" unique_id=767737239]
+[node name="CapBot_002" type="MeshInstance3D" parent="Lights/Corridor/Corridor/WallTorch2_copy2" unique_id=767737239]
 transform = Transform3D(-4.3711385e-08, 0.99999994, 4.3711385e-08, 0, -4.3711385e-08, 0.9999999, 0.99999994, 4.3711385e-08, 1.9106853e-15, 0.03387522, 0.3088503, -0.15805519)
 layers = 1024
 mesh = SubResource("ArrayMesh_3tbe6")
 surface_material_override/0 = SubResource("StandardMaterial3D_rw3j0")
 
-[node name="OmniLight3D" type="OmniLight3D" parent="Lights/Corridor/Corridor/WallTorch2_copy2" unique_id=1575616469]
+[node name="OmniLight3D2" type="OmniLight3D" parent="Lights/Corridor/Corridor/WallTorch2_copy2" unique_id=1575616469]
 transform = Transform3D(-4.371139e-08, 1, 4.371139e-08, 0, -4.371139e-08, 1, 1, 4.371139e-08, 1.9106855e-15, 0.070673615, 0.25655636, -0.15458031)
 light_color = Color(0.8483857, 0.5341511, 0.23270911, 1)
 light_energy = 0.5
@@ -4936,28 +4930,27 @@ shadow_opacity = 0.8
 shadow_caster_mask = 4294966271
 omni_attenuation = 2.0
 
-[node name="Candle" type="MeshInstance3D" parent="Lights/Corridor/Corridor/WallTorch2_copy2" unique_id=21247765]
+[node name="Candle2" type="MeshInstance3D" parent="Lights/Corridor/Corridor/WallTorch2_copy2" unique_id=21247765]
 transform = Transform3D(-4.3711385e-08, 0.99999994, 4.3711385e-08, 0, -4.3711385e-08, 0.9999999, 0.99999994, 4.3711385e-08, 1.9106853e-15, 0.03387522, 0.3088503, -0.15805519)
 mesh = SubResource("ArrayMesh_jpahk")
 surface_material_override/0 = SubResource("StandardMaterial3D_s6xpe")
 
-[node name="WallTorch2_copy3" type="Node3D" parent="Lights/Corridor/Corridor" unique_id=35516604 instance=ExtResource("3_yfdoq")]
+[node name="WallTorch2_copy3" parent="Lights/Corridor/Corridor" unique_id=35516604 instance=ExtResource("3_yfdoq")]
 transform = Transform3D(-1.7484554e-07, 0, -1, 1, 0, -1.7484554e-07, 0, -1, 0, 38.296535, 3.2, -1.129)
-script = ExtResource("4_7eskf")
 
-[node name="Base" type="MeshInstance3D" parent="Lights/Corridor/Corridor/WallTorch2_copy3" unique_id=307722764]
+[node name="Base2" type="MeshInstance3D" parent="Lights/Corridor/Corridor/WallTorch2_copy3" unique_id=307722764]
 transform = Transform3D(-4.3711385e-08, 0.99999994, 4.3711385e-08, 0, -4.3711385e-08, 0.9999999, 0.99999994, 4.3711385e-08, 1.9106853e-15, -0.10247786, 0.0042393208, -0.16166349)
 layers = 1024
 mesh = SubResource("ArrayMesh_hi76u")
 surface_material_override/0 = SubResource("StandardMaterial3D_rw3j0")
 
-[node name="CapBot_001" type="MeshInstance3D" parent="Lights/Corridor/Corridor/WallTorch2_copy3" unique_id=851229397]
+[node name="CapBot_002" type="MeshInstance3D" parent="Lights/Corridor/Corridor/WallTorch2_copy3" unique_id=851229397]
 transform = Transform3D(-4.3711385e-08, 0.99999994, 4.3711385e-08, 0, -4.3711385e-08, 0.9999999, 0.99999994, 4.3711385e-08, 1.9106853e-15, 0.03387522, 0.3088503, -0.15805519)
 layers = 1024
 mesh = SubResource("ArrayMesh_3tbe6")
 surface_material_override/0 = SubResource("StandardMaterial3D_rw3j0")
 
-[node name="OmniLight3D" type="OmniLight3D" parent="Lights/Corridor/Corridor/WallTorch2_copy3" unique_id=165757646]
+[node name="OmniLight3D2" type="OmniLight3D" parent="Lights/Corridor/Corridor/WallTorch2_copy3" unique_id=165757646]
 transform = Transform3D(-4.371139e-08, 1, 4.371139e-08, 0, -4.371139e-08, 1, 1, 4.371139e-08, 1.9106855e-15, 0.070673615, 0.25655636, -0.15458031)
 light_color = Color(0.8483857, 0.5341511, 0.23270911, 1)
 light_energy = 0.5
@@ -4966,7 +4959,7 @@ shadow_opacity = 0.8
 shadow_caster_mask = 4294966271
 omni_attenuation = 2.0
 
-[node name="Candle" type="MeshInstance3D" parent="Lights/Corridor/Corridor/WallTorch2_copy3" unique_id=1315540921]
+[node name="Candle2" type="MeshInstance3D" parent="Lights/Corridor/Corridor/WallTorch2_copy3" unique_id=1315540921]
 transform = Transform3D(-4.3711385e-08, 0.99999994, 4.3711385e-08, 0, -4.3711385e-08, 0.9999999, 0.99999994, 4.3711385e-08, 1.9106853e-15, 0.03387522, 0.3088503, -0.15805519)
 mesh = SubResource("ArrayMesh_jpahk")
 surface_material_override/0 = SubResource("StandardMaterial3D_s6xpe")
@@ -4978,3 +4971,11 @@ transform = Transform3D(0, 1, 0, 1, 0, 8.742278e-08, 8.742278e-08, 0, -1, 44.185
 
 [node name="WallTorch2" parent="Lights/Hall" unique_id=989584769 instance=ExtResource("3_yfdoq")]
 transform = Transform3D(0, 1, 0, 1, 0, 8.742278e-08, 8.742278e-08, 0, -1, 44.185, 3.2, -0.33139777)
+
+[node name="OmniLight3D" type="OmniLight3D" parent="Lights" unique_id=1524960025]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 10.349848, -4.7972527)
+light_color = Color(1, 0.744, 0.36, 1)
+light_energy = 7.561
+light_indirect_energy = 0.78
+light_volumetric_fog_energy = 1.22
+omni_range = 20.153

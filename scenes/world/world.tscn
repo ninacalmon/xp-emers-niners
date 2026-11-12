@@ -51,6 +51,7 @@
 [ext_resource type="Resource" uid="uid://cgutcfta1002v" path="res://items/mirrors/mirror_b/mirror_b2.tres" id="48_jum6b"]
 [ext_resource type="PackedScene" uid="uid://by3xhr7in7fhx" path="res://assets/3d/items/mirrors/mirror_b/mirror_b2.glb" id="49_l4ul6"]
 [ext_resource type="PackedScene" uid="uid://bv7pwu6dc6q6l" path="res://scenes/puzzles/mirrors/mirrors_puzzle.tscn" id="51_q3hpu"]
+[ext_resource type="Script" uid="uid://dh1ltto8wru1y" path="res://screenshots/screenshots.gd" id="52_j0rhc"]
 
 [sub_resource type="Sky" id="Sky_m114p"]
 sky_material = ExtResource("2_mxkvs")
@@ -60,6 +61,7 @@ background_mode = 2
 background_color = Color(0.43529412, 0.22352941, 0.09019608, 1)
 background_energy_multiplier = 0.7
 sky = SubResource("Sky_m114p")
+ambient_light_sky_contribution = 0.36
 tonemap_mode = 4
 glow_enabled = true
 glow_bloom = 0.44
@@ -387,7 +389,7 @@ mesh = NodePath("../lockpick/Loop_002")
 [node name="lockpick" parent="Characters/SleepPuzzle/LockPick" unique_id=43559986 instance=ExtResource("14_xq18t")]
 transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 0, 0)
 
-[node name="Loop_002" parent="Characters/SleepPuzzle/LockPick/lockpick" index="4" unique_id=1360956052]
+[node name="Loop_002" parent="Characters/SleepPuzzle/LockPick/lockpick" index="4" unique_id=1888373835]
 material_overlay = ExtResource("19_tytul")
 instance_shader_parameters/outline_enabled = false
 instance_shader_parameters/size = 1.07999999821184
@@ -437,7 +439,7 @@ mesh = NodePath("../astrolabus_body/MainFrame")
 [node name="astrolabus_body" parent="Items/AstrolabusBody" unique_id=1927840522 instance=ExtResource("18_wbwoo")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.023144484, 0)
 
-[node name="MainFrame" parent="Items/AstrolabusBody/astrolabus_body" index="1" unique_id=685680609]
+[node name="MainFrame" parent="Items/AstrolabusBody/astrolabus_body" index="1" unique_id=482562512]
 material_overlay = ExtResource("19_tytul")
 instance_shader_parameters/size = 1.12999999709424
 
@@ -450,7 +452,7 @@ mesh = NodePath("../astrolabus_pointer/PointerTex")
 
 [node name="astrolabus_pointer" parent="AstrolabusPointer" unique_id=224618642 instance=ExtResource("19_wbwoo")]
 
-[node name="PointerTex" parent="AstrolabusPointer/astrolabus_pointer" index="0" unique_id=1775675353]
+[node name="PointerTex" parent="AstrolabusPointer/astrolabus_pointer" index="0" unique_id=1220967647]
 material_overlay = ExtResource("19_tytul")
 instance_shader_parameters/outline_enabled = true
 instance_shader_parameters/size = 1.22999999485904
@@ -471,7 +473,7 @@ mesh = NodePath("../lockpick/Loop_002")
 [node name="lockpick" parent="LockPick" unique_id=1844345666 instance=ExtResource("14_xq18t")]
 transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 0, 0)
 
-[node name="Loop_002" parent="LockPick/lockpick" index="4" unique_id=1360956052]
+[node name="Loop_002" parent="LockPick/lockpick" index="4" unique_id=1888373835]
 material_overlay = ExtResource("19_tytul")
 instance_shader_parameters/outline_enabled = false
 instance_shader_parameters/size = 1.07999999821184
@@ -486,10 +488,12 @@ transform = Transform3D(-4.3711385e-08, 0, -0.99999994, 0, 1, 0, 0.99999994, 0, 
 [node name="Gate2" parent="SecondFloor/Gates" unique_id=257566465 instance=ExtResource("27_ckok1")]
 transform = Transform3D(-4.371138e-08, 0, -0.9999998, 0, 1, 0, 0.9999998, 0, -4.371138e-08, 42.03795, 1.5026242, -12.479482)
 flip = true
+locked = false
 
 [node name="Gate3" parent="SecondFloor/Gates" unique_id=993003229 groups=["corridor_gates"] instance=ExtResource("27_ckok1")]
 transform = Transform3D(-3.7591793e-08, 0, 0.86, 0, 0.86, 0, -0.86, 0, -3.7591793e-08, 52.475754, 6.26097, 4.3315773)
 flip = true
+locked = false
 
 [node name="StaticBody3D" parent="SecondFloor/Gates/Gate3" index="0" unique_id=446229308]
 collision_layer = 4
@@ -498,6 +502,7 @@ collision_mask = 4
 [node name="Gate3_copy1" parent="SecondFloor/Gates" unique_id=349109527 groups=["corridor_gates"] instance=ExtResource("27_ckok1")]
 transform = Transform3D(-3.7591793e-08, 0, 0.86, 0, 0.86, 0, -0.86, 0, -3.7591793e-08, 60.475754, 6.26097, 4.3315773)
 flip = true
+locked = false
 
 [node name="StaticBody3D" parent="SecondFloor/Gates/Gate3_copy1" index="0" unique_id=446229308]
 collision_layer = 4
@@ -506,6 +511,7 @@ collision_mask = 4
 [node name="Gate3_copy2" parent="SecondFloor/Gates" unique_id=577108361 groups=["corridor_gates"] instance=ExtResource("27_ckok1")]
 transform = Transform3D(-3.7591793e-08, 0, 0.86, 0, 0.86, 0, -0.86, 0, -3.7591793e-08, 68.47575, 6.26097, 4.3315773)
 flip = true
+locked = false
 
 [node name="StaticBody3D" parent="SecondFloor/Gates/Gate3_copy2" index="0" unique_id=446229308]
 collision_layer = 4
@@ -819,6 +825,9 @@ transform = Transform3D(0.54266346, 0.8353012, -0.08825097, -0.06035021, 0.14356
 [node name="MirrorsPuzzle" parent="." unique_id=866772177 node_paths=PackedStringArray("door") instance=ExtResource("51_q3hpu")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 33.061745, 12.275146, 20.609974)
 door = NodePath("../AbbotsDoor")
+
+[node name="Node" type="Node" parent="." unique_id=974539785]
+script = ExtResource("52_j0rhc")
 
 [editable path="Characters/Sanson"]
 [editable path="Characters/SleepPuzzle/LockPick"]
