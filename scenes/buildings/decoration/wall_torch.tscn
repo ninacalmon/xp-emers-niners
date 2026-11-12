@@ -130,7 +130,6 @@ light_energy = 0.5
 shadow_enabled = true
 shadow_opacity = 0.8
 shadow_caster_mask = 4294966271
-omni_range = 3.0
 omni_attenuation = 2.0
 
 [node name="Candle" type="MeshInstance3D" parent="." unique_id=315005065]

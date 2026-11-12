@@ -4376,6 +4376,66 @@ transform = Transform3D(-4.3711385e-08, 0.99999994, 4.3711385e-08, 0, -4.3711385
 mesh = SubResource("ArrayMesh_liost")
 surface_material_override/0 = SubResource("StandardMaterial3D_cdpwx")
 
+[node name="WallTorch4_copy4" parent="Lights/Pillars/Left" unique_id=276643571 instance=ExtResource("3_yfdoq")]
+transform = Transform3D(1.4133302e-08, 0.9876894, -0.15642813, 1, 0, 9.0350134e-08, 8.9237865e-08, -0.15642813, -0.9876894, -12.627872, 3.45, 0.4419999)
+
+[node name="Base2" type="MeshInstance3D" parent="Lights/Pillars/Left/WallTorch4_copy4" unique_id=15419413]
+transform = Transform3D(-4.3711385e-08, 0.99999994, 4.3711385e-08, 0, -4.3711385e-08, 0.9999999, 0.99999994, 4.3711385e-08, 1.9106853e-15, -0.10247786, 0.0042393208, -0.16166349)
+layers = 1024
+mesh = SubResource("ArrayMesh_jo7ir")
+surface_material_override/0 = SubResource("StandardMaterial3D_qsw4j")
+
+[node name="CapBot_002" type="MeshInstance3D" parent="Lights/Pillars/Left/WallTorch4_copy4" unique_id=682077163]
+transform = Transform3D(-4.3711385e-08, 0.99999994, 4.3711385e-08, 0, -4.3711385e-08, 0.9999999, 0.99999994, 4.3711385e-08, 1.9106853e-15, 0.03387522, 0.3088503, -0.13893187)
+layers = 1024
+mesh = SubResource("ArrayMesh_yx8cb")
+surface_material_override/0 = SubResource("StandardMaterial3D_qsw4j")
+
+[node name="OmniLight3D2" type="OmniLight3D" parent="Lights/Pillars/Left/WallTorch4_copy4" unique_id=1299241850]
+transform = Transform3D(-4.371139e-08, 1, 4.371139e-08, 0, -4.371139e-08, 1, 1, 4.371139e-08, 1.9106855e-15, 0.070673615, 0.25655636, -0.135457)
+light_color = Color(0.8483857, 0.5341511, 0.23270911, 1)
+light_energy = 0.5
+shadow_enabled = true
+shadow_opacity = 0.8
+shadow_caster_mask = 4294966271
+omni_range = 3.0
+omni_attenuation = 2.0
+
+[node name="Candle2" type="MeshInstance3D" parent="Lights/Pillars/Left/WallTorch4_copy4" unique_id=20833068]
+transform = Transform3D(-4.3711385e-08, 0.99999994, 4.3711385e-08, 0, -4.3711385e-08, 0.9999999, 0.99999994, 4.3711385e-08, 1.9106853e-15, 0.03387522, 0.3088503, -0.13893187)
+mesh = SubResource("ArrayMesh_liost")
+surface_material_override/0 = SubResource("StandardMaterial3D_cdpwx")
+
+[node name="WallTorch4_copy5" parent="Lights/Pillars/Left" unique_id=1708176785 instance=ExtResource("3_yfdoq")]
+transform = Transform3D(1.4133302e-08, 0.9876894, -0.15642813, 1, 0, 9.0350134e-08, 8.9237865e-08, -0.15642813, -0.9876894, -12.627872, 3.45, 5.3919997)
+
+[node name="Base2" type="MeshInstance3D" parent="Lights/Pillars/Left/WallTorch4_copy5" unique_id=2008866953]
+transform = Transform3D(-4.3711385e-08, 0.99999994, 4.3711385e-08, 0, -4.3711385e-08, 0.9999999, 0.99999994, 4.3711385e-08, 1.9106853e-15, -0.10247786, 0.0042393208, -0.16166349)
+layers = 1024
+mesh = SubResource("ArrayMesh_jo7ir")
+surface_material_override/0 = SubResource("StandardMaterial3D_qsw4j")
+
+[node name="CapBot_002" type="MeshInstance3D" parent="Lights/Pillars/Left/WallTorch4_copy5" unique_id=1640741610]
+transform = Transform3D(-4.3711385e-08, 0.99999994, 4.3711385e-08, 0, -4.3711385e-08, 0.9999999, 0.99999994, 4.3711385e-08, 1.9106853e-15, 0.03387522, 0.3088503, -0.13893187)
+layers = 1024
+mesh = SubResource("ArrayMesh_yx8cb")
+surface_material_override/0 = SubResource("StandardMaterial3D_qsw4j")
+
+[node name="OmniLight3D2" type="OmniLight3D" parent="Lights/Pillars/Left/WallTorch4_copy5" unique_id=405103653]
+transform = Transform3D(-4.371139e-08, 1, 4.371139e-08, 0, -4.371139e-08, 1, 1, 4.371139e-08, 1.9106855e-15, 0.070673615, 0.25655636, -0.135457)
+light_color = Color(0.8483857, 0.5341511, 0.23270911, 1)
+light_energy = 0.5
+shadow_enabled = true
+shadow_opacity = 0.8
+shadow_caster_mask = 4294966271
+omni_range = 3.0
+omni_attenuation = 2.0
+
+[node name="Candle2" type="MeshInstance3D" parent="Lights/Pillars/Left/WallTorch4_copy5" unique_id=1519081728]
+transform = Transform3D(-4.3711385e-08, 0.99999994, 4.3711385e-08, 0, -4.3711385e-08, 0.9999999, 0.99999994, 4.3711385e-08, 1.9106853e-15, 0.03387522, 0.3088503, -0.13893187)
+mesh = SubResource("ArrayMesh_liost")
+surface_material_override/0 = SubResource("StandardMaterial3D_cdpwx")
+
 [node name="Right" type="Node3D" parent="Lights/Pillars" unique_id=1302177259]
 
 [node name="WallTorch5" parent="Lights/Pillars/Right" unique_id=467431078 instance=ExtResource("3_yfdoq")]
@@ -4441,6 +4501,66 @@ transform = Transform3D(-4.3711385e-08, 0.99999994, 4.3711385e-08, 0, -4.3711385
 mesh = SubResource("ArrayMesh_liost")
 surface_material_override/0 = SubResource("StandardMaterial3D_cdpwx")
 
+[node name="WallTorch5_copy4" parent="Lights/Pillars/Right" unique_id=696317032 instance=ExtResource("3_yfdoq")]
+transform = Transform3D(4.5794687e-10, -0.987688, 0.15643677, 1, 0, -2.927361e-09, 2.8913192e-09, 0.15643677, 0.987688, 12.619501, 3.45, 0.7909999)
+
+[node name="Base2" type="MeshInstance3D" parent="Lights/Pillars/Right/WallTorch5_copy4" unique_id=398590776]
+transform = Transform3D(-4.3711385e-08, 0.99999994, 4.3711385e-08, 0, -4.3711385e-08, 0.9999999, 0.99999994, 4.3711385e-08, 1.9106853e-15, -0.10247786, 0.0042393208, -0.16166349)
+layers = 1024
+mesh = SubResource("ArrayMesh_jo7ir")
+surface_material_override/0 = SubResource("StandardMaterial3D_qsw4j")
+
+[node name="CapBot_002" type="MeshInstance3D" parent="Lights/Pillars/Right/WallTorch5_copy4" unique_id=1972457489]
+transform = Transform3D(-4.3711385e-08, 0.99999994, 4.3711385e-08, 0, -4.3711385e-08, 0.9999999, 0.99999994, 4.3711385e-08, 1.9106853e-15, 0.03387522, 0.3088503, -0.13893187)
+layers = 1024
+mesh = SubResource("ArrayMesh_yx8cb")
+surface_material_override/0 = SubResource("StandardMaterial3D_qsw4j")
+
+[node name="OmniLight3D2" type="OmniLight3D" parent="Lights/Pillars/Right/WallTorch5_copy4" unique_id=625487565]
+transform = Transform3D(-4.371139e-08, 1, 4.371139e-08, 0, -4.371139e-08, 1, 1, 4.371139e-08, 1.9106855e-15, 0.070673615, 0.25655636, -0.135457)
+light_color = Color(0.8483857, 0.5341511, 0.23270911, 1)
+light_energy = 0.5
+shadow_enabled = true
+shadow_opacity = 0.8
+shadow_caster_mask = 4294966271
+omni_range = 3.0
+omni_attenuation = 2.0
+
+[node name="Candle2" type="MeshInstance3D" parent="Lights/Pillars/Right/WallTorch5_copy4" unique_id=1276606386]
+transform = Transform3D(-4.3711385e-08, 0.99999994, 4.3711385e-08, 0, -4.3711385e-08, 0.9999999, 0.99999994, 4.3711385e-08, 1.9106853e-15, 0.03387522, 0.3088503, -0.13893187)
+mesh = SubResource("ArrayMesh_liost")
+surface_material_override/0 = SubResource("StandardMaterial3D_cdpwx")
+
+[node name="WallTorch5_copy5" parent="Lights/Pillars/Right" unique_id=1766766906 instance=ExtResource("3_yfdoq")]
+transform = Transform3D(4.5794687e-10, -0.987688, 0.15643677, 1, 0, -2.927361e-09, 2.8913192e-09, 0.15643677, 0.987688, 12.619501, 3.45, 5.726)
+
+[node name="Base2" type="MeshInstance3D" parent="Lights/Pillars/Right/WallTorch5_copy5" unique_id=326652454]
+transform = Transform3D(-4.3711385e-08, 0.99999994, 4.3711385e-08, 0, -4.3711385e-08, 0.9999999, 0.99999994, 4.3711385e-08, 1.9106853e-15, -0.10247786, 0.0042393208, -0.16166349)
+layers = 1024
+mesh = SubResource("ArrayMesh_jo7ir")
+surface_material_override/0 = SubResource("StandardMaterial3D_qsw4j")
+
+[node name="CapBot_002" type="MeshInstance3D" parent="Lights/Pillars/Right/WallTorch5_copy5" unique_id=519919931]
+transform = Transform3D(-4.3711385e-08, 0.99999994, 4.3711385e-08, 0, -4.3711385e-08, 0.9999999, 0.99999994, 4.3711385e-08, 1.9106853e-15, 0.03387522, 0.3088503, -0.13893187)
+layers = 1024
+mesh = SubResource("ArrayMesh_yx8cb")
+surface_material_override/0 = SubResource("StandardMaterial3D_qsw4j")
+
+[node name="OmniLight3D2" type="OmniLight3D" parent="Lights/Pillars/Right/WallTorch5_copy5" unique_id=1801664978]
+transform = Transform3D(-4.371139e-08, 1, 4.371139e-08, 0, -4.371139e-08, 1, 1, 4.371139e-08, 1.9106855e-15, 0.070673615, 0.25655636, -0.135457)
+light_color = Color(0.8483857, 0.5341511, 0.23270911, 1)
+light_energy = 0.5
+shadow_enabled = true
+shadow_opacity = 0.8
+shadow_caster_mask = 4294966271
+omni_range = 3.0
+omni_attenuation = 2.0
+
+[node name="Candle2" type="MeshInstance3D" parent="Lights/Pillars/Right/WallTorch5_copy5" unique_id=2185056]
+transform = Transform3D(-4.3711385e-08, 0.99999994, 4.3711385e-08, 0, -4.3711385e-08, 0.9999999, 0.99999994, 4.3711385e-08, 1.9106853e-15, 0.03387522, 0.3088503, -0.13893187)
+mesh = SubResource("ArrayMesh_liost")
+surface_material_override/0 = SubResource("StandardMaterial3D_cdpwx")
+
 [node name="WallTorch5_copy3" parent="Lights/Pillars/Right" unique_id=94777798 instance=ExtResource("3_yfdoq")]
 transform = Transform3D(4.5794687e-10, -0.987688, 0.15643677, 1, 0, -2.927361e-09, 2.8913192e-09, 0.15643677, 0.987688, 8.364, 3.45, 10.661)
 
@@ -4470,3 +4590,72 @@ omni_attenuation = 2.0
 transform = Transform3D(-4.3711385e-08, 0.99999994, 4.3711385e-08, 0, -4.3711385e-08, 0.9999999, 0.99999994, 4.3711385e-08, 1.9106853e-15, 0.03387522, 0.3088503, -0.13893187)
 mesh = SubResource("ArrayMesh_liost")
 surface_material_override/0 = SubResource("StandardMaterial3D_cdpwx")
+
+[node name="MainAreaWalls" type="Node3D" parent="Lights" unique_id=1368088142]
+
+[node name="WallTorch" parent="Lights/MainAreaWalls" unique_id=1879027668 instance=ExtResource("3_yfdoq")]
+transform = Transform3D(-8.742278e-08, 0, 1, 1, 0, 8.742278e-08, 0, 1, 0, 10.634, 3.45, -4.188)
+
+[node name="WallTorch2" parent="Lights/MainAreaWalls" unique_id=1070599273 instance=ExtResource("3_yfdoq")]
+transform = Transform3D(-8.742278e-08, 0, 1, 1, 0, 8.742278e-08, 0, 1, 0, -10.339074, 3.45, -4.188)
+
+[node name="WallTorch3" parent="Lights/MainAreaWalls" unique_id=997911132 instance=ExtResource("3_yfdoq")]
+transform = Transform3D(-2.7181102e-09, 0, -1, 1, 0, -2.7181102e-09, 0, -1, 0, -4.0408363, 3.45, 15.735)
+
+[node name="WallTorch4" parent="Lights/MainAreaWalls" unique_id=2026553638 instance=ExtResource("3_yfdoq")]
+transform = Transform3D(-2.7181102e-09, 0, -1, 1, 0, -2.7181102e-09, 0, -1, 0, 3.679736, 3.45, 15.735)
+
+[node name="WallTorch5" parent="Lights/MainAreaWalls" unique_id=2001714675 instance=ExtResource("3_yfdoq")]
+transform = Transform3D(1.9106855e-15, 4.3711385e-08, 1, 1, -4.3711385e-08, 0, 4.371139e-08, 0.99999994, -4.371139e-08, 3.852272, 3.3881907, 17.602753)
+
+[node name="WallTorch6" parent="Lights/MainAreaWalls" unique_id=1475950903 instance=ExtResource("3_yfdoq")]
+transform = Transform3D(1.9106855e-15, 4.3711385e-08, 1, 1, -4.3711385e-08, 0, 4.371139e-08, 0.99999994, -4.371139e-08, -3.5367873, 3.3881907, 17.602753)
+
+[node name="WallTorch7" parent="Lights/MainAreaWalls" unique_id=887004783 instance=ExtResource("3_yfdoq")]
+transform = Transform3D(-5.2125306e-16, -1.192488e-08, -1, 1, -4.3711385e-08, 0, -4.371139e-08, -0.99999994, 1.1924881e-08, 3.5787787, 3.3881907, 22.589407)
+
+[node name="WallTorch8" parent="Lights/MainAreaWalls" unique_id=7942825 instance=ExtResource("3_yfdoq")]
+transform = Transform3D(-5.2125306e-16, -1.192488e-08, -1, 1, -4.3711385e-08, 0, -4.371139e-08, -0.99999994, 1.1924881e-08, -3.8102808, 3.3881907, 22.589407)
+
+[node name="CandleAreaWalls" type="Node3D" parent="Lights" unique_id=1401580575]
+
+[node name="Left" type="Node3D" parent="Lights/CandleAreaWalls" unique_id=1799925238]
+
+[node name="WallTorch" parent="Lights/CandleAreaWalls/Left" unique_id=2002988536 instance=ExtResource("3_yfdoq")]
+transform = Transform3D(0, -0.17364918, -0.9848076, 1, 0, 0, 0, -0.9848076, 0.17364918, -8.26, 3.5, 20.067)
+
+[node name="WallTorch2" parent="Lights/CandleAreaWalls/Left" unique_id=150858162 instance=ExtResource("3_yfdoq")]
+transform = Transform3D(0, -0.9396915, -0.34202325, 1, 0, 0, 0, -0.34202325, 0.9396915, -6.184, 3.5, 18.336)
+
+[node name="WallTorch3" parent="Lights/CandleAreaWalls/Left" unique_id=598291681 instance=ExtResource("3_yfdoq")]
+transform = Transform3D(7.571023e-08, 0.5000023, -0.8660241, 1, 0, 8.742278e-08, 4.371159e-08, -0.8660241, -0.5000023, -10.631, 3.5, 19.813)
+
+[node name="Right" type="Node3D" parent="Lights/CandleAreaWalls" unique_id=627790041]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18.282, 0, 0)
+
+[node name="WallTorch" parent="Lights/CandleAreaWalls/Right" unique_id=943412786 instance=ExtResource("3_yfdoq")]
+transform = Transform3D(0, -0.50000286, -0.8660238, 1, 0, 0, 0, -0.8660238, 0.50000286, -7.412, 3.5, 19.674)
+
+[node name="WallTorch2" parent="Lights/CandleAreaWalls/Right" unique_id=1047577289 instance=ExtResource("3_yfdoq")]
+transform = Transform3D(5.980065e-08, 0.76604414, -0.64278805, 1, -3.5527137e-15, 9.3033236e-08, 7.126756e-08, -0.64278805, -0.76604414, -11.598, 3.5, 19.061)
+
+[node name="WallTorch3" parent="Lights/CandleAreaWalls/Right" unique_id=1465402407 instance=ExtResource("3_yfdoq")]
+transform = Transform3D(9.162013e-08, 0.17364733, -0.98480797, 1, 1.7763568e-15, 9.3033506e-08, 1.6155019e-08, -0.98480797, -0.17364733, -9.634964, 3.4409688, 20.135489)
+
+[node name="Stairs" type="Node3D" parent="Lights" unique_id=1464851118]
+
+[node name="Left" type="Node3D" parent="Lights/Stairs" unique_id=1308359338]
+
+[node name="WallTorch" parent="Lights/Stairs/Left" unique_id=1089309730 instance=ExtResource("3_yfdoq")]
+transform = Transform3D(0, 1, 0, 1, 0, 8.742278e-08, 8.742278e-08, 0, -1, -12.587866, 5.0079117, -11.527141)
+
+[node name="WallTorch2" parent="Lights/Stairs/Left" unique_id=913580048 instance=ExtResource("3_yfdoq")]
+transform = Transform3D(0, 1, 0, 1, 0, 8.742278e-08, 8.742278e-08, 0, -1, -12.587866, 9.892198, -3.5506315)
+
+[node name="Right" type="Node3D" parent="Lights/Stairs" unique_id=399618125]
+
+[node name="WallTorch" parent="Lights/Stairs/Right" unique_id=600508906 instance=ExtResource("3_yfdoq")]
+transform = Transform3D(0, -1, 0, 1, 0, 2.672599e-21, -2.672599e-21, 0, 1, 12.587865, 4.909176, -11.112693)
+
+[node name="WallTorch2" parent="Lights/Stairs/Right" unique_id=796878221 instance=ExtResource("3_yfdoq")]
+transform = Transform3D(0, -1, 0, 1, 0, 0, 0, 0, 1, 12.587865, 9.770272, -3.44213)
