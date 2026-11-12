@@ -49,6 +49,8 @@ var myRotation: float
 var hours: int
 var minutes: int
 
+
+
 func _ready():
 	# References
 	sky = worldEnvironment.environment.sky.sky_material

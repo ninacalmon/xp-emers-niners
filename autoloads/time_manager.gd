@@ -63,7 +63,7 @@ func setup_sky(time: Times):
 		
 		Times.at1200:
 			sun_current_minutes = 120
-			sun.top_color = Color(1.0, 0.843, 0.549)
+			sun.top_color = Color(0.0, 0.0, 0.0, 1.0)
 			sun.bottom_color = Color(1.0, 0.627, 0.302)
 		Times.at1500:
 			sun_current_minutes = 157.5

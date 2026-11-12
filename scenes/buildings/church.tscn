@@ -4971,11 +4971,3 @@ transform = Transform3D(0, 1, 0, 1, 0, 8.742278e-08, 8.742278e-08, 0, -1, 44.185
 
 [node name="WallTorch2" parent="Lights/Hall" unique_id=989584769 instance=ExtResource("3_yfdoq")]
 transform = Transform3D(0, 1, 0, 1, 0, 8.742278e-08, 8.742278e-08, 0, -1, 44.185, 3.2, -0.33139777)
-
-[node name="OmniLight3D" type="OmniLight3D" parent="Lights" unique_id=1524960025]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 10.349848, -4.7972527)
-light_color = Color(1, 0.744, 0.36, 1)
-light_energy = 7.561
-light_indirect_energy = 0.78
-light_volumetric_fog_energy = 1.22
-omni_range = 20.153

@@ -29,6 +29,7 @@
 [ext_resource type="AudioStream" uid="uid://dk0pbedy4mbac" path="res://assets/sound/sound_effects/ambient/outside_the_shroud.mp3" id="28_2x71e"]
 [ext_resource type="Resource" uid="uid://bae56sx733f7o" path="res://items/papers/blank_paper.tres" id="29_nqe8x"]
 [ext_resource type="Script" uid="uid://peejkdrmwsea" path="res://scenes/world/music.gd" id="29_wnndm"]
+[ext_resource type="PackedScene" uid="uid://dhb4ubn1lv1kq" path="res://examples/interaction_examples/item_giver/key_giver_ball.tscn" id="30_4jq4u"]
 [ext_resource type="AudioStream" uid="uid://21vhu4ot54ph" path="res://assets/sound/music/Aguirre I (l'acrime di rei).mp3" id="30_jyr8v"]
 [ext_resource type="PackedScene" uid="uid://x67lk35re62k" path="res://assets/3d/items/paper_mirrors/blank_paper.glb" id="30_sh7a8"]
 [ext_resource type="AudioStream" uid="uid://bc05muurqbflr" path="res://assets/sound/music/Entropy.mp3" id="31_5o5dd"]
@@ -81,7 +82,7 @@ size = Vector2(500, 500)
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_u1gsd"]
 albedo_color = Color(0.66, 0.52536005, 0.4224, 1)
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_q3hpu"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_sar2w"]
 viewport_path = NodePath("SubViewportSprite")
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_cdpwx"]
@@ -90,7 +91,7 @@ size = Vector3(2.1645508, 3.0518951, 1.1044922)
 [sub_resource type="BoxShape3D" id="BoxShape3D_ksdio"]
 size = Vector3(4.8632813, 1, 0.6602173)
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_j0rhc"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_goy61"]
 viewport_path = NodePath("SubViewportSprite")
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_u0ka6"]
@@ -343,6 +344,14 @@ polygon = PackedVector2Array(-73.80234, -62.97614, 98.83095, -63.519016, 103.716
 [node name="Church" parent="." unique_id=151423155 instance=ExtResource("7_q3hpu")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 33.12908, 0, 0)
 
+[node name="MainAreaLight" type="OmniLight3D" parent="Church" unique_id=317840032]
+transform = Transform3D(1, 4.4703484e-08, -1.7763568e-15, -4.4703484e-08, 1, -2.9802322e-08, 0, 2.9802322e-08, 1, 0, 10.34985, -3.915351)
+light_color = Color(1, 0.744, 0.36, 1)
+light_energy = 7.561
+light_indirect_energy = 0.78
+light_volumetric_fog_energy = 1.22
+omni_range = 20.153
+
 [node name="Characters" type="Node3D" parent="." unique_id=577653259]
 
 [node name="Hugo" parent="Characters" unique_id=1758948578 instance=ExtResource("6_1yooq")]
@@ -360,7 +369,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 78.78419, 0.9976957, -5.94999
 is_chatting = true
 
 [node name="Sprite3D" parent="Characters/Sanson" index="0" unique_id=415751236]
-texture = SubResource("ViewportTexture_q3hpu")
+texture = SubResource("ViewportTexture_sar2w")
 
 [node name="AstrolablusPuzzle" parent="Characters" unique_id=572576743 instance=ExtResource("14_m114p")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 74.455536, 1.0101616, -6.621845)
@@ -389,7 +398,7 @@ mesh = NodePath("../lockpick/Loop_002")
 [node name="lockpick" parent="Characters/SleepPuzzle/LockPick" unique_id=43559986 instance=ExtResource("14_xq18t")]
 transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 0, 0)
 
-[node name="Loop_002" parent="Characters/SleepPuzzle/LockPick/lockpick" index="4" unique_id=1888373835]
+[node name="Loop_002" parent="Characters/SleepPuzzle/LockPick/lockpick" index="4" unique_id=708519900]
 material_overlay = ExtResource("19_tytul")
 instance_shader_parameters/outline_enabled = false
 instance_shader_parameters/size = 1.07999999821184
@@ -417,7 +426,7 @@ transform = Transform3D(-1, 0, 0, 0, 0.9971555, 0.07537224, 0, 0.07537224, -0.99
 top_level = true
 
 [node name="Sprite3D" parent="ConfessionalBooth/Confessor" parent_id_path=PackedInt32Array(321162436, 1758948578) index="0" unique_id=415751236]
-texture = SubResource("ViewportTexture_j0rhc")
+texture = SubResource("ViewportTexture_goy61")
 
 [node name="CharactherConfesingPosition" type="Node3D" parent="." unique_id=228115067 groups=["confessing_pos"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 21.404587, 1.5257708, -2.079492)
@@ -439,7 +448,7 @@ mesh = NodePath("../astrolabus_body/MainFrame")
 [node name="astrolabus_body" parent="Items/AstrolabusBody" unique_id=1927840522 instance=ExtResource("18_wbwoo")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.023144484, 0)
 
-[node name="MainFrame" parent="Items/AstrolabusBody/astrolabus_body" index="1" unique_id=482562512]
+[node name="MainFrame" parent="Items/AstrolabusBody/astrolabus_body" index="1" unique_id=1366137940]
 material_overlay = ExtResource("19_tytul")
 instance_shader_parameters/size = 1.12999999709424
 
@@ -452,13 +461,10 @@ mesh = NodePath("../astrolabus_pointer/PointerTex")
 
 [node name="astrolabus_pointer" parent="AstrolabusPointer" unique_id=224618642 instance=ExtResource("19_wbwoo")]
 
-[node name="PointerTex" parent="AstrolabusPointer/astrolabus_pointer" index="0" unique_id=1220967647]
+[node name="PointerTex" parent="AstrolabusPointer/astrolabus_pointer" index="0" unique_id=270399608]
 material_overlay = ExtResource("19_tytul")
 instance_shader_parameters/outline_enabled = true
 instance_shader_parameters/size = 1.22999999485904
-
-[node name="RoomDoor" parent="." unique_id=230216749 instance=ExtResource("9_ues17")]
-transform = Transform3D(-4.3711385e-08, 0, -0.99999994, 0, 1, 0, 0.99999994, 0, -4.3711385e-08, 45.89097, 8.685315, -2.8491478)
 
 [node name="Chair" parent="." unique_id=708079133 instance=ExtResource("22_6hctx")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 76.05981, 1.0000007, -6.876649)
@@ -473,7 +479,7 @@ mesh = NodePath("../lockpick/Loop_002")
 [node name="lockpick" parent="LockPick" unique_id=1844345666 instance=ExtResource("14_xq18t")]
 transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 0, 0)
 
-[node name="Loop_002" parent="LockPick/lockpick" index="4" unique_id=1888373835]
+[node name="Loop_002" parent="LockPick/lockpick" index="4" unique_id=708519900]
 material_overlay = ExtResource("19_tytul")
 instance_shader_parameters/outline_enabled = false
 instance_shader_parameters/size = 1.07999999821184
@@ -488,12 +494,10 @@ transform = Transform3D(-4.3711385e-08, 0, -0.99999994, 0, 1, 0, 0.99999994, 0, 
 [node name="Gate2" parent="SecondFloor/Gates" unique_id=257566465 instance=ExtResource("27_ckok1")]
 transform = Transform3D(-4.371138e-08, 0, -0.9999998, 0, 1, 0, 0.9999998, 0, -4.371138e-08, 42.03795, 1.5026242, -12.479482)
 flip = true
-locked = false
 
 [node name="Gate3" parent="SecondFloor/Gates" unique_id=993003229 groups=["corridor_gates"] instance=ExtResource("27_ckok1")]
 transform = Transform3D(-3.7591793e-08, 0, 0.86, 0, 0.86, 0, -0.86, 0, -3.7591793e-08, 52.475754, 6.26097, 4.3315773)
 flip = true
-locked = false
 
 [node name="StaticBody3D" parent="SecondFloor/Gates/Gate3" index="0" unique_id=446229308]
 collision_layer = 4
@@ -502,7 +506,6 @@ collision_mask = 4
 [node name="Gate3_copy1" parent="SecondFloor/Gates" unique_id=349109527 groups=["corridor_gates"] instance=ExtResource("27_ckok1")]
 transform = Transform3D(-3.7591793e-08, 0, 0.86, 0, 0.86, 0, -0.86, 0, -3.7591793e-08, 60.475754, 6.26097, 4.3315773)
 flip = true
-locked = false
 
 [node name="StaticBody3D" parent="SecondFloor/Gates/Gate3_copy1" index="0" unique_id=446229308]
 collision_layer = 4
@@ -511,11 +514,14 @@ collision_mask = 4
 [node name="Gate3_copy2" parent="SecondFloor/Gates" unique_id=577108361 groups=["corridor_gates"] instance=ExtResource("27_ckok1")]
 transform = Transform3D(-3.7591793e-08, 0, 0.86, 0, 0.86, 0, -0.86, 0, -3.7591793e-08, 68.47575, 6.26097, 4.3315773)
 flip = true
-locked = false
 
 [node name="StaticBody3D" parent="SecondFloor/Gates/Gate3_copy2" index="0" unique_id=446229308]
 collision_layer = 4
 collision_mask = 4
+
+[node name="BellAreaDoor" parent="SecondFloor" unique_id=230216749 instance=ExtResource("9_ues17")]
+transform = Transform3D(-4.3711385e-08, 0, -0.99999994, 0, 1, 0, 0.99999994, 0, -4.3711385e-08, 45.89097, 8.685315, -2.8491478)
+unlockeable = false
 
 [node name="DoorAbade" parent="SecondFloor" unique_id=620919005 instance=ExtResource("9_ues17")]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 51.30352, 6.9499197, -2.8790874)
@@ -523,12 +529,13 @@ locked = true
 item_interaction = true
 wanted_item = ExtResource("27_d0ajt")
 
-[node name="Prior" parent="SecondFloor" unique_id=1738876710 node_paths=PackedStringArray("player_detection", "player_outside_pos", "prior_bell_pos", "prior_hidden_pos") instance=ExtResource("13_mxkvs")]
+[node name="Prior" parent="SecondFloor" unique_id=1738876710 node_paths=PackedStringArray("player_detection", "player_outside_pos", "prior_bell_pos", "prior_hidden_pos", "bell_area_door") instance=ExtResource("13_mxkvs")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 46.71915, 6.3606253, 3.5670638)
 player_detection = NodePath("../PlayerDetection")
 player_outside_pos = NodePath("../PlayerOutsidePos")
 prior_bell_pos = NodePath("../PriorBellPos")
 prior_hidden_pos = NodePath("../PriorHiddenPos")
+bell_area_door = NodePath("../BellAreaDoor")
 
 [node name="PlayerDetection" type="Area3D" parent="SecondFloor" unique_id=757000802]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 47.815685, 6.339241, -2.0246706)
@@ -684,6 +691,9 @@ mesh = NodePath("../abbots_key/Plane")
 
 [node name="abbots_key" parent="SecondFloor/AbbotKey" unique_id=686751365 instance=ExtResource("31_l4ul6")]
 transform = Transform3D(0.6860497, 0, 0.7275547, 0, 1, 0, -0.7275547, 0, 0.6860497, 0, 0, 0)
+
+[node name="TestKeyGiverBall" parent="SecondFloor" unique_id=471407858 instance=ExtResource("30_4jq4u")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 34.15889, 2.9136648, -9.757066)
 
 [node name="Ambient" type="AudioStreamPlayer" parent="." unique_id=249666659]
 stream = ExtResource("28_2x71e")

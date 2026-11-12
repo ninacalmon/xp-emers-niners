@@ -104,7 +104,7 @@ metadata/_custom_type_script = "uid://csjccrhj5wnx7"
 
 [node name="PlayerRayCast" type="RayCast3D" parent="Head/PlayerCam" unique_id=1115479559]
 transform = Transform3D(1.000002, 0, 0, 0, 1.0000004, 0, 0, 0, 1.0000021, 0, 0, 0)
-target_position = Vector3(0, 0, -0.85)
+target_position = Vector3(0, 0, -1)
 collision_mask = 2
 collide_with_areas = true
 collide_with_bodies = false

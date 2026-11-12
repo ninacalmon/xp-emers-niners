@@ -4,6 +4,7 @@ extends CharacterBody3D
 @export var player_outside_pos: Marker3D
 @export var prior_bell_pos: Marker3D
 @export var prior_hidden_pos: Marker3D
+@export var bell_area_door: OpenDoorAction
 
 @export var approach_speed_cutscene: float = 1.0
 @export var stop_distance_cutscene: float = 1.3
@@ -66,6 +67,9 @@ func start_cutscene() -> void:
 	if is_disabled:
 		return
 
+	bell_area_door.close_door()
+	bell_area_door.locked = true
+
 	player.is_cutscene_locked = true
 
 	await player.look_at_target(global_position + Vector3(0, 1, 0), 1.0)
@@ -102,6 +106,7 @@ func _bell_strike():
 	if is_disabled:
 		return
 
+	bell_area_door.locked = false
 	animated_sprite_2d.play("BELL_SOUND")
 	await get_tree().create_timer(1).timeout
 	await _play_dialogue("bell")
@@ -167,6 +172,8 @@ func move_towards_target(speed: float, stop_dist: float, target: Node3D = player
 func catch_player() -> void:
 	if is_disabled:
 		return
+
+	bell_area_door.locked = false
 
 	player.is_cutscene_locked = true
 	animated_sprite_2d.play("idle")
