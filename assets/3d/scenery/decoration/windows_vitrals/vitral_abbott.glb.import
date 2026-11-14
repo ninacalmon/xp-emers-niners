@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://lllv6i7dapij"
-path="res://.godot/imported/vitral_test.glb-2b62831776895a7569114630125c7c4c.scn"
+uid="uid://bq141o6v5qid4"
+path="res://.godot/imported/vitral_abbott.glb-a6cbdb1764006bf5bfeac4eb3cfb4498.scn"
 
 [deps]
 
-source_file="res://assets/3d/scenery/decoration/windows_vitrals/vitral_test.glb"
-dest_files=["res://.godot/imported/vitral_test.glb-2b62831776895a7569114630125c7c4c.scn"]
+source_file="res://assets/3d/scenery/decoration/windows_vitrals/vitral_abbott.glb"
+dest_files=["res://.godot/imported/vitral_abbott.glb-a6cbdb1764006bf5bfeac4eb3cfb4498.scn"]
 
 [params]
 

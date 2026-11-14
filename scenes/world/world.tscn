@@ -230,7 +230,7 @@ environment = SubResource("Environment_t634p")
 
 [node name="Camera3D" type="Camera3D" parent="." unique_id=1834340419]
 physics_interpolation_mode = 1
-transform = Transform3D(-1, -8.3154475e-07, -5.0176146e-05, -4.609225e-06, 0.9971583, 0.075335465, 4.9970913e-05, 0.075335465, -0.9971583, 32.898365, 4.286537, -15.426432)
+transform = Transform3D(-0.9999999, -0.00014639646, 0.00048007662, -0.00010971934, 0.99714375, 0.07552753, -0.00048976234, 0.07552747, -0.9971436, 32.898403, 4.2864122, -15.426389)
 top_level = true
 cull_mask = 1048063
 
@@ -452,7 +452,7 @@ shape = SubResource("BoxShape3D_ksdio")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 21.046339, 1.6670088, -3.19987)
 
 [node name="Camera3D" parent="ConfessionalBooth" index="2" unique_id=430217490]
-transform = Transform3D(-1, -1.0058745e-06, -4.867777e-05, -4.670275e-06, 0.9971581, 0.07533744, 4.8463655e-05, 0.07533744, -0.9971581, 32.898365, 4.2865367, -15.426432)
+transform = Transform3D(-0.9999999, -0.00014831663, 0.00048459735, -0.000111292946, 0.9971438, 0.07552678, -0.0004944151, 0.075526714, -0.9971437, 32.898403, 4.286411, -15.426388)
 top_level = true
 
 [node name="Sprite3D" parent="ConfessionalBooth/Confessor" parent_id_path=PackedInt32Array(321162436, 1758948578) index="0" unique_id=415751236]

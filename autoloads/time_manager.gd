@@ -9,7 +9,7 @@ var environment_sky_shader: ShaderMaterial
 
 enum Times {at1200, at1500, at1800, at2100, at2300, at2400}
 
-var current_time: Times = Times.at1800
+var current_time: Times = Times.at1200
 
 var last_tolled_time: int = -1
 

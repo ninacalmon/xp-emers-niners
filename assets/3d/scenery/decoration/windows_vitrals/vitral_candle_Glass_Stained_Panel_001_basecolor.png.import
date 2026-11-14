@@ -2,20 +2,20 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cqnc7ckfcn7cm"
-path.s3tc="res://.godot/imported/church_texture.png-ebaab4de76f5d0939303a46d55e57351.s3tc.ctex"
+uid="uid://ci5cywh0be2ej"
+path.s3tc="res://.godot/imported/vitral_candle_Glass_Stained_Panel_001_basecolor.png-d8b92cdf4c38ee3fd193dab60143ea0f.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
 }
 generator_parameters={
-"md5": "d8fd75c2756d3e1af3857ceb93973c4a"
+"md5": "f16c59a09f4495fbdf9242d4630c5ae3"
 }
 
 [deps]
 
-source_file="res://assets/3d/scenery/church/church_texture.png"
-dest_files=["res://.godot/imported/church_texture.png-ebaab4de76f5d0939303a46d55e57351.s3tc.ctex"]
+source_file="res://assets/3d/scenery/decoration/windows_vitrals/vitral_candle_Glass_Stained_Panel_001_basecolor.png"
+dest_files=["res://.godot/imported/vitral_candle_Glass_Stained_Panel_001_basecolor.png-d8b92cdf4c38ee3fd193dab60143ea0f.s3tc.ctex"]
 
 [params]
 
