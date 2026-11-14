@@ -26,6 +26,7 @@ script = ExtResource("1_gashb")
 transform = Transform3D(0.18, 0, 0, 0, 0.18, 0, 0, 0, 0.18, 0, 0.7130867, 0)
 offset = Vector2(0, 241.06)
 billboard = 2
+shaded = true
 texture = SubResource("ViewportTexture_aovk5")
 
 [node name="ShadowMesh" type="MeshInstance3D" parent="." unique_id=662778281]

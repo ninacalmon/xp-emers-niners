@@ -6,7 +6,7 @@
 class_name InteractionArea
 extends Area3D
 
-const OUTLINE_SHADER_MATERIAL_2D = preload("uid://dxugeq4hehdak")
+const OUTLINE_SHADER_BILLBOARD = preload("uid://cmj145moh841t")
 const OUTLINE_SHADER_MATERIAL_3D = preload("uid://dki8i4qf7fofd")
 
 
@@ -16,9 +16,8 @@ var checking_input: bool = false
 
 @export var clickable: bool = false
 @export var mesh: MeshInstance3D ## visual node for 3D objects.
-@export var animated_sprite: AnimatedSprite2D ## visual node for 2D (billboarded) objects.
+@export var outline_sprite_3d: Sprite3D ## visual outline sprite for 2D (billboarded) objects.
 @export var action_trigger: ActionTrigger
-
 
 ## called by [PlayerRayCast]. means player is close enough and looking directly at.
 func on_ray_enter():
@@ -28,8 +27,8 @@ func on_ray_enter():
 	if mesh:
 		mesh.set_instance_shader_parameter("outline_enabled", true)
 
-	elif animated_sprite:
-		animated_sprite.set_instance_shader_parameter("outline_enabled", true)
+	elif outline_sprite_3d:
+		outline_sprite_3d.set_instance_shader_parameter("outline_enabled", true)
 
 	#interaction_overlay.show_inter_text(action_trigger)
 
@@ -42,8 +41,8 @@ func on_ray_exit():
 	if mesh:
 		mesh.set_instance_shader_parameter("outline_enabled", false)
 
-	elif animated_sprite:
-		animated_sprite.set_instance_shader_parameter("outline_enabled", false)
+	elif outline_sprite_3d:
+		outline_sprite_3d.set_instance_shader_parameter("outline_enabled", false)
 
 	#interaction_overlay.hide_inter_text()
 
@@ -61,8 +60,8 @@ func _input(event: InputEvent) -> void:
 
 
 func _ready() -> void:
-	assert(mesh != null or animated_sprite != null,
-	"InteractionArea needs a mesh or an animated_sprite!")
+	assert(mesh != null or outline_sprite_3d != null,
+	"InteractionArea needs a mesh or an outline_sprite_3d!")
 	
 	if clickable:
 		input_ray_pickable = true
@@ -73,26 +72,27 @@ func _ready() -> void:
 	action_trigger.action_ended.connect(_on_action_trigger_action_ended)
 	#interaction_overlay = get_tree().get_first_node_in_group("interaction_overlay")
 
-	## tries to add outline_shader to mesh or animated_sprite.
+	## tries to add outline_shader to mesh or outline_sprite_3d.
 	apply_outline_shaders()
 
-	## guarantees that mesh or animated_sprite have outline_shader_material.tres as material overlay. vvv
+	## guarantees that mesh or outline_sprite_3d have outline_shader_material.tres as material overlay. vvv
 	if mesh:
 		assert(
 		(
 			mesh.material_overlay and
 			mesh.material_overlay.resource_path.ends_with("outline_shader_material_3d.tres")
 		),
-		"mesh does not have outline_shader_material_3d.tres as material overlay!"
+		"mesh does not have outline_shader_material_3d.tres as material overlay! From: %s" % get_parent().name
 		)
 
-	elif animated_sprite:
+
+	elif outline_sprite_3d:
 		assert(
 		(
-			animated_sprite.material and
-			animated_sprite.material.resource_path.ends_with("outline_shader_material_2d.tres")
+			outline_sprite_3d.material_overlay and
+			outline_sprite_3d.material_overlay.shader.resource_path.ends_with("outline_billboard.gdshader")
 		),
-		"animated_sprite does not have outline_shader_material_2d.tres as material overlay!"
+		"outline_sprite_3d does not have outline_billboard.gdshader as material overlay shader! From: %s" % get_parent().name
 		)
 
 	on_ray_exit()
@@ -108,8 +108,8 @@ func apply_outline_shaders():
 	if mesh:
 		mesh.material_overlay = OUTLINE_SHADER_MATERIAL_3D
 
-	elif animated_sprite:
-		animated_sprite.material = OUTLINE_SHADER_MATERIAL_2D
+	#elif outline_sprite_3d:
+		#outline_sprite_3d.material_overlay = OUTLINE_SHADER_MATERIAL_BILLBOARD
 
 
 
@@ -117,8 +117,8 @@ func force_outline(_bool: bool):
 	if mesh:
 		mesh.set_instance_shader_parameter("outline_enabled", _bool)
 
-	elif animated_sprite:
-		animated_sprite.set_instance_shader_parameter("outline_enabled", _bool)
+	elif outline_sprite_3d:
+		outline_sprite_3d.set_instance_shader_parameter("outline_enabled", _bool)
 
 
 func _on_action_trigger_action_ended():

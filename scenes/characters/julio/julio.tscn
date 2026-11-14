@@ -3,6 +3,8 @@
 [ext_resource type="Script" uid="uid://dkcej6bkk2smm" path="res://scenes/characters/julio/julio.gd" id="1_07clx"]
 [ext_resource type="Script" uid="uid://cf2auur4umdjl" path="res://systems/interaction/interaction_area.gd" id="1_kda5n"]
 [ext_resource type="Script" uid="uid://bjidnq65qcjsh" path="res://systems/character/dialogue_action.gd" id="2_gsenr"]
+[ext_resource type="Shader" uid="uid://cmj145moh841t" path="res://resources/shaders/outline_billboard.gdshader" id="2_limuf"]
+[ext_resource type="Script" uid="uid://ejt07noytxny" path="res://resources/shaders/billboard_shader_tool.gd" id="3_nrgqq"]
 [ext_resource type="Resource" uid="uid://b7o8h8s2mg0hj" path="res://dialogue/julio/julio_main.dialogue" id="3_o0q0w"]
 [ext_resource type="Script" uid="uid://biodsue5rifq4" path="res://systems/character/character_sprite_handler.gd" id="4_kpkcg"]
 [ext_resource type="Material" uid="uid://dxugeq4hehdak" path="res://resources/shader_materials/outline_shader_material_2d.tres" id="5_o0q0w"]
@@ -10,6 +12,15 @@
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_gmoyl"]
 viewport_path = NodePath("SubViewportSprite")
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_e4vqa"]
+viewport_path = NodePath("SubViewportSprite")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_limuf"]
+resource_local_to_scene = true
+render_priority = -1
+shader = ExtResource("2_limuf")
+shader_parameter/sprite_texture = SubResource("ViewportTexture_e4vqa")
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_5604n"]
 radius = 0.32666016
@@ -26,12 +37,28 @@ height = 0.56075287
 [node name="Julio" type="Node3D" unique_id=1758948578 groups=["julio"]]
 script = ExtResource("1_07clx")
 
-[node name="Sprite3D" type="Sprite3D" parent="." unique_id=415751236]
+[node name="Sprite3D" type="Sprite3D" parent="." unique_id=40265912]
 transform = Transform3D(0.18, 0, 0, 0, 0.18, 0, 0, 0, 0.18, 0, 0.7130867, 0)
 offset = Vector2(0, 241.06)
 billboard = 2
 shaded = true
 texture = SubResource("ViewportTexture_gmoyl")
+
+[node name="Outline" type="Sprite3D" parent="Sprite3D" unique_id=415751236]
+material_overlay = SubResource("ShaderMaterial_limuf")
+cast_shadow = 0
+instance_shader_parameters/billboard_y_only = true
+instance_shader_parameters/glowAngle = 1.0000000475
+instance_shader_parameters/glowSharpness = 0.0
+instance_shader_parameters/glowSize = 6.000000285
+instance_shader_parameters/line_color = Color(1, 1, 1, 1)
+instance_shader_parameters/outline_depth_offset = 0.0
+instance_shader_parameters/outline_only = false
+offset = Vector2(0, 241.06)
+billboard = 2
+render_priority = -1
+texture = SubResource("ViewportTexture_gmoyl")
+script = ExtResource("3_nrgqq")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="." unique_id=1339048520]
 
@@ -44,9 +71,9 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.9330101, 0)
 cast_shadow = 3
 mesh = SubResource("CapsuleMesh_cdpwx")
 
-[node name="InteractionArea" type="Area3D" parent="." unique_id=830411389 node_paths=PackedStringArray("animated_sprite", "action_trigger")]
+[node name="InteractionArea" type="Area3D" parent="." unique_id=830411389 node_paths=PackedStringArray("outline_sprite_3d", "action_trigger")]
 script = ExtResource("1_kda5n")
-animated_sprite = NodePath("../SubViewportSprite/AnimatedSprite2D")
+outline_sprite_3d = NodePath("../Sprite3D/Outline")
 action_trigger = NodePath("../DialogueAction")
 metadata/_custom_type_script = "uid://cf2auur4umdjl"
 
@@ -73,7 +100,8 @@ render_target_update_mode = 4
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="SubViewportSprite" unique_id=60975985]
 material = ExtResource("5_o0q0w")
-instance_shader_parameters/outline_enabled = true
+instance_shader_parameters/outline_enabled = false
+instance_shader_parameters/outline_tint = Color(1, 1, 1, 0)
 sprite_frames = ExtResource("6_07clx")
-animation = &"IDLE_DEFAULT"
+animation = &"idle"
 centered = false
