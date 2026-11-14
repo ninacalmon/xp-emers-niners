@@ -9,6 +9,8 @@
 [ext_resource type="Texture2D" uid="uid://bnot7w0dqmmrn" path="res://assets/3d/scenery/church/church_texture_cobblestone_floor_01_rough_1k.png" id="5_8ak8w"]
 [ext_resource type="Texture2D" uid="uid://fajdkm7u57d0" path="res://assets/3d/scenery/church/church_texture_cobblestone_floor_01_nor_gl_1k.png" id="6_jpahk"]
 [ext_resource type="Texture2D" uid="uid://ccinbklevulce" path="res://assets/3d/scenery/church/church_texture_texture.png" id="7_s6xpe"]
+[ext_resource type="Script" uid="uid://d0e3xv44g2hx6" path="res://addons/array_modifier/ArrayModifier.gd" id="10_3tbe6"]
+[ext_resource type="PackedScene" uid="uid://cfay4kna1ata" path="res://scenes/objects/church_bench/church_bench.tscn" id="10_kfuuv"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_olxrl"]
 resource_name = "BurnedOrange"
@@ -3742,554 +3744,684 @@ emission = Color(0.8938996, 0.82729995, 0.6583445, 1)
 [node name="ArchBellArea" type="MeshInstance3D" parent="ChurchModelTex" unique_id=55701261]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 50.279526, 17.422836, 11.519541)
 mesh = SubResource("ArrayMesh_5w67j")
+metadata/_edit_lock_ = true
 
 [node name="ArchBellArea_001" type="MeshInstance3D" parent="ChurchModelTex" unique_id=969797251]
 transform = Transform3D(0, 0, 1, 0, 1, 0, -1, 0, 0, 52.620308, 17.422836, 5.015548)
 mesh = SubResource("ArrayMesh_wx17w")
+metadata/_edit_lock_ = true
 
 [node name="ArchDetailDormitoryArea" type="MeshInstance3D" parent="ChurchModelTex" unique_id=250919913]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 52.567413, 5.689844, -2.742225)
 mesh = SubResource("ArrayMesh_pplbj")
+metadata/_edit_lock_ = true
 
 [node name="StaticBody3D" type="StaticBody3D" parent="ChurchModelTex/ArchDetailDormitoryArea" unique_id=2077203824]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="ChurchModelTex/ArchDetailDormitoryArea/StaticBody3D" unique_id=1835565549]
 shape = SubResource("ConcavePolygonShape3D_aw7ia")
+metadata/_edit_lock_ = true
 
 [node name="ArchesBetweenPillars" type="MeshInstance3D" parent="ChurchModelTex" unique_id=1572998187]
 transform = Transform3D(0.24065483, 0, 0, 0, 2.0170276, 0, 0, 0, 1.8333417, -9.39255, 5.8387423, 8)
 mesh = SubResource("ArrayMesh_xrq46")
+metadata/_edit_lock_ = true
 
 [node name="ArchesOutsideDormitory" type="MeshInstance3D" parent="ChurchModelTex" unique_id=597783647]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 21.54855, 6.0135527, 8.362093)
 mesh = SubResource("ArrayMesh_poq5n")
+metadata/_edit_lock_ = true
 
 [node name="BalconyFloor" type="MeshInstance3D" parent="ChurchModelTex" unique_id=216353870]
 transform = Transform3D(0.8, 0, 0, 0, 0.1524971, 0, 0, 0, 8.269721, -9.851484, 7.916576, 3.1470654)
 mesh = SubResource("ArrayMesh_vtw5g")
+metadata/_edit_lock_ = true
 
 [node name="StaticBody3D" type="StaticBody3D" parent="ChurchModelTex/BalconyFloor" unique_id=1175008741]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="ChurchModelTex/BalconyFloor/StaticBody3D" unique_id=1364636818]
 shape = SubResource("ConcavePolygonShape3D_rmgpg")
+metadata/_edit_lock_ = true
 
 [node name="BalconyRoof" type="MeshInstance3D" parent="ChurchModelTex" unique_id=941307342]
 transform = Transform3D(1, 0, 0, 0, 0.4713714, 0, 0, 0, 1, -11.635265, 16.30718, -0.00014609995)
 mesh = SubResource("ArrayMesh_bq6xm")
+metadata/_edit_lock_ = true
 
 [node name="BalconyWall" type="MeshInstance3D" parent="ChurchModelTex" unique_id=243569370]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 8.260169, -9.670947, 8.9149885, 3.3926737)
 mesh = SubResource("ArrayMesh_xyyqr")
+metadata/_edit_lock_ = true
 
 [node name="StaticBody3D" type="StaticBody3D" parent="ChurchModelTex/BalconyWall" unique_id=1451664442]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="ChurchModelTex/BalconyWall/StaticBody3D" unique_id=981489489]
 shape = SubResource("ConcavePolygonShape3D_lje7w")
+metadata/_edit_lock_ = true
 
 [node name="BalconyWallExtra" type="MeshInstance3D" parent="ChurchModelTex" unique_id=847727959]
 transform = Transform3D(1, 0, 0, 0, 0.4713714, 0, 0, 0, 1, -9.7310295, 16.30718, -0.00014609995)
 mesh = SubResource("ArrayMesh_rbirv")
+metadata/_edit_lock_ = true
 
 [node name="BalconyWallNearCandles" type="MeshInstance3D" parent="ChurchModelTex" unique_id=1651220722]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.425201, 8.330201, 12.7870035)
 mesh = SubResource("ArrayMesh_woilr")
+metadata/_edit_lock_ = true
 
 [node name="StaticBody3D" type="StaticBody3D" parent="ChurchModelTex/BalconyWallNearCandles" unique_id=496509111]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="ChurchModelTex/BalconyWallNearCandles/StaticBody3D" unique_id=1160447145]
 shape = SubResource("ConcavePolygonShape3D_daa30")
+metadata/_edit_lock_ = true
 
 [node name="BellCorridorStairs" type="MeshInstance3D" parent="ChurchModelTex" unique_id=62364798]
 transform = Transform3D(1, 0, 0, 0, 0.88477594, 0, 0, 0, 0.79291123, 13.92291, 7.2069635, -2.0545402)
 mesh = SubResource("ArrayMesh_fm7ui")
+metadata/_edit_lock_ = true
 
 [node name="StaticBody3D" type="StaticBody3D" parent="ChurchModelTex/BellCorridorStairs" unique_id=634679327]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="ChurchModelTex/BellCorridorStairs/StaticBody3D" unique_id=920827601]
 shape = SubResource("ConcavePolygonShape3D_larcp")
+metadata/_edit_lock_ = true
 
 [node name="BellCorridorWall2" type="MeshInstance3D" parent="ChurchModelTex" unique_id=511529125]
 transform = Transform3D(-1, 0, 0, 0, 1, 0, 0, 0, 0.13180065, 11.067515, 7.302163, 2.2839375)
 mesh = SubResource("ArrayMesh_wg2fc")
+metadata/_edit_lock_ = true
 
 [node name="StaticBody3D" type="StaticBody3D" parent="ChurchModelTex/BellCorridorWall2" unique_id=828936316]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="ChurchModelTex/BellCorridorWall2/StaticBody3D" unique_id=345546120]
 shape = SubResource("ConcavePolygonShape3D_3x40j")
+metadata/_edit_lock_ = true
 
 [node name="BellRoof" type="MeshInstance3D" parent="ChurchModelTex" unique_id=1347393565]
 transform = Transform3D(0.8975766, 0, 0, 0, 0.8975766, 0, 0, 0, 0.8975766, 48.249596, 18.487936, 7.0662184)
 mesh = SubResource("ArrayMesh_ri1yk")
+metadata/_edit_lock_ = true
 
 [node name="BellRoofDetail" type="MeshInstance3D" parent="ChurchModelTex" unique_id=1054572942]
 transform = Transform3D(0.8975766, 0, 0, 0, 0.8975766, 0, 0, 0, 0.8975766, 48.249596, 18.487936, 7.0662184)
 mesh = SubResource("ArrayMesh_i4y76")
+metadata/_edit_lock_ = true
 
 [node name="BellRoom" type="MeshInstance3D" parent="ChurchModelTex" unique_id=1724019754]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 48.115097, 10.634068, 6.43188)
 mesh = SubResource("ArrayMesh_pvu2e")
+metadata/_edit_lock_ = true
 
 [node name="StaticBody3D" type="StaticBody3D" parent="ChurchModelTex/BellRoom" unique_id=1518192790]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="ChurchModelTex/BellRoom/StaticBody3D" unique_id=167827593]
 shape = SubResource("ConcavePolygonShape3D_wtqr1")
+metadata/_edit_lock_ = true
 
 [node name="BellRoomWall" type="MeshInstance3D" parent="ChurchModelTex" unique_id=1580336220]
 transform = Transform3D(0.08722639, 0, 0, 0, 1, 0, 0, 0, 4.055584, 30.913015, 7.264835, -1.8497353)
 mesh = SubResource("ArrayMesh_dk7a8")
+metadata/_edit_lock_ = true
 
 [node name="StaticBody3D" type="StaticBody3D" parent="ChurchModelTex/BellRoomWall" unique_id=1484784817]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="ChurchModelTex/BellRoomWall/StaticBody3D" unique_id=1782278441]
 shape = SubResource("ConcavePolygonShape3D_tpa5p")
+metadata/_edit_lock_ = true
 
 [node name="BellStairs2" type="MeshInstance3D" parent="ChurchModelTex" unique_id=1180463380]
 transform = Transform3D(-1.133501e-07, 0, 0.95084953, 0, 0.95084953, 0, -0.95084953, 0, -1.133501e-07, 43.53953, 6.1494193, -3.329449)
 mesh = SubResource("ArrayMesh_r6mhk")
+metadata/_edit_lock_ = true
 
 [node name="StaticBody3D" type="StaticBody3D" parent="ChurchModelTex/BellStairs2" unique_id=808553208]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="ChurchModelTex/BellStairs2/StaticBody3D" unique_id=459530229]
 shape = SubResource("ConcavePolygonShape3D_ra7a4")
+metadata/_edit_lock_ = true
 
 [node name="BellStairs" type="MeshInstance3D" parent="ChurchModelTex" unique_id=581260095]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 47.398808, 7.55, 3.312322)
 mesh = SubResource("ArrayMesh_wdd11")
+metadata/_edit_lock_ = true
 
 [node name="StaticBody3D" type="StaticBody3D" parent="ChurchModelTex/BellStairs" unique_id=1106799055]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="ChurchModelTex/BellStairs/StaticBody3D" unique_id=1183003262]
 shape = SubResource("ConcavePolygonShape3D_eskoo")
+metadata/_edit_lock_ = true
 
 [node name="CandleAltarHall" type="MeshInstance3D" parent="ChurchModelTex" unique_id=804599556]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.885994, 1.9623504, 3.5440423)
 mesh = SubResource("ArrayMesh_wpmx6")
+metadata/_edit_lock_ = true
 
 [node name="StaticBody3D" type="StaticBody3D" parent="ChurchModelTex/CandleAltarHall" unique_id=1845202222]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="ChurchModelTex/CandleAltarHall/StaticBody3D" unique_id=1984386304]
 shape = SubResource("ConcavePolygonShape3D_pn1gg")
+metadata/_edit_lock_ = true
 
 [node name="CeilEntrance" type="MeshInstance3D" parent="ChurchModelTex" unique_id=1453151730]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 27.182497, 5, -1.4184884)
 mesh = SubResource("ArrayMesh_x6h1e")
+metadata/_edit_lock_ = true
 
 [node name="CeilMain" type="MeshInstance3D" parent="ChurchModelTex" unique_id=1082975406]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 30.875124, 6.2946467, -1.9848875)
 mesh = SubResource("ArrayMesh_q2bbb")
+metadata/_edit_lock_ = true
 
 [node name="CeilMain_001" type="MeshInstance3D" parent="ChurchModelTex" unique_id=317992435]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 11.055441, 0.08753443)
 mesh = SubResource("ArrayMesh_7xaha")
+metadata/_edit_lock_ = true
 
 [node name="CeilPreBell" type="MeshInstance3D" parent="ChurchModelTex" unique_id=1996012380]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 48.08986, 7.55, -3.0138686)
 mesh = SubResource("ArrayMesh_im4i7")
+metadata/_edit_lock_ = true
 
 [node name="StaticBody3D" type="StaticBody3D" parent="ChurchModelTex/CeilPreBell" unique_id=1931213798]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="ChurchModelTex/CeilPreBell/StaticBody3D" unique_id=656296251]
 shape = SubResource("ConcavePolygonShape3D_gef3l")
+metadata/_edit_lock_ = true
 
 [node name="DetailBase" type="MeshInstance3D" parent="ChurchModelTex" unique_id=1266478619]
 transform = Transform3D(-0.3375896, 0, 0, 0, -0.3375896, 0, 0, 0, -0.3375896, -0.009243967, 36.545143, -18.05535)
 mesh = SubResource("ArrayMesh_bx038")
+metadata/_edit_lock_ = true
 
 [node name="DetailBase_001" type="MeshInstance3D" parent="ChurchModelTex" unique_id=1843616274]
 transform = Transform3D(-0.15566884, 0, 0, 0, -0.15566884, 0, 0, 0, -0.15566884, 9.288728, 33.801132, 16.777473)
 mesh = SubResource("ArrayMesh_5vai5")
+metadata/_edit_lock_ = true
 
 [node name="DetailBase_002" type="MeshInstance3D" parent="ChurchModelTex" unique_id=2066962885]
 transform = Transform3D(-0.15566884, 0, 0, 0, -0.15566884, 0, 0, 0, -0.15566884, -9.342883, 33.801132, 16.777473)
 mesh = SubResource("ArrayMesh_c1vk4")
+metadata/_edit_lock_ = true
 
 [node name="DetailBase_003" type="MeshInstance3D" parent="ChurchModelTex" unique_id=1534264079]
 transform = Transform3D(-0.15566884, 0, 0, 0, -0.15566884, 0, 0, 0, -0.15566884, 48.250217, 25.269062, 7.0055666)
 mesh = SubResource("ArrayMesh_ewgj1")
+metadata/_edit_lock_ = true
 
 [node name="DormitoryPillar001" type="MeshInstance3D" parent="ChurchModelTex" unique_id=1765637380]
 transform = Transform3D(0.9200271, 0, 0, 0, 0.9200271, 0, 0, 0, 0.9200271, 17.535223, 0.21614036, 9.140735)
 mesh = SubResource("ArrayMesh_2e0of")
+metadata/_edit_lock_ = true
 
 [node name="StaticBody3D" type="StaticBody3D" parent="ChurchModelTex/DormitoryPillar001" unique_id=1402685694]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="ChurchModelTex/DormitoryPillar001/StaticBody3D" unique_id=1941569660]
 shape = SubResource("ConcavePolygonShape3D_evarm")
+metadata/_edit_lock_ = true
 
 [node name="DormitoryPillar" type="MeshInstance3D" parent="ChurchModelTex" unique_id=1270564776]
 transform = Transform3D(1.4461802, 0, 0, 0, 2.3915899, 0, 0, 0, 1.4461802, 44.162964, 0.73636246, 11.205718)
 mesh = SubResource("ArrayMesh_wes51")
+metadata/_edit_lock_ = true
 
 [node name="StaticBody3D" type="StaticBody3D" parent="ChurchModelTex/DormitoryPillar" unique_id=1962864930]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="ChurchModelTex/DormitoryPillar/StaticBody3D" unique_id=798765221]
 shape = SubResource("ConcavePolygonShape3D_7pp10")
+metadata/_edit_lock_ = true
 
 [node name="Empty" type="Node3D" parent="ChurchModelTex" unique_id=1648641154]
+metadata/_edit_lock_ = true
 
 [node name="Empty_001" type="Node3D" parent="ChurchModelTex" unique_id=544154039]
+metadata/_edit_lock_ = true
 
 [node name="emptyCentroCatedral" type="Node3D" parent="ChurchModelTex" unique_id=881906973]
+metadata/_edit_lock_ = true
 
 [node name="FloorCandlePlace" type="MeshInstance3D" parent="ChurchModelTex" unique_id=1831302851]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.088521, 0.40698308, 16.628176)
 mesh = SubResource("ArrayMesh_kq064")
+metadata/_edit_lock_ = true
 
 [node name="StaticBody3D" type="StaticBody3D" parent="ChurchModelTex/FloorCandlePlace" unique_id=2066077230]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="ChurchModelTex/FloorCandlePlace/StaticBody3D" unique_id=1171066737]
 shape = SubResource("ConcavePolygonShape3D_qwjfd")
+metadata/_edit_lock_ = true
 
 [node name="FloorFrontRoom" type="MeshInstance3D" parent="ChurchModelTex" unique_id=1143686979]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 17.179487)
 mesh = SubResource("ArrayMesh_ul3g0")
+metadata/_edit_lock_ = true
 
 [node name="StaticBody3D" type="StaticBody3D" parent="ChurchModelTex/FloorFrontRoom" unique_id=83741102]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="ChurchModelTex/FloorFrontRoom/StaticBody3D" unique_id=2109026133]
 shape = SubResource("ConcavePolygonShape3D_5karw")
+metadata/_edit_lock_ = true
 
 [node name="FloorMain" type="MeshInstance3D" parent="ChurchModelTex" unique_id=279954108]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 30.450216, 0, -1.9833354)
 mesh = SubResource("ArrayMesh_rbm8p")
+metadata/_edit_lock_ = true
 
 [node name="StaticBody3D" type="StaticBody3D" parent="ChurchModelTex/FloorMain" unique_id=632571824]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="ChurchModelTex/FloorMain/StaticBody3D" unique_id=2080198928]
 shape = SubResource("ConcavePolygonShape3D_eo4xm")
+metadata/_edit_lock_ = true
 
 [node name="FloorMainChurch" type="MeshInstance3D" parent="ChurchModelTex" unique_id=1915456192]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.08753443)
 mesh = SubResource("ArrayMesh_2sy8f")
+metadata/_edit_lock_ = true
 
 [node name="StaticBody3D" type="StaticBody3D" parent="ChurchModelTex/FloorMainChurch" unique_id=208598665]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="ChurchModelTex/FloorMainChurch/StaticBody3D" unique_id=1550555946]
 shape = SubResource("ConcavePolygonShape3D_0ixti")
+metadata/_edit_lock_ = true
 
 [node name="FloorSecond" type="MeshInstance3D" parent="ChurchModelTex" unique_id=1914964058]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 30.875124, 6.35103, -1.9848875)
 mesh = SubResource("ArrayMesh_6f8w4")
+metadata/_edit_lock_ = true
 
 [node name="StaticBody3D" type="StaticBody3D" parent="ChurchModelTex/FloorSecond" unique_id=1072473206]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="ChurchModelTex/FloorSecond/StaticBody3D" unique_id=1928900175]
 shape = SubResource("ConcavePolygonShape3D_jntu4")
+metadata/_edit_lock_ = true
 
 [node name="FloorSunAltar" type="MeshInstance3D" parent="ChurchModelTex" unique_id=880626815]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.41366303, -15)
 mesh = SubResource("ArrayMesh_vv6t7")
+metadata/_edit_lock_ = true
 
 [node name="StaticBody3D" type="StaticBody3D" parent="ChurchModelTex/FloorSunAltar" unique_id=1101781270]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="ChurchModelTex/FloorSunAltar/StaticBody3D" unique_id=324579867]
 shape = SubResource("ConcavePolygonShape3D_klp08")
+metadata/_edit_lock_ = true
 
 [node name="_StaticBody3D_42699" type="StaticBody3D" parent="ChurchModelTex" unique_id=1857464950]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.41366303, -15)
+metadata/_edit_lock_ = true
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="ChurchModelTex/_StaticBody3D_42699" unique_id=957300470]
 shape = SubResource("ConcavePolygonShape3D_h341x")
+metadata/_edit_lock_ = true
 
 [node name="FountainAltar" type="MeshInstance3D" parent="ChurchModelTex" unique_id=1357827488]
 transform = Transform3D(2.463782, 0, 0, 0, 2.463782, 0, 0, 0, 2.463782, 0, 1.0756674, -21.325357)
 mesh = SubResource("ArrayMesh_6cyuo")
+metadata/_edit_lock_ = true
 
 [node name="StaticBody3D" type="StaticBody3D" parent="ChurchModelTex/FountainAltar" unique_id=925534952]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="ChurchModelTex/FountainAltar/StaticBody3D" unique_id=336785926]
 shape = SubResource("ConcavePolygonShape3D_y6a23")
+metadata/_edit_lock_ = true
 
 [node name="HallPillar" type="MeshInstance3D" parent="ChurchModelTex" unique_id=501846219]
 transform = Transform3D(0.78699726, 0, 0, 0, 0.78699726, 0, 0, 0, 0.78699726, -3.6999598, 2.1272364, 16.835629)
 mesh = SubResource("ArrayMesh_xn4ih")
+metadata/_edit_lock_ = true
 
 [node name="StaticBody3D" type="StaticBody3D" parent="ChurchModelTex/HallPillar" unique_id=343902243]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="ChurchModelTex/HallPillar/StaticBody3D" unique_id=1754445454]
 shape = SubResource("ConcavePolygonShape3D_oqgs4")
+metadata/_edit_lock_ = true
 
 [node name="HallWall" type="MeshInstance3D" parent="ChurchModelTex" unique_id=388790502]
 transform = Transform3D(4.752603, 0, 0, 0, 1, 0, 0, 0, 0.3359907, 0, 2.3298237, 16.07137)
 mesh = SubResource("ArrayMesh_68fe0")
+metadata/_edit_lock_ = true
 
 [node name="StaticBody3D" type="StaticBody3D" parent="ChurchModelTex/HallWall" unique_id=451401480]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="ChurchModelTex/HallWall/StaticBody3D" unique_id=1381546223]
 shape = SubResource("ConcavePolygonShape3D_ixtx3")
+metadata/_edit_lock_ = true
 
 [node name="LoooongWall" type="MeshInstance3D" parent="ChurchModelTex" unique_id=1036894210]
 transform = Transform3D(0, 0, 0.08380788, 0, 1, 0, -1, 0, 0, -9.02447, 2.446496, -6.9973845)
 mesh = SubResource("ArrayMesh_ybm31")
+metadata/_edit_lock_ = true
 
 [node name="StaticBody3D" type="StaticBody3D" parent="ChurchModelTex/LoooongWall" unique_id=488888582]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="ChurchModelTex/LoooongWall/StaticBody3D" unique_id=1802704412]
 shape = SubResource("ConcavePolygonShape3D_jls46")
+metadata/_edit_lock_ = true
 
 [node name="MainCeiling" type="MeshInstance3D" parent="ChurchModelTex" unique_id=1449345289]
 transform = Transform3D(12.763058, 0, 0, 0, 1, 0, 0, 0, 1, 0, 17.688875, -9.277571)
 mesh = SubResource("ArrayMesh_kb80g")
+metadata/_edit_lock_ = true
 
 [node name="MainOutsidePillar" type="MeshInstance3D" parent="ChurchModelTex" unique_id=569151371]
 transform = Transform3D(0.35436302, 0, 0, 0, 0.35436302, 0, 0, 0, 0.35436302, -5.092891, 0.85578704, 16.20272)
 mesh = SubResource("ArrayMesh_63xid")
+metadata/_edit_lock_ = true
 
 [node name="MainOutsidePillar_001" type="MeshInstance3D" parent="ChurchModelTex" unique_id=1801180438]
 transform = Transform3D(0.35436302, 0, 0, 0, 0.35436302, 0, 0, 0, 0.35436302, -12.987224, 0.85578704, -12.603275)
 mesh = SubResource("ArrayMesh_owjf5")
+metadata/_edit_lock_ = true
 
 [node name="MainStairs" type="MeshInstance3D" parent="ChurchModelTex" unique_id=1764872514]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 24.49406)
 mesh = SubResource("ArrayMesh_j811a")
+metadata/_edit_lock_ = true
 
 [node name="StaticBody3D" type="StaticBody3D" parent="ChurchModelTex/MainStairs" unique_id=1163879553]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="ChurchModelTex/MainStairs/StaticBody3D" unique_id=1524144134]
 shape = SubResource("ConcavePolygonShape3D_mi3g0")
+metadata/_edit_lock_ = true
 
 [node name="MeltiingRoomSquareWall" type="MeshInstance3D" parent="ChurchModelTex" unique_id=1524775644]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.365932, 13.220494, 15.0938425)
 mesh = SubResource("ArrayMesh_ewo18")
+metadata/_edit_lock_ = true
 
 [node name="StaticBody3D" type="StaticBody3D" parent="ChurchModelTex/MeltiingRoomSquareWall" unique_id=653107671]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="ChurchModelTex/MeltiingRoomSquareWall/StaticBody3D" unique_id=1957044457]
 shape = SubResource("ConcavePolygonShape3D_qpud4")
+metadata/_edit_lock_ = true
 
 [node name="MeltingRoomRoundFloor" type="MeshInstance3D" parent="ChurchModelTex" unique_id=1509922843]
 transform = Transform3D(4.0733423, 0, 0, 0, 4.0733423, 0, 0, 0, 4.0733423, 0, 11.1966715, 12.151987)
 mesh = SubResource("ArrayMesh_nc4go")
+metadata/_edit_lock_ = true
 
 [node name="StaticBody3D" type="StaticBody3D" parent="ChurchModelTex/MeltingRoomRoundFloor" unique_id=1116558512]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="ChurchModelTex/MeltingRoomRoundFloor/StaticBody3D" unique_id=66742395]
 shape = SubResource("ConcavePolygonShape3D_y7ad8")
+metadata/_edit_lock_ = true
 
 [node name="MeltingRoomStairs2" type="MeshInstance3D" parent="ChurchModelTex" unique_id=1589428866]
 transform = Transform3D(4.1886015, 0, 0, 0, 4.1886015, 0, 0, 0, 4.1886015, 0, 11.034138, 12.151987)
 mesh = SubResource("ArrayMesh_kdovx")
+metadata/_edit_lock_ = true
 
 [node name="StaticBody3D" type="StaticBody3D" parent="ChurchModelTex/MeltingRoomStairs2" unique_id=2023567987]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="ChurchModelTex/MeltingRoomStairs2/StaticBody3D" unique_id=645337779]
 shape = SubResource("ConcavePolygonShape3D_2x42x")
+metadata/_edit_lock_ = true
 
 [node name="MeltingRoomStairs" type="MeshInstance3D" parent="ChurchModelTex" unique_id=820806846]
 transform = Transform3D(4.1886015, 0, 0, 0, 4.1886015, 0, 0, 0, 4.1886015, 0, 11.031609, 12.308653)
 mesh = SubResource("ArrayMesh_kqtgv")
+metadata/_edit_lock_ = true
 
 [node name="StaticBody3D" type="StaticBody3D" parent="ChurchModelTex/MeltingRoomStairs" unique_id=119413399]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="ChurchModelTex/MeltingRoomStairs/StaticBody3D" unique_id=866625531]
 shape = SubResource("ConcavePolygonShape3D_22bft")
+metadata/_edit_lock_ = true
 
 [node name="meltingRoomUnder" type="MeshInstance3D" parent="ChurchModelTex" unique_id=1256363031]
 transform = Transform3D(4.185664, 0, 0, 0, 4.185664, 0, 0, 0, 4.185664, 0, 11.033504, 12.151987)
 mesh = SubResource("ArrayMesh_flltr")
+metadata/_edit_lock_ = true
 
 [node name="MeltingRoomWallRound" type="MeshInstance3D" parent="ChurchModelTex" unique_id=2125096244]
 transform = Transform3D(4.1886015, 0, 0, 0, 4.1886015, 0, 0, 0, 4.1886015, 0, 11.045245, 12.151987)
 mesh = SubResource("ArrayMesh_14ma6")
+metadata/_edit_lock_ = true
 
 [node name="StaticBody3D" type="StaticBody3D" parent="ChurchModelTex/MeltingRoomWallRound" unique_id=1914224738]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="ChurchModelTex/MeltingRoomWallRound/StaticBody3D" unique_id=338625271]
 shape = SubResource("ConcavePolygonShape3D_8qngs")
+metadata/_edit_lock_ = true
 
 [node name="OpenDoor" type="MeshInstance3D" parent="ChurchModelTex" unique_id=171789040]
 transform = Transform3D(-0.39356494, 0, -0.9192968, 0, 1, 0, 0.9192968, 0, -0.39356494, -3.5904844, 8.4161625, 25.726847)
 mesh = SubResource("ArrayMesh_n0a6v")
+metadata/_edit_lock_ = true
 
 [node name="StaticBody3D" type="StaticBody3D" parent="ChurchModelTex/OpenDoor" unique_id=481643907]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="ChurchModelTex/OpenDoor/StaticBody3D" unique_id=1706320692]
 shape = SubResource("ConcavePolygonShape3D_ltfnj")
+metadata/_edit_lock_ = true
 
 [node name="OutsideChurchAbbotRoomRoof" type="MeshInstance3D" parent="ChurchModelTex" unique_id=1705752132]
 transform = Transform3D(0.6909895, 0.72286475, 0, -0.72286475, 0.6909895, 0, 0, 0, 1, 3.1264718, 20.78783, 19.265911)
 mesh = SubResource("ArrayMesh_d7krn")
+metadata/_edit_lock_ = true
 
 [node name="OutsideChurchSunAltarDetail" type="MeshInstance3D" parent="ChurchModelTex" unique_id=1149721845]
 transform = Transform3D(5.6882167, 0, 0, 0, 0.16665055, 0, 0, 0, 5.6882167, 0, 32.014717, -14.998106)
 mesh = SubResource("ArrayMesh_xx56x")
+metadata/_edit_lock_ = true
 
 [node name="OutsideDetailPillarDormitory" type="MeshInstance3D" parent="ChurchModelTex" unique_id=445575574]
 transform = Transform3D(0.26461208, 0, 0, 0, 0.354363, 0, 0, 0, 0.354363, 52.233917, 0.85578704, -7.563986)
 mesh = SubResource("ArrayMesh_dx2go")
+metadata/_edit_lock_ = true
 
 [node name="PillarFullAltar" type="MeshInstance3D" parent="ChurchModelTex" unique_id=1029766220]
 transform = Transform3D(0.8240649, 0, 0, 0, 0.7087618, 0, 0, 0, 0.8240649, -6.5751925, 2.446496, -12.920267)
 mesh = SubResource("ArrayMesh_ga4ar")
+metadata/_edit_lock_ = true
 
 [node name="StaticBody3D" type="StaticBody3D" parent="ChurchModelTex/PillarFullAltar" unique_id=1095028495]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="ChurchModelTex/PillarFullAltar/StaticBody3D" unique_id=1337978242]
 shape = SubResource("ConcavePolygonShape3D_q2sy3")
+metadata/_edit_lock_ = true
 
 [node name="PillarFullSides" type="MeshInstance3D" parent="ChurchModelTex" unique_id=1141187951]
 transform = Transform3D(0.8240649, 0, 0, 0, 0.7087618, 0, 0, 0, 0.8240649, -8.9980755, 2.446496, 10.502688)
 mesh = SubResource("ArrayMesh_bmnog")
+metadata/_edit_lock_ = true
 
 [node name="StaticBody3D" type="StaticBody3D" parent="ChurchModelTex/PillarFullSides" unique_id=1592972714]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="ChurchModelTex/PillarFullSides/StaticBody3D" unique_id=1870204687]
 shape = SubResource("ConcavePolygonShape3D_p0alf")
+metadata/_edit_lock_ = true
 
 [node name="RailingMiddle" type="MeshInstance3D" parent="ChurchModelTex" unique_id=1510355564]
 transform = Transform3D(0.042571478, 0, 0, 0, 0.4328038, 0, 0, 0, 0.042571478, -9.5, 8.456673, -4.48413)
 mesh = SubResource("ArrayMesh_effm5")
+metadata/_edit_lock_ = true
 
 [node name="RailingMiddle_001" type="MeshInstance3D" parent="ChurchModelTex" unique_id=1532534431]
 transform = Transform3D(-0.00010431489, 0, 0.04257135, 0, 0.4328038, 0, -0.04257135, 0, -0.00010431489, -10.469181, 12.935877, 10.908433)
 mesh = SubResource("ArrayMesh_rw0o6")
+metadata/_edit_lock_ = true
 
 [node name="RailingMiddle_002" type="MeshInstance3D" parent="ChurchModelTex" unique_id=134760335]
 transform = Transform3D(-4.1710737e-05, 0, 0.042571463, 0, 0.4328038, 0, -0.042571463, 0, -4.1710737e-05, -10.418626, 8.456673, -4.5635295)
 mesh = SubResource("ArrayMesh_2pqwa")
+metadata/_edit_lock_ = true
 
 [node name="RailingTop" type="MeshInstance3D" parent="ChurchModelTex" unique_id=556195151]
 transform = Transform3D(0.12588906, 0, 0, 0, 0.03483191, 0, 0, 0, 1, -9.4797, 8.893957, 0)
 mesh = SubResource("ArrayMesh_o8xe8")
+metadata/_edit_lock_ = true
 
 [node name="StaticBody3D" type="StaticBody3D" parent="ChurchModelTex/RailingTop" unique_id=96890186]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="ChurchModelTex/RailingTop/StaticBody3D" unique_id=1015348181]
 shape = SubResource("ConcavePolygonShape3D_tgyb4")
+metadata/_edit_lock_ = true
 
 [node name="RailingTop_001" type="MeshInstance3D" parent="ChurchModelTex" unique_id=679423332]
 transform = Transform3D(-0.00030847188, 0, 0.999997, 0, 0.03483191, 0, -0.12588869, 0, -0.002450347, -4.0284147, 13.373161, 10.877146)
 mesh = SubResource("ArrayMesh_4578k")
+metadata/_edit_lock_ = true
 
 [node name="StaticBody3D" type="StaticBody3D" parent="ChurchModelTex/RailingTop_001" unique_id=1106471719]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="ChurchModelTex/RailingTop_001/StaticBody3D" unique_id=811437794]
 shape = SubResource("ConcavePolygonShape3D_sq5dt")
+metadata/_edit_lock_ = true
 
 [node name="RaillingTopSide" type="MeshInstance3D" parent="ChurchModelTex" unique_id=417078005]
 transform = Transform3D(-0.00012334374, 0, 0.9999996, 0, 0.03483191, 0, -0.125889, 0, -0.0009797812, -5.934518, 8.893957, -4.5882225)
 mesh = SubResource("ArrayMesh_vnj75")
+metadata/_edit_lock_ = true
 
 [node name="StaticBody3D" type="StaticBody3D" parent="ChurchModelTex/RaillingTopSide" unique_id=1354292450]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="ChurchModelTex/RaillingTopSide/StaticBody3D" unique_id=1253076912]
 shape = SubResource("ConcavePolygonShape3D_niq12")
+metadata/_edit_lock_ = true
 
 [node name="Roof" type="MeshInstance3D" parent="ChurchModelTex" unique_id=55121008]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 29.485306, 13.004209, -1.8907369)
 mesh = SubResource("ArrayMesh_8jlft")
+metadata/_edit_lock_ = true
 
 [node name="RoofCandlePlace" type="MeshInstance3D" parent="ChurchModelTex" unique_id=1447114456]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.320358, 26.565708, 16.76395)
 mesh = SubResource("ArrayMesh_n1rsg")
+metadata/_edit_lock_ = true
 
 [node name="RoofCandlePlaceDetail" type="MeshInstance3D" parent="ChurchModelTex" unique_id=1307880166]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.320358, 26.565708, 16.76395)
 mesh = SubResource("ArrayMesh_c5r3y")
+metadata/_edit_lock_ = true
 
 [node name="RoofDetail" type="MeshInstance3D" parent="ChurchModelTex" unique_id=2071095449]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 31.977966, 13.435947, -1.9048928)
 mesh = SubResource("ArrayMesh_2oxyi")
+metadata/_edit_lock_ = true
 
 [node name="RoofMain" type="MeshInstance3D" parent="ChurchModelTex" unique_id=658352295]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.8223104, 22.757074, -0.85259104)
 mesh = SubResource("ArrayMesh_h41kn")
+metadata/_edit_lock_ = true
 
 [node name="RoofMainDetail" type="MeshInstance3D" parent="ChurchModelTex" unique_id=1235903285]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.04828994, 23.282322, -3.3075678)
 mesh = SubResource("ArrayMesh_1b1th")
+metadata/_edit_lock_ = true
 
 [node name="RoofMainDetail_001" type="MeshInstance3D" parent="ChurchModelTex" unique_id=805357092]
 transform = Transform3D(1.6222564, 0, 0, 0, 1, 0, 0, 0, 0.37821805, 0.04828994, 21.971285, 17.238804)
 mesh = SubResource("ArrayMesh_da4nt")
+metadata/_edit_lock_ = true
 
 [node name="Rooms" type="MeshInstance3D" parent="ChurchModelTex" unique_id=795419485]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20.214144, 2.7723455, -5.640046)
 mesh = SubResource("ArrayMesh_go51e")
+metadata/_edit_lock_ = true
 
 [node name="StaticBody3D" type="StaticBody3D" parent="ChurchModelTex/Rooms" unique_id=512057899]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="ChurchModelTex/Rooms/StaticBody3D" unique_id=1693809843]
 shape = SubResource("ConcavePolygonShape3D_kfmx7")
+metadata/_edit_lock_ = true
 
 [node name="RoundDetail" type="MeshInstance3D" parent="ChurchModelTex" unique_id=1131153891]
 transform = Transform3D(0.46626726, 0, 0, 0, -1.05313624e-08, -0.46626726, 0, 0.08834347, -5.558339e-08, 48.25162, 27.267857, 7.0055666)
 mesh = SubResource("ArrayMesh_pbbi4")
+metadata/_edit_lock_ = true
 
 [node name="RoundDetail_001" type="MeshInstance3D" parent="ChurchModelTex" unique_id=191373192]
 transform = Transform3D(1.4748136, 0, 0, 0, 0, -1.4748136, 0, 0.27943236, 0, -0.006199612, 40.77725, -18.05535)
 mesh = SubResource("ArrayMesh_ykduf")
+metadata/_edit_lock_ = true
 
 [node name="RoundDetail_002" type="MeshInstance3D" parent="ChurchModelTex" unique_id=937914746]
 transform = Transform3D(0.46626726, 0, 0, 0, -1.05313624e-08, -0.46626726, 0, 0.08834347, -5.558339e-08, -9.341479, 35.799927, 16.777473)
 mesh = SubResource("ArrayMesh_1u73j")
+metadata/_edit_lock_ = true
 
 [node name="RoundDetail_003" type="MeshInstance3D" parent="ChurchModelTex" unique_id=787451519]
 transform = Transform3D(0.46626726, 0, 0, 0, -1.05313624e-08, -0.46626726, 0, 0.08834347, -5.558339e-08, 9.290132, 35.799927, 16.777473)
 mesh = SubResource("ArrayMesh_a0yop")
+metadata/_edit_lock_ = true
 
 [node name="SecondFloor" type="MeshInstance3D" parent="ChurchModelTex" unique_id=1300481642]
 transform = Transform3D(1.5588605, 0, 0, 0, 1.5588605, 0, 0, 0, 1.5588605, 0, 0, 0)
 mesh = SubResource("ArrayMesh_e0xbr")
+metadata/_edit_lock_ = true
 
 [node name="StaticBody3D" type="StaticBody3D" parent="ChurchModelTex/SecondFloor" unique_id=1155884073]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="ChurchModelTex/SecondFloor/StaticBody3D" unique_id=1521787068]
 shape = SubResource("ConcavePolygonShape3D_a52n0")
+metadata/_edit_lock_ = true
 
 [node name="SecondFloor_001" type="MeshInstance3D" parent="ChurchModelTex" unique_id=70908180]
 transform = Transform3D(1.5588605, 0, 0, 0, 1.5588605, 0, 0, 0, 1.5588605, 0, -0.26870742, -8.104067)
 mesh = SubResource("ArrayMesh_d8s63")
+metadata/_edit_lock_ = true
 
 [node name="StaticBody3D" type="StaticBody3D" parent="ChurchModelTex/SecondFloor_001" unique_id=1827707332]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="ChurchModelTex/SecondFloor_001/StaticBody3D" unique_id=1743337634]
 shape = SubResource("ConcavePolygonShape3D_sfq7b")
+metadata/_edit_lock_ = true
 
 [node name="SecondFloor_002" type="MeshInstance3D" parent="ChurchModelTex" unique_id=1057964624]
 transform = Transform3D(1.5588605, 0, 0, 0, 1.5588605, 0, 0, 0, 1.5588605, 0, -0.26870742, -8.104067)
 mesh = SubResource("ArrayMesh_wx3ql")
+metadata/_edit_lock_ = true
 
 [node name="StaticBody3D" type="StaticBody3D" parent="ChurchModelTex/SecondFloor_002" unique_id=830607612]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="ChurchModelTex/SecondFloor_002/StaticBody3D" unique_id=1711886380]
 shape = SubResource("ConcavePolygonShape3D_barpp")
+metadata/_edit_lock_ = true
 
 [node name="SecondFloorAbbot" type="MeshInstance3D" parent="ChurchModelTex" unique_id=591427393]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.337583, 11.536, 13.541545)
 mesh = SubResource("ArrayMesh_2rj46")
+metadata/_edit_lock_ = true
 
 [node name="StaticBody3D" type="StaticBody3D" parent="ChurchModelTex/SecondFloorAbbot" unique_id=1123060482]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="ChurchModelTex/SecondFloorAbbot/StaticBody3D" unique_id=1864673935]
 shape = SubResource("ConcavePolygonShape3D_ar45u")
+metadata/_edit_lock_ = true
 
 [node name="Stair" type="MeshInstance3D" parent="ChurchModelTex" unique_id=930033074]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.124908, 1, -1.3433123)
 mesh = SubResource("ArrayMesh_i4qcg")
+metadata/_edit_lock_ = true
 
 [node name="StaticBody3D" type="StaticBody3D" parent="ChurchModelTex/Stair" unique_id=216007]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="ChurchModelTex/Stair/StaticBody3D" unique_id=1736688081]
 shape = SubResource("ConcavePolygonShape3D_6sda3")
+metadata/_edit_lock_ = true
 
 [node name="StairsCollision" type="StaticBody3D" parent="ChurchModelTex" unique_id=1011012363]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.621216, 7.8663874, -4.6435394)
+metadata/_edit_lock_ = true
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="ChurchModelTex/StairsCollision" unique_id=332208091]
 shape = SubResource("ConcavePolygonShape3D_d1ilu")
+metadata/_edit_lock_ = true
 
 [node name="StairsFrontDoorDormitories" type="MeshInstance3D" parent="ChurchModelTex" unique_id=539927703]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 43.665768, 0, 6.5029736)
 mesh = SubResource("ArrayMesh_8ssv0")
+metadata/_edit_lock_ = true
 
 [node name="StaticBody3D" type="StaticBody3D" parent="ChurchModelTex/StairsFrontDoorDormitories" unique_id=997590105]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="ChurchModelTex/StairsFrontDoorDormitories/StaticBody3D" unique_id=1500316531]
 shape = SubResource("ConcavePolygonShape3D_42btn")
+metadata/_edit_lock_ = true
 
 [node name="StairSunAltar" type="Node3D" parent="ChurchModelTex" unique_id=1138324383]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.40522146, 0)
+metadata/_edit_lock_ = true
 
 [node name="FloorSunAltar_001" type="MeshInstance3D" parent="ChurchModelTex/StairSunAltar" unique_id=1479762349]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.0000473, -9.922386)
@@ -4299,6 +4431,7 @@ mesh = SubResource("ArrayMesh_g7x2v")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="ChurchModelTex/StairSunAltar/FloorSunAltar_001/StaticBody3D" unique_id=89249217]
 shape = SubResource("ConcavePolygonShape3D_lqtbx")
+metadata/_edit_lock_ = true
 
 [node name="FloorSunAltar_002" type="MeshInstance3D" parent="ChurchModelTex/StairSunAltar" unique_id=555202138]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.2487958, 1.0000473, -9.797989)
@@ -4308,6 +4441,7 @@ mesh = SubResource("ArrayMesh_4nyo2")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="ChurchModelTex/StairSunAltar/FloorSunAltar_002/StaticBody3D" unique_id=2037392945]
 shape = SubResource("ConcavePolygonShape3D_4b3qa")
+metadata/_edit_lock_ = true
 
 [node name="FloorSunAltar_003" type="MeshInstance3D" parent="ChurchModelTex/StairSunAltar" unique_id=1170416777]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.47497353, 1.0000473, -9.662282)
@@ -4317,98 +4451,120 @@ mesh = SubResource("ArrayMesh_0rqyx")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="ChurchModelTex/StairSunAltar/FloorSunAltar_003/StaticBody3D" unique_id=1213856183]
 shape = SubResource("ConcavePolygonShape3D_uetyf")
+metadata/_edit_lock_ = true
 
 [node name="SubRof" type="MeshInstance3D" parent="ChurchModelTex" unique_id=25512598]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 29.485306, 7.878351, 5.2459235)
 mesh = SubResource("ArrayMesh_0p3xd")
+metadata/_edit_lock_ = true
 
 [node name="SunAltarDome" type="MeshInstance3D" parent="ChurchModelTex" unique_id=1285135342]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 17.83654, -14.999999)
 mesh = SubResource("ArrayMesh_v3jmj")
+metadata/_edit_lock_ = true
 
 [node name="ThisIsJustsoICanCoverupTheHoleNearTheRoof" type="MeshInstance3D" parent="ChurchModelTex" unique_id=1684319730]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.2390938, 22.249237, 15.685356)
 mesh = SubResource("ArrayMesh_pojxc")
+metadata/_edit_lock_ = true
 
 [node name="WallAbbotRoom_" type="MeshInstance3D" parent="ChurchModelTex" unique_id=1148403051]
 transform = Transform3D(0.88226306, 0, 0, 0, 0.88226306, 0, 0, 0, 0.88226306, 0, 10.82496, 17.059984)
 mesh = SubResource("ArrayMesh_np7xv")
+metadata/_edit_lock_ = true
 
 [node name="StaticBody3D" type="StaticBody3D" parent="ChurchModelTex/WallAbbotRoom_" unique_id=151156756]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="ChurchModelTex/WallAbbotRoom_/StaticBody3D" unique_id=1995570807]
 shape = SubResource("ConcavePolygonShape3D_7kjkl")
+metadata/_edit_lock_ = true
 
 [node name="WallCandlePlace" type="MeshInstance3D" parent="ChurchModelTex" unique_id=1850216650]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.088521, 0.49964362, 16.815878)
 mesh = SubResource("ArrayMesh_dlypg")
+metadata/_edit_lock_ = true
 
 [node name="StaticBody3D" type="StaticBody3D" parent="ChurchModelTex/WallCandlePlace" unique_id=230615805]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="ChurchModelTex/WallCandlePlace/StaticBody3D" unique_id=1220624588]
 shape = SubResource("ConcavePolygonShape3D_8nqab")
+metadata/_edit_lock_ = true
 
 [node name="WallCurvedCorridor" type="MeshInstance3D" parent="ChurchModelTex" unique_id=849471273]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 30.450216, 1, -1.9833354)
 mesh = SubResource("ArrayMesh_ln1k3")
+metadata/_edit_lock_ = true
 
 [node name="WallFrontRoom" type="MeshInstance3D" parent="ChurchModelTex" unique_id=1629078161]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 17.179487)
 mesh = SubResource("ArrayMesh_myi7f")
+metadata/_edit_lock_ = true
 
 [node name="StaticBody3D" type="StaticBody3D" parent="ChurchModelTex/WallFrontRoom" unique_id=1750110550]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="ChurchModelTex/WallFrontRoom/StaticBody3D" unique_id=3932737]
 shape = SubResource("ConcavePolygonShape3D_0mbtt")
+metadata/_edit_lock_ = true
 
 [node name="WallMain" type="MeshInstance3D" parent="ChurchModelTex" unique_id=942202449]
 transform = Transform3D(1, 0, 0, 0, 0.986331, 0, 0, 0, 1, 27.182497, 3.6579041, -1.9833354)
 mesh = SubResource("ArrayMesh_bmgoq")
+metadata/_edit_lock_ = true
 
 [node name="StaticBody3D" type="StaticBody3D" parent="ChurchModelTex/WallMain" unique_id=2104302559]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="ChurchModelTex/WallMain/StaticBody3D" unique_id=1631761552]
 shape = SubResource("ConcavePolygonShape3D_dt1hp")
+metadata/_edit_lock_ = true
 
 [node name="WallNearCandlePlace" type="MeshInstance3D" parent="ChurchModelTex" unique_id=206424915]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 0.08380788, -10.531121, 2.446496, 10.47977)
 mesh = SubResource("ArrayMesh_bu7v2")
+metadata/_edit_lock_ = true
 
 [node name="StaticBody3D" type="StaticBody3D" parent="ChurchModelTex/WallNearCandlePlace" unique_id=1935120541]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="ChurchModelTex/WallNearCandlePlace/StaticBody3D" unique_id=1621054551]
 shape = SubResource("ConcavePolygonShape3D_p001e")
+metadata/_edit_lock_ = true
 
 [node name="Walls" type="MeshInstance3D" parent="ChurchModelTex" unique_id=569949482]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 11.055441, 0.08753443)
 mesh = SubResource("ArrayMesh_b4mwo")
+metadata/_edit_lock_ = true
 
 [node name="StaticBody3D" type="StaticBody3D" parent="ChurchModelTex/Walls" unique_id=2065976181]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="ChurchModelTex/Walls/StaticBody3D" unique_id=693706093]
 shape = SubResource("ConcavePolygonShape3D_6w5xs")
+metadata/_edit_lock_ = true
 
 [node name="WallSunAltar" type="MeshInstance3D" parent="ChurchModelTex" unique_id=1131415439]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 17.83654, -14.999999)
 mesh = SubResource("ArrayMesh_mjjx3")
+metadata/_edit_lock_ = true
 
 [node name="StaticBody3D" type="StaticBody3D" parent="ChurchModelTex/WallSunAltar" unique_id=328808228]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="ChurchModelTex/WallSunAltar/StaticBody3D" unique_id=1964265203]
 shape = SubResource("ConcavePolygonShape3D_sy8i0")
+metadata/_edit_lock_ = true
 
 [node name="WallUnderBalcony" type="MeshInstance3D" parent="ChurchModelTex" unique_id=1434272772]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 0.08380788, -10.531121, 2.446496, -4.2716303)
 mesh = SubResource("ArrayMesh_vuw6h")
+metadata/_edit_lock_ = true
 
 [node name="StaticBody3D" type="StaticBody3D" parent="ChurchModelTex/WallUnderBalcony" unique_id=639313576]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="ChurchModelTex/WallUnderBalcony/StaticBody3D" unique_id=1041523659]
 shape = SubResource("ConcavePolygonShape3D_irqke")
+metadata/_edit_lock_ = true
 
 [node name="WoodenDetailDormitoryArea" type="MeshInstance3D" parent="ChurchModelTex" unique_id=965509314]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 50.3288, 5.6347985, -4.7859645)
 mesh = SubResource("ArrayMesh_4f1yp")
+metadata/_edit_lock_ = true
 
 [node name="ChurchBell" parent="." unique_id=2031355543 instance=ExtResource("2_wlwdi")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 48.87092, 19.19202, 7)
@@ -5041,3 +5197,17 @@ transform = Transform3D(-0.0032624193, 0.99993753, 0.01069159, 0.9999947, 0.0032
 
 [node name="WallTorch2" parent="Lights/PreMeltingRoom" unique_id=606554599 instance=ExtResource("3_yfdoq")]
 transform = Transform3D(0.0032629597, -0.9999665, 0.007510324, 0.9999947, 0.0032623438, -9.427504e-05, 6.977061e-05, 0.0075105913, 0.99997187, 3.926, 14.595, 16.824)
+
+[node name="Objects" type="Node3D" parent="." unique_id=812582129]
+
+[node name="BenchArray" type="Node3D" parent="Objects" unique_id=1106141395]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.1752932, 0, 0)
+script = ExtResource("10_3tbe6")
+repeat_levels = Array[int]([5, 2])
+repeat_offsets = Array[Vector3]([Vector3(0, 0, 2.2), Vector3(5.55, 0, 0)])
+metadata/_custom_type_script = "uid://d0e3xv44g2hx6"
+
+[node name="ChurchBench" parent="Objects/BenchArray" unique_id=1984938475 instance=ExtResource("10_kfuuv")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.461577, 1.5, -2.0651283)
+
+[node name="Decor" type="Node3D" parent="." unique_id=910255456]

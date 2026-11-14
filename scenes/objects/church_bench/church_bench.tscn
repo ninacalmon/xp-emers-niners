@@ -1,0 +1,63 @@
+[gd_scene format=3 uid="uid://cfay4kna1ata"]
+
+[ext_resource type="Script" uid="uid://bqj8f8xaki1kb" path="res://scenes/objects/church_bench/church_bench_action.gd" id="1_37dr4"]
+[ext_resource type="PackedScene" uid="uid://ddvhh2wihscrw" path="res://assets/3d/objects/church_bench/church_bench_2.glb" id="1_ilavk"]
+[ext_resource type="Script" uid="uid://cf2auur4umdjl" path="res://systems/interaction/interaction_area.gd" id="2_37dr4"]
+[ext_resource type="Script" uid="uid://csjccrhj5wnx7" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_3d.gd" id="3_lkma6"]
+[ext_resource type="Script" uid="uid://8umksf8e80fw" path="res://addons/phantom_camera/scripts/resources/tween_resource.gd" id="4_3ovpq"]
+[ext_resource type="Script" uid="uid://cuffvge5ad4aa" path="res://addons/phantom_camera/scripts/resources/phantom_camera_noise_3d.gd" id="6_lkma6"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_cdpwx"]
+size = Vector3(3.4052734, 0.7886219, 0.41662598)
+
+[sub_resource type="Resource" id="Resource_1nr2r"]
+script = ExtResource("4_3ovpq")
+duration = 0.7
+transition = 7
+
+[sub_resource type="Resource" id="Resource_37dr4"]
+script = ExtResource("6_lkma6")
+frequency = 0.005
+rotational_multiplier_x = 0.15
+rotational_multiplier_y = 0.8
+rotational_multiplier_z = 0.15
+positional_multiplier_x = 0.08
+positional_multiplier_y = 1.2
+metadata/_custom_type_script = "uid://cuffvge5ad4aa"
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ksdio"]
+size = Vector3(3.6230469, 1.4146118, 0.53811646)
+
+[node name="ChurchBench" type="Node3D" unique_id=1984938475 node_paths=PackedStringArray("phantom_camera_3d")]
+script = ExtResource("1_37dr4")
+phantom_camera_3d = NodePath("PhantomCamera3D")
+
+[node name="Sketchfab_Scene" parent="." unique_id=1928196044 instance=ExtResource("1_ilavk")]
+transform = Transform3D(0.75, 0, 0, 0, 0.4, 0, 0, 0, 0.4, 0, 0, 0)
+
+[node name="InteractionArea" type="Area3D" parent="." unique_id=779460803 node_paths=PackedStringArray("mesh", "action_trigger")]
+script = ExtResource("2_37dr4")
+mesh = NodePath("../Sketchfab_Scene/Sketchfab_model/948690ef729441c9af7d4740d9001326_obj_cleaner_materialmerger_gles/Object_2")
+action_trigger = NodePath("..")
+metadata/_custom_type_script = "uid://cf2auur4umdjl"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="InteractionArea" unique_id=1727047388]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.7034235, -0.291687)
+shape = SubResource("BoxShape3D_cdpwx")
+debug_color = Color(0.70826775, 0.4187594, 0.6588459, 0.41960785)
+
+[node name="PhantomCamera3D" type="Node3D" parent="." unique_id=147509825]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.4769733, 0)
+script = ExtResource("3_lkma6")
+tween_resource = SubResource("Resource_1nr2r")
+noise = SubResource("Resource_37dr4")
+noise_emitter_layer = 1
+metadata/_custom_type_script = "uid://csjccrhj5wnx7"
+
+[node name="StaticBody3D" type="StaticBody3D" parent="." unique_id=13276665]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" unique_id=321930095]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.7059021, 0.07951355)
+shape = SubResource("BoxShape3D_ksdio")
+
+[editable path="Sketchfab_Scene"]

@@ -12,6 +12,7 @@
 [ext_resource type="PackedScene" uid="uid://c6yoqyeo6wfld" path="res://scenes/characters/lucio/lucio.tscn" id="8_5qq27"]
 [ext_resource type="PackedScene" uid="uid://c1fess8fbyvjb" path="res://scenes/characters/sanson/sanson.tscn" id="9_dlabj"]
 [ext_resource type="PackedScene" uid="uid://c0enf7fvm7uko" path="res://scenes/objects/doors/room_door.tscn" id="9_ues17"]
+[ext_resource type="Shader" uid="uid://cmj145moh841t" path="res://resources/shaders/outline_billboard.gdshader" id="13_goy61"]
 [ext_resource type="PackedScene" uid="uid://bifi36nxacdg4" path="res://scenes/characters/prior/prior.tscn" id="13_mxkvs"]
 [ext_resource type="PackedScene" uid="uid://8o48qryyi7n0" path="res://scenes/objects/confessional_booth/confessional_booth.tscn" id="13_srmg5"]
 [ext_resource type="PackedScene" uid="uid://cgxxromd5ia45" path="res://scenes/puzzles/astrolabus/astrolablus_puzzle.tscn" id="14_m114p"]
@@ -87,7 +88,19 @@ size = Vector2(500, 500)
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_u1gsd"]
 albedo_color = Color(0.66, 0.52536005, 0.4224, 1)
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_sar2w"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_goy61"]
+viewport_path = NodePath("SubViewportSprite")
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_7rtjl"]
+viewport_path = NodePath("SubViewportSprite")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_phx5y"]
+resource_local_to_scene = true
+render_priority = -1
+shader = ExtResource("13_goy61")
+shader_parameter/sprite_texture = SubResource("ViewportTexture_7rtjl")
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_554ci"]
 viewport_path = NodePath("SubViewportSprite")
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_cdpwx"]
@@ -96,7 +109,7 @@ size = Vector3(2.1645508, 3.0518951, 1.1044922)
 [sub_resource type="BoxShape3D" id="BoxShape3D_ksdio"]
 size = Vector3(4.8632813, 1, 0.6602173)
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_goy61"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_hph6x"]
 viewport_path = NodePath("SubViewportSprite")
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_u0ka6"]
@@ -217,7 +230,7 @@ environment = SubResource("Environment_t634p")
 
 [node name="Camera3D" type="Camera3D" parent="." unique_id=1834340419]
 physics_interpolation_mode = 1
-transform = Transform3D(-1, 0, 0, 0, 0.9971555, 0.07537224, 0, 0.07537224, -0.9971554, 32.898373, 4.2865257, -15.426433)
+transform = Transform3D(-1, 0, 0, 0, 0.9971555, 0.07537224, 0, 0.07537224, -0.9971555, 32.898373, 4.2865257, -15.426433)
 top_level = true
 cull_mask = 1048063
 
@@ -372,6 +385,7 @@ is_chatting = true
 
 [node name="Julio" parent="Characters" unique_id=1615518148 instance=ExtResource("7_gb53w")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 32.909256, 2.4167304, -14.599353)
+brute_force_first_dialogue = false
 
 [node name="Lucio" parent="Characters" unique_id=1730430442 instance=ExtResource("8_5qq27")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 63.51454, 1.0062575, 3.5024486)
@@ -381,7 +395,11 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 78.78419, 0.9976957, -5.94999
 is_chatting = true
 
 [node name="Sprite3D" parent="Characters/Sanson" index="0" unique_id=415751236]
-texture = SubResource("ViewportTexture_sar2w")
+texture = SubResource("ViewportTexture_goy61")
+
+[node name="Outline" parent="Characters/Sanson/Sprite3D" index="0" unique_id=1631064389]
+material_overlay = SubResource("ShaderMaterial_phx5y")
+texture = SubResource("ViewportTexture_554ci")
 
 [node name="AstrolablusPuzzle" parent="Characters" unique_id=572576743 instance=ExtResource("14_m114p")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 74.455536, 1.0101616, -6.621845)
@@ -438,7 +456,7 @@ transform = Transform3D(-1, 0, 0, 0, 0.9971555, 0.07537224, 0, 0.07537224, -0.99
 top_level = true
 
 [node name="Sprite3D" parent="ConfessionalBooth/Confessor" parent_id_path=PackedInt32Array(321162436, 1758948578) index="0" unique_id=415751236]
-texture = SubResource("ViewportTexture_goy61")
+texture = SubResource("ViewportTexture_hph6x")
 
 [node name="CharactherConfesingPosition" type="Node3D" parent="." unique_id=228115067 groups=["confessing_pos"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 21.404587, 1.5257708, -2.079492)

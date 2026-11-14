@@ -191,6 +191,9 @@ func item_follow_mouse(item_tex: Texture2D = null):
 
 
 func try_and_combine() -> void:
+	if not focused_item:
+		return 
+
 	var combining_item: ItemRes = _dragging_item
 	var combining_item_slot_idx: int = _dragging_item_slot_idx
 
