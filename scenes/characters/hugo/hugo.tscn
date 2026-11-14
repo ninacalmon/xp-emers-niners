@@ -3,9 +3,29 @@
 [ext_resource type="Script" uid="uid://cf2auur4umdjl" path="res://systems/interaction/interaction_area.gd" id="1_8hfrc"]
 [ext_resource type="Script" uid="uid://bjidnq65qcjsh" path="res://systems/character/dialogue_action.gd" id="2_ih5dt"]
 [ext_resource type="Resource" uid="uid://djymti5s8t1g4" path="res://dialogue/hugo/hugo_main.dialogue" id="3_hcqp7"]
+[ext_resource type="Shader" uid="uid://ev15r6vt2637" path="res://resources/shaders/outline_2d_billboard.gdshader" id="3_xwrlb"]
 [ext_resource type="Script" uid="uid://biodsue5rifq4" path="res://systems/character/character_sprite_handler.gd" id="4_e1ver"]
 [ext_resource type="Material" uid="uid://dxugeq4hehdak" path="res://resources/shader_materials/outline_shader_material_2d.tres" id="5_syy5x"]
 [ext_resource type="SpriteFrames" uid="uid://cscfn2bh2y4xj" path="res://resources/sprite_frames/characters/hugo/hugo_sprite_frames.tres" id="6_fkhlk"]
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_bbv7c"]
+viewport_path = NodePath("SubViewportSprite")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_lgqa7"]
+resource_local_to_scene = true
+render_priority = 0
+shader = ExtResource("3_xwrlb")
+shader_parameter/sprite_texture = SubResource("ViewportTexture_bbv7c")
+shader_parameter/enable_billboard = true
+shader_parameter/billboard_y_only = true
+shader_parameter/enable_outline = true
+shader_parameter/line_color = Color(1, 1, 1, 1)
+shader_parameter/glowSize = 7.0000003325
+shader_parameter/glowDensity = 1
+shader_parameter/glowRadialCoverage = 4
+shader_parameter/glowAngle = 1.57
+shader_parameter/glowSharpness = 5.0
+shader_parameter/alphaThreshold = 0.2
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_gmoyl"]
 viewport_path = NodePath("SubViewportSprite")
@@ -29,8 +49,10 @@ dialogue_res = ExtResource("3_hcqp7")
 
 [node name="Sprite3D" type="Sprite3D" parent="." unique_id=415751236]
 transform = Transform3D(0.18, 0, 0, 0, 0.18, 0, 0, 0, 0.18, 0, 0.7130867, 0)
+material_overlay = SubResource("ShaderMaterial_lgqa7")
 offset = Vector2(0, 241.06)
 billboard = 2
+shaded = true
 texture = SubResource("ViewportTexture_gmoyl")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="." unique_id=1339048520]
@@ -70,8 +92,8 @@ render_target_update_mode = 4
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="SubViewportSprite" unique_id=60975985]
 material = ExtResource("5_syy5x")
-instance_shader_parameters/outline_enabled = true
-position = Vector2(0, 36)
+instance_shader_parameters/outline_enabled = false
+position = Vector2(0, 28)
 sprite_frames = ExtResource("6_fkhlk")
-animation = &"idle"
+animation = &"OPENARMS_ANGRY"
 centered = false

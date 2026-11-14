@@ -106,6 +106,7 @@ func _bell_strike():
 	if is_disabled:
 		return
 
+	bell_area_door.open_door()
 	bell_area_door.locked = false
 	animated_sprite_2d.play("BELL_SOUND")
 	await get_tree().create_timer(1).timeout

@@ -127,6 +127,7 @@ surface_material_override/0 = SubResource("StandardMaterial3D_qsw4j")
 transform = Transform3D(-4.371139e-08, 1, 4.371139e-08, 0, -4.371139e-08, 1, 1, 4.371139e-08, 1.9106855e-15, 0.070673615, 0.25655636, -0.15458031)
 light_color = Color(0.8483857, 0.5341511, 0.23270911, 1)
 light_energy = 0.5
+light_bake_mode = 1
 shadow_enabled = true
 shadow_opacity = 0.8
 shadow_caster_mask = 4294966271
