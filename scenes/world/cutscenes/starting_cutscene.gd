@@ -20,6 +20,7 @@ signal next
 @export var altar_speed: float = 0.2
 @export var sun_speed: float = 0.03
 @export var monks_speed: float = 0.2
+@export var close_ups_speed: float = 0.3
 
 @onready var sanson_pos: Marker3D = $SansonPos
 @onready var julio_pos: Marker3D = $JulioPos
@@ -31,7 +32,7 @@ signal next
 
 var dialogue_res = preload("uid://dhu5fv6qml7oi")
 
-var is_francisco_talking: bool = false
+var is_sun: bool = true
 var balloon: DialogueManagerExampleBalloon
 var seconds_per_step
 
@@ -83,11 +84,31 @@ func start_anim_starting_cutscene() -> void:
 	animation_player.speed_scale = monks_speed
 	animation_player.play("monks")
 	await animation_player.animation_finished
-	animation_player.play_backwards("monks")
-	animation_player.pause()
 
-	#await get_tree().create_timer(3).timeout
+
+	await get_tree().create_timer(0.6).timeout
 	DialogueManager.show_dialogue_balloon(dialogue_res, "francisco")
+
+	await next
+
+	animation_player.speed_scale = close_ups_speed
+	$CloseUpCamera.follow_target = hugo
+	$CloseUpCamera.look_at_target = hugo
+
+	animation_player.play("close_up")
+	await get_tree().create_timer(1.001 / close_ups_speed).timeout
+	$CloseUpCamera.follow_target = julio
+	$CloseUpCamera.look_at_target = julio
+	await get_tree().create_timer(1.001 / close_ups_speed).timeout
+	$CloseUpCamera.follow_target = sanson
+	$CloseUpCamera.look_at_target = sanson
+	await animation_player.animation_finished
+
+	animation_player.speed_scale = altar_speed
+	animation_player.play("altar")
+	await animation_player.animation_finished
+
+	player.is_cutscene_locked = false
 
 
 func _on_dialogue_ended(_res: DialogueResource):
@@ -96,8 +117,12 @@ func _on_dialogue_ended(_res: DialogueResource):
 		#return await FadeInOut.change_scene_to("res://scenes/world/world.tscn")
 
 	#is_francisco_talking = true
-	balloon.dialogue_label.seconds_per_step = seconds_per_step
-	next.emit()
+	if is_sun:
+		is_sun = false
+		balloon.dialogue_label.seconds_per_step = seconds_per_step
+		next.emit()
+	else:
+		next.emit()
 
 	#animation_player.stop()
 #

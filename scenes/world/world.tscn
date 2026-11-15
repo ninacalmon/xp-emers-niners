@@ -92,7 +92,7 @@ size = Vector2(500, 500)
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_u1gsd"]
 albedo_color = Color(0.66, 0.52536005, 0.4224, 1)
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_phx5y"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_hph6x"]
 viewport_path = NodePath("SubViewportSprite")
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_u0ka6"]
@@ -168,19 +168,19 @@ top_radius = 2.0
 bottom_radius = 2.0
 height = 1.0
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_554ci"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_5aamg"]
 viewport_path = NodePath("SubViewportSprite")
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_hph6x"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_kngxi"]
 viewport_path = NodePath("SubViewportSprite")
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_5aamg"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_dhssw"]
 resource_local_to_scene = true
 render_priority = -1
 shader = ExtResource("13_goy61")
-shader_parameter/sprite_texture = SubResource("ViewportTexture_hph6x")
+shader_parameter/sprite_texture = SubResource("ViewportTexture_kngxi")
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_kngxi"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_cf0uk"]
 viewport_path = NodePath("SubViewportSprite")
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_cdpwx"]
@@ -296,6 +296,55 @@ tracks/6/keys = {
 "update": 0,
 "values": [75.0]
 }
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("CloseUpCamera:priority")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("CloseUpCamera:look_at_target")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [null]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("CloseUpCamera:follow_target")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [Object(Node3D,"unique_name_in_owner":true,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"physics_interpolation_mode":0,"auto_translate_mode":0,"editor_description":"","transform":Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 35.100567, 2.4136648, -13.353956),"rotation_edit_mode":0,"rotation_order":2,"top_level":false,"visible":true,"visibility_parent":NodePath(""),"script":Resource("res://systems/character/dialogue_action.gd"),"character_name":"Hugo","dialogue_res":Resource("res://dialogue/hugo/hugo_main.dialogue"),"first_cue":"start","is_chatting":false,"item_interaction":false,"wanted_item":null)
+]
+}
+tracks/10/type = "value"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("CloseUpCamera:follow_distance")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [-0.345]
+}
 
 [sub_resource type="Animation" id="Animation_phx5y"]
 resource_name = "Altar"
@@ -324,6 +373,64 @@ tracks/1/keys = {
 "values": [Vector3(33.009, 5.632, 1.951), Vector3(33.009, 5.632, 4.211)]
 }
 
+[sub_resource type="Animation" id="Animation_j2kh8"]
+resource_name = "close_up"
+length = 3.0000000000000004
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CloseUpCamera:priority")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [40000]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = false
+tracks/1/path = NodePath("CloseUpCamera:look_at_target")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1.001, 2.0001),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [Object(Node3D,"unique_name_in_owner":true,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"physics_interpolation_mode":0,"auto_translate_mode":0,"editor_description":"","transform":Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 35.100567, 2.4136648, -13.353956),"rotation_edit_mode":0,"rotation_order":2,"top_level":false,"visible":true,"visibility_parent":NodePath(""),"script":Resource("res://systems/character/dialogue_action.gd"),"character_name":"Hugo","dialogue_res":Resource("res://dialogue/hugo/hugo_main.dialogue"),"first_cue":"start","is_chatting":false,"item_interaction":false,"wanted_item":null)
+, Object(Node3D,"unique_name_in_owner":true,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"physics_interpolation_mode":0,"auto_translate_mode":0,"editor_description":"","transform":Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 28.114899, 2.4167306, -11.980229),"rotation_edit_mode":0,"rotation_order":2,"top_level":false,"visible":true,"visibility_parent":NodePath(""),"script":Resource("res://scenes/characters/julio/julio.gd"),"brute_force_first_dialogue":false)
+, Object(Node3D,"unique_name_in_owner":true,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"physics_interpolation_mode":0,"auto_translate_mode":0,"editor_description":"","transform":Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 78.78419, 0.9976957, -5.94999),"rotation_edit_mode":0,"rotation_order":2,"top_level":false,"visible":true,"visibility_parent":NodePath(""),"script":Resource("res://systems/character/dialogue_action.gd"),"character_name":"Sanson","dialogue_res":Resource("res://dialogue/sanson/sanson_main.dialogue"),"first_cue":"start","is_chatting":false,"item_interaction":false,"wanted_item":null)
+]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = false
+tracks/2/path = NodePath("CloseUpCamera:follow_target")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 1.0001, 2.001),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [Object(Node3D,"unique_name_in_owner":true,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"physics_interpolation_mode":0,"auto_translate_mode":0,"editor_description":"","transform":Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 35.100567, 2.4136648, -13.353956),"rotation_edit_mode":0,"rotation_order":2,"top_level":false,"visible":true,"visibility_parent":NodePath(""),"script":Resource("res://systems/character/dialogue_action.gd"),"character_name":"Hugo","dialogue_res":Resource("res://dialogue/hugo/hugo_main.dialogue"),"first_cue":"start","is_chatting":false,"item_interaction":false,"wanted_item":null)
+, Object(Node3D,"unique_name_in_owner":true,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"physics_interpolation_mode":0,"auto_translate_mode":0,"editor_description":"","transform":Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 28.114899, 2.4167306, -11.980229),"rotation_edit_mode":0,"rotation_order":2,"top_level":false,"visible":true,"visibility_parent":NodePath(""),"script":Resource("res://scenes/characters/julio/julio.gd"),"brute_force_first_dialogue":false)
+, Object(Node3D,"unique_name_in_owner":true,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"physics_interpolation_mode":0,"auto_translate_mode":0,"editor_description":"","transform":Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 78.78419, 0.9976957, -5.94999),"rotation_edit_mode":0,"rotation_order":2,"top_level":false,"visible":true,"visibility_parent":NodePath(""),"script":Resource("res://systems/character/dialogue_action.gd"),"character_name":"Sanson","dialogue_res":Resource("res://dialogue/sanson/sanson_main.dialogue"),"first_cue":"start","is_chatting":false,"item_interaction":false,"wanted_item":null)
+]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("CloseUpCamera:follow_distance")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 1, 1.001, 2, 2.0001, 3),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [-0.345, -0.275, -0.345, -0.275, -0.345, -0.275]
+}
+
 [sub_resource type="Animation" id="Animation_hph6x"]
 resource_name = "monks"
 tracks/0/type = "value"
@@ -348,7 +455,7 @@ tracks/1/keys = {
 "times": PackedFloat32Array(0.033333335, 0.4, 0.6333333, 0.8666667, 1),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1),
 "update": 0,
-"values": [Vector3(1.5707964, 3.1415927, 0), Vector3(0, 1.9198622, 0), Vector3(0, 4.363323, 0), Vector3(0, 1.9198622, 0), Vector3(0, 3.1415927, 0)]
+"values": [Vector3(1.5707964, 3.1415927, 0), Vector3(0.17453292, 1.9198622, 0), Vector3(0.17453292, 4.363323, 0), Vector3(0.17453292, 1.9198622, 0), Vector3(0.17453292, 3.1415927, 0)]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
@@ -406,6 +513,7 @@ tracks/2/keys = {
 _data = {
 &"RESET": SubResource("Animation_7rtjl"),
 &"altar": SubResource("Animation_phx5y"),
+&"close_up": SubResource("Animation_j2kh8"),
 &"monks": SubResource("Animation_hph6x"),
 &"sun": SubResource("Animation_554ci")
 }
@@ -462,8 +570,7 @@ environment = SubResource("Environment_t634p")
 
 [node name="Camera3D" type="Camera3D" parent="VisualConfig" unique_id=1834340419]
 unique_name_in_owner = true
-physics_interpolation_mode = 1
-transform = Transform3D(-0.9999702, -0.005287848, -0.0056285853, 0.005607795, 0.0039383266, -0.9999765, 0.005309891, -0.99997824, -0.0039085564, 33.105, 3.85, -14.055)
+transform = Transform3D(-0.7964512, 0.07957084, -0.5994447, 0, 0.9913047, 0.13158669, 0.6047028, 0.10480238, -0.78952587, 34.89734, 4.323276, -13.621627)
 top_level = true
 cull_mask = 1048063
 
@@ -617,11 +724,12 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 73.868, 1.5745991, -3.0448737
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.082743, 1.6670088, -3.19987)
 
 [node name="Camera3D" parent="Church/ConfessionalBooth" index="2" unique_id=430217490]
-transform = Transform3D(-0.99994457, -0.008959587, 0.005531177, -0.0055824323, 0.00570586, -0.9999681, 0.008927741, -0.99994355, -0.0057555595, 33.105, 3.85, -14.055)
+physics_interpolation_mode = 0
+transform = Transform3D(-0.79644144, 0.07957269, -0.59945726, -3.7252903e-09, 0.99130464, 0.131587, 0.60471547, 0.10480136, -0.7895161, 34.897335, 4.323276, -13.621623)
 top_level = true
 
 [node name="Sprite3D" parent="Church/ConfessionalBooth/Confessor" parent_id_path=PackedInt32Array(321162436, 1758948578) index="0" unique_id=415751236]
-texture = SubResource("ViewportTexture_phx5y")
+texture = SubResource("ViewportTexture_hph6x")
 
 [node name="Chair" parent="Church" unique_id=708079133 instance=ExtResource("22_6hctx")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 42.930725, 1.0000007, -6.876649)
@@ -804,24 +912,28 @@ transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, 1.72
 [node name="Characters" type="Node3D" parent="." unique_id=577653259]
 
 [node name="Hugo" parent="Characters" unique_id=1758948578 instance=ExtResource("6_1yooq")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 79.66381, 1.0343833, -6.666081)
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 35.100567, 2.4136648, -13.353956)
 
 [node name="Julio" parent="Characters" unique_id=1615518148 instance=ExtResource("7_gb53w")]
+unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 28.114899, 2.4167306, -11.980229)
 brute_force_first_dialogue = false
 
 [node name="Lucio" parent="Characters" unique_id=1730430442 instance=ExtResource("8_5qq27")]
+unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 63.51454, 1.0062575, 3.5024486)
 
 [node name="Sanson" parent="Characters" unique_id=1975172536 instance=ExtResource("9_dlabj")]
+unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 78.78419, 0.9976957, -5.94999)
 
 [node name="Sprite3D" parent="Characters/Sanson" index="0" unique_id=415751236]
-texture = SubResource("ViewportTexture_554ci")
+texture = SubResource("ViewportTexture_5aamg")
 
 [node name="Outline" parent="Characters/Sanson/Sprite3D" index="0" unique_id=1631064389]
-material_overlay = SubResource("ShaderMaterial_5aamg")
-texture = SubResource("ViewportTexture_kngxi")
+material_overlay = SubResource("ShaderMaterial_dhssw")
+texture = SubResource("ViewportTexture_cf0uk")
 
 [node name="AstrolablusPuzzle" parent="Characters" unique_id=572576743 instance=ExtResource("14_m114p")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 74.455536, 1.0101616, -6.621845)
@@ -871,6 +983,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.10620117, 0, -0.36514235)
 shape = SubResource("BoxShape3D_ksdio")
 
 [node name="Prior" parent="Characters" unique_id=1738876710 node_paths=PackedStringArray("player_detection", "player_outside_pos", "prior_bell_pos", "prior_hidden_pos", "bell_area_door") instance=ExtResource("13_mxkvs")]
+unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 46.71915, 6.3606253, 3.5670638)
 player_detection = NodePath("../../Church/SecondFloor/PlayerDetection")
 player_outside_pos = NodePath("../../Cutscenes/PlayerOutsidePos")
@@ -913,16 +1026,16 @@ prior = NodePath("../../Characters/Prior")
 camera = NodePath("../../VisualConfig/Camera3D")
 
 [node name="SansonPos" type="Marker3D" parent="Cutscenes/StartingCutscene" unique_id=2134042127]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 30.731653, 2.4136653, -13.4385395)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 31.384985, 2.4136653, -13.03233)
 
 [node name="JulioPos" type="Marker3D" parent="Cutscenes/StartingCutscene" unique_id=798867004]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 32.872375, 2.4136653, -12.319149)
 
 [node name="HugoPos" type="Marker3D" parent="Cutscenes/StartingCutscene" unique_id=675006564]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 35.17034, 2.4136653, -13.292745)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 34.588104, 2.4136653, -12.890334)
 
 [node name="PriorPos" type="Marker3D" parent="Cutscenes/StartingCutscene" unique_id=850066603]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 34.619766, 2.4136653, -11.402532)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 34.268047, 2.4136653, -11.363873)
 
 [node name="PlayerPos" type="Marker3D" parent="Cutscenes/StartingCutscene" unique_id=873347398]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 33.104763, 2.4136653, -14.992425)
@@ -944,6 +1057,24 @@ noise = SubResource("Resource_phx5y")
 noise_emitter_layer = 1
 metadata/_custom_type_script = "uid://csjccrhj5wnx7"
 
+[node name="CloseUpCamera" type="Node3D" parent="Cutscenes/StartingCutscene" unique_id=1789459155 node_paths=PackedStringArray("follow_target")]
+transform = Transform3D(-0.7959297, 0.07956642, -0.59934, -3.7228964e-09, 0.9912265, 0.13156126, 0.6043269, 0.1047931, -0.7893617, 34.897335, 4.323276, -13.621623)
+top_level = true
+script = ExtResource("28_phx5y")
+priority_override = true
+follow_mode = 5
+follow_target = NodePath("../../../Characters/Hugo")
+look_at_mode = 2
+tween_resource = SubResource("Resource_7rtjl")
+follow_offset = Vector3(-0.41, 1.955, -0.54)
+follow_distance = -0.345
+spring_length = -0.345
+look_at_offset = Vector3(0, 1.865, 0)
+noise_emitter_layer = 1
+align_transform_with_view = Callable()
+align_position_with_view = Callable()
+metadata/_custom_type_script = "uid://csjccrhj5wnx7"
+
 [node name="AltarCamera" type="Node3D" parent="Cutscenes/StartingCutscene" unique_id=1345053029]
 transform = Transform3D(0.99999994, 0, 0, 0, 1, 0, 0, 0, 0.99999994, 33.009174, 5.6324925, -0.32878113)
 script = ExtResource("28_phx5y")
@@ -953,7 +1084,7 @@ metadata/_custom_type_script = "uid://csjccrhj5wnx7"
 [node name="StartingAnimationPlayer" type="AnimationPlayer" parent="Cutscenes/StartingCutscene" unique_id=1869776037]
 unique_name_in_owner = true
 libraries/ = SubResource("AnimationLibrary_hph6x")
-speed_scale = 0.05
+speed_scale = 0.3
 
 [node name="CollectableItems" type="Node" parent="." unique_id=1692708429]
 
