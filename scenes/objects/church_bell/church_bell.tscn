@@ -8,7 +8,7 @@
 
 [sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_uax26"]
 random_pitch = 1.0116194
-random_volume_offset_db = 3.0
+random_volume_offset_db = 1.5
 streams_count = 1
 stream_0/stream = ExtResource("3_wo3ld")
 

@@ -2,6 +2,7 @@ extends Node
 
 
 signal time_pass(time: Times)
+signal time_pass_special(special: String)
 
 
 var sun: Sun
@@ -104,3 +105,15 @@ func setup_sky(time: Times):
 	sun.change_astros_rotation()
 
 	sun.worldEnvironment.environment.sky.sky_material = environment_sky_shader
+
+
+func set_time_starting_cutscene():
+	var special: String = "starting"
+	current_time = Times.at1200
+
+	if not is_instance_valid(sun) and not _find_sun():
+		time_pass_special.emit(special)
+		return
+
+	setup_sky(current_time)
+	time_pass_special.emit(special)

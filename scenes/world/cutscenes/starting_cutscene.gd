@@ -15,14 +15,22 @@ signal next
 @export_group("Scene")
 @export var camera: Camera3D
 @export var hands_overlay: HandsOverlay
+@export var dialogue_input_text: RichTextLabel
+@export var bell_audio_stream_player_3d: AudioStreamPlayer3D
+@export var bell_audio_stream_player_3d_2: AudioStreamPlayer3D
+@export var ambient: AudioStreamPlayer
+
+
+
 @export var world_environment: WorldEnvironment
 
 @export_group("Animation Speeds")
 @export var altar_speed: float = 0.2
 @export var sun_speed: float = 0.03
 @export var monks_speed: float = 0.2
-@export var close_ups_speed: float = 0.5
+@export var close_ups_speed: float = 0.2
 @export var altar_far_speed: float = 0.08
+@export var outside_speed: float = 0.1
 
 @onready var sanson_pos: Marker3D = $SansonPos
 @onready var julio_pos: Marker3D = $JulioPos
@@ -32,6 +40,7 @@ signal next
 
 @onready var animation_player: AnimationPlayer = %StartingAnimationPlayer
 @onready var name_label: RichTextLabel = $NameLabel
+@onready var music: AudioStreamPlayer = $Music
 
 var dialogue_res = preload("uid://dhu5fv6qml7oi")
 
@@ -46,13 +55,15 @@ func _ready() -> void:
 
 
 func play_cutscene() -> void:
+	music.play()
 	hands_overlay.hide()
+	#game_ui_overlay.hide()
+	dialogue_input_text.hide()
 	player.is_cutscene_locked = true
 	position_starting_cutscene()
 	scene_starting_cutscene()
 	start_anim_starting_cutscene()
 
-	TimeManager.set_time(TimeManager.Times.at1200)
 
 
 func position_starting_cutscene() -> void:
@@ -83,22 +94,37 @@ func start_anim_starting_cutscene() -> void:
 
 	balloon = DialogueManager.show_dialogue_balloon(dialogue_res, "sun")
 	await balloon.ready
+
 	seconds_per_step = balloon.dialogue_label.seconds_per_step
 	balloon.dialogue_label.seconds_per_step = 0.06
 	balloon.set_skip_blocked(true)
-	balloon.set_auto_advance(true)
+	balloon.set_auto_advance(true, 1.6)
 
 	DialogueManager.dialogue_ended.connect(_on_dialogue_ended)
+
+	#await get_tree().create_timer(5).timeout
+	bell_audio_stream_player_3d.play()
+	await get_tree().create_timer(9).timeout
+	bell_audio_stream_player_3d.play()
+	#TimeManager.set_time_starting_cutscene()
 
 	await next
 
 	animation_player.speed_scale = monks_speed
 	animation_player.play("monks")
+	bell_audio_stream_player_3d.play()
 	await animation_player.animation_finished
 
 
 	await get_tree().create_timer(0.6).timeout
-	DialogueManager.show_dialogue_balloon(dialogue_res, "francisco")
+	balloon = DialogueManager.show_dialogue_balloon(dialogue_res, "francisco")
+	await balloon.ready
+	balloon.dialogue_label.seconds_per_step = 0.045
+	balloon.set_skip_blocked(true)
+	balloon.set_auto_advance(true, 1.8)
+
+	await get_tree().create_timer(4).timeout
+	bell_audio_stream_player_3d.play()
 
 	await next
 
@@ -108,23 +134,36 @@ func start_anim_starting_cutscene() -> void:
 
 	var step: float = 1.00 / close_ups_speed
 	animation_player.play("close_up")
+	bell_audio_stream_player_3d_2.play()
 	#await animation_player.
 	await get_tree().create_timer(step).timeout
 	$CloseUpCamera.follow_target = julio
 	$CloseUpCamera.look_at_target = julio
+	bell_audio_stream_player_3d.play()
 	await get_tree().create_timer(step).timeout
 	$CloseUpCamera.follow_target = hugo
 	$CloseUpCamera.look_at_target = hugo
+	bell_audio_stream_player_3d_2.play()
 	await animation_player.animation_finished
 	print("finished")
 
 	animation_player.speed_scale = altar_far_speed
 	animation_player.play("altar_far")
-	await get_tree().create_timer(4).timeout
-	name_label.show()
+	bell_audio_stream_player_3d.play()
 	await animation_player.animation_finished
 
+	animation_player.speed_scale = outside_speed
+	animation_player.play("outside")
+	bell_audio_stream_player_3d.play()
 
+	await get_tree().create_timer(4).timeout
+	bell_audio_stream_player_3d.play()
+	name_label.show()
+
+	await animation_player.animation_finished
+
+	await get_tree().create_timer(1).timeout
+	FadeInOut.fade_in(0.5)
 	#player.is_cutscene_locked = false
 
 
@@ -140,6 +179,7 @@ func _on_dialogue_ended(_res: DialogueResource):
 		next.emit()
 	else:
 		next.emit()
+		balloon.dialogue_label.seconds_per_step = seconds_per_step
 
 	#animation_player.stop()
 #

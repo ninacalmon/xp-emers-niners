@@ -15,6 +15,7 @@
 [ext_resource type="Shader" uid="uid://cmj145moh841t" path="res://resources/shaders/outline_billboard.gdshader" id="13_goy61"]
 [ext_resource type="PackedScene" uid="uid://bifi36nxacdg4" path="res://scenes/characters/prior/prior.tscn" id="13_mxkvs"]
 [ext_resource type="PackedScene" uid="uid://8o48qryyi7n0" path="res://scenes/objects/confessional_booth/confessional_booth.tscn" id="13_srmg5"]
+[ext_resource type="PackedScene" uid="uid://dwmg7dr5nvosc" path="res://scenes/objects/church_bell/church_bell.tscn" id="14_kngxi"]
 [ext_resource type="PackedScene" uid="uid://cgxxromd5ia45" path="res://scenes/puzzles/astrolabus/astrolablus_puzzle.tscn" id="14_m114p"]
 [ext_resource type="Resource" uid="uid://cb0fdb2g5cmw2" path="res://items/lockpick.tres" id="14_x0nq1"]
 [ext_resource type="PackedScene" uid="uid://delbjqfq3giv7" path="res://assets/3d/items/lockpick/lockpick.glb" id="14_xq18t"]
@@ -43,7 +44,9 @@
 [ext_resource type="PackedScene" uid="uid://b70guh624yvcg" path="res://assets/3d/items/mirrors/mirror_a/mirror_a1.glb" id="32_1cxds"]
 [ext_resource type="FontFile" uid="uid://m4150rl53s6t" path="res://assets/fonts/UncialAntiqua-Regular.ttf" id="32_5aamg"]
 [ext_resource type="PackedScene" uid="uid://gmh3po5m0pml" path="res://scenes/objects/doors/abbots_door.tscn" id="32_5o5dd"]
+[ext_resource type="AudioStream" uid="uid://dtekk6pyyb8j3" path="res://assets/sound/sound_effects/cutscene/starting/fire_ambient.mp3" id="34_dhssw"]
 [ext_resource type="Resource" uid="uid://koxeqrufqjyl" path="res://items/candle.tres" id="34_lbnhc"]
+[ext_resource type="AudioStream" uid="uid://c8lnthk8kiran" path="res://assets/sound/music/Sunsurgence-NinaCalmon.wav" id="35_cf0uk"]
 [ext_resource type="PackedScene" uid="uid://3ke0t8mctl7h" path="res://assets/3d/items/candle/candle.tscn" id="35_sygq6"]
 [ext_resource type="Script" uid="uid://dct2i5sj5m7v2" path="res://scenes/world/end_cutscene.gd" id="37_j0rhc"]
 [ext_resource type="Resource" uid="uid://bgfegur82b8ly" path="res://dialogue/final.dialogue" id="38_4jq4u"]
@@ -95,7 +98,7 @@ size = Vector2(500, 500)
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_u1gsd"]
 albedo_color = Color(0.66, 0.52536005, 0.4224, 1)
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_5aamg"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_dhssw"]
 viewport_path = NodePath("SubViewportSprite")
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_u0ka6"]
@@ -171,19 +174,19 @@ top_radius = 2.0
 bottom_radius = 2.0
 height = 1.0
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_kngxi"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_cf0uk"]
 viewport_path = NodePath("SubViewportSprite")
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_dhssw"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_j2kh8"]
 viewport_path = NodePath("SubViewportSprite")
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_cf0uk"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_hpffo"]
 resource_local_to_scene = true
 render_priority = -1
 shader = ExtResource("13_goy61")
-shader_parameter/sprite_texture = SubResource("ViewportTexture_dhssw")
+shader_parameter/sprite_texture = SubResource("ViewportTexture_j2kh8")
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_j2kh8"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_hnqnj"]
 viewport_path = NodePath("SubViewportSprite")
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_cdpwx"]
@@ -223,6 +226,10 @@ metadata/_custom_type_script = "uid://cuffvge5ad4aa"
 script = ExtResource("29_554ci")
 duration = 0.0
 metadata/_custom_type_script = "uid://8umksf8e80fw"
+
+[sub_resource type="Resource" id="Resource_dhssw"]
+script = ExtResource("29_554ci")
+duration = 0.0
 
 [sub_resource type="Animation" id="Animation_7rtjl"]
 length = 0.001
@@ -346,6 +353,54 @@ tracks/9/keys = {
 "update": 1,
 "values": [SubResource("Resource_kngxi")]
 }
+tracks/10/type = "value"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("OutsideCamera:priority")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/11/type = "value"
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/path = NodePath("OutsideCamera:position")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(3.6123352, 0.33214283, 50.89971)]
+}
+tracks/12/type = "value"
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/path = NodePath("FireAmbient:volume_db")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/13/type = "value"
+tracks/13/imported = false
+tracks/13/enabled = true
+tracks/13/path = NodePath("FireAmbient:playing")
+tracks/13/interp = 1
+tracks/13/loop_wrap = true
+tracks/13/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
 
 [sub_resource type="Animation" id="Animation_phx5y"]
 resource_name = "Altar"
@@ -399,6 +454,18 @@ tracks/1/keys = {
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [Vector3(33.009, 3.8, 4.211), Vector3(33.009, 3.8, 16.496)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("FireAmbient:playing")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
 }
 
 [sub_resource type="Animation" id="Animation_j2kh8"]
@@ -479,6 +546,57 @@ tracks/2/keys = {
 "update": 0,
 "values": [75.0]
 }
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("FireAmbient:volume_db")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [-30.0]
+}
+
+[sub_resource type="Animation" id="Animation_5aamg"]
+resource_name = "outside"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("OutsideCamera:priority")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [60000]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("OutsideCamera:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(3.6123352, 0.33214283, 50.89971), Vector3(4.691305, 0.33214283, 56.520683)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("%Camera3D:fov")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [90.0, 75.0]
+}
 
 [sub_resource type="Animation" id="Animation_554ci"]
 resource_name = "Altar"
@@ -518,6 +636,30 @@ tracks/2/keys = {
 "update": 0,
 "values": [40.0, 10.0]
 }
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("FireAmbient:volume_db")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.8),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [-50.0, -30.0, -3.8430000000000035]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("FireAmbient:playing")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_hph6x"]
 _data = {
@@ -526,6 +668,7 @@ _data = {
 &"altar_far": SubResource("Animation_kngxi"),
 &"close_up": SubResource("Animation_j2kh8"),
 &"monks": SubResource("Animation_hph6x"),
+&"outside": SubResource("Animation_5aamg"),
 &"sun": SubResource("Animation_554ci")
 }
 
@@ -582,9 +725,10 @@ environment = SubResource("Environment_t634p")
 [node name="Camera3D" type="Camera3D" parent="VisualConfig" unique_id=1834340419]
 unique_name_in_owner = true
 physics_interpolation_mode = 1
-transform = Transform3D(-0.999917, 0.0074949716, 0.010482265, 0.009096283, 0.9867178, 0.16218889, -0.009127436, 0.16227077, -0.98670405, 31.976969, 4.4179845, -13.6024685)
+transform = Transform3D(0.99999994, 0, 0, 0, 1, 0, 0, 0, 0.99999994, 33.009, 3.8, 4.211)
 top_level = true
 cull_mask = 1048063
+size = 62.088
 
 [node name="PhantomCameraHost" type="Node" parent="VisualConfig/Camera3D" unique_id=845311130]
 process_priority = 300
@@ -736,11 +880,11 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 73.868, 1.5745991, -3.0448737
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.082743, 1.6670088, -3.19987)
 
 [node name="Camera3D" parent="Church/ConfessionalBooth" index="2" unique_id=430217490]
-transform = Transform3D(-0.9999179, 0.0046539083, 0.011938344, 0.0065428102, 0.98653394, 0.16342585, -0.0110170115, 0.16349056, -0.98648334, 31.976969, 4.4179845, -13.6024685)
+transform = Transform3D(0.99999994, 0, 0, 0, 1, 0, 0, 0, 0.99999994, 33.009, 3.8, 4.211)
 top_level = true
 
 [node name="Sprite3D" parent="Church/ConfessionalBooth/Confessor" parent_id_path=PackedInt32Array(321162436, 1758948578) index="0" unique_id=415751236]
-texture = SubResource("ViewportTexture_5aamg")
+texture = SubResource("ViewportTexture_dhssw")
 
 [node name="Chair" parent="Church" unique_id=708079133 instance=ExtResource("22_6hctx")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 42.930725, 1.0000007, -6.876649)
@@ -920,6 +1064,9 @@ mesh = SubResource("CylinderMesh_cdpwx")
 [node name="AbbotsDoor" parent="Church" unique_id=48858221 instance=ExtResource("32_5o5dd")]
 transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, 1.7223473, 12.232245, 17.74777)
 
+[node name="ChurchBell" parent="Church" unique_id=2031355543 instance=ExtResource("14_kngxi")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 48.87092, 19.19202, 7)
+
 [node name="Characters" type="Node3D" parent="." unique_id=577653259]
 
 [node name="Hugo" parent="Characters" unique_id=1758948578 instance=ExtResource("6_1yooq")]
@@ -940,11 +1087,11 @@ unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 78.78419, 0.9976957, -5.94999)
 
 [node name="Sprite3D" parent="Characters/Sanson" index="0" unique_id=415751236]
-texture = SubResource("ViewportTexture_kngxi")
+texture = SubResource("ViewportTexture_cf0uk")
 
 [node name="Outline" parent="Characters/Sanson/Sprite3D" index="0" unique_id=1631064389]
-material_overlay = SubResource("ShaderMaterial_cf0uk")
-texture = SubResource("ViewportTexture_j2kh8")
+material_overlay = SubResource("ShaderMaterial_hpffo")
+texture = SubResource("ViewportTexture_hnqnj")
 
 [node name="AstrolablusPuzzle" parent="Characters" unique_id=572576743 instance=ExtResource("14_m114p")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 74.455536, 1.0101616, -6.621845)
@@ -1025,7 +1172,7 @@ gizmo_extents = 0.83
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 72.52593, 7.0501375, -6.2824492)
 gizmo_extents = 0.83
 
-[node name="StartingCutscene" type="Node3D" parent="Cutscenes" unique_id=913486234 node_paths=PackedStringArray("player", "julio", "lucio", "hugo", "sanson", "prior", "camera", "world_environment")]
+[node name="StartingCutscene" type="Node3D" parent="Cutscenes" unique_id=913486234 node_paths=PackedStringArray("player", "julio", "lucio", "hugo", "sanson", "prior", "camera", "dialogue_input_text", "bell_audio_stream_player_3d", "bell_audio_stream_player_3d_2", "ambient", "world_environment")]
 unique_name_in_owner = true
 script = ExtResource("27_hph6x")
 player = NodePath("../../Player")
@@ -1035,6 +1182,10 @@ hugo = NodePath("../../Characters/Hugo")
 sanson = NodePath("../../Characters/Sanson")
 prior = NodePath("../../Characters/Prior")
 camera = NodePath("../../VisualConfig/Camera3D")
+dialogue_input_text = NodePath("../../VisualConfig/GameUiOverlay/DialogueFrameManager/RichTextLabel")
+bell_audio_stream_player_3d = NodePath("../../Church/ChurchBell/AudioStreamPlayer3D")
+bell_audio_stream_player_3d_2 = NodePath("../../Church/ChurchBell/AudioStreamPlayer3D2")
+ambient = NodePath("../../Ambient")
 world_environment = NodePath("../../VisualConfig/WorldEnvironment")
 
 [node name="SansonPos" type="Marker3D" parent="Cutscenes/StartingCutscene" unique_id=2134042127]
@@ -1070,7 +1221,7 @@ noise_emitter_layer = 1
 metadata/_custom_type_script = "uid://csjccrhj5wnx7"
 
 [node name="CloseUpCamera" type="Node3D" parent="Cutscenes/StartingCutscene" unique_id=1789459155 node_paths=PackedStringArray("follow_target", "look_at_target")]
-transform = Transform3D(-0.9999988, 0, 0, 0, 0.9863907, 0.16439794, 0, 0.1643977, -0.98639214, 31.976969, 4.4179845, -13.6024685)
+transform = Transform3D(-0.9999988, 0, 0, 0, 0.9863907, 0.16439787, 0, 0.16439767, -0.9863919, 31.976969, 4.311948, -12.966246)
 top_level = true
 script = ExtResource("28_phx5y")
 follow_mode = 5
@@ -1095,6 +1246,12 @@ script = ExtResource("28_phx5y")
 tween_resource = SubResource("Resource_5aamg")
 metadata/_custom_type_script = "uid://csjccrhj5wnx7"
 
+[node name="OutsideCamera" type="Node3D" parent="Cutscenes/StartingCutscene" unique_id=1219860467]
+transform = Transform3D(0.77121466, -0.50025696, -0.39366335, 5.890647e-09, 0.6184084, -0.78585684, 0.6365751, 0.60606444, 0.47692555, 3.6123352, 0.33214283, 50.89971)
+script = ExtResource("28_phx5y")
+tween_resource = SubResource("Resource_dhssw")
+metadata/_custom_type_script = "uid://csjccrhj5wnx7"
+
 [node name="StartingAnimationPlayer" type="AnimationPlayer" parent="Cutscenes/StartingCutscene" unique_id=1869776037]
 unique_name_in_owner = true
 libraries/ = SubResource("AnimationLibrary_hph6x")
@@ -1102,19 +1259,29 @@ speed_scale = 0.3
 
 [node name="NameLabel" type="RichTextLabel" parent="Cutscenes/StartingCutscene" unique_id=1068756029]
 visible = false
-anchors_preset = 5
+anchors_preset = 8
 anchor_left = 0.5
+anchor_top = 0.5
 anchor_right = 0.5
+anchor_bottom = 0.5
 offset_left = -893.0
-offset_top = 148.0
+offset_top = -144.0
 offset_right = 893.0
-offset_bottom = 436.0
+offset_bottom = 144.0
 grow_horizontal = 2
+grow_vertical = 2
 theme_override_colors/default_color = Color(0.10709999, 0.48313993, 0.51, 1)
 theme_override_fonts/normal_font = ExtResource("32_5aamg")
 theme_override_font_sizes/normal_font_size = 190
 text = "SUNSURGENCE"
 horizontal_alignment = 1
+
+[node name="FireAmbient" type="AudioStreamPlayer" parent="Cutscenes/StartingCutscene" unique_id=396577153]
+stream = ExtResource("34_dhssw")
+
+[node name="Music" type="AudioStreamPlayer" parent="Cutscenes/StartingCutscene" unique_id=1209671457]
+stream = ExtResource("35_cf0uk")
+volume_db = -18.0
 
 [node name="CollectableItems" type="Node" parent="." unique_id=1692708429]
 
@@ -1253,7 +1420,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.27082276, 0)
 
 [node name="Ambient" type="AudioStreamPlayer" parent="." unique_id=249666659]
 stream = ExtResource("28_2x71e")
-volume_db = -30.0
+volume_db = -23.0
 autoplay = true
 bus = &"Sound Effects"
 
@@ -1320,12 +1487,15 @@ door = NodePath("../Church/AbbotsDoor")
 [node name="Node" type="Node" parent="." unique_id=974539785]
 script = ExtResource("52_j0rhc")
 
+[editable path="VisualConfig/GameUiOverlay"]
 [editable path="Church/ConfessionalBooth"]
 [editable path="Church/ConfessionalBooth/confessional"]
 [editable path="Church/ConfessionalBooth/Confessor"]
 [editable path="Church/SecondFloor/Gates/Gate3"]
 [editable path="Church/SecondFloor/Gates/Gate3_copy1"]
 [editable path="Church/SecondFloor/Gates/Gate3_copy2"]
+[editable path="Church/ChurchBell"]
+[editable path="Church/ChurchBell/BellPivot/Sketchfab_Scene"]
 [editable path="Characters/Sanson"]
 [editable path="Characters/SleepPuzzle/LockPick"]
 [editable path="Characters/SleepPuzzle/LockPick/lockpick"]
