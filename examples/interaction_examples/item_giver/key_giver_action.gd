@@ -32,6 +32,9 @@ var itens: Array[ItemRes] = [
 ]
 
 func trigger() -> void:
+	WorldStateManager.play_starting_cutscene()
+	return
+
 	itens.reverse()
 	for item: ItemRes in itens:
 		InventoryManager.add_new_item(item)

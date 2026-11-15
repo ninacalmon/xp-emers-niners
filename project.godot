@@ -35,6 +35,7 @@ PuzzleManager="*uid://d0b7g7dp5e5te"
 TimeManager="*uid://iv75j075cl7l"
 FadeInOut="*uid://bhudkgwvtx1vp"
 GetEntity="*uid://1l1dumk31mwc"
+WorldStateManager="*uid://7fttlwo0kiow"
 
 [display]
 

@@ -3,7 +3,8 @@
 class_name CharacterSpriteHandler
 extends Node
 
-@export var bounce_duration: float = 0.1
+@export var bounce_duration: float = 0.08
+@export_range(0.0, 0.5, 0.01) var bounce_amount: float = 0.025
 @export var animated_sprite: AnimatedSprite2D
 @export var dialogue_action: DialogueAction
 
@@ -50,18 +51,18 @@ func change_anim(mood: String):
 		bounce_on_it()
 
 
-func bounce_on_it():
+func bounce_on_it() -> void:
 	var tall_scale: Vector2 = Vector2(
-		original_sprite_scale.x * (0.93),
-		original_sprite_scale.y * (1.05)
-		)
+		original_sprite_scale.x * (1.0 - bounce_amount),
+		original_sprite_scale.y * (1.0 + bounce_amount)
+	)
 
 	var short_scale: Vector2 = Vector2(
-		original_sprite_scale.x * (1.05),
-		original_sprite_scale.y * (0.93)
-		)
+		original_sprite_scale.x * (1.0 + bounce_amount),
+		original_sprite_scale.y * (1.0 - bounce_amount)
+	)
 
-	var bounce_tween = create_tween()
+	var bounce_tween: Tween = create_tween()
 	bounce_tween.set_ease(Tween.EASE_IN)
 	bounce_tween.tween_property(animated_sprite, "scale", tall_scale, bounce_duration)
 	bounce_tween.tween_property(animated_sprite, "scale", short_scale, bounce_duration)

@@ -28,9 +28,13 @@
 [ext_resource type="PackedScene" uid="uid://dhk5e4bt07a2o" path="res://scenes/objects/chair/chair.tscn" id="22_6hctx"]
 [ext_resource type="PackedScene" uid="uid://bq0g7rwr88eri" path="res://scenes/objects/doors/gate.tscn" id="27_ckok1"]
 [ext_resource type="Resource" uid="uid://l32ivj0agrb2" path="res://items/abbot_key.tres" id="27_d0ajt"]
+[ext_resource type="Script" uid="uid://blnqbbyhu0b5u" path="res://scenes/world/cutscenes/starting_cutscene.gd" id="27_hph6x"]
 [ext_resource type="AudioStream" uid="uid://dk0pbedy4mbac" path="res://assets/sound/sound_effects/ambient/outside_the_shroud.mp3" id="28_2x71e"]
+[ext_resource type="Script" uid="uid://csjccrhj5wnx7" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_3d.gd" id="28_phx5y"]
+[ext_resource type="Script" uid="uid://8umksf8e80fw" path="res://addons/phantom_camera/scripts/resources/tween_resource.gd" id="29_554ci"]
 [ext_resource type="Resource" uid="uid://bae56sx733f7o" path="res://items/papers/blank_paper.tres" id="29_nqe8x"]
 [ext_resource type="Script" uid="uid://peejkdrmwsea" path="res://scenes/world/music.gd" id="29_wnndm"]
+[ext_resource type="Script" uid="uid://cuffvge5ad4aa" path="res://addons/phantom_camera/scripts/resources/phantom_camera_noise_3d.gd" id="30_554ci"]
 [ext_resource type="AudioStream" uid="uid://21vhu4ot54ph" path="res://assets/sound/music/Aguirre I (l'acrime di rei).mp3" id="30_jyr8v"]
 [ext_resource type="PackedScene" uid="uid://x67lk35re62k" path="res://assets/3d/items/paper_mirrors/blank_paper.glb" id="30_sh7a8"]
 [ext_resource type="AudioStream" uid="uid://bc05muurqbflr" path="res://assets/sound/music/Entropy.mp3" id="31_5o5dd"]
@@ -54,6 +58,7 @@
 [ext_resource type="PackedScene" uid="uid://by3xhr7in7fhx" path="res://assets/3d/items/mirrors/mirror_b/mirror_b2.glb" id="49_l4ul6"]
 [ext_resource type="PackedScene" uid="uid://bv7pwu6dc6q6l" path="res://scenes/puzzles/mirrors/mirrors_puzzle.tscn" id="51_q3hpu"]
 [ext_resource type="Script" uid="uid://dh1ltto8wru1y" path="res://screenshots/screenshots.gd" id="52_j0rhc"]
+[ext_resource type="PackedScene" uid="uid://dhb4ubn1lv1kq" path="res://examples/interaction_examples/item_giver/key_giver_ball.tscn" id="53_4jq4u"]
 
 [sub_resource type="Sky" id="Sky_m114p"]
 sky_material = ExtResource("2_mxkvs")
@@ -87,7 +92,7 @@ size = Vector2(500, 500)
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_u1gsd"]
 albedo_color = Color(0.66, 0.52536005, 0.4224, 1)
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_554ci"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_phx5y"]
 viewport_path = NodePath("SubViewportSprite")
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_u0ka6"]
@@ -163,19 +168,19 @@ top_radius = 2.0
 bottom_radius = 2.0
 height = 1.0
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_sar2w"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_554ci"]
 viewport_path = NodePath("SubViewportSprite")
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_goy61"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_hph6x"]
 viewport_path = NodePath("SubViewportSprite")
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_7rtjl"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_5aamg"]
 resource_local_to_scene = true
 render_priority = -1
 shader = ExtResource("13_goy61")
-shader_parameter/sprite_texture = SubResource("ViewportTexture_goy61")
+shader_parameter/sprite_texture = SubResource("ViewportTexture_hph6x")
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_phx5y"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_kngxi"]
 viewport_path = NodePath("SubViewportSprite")
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_cdpwx"]
@@ -183,6 +188,227 @@ size = Vector3(2.1645508, 3.0518951, 1.1044922)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_ksdio"]
 size = Vector3(4.8632813, 1, 0.6602173)
+
+[sub_resource type="Resource" id="Resource_554ci"]
+script = ExtResource("29_554ci")
+duration = 0.0
+metadata/_custom_type_script = "uid://8umksf8e80fw"
+
+[sub_resource type="Resource" id="Resource_7rtjl"]
+script = ExtResource("29_554ci")
+duration = 0.3
+metadata/_custom_type_script = "uid://8umksf8e80fw"
+
+[sub_resource type="Resource" id="Resource_phx5y"]
+script = ExtResource("30_554ci")
+amplitude = 5.0
+frequency = 0.5
+metadata/_custom_type_script = "uid://cuffvge5ad4aa"
+
+[sub_resource type="Resource" id="Resource_5aamg"]
+script = ExtResource("29_554ci")
+duration = 0.0
+metadata/_custom_type_script = "uid://8umksf8e80fw"
+
+[sub_resource type="Animation" id="Animation_7rtjl"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AltarCamera:priority")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [-1]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AltarCamera:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(33.009174, 5.6324925, -0.32878113)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("SunCamera:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(33.105, 10.433, -14.055)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("SunCamera:priority")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [-1]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("MonksCamera:priority")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [-1]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("MonksCamera:rotation")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(1.5707964, 3.1415927, 0)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("%Camera3D:fov")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [75.0]
+}
+
+[sub_resource type="Animation" id="Animation_phx5y"]
+resource_name = "Altar"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AltarCamera:priority")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [10000]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AltarCamera:position")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(33.009, 5.632, 1.951), Vector3(33.009, 5.632, 4.211)]
+}
+
+[sub_resource type="Animation" id="Animation_hph6x"]
+resource_name = "monks"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("MonksCamera:priority")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [30000]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("MonksCamera:rotation")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.033333335, 0.4, 0.6333333, 0.8666667, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(1.5707964, 3.1415927, 0), Vector3(0, 1.9198622, 0), Vector3(0, 4.363323, 0), Vector3(0, 1.9198622, 0), Vector3(0, 3.1415927, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("%Camera3D:fov")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [75.0]
+}
+
+[sub_resource type="Animation" id="Animation_554ci"]
+resource_name = "Altar"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("SunCamera:priority")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [20000]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("SunCamera:position")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.23333333, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector3(33.105, 3.85, -15), Vector3(33.105, 17.14, -15), Vector3(33.105, 36, -15)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("%Camera3D:fov")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.8),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [40.0, 10.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_hph6x"]
+_data = {
+&"RESET": SubResource("Animation_7rtjl"),
+&"altar": SubResource("Animation_phx5y"),
+&"monks": SubResource("Animation_hph6x"),
+&"sun": SubResource("Animation_554ci")
+}
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_jn1yg"]
 size = Vector3(3.7597656, 2.6875, 1)
@@ -198,13 +424,14 @@ size = Vector3(2.2685547, 1.2154541, 1.2182617)
 [node name="VisualConfig" type="Node" parent="." unique_id=1614684183]
 
 [node name="VoxelGI" type="VoxelGI" parent="VisualConfig" unique_id=178088189]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 53.777466, 21.075378, 0.9311714)
-size = Vector3(81.14917, 44.038452, 57.116768)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 51.057175, 21.075378, 11.58691)
+size = Vector3(84.35867, 44.038452, 68.03167)
 data = ExtResource("1_sar2w")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="VisualConfig" unique_id=1845690643 node_paths=PackedStringArray("worldEnvironment", "nightLight") groups=["sun"]]
 transform = Transform3D(-0.8660254, -0.50000006, -2.1855696e-08, 0, -4.371139e-08, 1, -0.50000006, 0.8660254, 3.7855173e-08, 0, 0, 0)
 light_volumetric_fog_energy = 6.333
+light_bake_mode = 0
 shadow_enabled = true
 directional_shadow_mode = 1
 script = ExtResource("1_umvgx")
@@ -234,8 +461,9 @@ environment = SubResource("Environment_t634p")
 [node name="GameUiOverlay" parent="VisualConfig" unique_id=472711346 instance=ExtResource("6_tytul")]
 
 [node name="Camera3D" type="Camera3D" parent="VisualConfig" unique_id=1834340419]
+unique_name_in_owner = true
 physics_interpolation_mode = 1
-transform = Transform3D(-1, -6.6186476e-05, 0.00015902267, -5.4001674e-05, 0.9971506, 0.075437166, -0.00016356246, 0.07543715, -0.9971506, 32.898384, 4.2864876, -15.426412)
+transform = Transform3D(-0.9999702, -0.005287848, -0.0056285853, 0.005607795, 0.0039383266, -0.9999765, 0.005309891, -0.99997824, -0.0039085564, 33.105, 3.85, -14.055)
 top_level = true
 cull_mask = 1048063
 
@@ -389,11 +617,11 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 73.868, 1.5745991, -3.0448737
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.082743, 1.6670088, -3.19987)
 
 [node name="Camera3D" parent="Church/ConfessionalBooth" index="2" unique_id=430217490]
-transform = Transform3D(-1, -6.64426e-05, 0.00016012642, -5.41738e-05, 0.9971506, 0.0754371, -0.00016468238, 0.075437084, -0.9971506, 32.898384, 4.286487, -15.426412)
+transform = Transform3D(-0.99994457, -0.008959587, 0.005531177, -0.0055824323, 0.00570586, -0.9999681, 0.008927741, -0.99994355, -0.0057555595, 33.105, 3.85, -14.055)
 top_level = true
 
 [node name="Sprite3D" parent="Church/ConfessionalBooth/Confessor" parent_id_path=PackedInt32Array(321162436, 1758948578) index="0" unique_id=415751236]
-texture = SubResource("ViewportTexture_554ci")
+texture = SubResource("ViewportTexture_phx5y")
 
 [node name="Chair" parent="Church" unique_id=708079133 instance=ExtResource("22_6hctx")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 42.930725, 1.0000007, -6.876649)
@@ -577,10 +805,9 @@ transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, 1.72
 
 [node name="Hugo" parent="Characters" unique_id=1758948578 instance=ExtResource("6_1yooq")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 79.66381, 1.0343833, -6.666081)
-is_chatting = true
 
 [node name="Julio" parent="Characters" unique_id=1615518148 instance=ExtResource("7_gb53w")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 32.909256, 2.4167304, -14.599353)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 28.114899, 2.4167306, -11.980229)
 brute_force_first_dialogue = false
 
 [node name="Lucio" parent="Characters" unique_id=1730430442 instance=ExtResource("8_5qq27")]
@@ -588,14 +815,13 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 63.51454, 1.0062575, 3.502448
 
 [node name="Sanson" parent="Characters" unique_id=1975172536 instance=ExtResource("9_dlabj")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 78.78419, 0.9976957, -5.94999)
-is_chatting = true
 
 [node name="Sprite3D" parent="Characters/Sanson" index="0" unique_id=415751236]
-texture = SubResource("ViewportTexture_sar2w")
+texture = SubResource("ViewportTexture_554ci")
 
 [node name="Outline" parent="Characters/Sanson/Sprite3D" index="0" unique_id=1631064389]
-material_overlay = SubResource("ShaderMaterial_7rtjl")
-texture = SubResource("ViewportTexture_phx5y")
+material_overlay = SubResource("ShaderMaterial_5aamg")
+texture = SubResource("ViewportTexture_kngxi")
 
 [node name="AstrolablusPuzzle" parent="Characters" unique_id=572576743 instance=ExtResource("14_m114p")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 74.455536, 1.0101616, -6.621845)
@@ -647,33 +873,87 @@ shape = SubResource("BoxShape3D_ksdio")
 [node name="Prior" parent="Characters" unique_id=1738876710 node_paths=PackedStringArray("player_detection", "player_outside_pos", "prior_bell_pos", "prior_hidden_pos", "bell_area_door") instance=ExtResource("13_mxkvs")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 46.71915, 6.3606253, 3.5670638)
 player_detection = NodePath("../../Church/SecondFloor/PlayerDetection")
-player_outside_pos = NodePath("../../PositionMarkers/PlayerOutsidePos")
-prior_bell_pos = NodePath("../../PositionMarkers/PriorBellPos")
-prior_hidden_pos = NodePath("../../PositionMarkers/PriorHiddenPos")
+player_outside_pos = NodePath("../../Cutscenes/PlayerOutsidePos")
+prior_bell_pos = NodePath("../../Cutscenes/PriorBellPos")
+prior_hidden_pos = NodePath("../../Cutscenes/PriorHiddenPos")
 bell_area_door = NodePath("../../Church/SecondFloor/BellAreaDoor")
 
-[node name="PositionMarkers" type="Node" parent="." unique_id=1314055886]
+[node name="Cutscenes" type="Node" parent="." unique_id=1314055886]
 
-[node name="CharactherConfesingPosition" type="Marker3D" parent="PositionMarkers" unique_id=1551973121 groups=["confessing_pos"]]
+[node name="CharactherConfesingPosition" type="Marker3D" parent="Cutscenes" unique_id=1551973121 groups=["confessing_pos"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 21.404587, 1.5257708, -2.079492)
 
-[node name="HugoRoomPosition" type="Marker3D" parent="PositionMarkers" unique_id=2141241143 groups=["hugo_room_pos"]]
+[node name="HugoRoomPosition" type="Marker3D" parent="Cutscenes" unique_id=2141241143 groups=["hugo_room_pos"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 51.954063, 1.006, -6.383174)
 
-[node name="SansonRoomPosition" type="Marker3D" parent="PositionMarkers" unique_id=998715351 groups=["sanson_room_pos"]]
+[node name="SansonRoomPosition" type="Marker3D" parent="Cutscenes" unique_id=998715351 groups=["sanson_room_pos"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 75.828415, 1.006, -6.383174)
 
-[node name="PlayerOutsidePos" type="Marker3D" parent="PositionMarkers" unique_id=855481326]
+[node name="PlayerOutsidePos" type="Marker3D" parent="Cutscenes" unique_id=855481326]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 44.840195, 8.094223, -2.17305)
 gizmo_extents = 0.83
 
-[node name="PriorBellPos" type="Marker3D" parent="PositionMarkers" unique_id=1195383538]
+[node name="PriorBellPos" type="Marker3D" parent="Cutscenes" unique_id=1195383538]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 81.71323, 8.534268, 2.3632278)
 gizmo_extents = 0.83
 
-[node name="PriorHiddenPos" type="Marker3D" parent="PositionMarkers" unique_id=507639542]
+[node name="PriorHiddenPos" type="Marker3D" parent="Cutscenes" unique_id=507639542]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 72.52593, 7.0501375, -6.2824492)
 gizmo_extents = 0.83
+
+[node name="StartingCutscene" type="Node3D" parent="Cutscenes" unique_id=913486234 node_paths=PackedStringArray("player", "julio", "lucio", "hugo", "sanson", "prior", "camera")]
+unique_name_in_owner = true
+script = ExtResource("27_hph6x")
+player = NodePath("../../Player")
+julio = NodePath("../../Characters/Julio")
+lucio = NodePath("../../Characters/Lucio")
+hugo = NodePath("../../Characters/Hugo")
+sanson = NodePath("../../Characters/Sanson")
+prior = NodePath("../../Characters/Prior")
+camera = NodePath("../../VisualConfig/Camera3D")
+
+[node name="SansonPos" type="Marker3D" parent="Cutscenes/StartingCutscene" unique_id=2134042127]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 30.731653, 2.4136653, -13.4385395)
+
+[node name="JulioPos" type="Marker3D" parent="Cutscenes/StartingCutscene" unique_id=798867004]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 32.872375, 2.4136653, -12.319149)
+
+[node name="HugoPos" type="Marker3D" parent="Cutscenes/StartingCutscene" unique_id=675006564]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 35.17034, 2.4136653, -13.292745)
+
+[node name="PriorPos" type="Marker3D" parent="Cutscenes/StartingCutscene" unique_id=850066603]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 34.619766, 2.4136653, -11.402532)
+
+[node name="PlayerPos" type="Marker3D" parent="Cutscenes/StartingCutscene" unique_id=873347398]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 33.104763, 2.4136653, -14.992425)
+
+[node name="TestKeyGiverBall" parent="Cutscenes/StartingCutscene" unique_id=471407858 instance=ExtResource("53_4jq4u")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 37, 3, -11)
+
+[node name="SunCamera" type="Node3D" parent="Cutscenes/StartingCutscene" unique_id=935672393]
+transform = Transform3D(-1, 8.742277e-08, 0, 3.821371e-15, 4.3711385e-08, -0.9999999, -8.742278e-08, -0.9999999, -4.3711385e-08, 33.105, 10.433, -14.055)
+script = ExtResource("28_phx5y")
+tween_resource = SubResource("Resource_554ci")
+metadata/_custom_type_script = "uid://csjccrhj5wnx7"
+
+[node name="MonksCamera" type="Node3D" parent="Cutscenes/StartingCutscene" unique_id=887837489]
+transform = Transform3D(-1, -8.742277e-08, 3.8213705e-15, 0, -4.3711385e-08, -0.9999999, 8.742278e-08, -0.9999999, 4.3711385e-08, 33.105, 3.85, -14.055)
+script = ExtResource("28_phx5y")
+tween_resource = SubResource("Resource_7rtjl")
+noise = SubResource("Resource_phx5y")
+noise_emitter_layer = 1
+metadata/_custom_type_script = "uid://csjccrhj5wnx7"
+
+[node name="AltarCamera" type="Node3D" parent="Cutscenes/StartingCutscene" unique_id=1345053029]
+transform = Transform3D(0.99999994, 0, 0, 0, 1, 0, 0, 0, 0.99999994, 33.009174, 5.6324925, -0.32878113)
+script = ExtResource("28_phx5y")
+tween_resource = SubResource("Resource_5aamg")
+metadata/_custom_type_script = "uid://csjccrhj5wnx7"
+
+[node name="StartingAnimationPlayer" type="AnimationPlayer" parent="Cutscenes/StartingCutscene" unique_id=1869776037]
+unique_name_in_owner = true
+libraries/ = SubResource("AnimationLibrary_hph6x")
+speed_scale = 0.05
 
 [node name="CollectableItems" type="Node" parent="." unique_id=1692708429]
 
