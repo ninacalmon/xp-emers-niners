@@ -3,8 +3,8 @@ class_name ChurchBell
 
 signal bell_toll
 
-@export_range(0.3, 5.0, 0.05) var toll_interval_min: float = 1.5
-@export_range(0.3, 5.0, 0.05) var toll_interval_max: float = 2.3
+@export_range(0.3, 5.0, 0.05) var toll_interval_min: float = 2.6
+@export_range(0.3, 5.0, 0.05) var toll_interval_max: float = 3.0
 
 @onready var bell_pivot: Node3D = $BellPivot
 @onready var audio_stream_player_3d: AudioStreamPlayer3D = $AudioStreamPlayer3D

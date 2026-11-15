@@ -16,7 +16,7 @@ var last_tolled_time: int = -1
 func _ready() -> void:
 	get_tree().scene_changed.connect(_on_scene_changed)
 	await get_tree().process_frame
-	_initialize_scene()
+	#_initialize_scene()
 
 
 func _on_scene_changed() -> void:

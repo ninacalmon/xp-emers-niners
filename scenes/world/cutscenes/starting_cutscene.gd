@@ -15,12 +15,14 @@ signal next
 @export_group("Scene")
 @export var camera: Camera3D
 @export var hands_overlay: HandsOverlay
+@export var world_environment: WorldEnvironment
 
 @export_group("Animation Speeds")
 @export var altar_speed: float = 0.2
 @export var sun_speed: float = 0.03
 @export var monks_speed: float = 0.2
-@export var close_ups_speed: float = 0.3
+@export var close_ups_speed: float = 0.5
+@export var altar_far_speed: float = 0.08
 
 @onready var sanson_pos: Marker3D = $SansonPos
 @onready var julio_pos: Marker3D = $JulioPos
@@ -29,6 +31,7 @@ signal next
 @onready var player_pos: Marker3D = $PlayerPos
 
 @onready var animation_player: AnimationPlayer = %StartingAnimationPlayer
+@onready var name_label: RichTextLabel = $NameLabel
 
 var dialogue_res = preload("uid://dhu5fv6qml7oi")
 
@@ -39,14 +42,17 @@ var seconds_per_step
 
 func _ready() -> void:
 	hands_overlay = get_tree().get_first_node_in_group("hands_overlay")
+	name_label.hide()
 
 
 func play_cutscene() -> void:
 	hands_overlay.hide()
 	player.is_cutscene_locked = true
 	position_starting_cutscene()
-	camera_starting_cutscene()
+	scene_starting_cutscene()
 	start_anim_starting_cutscene()
+
+	TimeManager.set_time(TimeManager.Times.at1200)
 
 
 func position_starting_cutscene() -> void:
@@ -57,8 +63,11 @@ func position_starting_cutscene() -> void:
 	player.global_position = player_pos.global_position
 
 
-func camera_starting_cutscene() -> void:
+func scene_starting_cutscene() -> void:
 	#camera.fov = 40.0
+	#world_environment.environment.glow_intensity = 0.7
+	world_environment.environment.glow_strength = 1.5
+	world_environment.environment.glow_bloom = 0.6
 	pass
 
 
@@ -75,7 +84,9 @@ func start_anim_starting_cutscene() -> void:
 	balloon = DialogueManager.show_dialogue_balloon(dialogue_res, "sun")
 	await balloon.ready
 	seconds_per_step = balloon.dialogue_label.seconds_per_step
-	balloon.dialogue_label.seconds_per_step = 0.08
+	balloon.dialogue_label.seconds_per_step = 0.06
+	balloon.set_skip_blocked(true)
+	balloon.set_auto_advance(true)
 
 	DialogueManager.dialogue_ended.connect(_on_dialogue_ended)
 
@@ -92,23 +103,29 @@ func start_anim_starting_cutscene() -> void:
 	await next
 
 	animation_player.speed_scale = close_ups_speed
-	$CloseUpCamera.follow_target = hugo
-	$CloseUpCamera.look_at_target = hugo
-
-	animation_player.play("close_up")
-	await get_tree().create_timer(1.001 / close_ups_speed).timeout
-	$CloseUpCamera.follow_target = julio
-	$CloseUpCamera.look_at_target = julio
-	await get_tree().create_timer(1.001 / close_ups_speed).timeout
 	$CloseUpCamera.follow_target = sanson
 	$CloseUpCamera.look_at_target = sanson
+
+	var step: float = 1.00 / close_ups_speed
+	animation_player.play("close_up")
+	#await animation_player.
+	await get_tree().create_timer(step).timeout
+	$CloseUpCamera.follow_target = julio
+	$CloseUpCamera.look_at_target = julio
+	await get_tree().create_timer(step).timeout
+	$CloseUpCamera.follow_target = hugo
+	$CloseUpCamera.look_at_target = hugo
+	await animation_player.animation_finished
+	print("finished")
+
+	animation_player.speed_scale = altar_far_speed
+	animation_player.play("altar_far")
+	await get_tree().create_timer(4).timeout
+	name_label.show()
 	await animation_player.animation_finished
 
-	animation_player.speed_scale = altar_speed
-	animation_player.play("altar")
-	await animation_player.animation_finished
 
-	player.is_cutscene_locked = false
+	#player.is_cutscene_locked = false
 
 
 func _on_dialogue_ended(_res: DialogueResource):

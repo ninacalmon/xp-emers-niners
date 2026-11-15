@@ -29,6 +29,15 @@ signal player_line_ended
 ## The action to use to skip typing the dialogue
 @export var skip_action: StringName = &"skip_dialogue"
 
+## If the player is allowed to skip the typing of the dialogue
+@export var can_skip: bool = true
+
+## If lines should advance on their own after finishing typing
+@export var auto_advance: bool = false
+
+## Seconds to wait after a line finishes typing before auto advancing
+@export var auto_advance_delay: float = 1.5
+
 ## A sound player for voice lines (if they exist).
 @onready var audio_stream_player: AudioStreamPlayer = %AudioStreamPlayer
 
@@ -205,9 +214,18 @@ func apply_dialogue_line() -> void:
 		await get_tree().create_timer(time).timeout
 		next(dialogue_line.next_id)
 	else:
-		is_waiting_for_input = true
-		balloon.focus_mode = Control.FOCUS_ALL
-		balloon.grab_focus()
+		if auto_advance:
+			is_waiting_for_input = false
+			balloon.focus_mode = Control.FOCUS_NONE
+			var current_line: DialogueLine = dialogue_line
+			await get_tree().create_timer(auto_advance_delay).timeout
+			# Only advance if nothing else changed the line while we waited
+			if dialogue_line == current_line:
+				next(dialogue_line.next_id)
+		else:
+			is_waiting_for_input = true
+			balloon.focus_mode = Control.FOCUS_ALL
+			balloon.grab_focus()
 
 
 ## Go to the next line
@@ -238,7 +256,8 @@ func _on_balloon_gui_input(event: InputEvent) -> void:
 		var skip_button_was_pressed: bool = event.is_action_pressed(skip_action)
 		if mouse_was_clicked or skip_button_was_pressed:
 			get_viewport().set_input_as_handled()
-			dialogue_label.skip_typing()
+			if can_skip:
+				dialogue_label.skip_typing()
 			return
 
 	if not is_waiting_for_input: return
@@ -285,3 +304,14 @@ func player_theme(_bool: bool):
 ## a player line is either spoken by "Você" or has no character at all.
 func is_player_line(line: DialogueLine) -> bool:
 	return line.character == "Você" or line.character.is_empty()
+
+
+## Blocks (or allows) skipping the typing of the dialogue.
+func set_skip_blocked(blocked: bool) -> void:
+	can_skip = not blocked
+
+
+## Enables (or disables) automatically passing to the next line.
+func set_auto_advance(enabled: bool, delay: float = 1.5) -> void:
+	auto_advance = enabled
+	auto_advance_delay = delay
