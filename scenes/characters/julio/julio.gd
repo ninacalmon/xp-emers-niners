@@ -1,6 +1,10 @@
 extends Node3D
 
-@export var brute_force_first_dialogue: bool = true
+@export var brute_force_first_dialogue: bool = true:
+	set(value):
+		brute_force_first_dialogue = value
+		if dialogue_action:
+			dialogue_action.trigger()
 @onready var dialogue_action: DialogueAction = $DialogueAction
 
 

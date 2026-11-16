@@ -37,10 +37,26 @@ signal next
 @onready var prior_pos: Marker3D = $PriorPos
 @onready var player_pos: Marker3D = $PlayerPos
 
+
+@onready var af_julio_pos: Marker3D = $AfterPositions/AfJulioPos
+@onready var af_hugo_pos: Marker3D = $AfterPositions/AfHugoPos
+@onready var af_sanson_pos: Marker3D = $AfterPositions/AfSansonPos
+@onready var af_prior_pos: Marker3D = $AfterPositions/AfPriorPos
+
+
 @onready var animation_player: AnimationPlayer = %StartingAnimationPlayer
 @onready var name_label: RichTextLabel = $NameLabel
 @onready var music: AudioStreamPlayer = $Music
 @onready var player_detection: Area3D = $PlayerDetection
+
+var _orig_glow_strength: float
+var _orig_glow_bloom: float
+var _orig_cull_mask: int
+var _orig_speed_scale: float
+var _orig_bell_volume_db: float
+var _orig_hands_visible: bool
+var _orig_camera_transform: Transform3D
+var _orig_player_transform: Transform3D
 
 var dialogue_res = preload("uid://dhu5fv6qml7oi")
 
@@ -51,6 +67,8 @@ var seconds_per_step
 var started: bool = false
 
 func _ready() -> void:
+	Engine.time_scale = 3
+
 	hands_overlay = get_tree().get_first_node_in_group("hands_overlay")
 	name_label.hide()
 
@@ -64,11 +82,23 @@ func _ready() -> void:
 	await get_tree().create_timer(2).timeout
 	TaskManager.give_task("noon_prayer", "Se dirija ao Altar para a oração de meio dia.")
 
+func _save_original_state() -> void:
+	_orig_glow_strength = world_environment.environment.glow_strength
+	_orig_glow_bloom = world_environment.environment.glow_bloom
+	_orig_cull_mask = camera.cull_mask
+	_orig_speed_scale = animation_player.speed_scale
+	_orig_bell_volume_db = bell_audio_stream_player_3d.volume_db
+	_orig_hands_visible = hands_overlay.visible
+	_orig_camera_transform = camera.transform
+	_orig_player_transform = player.global_transform
+
 
 func play_cutscene() -> void:
+	TaskManager.complete_task("noon_prayer")
 	player.is_cutscene_locked = true
-	await FadeInOut.fade_in(3)
+	await FadeInOut.fade_in(1.5)
 	await  get_tree().create_timer(2).timeout
+	_save_original_state()
 	music.play()
 	hands_overlay.hide()
 	#game_ui_overlay.hide()
@@ -192,7 +222,7 @@ func start_anim_starting_cutscene() -> void:
 	DialogueData.set_mood("Sanson", DialogueData.SansonMoods.idle, true, true)
 	DialogueData.set_mood("Hugo", DialogueData.HugoMoods.idle, true, true)
 
-	await get_tree().create_timer(7).timeout
+	await get_tree().create_timer(5).timeout
 	bell_audio_stream_player_3d.volume_db += 100
 	bell_audio_stream_player_3d.play()
 	bell_audio_stream_player_3d_2.play()
@@ -200,11 +230,10 @@ func start_anim_starting_cutscene() -> void:
 
 	await animation_player.animation_finished
 
-	await get_tree().create_timer(3).timeout
-	FadeInOut.fade_in(0.5)
-	bell_audio_stream_player_3d.volume_db -= 100
-	#player.is_cutscene_locked = false
-	dialogue_input_text.modulate = Color.WHITE
+	#await get_tree().create_timer(3).timeout
+	await FadeInOut.fade_in(0.5)   # screen goes black while we restore everything
+	end_cutscene()
+	await FadeInOut.fade_out(1)    # reveal the normal world
 
 
 func _on_dialogue_ended(_res: DialogueResource):
@@ -221,18 +250,52 @@ func _on_dialogue_ended(_res: DialogueResource):
 		next.emit()
 		balloon.dialogue_label.seconds_per_step = seconds_per_step
 
-	#animation_player.stop()
-#
-	#await FadeInOut.fade_in()
-	#phantom_camera_sun_view.priority = 0
-	#camera_3d.fov = 75.0
-	#hands_overlay.show()
-#
-	#await FadeInOut.fade_out()
-#
-	#animation_player.play("brothers_view")
-	#await get_tree().create_timer(3).timeout
-	#DialogueManager.show_dialogue_balloon(dialogue_res, "francisco")
+func end_cutscene() -> void:
+	WorldStateManager.starting_cutscene_played = true
+	$OutsideCamera.priority = 0
+	# Stop listening to dialogues (otherwise this fires on EVERY future dialogue)
+	if DialogueManager.dialogue_ended.is_connected(_on_dialogue_ended):
+		DialogueManager.dialogue_ended.disconnect(_on_dialogue_ended)
+
+	# Animation
+	animation_player.stop()
+	animation_player.speed_scale = _orig_speed_scale
+	
+
+	# Camera
+	camera.cull_mask = _orig_cull_mask
+	camera.transform = _orig_camera_transform
+	camera.make_current()
+
+	for pcam: PhantomCamera3D in _get_cutscene_pcams():
+		pcam.priority = 0
+	camera.cull_mask = _orig_cull_mask
+
+	# Environment
+	world_environment.environment.glow_strength = _orig_glow_strength
+	world_environment.environment.glow_bloom = _orig_glow_bloom
+
+	# Audio
+	music.stop()
+	bell_audio_stream_player_3d.stop()
+	bell_audio_stream_player_3d_2.stop()
+	bell_audio_stream_player_3d.volume_db = _orig_bell_volume_db
+
+	# UI
+	name_label.hide()
+	dialogue_input_text.modulate = Color.WHITE
+	hands_overlay.visible = _orig_hands_visible
+
+	# Characters' moods
+	DialogueData.set_mood("Julio", DialogueData.JulioMoods.idle, true, true)
+	DialogueData.set_mood("Sanson", DialogueData.SansonMoods.idle, true, true)
+	DialogueData.set_mood("Hugo", DialogueData.HugoMoods.idle, true, true)
+
+	# Player
+	player.global_transform = player_pos.global_transform
+	player.is_cutscene_locked = false
+
+	set_start_game_state()
 
 
 func _on_player_entered(body: Node3D):
@@ -241,5 +304,26 @@ func _on_player_entered(body: Node3D):
 		return
 
 	started = true
-	TaskManager.complete_task("noon_prayer")
 	play_cutscene()
+
+
+func _get_cutscene_pcams() -> Array[PhantomCamera3D]:
+	var result: Array[PhantomCamera3D] = []
+	for node: Node in find_children("*", "PhantomCamera3D", true, false):
+		result.append(node as PhantomCamera3D)
+	return result
+
+
+func set_start_game_state():
+	# Julio
+	julio.global_position = af_julio_pos.global_position
+	julio.brute_force_first_dialogue = true
+
+	# Sanson
+	sanson.global_position = af_sanson_pos.global_position
+	sanson.is_chatting = true
+	# Hugo
+	hugo.global_position = af_hugo_pos.global_position
+	hugo.is_chatting = true
+	# Prior
+	prior.global_position = af_prior_pos.global_position

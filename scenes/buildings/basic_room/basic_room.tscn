@@ -1,0 +1,32 @@
+[gd_scene format=3 uid="uid://co3dig0wve4j3"]
+
+[ext_resource type="PackedScene" uid="uid://drag41l7jfn2r" path="res://scenes/objects/cabinet/cabinet.tscn" id="1_4m7mr"]
+[ext_resource type="PackedScene" uid="uid://sejw7fdrjiuq" path="res://scenes/objects/bed/bed.tscn" id="2_g40bn"]
+[ext_resource type="PackedScene" uid="uid://cydbhqp0n65i7" path="res://scenes/buildings/decoration/wall_torch.tscn" id="3_7mfmi"]
+[ext_resource type="PackedScene" uid="uid://c7w23sdby68db" path="res://scenes/objects/study_desk/study_desk.tscn" id="4_my7t4"]
+[ext_resource type="PackedScene" uid="uid://3ke0t8mctl7h" path="res://assets/3d/items/candle/candle.tscn" id="5_asby7"]
+
+[node name="BasicRoom" type="Node3D" unique_id=2042304168]
+
+[node name="Cabinet" parent="." unique_id=1410191484 instance=ExtResource("1_4m7mr")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 1.1482515, -0.011685848, -1.3756981)
+
+[node name="Bed" parent="." unique_id=715522066 instance=ExtResource("2_g40bn")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -2.3632917, 0.0072295666, 1.2506447)
+
+[node name="WallTorch" parent="." unique_id=673436367 instance=ExtResource("3_7mfmi")]
+transform = Transform3D(-5.3897375e-10, -5.941247e-07, 0.99999994, 0.999924, 0.012330278, 7.864654e-09, -0.012330278, 0.999924, 5.940728e-07, -1.8651838, 2.1883142, -2.1633768)
+
+[node name="WallTorch2" parent="." unique_id=783598986 instance=ExtResource("3_7mfmi")]
+transform = Transform3D(-5.3897375e-10, -5.941247e-07, 0.99999994, 0.999924, 0.012330278, 7.864654e-09, -0.012330278, 0.999924, 5.940728e-07, 0.807107, 2.1883142, -2.1633768)
+
+[node name="StudyDesk" parent="." unique_id=1528012825 instance=ExtResource("4_my7t4")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0.06649494, -0.011686325, 1.4958193)
+
+[node name="candle" parent="." unique_id=459729295 instance=ExtResource("5_asby7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.1538439, 1.0313048, 2.233643)
+
+[node name="candle2" parent="." unique_id=1627191445 instance=ExtResource("5_asby7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.0849085, 0.8344612, 2.3729072)
+
+[editable path="candle"]

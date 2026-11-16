@@ -742,7 +742,11 @@ _data = {
 }
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_cdpwx"]
-radius = 2.613
+radius = 1.8
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_hnqnj"]
+radius = 0.78808594
+height = 1.5761719
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_jn1yg"]
 size = Vector3(3.7597656, 2.6875, 1)
@@ -797,7 +801,7 @@ environment = SubResource("Environment_t634p")
 [node name="Camera3D" type="Camera3D" parent="VisualConfig" unique_id=1834340419]
 unique_name_in_owner = true
 physics_interpolation_mode = 1
-transform = Transform3D(0.68911713, -0.05456476, 0.7225927, -8.119608e-05, 0.99715525, 0.07537509, -0.72465, -0.052000936, 0.6871523, 70.182526, 2.8299794, 2.9668407)
+transform = Transform3D(0.6894552, -0.054795597, 0.7222527, -8.8518194e-05, 0.99712807, 0.07573423, -0.7243284, -0.05227929, 0.6874702, 70.18247, 2.829872, 2.9668858)
 top_level = true
 cull_mask = 1048031
 size = 62.088
@@ -906,53 +910,11 @@ light_volumetric_fog_energy = 1.22
 light_bake_mode = 1
 omni_range = 20.153
 
-[node name="RoomDoors" type="Node3D" parent="Church" unique_id=1440576113]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -33.12908, 0, 0)
-
-[node name="Right" type="Node3D" parent="Church/RoomDoors" unique_id=452435348]
-
-[node name="Door_copy5" parent="Church/RoomDoors/Right" unique_id=668800733 instance=ExtResource("9_ues17")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 52.548, 1.5745991, -0.9098737)
-flip = true
-
-[node name="Door_copy6" parent="Church/RoomDoors/Right" unique_id=2131933676 instance=ExtResource("9_ues17")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 57.878, 1.5745991, -0.9098737)
-flip = true
-
-[node name="Door_copy7" parent="Church/RoomDoors/Right" unique_id=1765539975 instance=ExtResource("9_ues17")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 63.208, 1.5745991, -0.9098737)
-flip = true
-
-[node name="Door_copy8" parent="Church/RoomDoors/Right" unique_id=156263478 instance=ExtResource("9_ues17")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 68.538, 1.5745991, -0.9098737)
-flip = true
-
-[node name="Door_copy9" parent="Church/RoomDoors/Right" unique_id=997516028 instance=ExtResource("9_ues17")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 73.868, 1.5745991, -0.9098737)
-flip = true
-
-[node name="Left" type="Node3D" parent="Church/RoomDoors" unique_id=747903130]
-
-[node name="Door_copy0" parent="Church/RoomDoors/Left" unique_id=1155157874 instance=ExtResource("9_ues17")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 52.548, 1.5745991, -3.0448737)
-
-[node name="Door_copy1" parent="Church/RoomDoors/Left" unique_id=376096474 instance=ExtResource("9_ues17")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 57.878, 1.5745991, -3.0448737)
-
-[node name="Door_copy2" parent="Church/RoomDoors/Left" unique_id=44716260 instance=ExtResource("9_ues17")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 63.208, 1.5745991, -3.0448737)
-
-[node name="Door_copy3" parent="Church/RoomDoors/Left" unique_id=143566255 instance=ExtResource("9_ues17")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 68.538, 1.5745991, -3.0448737)
-
-[node name="Door_copy4" parent="Church/RoomDoors/Left" unique_id=1329166490 instance=ExtResource("9_ues17")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 73.868, 1.5745991, -3.0448737)
-
 [node name="ConfessionalBooth" parent="Church" unique_id=321162436 instance=ExtResource("13_srmg5")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.082743, 1.6670088, -3.19987)
 
 [node name="Camera3D" parent="Church/ConfessionalBooth" index="2" unique_id=430217490]
-transform = Transform3D(0.6891175, -0.054564714, 0.7225924, -8.124566e-05, 0.99715525, 0.07537511, -0.72464967, -0.052001014, 0.6871527, 70.182526, 2.8299792, 2.9668407)
+transform = Transform3D(0.689454, -0.05479488, 0.72225386, -8.889481e-05, 0.9971281, 0.07573349, -0.7243294, -0.052278962, 0.68746907, 70.18247, 2.8298724, 2.9668856)
 top_level = true
 
 [node name="Sprite3D" parent="Church/ConfessionalBooth/Confessor" parent_id_path=PackedInt32Array(321162436, 1758948578) index="0" unique_id=415751236]
@@ -1152,7 +1114,7 @@ brute_force_first_dialogue = false
 
 [node name="Lucio" parent="Characters" unique_id=1730430442 instance=ExtResource("8_5qq27")]
 unique_name_in_owner = true
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 57.02339, 1, 2.3483446)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 59.99358, 1, 1.5773561)
 
 [node name="Sanson" parent="Characters" unique_id=1975172536 instance=ExtResource("9_dlabj")]
 unique_name_in_owner = true
@@ -1190,7 +1152,7 @@ deactivate = true
 mesh = NodePath("../lockpick/Loop_002")
 
 [node name="lockpick" parent="Characters/SleepPuzzle/LockPick" unique_id=43559986 instance=ExtResource("14_xq18t")]
-transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 0, 0)
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, -1.5422707, -0.17311001, -1.0533142)
 
 [node name="Loop_002" parent="Characters/SleepPuzzle/LockPick/lockpick" index="4" unique_id=708519900]
 material_overlay = ExtResource("19_tytul")
@@ -1260,6 +1222,20 @@ bell_audio_stream_player_3d_2 = NodePath("../../Church/ChurchBell/AudioStreamPla
 ambient = NodePath("../../Ambient")
 world_environment = NodePath("../../VisualConfig/WorldEnvironment")
 
+[node name="AfterPositions" type="Node3D" parent="Cutscenes/StartingCutscene" unique_id=1583553735]
+
+[node name="AfJulioPos" type="Marker3D" parent="Cutscenes/StartingCutscene/AfterPositions" unique_id=823686806]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 33.09901, 2.4136643, -13.1771345)
+
+[node name="AfHugoPos" type="Marker3D" parent="Cutscenes/StartingCutscene/AfterPositions" unique_id=1297462884]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 79.373314, 0.99999976, -5.1728444)
+
+[node name="AfSansonPos" type="Marker3D" parent="Cutscenes/StartingCutscene/AfterPositions" unique_id=2077204985]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 78.25211, 1, -4.9335027)
+
+[node name="AfPriorPos" type="Marker3D" parent="Cutscenes/StartingCutscene/AfterPositions" unique_id=7270146]
+transform = Transform3D(0, 0.9688143, 0.24778776, -1, 0, 0, 0, -0.24778776, 0.9688143, 47.035625, 6.73737, 3.486121)
+
 [node name="SansonPos" type="Marker3D" parent="Cutscenes/StartingCutscene" unique_id=2134042127]
 transform = Transform3D(0.99999994, 0, 0, 0, 1, 0, 0, 0, 0.99999994, 31.976969, 2.4136653, -12.766551)
 
@@ -1273,7 +1249,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 34.46197, 2.4136653, -12.8026
 transform = Transform3D(1, 0, 1.19209275e-07, 0, 1, 0, -1.19209275e-07, 0, 1, 43.0327, 8.069073, -0.96646833)
 
 [node name="PlayerPos" type="Marker3D" parent="Cutscenes/StartingCutscene" unique_id=873347398]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 33.043194, 2.4136653, -14.992425)
+transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, 33.043194, 2.4136653, -14.992425)
 
 [node name="SunCamera" type="Node3D" parent="Cutscenes/StartingCutscene" unique_id=935672393]
 transform = Transform3D(-1, 8.742277e-08, 0, 3.821371e-15, 4.3711385e-08, -0.9999999, -8.742278e-08, -0.9999999, -4.3711385e-08, 33.105, 10.433, -14.055)
@@ -1291,7 +1267,7 @@ noise_emitter_layer = 1
 metadata/_custom_type_script = "uid://csjccrhj5wnx7"
 
 [node name="CloseUpCamera" type="Node3D" parent="Cutscenes/StartingCutscene" unique_id=1789459155 node_paths=PackedStringArray("follow_target", "look_at_target")]
-transform = Transform3D(-0.98852074, 0, 0, 0, 0.8826757, -0.4699747, 0, -0.46997437, -0.8826764, 31.976969, 4.116524, -13.0710745)
+transform = Transform3D(-0.9841218, 0, 0, 0, 0.68254006, 0.7308435, 0, 0.7308429, -0.6825405, 31.976969, 4.5308065, -13.0020275)
 top_level = true
 script = ExtResource("28_phx5y")
 follow_mode = 5
@@ -1424,7 +1400,7 @@ mesh = NodePath("../blank_paper/Plane")
 [node name="blank_paper" parent="CollectableItems/BlankPaper" unique_id=431428558 instance=ExtResource("30_sh7a8")]
 
 [node name="AbbotKey" parent="CollectableItems" unique_id=987288399 instance=ExtResource("17_bt7bg")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 68.46086, 7.28195, -1.8827975)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 69.07033, 7.28195, -1.8827975)
 item = ExtResource("27_d0ajt")
 
 [node name="InteractionArea" parent="CollectableItems/AbbotKey" index="0" unique_id=834874890 node_paths=PackedStringArray("mesh")]
@@ -1446,11 +1422,14 @@ mesh = NodePath("../mirror_c2/mirrorC2")
 transform = Transform3D(0.7845753, 0.6064972, -0.12885152, 0, 0.20781378, 0.97816837, 0.62003356, -0.7674467, 0.16304556, -0.16025162, 0.032286644, 0)
 
 [node name="MirrorA1" parent="CollectableItems/Mirrors" unique_id=769254768 instance=ExtResource("17_bt7bg")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 58.922245, 7.1552815, -3.500537)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 59.12032, 7.1552815, -3.500537)
 item = ExtResource("31_7mx70")
 
 [node name="InteractionArea" parent="CollectableItems/Mirrors/MirrorA1" index="0" unique_id=834874890 node_paths=PackedStringArray("mesh")]
 mesh = NodePath("../mirror_a1/mirrorA1")
+
+[node name="CollisionShape3D" parent="CollectableItems/Mirrors/MirrorA1/InteractionArea" index="0" unique_id=449843590]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.4602394, 0.44763184, 0)
 
 [node name="mirror_a1" parent="CollectableItems/Mirrors/MirrorA1" unique_id=734387689 instance=ExtResource("32_1cxds")]
 transform = Transform3D(0.94294596, 0.33294582, -1.4553525e-08, 0, -4.371138e-08, -0.9999999, -0.33294582, 0.94294584, -4.1217472e-08, -0.42333603, 0.107562065, 0.079824686)
@@ -1471,6 +1450,9 @@ item = ExtResource("44_q3hpu")
 
 [node name="InteractionArea" parent="CollectableItems/Mirrors/MirrorB1" index="0" unique_id=834874890 node_paths=PackedStringArray("mesh")]
 mesh = NodePath("../mirror_b1/mirrorB1")
+
+[node name="CollisionShape3D" parent="CollectableItems/Mirrors/MirrorB1/InteractionArea" index="0" unique_id=449843590]
+shape = SubResource("CapsuleShape3D_hnqnj")
 
 [node name="mirror_b1" parent="CollectableItems/Mirrors/MirrorB1" unique_id=1070189855 instance=ExtResource("45_j0rhc")]
 transform = Transform3D(1, 0, 0, 0, 0.2832053, -0.9590593, 0, 0.9590593, 0.2832053, 0, 0.037852287, 0)
