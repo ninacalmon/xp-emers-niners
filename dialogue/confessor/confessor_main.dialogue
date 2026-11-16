@@ -1,4 +1,7 @@
 ~ start
+if not WorldStateManager.starting_cutscene_played:
+	Confissor: “Ora, vamos, meu jovem. Está na hora de sua oração.”
+	=> END!
 if InventoryManager.selected_item == CharacterData.Item.rotten_meat:
 	=> meat
 do locals.confessed = false

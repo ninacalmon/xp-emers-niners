@@ -92,7 +92,9 @@ func _input(event: InputEvent) -> void:
 
 
 func _physics_process(delta: float) -> void:
-	if is_dialogue_locked or is_focus_locked or is_puzzle_locked or is_cutscene_locked:
+	if _is_locked():
+		velocity.x = 0.0
+		velocity.z = 0.0
 		return
 
 	if not is_on_floor():
@@ -227,3 +229,7 @@ func look_at_target(target_pos: Vector3, duration: float = 0.5) -> void:
 	tween.tween_property(head, "rotation:x", target_pitch, duration)
 
 	await tween.finished
+
+
+func _is_locked() -> bool:
+	return is_dialogue_locked or is_focus_locked or is_puzzle_locked or is_cutscene_locked

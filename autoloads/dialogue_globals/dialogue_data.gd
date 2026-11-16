@@ -6,7 +6,7 @@ signal medication_quest_completed
 signal inkwell_quest_completed
 
 
-signal mood_set(character_name: String, mood_name: String)
+signal mood_set(character_name: String, mood_name: String, mouth_shut: bool, no_bounce: bool)
 
 
 const MOODS_BY_CHARACTER: Dictionary = {
@@ -35,6 +35,8 @@ enum JulioMoods {
 	SILLY_HAPPY,
 	SILLY_SAD,
 	SILLY_SURPRISED,
+	back,
+	idle
 }
 
 enum LucioMoods {
@@ -54,6 +56,7 @@ enum LucioMoods {
 	IDLE_SAD,
 	IDLE_SINIXTRO,
 	IDLE_SURPRISED,
+	idle
 }
 
 
@@ -76,7 +79,9 @@ enum HugoMoods {
 	OPENARMS_SUPERHAPPY,
 	OPENARMS_SURPRISED,
 	OPENARMS_WINK,
-	TUMOR
+	TUMOR,
+	back,
+	idle
 }
 
 
@@ -98,6 +103,8 @@ enum SansonMoods {
 	POSING_SAD,
 	AWAKE,
 	ASLEEP,
+	back,
+	idle
 }
 
 
@@ -118,13 +125,13 @@ enum PriorMoods {
 }
 
 
-func set_mood(character_name: String, mood: int, mouth_shut: bool = false) -> void:
+func set_mood(character_name: String, mood: int, mouth_shut: bool = false, no_bounce: bool = false) -> void:
 	var moods: Dictionary = MOODS_BY_CHARACTER.get(character_name, {})
 	var mood_name: Variant = moods.find_key(mood)
 	if mood_name == null:
 		push_warning("%s has no mood with value %d" % [character_name, mood])
 		return
-	mood_set.emit(character_name, str(mood_name), mouth_shut)
+	mood_set.emit(character_name, str(mood_name), mouth_shut, no_bounce)
 
 
 func player_in_booth(_player: Player):

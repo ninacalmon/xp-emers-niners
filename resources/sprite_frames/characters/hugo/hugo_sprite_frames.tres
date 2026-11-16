@@ -37,6 +37,7 @@
 [ext_resource type="Texture2D" uid="uid://cona6oh1ierqq" path="res://assets/2d/characters/hugo/openarms/hugo_openarms_wink_closed.png" id="35_j3jy7"]
 [ext_resource type="Texture2D" uid="uid://2ajqccqij57m" path="res://assets/2d/characters/hugo/openarms/hugo_openarms_wink_open.png" id="36_5nisj"]
 [ext_resource type="Texture2D" uid="uid://d0rkn80mjkbqh" path="res://assets/2d/characters/hugo/tumours - hugo sprite etc/hugo_tumour.png" id="37_7ah80"]
+[ext_resource type="Texture2D" uid="uid://c1bcnigwjbd2i" path="res://assets/2d/characters/hugo/hugo_back.png" id="38_wsd04"]
 
 [resource]
 animations = [{
@@ -244,6 +245,14 @@ animations = [{
 }],
 "loop": 1,
 "name": &"TUMOR",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("38_wsd04")
+}],
+"loop": 1,
+"name": &"back",
 "speed": 5.0
 }, {
 "frames": [{

@@ -13,6 +13,7 @@ albedo_color = Color(0.9265, 1, 0.51, 1)
 [sub_resource type="SphereShape3D" id="SphereShape3D_mjcr6"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_sn1ct"]
+radius = 0.77255183
 
 [node name="TestKeyGiverBall" type="StaticBody3D" unique_id=471407858]
 

@@ -1,8 +1,28 @@
 [gd_scene format=3 uid="uid://dhk5e4bt07a2o"]
 
 [ext_resource type="PackedScene" uid="uid://bn2gna10fk1jr" path="res://assets/3d/objects/chair/mdvl_interiors_chair_01.glb" id="1_rk0p6"]
+[ext_resource type="Texture2D" uid="uid://d2r0y5nh7g5je" path="res://assets/3d/objects/confessional/confessional_door_rosewood_veneer1_diff_1k.jpg" id="2_re0qh"]
+[ext_resource type="Texture2D" uid="uid://c5pfgce1uxpvu" path="res://assets/3d/objects/confessional/confessional_door_rosewood_veneer1_rough_1k.png" id="3_1ercc"]
+[ext_resource type="Texture2D" uid="uid://b6xhxshluywns" path="res://assets/3d/objects/confessional/confessional_door_rosewood_veneer1_nor_gl_1k.png" id="4_3n0yu"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_6hxg4"]
+resource_name = "wood"
+cull_mode = 2
+albedo_texture = ExtResource("2_re0qh")
+metallic_texture = ExtResource("3_1ercc")
+metallic_texture_channel = 2
+roughness_texture = ExtResource("3_1ercc")
+roughness_texture_channel = 1
+normal_enabled = true
+normal_texture = ExtResource("4_3n0yu")
+metadata/_gltf_primary_texture_coord = 0
 
 [node name="Chair" type="Node3D" unique_id=708079133]
 
 [node name="mdvl_interiors_chair_012" parent="." unique_id=1477034428 instance=ExtResource("1_rk0p6")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.31190634)
+
+[node name="mdvl_interiors_chair_01" parent="mdvl_interiors_chair_012" index="0" unique_id=1738500296]
+surface_material_override/0 = SubResource("StandardMaterial3D_6hxg4")
+
+[editable path="mdvl_interiors_chair_012"]

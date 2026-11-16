@@ -13,10 +13,10 @@ do DialogueData.set_mood("Sanson", DialogueData.SansonMoods.IDLE_HAPPY, true)
 do DialogueData.set_mood("Hugo", DialogueData.HugoMoods.MISCHIVEOUS_SURPRISED, true)
 ## set Sanson later!!
 Você: "Algo vai acontecer esta noite. Algo… Um incêndio. Um fogo terrível vai reduzir tudo a cinzas. [b]Tudo vai queimar![/b] O Sol-"
-do DialogueData.set_mood("Julio", DialogueData.JulioMoods.IDLE_HAPPY, true)
+do DialogueData.set_mood("Julio", DialogueData.JulioMoods.IDLE_HAPPY, true, true)
 #do DialogueData.set_mood("Lucio", DialogueData.LucioMoods.IDLE_HAPPY, true)
-do DialogueData.set_mood("Sanson", DialogueData.SansonMoods.IDLE_HAPPY, true)
-do DialogueData.set_mood("Hugo", DialogueData.HugoMoods.MISCHIVEOUS_SUPERHAPPY, true)
+do DialogueData.set_mood("Sanson", DialogueData.SansonMoods.POSING_HAPPY, true, true)
+do DialogueData.set_mood("Hugo", DialogueData.HugoMoods.MISCHIVEOUS_SUPERHAPPY, true, true)
 ## set Sanson later!!
 #* Estão todos apenas olhando para mim, como se fizessem parte de um segredo do qual eu estou de fora…*
 #* Eles sorriem, eles riem, parecem quase que… animados..? *

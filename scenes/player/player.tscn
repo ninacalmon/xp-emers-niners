@@ -20,6 +20,7 @@
 [ext_resource type="AudioStream" uid="uid://bql6l874cmpkr" path="res://assets/sound/sound_effects/player/footsteps/dirt_floor/heels_on_dirt (3).wav" id="15_uf5tr"]
 [ext_resource type="AudioStream" uid="uid://27w56i0xbjwy" path="res://assets/sound/sound_effects/player/footsteps/dirt_floor/heels_on_dirt (4).wav" id="16_lgqa7"]
 [ext_resource type="Shader" uid="uid://ba1q0gbjlc5a4" path="res://resources/shaders/drunk.gdshader" id="19_lgqa7"]
+[ext_resource type="Texture2D" uid="uid://dn7myl3od4u6d" path="res://assets/2d/characters/fran/fran.png" id="21_3j4b4"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_cdpwx"]
 radius = 0.3
@@ -163,3 +164,10 @@ light_color = Color(0.85, 0.76117504, 0.56949997, 1)
 light_energy = 0.8
 light_bake_mode = 1
 omni_range = 1.5
+
+[node name="Sprite3D" type="Sprite3D" parent="." unique_id=757526085]
+transform = Transform3D(0.18, 0, 0, 0, 0.18, 0, 0, 0, 0.18, 0, 1.1075125, 0)
+layers = 32
+billboard = 2
+shaded = true
+texture = ExtResource("21_3j4b4")

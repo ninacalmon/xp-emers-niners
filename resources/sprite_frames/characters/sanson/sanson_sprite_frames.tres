@@ -32,6 +32,7 @@
 [ext_resource type="Texture2D" uid="uid://din3pgfgvs7wc" path="res://assets/2d/characters/sanson/posing/sanson_hihi_pout_open.png" id="26_u7tm2"]
 [ext_resource type="Texture2D" uid="uid://d0jo8yceyp8r2" path="res://assets/2d/characters/sanson/posing/sanson_hihi_sad_closed.png" id="27_0oamr"]
 [ext_resource type="Texture2D" uid="uid://dya1ggoo53281" path="res://assets/2d/characters/sanson/posing/sanson_hihi_sad_open.png" id="28_mr6x4"]
+[ext_resource type="Texture2D" uid="uid://pyln2rgxi2vh" path="res://assets/2d/characters/sanson/sanson_back.png" id="33_my6wn"]
 
 [resource]
 animations = [{
@@ -215,6 +216,14 @@ animations = [{
 "loop": 1,
 "name": &"POSING_SAD",
 "speed": 6.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("33_my6wn")
+}],
+"loop": 1,
+"name": &"back",
+"speed": 5.0
 }, {
 "frames": [{
 "duration": 1.0,

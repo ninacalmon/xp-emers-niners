@@ -25,10 +25,10 @@ func _ready() -> void:
 
 ## this function is called when a line of dialogue have a mood different than
 ## the previous storaged mood in [DialogueAction].
-func _on_mood_set(speaker: String, mood_name: String, mouth_shut: bool = false) -> void:
+func _on_mood_set(speaker: String, mood_name: String, mouth_shut: bool = false, no_bounce: bool = false) -> void:
 	if speaker != character_name:
 		return
-	change_anim(mood_name)
+	change_anim(mood_name, no_bounce)
 	if mouth_shut:
 		animated_sprite.stop()
 
@@ -40,7 +40,7 @@ func _on_dialogue_ended() -> void:
 ## tries to match and play animation with the same name as a mood declared
 ## in [DialogueData.moods].
 ## NOTE: to add and play a new animation/mood, read [DialogueData]!!!
-func change_anim(mood: String):
+func change_anim(mood: String, no_bounce: bool = false):
 	if mood == "idle":
 		animated_sprite.play(mood)
 		animated_sprite.stop()
@@ -48,6 +48,8 @@ func change_anim(mood: String):
 
 	if animated_sprite.sprite_frames.has_animation(mood):
 		animated_sprite.play(mood)
+		if no_bounce:
+			return
 		bounce_on_it()
 
 

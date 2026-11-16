@@ -2,7 +2,10 @@ import "uid://4rnw0u51426k" as medication_for_lucio
 import "uid://djib057op7qt5" as get_inkwell
 
 ~ start
-
+if not WorldStateManager.starting_cutscene_played:
+	do DialogueData.set_mood("julio", DialogueData.JulioMoods.IDLE_DEFAULT)
+	Julio: “É hora da oração de meio dia.”
+	=> END!
 if CharacterData.Julio.get_status("medication_for_lucio") != 2:
 	=> medication_for_lucio/start
 elif CharacterData.Julio.get_status("get_inkwell") != 2:

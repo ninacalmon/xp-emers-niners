@@ -29,6 +29,7 @@
 [ext_resource type="Texture2D" uid="uid://dlgg3oedrxav7" path="res://assets/2d/characters/julio/silly/julio_silly_sad_closed.png" id="27_vhmwb"]
 [ext_resource type="Texture2D" uid="uid://cyv8q5t05kj8q" path="res://assets/2d/characters/julio/silly/julio_silly_sad_open.png" id="28_hs7r4"]
 [ext_resource type="Texture2D" uid="uid://chx1vkc7pxlkk" path="res://assets/2d/characters/julio/silly/julio_silly_surprised.png" id="29_e80x1"]
+[ext_resource type="Texture2D" uid="uid://dxt28a703o7u2" path="res://assets/2d/characters/julio/julio_back.png" id="30_0gjop"]
 
 [resource]
 animations = [{
@@ -198,6 +199,14 @@ animations = [{
 "loop": 1,
 "name": &"SILLY_SURPRISED",
 "speed": 6.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("30_0gjop")
+}],
+"loop": 1,
+"name": &"back",
+"speed": 5.0
 }, {
 "frames": [{
 "duration": 1.0,

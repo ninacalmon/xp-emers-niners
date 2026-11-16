@@ -12,6 +12,7 @@ extends ActionTrigger
 @onready var l_door_pivot: Node3D = $LDoorPivot
 
 @export var locked: bool = false
+@export var unlockeable: bool = false
 @export var locked_stream_player: AudioStreamPlayer
 
 var is_open: bool = false
@@ -28,7 +29,7 @@ func _ready() -> void:
 
 func trigger():
 	if locked:
-		if InventoryManager.selected_item == wanted_item:
+		if unlockeable and InventoryManager.selected_item == wanted_item:
 			locked = false
 			locked_stream_player.play()
 		else:
