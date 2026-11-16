@@ -67,8 +67,6 @@ var seconds_per_step
 var started: bool = false
 
 func _ready() -> void:
-	Engine.time_scale = 3
-
 	hands_overlay = get_tree().get_first_node_in_group("hands_overlay")
 	name_label.hide()
 

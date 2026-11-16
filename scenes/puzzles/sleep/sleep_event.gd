@@ -11,6 +11,7 @@ const ANIM_AWAKE: StringName = &"AWAKE"
 @export var sanson: DialogueAction
 @export var door_blocker: CollisionShape3D
 @export var sanson_interact_collision_shape_3d: CollisionShape3D
+@onready var sanson_sleep_pos: Marker3D = $sanson_sleep_pos
 
 var _started: bool = false
 var _sanson_awake: bool = false
@@ -23,6 +24,7 @@ var _player_inside: bool = false
 
 
 func _ready() -> void:
+	Engine.time_scale = 3
 	item_in_world.deactivate = true
 	player_detection.monitoring = false
 	door_blocker.disabled = true
@@ -36,6 +38,8 @@ func start() -> void:
 	if _started:
 		return
 	_started = true
+	Engine.time_scale = 1
+	sanson.global_position = sanson_sleep_pos.global_position
 	print("[SleepPuzzle] start()")
 	
 	#player_detection.collision_mask = 0xFFFFFFFF

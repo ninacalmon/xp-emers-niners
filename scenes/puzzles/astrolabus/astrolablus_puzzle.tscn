@@ -43,7 +43,7 @@ roughness = 0.25
 radius = 0.02
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_cdpwx"]
-radius = 0.86783373
+radius = 1.2944505
 
 [node name="AstrolablusPuzzle" type="Node3D" unique_id=572576743 node_paths=PackedStringArray("interaction_area_collision", "pointer_pivot", "button_action_trigger", "astrolabus_pointer", "button_mesh", "astrolabus") groups=["puzzles"]]
 script = ExtResource("1_tc74g")

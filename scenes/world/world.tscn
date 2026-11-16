@@ -25,7 +25,6 @@
 [ext_resource type="Material" uid="uid://dki8i4qf7fofd" path="res://resources/shader_materials/outline_shader_material_3d.tres" id="19_tytul"]
 [ext_resource type="PackedScene" uid="uid://dv6muq7ftqubi" path="res://assets/3d/items/astrolabus/astrolabus_pointer.glb" id="19_wbwoo"]
 [ext_resource type="Resource" uid="uid://8dvrkoxmyyx4" path="res://items/intertwined_puzzle/astrolabus_pointer.tres" id="20_t634p"]
-[ext_resource type="PackedScene" uid="uid://dhk5e4bt07a2o" path="res://scenes/objects/chair/chair.tscn" id="22_6hctx"]
 [ext_resource type="PackedScene" uid="uid://bq0g7rwr88eri" path="res://scenes/objects/doors/gate.tscn" id="27_ckok1"]
 [ext_resource type="Resource" uid="uid://l32ivj0agrb2" path="res://items/abbot_key.tres" id="27_d0ajt"]
 [ext_resource type="Script" uid="uid://blnqbbyhu0b5u" path="res://scenes/world/cutscenes/starting_cutscene.gd" id="27_hph6x"]
@@ -107,7 +106,7 @@ size = Vector2(500, 500)
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_u1gsd"]
 albedo_color = Color(0.66, 0.52536005, 0.4224, 1)
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_kngxi"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_5aamg"]
 viewport_path = NodePath("SubViewportSprite")
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_u0ka6"]
@@ -183,19 +182,19 @@ top_radius = 2.0
 bottom_radius = 2.0
 height = 1.0
 
+[sub_resource type="ViewportTexture" id="ViewportTexture_kngxi"]
+viewport_path = NodePath("SubViewportSprite")
+
 [sub_resource type="ViewportTexture" id="ViewportTexture_dhssw"]
 viewport_path = NodePath("SubViewportSprite")
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_cf0uk"]
-viewport_path = NodePath("SubViewportSprite")
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_j2kh8"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_cf0uk"]
 resource_local_to_scene = true
 render_priority = -1
 shader = ExtResource("13_goy61")
-shader_parameter/sprite_texture = SubResource("ViewportTexture_cf0uk")
+shader_parameter/sprite_texture = SubResource("ViewportTexture_dhssw")
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_hpffo"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_j2kh8"]
 viewport_path = NodePath("SubViewportSprite")
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_cdpwx"]
@@ -801,7 +800,7 @@ environment = SubResource("Environment_t634p")
 [node name="Camera3D" type="Camera3D" parent="VisualConfig" unique_id=1834340419]
 unique_name_in_owner = true
 physics_interpolation_mode = 1
-transform = Transform3D(0.6894552, -0.054795597, 0.7222527, -8.8518194e-05, 0.99712807, 0.07573423, -0.7243284, -0.05227929, 0.6874702, 70.18247, 2.829872, 2.9668858)
+transform = Transform3D(0.68898684, -0.054666705, 0.7227093, 4.2076994e-05, 0.9971544, 0.075385995, -0.72477394, -0.051909544, 0.6870286, 70.182556, 2.8300219, 2.966874)
 top_level = true
 cull_mask = 1048031
 size = 62.088
@@ -914,14 +913,11 @@ omni_range = 20.153
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.082743, 1.6670088, -3.19987)
 
 [node name="Camera3D" parent="Church/ConfessionalBooth" index="2" unique_id=430217490]
-transform = Transform3D(0.689454, -0.05479488, 0.72225386, -8.889481e-05, 0.9971281, 0.07573349, -0.7243294, -0.052278962, 0.68746907, 70.18247, 2.8298724, 2.9668856)
+transform = Transform3D(0.6889867, -0.054666072, 0.7227094, 4.1925603e-05, 0.9971545, 0.07538525, -0.724774, -0.051909138, 0.6870285, 70.182556, 2.8300219, 2.966874)
 top_level = true
 
 [node name="Sprite3D" parent="Church/ConfessionalBooth/Confessor" parent_id_path=PackedInt32Array(321162436, 1758948578) index="0" unique_id=415751236]
-texture = SubResource("ViewportTexture_kngxi")
-
-[node name="Chair" parent="Church" unique_id=708079133 instance=ExtResource("22_6hctx")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 42.930725, 1.0000007, -6.876649)
+texture = SubResource("ViewportTexture_5aamg")
 
 [node name="SecondFloor" type="Node3D" parent="Church" unique_id=1860471051]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -33.12908, 0, 0)
@@ -1121,14 +1117,22 @@ unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 78.78419, 0.9976957, -5.94999)
 
 [node name="Sprite3D" parent="Characters/Sanson" index="0" unique_id=415751236]
-texture = SubResource("ViewportTexture_dhssw")
+texture = SubResource("ViewportTexture_kngxi")
 
 [node name="Outline" parent="Characters/Sanson/Sprite3D" index="0" unique_id=1631064389]
-material_overlay = SubResource("ShaderMaterial_j2kh8")
-texture = SubResource("ViewportTexture_hpffo")
+material_overlay = SubResource("ShaderMaterial_cf0uk")
+texture = SubResource("ViewportTexture_j2kh8")
 
 [node name="AstrolablusPuzzle" parent="Characters" unique_id=572576743 instance=ExtResource("14_m114p")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 74.455536, 1.0101616, -6.621845)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 74.03788, 0.89560485, -7.5373673)
+
+[node name="SpotLight3D" type="SpotLight3D" parent="Characters/AstrolablusPuzzle" unique_id=968568728]
+transform = Transform3D(0.9585021, 0.2548376, 0.12779476, 0, -0.44826826, 0.8938991, 0.28508544, -0.85680413, -0.42966607, 0.14440918, 1.4710057, -0.57654715)
+light_color = Color(1, 0.84283334, 0.59000003, 1)
+light_energy = 0.515
+spot_range = 3.513
+spot_attenuation = -0.09
+spot_angle = 43.91
 
 [node name="SleepPuzzle" type="Node3D" parent="Characters" unique_id=875274494]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 74.53745, 2.1546106, -3.4635518)
@@ -1143,6 +1147,9 @@ sanson = NodePath("../../Sanson")
 door_blocker = NodePath("../PlayerBlocker/CollisionShape3D")
 sanson_interact_collision_shape_3d = NodePath("../../Sanson/InteractionArea/CollisionShape3D")
 
+[node name="sanson_sleep_pos" type="Marker3D" parent="Characters/SleepPuzzle/SleepEvent" unique_id=1060949907]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 76.31251, 0.99999976, -5.1884975)
+
 [node name="LockPick" parent="Characters/SleepPuzzle" unique_id=1067992399 instance=ExtResource("17_bt7bg")]
 transform = Transform3D(0.4183646, 0, 0.9082792, 0, 1, 0, -0.9082792, 0, 0.4183646, 0, 0, -4.7363977)
 item = ExtResource("14_x0nq1")
@@ -1152,7 +1159,7 @@ deactivate = true
 mesh = NodePath("../lockpick/Loop_002")
 
 [node name="lockpick" parent="Characters/SleepPuzzle/LockPick" unique_id=43559986 instance=ExtResource("14_xq18t")]
-transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, -1.5422707, -0.17311001, -1.0533142)
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0.1816597, 0.0067293644, 0.2569809)
 
 [node name="Loop_002" parent="Characters/SleepPuzzle/LockPick/lockpick" index="4" unique_id=708519900]
 material_overlay = ExtResource("19_tytul")
@@ -1189,10 +1196,10 @@ bell_area_door = NodePath("../../Church/SecondFloor/BellAreaDoor")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 21.404587, 1.5257708, -2.079492)
 
 [node name="HugoRoomPosition" type="Marker3D" parent="Cutscenes" unique_id=2141241143 groups=["hugo_room_pos"]]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 51.954063, 1.006, -6.383174)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 52.039368, 1.0060003, -5.7116895)
 
 [node name="SansonRoomPosition" type="Marker3D" parent="Cutscenes" unique_id=998715351 groups=["sanson_room_pos"]]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 75.828415, 1.006, -6.383174)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 74.88704, 1.006, -6.5855584)
 
 [node name="PlayerOutsidePos" type="Marker3D" parent="Cutscenes" unique_id=855481326]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 44.840195, 8.094223, -2.17305)
@@ -1267,7 +1274,7 @@ noise_emitter_layer = 1
 metadata/_custom_type_script = "uid://csjccrhj5wnx7"
 
 [node name="CloseUpCamera" type="Node3D" parent="Cutscenes/StartingCutscene" unique_id=1789459155 node_paths=PackedStringArray("follow_target", "look_at_target")]
-transform = Transform3D(-0.9841218, 0, 0, 0, 0.68254006, 0.7308435, 0, 0.7308429, -0.6825405, 31.976969, 4.5308065, -13.0020275)
+transform = Transform3D(-0.9818226, 0, 0, 0, 0.68254006, 0.7308435, 0, 0.7308429, -0.6825405, 31.976969, 4.5308065, -13.0020275)
 top_level = true
 script = ExtResource("28_phx5y")
 follow_mode = 5
@@ -1549,8 +1556,9 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.1029987, 1.1204255, 0.1006
 [node name="candle8" parent="Candles" unique_id=252990567 instance=ExtResource("35_sygq6")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.0464954, 1.1204255, 0.43545723)
 
-[node name="MirrorsPuzzle" parent="." unique_id=866772177 instance=ExtResource("51_q3hpu")]
+[node name="MirrorsPuzzle" parent="." unique_id=866772177 node_paths=PackedStringArray("door") instance=ExtResource("51_q3hpu")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 33.061745, 12.275146, 20.609974)
+door = NodePath("../Church/AbbotsDoor")
 
 [node name="Node" type="Node" parent="." unique_id=974539785]
 script = ExtResource("52_j0rhc")
