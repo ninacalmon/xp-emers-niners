@@ -49,11 +49,12 @@ Você: “Melhor, eu acho.”
 do DialogueData.set_mood("Julio", DialogueData.JulioMoods.INTENSE_HAPPY)
 Julio: “Ah! Fico feliz!”
 do CharacterData.Julio.complete_task("medication_for_lucio")
-Você: “Na verdade, tem algo que eu gostaria de perguntar...”
-- “O que você acha do Sol?” [if not locals.asked_sun /] =>< question_sun
-- “Sobre o homem do confessionário… Você já o viu sair de lá?” [if not locals.asked_confessor /] =>< question_confessor
+~ question_hub
 if locals.asked_sun and locals.asked_confessor:
 	=> julio_get_inkwell/start
+Você: “Na verdade, tem algo que eu gostaria de perguntar...”
+- “O que você acha do Sol?” [if not locals.asked_sun /] => question_sun
+- “Sobre o homem do confessionário… Você já o viu sair de lá?” [if not locals.asked_confessor /] => question_confessor
 
 ~ question_sun
 do locals.asked_sun = true
@@ -65,11 +66,11 @@ Julio: “Eu creio no nosso Sol. Acredito que ele sabe o que é melhor para nós
 Você: “Você não está entendendo... aquilo foi um aviso!”
 do DialogueData.set_mood("Julio", DialogueData.JulioMoods.IDLE_HAPPY)
 Julio: “É verdade. E não é belo? Posso, assim, fazer meu último desejo.”
-=> END
+=> question_hub
 
 ~ question_confessor
 do locals.asked_confessor = true
 do DialogueData.set_mood("Julio", DialogueData.JulioMoods.SILLY_HAPPY)
 Julio: “Ah. Não, nunca vi. Imagino que ele só saia para ir ao banheiro... haha. Mas isso é raro. Ele nunca come suas pequenas porções de comida. Talvez seja exigente. Haha!”
 do CharacterData.Confessor.hunger = true
-=> END
+=> question_hub

@@ -2,14 +2,14 @@
 ~ start
 match CharacterData.Julio.get_status("get_inkwell"):
 	when 0:
-		=> give_task
+		=> give_task_init
 	when 1:
 		=> waiting_completion
 	when 2:
 		Julio: "Obrigado!"
 => END
 
-~ give_task
+~ give_task_init
 do GetEntity.put_entity_at(GetEntity.get_hugo(), GetEntity.get_hugo_room_pos().global_position)
 do GetEntity.put_entity_at(GetEntity.get_sanson(), GetEntity.get_sanson_room_pos().global_position)
 do GetEntity.get_hugo().stop_chatting()
@@ -18,29 +18,38 @@ do DialogueData.set_mood("Julio", DialogueData.JulioMoods.IDLE_DEFAULT)
 Julio: “Ah... espere. Francisco... preciso da sua ajuda com algo.”
 do DialogueData.set_mood("Julio", DialogueData.JulioMoods.SILLY_DEFAULT)
 Julio: “É, hummm... Ah sim.”
+~ give_task
 do DialogueData.set_mood("Julio", DialogueData.JulioMoods.IDLE_DEFAULT)
 Julio: “Tinta. Eu preciso de um tinteiro, por favor.”
 do DialogueData.set_mood("Julio", DialogueData.JulioMoods.IDLE_HAPPY)
 Julio: “Se conseguir para mim, vou te levar até a área dos animais.”
+~ question_hub
+if locals.asked_ink and locals.asked_animals:
+	=> finish_dialogue
 - “Por que um tinteiro?”
 	Julio: “Você verá!”
-	=>< 
+	=> question_hub
 - “Por que você deixa a área dos animais trancada?”
 	do DialogueData.set_mood("Julio", DialogueData.JulioMoods.SILLY_SAD)
 	Julio: “Porque, bem... em um lugar onde todos estão famintos, é perigoso deixar os bichinhos acessíveis a todos...”
-	=>< 
+	=> question_hub
 - > Finalizar diálogo <
+	=> finish_dialogue
+
+~ finish_dialogue
+if CharacterData.Julio.get_status("get_inkwell") == 0:
 	Você: “Tudo bem, certo.”
 	do DialogueData.set_mood("Julio", DialogueData.JulioMoods.IDLE_HAPPY)
 	Julio: “Obrigado!”
 	do CharacterData.Julio.give_task("get_inkwell")
-	=> END!
-=> END
+=> END!
+
 
 ~ waiting_completion
 do DialogueData.set_mood("Julio", DialogueData.JulioMoods.IDLE_DEFAULT)
-Julio: “Francisco! Como você está? Conseguiu o tinteiro?”
+Julio: “Você poderia por favor trazer o tinteiro para mim? Quero poder realizar meu último desejo.”
 - > Concluir tarefa <[if InventoryManager.selected_item == CharacterData.Item.inkwell or InventoryManager.selected_item == CharacterData.Item.toxic_plant /] => complete_task
+- > Repetir perguntas < => question_hub
 - > Finalizar diálogo < => END!
 => END
 

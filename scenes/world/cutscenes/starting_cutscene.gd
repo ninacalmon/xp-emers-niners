@@ -4,6 +4,8 @@ class_name StartingCutscene
 
 signal next
 
+@export var skip_cutscene: bool = false
+
 @export_group("Characters")
 @export var player: Player
 @export var julio: Node3D
@@ -67,8 +69,12 @@ var seconds_per_step
 var started: bool = false
 
 func _ready() -> void:
-	hands_overlay = get_tree().get_first_node_in_group("hands_overlay")
+	hands_overlay = get_tree().get_first_node_in_group("hands_overlay") as HandsOverlay
 	name_label.hide()
+
+	if skip_cutscene:
+		_skip_to_end_state()
+		return
 
 	sanson.global_position = sanson_pos.global_position
 	julio.global_position = julio_pos.global_position
@@ -79,6 +85,7 @@ func _ready() -> void:
 
 	await get_tree().create_timer(2).timeout
 	TaskManager.give_task("noon_prayer", "Se dirija ao Altar para a oração de meio dia.")
+	
 
 func _save_original_state() -> void:
 	_orig_glow_strength = world_environment.environment.glow_strength
@@ -325,3 +332,23 @@ func set_start_game_state():
 	hugo.is_chatting = true
 	# Prior
 	prior.global_position = af_prior_pos.global_position
+
+
+func _skip_to_end_state() -> void:
+	started = true
+	WorldStateManager.starting_cutscene_played = true
+
+	await get_tree().process_frame
+
+	$OutsideCamera.priority = 0
+	for pcam: PhantomCamera3D in _get_cutscene_pcams():
+		pcam.priority = 0
+	camera.make_current()
+
+	DialogueData.set_mood("Julio", DialogueData.JulioMoods.idle, true, true)
+	DialogueData.set_mood("Sanson", DialogueData.SansonMoods.idle, true, true)
+	DialogueData.set_mood("Hugo", DialogueData.HugoMoods.idle, true, true)
+
+	player.global_transform = player_pos.global_transform
+	player.is_cutscene_locked = false
+	set_start_game_state()
