@@ -27,7 +27,7 @@ Hugo: “Muito bem! Imagine o seguinte, você precisa escolher um... presente, p
 	do DialogueData.set_mood("Hugo", DialogueData.HugoMoods.OPENARMS_WINK)
 	Hugo: “...Ah, é verdade… Sabia de uma coisa? [b]Sanson[/b] tem um pequeno… segredo que ele vem guardando.”
 	Hugo: “Ele tem uma flor, eu sei que tem. Sei que ele ainda a tem… Sim, seria perfeito. Mas…”
-	do DialogueData.set_mood("Hugo", DialogueData.HugoMoods.MISCHIVEOUS_HAPPY)
+	do DialogueData.set_mood("Hugo", DialogueData.HugoMoods.MISCHIVEOUS_WINK)
 	Hugo: “Sanson não abriria mão dela tão facilmente. Mas aposto que, com jeitinho, você a conseguiria para mim.”
 	Você: “Uma flor?”
 	do DialogueData.set_mood("Hugo", DialogueData.HugoMoods.MISCHIVEOUS_SUPERHAPPY)

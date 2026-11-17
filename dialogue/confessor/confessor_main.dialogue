@@ -1,4 +1,5 @@
 ~ start
+do InventoryManager.add_new_item(CharacterData.Item.rotten_meat)
 if not WorldStateManager.starting_cutscene_played:
 	Confissor: “Ora, vamos, meu jovem. Está na hora de sua oração.”
 	=> END!

@@ -23,7 +23,7 @@ Lucio: “O que quer dizer?”
 Você: “Algo que pareça errado. Algo suspeito. Você sabe de alguma coisa do tipo? Algo que viu nos livros?”
 Lucio: “Não, não sei. Porém... sei sobre... algo…”
 Você: “Por favor. Qualquer coisa serve.”
-do DialogueData.set_mood("Lucio", DialogueData.LucioMoods.IDLE_ANGRY)
+do DialogueData.set_mood("Lucio", DialogueData.LucioMoods.IDLE_DEFAULT)
 Lucio: “É… complicado. Não tenho certeza se você vai entender por completo. É muita coisa para assimilar.”
 Você: “Por favor. Acho que aconteceu algo… Algo horrível. e acho que…”
 do DialogueData.set_mood("Lucio", DialogueData.LucioMoods.HEART_SURPRISED)

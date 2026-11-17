@@ -11,19 +11,25 @@ match CharacterData.Julio.get_status("medication_for_lucio"):
 
 ~ give_task
 do DialogueData.set_mood("Julio", DialogueData.JulioMoods.IDLE_DEFAULT)
-Julio: “Ah… Francisco! Estava pensando se você-“
-Você: “Julio, você não entende o significado disso, não-“
+Julio: “Ah... Francisco! Estava pensando se você-“
+Você: “Julio. Você entende o significado disso? O Sol, não-“
 do DialogueData.set_mood("Julio", DialogueData.JulioMoods.IDLE_SAD)
-Julio: “Preciso da sua ajuda. Estou preocupado com o Lucio… ele deve estar com dor. Você poderia levar este remédio que vou te dar para ele, por favor?”
-Você: “… tudo bem.”
+Julio: “Preciso da sua ajuda.”
+do DialogueData.set_mood("Julio", DialogueData.JulioMoods.INTENSE_SAD)
+Julio: “Ah... Lucio está sentindo dor novamente. Ele perdeu a nossa oração. Trouxe o restinho do remédio, aqui.”
 do InventoryManager.add_new_item(CharacterData.Item.medication)
-Julio: “Espero que ele se sinta melhor logo.”
+Julio: “Leve para ele...”
+Você: “...Vou vê-lo novamente... e aviso você.”
+do DialogueData.set_mood("Julio", DialogueData.JulioMoods.IDLE_SAD)
+Julio: “Espero que ele se sinta melhor logo...”
+do DialogueData.set_mood("Julio", DialogueData.JulioMoods.SILLY_DEFAULT)
+Julio: “Você de fato seria um bom Abade. Isto é, se tivéssemos tempo.”
 do CharacterData.Julio.give_task("medication_for_lucio")
 => END
 
 ~ waiting_completion
 do DialogueData.set_mood("Julio", DialogueData.JulioMoods.IDLE_DEFAULT)
-Julio: “Olá! Já fez o que eu pedi?“
+Julio: “Por favor... vá ver Lucio rapidamente“
 - > Concluir tarefa <[if CharacterData.Julio.lucio_received_medicine /] => complete_task
 - “O que era para fazer mesmo?“ => explain_task
 - > Finalizar diálogo < => END!
@@ -35,6 +41,8 @@ Julio: “Leve o remédio que lhe dei para Lucio e retorne, por favor.“
 => END
 
 ~ complete_task
+do locals.asked_sun = false
+do locals.asked_confessor = false
 do DialogueData.set_mood("Julio", DialogueData.JulioMoods.INTENSE_SAD)
 Julio: “Como ele está?”
 Você: “Melhor, eu acho.”
@@ -42,9 +50,26 @@ do DialogueData.set_mood("Julio", DialogueData.JulioMoods.INTENSE_HAPPY)
 Julio: “Ah! Fico feliz!”
 do CharacterData.Julio.complete_task("medication_for_lucio")
 Você: “Na verdade, tem algo que eu gostaria de perguntar...”
-Você: “Sobre o homem do confessionário… Você já o viu sair de lá?”
-do DialogueData.set_mood("Julio", DialogueData.JulioMoods.SILLY_HAPPY)
-Julio: “Ah. Não, nunca vi. Imagino que ele só saia para ir ao banheiro… haha. Mas isso é raro. Ele nunca come suas pequenas porções de comida. Talvez seja exigente. Haha!”
-do CharacterData.Confessor.hunger = true
-=> julio_get_inkwell/start
+- “O que você acha do Sol?” [if not locals.asked_sun /] =>< question_sun
+- “Sobre o homem do confessionário… Você já o viu sair de lá?” [if not locals.asked_confessor /] =>< question_confessor
+if locals.asked_sun and locals.asked_confessor:
+	=> julio_get_inkwell/start
 
+~ question_sun
+do locals.asked_sun = true
+do DialogueData.set_mood("Julio", DialogueData.JulioMoods.IDLE_HAPPY)
+Julio: “Oh! Nosso glorioso Sol! Não é maravilhoso? Ele ilumina nossas vidas e mantém nossos corações quentes. Sou grato por ele todos os dias.”
+Você: “Então, sobre mais cedo... Ele realmente me disse que tudo vai queimar! É verdade!”
+do DialogueData.set_mood("Julio", DialogueData.JulioMoods.IDLE_DEFAULT)
+Julio: “Eu creio no nosso Sol. Acredito que ele sabe o que é melhor para nós!”
+Você: “Você não está entendendo... aquilo foi um aviso!”
+do DialogueData.set_mood("Julio", DialogueData.JulioMoods.IDLE_HAPPY)
+Julio: “É verdade. E não é belo? Posso, assim, fazer meu último desejo.”
+=> END
+
+~ question_confessor
+do locals.asked_confessor = true
+do DialogueData.set_mood("Julio", DialogueData.JulioMoods.SILLY_HAPPY)
+Julio: “Ah. Não, nunca vi. Imagino que ele só saia para ir ao banheiro... haha. Mas isso é raro. Ele nunca come suas pequenas porções de comida. Talvez seja exigente. Haha!”
+do CharacterData.Confessor.hunger = true
+=> END

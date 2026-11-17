@@ -800,7 +800,7 @@ environment = SubResource("Environment_t634p")
 [node name="Camera3D" type="Camera3D" parent="VisualConfig" unique_id=1834340419]
 unique_name_in_owner = true
 physics_interpolation_mode = 1
-transform = Transform3D(0.68898684, -0.054666705, 0.7227093, 4.2076994e-05, 0.9971544, 0.075385995, -0.72477394, -0.051909544, 0.6870286, 70.182556, 2.8300219, 2.966874)
+transform = Transform3D(0.68887305, -0.054620378, 0.7228212, 6.765406e-05, 0.9971619, 0.075286604, -0.72488195, -0.051814016, 0.68692166, 70.18258, 2.830058, 2.9668674)
 top_level = true
 cull_mask = 1048031
 size = 62.088
@@ -913,7 +913,7 @@ omni_range = 20.153
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.082743, 1.6670088, -3.19987)
 
 [node name="Camera3D" parent="Church/ConfessionalBooth" index="2" unique_id=430217490]
-transform = Transform3D(0.6889867, -0.054666072, 0.7227094, 4.1925603e-05, 0.9971545, 0.07538525, -0.724774, -0.051909138, 0.6870285, 70.182556, 2.8300219, 2.966874)
+transform = Transform3D(0.688874, -0.05461956, 0.72282034, 6.700416e-05, 0.997162, 0.07528618, -0.7248811, -0.051814266, 0.68692255, 70.18258, 2.8300579, 2.9668672)
 top_level = true
 
 [node name="Sprite3D" parent="Church/ConfessionalBooth/Confessor" parent_id_path=PackedInt32Array(321162436, 1758948578) index="0" unique_id=415751236]
@@ -1137,10 +1137,11 @@ spot_angle = 43.91
 [node name="SleepPuzzle" type="Node3D" parent="Characters" unique_id=875274494]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 74.53745, 2.1546106, -3.4635518)
 
-[node name="SleepEvent" type="Node" parent="Characters/SleepPuzzle" unique_id=220625159 node_paths=PackedStringArray("item_in_world", "player_detection", "animated_sprite_2d", "sanson", "door_blocker", "sanson_interact_collision_shape_3d")]
+[node name="SleepEvent" type="Node" parent="Characters/SleepPuzzle" unique_id=220625159 node_paths=PackedStringArray("lock_pick", "lock_pick_pos", "player_detection", "animated_sprite_2d", "sanson", "door_blocker", "sanson_interact_collision_shape_3d")]
 script = ExtResource("16_x0nq1")
 sanson_asleep_dialogue_res = ExtResource("18_rwifv")
-item_in_world = NodePath("../LockPick")
+lock_pick = NodePath("../LockPick")
+lock_pick_pos = NodePath("../LockPickPos")
 player_detection = NodePath("../PlayerDetection")
 animated_sprite_2d = NodePath("../../Sanson/SubViewportSprite/AnimatedSprite2D")
 sanson = NodePath("../../Sanson")
@@ -1151,12 +1152,15 @@ sanson_interact_collision_shape_3d = NodePath("../../Sanson/InteractionArea/Coll
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 76.31251, 0.99999976, -5.1884975)
 
 [node name="LockPick" parent="Characters/SleepPuzzle" unique_id=1067992399 instance=ExtResource("17_bt7bg")]
-transform = Transform3D(0.4183646, 0, 0.9082792, 0, 1, 0, -0.9082792, 0, 0.4183646, 0, 0, -4.7363977)
+transform = Transform3D(-0.4760858, 0.033805065, 0.87874883, -0.069729395, 0.99466336, -0.07604201, -0.87663, -0.09747716, -0.471188, -0.04221344, -47.87086, -4.468889)
 item = ExtResource("14_x0nq1")
 deactivate = true
 
 [node name="InteractionArea" parent="Characters/SleepPuzzle/LockPick" index="0" unique_id=834874890 node_paths=PackedStringArray("mesh")]
 mesh = NodePath("../lockpick/Loop_002")
+
+[node name="CollisionShape3D" parent="Characters/SleepPuzzle/LockPick/InteractionArea" index="0" unique_id=449843590]
+transform = Transform3D(1.0000001, 0, 2.9802322e-08, 7.450581e-09, 1, 3.7252903e-09, 0, 3.7252903e-09, 1, -0.062763214, 0.45208836, 0.11584473)
 
 [node name="lockpick" parent="Characters/SleepPuzzle/LockPick" unique_id=43559986 instance=ExtResource("14_xq18t")]
 transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0.1816597, 0.0067293644, 0.2569809)
@@ -1180,6 +1184,9 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.5741503)
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Characters/SleepPuzzle/PlayerBlocker" unique_id=1743168441]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.10620117, 0, -0.36514235)
 shape = SubResource("BoxShape3D_ksdio")
+
+[node name="LockPickPos" type="Marker3D" parent="Characters/SleepPuzzle" unique_id=20854961]
+transform = Transform3D(-0.47608587, 0.033805065, 0.8787488, -0.069729395, 0.99466336, -0.07604204, -0.87662995, -0.09747715, -0.471188, -0.04221344, 0.02431655, -4.468889)
 
 [node name="Prior" parent="Characters" unique_id=1738876710 node_paths=PackedStringArray("player_detection", "player_outside_pos", "prior_bell_pos", "prior_hidden_pos", "bell_area_door") instance=ExtResource("13_mxkvs")]
 unique_name_in_owner = true
@@ -1274,7 +1281,7 @@ noise_emitter_layer = 1
 metadata/_custom_type_script = "uid://csjccrhj5wnx7"
 
 [node name="CloseUpCamera" type="Node3D" parent="Cutscenes/StartingCutscene" unique_id=1789459155 node_paths=PackedStringArray("follow_target", "look_at_target")]
-transform = Transform3D(-0.9818226, 0, 0, 0, 0.68254006, 0.7308435, 0, 0.7308429, -0.6825405, 31.976969, 4.5308065, -13.0020275)
+transform = Transform3D(-0.9744741, 0, 0, 0, 0.68254006, 0.7308435, 0, 0.7308429, -0.6825405, 31.976969, 4.5308065, -13.0020275)
 top_level = true
 script = ExtResource("28_phx5y")
 follow_mode = 5

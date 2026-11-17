@@ -18,8 +18,14 @@ func _ready() -> void:
 	update()
 
 
+
 func update() -> void:
 	if not is_node_ready():
 		return
 	
 	collision_shape_3d.set_deferred("disabled", deactivate)
+
+
+func _notification(what: int) -> void:
+	if what == NOTIFICATION_PREDELETE:
+		picked_up.emit()

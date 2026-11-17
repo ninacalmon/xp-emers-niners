@@ -103,5 +103,5 @@ material = ExtResource("5_o0q0w")
 instance_shader_parameters/outline_enabled = false
 instance_shader_parameters/outline_tint = Color(1, 1, 1, 0)
 sprite_frames = ExtResource("6_07clx")
-animation = &"idle"
+animation = &"SILLY_DEFAULT"
 centered = false

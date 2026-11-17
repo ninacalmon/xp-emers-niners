@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://cf72rjxb2wq2n"]
 
 [ext_resource type="FontFile" uid="uid://m4150rl53s6t" path="res://assets/fonts/UncialAntiqua-Regular.ttf" id="1_1srod"]
+[ext_resource type="Script" uid="uid://cw1c7mlcfy8ui" path="res://scenes/interface/main_menu/main_menu.gd" id="1_7tn5r"]
 [ext_resource type="Script" uid="uid://deq1v5upcwhi3" path="res://scenes/interface/main_menu/button_start.gd" id="1_65o3d"]
 [ext_resource type="Texture2D" uid="uid://c6oj10c8mcji1" path="res://assets/2d/interface/menu/menu_new/background_menu_rabisco.png" id="1_ljqjx"]
 [ext_resource type="Script" uid="uid://cbsj7w520xsyl" path="res://scenes/interface/main_menu/button_language.gd" id="2_pvcxm"]
@@ -86,6 +87,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
+script = ExtResource("1_7tn5r")
 
 [node name="TextureRect" type="TextureRect" parent="." unique_id=1781894176]
 layout_mode = 1

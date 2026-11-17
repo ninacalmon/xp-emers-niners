@@ -15,14 +15,26 @@ do GetEntity.put_entity_at(GetEntity.get_sanson(), GetEntity.get_sanson_room_pos
 do GetEntity.get_hugo().stop_chatting()
 do GetEntity.get_sanson().stop_chatting()
 do DialogueData.set_mood("Julio", DialogueData.JulioMoods.IDLE_DEFAULT)
-Julio: “Ah… espere. Francisco… preciso da sua ajuda com algo mais.”
+Julio: “Ah... espere. Francisco... preciso da sua ajuda com algo.”
 do DialogueData.set_mood("Julio", DialogueData.JulioMoods.SILLY_DEFAULT)
-Julio: “É, hummm…”
+Julio: “É, hummm... Ah sim.”
 do DialogueData.set_mood("Julio", DialogueData.JulioMoods.IDLE_DEFAULT)
-Julio: “Ah, sim. Tinta. Eu preciso de um tinteiro, por favor.”
-Você: “Tinteiro? Tudo bem, certo.”
-Julio: “Obrigado!”
-do CharacterData.Julio.give_task("get_inkwell")
+Julio: “Tinta. Eu preciso de um tinteiro, por favor.”
+do DialogueData.set_mood("Julio", DialogueData.JulioMoods.IDLE_HAPPY)
+Julio: “Se conseguir para mim, vou te levar até a área dos animais.”
+- “Por que um tinteiro?”
+	Julio: “Você verá!”
+	=>< 
+- “Por que você deixa a área dos animais trancada?”
+	do DialogueData.set_mood("Julio", DialogueData.JulioMoods.SILLY_SAD)
+	Julio: “Porque, bem... em um lugar onde todos estão famintos, é perigoso deixar os bichinhos acessíveis a todos...”
+	=>< 
+- > Finalizar diálogo <
+	Você: “Tudo bem, certo.”
+	do DialogueData.set_mood("Julio", DialogueData.JulioMoods.IDLE_HAPPY)
+	Julio: “Obrigado!”
+	do CharacterData.Julio.give_task("get_inkwell")
+	=> END!
 => END
 
 ~ waiting_completion

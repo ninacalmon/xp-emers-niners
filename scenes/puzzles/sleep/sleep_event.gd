@@ -1,11 +1,14 @@
 extends Puzzle
 class_name SleepPuzzle
 
+
 const ANIM_ASLEEP: StringName = &"ASLEEP"
 const ANIM_AWAKE: StringName = &"AWAKE"
 
 @export var sanson_asleep_dialogue_res: DialogueResource
-@export var item_in_world: ItemInWorld
+@export var lock_pick: ItemInWorld
+@export var lock_pick_pos: Marker3D
+
 @export var player_detection: Area3D
 @export var animated_sprite_2d: AnimatedSprite2D
 @export var sanson: DialogueAction
@@ -25,12 +28,12 @@ var _player_inside: bool = false
 
 func _ready() -> void:
 	Engine.time_scale = 3
-	item_in_world.deactivate = true
+	lock_pick.deactivate = true
 	player_detection.monitoring = false
 	door_blocker.disabled = true
 	player_detection.body_entered.connect(_on_player_detection_body_entered)
 	player_detection.body_exited.connect(_on_player_detection_body_exited)
-	item_in_world.picked_up.connect(_on_item_picked_up)
+	lock_pick.picked_up.connect(_on_item_picked_up)
 	DialogueData.start_sanson_sleep.connect(start)
 
 
@@ -39,14 +42,13 @@ func start() -> void:
 		return
 	_started = true
 	Engine.time_scale = 1
+	lock_pick.global_transform = lock_pick_pos.global_transform
 	sanson.global_position = sanson_sleep_pos.global_position
-	print("[SleepPuzzle] start()")
-	
 	#player_detection.collision_mask = 0xFFFFFFFF
 	
 	sanson_interact_collision_shape_3d.disabled = true
 	sanson.dialogue_res = sanson_asleep_dialogue_res
-	item_in_world.deactivate = false
+	lock_pick.deactivate = false
 	animated_sprite_2d.play(ANIM_ASLEEP)
 
 	player_detection.monitoring = true
