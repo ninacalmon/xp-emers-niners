@@ -1,6 +1,7 @@
 ~ start
 Você: “Como está se sentindo agora?”
 do DialogueData.set_mood("Lucio", DialogueData.LucioMoods.HEART_SAD, true)
+## SUBSTITUIR COM WAIT E TOCAR SPRITE AQUI VVVV
 Antes de responder, Lucio estende a mão até a mesa de cabeceira e pega um garrafão de álcool quase puro. Ele dá um bom gole, respondendo à sua pergunta com o ato.
 - > Entregar remédio. <[if InventoryManager.selected_item == CharacterData.Item.medication /] => complete_task
 - > Finalizar diálogo < => END!
@@ -9,6 +10,7 @@ Antes de responder, Lucio estende a mão até a mesa de cabeceira e pega um garr
 ~ complete_task
 do InventoryManager.use_item()
 do CharacterData.Julio.lucio_received_medicine = true
+## SUBSTITUIR COM WAIT E TOCAR SPRITE AQUI VVVV
 Você lhe entrega o remédio rapidamente, e ele mesmo faz a aplicação. Depois, retorna à garrafa.
 - “O álcool disfarça a dor?”
 	do DialogueData.set_mood("Lucio", DialogueData.LucioMoods.HAND_SAD)
@@ -16,59 +18,75 @@ Você lhe entrega o remédio rapidamente, e ele mesmo faz a aplicação. Depois,
 - “Qual o gosto?”
 	do DialogueData.set_mood("Lucio", DialogueData.LucioMoods.HAND_SAD)
 	Lucio: “Lembra-me cheiro que o depósito costumava ter. Ainda assim, me refresca. Tornou-se um sabor reconfortante em momentos penosos.”
-Ao observá-lo encontrar alívio para sua dor, você se lembra desta manhã e nota que Lucio não estava lá. Ele costuma perder muita coisa. Como cuida dos arquivos e dos livros, ele deve saber de algo.
+
 Você: “Você ficou sabendo de algo… [shake rate=10 level=5]estranho[/shake] recentemente?”
 do DialogueData.set_mood("Lucio", DialogueData.LucioMoods.IDLE_SURPRISED)
 Lucio: “O que quer dizer?”
-Você: “Algo que pareça errado. Algo suspeito. Você sabe de alguma coisa do tipo? Algo que viu nos livros?”
-Lucio: “Não, não sei. Porém... sei sobre... algo…”
-Você: “Por favor. Qualquer coisa serve.”
-do DialogueData.set_mood("Lucio", DialogueData.LucioMoods.IDLE_DEFAULT)
-Lucio: “É… complicado. Não tenho certeza se você vai entender por completo. É muita coisa para assimilar.”
-Você: “Por favor. Acho que aconteceu algo… Algo horrível. e acho que…”
-do DialogueData.set_mood("Lucio", DialogueData.LucioMoods.HEART_SURPRISED)
-Lucio: “Hum?”
+Você: “Algo que pareça errado. Algo suspeito. Você sabe de alguma coisa do tipo? Algo que viu nos livros? Eu acho que...”
+do DialogueData.set_mood("Lucio", DialogueData.LucioMoods.IDLE_SINIXTRO, true)
 Você: “Acho que todos estão escondendo um segredo de mim.”
 Lucio: “Que tipo de segredo?”
-=> question
-=> END
+=> question_hub
 
-~ question
-- “Eu acho que o monastério pegará fogo esta noite.”
+~ question_hub
+- “Eu acho que o monastério pegará fogo esta noite. O Sol me contou.”
+	do locals.asked = true
 	do DialogueData.set_mood("Lucio", DialogueData.LucioMoods.IDLE_SINIXTRO)
-	Lucio: “Oh! Tenho outra preocupação que já me inquieta há algum tempo... Tenho notado que o [b]Prior[/b] visita o [b]Confessionário[/b] todos os dias... Inúmeras vezes. Fico imaginando o que será que pesa tanto em sua alma, a ponto de ele precisar recorrer constantemente ao confessionário.”
-- “Acho que… deixa pra lá. Eu confio neles, sim...\nTalvez todos estejam planejando algo bom, tipo uma festa…?”[if locals.negation == false /]
-	Lucio: “Você realmente acha isso?…”
-	- “Sim” => lucio_monologue
+	Lucio: “Oh! Tenho outra preocupação que já me inquieta há algum tempo... Tenho notado que o [b]Prior[/b] visita o [b]Confessionário[/b] todos os dias... Inúmeras vezes.”
+	Lucio: “Fico imaginando o que será que pesa tanto em sua alma, a ponto de ele precisar recorrer constantemente ao confessionário.”
+	=> question_hub
+- “Acho que... deixa pra lá. Eu confio neles, sim...\nTalvez todos estejam planejando algo bom, tipo uma festa...?”
+	Lucio: “Você realmente acha isso?...”
+	- “Sim”
+		do locals.asked = true
+		=> lucio_monologue
 	- “Não”
-		do locals.negation = true
-		=> question
+		=> question_hub
+- > Finalizar diálogo < [if locals.asked /]
 do DialogueData.set_mood("Lucio", DialogueData.LucioMoods.IDLE_DEFAULT)
-Lucio: “Venha me ver novamente mais tarde. Compartilharei mais detalhes, se assim desejar...”
-Lucio: “Não esqueça de agradecer Julio, por mim!...“
+Lucio: “Meus livros estão à sua disposição, se assim desejar.”
+Você: “Obrigado, Lucio”
+do DialogueData.set_mood("Lucio", DialogueData.LucioMoods.HEART_DEFAULT)
+Lucio: “E avise ao Julio que estou bem, não quero que ele se preocupe.”
+Você: “Tudo bem.”
+do DialogueData.set_mood("Lucio", DialogueData.LucioMoods.HEART_HAPPY)
+Lucio: “Você continua resolvendo coisas para nós, apesar do que pensa sobre o que ocorrerá na meia-noite de hoje...? Ainda se considera o futuro Abade? Você é muito generoso.”
 => END
 
 ~ lucio_monologue
 do locals.negation = true
-do DialogueData.set_mood("Lucio", DialogueData.LucioMoods.HEART_ANGRY)
-Lucio: “Que… absurdo… Você é incrivelmente absurdo…”
+do DialogueData.set_mood("Lucio", DialogueData.LucioMoods.HAND_SURPRISED)
+Lucio: “Que... absurdo... Você é incrivelmente absurdo...”
+do DialogueData.set_mood("Lucio", DialogueData.LucioMoods.HEART_SAD)
 Lucio: “Ouça bem, então, Francisco. Vou compartilhar com você aquilo que tem me atormentado. Visões persistem em minha mente há muito tempo. Todas elas brotam da mesma podre raiz: [b]a dúvida[/b].”
 do DialogueData.set_mood("Lucio", DialogueData.LucioMoods.IDLE_SINIXTRO)
 Lucio: “Nutro uma suspeita sombria… Algo nefasto está se agitando sob o manto sagrado do mosteiro. Parta sem demora e [b]desvende esse mal.[/b]”
 do DialogueData.set_mood("Lucio", DialogueData.LucioMoods.HEART_SAD)
 Lucio: “Contudo, não questione o calor esplêndido que nosso Sol nos concede; em vez disso, deixe-se consumir inteiramente por sua luz e expulse a maldade que tem apodrecido na escuridão.”
-do DialogueData.set_mood("Lucio", DialogueData.LucioMoods.HAND_HAPPY)
+do DialogueData.set_mood("Lucio", DialogueData.LucioMoods.HEART_HAPPY)
 Lucio: “Ah… oferecer a [b]própria carne e o próprio sangue[/b] ao nosso [b]divino Sol[/b], que permanece muito além do nosso alcance, embora seus tentáculos ardentes se aproximem cada dia mais. É a forma mais pura de devoção.
 Lucio: É por isso que, apesar da minha terrível maldição, ainda me entrego ao abraço doloroso do nosso misericordioso Sol.”
+## SUBSTITUIR COM WAIT E TOCAR SPRITE AQUI VVVV
 Ele dá um gole do álcool.
-Você: “O que você quer dizer? O que está acontecendo?”
-Lucio: “É uma teoria sobre a qual venho refletindo há bastante tempo.”
+do DialogueData.set_mood("Lucio", DialogueData.LucioMoods.IDLE_SAD)
+Lucio: “Bem, é uma teoria sobre a qual venho refletindo há bastante tempo...”
 Você: “Você tem alguma prova disso?”
 do DialogueData.set_mood("Lucio", DialogueData.LucioMoods.IDLE_SAD)
-Lucio: “…Ó… bem… veja…”
+Lucio: “...Ó... bem... veja...”
 do DialogueData.set_mood("Lucio", DialogueData.LucioMoods.IDLE_ANGRY)
 Lucio: “Não.”
-Lucio: “Não, não tenho… [i]ainda.[/i]”
+do DialogueData.set_mood("Lucio", DialogueData.LucioMoods.IDLE_DEFAULT, true)
 Você: “Entendi... bom...”
 Você: “Obrigado, Lucio.”
-=> question
+=> question_hub
+
+
+
+#Lucio: “Não, não sei. Porém... sei sobre... algo…”
+#Você: “Por favor. Qualquer coisa serve.”
+#do DialogueData.set_mood("Lucio", DialogueData.LucioMoods.IDLE_DEFAULT)
+#Lucio: “É… complicado. Não tenho certeza se você vai entender por completo. É muita coisa para assimilar.”
+#Você: “Por favor. Acho que aconteceu algo… Algo horrível. e acho que…”
+#do DialogueData.set_mood("Lucio", DialogueData.LucioMoods.HEART_SURPRISED)
+#Lucio: “Hum?”
+#Você: “Acho que todos estão escondendo um segredo de mim.”

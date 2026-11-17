@@ -8,10 +8,11 @@ if not WorldStateManager.starting_cutscene_played:
 	Sanson: “Já é quase meio dia.”
 	=> END!
 if CharacterData.Julio.get_status("medication_for_lucio") == 1:
+	do DialogueData.set_mood("Sanson", DialogueData.SansonMoods.POSING_ANGRY)
 	Sanson: “Agora não, agora não! Vou perder o fio do pensamento!”
 	=> END!
 elif CharacterData.Hugo.get_status("get_flower") == 0:
-	Sanson: “Perdão, estou ocupado no momento.”
+	Sanson: “Estou ocupado no momento.”
 	=> END!
 elif CharacterData.Sanson.get_status("fix_astrolabus") != 0:
 	=> fix_astrolabus/start
