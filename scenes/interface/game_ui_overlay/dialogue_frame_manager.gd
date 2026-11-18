@@ -8,6 +8,7 @@ var _balloon: DialogueManagerExampleBalloon
 var _overlay_token: int = 0
 
 var is_player_talking: bool = false
+var hidden_by_puzzle: bool = false
 
 
 func _ready() -> void:
@@ -18,6 +19,26 @@ func _ready() -> void:
 	DialogueManager.dialogue_started.connect(_on_dialogue_started)
 	DialogueManager.dialogue_ended.connect(_on_dialogue_ended)
 	DialogueManager.balloon_started.connect(_on_balloon_started)
+
+	PuzzleManager.puzzle_started.connect(_on_puzzle_started)
+	DialogueManager.got_dialogue.connect(_on_got_dialogue)
+
+
+func _on_puzzle_started(_lock_player_movement: bool) -> void:
+	if hidden_by_puzzle:
+		return
+	hidden_by_puzzle = true
+	rich_text_label.hide()
+	frame_animated_spr.play_backwards("dialogue")
+
+
+func _on_got_dialogue(_line: DialogueLine) -> void:
+	show()
+	rich_text_label.show()
+	if hidden_by_puzzle:
+		hidden_by_puzzle = false
+		frame_animated_spr.play("dialogue")
+		await frame_animated_spr.animation_finished
 
 
 func _on_dialogue_started(_res: DialogueResource) -> void:

@@ -96,6 +96,9 @@ class HugoData extends TaskOwner:
 	var just_tried_puzzle: bool
 	var flower_given_to_julio: bool = false
 
+	var flower_route: bool = false
+	var tumour_route: bool = false
+
 	func _get_hugo() -> DialogueAction:
 		if is_instance_valid(Hugo):
 			return Hugo

@@ -3,7 +3,7 @@ match CharacterData.Hugo.get_status("get_flower"):
 	when 0:
 		=> give_task
 	when 1:
-		=> waiting_completion
+		=> waiting_completion_flower
 	when 2:
 		=> thanks
 => END
@@ -28,9 +28,11 @@ do DialogueData.set_mood("Hugo", DialogueData.HugoMoods.MISCHIVEOUS_WINK)
 Hugo: “Muito bem! Imagine o seguinte, você precisa escolher um... presente, por assim dizer, para algo ou alguém muito querido. O que você sente, lá no fundo, seria forte o suficiente para querer transmitir centenas, milhares de palavras profundas? Algo que esteja à altura disso...”
 Hugo: “Se me ajudar a escolher algo que esteja à altura disso... te entrego o tinteiro, Francisco.”
 ~ options_gift
+do CharacterData.Hugo.flower_route = false
+do CharacterData.Hugo.tumour_route = false
 - “Um pedaço de si mesmo, a mais pura forma de devoção.” => tumors_route
 - “Uma flor...?” => flower_route
-- “Uma imagem” [if locals.image == false/]
+- “Uma imagem” [if locals.image == false /]
 	do locals.image = true
 	do DialogueData.set_mood("Hugo", DialogueData.HugoMoods.MISCHIVEOUS_HAPPY)
 	Hugo: “Kehehe”
@@ -44,6 +46,7 @@ Hugo: “Se me ajudar a escolher algo que esteja à altura disso... te entrego o
 => END
 
 ~ tumors_route
+do CharacterData.Hugo.tumour_route = true
 do DialogueData.set_mood("Hugo", DialogueData.HugoMoods.OPENARMS_SURPRISED)
 Hugo: “Ouh.”
 do DialogueData.set_mood("Hugo", DialogueData.HugoMoods.MISCHIVEOUS_HAPPY)
@@ -113,6 +116,7 @@ else:
 
 
 ~ flower_route
+do CharacterData.Hugo.flower_route = true
 do DialogueData.set_mood("Hugo", DialogueData.HugoMoods.OPENARMS_DEFAULT)
 Hugo: “Ah, sim, uma clássica escolha poética... Pois bem. Diga-me onde você encontraria uma flor, quando a própria terra já não consegue mais sustentar nem sequer batatas!?”
 Você: “...”
@@ -134,7 +138,7 @@ do CharacterData.Hugo.give_task("get_flower")
 
 
 
-~ waiting_completion
+~ waiting_completion_flower
 do DialogueData.set_mood("Hugo", DialogueData.HugoMoods.OPENARMS_DEFAULT)
 Hugo: “Ah, você já trouxe a flor? Não? Bem, que a sorte do sol esteja com você.”
 - “Na verdade aqui está!” > Entregar flor < [if InventoryManager.selected_item == CharacterData.Item.flower /] => complete_task

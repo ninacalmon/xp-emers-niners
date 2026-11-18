@@ -104,6 +104,7 @@ func _ready() -> void:
 		responses_menu.next_action = next_action
 
 	mutation_cooldown.timeout.connect(_on_mutation_cooldown_timeout)
+	PuzzleManager.puzzle_started.connect(_on_puzzle_started)
 	add_child(mutation_cooldown)
 
 	if auto_start:
@@ -120,6 +121,10 @@ func _ready() -> void:
 	#balloon.move_child(warning, 0)
 	## /EXAMPLE MESSAGE
 
+
+func _on_puzzle_started(_lock_player_movement: bool) -> void:
+	is_waiting_for_input = false
+	balloon.hide()
 
 func _process(_delta: float) -> void:
 	if is_instance_valid(dialogue_line):

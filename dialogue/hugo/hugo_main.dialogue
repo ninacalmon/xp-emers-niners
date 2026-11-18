@@ -17,9 +17,14 @@ elif CharacterData.Julio.get_status("get_inkwell") == 1:
 		Hugo: “Talvez sim… talvez não. Procure em outro lugar.”
 		=> END
 	else:
-		=> gift/start
-elif CharacterData.Hugo.get_status("gift") == 2 and not CharacterData.Hugo.flower_given_to_julio:
-	=> gift/thanks
+		if not CharacterData.Hugo.tumour_route and not CharacterData.Hugo.flower_route:
+			=> gift/start
+		elif CharacterData.Hugo.tumour_route:
+			Hugo: “Acho que não há mais nada com o que eu possa te ajudar...”
+			=> END
+		elif CharacterData.Hugo.flower_route:
+			=> gift/start
+
 elif CharacterData.Hugo.flower_given_to_julio:
 	do DialogueData.set_mood("Hugo", DialogueData.HugoMoods.IDLE_SAD)
 	Hugo: “...”
