@@ -1,0 +1,158 @@
+~ start
+match CharacterData.Hugo.get_status("get_flower"):
+	when 0:
+		=> give_task
+	when 1:
+		=> waiting_completion
+	when 2:
+		=> thanks
+=> END
+
+~ give_task
+Você: “Ei, eu realmente preciso do tinteiro. É importante”
+do DialogueData.set_mood("Hugo", DialogueData.HugoMoods.OPENARMS_DEFAULT)
+Hugo: “Kehehe... Nosso caro futuro abade – e tão jovem, ainda por cima – vem me visitar por causa de um pouco de tinta. Para que exatamente você precisa dele? Estou com um prazo beeem apertado no momento.”
+Você: “Por favor... eu imploro, Hugo!”
+do DialogueData.set_mood("Hugo", DialogueData.HugoMoods.OPENARMS_SURPRISED)
+Hugo: “É tão importante assim?” 
+Você: “Você não ouviu o que eu havia dito mais cedo? Sobre o Sol?”
+do DialogueData.set_mood("Hugo", DialogueData.HugoMoods.IDLE_DEFAULT)
+Hugo: “Ora, ouvi.”
+Você: “E então?!”
+do DialogueData.set_mood("Hugo", DialogueData.HugoMoods.IDLE_WINK)
+Hugo: “Por isso mesmo que o tinteiro é importante para mim!”
+Você: O que que tem a ver?”
+do DialogueData.set_mood("Hugo", DialogueData.HugoMoods.IDLE_DEFAULT)
+Hugo:  “Seguinte:...”
+do DialogueData.set_mood("Hugo", DialogueData.HugoMoods.MISCHIVEOUS_WINK)
+Hugo: “Muito bem! Imagine o seguinte, você precisa escolher um... presente, por assim dizer, para algo ou alguém muito querido. O que você sente, lá no fundo, seria forte o suficiente para querer transmitir centenas, milhares de palavras profundas? Algo que esteja à altura disso...”
+Hugo: “Se me ajudar a escolher algo que esteja à altura disso... te entrego o tinteiro, Francisco.”
+~ options_gift
+- “Um pedaço de si mesmo, a mais pura forma de devoção.” => tumors_route
+- “Uma flor...?” => flower_route
+- “Uma imagem” [if locals.image == false/]
+	do locals.image = true
+	do DialogueData.set_mood("Hugo", DialogueData.HugoMoods.MISCHIVEOUS_HAPPY)
+	Hugo: “Kehehe”
+	Hugo: “Uma imagem vale mais que mil palavras. Muito esperto você, hein?”
+	Hugo: “Então você deve concordar que eu fique com o tinteiro, não é?”
+	Você: “Peraí, não!”
+	Hugo: “Então qual outra coisa seria?” => options_gift
+
+
+
+=> END
+
+~ tumors_route
+do DialogueData.set_mood("Hugo", DialogueData.HugoMoods.OPENARMS_SURPRISED)
+Hugo: “Ouh.”
+do DialogueData.set_mood("Hugo", DialogueData.HugoMoods.MISCHIVEOUS_HAPPY)
+Hugo: “Que fascinante... Dedicar-se plenamente, em carne e osso!”
+Você: “Eu quis dizer de forma poética...”
+do DialogueData.set_mood("Hugo", DialogueData.HugoMoods.IDLE_DEFAULT)
+Hugo: “E daí? Você acha que os meus presentes seriam suficientes para o maior presente de todos?”
+Você: “Presentes? [i]Você[/i] tem presentes?”
+do DialogueData.set_mood("Hugo", DialogueData.HugoMoods.MISCHIVEOUS_WINK)
+Hugo: “Engraçadinho, mas estou falando dos meus preciosos tesouros...”
+do DialogueData.set_mood("Hugo", DialogueData.HugoMoods.IDLE_WINK)
+Hugo: “Aqueles com os quais o nosso amado sol me presenteou.” 
+do DialogueData.set_mood("Hugo", DialogueData.HugoMoods.MISCHIVEOUS_SUPERHAPPY)
+Hugo: “Keheheh”
+do DialogueData.set_mood("Hugo", DialogueData.HugoMoods.MISCHIVEOUS_WINK)
+Hugo: “Vou até deixar você dar uma espiadinha~”
+do DialogueData.set_mood("Hugo", DialogueData.HugoMoods.TUMOR)
+do wait(3)
+do DialogueData.set_mood("Hugo", DialogueData.HugoMoods.IDLE_SUPERHAPPY)
+Hugo: “E aí? Não são lindos?”
+Você: “...”
+do DialogueData.set_mood("Hugo", DialogueData.HugoMoods.OPENARMS_SUPERHAPPY)
+Hugo: “E eu nomeei eles! Este aqui é o Gabriel, ele é bem sério, e esta é a Mari, ela tem um formato bem redondinho e fofo, perto dela tem a Laura, ela é quietinha, e este é o Vinicius, ele é sensível, e este pequenino é...”
+Você: “Ahh... ah não... o tempo! Posso pegar o tinteiro agora?”
+do DialogueData.set_mood("Hugo", DialogueData.HugoMoods.OPENARMS_ANGRY, true)
+do wait(2)
+
+do locals.puzzle = PuzzleManager.get_puzzle(PuzzleManager.Puzzles.TUMOUR_PUZZLE)
+
+do DialogueData.set_mood("Hugo", DialogueData.HugoMoods.IDLE_ANGRY)
+Hugo: “Opa, não tão rápido. Você precisa me ajudar a escolher.”
+do DialogueData.set_mood("Hugo", DialogueData.HugoMoods.MISCHIVEOUS_HAPPY)
+Hugo: “Preciso de algo especial, memorável, [i]perfeito.[/i] Três deles... três deles será o suficiente...”
+~ tumours_puzzle
+do DialogueData.set_mood("Hugo", DialogueData.HugoMoods.IDLE_WINK)
+Hugo: “Vou te falar os formatos perfeitos, e você, encontre eles para mim.”
+Hugo: “Lembre-se... destes...”
+Hugo: {{locals.puzzle.get_wanted_tumor_bbcode()}}
+do locals.puzzle.start_and_wait()
+if locals.puzzle.was_last_round_solved():
+	do DialogueData.set_mood("Hugo", DialogueData.HugoMoods.OPENARMS_SUPERHAPPY)
+	Hugo: “Perfeito… isso é perfeito.”
+	do DialogueData.set_mood("Hugo", DialogueData.HugoMoods.OPENARMS_HAPPY)
+	Hugo: “Obrigado. [i]Muito[/i], muito obrigado. Te devo uma.”
+	Hugo: “Agora, aqui está o seu prêmio~ [do DialogueData.set_mood("Hugo", DialogueData.HugoMoods.IDLE_SAD)]Ah...”
+	Hugo: “Ah, não...”
+	Você: “O que foi?”
+	Hugo: “Acho que nos empolgamos demais. Devo ter derrubado o tinteiro. Espalhou por tudo...”
+	Você: “Seu mão de alface! Você continua me devendo.”
+	Você: “... Luzes do céu, e eu faço o que agora?!”
+	do DialogueData.set_mood("Hugo", DialogueData.HugoMoods.IDLE_SURPRISED)
+	Hugo: “Você realmente precisa dessa tinta, hein? Olha, o Sanson sempre tem um pouco.[do DialogueData.set_mood("Hugo", DialogueData.HugoMoods.MISCHIVEOUS_HAPPY)] Por que não tenta a sorte com ele?”
+	Você: É, eu vou.
+	Hugo: “Não esqueça de hoje a noite, Fran.”
+	do CharacterData.Hugo.give_task("get_sanson_inkwell")
+
+else:
+	do DialogueData.set_mood("Hugo", DialogueData.HugoMoods.IDLE_DEFAULT)
+	Hugo: “Ah poxa... bom, tente de novo, Fran!”
+	- “Claro. De novo.” => tumours_puzzle
+	- “Na verdade... vamos escolher outro presente.”  => options_gift
+
+
+
+
+=> END
+
+
+~ flower_route
+do DialogueData.set_mood("Hugo", DialogueData.HugoMoods.OPENARMS_DEFAULT)
+Hugo: “Ah, sim, uma clássica escolha poética... Pois bem. Diga-me onde você encontraria uma flor, quando a própria terra já não consegue mais sustentar nem sequer batatas!?”
+Você: “...”
+do DialogueData.set_mood("Hugo", DialogueData.HugoMoods.OPENARMS_WINK)
+Hugo: “...Ah, é verdade... Sabia de uma coisa? [b]Sanson[/b] tem um pequeno... segredo que ele vem guardando.”
+Hugo: “Ele tem uma flor, eu sei que tem. Sei que ele ainda a tem... Sim, seria perfeito. Mas...”
+do DialogueData.set_mood("Hugo", DialogueData.HugoMoods.MISCHIVEOUS_WINK)
+Hugo: “Sanson não abriria mão dela tão facilmente. Mas aposto que, com jeitinho, você a conseguiria para mim.”
+Você: “Uma flor?”
+do DialogueData.set_mood("Hugo", DialogueData.HugoMoods.MISCHIVEOUS_SUPERHAPPY)
+Hugo: “Ah, não me olha desse jeito, foi você quem sugeriu isso! Além do mais, eu ficaria agradecido! E depois você vai sair daqui com o que precisa, prometo.”
+Hugo: “Fechado?”
+Você: “Tudo bem, mas você tem certeza que o Sanson ficaria bem com isso?”
+do DialogueData.set_mood("Hugo", DialogueData.HugoMoods.IDLE_SURPRISED)
+Hugo: “... [b]você[/b] tem?”
+Você: “Certo.”
+do CharacterData.Hugo.give_task("get_flower")
+=> END
+
+
+
+~ waiting_completion
+do DialogueData.set_mood("Hugo", DialogueData.HugoMoods.OPENARMS_DEFAULT)
+Hugo: “Ah, você já trouxe a flor? Não? Bem, que a sorte do sol esteja com você.”
+- “Na verdade aqui está!” > Entregar flor < [if InventoryManager.selected_item == CharacterData.Item.flower /] => complete_task
+- -Finalizar diálogo- => END!
+=> END
+
+~ complete_task
+do InventoryManager.use_item()
+do DialogueData.set_mood("Hugo", DialogueData.HugoMoods.OPENARMS_SURPRISED)
+Hugo: “Não posso acreditar... você realmente conseguiu.”
+Você: “É, você me deve por isso.”
+do DialogueData.set_mood("Hugo", DialogueData.HugoMoods.OPENARMS_SUPERHAPPY)
+Hugo: “De fato... você ganhou o seu tinteirinho. Pegue!”
+do CharacterData.Hugo.complete_task("get_flower")
+do InventoryManager.add_new_item(CharacterData.Item.inkwell)
+=> END
+
+~ thanks
+do DialogueData.set_mood("Hugo", DialogueData.HugoMoods.MISCHIVEOUS_SUPERHAPPY)
+Hugo: “Kehehehe, obrigado pela flor.”
+=> END

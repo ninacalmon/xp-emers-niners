@@ -1,7 +1,8 @@
-import "uid://hogiw5kgfifn" as get_flower
+import "uid://hogiw5kgfifn" as gift
 import "uid://dt4dpnkm6fpxo" as tumor_puzzle
 
 ~ start
+=> gift/start
 if not WorldStateManager.starting_cutscene_played:
 	do DialogueData.set_mood("Hugo", DialogueData.HugoMoods.IDLE_DEFAULT)
 	Hugo: “Apresse-se, já é quase meio-dia!”
@@ -16,9 +17,9 @@ elif CharacterData.Julio.get_status("get_inkwell") == 1:
 		Hugo: “Talvez sim… talvez não. Procure em outro lugar.”
 		=> END
 	else:
-		=> get_flower/start
-elif CharacterData.Hugo.get_status("get_flower") == 2 and not CharacterData.Hugo.flower_given_to_julio:
-	=> get_flower/thanks
+		=> gift/start
+elif CharacterData.Hugo.get_status("gift") == 2 and not CharacterData.Hugo.flower_given_to_julio:
+	=> gift/thanks
 elif CharacterData.Hugo.flower_given_to_julio:
 	do DialogueData.set_mood("Hugo", DialogueData.HugoMoods.IDLE_SAD)
 	Hugo: “...”
@@ -32,5 +33,5 @@ elif CharacterData.Hugo.flower_given_to_julio:
 #	=> END!
 #
 #if CharacterData.Julio.get_status("get_poison") == 1:
-#	=> get_flower/start
+#	=> gift/start
 #=> END

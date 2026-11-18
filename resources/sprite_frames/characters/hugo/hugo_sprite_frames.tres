@@ -1,5 +1,6 @@
 [gd_resource type="SpriteFrames" format=3 uid="uid://cscfn2bh2y4xj"]
 
+[ext_resource type="Texture2D" uid="uid://chihgnwk3sf3a" path="res://assets/2d/characters/hugo/hugo_startcutscene_sprite.png" id="1_6j7am"]
 [ext_resource type="Texture2D" uid="uid://b6yef8s0hh3ha" path="res://assets/2d/characters/hugo/idle/hugo_idle_angry_closed.png" id="1_jhfvd"]
 [ext_resource type="Texture2D" uid="uid://dvnw6hdpxb38w" path="res://assets/2d/characters/hugo/idle/hugo_idle_angry_open.png" id="2_7ah80"]
 [ext_resource type="Texture2D" uid="uid://cak1b4bmg6py6" path="res://assets/2d/characters/hugo/idle/hugo_idle_default_closed.png" id="3_wsd04"]
@@ -36,11 +37,19 @@
 [ext_resource type="Texture2D" uid="uid://dkvpg6acmbw81" path="res://assets/2d/characters/hugo/openarms/hugo_openarms_surprised_open.png" id="34_ulaoy"]
 [ext_resource type="Texture2D" uid="uid://cona6oh1ierqq" path="res://assets/2d/characters/hugo/openarms/hugo_openarms_wink_closed.png" id="35_j3jy7"]
 [ext_resource type="Texture2D" uid="uid://2ajqccqij57m" path="res://assets/2d/characters/hugo/openarms/hugo_openarms_wink_open.png" id="36_5nisj"]
-[ext_resource type="Texture2D" uid="uid://d0rkn80mjkbqh" path="res://assets/2d/characters/hugo/tumours - hugo sprite etc/hugo_tumour.png" id="37_7ah80"]
+[ext_resource type="Texture2D" uid="uid://d0rkn80mjkbqh" path="res://assets/2d/puzzle/tumours_puzzle/hugo_tumour.png" id="37_7ah80"]
 [ext_resource type="Texture2D" uid="uid://c1bcnigwjbd2i" path="res://assets/2d/characters/hugo/hugo_back.png" id="38_wsd04"]
 
 [resource]
 animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_6j7am")
+}],
+"loop": 1,
+"name": &"CRAZY",
+"speed": 5.0
+}, {
 "frames": [{
 "duration": 1.0,
 "texture": ExtResource("1_jhfvd")

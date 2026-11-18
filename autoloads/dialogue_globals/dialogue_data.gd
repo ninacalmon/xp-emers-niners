@@ -80,6 +80,7 @@ enum HugoMoods {
 	OPENARMS_SURPRISED,
 	OPENARMS_WINK,
 	TUMOR,
+	CRAZY,
 	back,
 	idle
 }

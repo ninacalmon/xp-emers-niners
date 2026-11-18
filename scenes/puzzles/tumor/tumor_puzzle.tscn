@@ -1,35 +1,46 @@
 [gd_scene format=3 uid="uid://ndxtkrboiso5"]
 
 [ext_resource type="Script" uid="uid://befccjr1bdccc" path="res://scenes/puzzles/tumor/tumor_puzzle.gd" id="1_rsngm"]
-[ext_resource type="Texture2D" uid="uid://df55s5b3vb6x7" path="res://assets/2d/characters/hugo/tumours - hugo sprite etc/hugo_tumour_zoom.png" id="2_1qg5d"]
-[ext_resource type="Texture2D" uid="uid://dcbrqhkqrlvnu" path="res://assets/placeholders/pereba1.png" id="2_rsngm"]
+[ext_resource type="Texture2D" uid="uid://df55s5b3vb6x7" path="res://assets/2d/puzzle/tumours_puzzle/hugo_tumour_zoom.png" id="2_1qg5d"]
+[ext_resource type="Shader" uid="uid://k5k3sfidw42d" path="res://resources/shaders/blur.gdshader" id="2_flpmj"]
 [ext_resource type="Script" uid="uid://c2wvtve3pygab" path="res://scenes/puzzles/tumor/tumor_button.gd" id="4_flpmj"]
-[ext_resource type="Texture2D" uid="uid://j1rawwwgam1s" path="res://assets/placeholders/pereba2.png" id="5_1qg5d"]
-[ext_resource type="Texture2D" uid="uid://ds2xfcm6x00j0" path="res://assets/placeholders/pereba3.png" id="6_iyt7t"]
-[ext_resource type="Texture2D" uid="uid://x5lwi40vqhk3" path="res://assets/placeholders/pereba4.png" id="7_6rc1b"]
-[ext_resource type="Texture2D" uid="uid://cmpste7ys0wo8" path="res://assets/placeholders/pereba5.png" id="8_30874"]
 
-[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_wsepm"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ksdio"]
+shader = ExtResource("2_flpmj")
+shader_parameter/blur_lod = 3.5
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_rsngm"]
 blend_mode = 1
 
 [sub_resource type="Gradient" id="Gradient_upyd3"]
 colors = PackedColorArray(0, 0, 0, 1, 0, 0, 0, 1)
 
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_u7xt4"]
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_flpmj"]
 gradient = SubResource("Gradient_upyd3")
 
 [sub_resource type="Gradient" id="Gradient_4sefm"]
-offsets = PackedFloat32Array(0.6363636, 0.6490486, 0.6828753, 0.6913319)
-colors = PackedColorArray(0, 0, 0, 1, 0.86, 0, 0, 1, 1, 0, 0, 1, 0, 0, 0, 1)
+offsets = PackedFloat32Array(0.65048546, 0.6747573, 0.6828753, 0.71276593)
+colors = PackedColorArray(0, 0, 0, 1, 1, 0.24000007, 0.050000012, 1, 1, 0.24000007, 0.050000012, 1, 0, 0, 0, 1)
 
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_24y03"]
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_x8peo"]
 gradient = SubResource("Gradient_4sefm")
 width = 120
 height = 120
 fill = 1
 fill_from = Vector2(0.5, 0.5)
 
-[node name="TumorPuzzle" type="CanvasLayer" unique_id=833658300 node_paths=PackedStringArray("submit_button", "time_label") groups=["puzzles"]]
+[sub_resource type="Gradient" id="Gradient_rsngm"]
+offsets = PackedFloat32Array(0.6553398, 0.6723301, 0.6893204, 0.70388347)
+colors = PackedColorArray(0, 0, 0, 1, 0.9310343, 0.9310343, 0.9310343, 1, 1, 1, 1, 1, 0.019417476, 0.019417476, 0.019417476, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_1qg5d"]
+gradient = SubResource("Gradient_rsngm")
+width = 120
+height = 120
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+
+[node name="TumourPuzzle" type="CanvasLayer" unique_id=833658300 node_paths=PackedStringArray("submit_button", "time_label") groups=["puzzles"]]
 script = ExtResource("1_rsngm")
 submit_button = NodePath("TumorPuzzleControl/Submit")
 time_label = NodePath("TumorPuzzleControl/Timer")
@@ -44,6 +55,17 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
+[node name="BlurCRect" type="ColorRect" parent="TumorPuzzleControl" unique_id=902015213]
+material = SubResource("ShaderMaterial_ksdio")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(1, 1, 1, 0)
+
 [node name="BellyBackground" type="TextureRect" parent="TumorPuzzleControl" unique_id=839017084]
 layout_mode = 1
 anchors_preset = 15
@@ -54,111 +76,362 @@ grow_vertical = 2
 mouse_filter = 0
 texture = ExtResource("2_1qg5d")
 
-[node name="MarginContainer" type="MarginContainer" parent="TumorPuzzleControl" unique_id=455683951]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_constants/margin_left = 682
-theme_override_constants/margin_top = 367
-theme_override_constants/margin_right = 712
-theme_override_constants/margin_bottom = 294
+[node name="TumorsControl" type="Control" parent="TumorPuzzleControl" unique_id=1444001277]
+anchors_preset = 0
+offset_left = 682.0
+offset_top = 367.0
+offset_right = 1208.0
+offset_bottom = 786.0
 
-[node name="TumorsControl" type="Control" parent="TumorPuzzleControl/MarginContainer" unique_id=1444001277]
-layout_mode = 2
-
-[node name="TumorButton" type="TextureButton" parent="TumorPuzzleControl/MarginContainer/TumorsControl" unique_id=1020270010]
-material = SubResource("CanvasItemMaterial_wsepm")
-custom_minimum_size = Vector2(120, 120)
-custom_maximum_size = Vector2(120, 120)
+[node name="TumorButton" type="TextureButton" parent="TumorPuzzleControl/TumorsControl" unique_id=1020270010]
+material = SubResource("CanvasItemMaterial_rsngm")
+custom_minimum_size = Vector2(80, 80)
+custom_maximum_size = Vector2(80, 80)
 layout_mode = 0
-offset_left = 19.0
-offset_top = 26.0
-offset_right = 139.0
-offset_bottom = 146.0
+offset_left = 63.0
+offset_top = 170.0
+offset_right = 143.0
+offset_bottom = 250.0
 toggle_mode = true
-texture_normal = SubResource("GradientTexture2D_u7xt4")
-texture_pressed = SubResource("GradientTexture2D_24y03")
-texture_hover = SubResource("GradientTexture2D_24y03")
+button_pressed = true
+texture_normal = SubResource("GradientTexture2D_flpmj")
+texture_pressed = SubResource("GradientTexture2D_x8peo")
+texture_hover = SubResource("GradientTexture2D_1qg5d")
 stretch_mode = 0
 script = ExtResource("4_flpmj")
-tumor_id = 2
 
-[node name="TumorButton2" type="TextureButton" parent="TumorPuzzleControl/MarginContainer/TumorsControl" unique_id=1976037629]
-material = SubResource("CanvasItemMaterial_wsepm")
-custom_minimum_size = Vector2(120, 120)
-custom_maximum_size = Vector2(120, 120)
+[node name="TumorButton2" type="TextureButton" parent="TumorPuzzleControl/TumorsControl" unique_id=423336855]
+material = SubResource("CanvasItemMaterial_rsngm")
+custom_minimum_size = Vector2(80, 80)
+custom_maximum_size = Vector2(80, 80)
 layout_mode = 0
-offset_left = 298.0
-offset_top = 20.0
-offset_right = 418.0
-offset_bottom = 140.0
+offset_left = 132.0
+offset_top = 205.0
+offset_right = 212.0
+offset_bottom = 285.0
 toggle_mode = true
-texture_normal = SubResource("GradientTexture2D_u7xt4")
-texture_pressed = SubResource("GradientTexture2D_24y03")
-texture_hover = SubResource("GradientTexture2D_24y03")
+button_pressed = true
+texture_normal = SubResource("GradientTexture2D_flpmj")
+texture_pressed = SubResource("GradientTexture2D_x8peo")
+texture_hover = SubResource("GradientTexture2D_1qg5d")
+stretch_mode = 0
+script = ExtResource("4_flpmj")
+tumor_id = 18
+
+[node name="TumorButton3" type="TextureButton" parent="TumorPuzzleControl/TumorsControl" unique_id=1685005956]
+material = SubResource("CanvasItemMaterial_rsngm")
+custom_minimum_size = Vector2(80, 80)
+custom_maximum_size = Vector2(80, 80)
+layout_mode = 0
+offset_left = 210.0
+offset_top = 193.0
+offset_right = 290.0
+offset_bottom = 273.0
+toggle_mode = true
+button_pressed = true
+texture_normal = SubResource("GradientTexture2D_flpmj")
+texture_pressed = SubResource("GradientTexture2D_x8peo")
+texture_hover = SubResource("GradientTexture2D_1qg5d")
 stretch_mode = 0
 script = ExtResource("4_flpmj")
 tumor_id = 1
 
-[node name="TumorButton3" type="TextureButton" parent="TumorPuzzleControl/MarginContainer/TumorsControl" unique_id=534240231]
-material = SubResource("CanvasItemMaterial_wsepm")
-custom_minimum_size = Vector2(120, 120)
-custom_maximum_size = Vector2(120, 120)
+[node name="TumorButton4" type="TextureButton" parent="TumorPuzzleControl/TumorsControl" unique_id=898845043]
+material = SubResource("CanvasItemMaterial_rsngm")
+custom_minimum_size = Vector2(80, 80)
+custom_maximum_size = Vector2(80, 80)
 layout_mode = 0
-offset_left = 370.0
-offset_top = 223.0
-offset_right = 490.0
-offset_bottom = 343.0
+offset_left = 290.0
+offset_top = 154.0
+offset_right = 370.0
+offset_bottom = 234.0
 toggle_mode = true
-texture_normal = SubResource("GradientTexture2D_u7xt4")
-texture_pressed = SubResource("GradientTexture2D_24y03")
-texture_hover = SubResource("GradientTexture2D_24y03")
+button_pressed = true
+texture_normal = SubResource("GradientTexture2D_flpmj")
+texture_pressed = SubResource("GradientTexture2D_x8peo")
+texture_hover = SubResource("GradientTexture2D_1qg5d")
+stretch_mode = 0
+script = ExtResource("4_flpmj")
+tumor_id = 2
+
+[node name="TumorButton5" type="TextureButton" parent="TumorPuzzleControl/TumorsControl" unique_id=327766778]
+material = SubResource("CanvasItemMaterial_rsngm")
+custom_minimum_size = Vector2(80, 80)
+custom_maximum_size = Vector2(80, 80)
+layout_mode = 0
+offset_left = 375.0
+offset_top = 183.0
+offset_right = 455.0
+offset_bottom = 263.0
+toggle_mode = true
+button_pressed = true
+texture_normal = SubResource("GradientTexture2D_flpmj")
+texture_pressed = SubResource("GradientTexture2D_x8peo")
+texture_hover = SubResource("GradientTexture2D_1qg5d")
 stretch_mode = 0
 script = ExtResource("4_flpmj")
 tumor_id = 3
 
-[node name="TumorButton4" type="TextureButton" parent="TumorPuzzleControl/MarginContainer/TumorsControl" unique_id=600567008]
-material = SubResource("CanvasItemMaterial_wsepm")
-custom_minimum_size = Vector2(120, 120)
-custom_maximum_size = Vector2(120, 120)
+[node name="TumorButton6" type="TextureButton" parent="TumorPuzzleControl/TumorsControl" unique_id=1398719155]
+material = SubResource("CanvasItemMaterial_rsngm")
+custom_minimum_size = Vector2(80, 80)
+custom_maximum_size = Vector2(80, 80)
 layout_mode = 0
-offset_left = 132.0
-offset_top = 313.0
-offset_right = 252.0
-offset_bottom = 433.0
+offset_left = 390.0
+offset_top = 271.0
+offset_right = 470.0
+offset_bottom = 351.0
 toggle_mode = true
-texture_normal = SubResource("GradientTexture2D_u7xt4")
-texture_pressed = SubResource("GradientTexture2D_24y03")
-texture_hover = SubResource("GradientTexture2D_24y03")
+button_pressed = true
+texture_normal = SubResource("GradientTexture2D_flpmj")
+texture_pressed = SubResource("GradientTexture2D_x8peo")
+texture_hover = SubResource("GradientTexture2D_1qg5d")
+stretch_mode = 0
+script = ExtResource("4_flpmj")
+tumor_id = 8
+
+[node name="TumorButton7" type="TextureButton" parent="TumorPuzzleControl/TumorsControl" unique_id=814115687]
+material = SubResource("CanvasItemMaterial_rsngm")
+custom_minimum_size = Vector2(80, 80)
+custom_maximum_size = Vector2(80, 80)
+layout_mode = 0
+offset_left = 308.0
+offset_top = 240.0
+offset_right = 388.0
+offset_bottom = 320.0
+toggle_mode = true
+button_pressed = true
+texture_normal = SubResource("GradientTexture2D_flpmj")
+texture_pressed = SubResource("GradientTexture2D_x8peo")
+texture_hover = SubResource("GradientTexture2D_1qg5d")
+stretch_mode = 0
+script = ExtResource("4_flpmj")
+tumor_id = 7
+
+[node name="TumorButton8" type="TextureButton" parent="TumorPuzzleControl/TumorsControl" unique_id=2027476650]
+material = SubResource("CanvasItemMaterial_rsngm")
+custom_minimum_size = Vector2(80, 80)
+custom_maximum_size = Vector2(80, 80)
+layout_mode = 0
+offset_left = 226.0
+offset_top = 255.0
+offset_right = 306.0
+offset_bottom = 335.0
+toggle_mode = true
+button_pressed = true
+texture_normal = SubResource("GradientTexture2D_flpmj")
+texture_pressed = SubResource("GradientTexture2D_x8peo")
+texture_hover = SubResource("GradientTexture2D_1qg5d")
+stretch_mode = 0
+script = ExtResource("4_flpmj")
+tumor_id = 6
+
+[node name="TumorButton9" type="TextureButton" parent="TumorPuzzleControl/TumorsControl" unique_id=151397218]
+material = SubResource("CanvasItemMaterial_rsngm")
+custom_minimum_size = Vector2(80, 80)
+custom_maximum_size = Vector2(80, 80)
+layout_mode = 0
+offset_left = 70.0
+offset_top = 260.0
+offset_right = 150.0
+offset_bottom = 340.0
+toggle_mode = true
+button_pressed = true
+texture_normal = SubResource("GradientTexture2D_flpmj")
+texture_pressed = SubResource("GradientTexture2D_x8peo")
+texture_hover = SubResource("GradientTexture2D_1qg5d")
 stretch_mode = 0
 script = ExtResource("4_flpmj")
 tumor_id = 4
 
-[node name="TumorButton5" type="TextureButton" parent="TumorPuzzleControl/MarginContainer/TumorsControl" unique_id=1420759657]
-material = SubResource("CanvasItemMaterial_wsepm")
-custom_minimum_size = Vector2(120, 120)
-custom_maximum_size = Vector2(120, 120)
+[node name="TumorButton10" type="TextureButton" parent="TumorPuzzleControl/TumorsControl" unique_id=316247802]
+material = SubResource("CanvasItemMaterial_rsngm")
+custom_minimum_size = Vector2(80, 80)
+custom_maximum_size = Vector2(80, 80)
 layout_mode = 0
-offset_left = -47.0
-offset_top = 212.0
-offset_right = 73.0
-offset_bottom = 332.0
+offset_left = 144.0
+offset_top = 259.0
+offset_right = 224.0
+offset_bottom = 339.0
 toggle_mode = true
-texture_normal = SubResource("GradientTexture2D_u7xt4")
-texture_pressed = SubResource("GradientTexture2D_24y03")
-texture_hover = SubResource("GradientTexture2D_24y03")
+button_pressed = true
+texture_normal = SubResource("GradientTexture2D_flpmj")
+texture_pressed = SubResource("GradientTexture2D_x8peo")
+texture_hover = SubResource("GradientTexture2D_1qg5d")
 stretch_mode = 0
 script = ExtResource("4_flpmj")
+tumor_id = 5
+
+[node name="TumorButton11" type="TextureButton" parent="TumorPuzzleControl/TumorsControl" unique_id=154954893]
+material = SubResource("CanvasItemMaterial_rsngm")
+custom_minimum_size = Vector2(80, 80)
+custom_maximum_size = Vector2(80, 80)
+layout_mode = 0
+offset_left = 140.0
+offset_top = 316.0
+offset_right = 220.0
+offset_bottom = 396.0
+toggle_mode = true
+button_pressed = true
+texture_normal = SubResource("GradientTexture2D_flpmj")
+texture_pressed = SubResource("GradientTexture2D_x8peo")
+texture_hover = SubResource("GradientTexture2D_1qg5d")
+stretch_mode = 0
+script = ExtResource("4_flpmj")
+tumor_id = 9
+
+[node name="TumorButton12" type="TextureButton" parent="TumorPuzzleControl/TumorsControl" unique_id=533306719]
+material = SubResource("CanvasItemMaterial_rsngm")
+custom_minimum_size = Vector2(80, 80)
+custom_maximum_size = Vector2(80, 80)
+layout_mode = 0
+offset_left = 72.0
+offset_top = 334.0
+offset_right = 152.0
+offset_bottom = 414.0
+toggle_mode = true
+button_pressed = true
+texture_normal = SubResource("GradientTexture2D_flpmj")
+texture_pressed = SubResource("GradientTexture2D_x8peo")
+texture_hover = SubResource("GradientTexture2D_1qg5d")
+stretch_mode = 0
+script = ExtResource("4_flpmj")
+tumor_id = 11
+
+[node name="TumorButton13" type="TextureButton" parent="TumorPuzzleControl/TumorsControl" unique_id=1174197629]
+material = SubResource("CanvasItemMaterial_rsngm")
+custom_minimum_size = Vector2(80, 80)
+custom_maximum_size = Vector2(80, 80)
+layout_mode = 0
+offset_left = 49.0
+offset_top = 410.0
+offset_right = 129.0
+offset_bottom = 490.0
+toggle_mode = true
+button_pressed = true
+texture_normal = SubResource("GradientTexture2D_flpmj")
+texture_pressed = SubResource("GradientTexture2D_x8peo")
+texture_hover = SubResource("GradientTexture2D_1qg5d")
+stretch_mode = 0
+script = ExtResource("4_flpmj")
+tumor_id = 17
+
+[node name="TumorButton14" type="TextureButton" parent="TumorPuzzleControl/TumorsControl" unique_id=615144509]
+material = SubResource("CanvasItemMaterial_rsngm")
+custom_minimum_size = Vector2(80, 80)
+custom_maximum_size = Vector2(80, 80)
+layout_mode = 0
+offset_left = 134.0
+offset_top = 403.0
+offset_right = 214.0
+offset_bottom = 483.0
+toggle_mode = true
+button_pressed = true
+texture_normal = SubResource("GradientTexture2D_flpmj")
+texture_pressed = SubResource("GradientTexture2D_x8peo")
+texture_hover = SubResource("GradientTexture2D_1qg5d")
+stretch_mode = 0
+script = ExtResource("4_flpmj")
+tumor_id = 12
+
+[node name="TumorButton15" type="TextureButton" parent="TumorPuzzleControl/TumorsControl" unique_id=323082872]
+material = SubResource("CanvasItemMaterial_rsngm")
+custom_minimum_size = Vector2(80, 80)
+custom_maximum_size = Vector2(80, 80)
+layout_mode = 0
+offset_left = 191.0
+offset_top = 459.0
+offset_right = 271.0
+offset_bottom = 539.0
+toggle_mode = true
+button_pressed = true
+texture_normal = SubResource("GradientTexture2D_flpmj")
+texture_pressed = SubResource("GradientTexture2D_x8peo")
+texture_hover = SubResource("GradientTexture2D_1qg5d")
+stretch_mode = 0
+script = ExtResource("4_flpmj")
+tumor_id = 15
+
+[node name="TumorButton16" type="TextureButton" parent="TumorPuzzleControl/TumorsControl" unique_id=693255773]
+material = SubResource("CanvasItemMaterial_rsngm")
+custom_minimum_size = Vector2(80, 80)
+custom_maximum_size = Vector2(80, 80)
+layout_mode = 0
+offset_left = 268.0
+offset_top = 467.0
+offset_right = 348.0
+offset_bottom = 547.0
+toggle_mode = true
+button_pressed = true
+texture_normal = SubResource("GradientTexture2D_flpmj")
+texture_pressed = SubResource("GradientTexture2D_x8peo")
+texture_hover = SubResource("GradientTexture2D_1qg5d")
+stretch_mode = 0
+script = ExtResource("4_flpmj")
+tumor_id = 16
+
+[node name="TumorButton17" type="TextureButton" parent="TumorPuzzleControl/TumorsControl" unique_id=1617026880]
+material = SubResource("CanvasItemMaterial_rsngm")
+custom_minimum_size = Vector2(80, 80)
+custom_maximum_size = Vector2(80, 80)
+layout_mode = 0
+offset_left = 292.0
+offset_top = 393.0
+offset_right = 372.0
+offset_bottom = 473.0
+toggle_mode = true
+button_pressed = true
+texture_normal = SubResource("GradientTexture2D_flpmj")
+texture_pressed = SubResource("GradientTexture2D_x8peo")
+texture_hover = SubResource("GradientTexture2D_1qg5d")
+stretch_mode = 0
+script = ExtResource("4_flpmj")
+tumor_id = 13
+
+[node name="TumorButton18" type="TextureButton" parent="TumorPuzzleControl/TumorsControl" unique_id=942893892]
+material = SubResource("CanvasItemMaterial_rsngm")
+custom_minimum_size = Vector2(80, 80)
+custom_maximum_size = Vector2(80, 80)
+layout_mode = 0
+offset_left = 414.0
+offset_top = 387.0
+offset_right = 494.0
+offset_bottom = 467.0
+toggle_mode = true
+button_pressed = true
+texture_normal = SubResource("GradientTexture2D_flpmj")
+texture_pressed = SubResource("GradientTexture2D_x8peo")
+texture_hover = SubResource("GradientTexture2D_1qg5d")
+stretch_mode = 0
+script = ExtResource("4_flpmj")
+tumor_id = 14
+
+[node name="TumorButton19" type="TextureButton" parent="TumorPuzzleControl/TumorsControl" unique_id=1117713710]
+material = SubResource("CanvasItemMaterial_rsngm")
+custom_minimum_size = Vector2(80, 80)
+custom_maximum_size = Vector2(80, 80)
+layout_mode = 0
+offset_left = 335.0
+offset_top = 333.0
+offset_right = 415.0
+offset_bottom = 413.0
+toggle_mode = true
+button_pressed = true
+texture_normal = SubResource("GradientTexture2D_flpmj")
+texture_pressed = SubResource("GradientTexture2D_x8peo")
+texture_hover = SubResource("GradientTexture2D_1qg5d")
+stretch_mode = 0
+script = ExtResource("4_flpmj")
+tumor_id = 10
 
 [node name="Timer" type="Label" parent="TumorPuzzleControl" unique_id=1374730915]
 layout_mode = 0
-offset_left = 899.0
-offset_top = 317.0
-offset_right = 939.0
-offset_bottom = 342.0
+offset_left = 122.0
+offset_top = 45.0
+offset_right = 296.0
+offset_bottom = 176.0
+theme_override_font_sizes/font_size = 88
+text = "12:00"
 
 [node name="Submit" type="Button" parent="TumorPuzzleControl" unique_id=202239832]
 layout_mode = 1
@@ -167,35 +440,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -125.0
-offset_top = 454.0
-offset_right = -35.0
-offset_bottom = 511.0
+offset_left = 688.0
+offset_top = 293.0
+offset_right = 820.0
+offset_bottom = 392.0
 grow_horizontal = 2
 grow_vertical = 2
-text = "Submit"
-
-[node name="Pereba1" type="Sprite2D" parent="TumorPuzzleControl" unique_id=465057538]
-position = Vector2(696.99994, 625)
-scale = Vector2(2.7, 2.7)
-texture = ExtResource("2_rsngm")
-
-[node name="Pereba2" type="Sprite2D" parent="TumorPuzzleControl" unique_id=1916287306]
-position = Vector2(1032, 446)
-scale = Vector2(2.7, 2.7)
-texture = ExtResource("5_1qg5d")
-
-[node name="Pereba3" type="Sprite2D" parent="TumorPuzzleControl" unique_id=1334510083]
-position = Vector2(1112, 638)
-scale = Vector2(2.7, 2.7)
-texture = ExtResource("6_iyt7t")
-
-[node name="Pereba4" type="Sprite2D" parent="TumorPuzzleControl" unique_id=1718411970]
-position = Vector2(868, 736)
-scale = Vector2(2.7, 2.7)
-texture = ExtResource("7_6rc1b")
-
-[node name="Pereba5" type="Sprite2D" parent="TumorPuzzleControl" unique_id=689660637]
-position = Vector2(767, 456.99997)
-scale = Vector2(2.7, 2.7)
-texture = ExtResource("8_30874")
+text = "Finalizar"

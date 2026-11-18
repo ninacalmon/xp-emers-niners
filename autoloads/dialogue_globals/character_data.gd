@@ -79,6 +79,10 @@ class HugoData extends TaskOwner:
 			"find_correct_tumors":{
 				"status" : [false, false],
 				"txt" : "Ajude hugo a presentear uma 'parte de si mesmo'"
+			},
+			"get_sanson_inkwell":{
+				"status" : [false, false],
+				"txt" : "Peça um tinteiro a Sanson."
 			}
 				
 		}

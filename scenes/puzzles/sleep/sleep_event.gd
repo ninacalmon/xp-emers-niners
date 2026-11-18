@@ -27,7 +27,7 @@ var _player_inside: bool = false
 
 
 func _ready() -> void:
-	Engine.time_scale = 3
+	#Engine.time_scale = 3
 	lock_pick.deactivate = true
 	player_detection.monitoring = false
 	door_blocker.disabled = true

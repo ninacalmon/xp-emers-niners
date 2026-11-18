@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://be3l4doju425h"
-path="res://.godot/imported/tumour_10.png-3592574c395a3c654f279e458c5687e5.ctex"
+uid="uid://bsrxyjuux7g5x"
+path="res://.godot/imported/tumour_1.png-18679af628ff944ca0c55bc1ee3b9f1a.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/2d/characters/hugo/tumours - hugo sprite etc/Tumours/tumour_10.png"
-dest_files=["res://.godot/imported/tumour_10.png-3592574c395a3c654f279e458c5687e5.ctex"]
+source_file="res://assets/2d/puzzle/tumours_puzzle/Tumours/tumour_1.png"
+dest_files=["res://.godot/imported/tumour_1.png-18679af628ff944ca0c55bc1ee3b9f1a.ctex"]
 
 [params]
 

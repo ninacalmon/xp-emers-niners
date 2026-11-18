@@ -180,7 +180,6 @@ layout_mode = 2
 size_flags_vertical = 3
 theme = ExtResource("3_nlsx6")
 text = "Dialogue..."
-seconds_per_step = 0.03
 
 [node name="Control" type="Control" parent="Balloon/MarginContainer/PanelContainer/MarginContainer/HBoxContainer" unique_id=418507161]
 custom_minimum_size = Vector2(20, 10)

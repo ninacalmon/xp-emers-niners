@@ -4,6 +4,7 @@
 [ext_resource type="Script" uid="uid://bbu3di48o4k0c" path="res://addons/DayNightCycle/DayNightCycle.gd" id="1_umvgx"]
 [ext_resource type="PackedScene" uid="uid://cciw6s8b6nsbw" path="res://scenes/player/player.tscn" id="2_m114p"]
 [ext_resource type="Material" uid="uid://wyikf3yxoy6x" path="res://addons/DayNightCycle/Sky_Day.tres" id="2_mxkvs"]
+[ext_resource type="PackedScene" uid="uid://ndxtkrboiso5" path="res://scenes/puzzles/tumor/tumor_puzzle.tscn" id="4_kngxi"]
 [ext_resource type="PackedScene" uid="uid://boht0mv2kyq81" path="res://scenes/characters/hugo/hugo.tscn" id="6_1yooq"]
 [ext_resource type="PackedScene" uid="uid://ondr0bhvtwol" path="res://scenes/interface/game_ui_overlay/game_ui_overlay.tscn" id="6_tytul"]
 [ext_resource type="PackedScene" uid="uid://d0dx1ggic73g0" path="res://scenes/characters/julio/julio.tscn" id="7_gb53w"]
@@ -106,7 +107,7 @@ size = Vector2(500, 500)
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_u1gsd"]
 albedo_color = Color(0.66, 0.52536005, 0.4224, 1)
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_5aamg"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_kngxi"]
 viewport_path = NodePath("SubViewportSprite")
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_u0ka6"]
@@ -182,19 +183,19 @@ top_radius = 2.0
 bottom_radius = 2.0
 height = 1.0
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_kngxi"]
-viewport_path = NodePath("SubViewportSprite")
-
 [sub_resource type="ViewportTexture" id="ViewportTexture_dhssw"]
 viewport_path = NodePath("SubViewportSprite")
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_cf0uk"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_cf0uk"]
+viewport_path = NodePath("SubViewportSprite")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_j2kh8"]
 resource_local_to_scene = true
 render_priority = -1
 shader = ExtResource("13_goy61")
-shader_parameter/sprite_texture = SubResource("ViewportTexture_dhssw")
+shader_parameter/sprite_texture = SubResource("ViewportTexture_cf0uk")
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_j2kh8"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_hpffo"]
 viewport_path = NodePath("SubViewportSprite")
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_cdpwx"]
@@ -797,10 +798,12 @@ environment = SubResource("Environment_t634p")
 
 [node name="GameUiOverlay" parent="VisualConfig" unique_id=472711346 instance=ExtResource("6_tytul")]
 
+[node name="TumourPuzzle" parent="VisualConfig/GameUiOverlay" unique_id=833658300 instance=ExtResource("4_kngxi")]
+
 [node name="Camera3D" type="Camera3D" parent="VisualConfig" unique_id=1834340419]
 unique_name_in_owner = true
 physics_interpolation_mode = 1
-transform = Transform3D(0.6890752, -0.05463485, 0.72262746, 1.9409577e-05, 0.9971555, 0.075372264, -0.7246899, -0.051923126, 0.68711615, 70.182556, 2.8299935, 2.9668655)
+transform = Transform3D(0.68967074, -0.054756656, 0.7220499, -0.00019978725, 0.99712247, 0.075807616, -0.7241232, -0.052426543, 0.68767524, 70.182434, 2.8298025, 2.9668665)
 top_level = true
 cull_mask = 1048031
 size = 62.088
@@ -913,11 +916,11 @@ omni_range = 20.153
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.082743, 1.6670088, -3.19987)
 
 [node name="Camera3D" parent="Church/ConfessionalBooth" index="2" unique_id=430217490]
-transform = Transform3D(0.6890766, -0.05463465, 0.72262615, 1.9237377e-05, 0.9971555, 0.07537228, -0.72468865, -0.051923368, 0.6871175, 70.182556, 2.8299932, 2.9668655)
+transform = Transform3D(0.68966955, -0.054756377, 0.7220511, -0.00019942282, 0.9971225, 0.07580676, -0.7241244, -0.052425597, 0.68767405, 70.182434, 2.8298028, 2.9668665)
 top_level = true
 
 [node name="Sprite3D" parent="Church/ConfessionalBooth/Confessor" parent_id_path=PackedInt32Array(321162436, 1758948578) index="0" unique_id=415751236]
-texture = SubResource("ViewportTexture_5aamg")
+texture = SubResource("ViewportTexture_kngxi")
 
 [node name="SecondFloor" type="Node3D" parent="Church" unique_id=1860471051]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -33.12908, 0, 0)
@@ -1117,11 +1120,11 @@ unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 78.78419, 0.9976957, -5.94999)
 
 [node name="Sprite3D" parent="Characters/Sanson" index="0" unique_id=415751236]
-texture = SubResource("ViewportTexture_kngxi")
+texture = SubResource("ViewportTexture_dhssw")
 
 [node name="Outline" parent="Characters/Sanson/Sprite3D" index="0" unique_id=1631064389]
-material_overlay = SubResource("ShaderMaterial_cf0uk")
-texture = SubResource("ViewportTexture_j2kh8")
+material_overlay = SubResource("ShaderMaterial_j2kh8")
+texture = SubResource("ViewportTexture_hpffo")
 
 [node name="AstrolablusPuzzle" parent="Characters" unique_id=572576743 instance=ExtResource("14_m114p")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 74.03788, 0.89560485, -7.5373673)
@@ -1282,7 +1285,7 @@ noise_emitter_layer = 1
 metadata/_custom_type_script = "uid://csjccrhj5wnx7"
 
 [node name="CloseUpCamera" type="Node3D" parent="Cutscenes/StartingCutscene" unique_id=1789459155 node_paths=PackedStringArray("follow_target", "look_at_target")]
-transform = Transform3D(-0.95960665, 0, 0, 0, 0.8826757, -0.4699747, 0, -0.46997437, -0.8826764, 31.976969, 4.116524, -13.0710745)
+transform = Transform3D(-0.95261145, 0, 0, 0, 0.8826757, -0.4699747, 0, -0.46997437, -0.8826764, 31.976969, 4.116524, -13.0710745)
 top_level = true
 script = ExtResource("28_phx5y")
 follow_mode = 5

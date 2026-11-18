@@ -1,0 +1,16 @@
+[remap]
+
+importer="dialogue_manager"
+importer_version=18
+type="Resource"
+uid="uid://hogiw5kgfifn"
+path="res://.godot/imported/hugo_gift.dialogue-58b91800c71e31b828e1f79ec7055dc5.tres"
+
+[deps]
+
+source_file="res://dialogue/hugo/hugo_gift.dialogue"
+dest_files=["res://.godot/imported/hugo_gift.dialogue-58b91800c71e31b828e1f79ec7055dc5.tres"]
+
+[params]
+
+defaults=true
