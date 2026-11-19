@@ -28,6 +28,8 @@
 [ext_resource type="PackedScene" uid="uid://3ke0t8mctl7h" path="res://assets/3d/items/candle/candle.tscn" id="21_fm7ui"]
 [ext_resource type="PackedScene" uid="uid://gmh3po5m0pml" path="res://scenes/objects/doors/abbots_door.tscn" id="24_bq6xm"]
 [ext_resource type="PackedScene" uid="uid://c0enf7fvm7uko" path="res://scenes/objects/doors/room_door.tscn" id="28_woilr"]
+[ext_resource type="PackedScene" uid="uid://dxny80ar7hnvq" path="res://scenes/buildings/decoration/pot/pot.tscn" id="29_daa30"]
+[ext_resource type="PackedScene" uid="uid://d2rt8dmwgluyj" path="res://assets/3d/objects/desk/desk.glb" id="30_fm7ui"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_olxrl"]
 resource_name = "BurnedOrange"
@@ -4771,20 +4773,6 @@ transform = Transform3D(-1.7484554e-07, 0, -1, 1, 0, -1.7484554e-07, 0, -1, 0, 3
 [node name="WallTorch2_copy3" parent="Lights/Corridor/Corridor" unique_id=35516604 instance=ExtResource("3_yfdoq")]
 transform = Transform3D(-1.7484554e-07, 0, -1, 1, 0, -1.7484554e-07, 0, -1, 0, 38.296535, 3.2, -1.129)
 
-[node name="Hall" type="Node3D" parent="Lights" unique_id=375111101]
-
-[node name="WallTorch" parent="Lights/Hall" unique_id=1179838321 instance=ExtResource("3_yfdoq")]
-transform = Transform3D(0, 1, 0, 1, 0, 8.742278e-08, 8.742278e-08, 0, -1, 44.185, 3.2, -4.0557384)
-
-[node name="WallTorch2" parent="Lights/Hall" unique_id=989584769 instance=ExtResource("3_yfdoq")]
-transform = Transform3D(0, 1, 0, 1, 0, 8.742278e-08, 8.742278e-08, 0, -1, 44.185, 3.2, -0.33139777)
-
-[node name="WallTorch3" parent="Lights/Hall" unique_id=331194343 instance=ExtResource("3_yfdoq")]
-transform = Transform3D(-9.528249e-24, -0.9998984, -0.014259201, 1, 0, -6.682177e-22, 6.6814974e-22, -0.014259201, 0.9998984, 51.891, 3.2, -4.186)
-
-[node name="WallTorch4" parent="Lights/Hall" unique_id=1464052948 instance=ExtResource("3_yfdoq")]
-transform = Transform3D(0, -1, 0, 1, 0, -6.6814974e-22, 6.6814974e-22, 0, 1, 51.86, 3.2, 0.5395715)
-
 [node name="PreMeltingRoom" type="Node3D" parent="Lights" unique_id=1897249551]
 
 [node name="WallTorch" parent="Lights/PreMeltingRoom" unique_id=1242956764 instance=ExtResource("3_yfdoq")]
@@ -4847,19 +4835,19 @@ transform = Transform3D(0.64, 0, 0, 0, 0.54, 0, 0, 0, 0.64, -0.7071247, 1.179044
 
 [node name="VitralBell" parent="Decor/Windows" unique_id=810838395 instance=ExtResource("12_fg5vi")]
 
-[node name="BoolVitral_001" parent="Decor/Windows/VitralBell" index="0" unique_id=773341930]
+[node name="BoolVitral_001" parent="Decor/Windows/VitralBell" index="0" unique_id=43816540]
 transparency = 0.45
 mesh = SubResource("ArrayMesh_aw7ia")
 
 [node name="vitral_abbott" parent="Decor/Windows" unique_id=1682402583 instance=ExtResource("16_wx17w")]
 
-[node name="BoolAbbotWindow_001" parent="Decor/Windows/vitral_abbott" index="0" unique_id=1953486686]
+[node name="BoolAbbotWindow_001" parent="Decor/Windows/vitral_abbott" index="0" unique_id=199960252]
 transparency = 0.45
 mesh = SubResource("ArrayMesh_rmgpg")
 
 [node name="vitral_candle" parent="Decor/Windows" unique_id=361716183 instance=ExtResource("17_pplbj")]
 
-[node name="BoolVitralChurh_001" parent="Decor/Windows/vitral_candle" index="0" unique_id=1816181600]
+[node name="BoolVitralChurh_001" parent="Decor/Windows/vitral_candle" index="0" unique_id=1829039703]
 transparency = 0.45
 mesh = SubResource("ArrayMesh_lje7w")
 
@@ -4940,6 +4928,76 @@ unlockeable = false
 
 [node name="Door_copy4" parent="RoomDoors/Left" unique_id=1820096687 instance=ExtResource("28_woilr")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 73.868, 1.5745991, -3.0448737)
+
+[node name="Hall" type="Node3D" parent="." unique_id=375111101]
+
+[node name="WallTorch" parent="Hall" unique_id=1179838321 instance=ExtResource("3_yfdoq")]
+transform = Transform3D(0, 1, 0, 1, 0, 8.742278e-08, 8.742278e-08, 0, -1, 44.185, 3.2, -4.0557384)
+
+[node name="WallTorch2" parent="Hall" unique_id=989584769 instance=ExtResource("3_yfdoq")]
+transform = Transform3D(0, 1, 0, 1, 0, 8.742278e-08, 8.742278e-08, 0, -1, 44.185, 3.2, -0.33139777)
+
+[node name="WallTorch3" parent="Hall" unique_id=331194343 instance=ExtResource("3_yfdoq")]
+transform = Transform3D(-9.528249e-24, -0.9998984, -0.014259201, 1, 0, -6.682177e-22, 6.6814974e-22, -0.014259201, 0.9998984, 51.891, 3.2, -4.186)
+
+[node name="WallTorch5" parent="Hall" unique_id=473840238 instance=ExtResource("3_yfdoq")]
+transform = Transform3D(-5.3819782e-05, 0.011371646, 0.9999353, 1, -5.684342e-14, 5.382326e-05, 6.120591e-07, 0.9999353, -0.011371646, 50.018, 3.2, -8.146)
+
+[node name="WallTorch6" parent="Hall" unique_id=2077105533 instance=ExtResource("3_yfdoq")]
+transform = Transform3D(-5.3819782e-05, 0.011371646, 0.9999353, 1, -5.684342e-14, 5.382326e-05, 6.120591e-07, 0.9999353, -0.011371646, 46.8404, 3.2, -8.146)
+
+[node name="WallTorch4" parent="Hall" unique_id=1464052948 instance=ExtResource("3_yfdoq")]
+transform = Transform3D(0, -1, 0, 1, 0, -6.6814974e-22, 6.6814974e-22, 0, 1, 51.86, 3.2, 0.5395715)
+
+[node name="ChurchBench" parent="Hall" unique_id=184149317 instance=ExtResource("10_kfuuv")]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 48.215668, 0.99999976, -7.7154365)
+
+[node name="Pot" parent="Hall" unique_id=500965765 instance=ExtResource("29_daa30")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 45.593266, 1, -7.533488)
+
+[node name="Pot2" parent="Hall" unique_id=948118028 instance=ExtResource("29_daa30")]
+transform = Transform3D(0.4811523, 0, -0.87663704, 0, 1, 0, 0.87663704, 0, 0.4811523, 50.805454, 1, -7.533488)
+
+[node name="desk" parent="Hall" unique_id=887060996 instance=ExtResource("30_fm7ui")]
+transform = Transform3D(-6.075882e-08, 0, 1.3899999, 0, 1.3899999, 0, -1.3899999, 0, -6.075882e-08, 46.904762, 0.6817535, 9.6821575)
+
+[node name="Candles" type="Node3D" parent="Hall" unique_id=477506689]
+
+[node name="candle" parent="Hall/Candles" unique_id=275975006 instance=ExtResource("21_fm7ui")]
+transform = Transform3D(-5.879182e-08, 0, -1.345, 0, 1.345, 0, 1.345, 0, -5.879182e-08, 49.16947, 1.4121269, 10.415407)
+
+[node name="candle2" parent="Hall/Candles" unique_id=1750293454 instance=ExtResource("21_fm7ui")]
+transform = Transform3D(-5.2453668e-08, 0, -1.2, 0, 1.2, 0, 1.2, 0, -5.2453668e-08, 48.981888, 1.3664947, 10.508253)
+
+[node name="candle3" parent="Hall/Candles" unique_id=290905449 instance=ExtResource("21_fm7ui")]
+transform = Transform3D(-5.2453668e-08, 0, -1.2, 0, 1.2, 0, 1.2, 0, -5.2453668e-08, 47.62792, 1.3664947, 10.340519)
+
+[node name="candle4" parent="Hall/Candles" unique_id=1636110374 instance=ExtResource("21_fm7ui")]
+transform = Transform3D(-5.2453668e-08, 0, -1.2, 0, 1.2, 0, 1.2, 0, -5.2453668e-08, 47.815678, 1.4092166, 10.464762)
+
+[node name="candle5" parent="Hall/Candles" unique_id=614032250 instance=ExtResource("21_fm7ui")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 48.053566, 1.5297601, 10.581101)
+
+[node name="candle9" parent="Hall/Candles" unique_id=1076952324 instance=ExtResource("21_fm7ui")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 47.439297, 1.5758511, 10.598979)
+
+[node name="candle6" parent="Hall/Candles" unique_id=1799200733 instance=ExtResource("21_fm7ui")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 48.294277, 1.5977409, 10.373284)
+
+[node name="candle7" parent="Hall/Candles" unique_id=85227639 instance=ExtResource("21_fm7ui")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 48.793495, 1.4938216, 10.576578)
+
+[node name="candle8" parent="Hall/Candles" unique_id=1093293697 instance=ExtResource("21_fm7ui")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 49.259247, 1.5977409, 10.581521)
+
+[node name="MainAreaLight" type="OmniLight3D" parent="Hall/Candles" unique_id=776185556]
+transform = Transform3D(1, 0, -1.3322676e-15, 0, 1, 0, 1.3322676e-15, 0, 1, 48.39124, 3.9115605, 10.814618)
+light_color = Color(1, 0.744, 0.36, 1)
+light_energy = 0.562
+light_indirect_energy = 0.78
+light_volumetric_fog_energy = 1.22
+light_bake_mode = 1
+omni_range = 4.735
 
 [editable path="Decor/Windows/VitralBell"]
 [editable path="Decor/Windows/vitral_abbott"]
