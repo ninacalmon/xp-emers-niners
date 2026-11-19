@@ -27,6 +27,8 @@ var _chatting_last_mood: Variant = null
 
 
 func trigger():
+	print("AHBSDFJKSDJFSJDFJSDFJSDGFJHSGDJFH")
+	print_stack()
 	if is_showing_dialogue:
 		return
 

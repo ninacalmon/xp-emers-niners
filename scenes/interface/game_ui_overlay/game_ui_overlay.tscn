@@ -30,7 +30,6 @@
 [ext_resource type="Texture2D" uid="uid://bojh4r1a0m72o" path="res://assets/2d/interface/sun_time/21to00_two.png" id="26_u7h64"]
 [ext_resource type="Texture2D" uid="uid://b3312781ukv0t" path="res://assets/2d/interface/sun_time/21to00_three.png" id="27_fjqu3"]
 [ext_resource type="Texture2D" uid="uid://dc2cd4bwiyr24" path="res://assets/2d/interface/sun_time/sun_00h.png" id="28_mwiii"]
-[ext_resource type="PackedScene" uid="uid://ndxtkrboiso5" path="res://scenes/puzzles/tumor/tumor_puzzle.tscn" id="31_wsepm"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_cdpwx"]
 animations = [{
@@ -320,5 +319,3 @@ theme_override_colors/default_color = Color(1, 1, 1, 1)
 bbcode_enabled = true
 text = "Pressione [img=50]res://assets/2d/interface/kenney_input_prompts/keyboard_t_outline.png[/img] para checar tarefas."
 horizontal_alignment = 2
-
-[node name="TumourPuzzle" parent="." unique_id=833658300 instance=ExtResource("31_wsepm")]

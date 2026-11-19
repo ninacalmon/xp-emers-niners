@@ -319,10 +319,10 @@ func _get_cutscene_pcams() -> Array[PhantomCamera3D]:
 	return result
 
 
-func set_start_game_state():
+func set_start_game_state(talk_to_julio: bool = true) -> void:
 	# Julio
 	julio.global_position = af_julio_pos.global_position
-	julio.brute_force_first_dialogue = true
+	julio.brute_force_first_dialogue = talk_to_julio
 
 	# Sanson
 	sanson.global_position = af_sanson_pos.global_position
@@ -349,6 +349,5 @@ func _skip_to_end_state() -> void:
 	DialogueData.set_mood("Sanson", DialogueData.SansonMoods.idle, true, true)
 	DialogueData.set_mood("Hugo", DialogueData.HugoMoods.idle, true, true)
 
-	player.global_transform = player_pos.global_transform
-	player.is_cutscene_locked = false
-	set_start_game_state()
+	# Player is intentionally NOT touched: no transform, no is_cutscene_locked.
+	set_start_game_state(false)

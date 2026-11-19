@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://bv7pwu6dc6q6l"]
 
-[ext_resource type="Script" uid="uid://0udcvhgb0xee" path="res://scenes/puzzles/mirrors/mirrors_puzzle.gd" id="1_pxgf3"]
+[ext_resource type="Script" uid="uid://0udcvhgb0xee" path="res://scenes/puzzles/mirrors_old/mirrors_puzzle.gd" id="1_pxgf3"]
 [ext_resource type="Script" uid="uid://csjccrhj5wnx7" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_3d.gd" id="2_f6yj6"]
 [ext_resource type="Script" uid="uid://8umksf8e80fw" path="res://addons/phantom_camera/scripts/resources/tween_resource.gd" id="3_bpbbp"]
 [ext_resource type="Material" uid="uid://dki8i4qf7fofd" path="res://resources/shader_materials/outline_shader_material_3d.tres" id="4_drt17"]

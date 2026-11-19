@@ -51,7 +51,7 @@
 [ext_resource type="PackedScene" uid="uid://bcf11h135dt1o" path="res://assets/3d/items/mirrors/mirror_c/mirror_c1.glb" id="49_e72p1"]
 [ext_resource type="Resource" uid="uid://cgutcfta1002v" path="res://items/mirrors/mirror_b/mirror_b2.tres" id="50_hycnp"]
 [ext_resource type="PackedScene" uid="uid://by3xhr7in7fhx" path="res://assets/3d/items/mirrors/mirror_b/mirror_b2.glb" id="51_5reun"]
-[ext_resource type="PackedScene" uid="uid://bv7pwu6dc6q6l" path="res://scenes/puzzles/mirrors/mirrors_puzzle.tscn" id="52_ewivb"]
+[ext_resource type="PackedScene" uid="uid://bv7pwu6dc6q6l" path="res://scenes/puzzles/mirrors_old/mirrors_puzzle.tscn" id="52_ewivb"]
 
 [sub_resource type="Sky" id="Sky_m114p"]
 sky_material = ExtResource("2_3nfe5")

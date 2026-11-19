@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://beejk147fox5c"]
+
+[ext_resource type="Script" uid="uid://cnvs0rkdqrn2d" path="res://scenes/puzzles/mirrors/light_beam/light_beam.gd" id="1_2nkwx"]
+
+[sub_resource type="Gradient" id="Gradient_2nkwx"]
+colors = PackedColorArray(1, 0.6656667, 0.41000003, 1, 1, 1, 1, 1)
+
+[node name="LightBeam" type="Node3D" unique_id=696817037]
+script = ExtResource("1_2nkwx")
+color_gradient = SubResource("Gradient_2nkwx")
