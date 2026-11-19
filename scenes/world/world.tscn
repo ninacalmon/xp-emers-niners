@@ -759,6 +759,12 @@ size = Vector3(2.2953491, 1.7250977, 1.362793)
 [sub_resource type="BoxMesh" id="BoxMesh_cdpwx"]
 size = Vector3(2.2685547, 1.2154541, 1.2182617)
 
+[sub_resource type="Gradient" id="Gradient_cf0uk"]
+colors = PackedColorArray(0.4395001, 1, 0.41000003, 1, 1, 1, 1, 1)
+
+[sub_resource type="Gradient" id="Gradient_j2kh8"]
+colors = PackedColorArray(1, 0.8260001, 0.13, 1, 1, 1, 1, 1)
+
 [node name="World" type="Node3D" unique_id=1370714841]
 
 [node name="VoxelGI" type="VoxelGI" parent="." unique_id=178088189]
@@ -805,7 +811,7 @@ environment = SubResource("Environment_t634p")
 [node name="Camera3D" type="Camera3D" parent="VisualConfig" unique_id=1834340419]
 unique_name_in_owner = true
 physics_interpolation_mode = 1
-transform = Transform3D(0.6890104, -0.054630995, 0.72268957, 3.4024397e-05, 0.9971574, 0.075346686, -0.7247516, -0.05189006, 0.6870536, 31.651804, 14.094998, 21.718857)
+transform = Transform3D(0.6887536, -0.054557785, 0.72293985, 8.620432e-05, 0.9971707, 0.07517091, -0.7249956, -0.051711917, 0.68680954, 31.651842, 14.09508, 21.718847)
 top_level = true
 cull_mask = 1048031
 size = 62.088
@@ -918,7 +924,7 @@ omni_range = 20.153
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.082743, 1.6670088, -3.19987)
 
 [node name="Camera3D" parent="Church/ConfessionalBooth" index="2" unique_id=430217490]
-transform = Transform3D(0.6890117, -0.05463114, 0.7226883, 3.379567e-05, 0.99715734, 0.07534723, -0.7247503, -0.051890697, 0.6870549, 31.651802, 14.094997, 21.718857)
+transform = Transform3D(0.68875426, -0.054557405, 0.7229392, 8.59387e-05, 0.9971707, 0.07517072, -0.72499496, -0.051712025, 0.68681026, 31.651842, 14.09508, 21.718847)
 top_level = true
 
 [node name="Sprite3D" parent="Church/ConfessionalBooth/Confessor" parent_id_path=PackedInt32Array(321162436, 1758948578) index="0" unique_id=415751236]
@@ -1287,7 +1293,7 @@ noise_emitter_layer = 1
 metadata/_custom_type_script = "uid://csjccrhj5wnx7"
 
 [node name="CloseUpCamera" type="Node3D" parent="Cutscenes/StartingCutscene" unique_id=1789459155 node_paths=PackedStringArray("follow_target", "look_at_target")]
-transform = Transform3D(-0.93758154, 0, 0, 0, 0.8826757, -0.4699747, 0, -0.46997437, -0.8826764, 31.976969, 4.116524, -13.0710745)
+transform = Transform3D(-0.9368231, 0, 0, 0, 0.8826757, -0.4699747, 0, -0.46997437, -0.8826764, 31.976969, 4.116524, -13.0710745)
 top_level = true
 script = ExtResource("28_phx5y")
 follow_mode = 5
@@ -1588,13 +1594,6 @@ transform = Transform3D(-0.030620366, 0, -0.99953115, 0, 1, 0, 0.99953115, 0, -0
 [node name="MirrorStand3" parent="MirrorsPuzzle/MirrorsLightL" unique_id=322325680 instance=ExtResource("62_j2kh8")]
 transform = Transform3D(0.7922896, 0, 0.61014515, 0, 1, 0, -0.61014515, 0, 0.7922896, 29.88713, 12.285545, 22.037823)
 
-[node name="LightBeamR" parent="MirrorsPuzzle" unique_id=696817037 node_paths=PackedStringArray("target_marker") instance=ExtResource("63_hpffo")]
-transform = Transform3D(-0.99999994, 0, -8.742277e-08, 0, 1, 0, 8.742277e-08, 0, -0.99999994, 33.252472, 17.194006, 23.482527)
-target_marker = NodePath("Marker3D")
-
-[node name="Marker3D" type="Marker3D" parent="MirrorsPuzzle/LightBeamR" unique_id=2101903605]
-transform = Transform3D(0.99999946, 0, -1.4210855e-14, 0, 1, 0, 1.4210855e-14, 0, 0.99999946, -2.3868256, -3.492257, 3.551609)
-
 [node name="MirrorsLightR" type="Node3D" parent="MirrorsPuzzle" unique_id=614340424]
 metadata/_edit_lock_ = true
 
@@ -1618,19 +1617,31 @@ metadata/_edit_lock_ = true
 transform = Transform3D(-0.9002334, 0, 0.43540823, 0, 1, 0, -0.43540823, 0, -0.9002334, 34.76481, 12.285545, 22.112791)
 metadata/_edit_lock_ = true
 
+[node name="LightBeamR" parent="MirrorsPuzzle" unique_id=696817037 node_paths=PackedStringArray("target_marker") instance=ExtResource("63_hpffo")]
+transform = Transform3D(-0.99999994, 0, -8.742277e-08, 0, 1, 0, 8.742277e-08, 0, -0.99999994, 33.252472, 16.941109, 23.482527)
+target_marker = NodePath("Marker3D")
+color_gradient = SubResource("Gradient_cf0uk")
+
+[node name="Marker3D" type="Marker3D" parent="MirrorsPuzzle/LightBeamR" unique_id=2101903605]
+transform = Transform3D(-0.99999934, 0, -8.74227e-08, 0, 1, 0, 8.74227e-08, 0, -0.99999934, 35.6393, 13.701749, 19.930918)
+top_level = true
+
 [node name="LightBeamL" parent="MirrorsPuzzle" unique_id=1486756006 node_paths=PackedStringArray("target_marker") instance=ExtResource("63_hpffo")]
-transform = Transform3D(-0.99999994, 0, -8.742277e-08, 0, 1, 0, 8.742277e-08, 0, -0.99999994, 33.252472, 17.194006, 23.482527)
+transform = Transform3D(-0.99999994, 0, -8.742277e-08, 0, 1, 0, 8.742277e-08, 0, -0.99999994, 33.252472, 16.941109, 23.482527)
 target_marker = NodePath("Marker3D2")
 
 [node name="Marker3D2" type="Marker3D" parent="MirrorsPuzzle/LightBeamL" unique_id=1096283459]
-transform = Transform3D(0.99887925, 0, 0.047317255, 0, 1, 0, -0.047317255, 0, 0.99887925, 1.9379978, -3.4920006, 3.6220016)
+transform = Transform3D(-0.9988792, 0, -0.047317337, 0, 1, 0, 0.047317337, 0, -0.9988792, 31.314474, 13.702005, 19.860525)
+top_level = true
 
 [node name="LightBeamC" parent="MirrorsPuzzle" unique_id=860993153 node_paths=PackedStringArray("target_marker") instance=ExtResource("63_hpffo")]
-transform = Transform3D(-0.99999994, 0, -8.742277e-08, 0, 1, 0, 8.742277e-08, 0, -0.99999994, 33.252472, 17.194006, 23.482527)
+transform = Transform3D(-0.99999994, 0, -8.742277e-08, 0, 1, 0, 8.742277e-08, 0, -0.99999994, 33.252472, 16.941109, 23.482527)
 target_marker = NodePath("Marker3D3")
+color_gradient = SubResource("Gradient_j2kh8")
 
 [node name="Marker3D3" type="Marker3D" parent="MirrorsPuzzle/LightBeamC" unique_id=1746850849]
-transform = Transform3D(0.9999992, 0, -2.1316282e-14, 0, 1, 0, 2.1316282e-14, 0, 0.9999992, 0.076602936, -3.7159224, 5.4822693)
+transform = Transform3D(-0.99999917, 0, -8.742268e-08, 0, 1, 0, 8.742268e-08, 0, -0.99999917, 33.17587, 13.478084, 18.000257)
+top_level = true
 
 [editable path="VisualConfig/GameUiOverlay"]
 [editable path="Church/ConfessionalBooth"]
