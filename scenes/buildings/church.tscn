@@ -11,9 +11,11 @@
 [ext_resource type="PackedScene" uid="uid://bpe5osvadugl7" path="res://assets/3d/scenery/church/side_stair_collision.glb" id="8_s6xpe"]
 [ext_resource type="Script" uid="uid://d0e3xv44g2hx6" path="res://addons/array_modifier/ArrayModifier.gd" id="10_3tbe6"]
 [ext_resource type="PackedScene" uid="uid://cfay4kna1ata" path="res://scenes/objects/church_bench/church_bench.tscn" id="10_kfuuv"]
+[ext_resource type="PackedScene" uid="uid://qla13gmsuxf0" path="res://assets/3d/scenery/church/candle_altars_left.glb" id="11_larcp"]
 [ext_resource type="Texture2D" uid="uid://cos1fefqwe0hv" path="res://assets/3d/objects/confessional/confessional_rosewood_veneer1_diff_1k.jpg" id="11_poq5n"]
 [ext_resource type="PackedScene" uid="uid://lllv6i7dapij" path="res://assets/3d/scenery/decoration/windows_vitrals/vitral_bell.glb" id="12_fg5vi"]
 [ext_resource type="Texture2D" uid="uid://b41uvfxs6bjos" path="res://assets/3d/objects/confessional/confessional_rosewood_veneer1_rough_1k.png" id="12_vtw5g"]
+[ext_resource type="PackedScene" uid="uid://bceoe22y7o13u" path="res://assets/3d/scenery/church/candle_altars_right.glb" id="12_wg2fc"]
 [ext_resource type="Texture2D" uid="uid://dv5krvofvjieq" path="res://assets/3d/scenery/decoration/windows_vitrals/vitral_test_Glass_Stained_Panel_001_basecolor.png" id="13_jpahk"]
 [ext_resource type="Texture2D" uid="uid://cqraxx8kcmmwx" path="res://assets/3d/objects/confessional/confessional_rosewood_veneer1_nor_gl_1k.png" id="13_rmgpg"]
 [ext_resource type="Shader" uid="uid://urmsf4ch37k2" path="res://resources/shaders/vitral/holografic_colors.gdshader" id="13_s6xpe"]
@@ -4674,26 +4676,403 @@ transform = Transform3D(-5.2125306e-16, -1.192488e-08, -1, 1, -4.3711385e-08, 0,
 
 [node name="Left" type="Node3D" parent="Lights/CandleAreaWalls" unique_id=1799925238]
 
-[node name="WallTorch" parent="Lights/CandleAreaWalls/Left" unique_id=2002988536 instance=ExtResource("3_yfdoq")]
-transform = Transform3D(0, -0.17364918, -0.9848076, 1, 0, 0, 0, -0.9848076, 0.17364918, -8.26, 3.5, 20.067)
+[node name="BunchOfCandles" type="Node3D" parent="Lights/CandleAreaWalls/Left" unique_id=970761555]
+transform = Transform3D(0, -0.17364918, -0.9848076, 1, 0, 0, 0, -0.9848076, 0.17364918, 9.143797, 4.856248, 20.220078)
 
-[node name="WallTorch2" parent="Lights/CandleAreaWalls/Left" unique_id=150858162 instance=ExtResource("3_yfdoq")]
-transform = Transform3D(0, -0.9396915, -0.34202325, 1, 0, 0, 0, -0.34202325, 0.9396915, -6.184, 3.5, 18.336)
+[node name="candle" parent="Lights/CandleAreaWalls/Left/BunchOfCandles" unique_id=459729295 instance=ExtResource("21_fm7ui")]
+transform = Transform3D(0, 1.3, 0, -0.22574392, 0, -1.2802498, -1.2802498, 0, 0.22574392, 0.10892439, 1.1510353, -3.0092306)
 
-[node name="WallTorch3" parent="Lights/CandleAreaWalls/Left" unique_id=598291681 instance=ExtResource("3_yfdoq")]
-transform = Transform3D(7.571023e-08, 0.5000023, -0.8660241, 1, 0, 8.742278e-08, 4.371159e-08, -0.8660241, -0.5000023, -10.631, 3.5, 19.813)
+[node name="candle2" parent="Lights/CandleAreaWalls/Left/BunchOfCandles" unique_id=1718960592 instance=ExtResource("21_fm7ui")]
+transform = Transform3D(0, 1.3, 0, -0.22574392, 0, -1.2802498, -1.2802498, 0, 0.22574392, 0.0014567375, 0.1732502, -0.06770229)
+
+[node name="candle7" parent="Lights/CandleAreaWalls/Left/BunchOfCandles" unique_id=986201441 instance=ExtResource("21_fm7ui")]
+transform = Transform3D(0, 1.3, 0, -0.22574392, 0, -1.2802498, -1.2802498, 0, 0.22574392, 0.10892439, 0.5788555, 0.3495264)
+
+[node name="candle8" parent="Lights/CandleAreaWalls/Left/BunchOfCandles" unique_id=1451843656 instance=ExtResource("21_fm7ui")]
+transform = Transform3D(0, 1.3, 0, -0.22574392, 0, -1.2802498, -1.2802498, 0, 0.22574392, 0.3076663, 0.8464775, 1.3829775)
+
+[node name="candle9" parent="Lights/CandleAreaWalls/Left/BunchOfCandles" unique_id=940456748 instance=ExtResource("21_fm7ui")]
+transform = Transform3D(0, 1.3, 0, -0.22574392, 0, -1.2802498, -1.2802498, 0, 0.22574392, 0.023280144, 1.3758106, 1.6287394)
+
+[node name="candle10" parent="Lights/CandleAreaWalls/Left/BunchOfCandles" unique_id=1519660441 instance=ExtResource("21_fm7ui")]
+transform = Transform3D(0, 1.3, 0, -0.22574392, 0, -1.2802498, -1.2802498, 0, 0.22574392, -0.010189533, 1.707592, 2.1470509)
+
+[node name="candle11" parent="Lights/CandleAreaWalls/Left/BunchOfCandles" unique_id=852976696 instance=ExtResource("21_fm7ui")]
+transform = Transform3D(0, 1.3, 0, -0.22574392, 0, -1.2802498, -1.2802498, 0, 0.22574392, 0.22661018, 2.2591877, 2.218521)
+
+[node name="candle3" parent="Lights/CandleAreaWalls/Left/BunchOfCandles" unique_id=1242858708 instance=ExtResource("21_fm7ui")]
+transform = Transform3D(0, 1.3, 0, -0.22574392, 0, -1.2802498, -1.2802498, 0, 0.22574392, 0.297122, 0.7898617, -2.5187244)
+
+[node name="candle12" parent="Lights/CandleAreaWalls/Left/BunchOfCandles" unique_id=923583316 instance=ExtResource("21_fm7ui")]
+transform = Transform3D(-4.371139e-08, 1, 0, -0.17364904, -7.590442e-09, -0.9848076, -0.9848076, -4.304731e-08, 0.17364904, 0.04146099, 0.74385834, -2.019393)
+
+[node name="candle13" parent="Lights/CandleAreaWalls/Left/BunchOfCandles" unique_id=378488619 instance=ExtResource("21_fm7ui")]
+transform = Transform3D(0, 1, 0, -0.17364904, 0, -0.9848076, -0.9848076, 0, 0.17364904, 0.21150637, 1.205183, -2.7237673)
+
+[node name="candle14" parent="Lights/CandleAreaWalls/Left/BunchOfCandles" unique_id=2059969263 instance=ExtResource("21_fm7ui")]
+transform = Transform3D(0, 1, 0, -0.17364904, 0, -0.9848076, -0.9848076, 0, 0.17364904, 0.21150637, 0.6740551, 1.0403643)
+
+[node name="candle15" parent="Lights/CandleAreaWalls/Left/BunchOfCandles" unique_id=738177705 instance=ExtResource("21_fm7ui")]
+transform = Transform3D(0, 1, 0, -0.17364904, 0, -0.9848076, -0.9848076, 0, 0.17364904, 0.21150637, 1.6059475, 1.8297987)
+
+[node name="candle16" parent="Lights/CandleAreaWalls/Left/BunchOfCandles" unique_id=1424214047 instance=ExtResource("21_fm7ui")]
+transform = Transform3D(0, 1, 0, -0.17364904, 0, -0.9848076, -0.9848076, 0, 0.17364904, -0.27849436, 2.5276403, 2.0908756)
+
+[node name="candle17" parent="Lights/CandleAreaWalls/Left/BunchOfCandles" unique_id=2061391917 instance=ExtResource("21_fm7ui")]
+transform = Transform3D(0, 1, 0, -0.17364904, 0, -0.9848076, -0.9848076, 0, 0.17364904, -0.27849436, 1.3992004, 1.1768122)
+
+[node name="candle18" parent="Lights/CandleAreaWalls/Left/BunchOfCandles" unique_id=1639220658 instance=ExtResource("21_fm7ui")]
+transform = Transform3D(0, 1, 0, -0.17364904, 0, -0.9848076, -0.9848076, 0, 0.17364904, -0.27849436, 1.0244675, -1.6828375)
+
+[node name="candle19" parent="Lights/CandleAreaWalls/Left/BunchOfCandles" unique_id=1904743642 instance=ExtResource("21_fm7ui")]
+transform = Transform3D(0, 1, 0, -0.17364904, 0, -0.9848076, -0.9848076, 0, 0.17364904, -0.8840275, 1.0529232, -0.37508297)
+
+[node name="candle20" parent="Lights/CandleAreaWalls/Left/BunchOfCandles" unique_id=269089203 instance=ExtResource("21_fm7ui")]
+transform = Transform3D(0, 1, 0, -0.17364904, 0, -0.9848076, -0.9848076, 0, 0.17364904, -1.3888905, 1.8986988, 0.71830463)
+
+[node name="candle21" parent="Lights/CandleAreaWalls/Left/BunchOfCandles" unique_id=2035082641 instance=ExtResource("21_fm7ui")]
+transform = Transform3D(0, 1, 0, -0.17364904, 0, -0.9848076, -0.9848076, 0, 0.17364904, -1.748493, 2.0814056, 0.21421528)
+
+[node name="candle22" parent="Lights/CandleAreaWalls/Left/BunchOfCandles" unique_id=103913368 instance=ExtResource("21_fm7ui")]
+transform = Transform3D(0, 1, 0, -0.17364904, 0, -0.9848076, -0.9848076, 0, 0.17364904, -1.8538115, 2.5405598, 1.213809)
+
+[node name="candle23" parent="Lights/CandleAreaWalls/Left/BunchOfCandles" unique_id=1889883541 instance=ExtResource("21_fm7ui")]
+transform = Transform3D(0, 1, 0, -0.17364904, 0, -0.9848076, -0.9848076, 0, 0.17364904, -1.748493, 2.922863, 1.6919241)
+
+[node name="candle24" parent="Lights/CandleAreaWalls/Left/BunchOfCandles" unique_id=1665250711 instance=ExtResource("21_fm7ui")]
+transform = Transform3D(0, 1, 0, -0.17364904, 0, -0.9848076, -0.9848076, 0, 0.17364904, -1.8608875, 2.1619568, -2.5849257)
+
+[node name="candle25" parent="Lights/CandleAreaWalls/Left/BunchOfCandles" unique_id=971232812 instance=ExtResource("21_fm7ui")]
+transform = Transform3D(0, 1, 0, -0.17364904, 0, -0.9848076, -0.9848076, 0, 0.17364904, -0.7684946, 1.3885231, -2.2140112)
+
+[node name="candle26" parent="Lights/CandleAreaWalls/Left/BunchOfCandles" unique_id=426644859 instance=ExtResource("21_fm7ui")]
+transform = Transform3D(0, 1, 0, -0.17364904, 0, -0.9848076, -0.9848076, 0, 0.17364904, -0.27849436, 1.4887257, -2.6223803)
+
+[node name="candle27" parent="Lights/CandleAreaWalls/Left/BunchOfCandles" unique_id=1504434517 instance=ExtResource("21_fm7ui")]
+transform = Transform3D(0, 1, 0, -0.17364904, 0, -0.9848076, -0.9848076, 0, 0.17364904, -1.8023648, 1.9039974, -1.4252405)
+
+[node name="candle28" parent="Lights/CandleAreaWalls/Left/BunchOfCandles" unique_id=533110443 instance=ExtResource("21_fm7ui")]
+transform = Transform3D(0, 1, 0, -0.17364904, 0, -0.9848076, -0.9848076, 0, 0.17364904, -0.27849436, 1.7390194, 1.6278954)
+
+[node name="candle29" parent="Lights/CandleAreaWalls/Left/BunchOfCandles" unique_id=317002121 instance=ExtResource("21_fm7ui")]
+transform = Transform3D(0, 1, 0, -0.17364904, 0, -0.9848076, -0.9848076, 0, 0.17364904, -0.27849436, 0.9100857, 0.4479065)
+
+[node name="candle30" parent="Lights/CandleAreaWalls/Left/BunchOfCandles" unique_id=1048856979 instance=ExtResource("21_fm7ui")]
+transform = Transform3D(0, 1, 0, -0.17364904, 0, -0.9848076, -0.9848076, 0, 0.17364904, -0.4696622, 0.7127819, -0.07241249)
+
+[node name="candle37" parent="Lights/CandleAreaWalls/Left/BunchOfCandles" unique_id=1408569222 instance=ExtResource("21_fm7ui")]
+transform = Transform3D(0, 1, 0, -0.17364904, 0, -0.9848076, -0.9848076, 0, 0.17364904, -0.34463978, 0.67025566, -0.49135017)
+
+[node name="candle31" parent="Lights/CandleAreaWalls/Left/BunchOfCandles" unique_id=1373479758 instance=ExtResource("21_fm7ui")]
+transform = Transform3D(0, 1, 0, -0.17364904, 0, -0.9848076, -0.9848076, 0, 0.17364904, -1.7484927, 3.4145947, 1.968813)
+
+[node name="candle32" parent="Lights/CandleAreaWalls/Left/BunchOfCandles" unique_id=261316573 instance=ExtResource("21_fm7ui")]
+transform = Transform3D(0, 1, 0, -0.17364904, 0, -0.9848076, -0.9848076, 0, 0.17364904, -0.7684946, 2.7824469, 2.084403)
+
+[node name="candle33" parent="Lights/CandleAreaWalls/Left/BunchOfCandles" unique_id=757150281 instance=ExtResource("21_fm7ui")]
+transform = Transform3D(0, 1, 0, -0.17364904, 0, -0.9848076, -0.9848076, 0, 0.17364904, -0.9025221, 2.7824469, 2.084403)
+
+[node name="candle34" parent="Lights/CandleAreaWalls/Left/BunchOfCandles" unique_id=1376156445 instance=ExtResource("21_fm7ui")]
+transform = Transform3D(0, 1, 0, -0.17364904, 0, -0.9848076, -0.9848076, 0, 0.17364904, -0.7684946, 2.0573063, 1.5352697)
+
+[node name="candle35" parent="Lights/CandleAreaWalls/Left/BunchOfCandles" unique_id=1882373028 instance=ExtResource("21_fm7ui")]
+transform = Transform3D(0, 1, 0, -0.17364904, 0, -0.9848076, -0.9848076, 0, 0.17364904, -0.7684946, 1.0473576, -0.9375906)
+
+[node name="candle36" parent="Lights/CandleAreaWalls/Left/BunchOfCandles" unique_id=193972807 instance=ExtResource("21_fm7ui")]
+transform = Transform3D(0, 1, 0, -0.17364904, 0, -0.9848076, -0.9848076, 0, 0.17364904, -0.41785812, 2.1182613, 1.9068842)
+
+[node name="candle4" parent="Lights/CandleAreaWalls/Left/BunchOfCandles" unique_id=1379086882 instance=ExtResource("21_fm7ui")]
+transform = Transform3D(0, 1.3, 0, -0.22574392, 0, -1.2802498, -1.2802498, 0, 0.22574392, 0.10892439, 0.35666084, -0.77535725)
+
+[node name="candle5" parent="Lights/CandleAreaWalls/Left/BunchOfCandles" unique_id=1230985171 instance=ExtResource("21_fm7ui")]
+transform = Transform3D(0, 1.3, 0, -0.22574392, 0, -1.2802498, -1.2802498, 0, 0.22574392, 0.037819862, 0.5844135, -1.7076921)
+
+[node name="candle6" parent="Lights/CandleAreaWalls/Left/BunchOfCandles" unique_id=1897419736 instance=ExtResource("21_fm7ui")]
+transform = Transform3D(0, 1.3, 0, -0.22574392, 0, -1.2802498, -1.2802498, 0, 0.22574392, 0.3431573, 0.2823944, -1.16014)
+
+[node name="BunchOfCandles2" type="Node3D" parent="Lights/CandleAreaWalls/Left" unique_id=555214111]
+transform = Transform3D(0, -0.17364918, -0.9848076, 1, 0, 0, 0, -0.9848076, 0.17364918, 9.143797, 3.407218, 19.080372)
+
+[node name="candle" parent="Lights/CandleAreaWalls/Left/BunchOfCandles2" unique_id=1847307585 instance=ExtResource("21_fm7ui")]
+transform = Transform3D(0, 1.3, 0, -0.22574392, 0, -1.2802498, -1.2802498, 0, 0.22574392, 0.019220829, 1.203968, -3.0078974)
+
+[node name="candle2" parent="Lights/CandleAreaWalls/Left/BunchOfCandles2" unique_id=1819984862 instance=ExtResource("21_fm7ui")]
+transform = Transform3D(0, 1.3, 0, -0.22574392, 0, -1.2802498, -1.2802498, 0, 0.22574392, 0.0014567375, 0.27132607, -0.19405842)
+
+[node name="candle15" parent="Lights/CandleAreaWalls/Left/BunchOfCandles2" unique_id=1811509151 instance=ExtResource("21_fm7ui")]
+transform = Transform3D(0, 1.3, 0, -0.22574392, 0, -1.2802498, -1.2802498, 0, 0.22574392, -0.4977913, 0.80900955, -0.5775318)
+
+[node name="candle16" parent="Lights/CandleAreaWalls/Left/BunchOfCandles2" unique_id=594673876 instance=ExtResource("21_fm7ui")]
+transform = Transform3D(0, 1.3, 0, -0.22574392, 0, -1.2802498, -1.2802498, 0, 0.22574392, -0.29946303, 1.3123932, -2.750924)
+
+[node name="candle17" parent="Lights/CandleAreaWalls/Left/BunchOfCandles2" unique_id=265659842 instance=ExtResource("21_fm7ui")]
+transform = Transform3D(0, 1.3, 0, -0.22574392, 0, -1.2802498, -1.2802498, 0, 0.22574392, -0.2304883, 1.1176262, 0.9715004)
+
+[node name="candle18" parent="Lights/CandleAreaWalls/Left/BunchOfCandles2" unique_id=1491488050 instance=ExtResource("21_fm7ui")]
+transform = Transform3D(0, 1.3, 0, -0.22574392, 0, -1.2802498, -1.2802498, 0, 0.22574392, 0.6805353, 1.3795605, 2.0707636)
+
+[node name="candle19" parent="Lights/CandleAreaWalls/Left/BunchOfCandles2" unique_id=627115598 instance=ExtResource("21_fm7ui")]
+transform = Transform3D(0, 1.3, 0, -0.22574392, 0, -1.2802498, -1.2802498, 0, 0.22574392, 1.1705356, -0.0523777, -1.8544102)
+
+[node name="candle20" parent="Lights/CandleAreaWalls/Left/BunchOfCandles2" unique_id=1617268250 instance=ExtResource("21_fm7ui")]
+transform = Transform3D(0, 1.3, 0, -0.22574392, 0, -1.2802498, -1.2802498, 0, 0.22574392, 0.48304272, 0.22949791, 0.9239969)
+
+[node name="candle7" parent="Lights/CandleAreaWalls/Left/BunchOfCandles2" unique_id=1563641737 instance=ExtResource("21_fm7ui")]
+transform = Transform3D(0, 1.3, 0, -0.22574392, 0, -1.2802498, -1.2802498, 0, 0.22574392, 0.20282602, 0.5788574, 0.34952736)
+
+[node name="candle8" parent="Lights/CandleAreaWalls/Left/BunchOfCandles2" unique_id=1543406983 instance=ExtResource("21_fm7ui")]
+transform = Transform3D(0, 1.3, 0, -0.22574392, 0, -1.2802498, -1.2802498, 0, 0.22574392, 0.3076663, 0.8464775, 1.3829775)
+
+[node name="candle9" parent="Lights/CandleAreaWalls/Left/BunchOfCandles2" unique_id=1723424203 instance=ExtResource("21_fm7ui")]
+transform = Transform3D(0, 1.3, 0, -0.22574392, 0, -1.2802498, -1.2802498, 0, 0.22574392, 0.023280144, 1.2217636, 1.5693417)
+
+[node name="candle10" parent="Lights/CandleAreaWalls/Left/BunchOfCandles2" unique_id=331703394 instance=ExtResource("21_fm7ui")]
+transform = Transform3D(0, 1.3, 0, -0.22574392, 0, -1.2802498, -1.2802498, 0, 0.22574392, 0.10892439, 1.7310591, 2.0472593)
+
+[node name="candle12" parent="Lights/CandleAreaWalls/Left/BunchOfCandles2" unique_id=1836273511 instance=ExtResource("21_fm7ui")]
+transform = Transform3D(0, 1.3, 0, -0.22574392, 0, -1.2802498, -1.2802498, 0, 0.22574392, 0.6805353, 0.19846916, 0.60009766)
+
+[node name="candle13" parent="Lights/CandleAreaWalls/Left/BunchOfCandles2" unique_id=670337533 instance=ExtResource("21_fm7ui")]
+transform = Transform3D(0, 1.3, 0, -0.22574392, 0, -1.2802498, -1.2802498, 0, 0.22574392, 1.1705351, -0.28160095, -0.73027515)
+
+[node name="candle14" parent="Lights/CandleAreaWalls/Left/BunchOfCandles2" unique_id=824970979 instance=ExtResource("21_fm7ui")]
+transform = Transform3D(0, 1.3, 0, -0.22574392, 0, -1.2802498, -1.2802498, 0, 0.22574392, -0.29946303, 0.8089485, -1.6300268)
+
+[node name="candle11" parent="Lights/CandleAreaWalls/Left/BunchOfCandles2" unique_id=123517801 instance=ExtResource("21_fm7ui")]
+transform = Transform3D(0, 1.3, 0, -0.22574392, 0, -1.2802498, -1.2802498, 0, 0.22574392, 0.10888004, 2.2248077, 2.4845457)
+
+[node name="candle3" parent="Lights/CandleAreaWalls/Left/BunchOfCandles2" unique_id=2087395956 instance=ExtResource("21_fm7ui")]
+transform = Transform3D(0, 1.3, 0, -0.22574392, 0, -1.2802498, -1.2802498, 0, 0.22574392, 0.297122, 0.8323021, -2.469965)
+
+[node name="candle4" parent="Lights/CandleAreaWalls/Left/BunchOfCandles2" unique_id=750425608 instance=ExtResource("21_fm7ui")]
+transform = Transform3D(0, 1.3, 0, -0.22574392, 0, -1.2802498, -1.2802498, 0, 0.22574392, 0.01878643, 0.35666084, -0.7753563)
+
+[node name="candle5" parent="Lights/CandleAreaWalls/Left/BunchOfCandles2" unique_id=393626596 instance=ExtResource("21_fm7ui")]
+transform = Transform3D(0, 1.3, 0, -0.22574392, 0, -1.2802498, -1.2802498, 0, 0.22574392, 0.037819862, 0.5844135, -1.7076921)
+
+[node name="candle6" parent="Lights/CandleAreaWalls/Left/BunchOfCandles2" unique_id=529798815 instance=ExtResource("21_fm7ui")]
+transform = Transform3D(0, 1.3, 0, -0.22574392, 0, -1.2802498, -1.2802498, 0, 0.22574392, 0.3431573, 0.2823944, -1.16014)
+
+[node name="candle_altars_left" parent="Lights/CandleAreaWalls/Left" unique_id=603786748 instance=ExtResource("11_larcp")]
+
+[node name="CandleAreaLight" type="OmniLight3D" parent="Lights/CandleAreaWalls/Left" unique_id=1479957336]
+transform = Transform3D(1, 0, -1.3322676e-15, 0, 1, 0, 1.3322676e-15, 0, 1, 9.287167, 5.2955427, 18.595081)
+light_color = Color(1, 0.744, 0.36, 1)
+light_energy = 0.562
+light_indirect_energy = 0.78
+light_volumetric_fog_energy = 1.22
+light_bake_mode = 1
+omni_range = 4.735
+
+[node name="CandleAreaLight2" type="OmniLight3D" parent="Lights/CandleAreaWalls/Left" unique_id=960422713]
+transform = Transform3D(1, 0, -1.3322676e-15, 0, 1, 0, 1.3322676e-15, 0, 1, 9.287167, 4.1549687, 17.849247)
+light_color = Color(1, 0.744, 0.36, 1)
+light_energy = 0.562
+light_indirect_energy = 0.78
+light_volumetric_fog_energy = 1.22
+light_bake_mode = 1
+omni_range = 4.735
 
 [node name="Right" type="Node3D" parent="Lights/CandleAreaWalls" unique_id=627790041]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18.282, 0, 0)
 
-[node name="WallTorch" parent="Lights/CandleAreaWalls/Right" unique_id=943412786 instance=ExtResource("3_yfdoq")]
-transform = Transform3D(0, -0.50000286, -0.8660238, 1, 0, 0, 0, -0.8660238, 0.50000286, -7.412, 3.5, 19.674)
+[node name="BunchOfCandles" type="Node3D" parent="Lights/CandleAreaWalls/Right" unique_id=1569963623]
+transform = Transform3D(0, -0.17364918, -0.9848076, 1, 0, 0, 0, -0.9848076, 0.17364918, -27.40876, 4.856248, 20.220078)
 
-[node name="WallTorch2" parent="Lights/CandleAreaWalls/Right" unique_id=1047577289 instance=ExtResource("3_yfdoq")]
-transform = Transform3D(5.980065e-08, 0.76604414, -0.64278805, 1, -3.5527137e-15, 9.3033236e-08, 7.126756e-08, -0.64278805, -0.76604414, -11.598, 3.5, 19.061)
+[node name="candle" parent="Lights/CandleAreaWalls/Right/BunchOfCandles" unique_id=1171951633 instance=ExtResource("21_fm7ui")]
+transform = Transform3D(0, 1.3, 0, -0.22574392, 0, -1.2802498, -1.2802498, 0, 0.22574392, 0.10892439, 1.1510353, -3.0092306)
 
-[node name="WallTorch3" parent="Lights/CandleAreaWalls/Right" unique_id=1465402407 instance=ExtResource("3_yfdoq")]
-transform = Transform3D(9.162013e-08, 0.17364733, -0.98480797, 1, 1.7763568e-15, 9.3033506e-08, 1.6155019e-08, -0.98480797, -0.17364733, -9.634964, 3.4409688, 20.135489)
+[node name="candle2" parent="Lights/CandleAreaWalls/Right/BunchOfCandles" unique_id=763433686 instance=ExtResource("21_fm7ui")]
+transform = Transform3D(0, 1.3, 0, -0.22574392, 0, -1.2802498, -1.2802498, 0, 0.22574392, 0.0014567375, 0.1732502, -0.06770229)
+
+[node name="candle7" parent="Lights/CandleAreaWalls/Right/BunchOfCandles" unique_id=1986892690 instance=ExtResource("21_fm7ui")]
+transform = Transform3D(0, 1.3, 0, -0.22574392, 0, -1.2802498, -1.2802498, 0, 0.22574392, 0.10892439, 0.5788555, 0.3495264)
+
+[node name="candle8" parent="Lights/CandleAreaWalls/Right/BunchOfCandles" unique_id=1913413521 instance=ExtResource("21_fm7ui")]
+transform = Transform3D(0, 1.3, 0, -0.22574392, 0, -1.2802498, -1.2802498, 0, 0.22574392, 0.3076663, 0.8464775, 1.3829775)
+
+[node name="candle9" parent="Lights/CandleAreaWalls/Right/BunchOfCandles" unique_id=644675249 instance=ExtResource("21_fm7ui")]
+transform = Transform3D(0, 1.3, 0, -0.22574392, 0, -1.2802498, -1.2802498, 0, 0.22574392, 0.023280144, 1.3758106, 1.6287394)
+
+[node name="candle10" parent="Lights/CandleAreaWalls/Right/BunchOfCandles" unique_id=1947138904 instance=ExtResource("21_fm7ui")]
+transform = Transform3D(0, 1.3, 0, -0.22574392, 0, -1.2802498, -1.2802498, 0, 0.22574392, -0.010189533, 1.707592, 2.1470509)
+
+[node name="candle11" parent="Lights/CandleAreaWalls/Right/BunchOfCandles" unique_id=1348084343 instance=ExtResource("21_fm7ui")]
+transform = Transform3D(0, 1.3, 0, -0.22574392, 0, -1.2802498, -1.2802498, 0, 0.22574392, 0.22661018, 2.2591877, 2.218521)
+
+[node name="candle3" parent="Lights/CandleAreaWalls/Right/BunchOfCandles" unique_id=1524403760 instance=ExtResource("21_fm7ui")]
+transform = Transform3D(0, 1.3, 0, -0.22574392, 0, -1.2802498, -1.2802498, 0, 0.22574392, 0.297122, 0.7898617, -2.5187244)
+
+[node name="candle12" parent="Lights/CandleAreaWalls/Right/BunchOfCandles" unique_id=1911887034 instance=ExtResource("21_fm7ui")]
+transform = Transform3D(-4.371139e-08, 1, 0, -0.17364904, -7.590442e-09, -0.9848076, -0.9848076, -4.304731e-08, 0.17364904, 0.04146099, 0.74385834, -2.019393)
+
+[node name="candle13" parent="Lights/CandleAreaWalls/Right/BunchOfCandles" unique_id=2134127554 instance=ExtResource("21_fm7ui")]
+transform = Transform3D(0, 1, 0, -0.17364904, 0, -0.9848076, -0.9848076, 0, 0.17364904, 0.21150637, 1.205183, -2.7237673)
+
+[node name="candle14" parent="Lights/CandleAreaWalls/Right/BunchOfCandles" unique_id=1594773633 instance=ExtResource("21_fm7ui")]
+transform = Transform3D(0, 1, 0, -0.17364904, 0, -0.9848076, -0.9848076, 0, 0.17364904, 0.21150637, 0.6740551, 1.0403643)
+
+[node name="candle15" parent="Lights/CandleAreaWalls/Right/BunchOfCandles" unique_id=2004231529 instance=ExtResource("21_fm7ui")]
+transform = Transform3D(0, 1, 0, -0.17364904, 0, -0.9848076, -0.9848076, 0, 0.17364904, 0.21150637, 1.6059475, 1.8297987)
+
+[node name="candle16" parent="Lights/CandleAreaWalls/Right/BunchOfCandles" unique_id=1407736447 instance=ExtResource("21_fm7ui")]
+transform = Transform3D(0, 1, 0, -0.17364904, 0, -0.9848076, -0.9848076, 0, 0.17364904, -0.27849436, 2.5276403, 2.0908756)
+
+[node name="candle17" parent="Lights/CandleAreaWalls/Right/BunchOfCandles" unique_id=1615835414 instance=ExtResource("21_fm7ui")]
+transform = Transform3D(0, 1, 0, -0.17364904, 0, -0.9848076, -0.9848076, 0, 0.17364904, -0.27849436, 1.3992004, 1.1768122)
+
+[node name="candle18" parent="Lights/CandleAreaWalls/Right/BunchOfCandles" unique_id=1581712799 instance=ExtResource("21_fm7ui")]
+transform = Transform3D(0, 1, 0, -0.17364904, 0, -0.9848076, -0.9848076, 0, 0.17364904, -0.27849436, 1.0244675, -1.6828375)
+
+[node name="candle19" parent="Lights/CandleAreaWalls/Right/BunchOfCandles" unique_id=1349595724 instance=ExtResource("21_fm7ui")]
+transform = Transform3D(0, 1, 0, -0.17364904, 0, -0.9848076, -0.9848076, 0, 0.17364904, -0.8840275, 1.0529232, -0.37508297)
+
+[node name="candle20" parent="Lights/CandleAreaWalls/Right/BunchOfCandles" unique_id=2022552696 instance=ExtResource("21_fm7ui")]
+transform = Transform3D(0, 1, 0, -0.17364904, 0, -0.9848076, -0.9848076, 0, 0.17364904, -1.3888905, 1.8986988, 0.71830463)
+
+[node name="candle21" parent="Lights/CandleAreaWalls/Right/BunchOfCandles" unique_id=2093069758 instance=ExtResource("21_fm7ui")]
+transform = Transform3D(0, 1, 0, -0.17364904, 0, -0.9848076, -0.9848076, 0, 0.17364904, -1.748493, 2.0814056, 0.21421528)
+
+[node name="candle22" parent="Lights/CandleAreaWalls/Right/BunchOfCandles" unique_id=920607089 instance=ExtResource("21_fm7ui")]
+transform = Transform3D(0, 1, 0, -0.17364904, 0, -0.9848076, -0.9848076, 0, 0.17364904, -1.8538115, 2.5405598, 1.213809)
+
+[node name="candle23" parent="Lights/CandleAreaWalls/Right/BunchOfCandles" unique_id=1284469360 instance=ExtResource("21_fm7ui")]
+transform = Transform3D(0, 1, 0, -0.17364904, 0, -0.9848076, -0.9848076, 0, 0.17364904, -1.748493, 2.922863, 1.6919241)
+
+[node name="candle24" parent="Lights/CandleAreaWalls/Right/BunchOfCandles" unique_id=479049688 instance=ExtResource("21_fm7ui")]
+transform = Transform3D(0, 1, 0, -0.17364904, 0, -0.9848076, -0.9848076, 0, 0.17364904, -1.8608875, 2.1619568, -2.5849257)
+
+[node name="candle25" parent="Lights/CandleAreaWalls/Right/BunchOfCandles" unique_id=359654106 instance=ExtResource("21_fm7ui")]
+transform = Transform3D(0, 1, 0, -0.17364904, 0, -0.9848076, -0.9848076, 0, 0.17364904, -0.7684946, 1.3885231, -2.2140112)
+
+[node name="candle26" parent="Lights/CandleAreaWalls/Right/BunchOfCandles" unique_id=1277490899 instance=ExtResource("21_fm7ui")]
+transform = Transform3D(0, 1, 0, -0.17364904, 0, -0.9848076, -0.9848076, 0, 0.17364904, -0.27849436, 1.4887257, -2.6223803)
+
+[node name="candle27" parent="Lights/CandleAreaWalls/Right/BunchOfCandles" unique_id=375937018 instance=ExtResource("21_fm7ui")]
+transform = Transform3D(0, 1, 0, -0.17364904, 0, -0.9848076, -0.9848076, 0, 0.17364904, -1.8023648, 1.9039974, -1.4252405)
+
+[node name="candle28" parent="Lights/CandleAreaWalls/Right/BunchOfCandles" unique_id=645091596 instance=ExtResource("21_fm7ui")]
+transform = Transform3D(0, 1, 0, -0.17364904, 0, -0.9848076, -0.9848076, 0, 0.17364904, -0.27849436, 1.7390194, 1.6278954)
+
+[node name="candle29" parent="Lights/CandleAreaWalls/Right/BunchOfCandles" unique_id=1198053762 instance=ExtResource("21_fm7ui")]
+transform = Transform3D(0, 1, 0, -0.17364904, 0, -0.9848076, -0.9848076, 0, 0.17364904, -0.27849436, 0.9100857, 0.4479065)
+
+[node name="candle30" parent="Lights/CandleAreaWalls/Right/BunchOfCandles" unique_id=1939792760 instance=ExtResource("21_fm7ui")]
+transform = Transform3D(0, 1, 0, -0.17364904, 0, -0.9848076, -0.9848076, 0, 0.17364904, -0.4696622, 0.7127819, -0.07241249)
+
+[node name="candle37" parent="Lights/CandleAreaWalls/Right/BunchOfCandles" unique_id=2068269098 instance=ExtResource("21_fm7ui")]
+transform = Transform3D(0, 1, 0, -0.17364904, 0, -0.9848076, -0.9848076, 0, 0.17364904, -0.34463978, 0.67025566, -0.49135017)
+
+[node name="candle31" parent="Lights/CandleAreaWalls/Right/BunchOfCandles" unique_id=1094995756 instance=ExtResource("21_fm7ui")]
+transform = Transform3D(0, 1, 0, -0.17364904, 0, -0.9848076, -0.9848076, 0, 0.17364904, -1.7484927, 3.4145947, 1.968813)
+
+[node name="candle32" parent="Lights/CandleAreaWalls/Right/BunchOfCandles" unique_id=294392566 instance=ExtResource("21_fm7ui")]
+transform = Transform3D(0, 1, 0, -0.17364904, 0, -0.9848076, -0.9848076, 0, 0.17364904, -0.7684946, 2.7824469, 2.084403)
+
+[node name="candle33" parent="Lights/CandleAreaWalls/Right/BunchOfCandles" unique_id=1603722621 instance=ExtResource("21_fm7ui")]
+transform = Transform3D(0, 1, 0, -0.17364904, 0, -0.9848076, -0.9848076, 0, 0.17364904, -0.9025221, 2.7824469, 2.084403)
+
+[node name="candle34" parent="Lights/CandleAreaWalls/Right/BunchOfCandles" unique_id=2000620378 instance=ExtResource("21_fm7ui")]
+transform = Transform3D(0, 1, 0, -0.17364904, 0, -0.9848076, -0.9848076, 0, 0.17364904, -0.7684946, 2.0573063, 1.5352697)
+
+[node name="candle35" parent="Lights/CandleAreaWalls/Right/BunchOfCandles" unique_id=440310365 instance=ExtResource("21_fm7ui")]
+transform = Transform3D(0, 1, 0, -0.17364904, 0, -0.9848076, -0.9848076, 0, 0.17364904, -0.7684946, 1.0473576, -0.9375906)
+
+[node name="candle36" parent="Lights/CandleAreaWalls/Right/BunchOfCandles" unique_id=934263760 instance=ExtResource("21_fm7ui")]
+transform = Transform3D(0, 1, 0, -0.17364904, 0, -0.9848076, -0.9848076, 0, 0.17364904, -0.41785812, 2.1182613, 1.9068842)
+
+[node name="candle4" parent="Lights/CandleAreaWalls/Right/BunchOfCandles" unique_id=1130390013 instance=ExtResource("21_fm7ui")]
+transform = Transform3D(0, 1.3, 0, -0.22574392, 0, -1.2802498, -1.2802498, 0, 0.22574392, 0.10892439, 0.35666084, -0.77535725)
+
+[node name="candle5" parent="Lights/CandleAreaWalls/Right/BunchOfCandles" unique_id=199401347 instance=ExtResource("21_fm7ui")]
+transform = Transform3D(0, 1.3, 0, -0.22574392, 0, -1.2802498, -1.2802498, 0, 0.22574392, 0.037819862, 0.5844135, -1.7076921)
+
+[node name="candle6" parent="Lights/CandleAreaWalls/Right/BunchOfCandles" unique_id=749118014 instance=ExtResource("21_fm7ui")]
+transform = Transform3D(0, 1.3, 0, -0.22574392, 0, -1.2802498, -1.2802498, 0, 0.22574392, 0.3431573, 0.2823944, -1.16014)
+
+[node name="BunchOfCandles2" type="Node3D" parent="Lights/CandleAreaWalls/Right" unique_id=539041118]
+transform = Transform3D(0, -0.17364918, -0.9848076, 1, 0, 0, 0, -0.9848076, 0.17364918, -27.40876, 3.407218, 19.080372)
+
+[node name="candle" parent="Lights/CandleAreaWalls/Right/BunchOfCandles2" unique_id=1603751776 instance=ExtResource("21_fm7ui")]
+transform = Transform3D(0, 1.3, 0, -0.22574392, 0, -1.2802498, -1.2802498, 0, 0.22574392, 0.019220829, 1.203968, -3.0078974)
+
+[node name="candle2" parent="Lights/CandleAreaWalls/Right/BunchOfCandles2" unique_id=648883927 instance=ExtResource("21_fm7ui")]
+transform = Transform3D(0, 1.3, 0, -0.22574392, 0, -1.2802498, -1.2802498, 0, 0.22574392, 0.0014567375, 0.27132607, -0.19405842)
+
+[node name="candle15" parent="Lights/CandleAreaWalls/Right/BunchOfCandles2" unique_id=967367357 instance=ExtResource("21_fm7ui")]
+transform = Transform3D(0, 1.3, 0, -0.22574392, 0, -1.2802498, -1.2802498, 0, 0.22574392, -0.4977913, 0.80900955, -0.5775318)
+
+[node name="candle16" parent="Lights/CandleAreaWalls/Right/BunchOfCandles2" unique_id=1671003155 instance=ExtResource("21_fm7ui")]
+transform = Transform3D(0, 1.3, 0, -0.22574392, 0, -1.2802498, -1.2802498, 0, 0.22574392, -0.29946303, 1.3123932, -2.750924)
+
+[node name="candle17" parent="Lights/CandleAreaWalls/Right/BunchOfCandles2" unique_id=2000311625 instance=ExtResource("21_fm7ui")]
+transform = Transform3D(0, 1.3, 0, -0.22574392, 0, -1.2802498, -1.2802498, 0, 0.22574392, -0.2304883, 1.1176262, 0.9715004)
+
+[node name="candle18" parent="Lights/CandleAreaWalls/Right/BunchOfCandles2" unique_id=1309756178 instance=ExtResource("21_fm7ui")]
+transform = Transform3D(0, 1.3, 0, -0.22574392, 0, -1.2802498, -1.2802498, 0, 0.22574392, 0.6805353, 1.3795605, 2.0707636)
+
+[node name="candle19" parent="Lights/CandleAreaWalls/Right/BunchOfCandles2" unique_id=2143266254 instance=ExtResource("21_fm7ui")]
+transform = Transform3D(0, 1.3, 0, -0.22574392, 0, -1.2802498, -1.2802498, 0, 0.22574392, 1.1705356, -0.0523777, -1.8544102)
+
+[node name="candle20" parent="Lights/CandleAreaWalls/Right/BunchOfCandles2" unique_id=895028820 instance=ExtResource("21_fm7ui")]
+transform = Transform3D(0, 1.3, 0, -0.22574392, 0, -1.2802498, -1.2802498, 0, 0.22574392, 0.48304272, 0.22949791, 0.9239969)
+
+[node name="candle7" parent="Lights/CandleAreaWalls/Right/BunchOfCandles2" unique_id=1049417533 instance=ExtResource("21_fm7ui")]
+transform = Transform3D(0, 1.3, 0, -0.22574392, 0, -1.2802498, -1.2802498, 0, 0.22574392, 0.20282602, 0.5788574, 0.34952736)
+
+[node name="candle8" parent="Lights/CandleAreaWalls/Right/BunchOfCandles2" unique_id=915697801 instance=ExtResource("21_fm7ui")]
+transform = Transform3D(0, 1.3, 0, -0.22574392, 0, -1.2802498, -1.2802498, 0, 0.22574392, 0.3076663, 0.8464775, 1.3829775)
+
+[node name="candle9" parent="Lights/CandleAreaWalls/Right/BunchOfCandles2" unique_id=255091401 instance=ExtResource("21_fm7ui")]
+transform = Transform3D(0, 1.3, 0, -0.22574392, 0, -1.2802498, -1.2802498, 0, 0.22574392, 0.023280144, 1.2217636, 1.5693417)
+
+[node name="candle10" parent="Lights/CandleAreaWalls/Right/BunchOfCandles2" unique_id=106415923 instance=ExtResource("21_fm7ui")]
+transform = Transform3D(0, 1.3, 0, -0.22574392, 0, -1.2802498, -1.2802498, 0, 0.22574392, 0.10892439, 1.7310591, 2.0472593)
+
+[node name="candle12" parent="Lights/CandleAreaWalls/Right/BunchOfCandles2" unique_id=1874733826 instance=ExtResource("21_fm7ui")]
+transform = Transform3D(0, 1.3, 0, -0.22574392, 0, -1.2802498, -1.2802498, 0, 0.22574392, 0.6805353, 0.19846916, 0.60009766)
+
+[node name="candle13" parent="Lights/CandleAreaWalls/Right/BunchOfCandles2" unique_id=1284585997 instance=ExtResource("21_fm7ui")]
+transform = Transform3D(0, 1.3, 0, -0.22574392, 0, -1.2802498, -1.2802498, 0, 0.22574392, 1.1705351, -0.28160095, -0.73027515)
+
+[node name="candle14" parent="Lights/CandleAreaWalls/Right/BunchOfCandles2" unique_id=848381858 instance=ExtResource("21_fm7ui")]
+transform = Transform3D(0, 1.3, 0, -0.22574392, 0, -1.2802498, -1.2802498, 0, 0.22574392, -0.29946303, 0.8089485, -1.6300268)
+
+[node name="candle11" parent="Lights/CandleAreaWalls/Right/BunchOfCandles2" unique_id=1093725993 instance=ExtResource("21_fm7ui")]
+transform = Transform3D(0, 1.3, 0, -0.22574392, 0, -1.2802498, -1.2802498, 0, 0.22574392, 0.10888004, 2.2248077, 2.4845457)
+
+[node name="candle3" parent="Lights/CandleAreaWalls/Right/BunchOfCandles2" unique_id=2136815165 instance=ExtResource("21_fm7ui")]
+transform = Transform3D(0, 1.3, 0, -0.22574392, 0, -1.2802498, -1.2802498, 0, 0.22574392, 0.297122, 0.8323021, -2.469965)
+
+[node name="candle4" parent="Lights/CandleAreaWalls/Right/BunchOfCandles2" unique_id=9438075 instance=ExtResource("21_fm7ui")]
+transform = Transform3D(0, 1.3, 0, -0.22574392, 0, -1.2802498, -1.2802498, 0, 0.22574392, 0.01878643, 0.35666084, -0.7753563)
+
+[node name="candle5" parent="Lights/CandleAreaWalls/Right/BunchOfCandles2" unique_id=426308467 instance=ExtResource("21_fm7ui")]
+transform = Transform3D(0, 1.3, 0, -0.22574392, 0, -1.2802498, -1.2802498, 0, 0.22574392, 0.037819862, 0.5844135, -1.7076921)
+
+[node name="candle6" parent="Lights/CandleAreaWalls/Right/BunchOfCandles2" unique_id=1869182784 instance=ExtResource("21_fm7ui")]
+transform = Transform3D(0, 1.3, 0, -0.22574392, 0, -1.2802498, -1.2802498, 0, 0.22574392, 0.3431573, 0.2823944, -1.16014)
+
+[node name="candle_altars_right" parent="Lights/CandleAreaWalls/Right" unique_id=1574052396 instance=ExtResource("12_wg2fc")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -18.282, 0, 0)
+
+[node name="CandleAreaLight" type="OmniLight3D" parent="Lights/CandleAreaWalls/Right" unique_id=140375780]
+transform = Transform3D(1, 0, -1.3322676e-15, 0, 1, 0, 1.3322676e-15, 0, 1, -27.240263, 5.2955427, 18.595081)
+light_color = Color(1, 0.744, 0.36, 1)
+light_energy = 0.562
+light_indirect_energy = 0.78
+light_volumetric_fog_energy = 1.22
+light_bake_mode = 1
+omni_range = 4.735
+
+[node name="CandleAreaLight2" type="OmniLight3D" parent="Lights/CandleAreaWalls/Right" unique_id=2071713864]
+transform = Transform3D(1, 0, -1.3322676e-15, 0, 1, 0, 1.3322676e-15, 0, 1, -27.240263, 4.1549687, 17.849247)
+light_color = Color(1, 0.744, 0.36, 1)
+light_energy = 0.562
+light_indirect_energy = 0.78
+light_volumetric_fog_energy = 1.22
+light_bake_mode = 1
+omni_range = 4.735
 
 [node name="Stairs" type="Node3D" parent="Lights" unique_id=1464851118]
 
@@ -4835,25 +5214,25 @@ transform = Transform3D(0.64, 0, 0, 0, 0.54, 0, 0, 0, 0.64, -0.7071247, 1.179044
 
 [node name="VitralBell" parent="Decor/Windows" unique_id=810838395 instance=ExtResource("12_fg5vi")]
 
-[node name="BoolVitral_001" parent="Decor/Windows/VitralBell" index="0" unique_id=43816540]
+[node name="BoolVitral_001" parent="Decor/Windows/VitralBell" index="0" unique_id=773341930]
 transparency = 0.45
 mesh = SubResource("ArrayMesh_aw7ia")
 
 [node name="vitral_abbott" parent="Decor/Windows" unique_id=1682402583 instance=ExtResource("16_wx17w")]
 
-[node name="BoolAbbotWindow_001" parent="Decor/Windows/vitral_abbott" index="0" unique_id=199960252]
+[node name="BoolAbbotWindow_001" parent="Decor/Windows/vitral_abbott" index="0" unique_id=1953486686]
 transparency = 0.45
 mesh = SubResource("ArrayMesh_rmgpg")
 
 [node name="vitral_candle" parent="Decor/Windows" unique_id=361716183 instance=ExtResource("17_pplbj")]
 
-[node name="BoolVitralChurh_001" parent="Decor/Windows/vitral_candle" index="0" unique_id=1829039703]
+[node name="BoolVitralChurh_001" parent="Decor/Windows/vitral_candle" index="0" unique_id=1816181600]
 transparency = 0.45
 mesh = SubResource("ArrayMesh_lje7w")
 
 [node name="Candles" type="Node3D" parent="Decor" unique_id=533379996]
 
-[node name="candle" parent="Decor" unique_id=459729295 instance=ExtResource("21_fm7ui")]
+[node name="candle" parent="Decor" unique_id=126742829 instance=ExtResource("21_fm7ui")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16.845078, 2.4261124, 3.8777554)
 
 [node name="candle2" parent="Decor" unique_id=488695851 instance=ExtResource("21_fm7ui")]

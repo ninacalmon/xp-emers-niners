@@ -60,6 +60,7 @@
 [ext_resource type="Resource" uid="uid://cgutcfta1002v" path="res://items/mirrors/mirror_b/mirror_b2.tres" id="48_jum6b"]
 [ext_resource type="PackedScene" uid="uid://by3xhr7in7fhx" path="res://assets/3d/items/mirrors/mirror_b/mirror_b2.glb" id="49_l4ul6"]
 [ext_resource type="Script" uid="uid://dh1ltto8wru1y" path="res://screenshots/screenshots.gd" id="52_j0rhc"]
+[ext_resource type="Texture2D" uid="uid://bhj86bqpspx28" path="res://assets/3d/items/candle/candle_roughness_map.png" id="54_j2kh8"]
 [ext_resource type="PackedScene" uid="uid://dhb4ubn1lv1kq" path="res://examples/interaction_examples/item_giver/key_giver_ball.tscn" id="61_cf0uk"]
 [ext_resource type="PackedScene" uid="uid://cut5m0ku8e4e6" path="res://scenes/puzzles/mirrors/mirror_stand/mirror_stand.tscn" id="62_j2kh8"]
 [ext_resource type="PackedScene" uid="uid://beejk147fox5c" path="res://scenes/puzzles/mirrors/light_beam/light_beam.tscn" id="63_hpffo"]
@@ -109,7 +110,7 @@ size = Vector2(500, 500)
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_u1gsd"]
 albedo_color = Color(0.66, 0.52536005, 0.4224, 1)
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_cf0uk"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_hpffo"]
 viewport_path = NodePath("SubViewportSprite")
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_u0ka6"]
@@ -185,19 +186,19 @@ top_radius = 2.0
 bottom_radius = 2.0
 height = 1.0
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_j2kh8"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_hnqnj"]
 viewport_path = NodePath("SubViewportSprite")
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_hpffo"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_7lp0r"]
 viewport_path = NodePath("SubViewportSprite")
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_hnqnj"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_tj3jo"]
 resource_local_to_scene = true
 render_priority = -1
 shader = ExtResource("13_goy61")
-shader_parameter/sprite_texture = SubResource("ViewportTexture_hpffo")
+shader_parameter/sprite_texture = SubResource("ViewportTexture_7lp0r")
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_7lp0r"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_j3x8u"]
 viewport_path = NodePath("SubViewportSprite")
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_cdpwx"]
@@ -750,6 +751,18 @@ radius = 1.8
 radius = 0.78808594
 height = 1.5761719
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_l72hy"]
+resource_name = "candle"
+cull_mode = 2
+albedo_color = Color(1, 0.7967581, 0.31933945, 1)
+metallic_texture = ExtResource("54_j2kh8")
+metallic_texture_channel = 2
+roughness_texture = ExtResource("54_j2kh8")
+roughness_texture_channel = 1
+emission_enabled = true
+emission = Color(0.33, 0.24287999, 0.09239999, 1)
+emission_energy_multiplier = 1.08
+
 [sub_resource type="BoxShape3D" id="BoxShape3D_jn1yg"]
 size = Vector3(3.7597656, 2.6875, 1)
 
@@ -811,7 +824,7 @@ environment = SubResource("Environment_t634p")
 [node name="Camera3D" type="Camera3D" parent="VisualConfig" unique_id=1834340419]
 unique_name_in_owner = true
 physics_interpolation_mode = 1
-transform = Transform3D(0.6890827, -0.054661077, 0.72261834, -2.849962e-06, 0.9971511, 0.0754303, -0.72468275, -0.05197977, 0.6871194, 83.213615, 2.8299909, -4.377086)
+transform = Transform3D(0.6891839, -0.05462926, 0.7225242, -7.101509e-05, 0.99714875, 0.07546106, -0.72458655, -0.052057855, 0.687215, 83.21359, 2.829958, -4.3770995)
 top_level = true
 cull_mask = 1048031
 size = 62.088
@@ -924,11 +937,11 @@ omni_range = 20.153
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.082743, 1.6670088, -3.19987)
 
 [node name="Camera3D" parent="Church/ConfessionalBooth" index="2" unique_id=430217490]
-transform = Transform3D(0.6890806, -0.054660395, 0.72262037, -2.758433e-06, 0.9971512, 0.07542907, -0.7246848, -0.051978696, 0.6871174, 83.213615, 2.8299913, -4.377086)
+transform = Transform3D(0.6891844, -0.054629456, 0.72252375, -7.128289e-05, 0.9971487, 0.07546163, -0.72458607, -0.052058477, 0.6872154, 83.21359, 2.8299577, -4.3770995)
 top_level = true
 
 [node name="Sprite3D" parent="Church/ConfessionalBooth/Confessor" parent_id_path=PackedInt32Array(321162436, 1758948578) index="0" unique_id=415751236]
-texture = SubResource("ViewportTexture_cf0uk")
+texture = SubResource("ViewportTexture_hpffo")
 
 [node name="SecondFloor" type="Node3D" parent="Church" unique_id=1860471051]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -33.12908, 0, 0)
@@ -1128,11 +1141,11 @@ unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 78.78419, 0.9976957, -5.94999)
 
 [node name="Sprite3D" parent="Characters/Sanson" index="0" unique_id=415751236]
-texture = SubResource("ViewportTexture_j2kh8")
+texture = SubResource("ViewportTexture_hnqnj")
 
 [node name="Outline" parent="Characters/Sanson/Sprite3D" index="0" unique_id=1631064389]
-material_overlay = SubResource("ShaderMaterial_hnqnj")
-texture = SubResource("ViewportTexture_7lp0r")
+material_overlay = SubResource("ShaderMaterial_tj3jo")
+texture = SubResource("ViewportTexture_j3x8u")
 
 [node name="AstrolablusPuzzle" parent="Characters" unique_id=572576743 instance=ExtResource("14_m114p")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 74.03788, 0.89560485, -7.5373673)
@@ -1176,7 +1189,7 @@ transform = Transform3D(1.0000001, 0, 2.9802322e-08, 7.450581e-09, 1, 3.7252903e
 [node name="lockpick" parent="Characters/SleepPuzzle/LockPick" unique_id=43559986 instance=ExtResource("14_xq18t")]
 transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0.1816597, 0.0067293644, 0.2569809)
 
-[node name="Loop_002" parent="Characters/SleepPuzzle/LockPick/lockpick" index="4" unique_id=1796656534]
+[node name="Loop_002" parent="Characters/SleepPuzzle/LockPick/lockpick" index="4" unique_id=708519900]
 material_overlay = ExtResource("19_tytul")
 instance_shader_parameters/outline_enabled = false
 instance_shader_parameters/size = 1.07999999821184
@@ -1293,7 +1306,7 @@ noise_emitter_layer = 1
 metadata/_custom_type_script = "uid://csjccrhj5wnx7"
 
 [node name="CloseUpCamera" type="Node3D" parent="Cutscenes/StartingCutscene" unique_id=1789459155 node_paths=PackedStringArray("follow_target", "look_at_target")]
-transform = Transform3D(-0.9335048, 0, 0, 0, 0.68254006, 0.7308435, 0, 0.7308429, -0.6825405, 31.976969, 4.5308065, -13.0020275)
+transform = Transform3D(-0.9326706, 0, 0, 0, 0.68254006, 0.7308435, 0, 0.7308429, -0.6825405, 31.976969, 4.5308065, -13.0020275)
 top_level = true
 script = ExtResource("28_phx5y")
 follow_mode = 5
@@ -1375,7 +1388,7 @@ shape = SubResource("SphereShape3D_cdpwx")
 [node name="CollectableItems" type="Node" parent="." unique_id=1692708429]
 
 [node name="AstrolabusBody" parent="CollectableItems" unique_id=218661795 instance=ExtResource("17_bt7bg")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 40.742638, 1.6569824, 19.055292)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 45.29611, 3.1077554, 16.957611)
 
 [node name="InteractionArea" parent="CollectableItems/AstrolabusBody" index="0" unique_id=834874890 node_paths=PackedStringArray("mesh")]
 mesh = NodePath("../astrolabus_body/MainFrame")
@@ -1383,7 +1396,7 @@ mesh = NodePath("../astrolabus_body/MainFrame")
 [node name="astrolabus_body" parent="CollectableItems/AstrolabusBody" unique_id=1927840522 instance=ExtResource("18_wbwoo")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.023144484, 0)
 
-[node name="MainFrame" parent="CollectableItems/AstrolabusBody/astrolabus_body" index="1" unique_id=474187975]
+[node name="MainFrame" parent="CollectableItems/AstrolabusBody/astrolabus_body" index="1" unique_id=1366137940]
 material_overlay = ExtResource("19_tytul")
 instance_shader_parameters/size = 1.12999999709424
 
@@ -1396,7 +1409,7 @@ mesh = NodePath("../astrolabus_pointer/PointerTex")
 
 [node name="astrolabus_pointer" parent="CollectableItems/AstrolabusPointer" unique_id=224618642 instance=ExtResource("19_wbwoo")]
 
-[node name="PointerTex" parent="CollectableItems/AstrolabusPointer/astrolabus_pointer" index="0" unique_id=518136510]
+[node name="PointerTex" parent="CollectableItems/AstrolabusPointer/astrolabus_pointer" index="0" unique_id=270399608]
 material_overlay = ExtResource("19_tytul")
 instance_shader_parameters/outline_enabled = true
 instance_shader_parameters/size = 1.22999999485904
@@ -1411,7 +1424,7 @@ mesh = NodePath("../lockpick/Loop_002")
 [node name="lockpick" parent="CollectableItems/LockPick" unique_id=1844345666 instance=ExtResource("14_xq18t")]
 transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 0, 0)
 
-[node name="Loop_002" parent="CollectableItems/LockPick/lockpick" index="4" unique_id=1796656534]
+[node name="Loop_002" parent="CollectableItems/LockPick/lockpick" index="4" unique_id=708519900]
 material_overlay = ExtResource("19_tytul")
 instance_shader_parameters/outline_enabled = false
 instance_shader_parameters/size = 1.07999999821184
@@ -1504,7 +1517,7 @@ mesh = NodePath("../mirror_b2/mirrorB2")
 transform = Transform3D(0.54266346, 0.8353012, -0.08825097, -0.06035021, 0.14356983, 0.9877984, 0.83777946, -0.5307161, 0.12832072, -0.04052353, 0.023976564, 0.0019836426)
 
 [node name="Candle" parent="CollectableItems" unique_id=1857890360 instance=ExtResource("17_bt7bg")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 23.886248, 2.8702636, 19.323662)
+transform = Transform3D(0.6383194, 0.76977164, -2.1568733e-08, -0.09152603, 0.07589636, 0.99290633, 0.764311, -0.63379127, 0.11890028, 23.847748, 1.66577, 17.685247)
 item = ExtResource("34_lbnhc")
 
 [node name="InteractionArea" parent="CollectableItems/Candle" index="0" unique_id=834874890 node_paths=PackedStringArray("mesh")]
@@ -1512,6 +1525,9 @@ mesh = NodePath("../candle/Candle")
 
 [node name="candle" parent="CollectableItems/Candle" unique_id=1028344875 instance=ExtResource("35_sygq6")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.27082276, 0)
+
+[node name="Candle" parent="CollectableItems/Candle/candle" index="0" unique_id=781616279]
+surface_material_override/0 = SubResource("StandardMaterial3D_l72hy")
 
 [node name="Ambient" type="AudioStreamPlayer" parent="." unique_id=249666659]
 stream = ExtResource("28_2x71e")
