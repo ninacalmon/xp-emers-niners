@@ -1,12 +1,30 @@
 [gd_scene format=3 uid="uid://cut5m0ku8e4e6"]
 
 [ext_resource type="Script" uid="uid://brdjwhembllpc" path="res://scenes/puzzles/mirrors/mirror_stand/mirror_stand.gd" id="1_qq76s"]
+[ext_resource type="Texture2D" uid="uid://cos1fefqwe0hv" path="res://assets/3d/objects/confessional/confessional_rosewood_veneer1_diff_1k.jpg" id="2_5245m"]
 [ext_resource type="PackedScene" uid="uid://na8xw2uvry6" path="res://assets/3d/items/mirrors/mirror_c/mirror_c_full.glb" id="2_bwbnw"]
 [ext_resource type="Script" uid="uid://cf2auur4umdjl" path="res://systems/interaction/interaction_area.gd" id="3_qf7od"]
+[ext_resource type="Texture2D" uid="uid://b41uvfxs6bjos" path="res://assets/3d/objects/confessional/confessional_rosewood_veneer1_rough_1k.png" id="3_vkrd6"]
 [ext_resource type="Script" uid="uid://ctkv21kel2ivs" path="res://scenes/puzzles/mirrors/mirror_stand/rotate_action.gd" id="4_a4fk1"]
+[ext_resource type="Texture2D" uid="uid://cqraxx8kcmmwx" path="res://assets/3d/objects/confessional/confessional_rosewood_veneer1_nor_gl_1k.png" id="4_c6m6d"]
+[ext_resource type="PackedScene" uid="uid://c5j2qsi5minjv" path="res://assets/3d/items/mirrors/mirror_a/mirror_a_full.glb" id="5_ndi8t"]
+[ext_resource type="PackedScene" uid="uid://db8352k03vonw" path="res://assets/3d/items/mirrors/mirror_b/mirror_b_full.glb" id="6_nlpwj"]
+[ext_resource type="PackedScene" uid="uid://bkuy8chsqlqrj" path="res://assets/3d/objects/mirror/mirror_sqr.glb" id="8_q3c3n"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_ksdio"]
-size = Vector3(0.07, 0.306, 0.26)
+size = Vector3(0.07, 0.34550488, 0.3166504)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_w2yfw"]
+resource_name = "wood"
+cull_mode = 2
+albedo_texture = ExtResource("2_5245m")
+metallic_texture = ExtResource("3_vkrd6")
+metallic_texture_channel = 2
+roughness_texture = ExtResource("3_vkrd6")
+roughness_texture_channel = 1
+normal_enabled = true
+normal_texture = ExtResource("4_c6m6d")
+metadata/_gltf_primary_texture_coord = 0
 
 [sub_resource type="BoxMesh" id="BoxMesh_cdpwx"]
 size = Vector3(0.07, 1.65, 0.07)
@@ -25,52 +43,67 @@ script = ExtResource("1_qq76s")
 [node name="HeadPivot" type="Node3D" parent="." unique_id=1842428894]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.2696042, 0)
 
-[node name="MirrorMesh" type="MeshInstance3D" parent="HeadPivot" unique_id=883684590]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.16302621, 0)
+[node name="MirrorFrame" type="MeshInstance3D" parent="HeadPivot" unique_id=883684590]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.1827786, 0)
 mesh = SubResource("BoxMesh_ksdio")
+surface_material_override/0 = SubResource("StandardMaterial3D_w2yfw")
+
+[node name="MirrorMesh" type="Node3D" parent="HeadPivot" unique_id=2136665055]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0.04601641, 0.18392849, 0)
+
+[node name="mirror_a_full" parent="HeadPivot/MirrorMesh" unique_id=658029145 instance=ExtResource("5_ndi8t")]
+visible = false
+
+[node name="mirror_b_full" parent="HeadPivot/MirrorMesh" unique_id=89306926 instance=ExtResource("6_nlpwj")]
+visible = false
 
 [node name="mirror_c_full" parent="HeadPivot/MirrorMesh" unique_id=297561418 instance=ExtResource("2_bwbnw")]
-transform = Transform3D(1.1924881e-08, 0, 1, 0, 1, 0, -1, 0, 1.1924881e-08, 0.041269287, -0.015277028, 0)
+visible = false
 
-[node name="Others" type="Node3D" parent="." unique_id=1663975902]
+[node name="mirror_sqr" parent="HeadPivot/MirrorMesh" unique_id=679958076 instance=ExtResource("8_q3c3n")]
 
-[node name="StandMesh" type="MeshInstance3D" parent="Others" unique_id=173816631]
+[node name="StandMesh" type="MeshInstance3D" parent="." unique_id=173816631]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5061717, 0)
 mesh = SubResource("BoxMesh_cdpwx")
+surface_material_override/0 = SubResource("StandardMaterial3D_w2yfw")
 
-[node name="InteractionArea" type="Area3D" parent="Others" unique_id=1596239601 node_paths=PackedStringArray("mesh", "action_trigger")]
+[node name="InteractionArea" type="Area3D" parent="." unique_id=1596239601 node_paths=PackedStringArray("mesh", "action_trigger")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.29826796, 0)
 script = ExtResource("3_qf7od")
-mesh = NodePath("../../HeadPivot/MirrorMesh")
+mesh = NodePath("../HeadPivot/MirrorFrame")
 action_trigger = NodePath("../RotateAction")
 metadata/_custom_type_script = "uid://cf2auur4umdjl"
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Others/InteractionArea" unique_id=62752352]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="InteractionArea" unique_id=62752352]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.95376587, 0)
 shape = SubResource("BoxShape3D_ksdio")
 
-[node name="RotateAction" type="Node" parent="Others" unique_id=609549120 node_paths=PackedStringArray("rich_text_label", "mirror_stand")]
+[node name="RotateAction" type="Node" parent="." unique_id=609549120 node_paths=PackedStringArray("rich_text_label", "mirror_stand", "mirror_start_model", "mirror_a_model", "mirror_b_model", "mirror_c_model")]
 script = ExtResource("4_a4fk1")
 rich_text_label = NodePath("../RichTextLabel")
-mirror_stand = NodePath("../..")
+mirror_stand = NodePath("..")
+mirror_start_model = NodePath("../HeadPivot/MirrorMesh/mirror_sqr")
+mirror_a_model = NodePath("../HeadPivot/MirrorMesh/mirror_a_full")
+mirror_b_model = NodePath("../HeadPivot/MirrorMesh/mirror_b_full")
+mirror_c_model = NodePath("../HeadPivot/MirrorMesh/mirror_c_full")
 
-[node name="RichTextLabel" type="RichTextLabel" parent="Others" unique_id=1095252712]
-visible = false
+[node name="RichTextLabel" type="RichTextLabel" parent="." unique_id=1095252712]
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -207.0
-offset_top = -25.0
+offset_top = -59.0
 offset_right = 207.0
-offset_bottom = 25.0
+offset_bottom = -9.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_colors/default_color = Color(1, 1, 1, 1)
 bbcode_enabled = true
 text = "Segure[img=50]res://assets/2d/interface/kenney_input_prompts/keyboard_a_outline.png[/img]ou[img=50]res://assets/2d/interface/kenney_input_prompts/keyboard_d_outline.png[/img]para rotacionar."
 fit_content = true
+horizontal_alignment = 1
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=283296589]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.4323364, 0)

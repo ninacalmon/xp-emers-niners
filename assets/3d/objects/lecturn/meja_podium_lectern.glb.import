@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://iao3gf5t3wts"
-path="res://.godot/imported/meja_podium_lectern.glb-0b4053e8fb06c5e8650be3543654dd2a.scn"
+path="res://.godot/imported/meja_podium_lectern.glb-ce81d4d1d32900fc766529ff0025dfb0.scn"
 
 [deps]
 
-source_file="res://assets/3d/objects/lectern/meja_podium_lectern.glb"
-dest_files=["res://.godot/imported/meja_podium_lectern.glb-0b4053e8fb06c5e8650be3543654dd2a.scn"]
+source_file="res://assets/3d/objects/lecturn/meja_podium_lectern.glb"
+dest_files=["res://.godot/imported/meja_podium_lectern.glb-ce81d4d1d32900fc766529ff0025dfb0.scn"]
 
 [params]
 

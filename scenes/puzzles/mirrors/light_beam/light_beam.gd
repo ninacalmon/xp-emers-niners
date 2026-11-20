@@ -5,23 +5,43 @@ extends Node3D
 @export_flags_3d_physics var hit_mask: int = (1 << 0) | (1 << 9) # World (1) + Mirror (10)
 @export var max_bounces: int = 8
 @export var max_length: float = 100.0
-@export var beam_radius: float = 0.03
+@export var beam_radius: float = 0.03 # radius of the bright core
 @export var flatten_on_reflect: bool = true
 @export var color_gradient: Gradient
 @export var gradient_length: float = 30.0 # distance travelled for the gradient to complete
 
+@export_group("Look")
+@export var glow_scale: float = 5.0 # glow radius = beam_radius * glow_scale
+@export var core_intensity: float = 2.0 # above 1.0 feeds the Environment glow (bloom)
+@export var glow_intensity: float = 0.7
+@export_range(0.0, 1.0) var core_whiten: float = 0.6 # how white-hot the core is
+@export_range(0.0, 1.0) var pulse_strength: float = 0.15
+@export var pulse_frequency: float = 2.0 # waves per unit of distance
+@export var pulse_speed: float = 6.0
+
 const SURFACE_OFFSET: float = 0.001
 const FACE_DOT_THRESHOLD: float = 0.99
+const CORE_EDGE_POWER: float = 1.0
+const GLOW_EDGE_POWER: float = 2.0
 
 var _segments: Array[MeshInstance3D] = []
-var _cylinder: CylinderMesh
+var _core_cylinder: CylinderMesh
+var _glow_cylinder: CylinderMesh
+
 const BEAM_SHADER_CODE: String = """
 shader_type spatial;
-render_mode unshaded;
+render_mode unshaded, blend_add, depth_draw_never, cull_back;
 
 uniform sampler2D gradient_tex : source_color, filter_linear, repeat_disable;
 uniform float offset_start = 0.0;
 uniform float offset_end = 1.0;
+uniform float gradient_length = 30.0;
+uniform float intensity = 1.0;
+uniform float edge_power : hint_range(0.1, 8.0) = 1.5;
+uniform float whiten : hint_range(0.0, 1.0) = 0.0;
+uniform float pulse_strength : hint_range(0.0, 1.0) = 0.15;
+uniform float pulse_frequency = 2.0;
+uniform float pulse_speed = 6.0;
 
 varying float t;
 
@@ -30,8 +50,19 @@ void vertex() {
 }
 
 void fragment() {
-	float offset = clamp(mix(offset_start, offset_end, t), 0.0, 1.0);
-	ALBEDO = texture(gradient_tex, vec2(offset, 0.5)).rgb;
+	float along = mix(offset_start, offset_end, t);
+	vec4 col = texture(gradient_tex, vec2(clamp(along, 0.0, 1.0), 0.5));
+
+	// 1.0 at the centre line of the cylinder, 0.0 at its silhouette.
+	// Fading the edges hides the hard cylinder outline.
+	float rim = clamp(dot(normalize(NORMAL), normalize(VIEW)), 0.0, 1.0);
+	float soft_edge = pow(rim, edge_power);
+
+	// Energy pulse travelling along the beam.
+	float pulse = 1.0 + pulse_strength * sin(along * gradient_length * pulse_frequency - TIME * pulse_speed);
+
+	ALBEDO = mix(col.rgb, vec3(1.0), whiten) * intensity;
+	ALPHA = clamp(col.a * soft_edge * pulse, 0.0, 1.0);
 }
 """
 
@@ -39,18 +70,14 @@ var _shader: Shader
 var _gradient_texture: GradientTexture1D
 
 func _ready() -> void:
-	_cylinder = CylinderMesh.new()
-	_cylinder.top_radius = beam_radius
-	_cylinder.bottom_radius = beam_radius
-	_cylinder.height = 1.0 # stretched per segment via the basis
-	_cylinder.radial_segments = 12
-	_cylinder.rings = 1
+	_core_cylinder = _make_cylinder(beam_radius)
+	_glow_cylinder = _make_cylinder(beam_radius * glow_scale)
 
 	# Fallback if no gradient was assigned in the Inspector
 	if color_gradient == null:
 		color_gradient = Gradient.new()
-		color_gradient.set_color(0, Color.RED)
-		color_gradient.set_color(1, Color.YELLOW)
+		color_gradient.set_color(0, Color(1.0, 0.0, 0.0, 1.0)) # opaque red at the start
+		color_gradient.set_color(1, Color(1.0, 1.0, 0.0, 0.0)) # transparent yellow at the end
 
 	_gradient_texture = GradientTexture1D.new()
 	_gradient_texture.gradient = color_gradient
@@ -58,6 +85,26 @@ func _ready() -> void:
 
 	_shader = Shader.new()
 	_shader.code = BEAM_SHADER_CODE
+
+
+func _make_cylinder(radius: float) -> CylinderMesh:
+	var cyl: CylinderMesh = CylinderMesh.new()
+	cyl.top_radius = radius
+	cyl.bottom_radius = radius
+	cyl.height = 1.0 # stretched per segment via the basis
+	cyl.radial_segments = 16
+	cyl.rings = 1
+	return cyl
+
+
+func _make_material(whiten: float, intensity: float, edge_power: float) -> ShaderMaterial:
+	var mat: ShaderMaterial = ShaderMaterial.new()
+	mat.shader = _shader
+	mat.set_shader_parameter("gradient_tex", _gradient_texture)
+	mat.set_shader_parameter("whiten", whiten)
+	mat.set_shader_parameter("intensity", intensity)
+	mat.set_shader_parameter("edge_power", edge_power)
+	return mat
 
 
 func _physics_process(_delta: float) -> void:
@@ -116,18 +163,31 @@ func _update_beam() -> void:
 
 
 func _create_segment() -> MeshInstance3D:
+	# Core: thin, bright, white-hot.
 	var seg: MeshInstance3D = MeshInstance3D.new()
-	seg.mesh = _cylinder
+	seg.mesh = _core_cylinder
 	seg.top_level = true
 	seg.cast_shadow = GeometryInstance3D.SHADOW_CASTING_SETTING_OFF
+	seg.material_override = _make_material(core_whiten, core_intensity, CORE_EDGE_POWER)
 
-	var mat: ShaderMaterial = ShaderMaterial.new()
-	mat.shader = _shader
-	mat.set_shader_parameter("gradient_tex", _gradient_texture)
-	seg.material_override = mat
+	# Glow: wide, soft, coloured. Child of the core, so it shares its transform.
+	var glow: MeshInstance3D = MeshInstance3D.new()
+	glow.mesh = _glow_cylinder
+	glow.cast_shadow = GeometryInstance3D.SHADOW_CASTING_SETTING_OFF
+	glow.material_override = _make_material(0.0, glow_intensity, GLOW_EDGE_POWER)
+	seg.add_child(glow)
 
 	add_child(seg)
 	return seg
+
+
+func _apply_params(mat: ShaderMaterial, start: float, end: float) -> void:
+	mat.set_shader_parameter("offset_start", start)
+	mat.set_shader_parameter("offset_end", end)
+	mat.set_shader_parameter("gradient_length", gradient_length)
+	mat.set_shader_parameter("pulse_strength", pulse_strength)
+	mat.set_shader_parameter("pulse_frequency", pulse_frequency)
+	mat.set_shader_parameter("pulse_speed", pulse_speed)
 
 
 func _draw_points(points: Array[Vector3]) -> void:
@@ -147,9 +207,11 @@ func _draw_points(points: Array[Vector3]) -> void:
 		var seg_length: float = points[i].distance_to(points[i + 1])
 		_place_segment(seg, points[i], points[i + 1])
 
-		var mat: ShaderMaterial = seg.material_override as ShaderMaterial
-		mat.set_shader_parameter("offset_start", travelled / gradient_len)
-		mat.set_shader_parameter("offset_end", (travelled + seg_length) / gradient_len)
+		var start: float = travelled / gradient_len
+		var end: float = (travelled + seg_length) / gradient_len
+		var glow: MeshInstance3D = seg.get_child(0) as MeshInstance3D
+		_apply_params(seg.material_override as ShaderMaterial, start, end)
+		_apply_params(glow.material_override as ShaderMaterial, start, end)
 		travelled += seg_length
 
 
