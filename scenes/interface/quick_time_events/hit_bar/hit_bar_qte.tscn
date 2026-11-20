@@ -1,6 +1,8 @@
 [gd_scene format=3 uid="uid://b5vatnt8aht8k"]
 
 [ext_resource type="Script" uid="uid://dnxdrghjtmr4s" path="res://scenes/interface/quick_time_events/hit_bar/hit_bar_qte.gd" id="1_px4dt"]
+[ext_resource type="AudioStream" uid="uid://dshvm2ycwfxhq" path="res://assets/sound/sound_effects/lock_picik_fail.ogg" id="2_okexg"]
+[ext_resource type="AudioStream" uid="uid://btfwdgsp3dhhg" path="res://assets/sound/sound_effects/lock_pick_open.ogg" id="3_cqmx8"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_cdpwx"]
 bg_color = Color(0.25490198, 0.06666667, 0, 1)
@@ -76,3 +78,11 @@ custom_minimum_size = Vector2(8, 0)
 layout_mode = 2
 size_flags_horizontal = 0
 theme_override_styles/panel = SubResource("StyleBoxFlat_u0ka6")
+
+[node name="AudioStreamPlayerFail" type="AudioStreamPlayer" parent="." unique_id=1475217657]
+stream = ExtResource("2_okexg")
+volume_db = -4.0
+
+[node name="AudioStreamPlayerOpen" type="AudioStreamPlayer" parent="." unique_id=1668276663]
+stream = ExtResource("3_cqmx8")
+volume_db = -8.0

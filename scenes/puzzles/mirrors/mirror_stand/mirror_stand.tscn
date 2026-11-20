@@ -10,6 +10,8 @@
 [ext_resource type="PackedScene" uid="uid://c5j2qsi5minjv" path="res://assets/3d/items/mirrors/mirror_a/mirror_a_full.glb" id="5_ndi8t"]
 [ext_resource type="PackedScene" uid="uid://db8352k03vonw" path="res://assets/3d/items/mirrors/mirror_b/mirror_b_full.glb" id="6_nlpwj"]
 [ext_resource type="PackedScene" uid="uid://bkuy8chsqlqrj" path="res://assets/3d/objects/mirror/mirror_sqr.glb" id="8_q3c3n"]
+[ext_resource type="AudioStream" uid="uid://d241s6cs8smqx" path="res://assets/sound/sound_effects/items/rock_metal_slide.wav" id="11_vkrd6"]
+[ext_resource type="AudioStream" uid="uid://dbsvxutgdnf07" path="res://assets/sound/sound_effects/items/glass_put.mp3" id="12_c6m6d"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_ksdio"]
 size = Vector3(0.07, 0.34550488, 0.3166504)
@@ -31,6 +33,18 @@ size = Vector3(0.07, 1.65, 0.07)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_ksdio"]
 size = Vector3(0.11352539, 1.9613647, 0.28027344)
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_iqlqk"]
+random_pitch = 1.0174797
+random_volume_offset_db = 1.0
+streams_count = 1
+stream_0/stream = ExtResource("11_vkrd6")
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_ndi8t"]
+random_pitch = 1.0293022
+random_volume_offset_db = 1.0
+streams_count = 1
+stream_0/stream = ExtResource("12_c6m6d")
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_cdpwx"]
 size = Vector3(0.07, 0.306, 0.26)
@@ -86,6 +100,17 @@ mirror_start_model = NodePath("../HeadPivot/MirrorMesh/mirror_sqr")
 mirror_a_model = NodePath("../HeadPivot/MirrorMesh/mirror_a_full")
 mirror_b_model = NodePath("../HeadPivot/MirrorMesh/mirror_b_full")
 mirror_c_model = NodePath("../HeadPivot/MirrorMesh/mirror_c_full")
+
+[node name="AudioStreamPlayerRot" type="AudioStreamPlayer" parent="RotateAction" unique_id=1479609283]
+stream = SubResource("AudioStreamRandomizer_iqlqk")
+volume_db = -13.0
+pitch_scale = 3.0
+bus = &"Sound Effects"
+
+[node name="AudioStreamPlayerMirror" type="AudioStreamPlayer" parent="RotateAction" unique_id=797401957]
+stream = SubResource("AudioStreamRandomizer_ndi8t")
+volume_db = -10.0
+bus = &"Sound Effects"
 
 [node name="RichTextLabel" type="RichTextLabel" parent="." unique_id=1095252712]
 anchors_preset = 8

@@ -26,6 +26,9 @@ class_name RotateAction
 @export var mirror_b_model: Node3D
 @export var mirror_c_model: Node3D
 
+@onready var audio_stream_player_rot: AudioStreamPlayer = $AudioStreamPlayerRot
+@onready var audio_stream_player_mirror: AudioStreamPlayer = $AudioStreamPlayerMirror
+
 var is_interacting: bool = false
 var has_mirror: bool = true
 var is_hovered: bool = false
@@ -117,6 +120,8 @@ func _rotate_step(direction: int) -> void:
 	_tween.tween_method(_apply_angle, _visual_angle, _get_angle_for_step(target_step), rotate_duration)
 	_tween.finished.connect(_on_rotate_finished)
 
+	audio_stream_player_rot.play()
+
 
 func _on_rotate_finished() -> void:
 	# Normalize and snap to the exact value (step 0 == exactly correct_rotation).
@@ -153,6 +158,7 @@ func _try_place_mirror() -> void:
 	_sync_mirror_enabled()
 	_update_models()
 	_update_label()
+	audio_stream_player_mirror.play()
 
 
 func _get_placed_models() -> Array[Node3D]:

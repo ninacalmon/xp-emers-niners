@@ -9,13 +9,21 @@
 [ext_resource type="PackedScene" uid="uid://na8xw2uvry6" path="res://assets/3d/items/mirrors/mirror_c/mirror_c_full.glb" id="7_npa0n"]
 [ext_resource type="PackedScene" uid="uid://bkuy8chsqlqrj" path="res://assets/3d/objects/mirror/mirror_sqr.glb" id="8_3bqot"]
 [ext_resource type="Script" uid="uid://cf2auur4umdjl" path="res://systems/interaction/interaction_area.gd" id="9_3s6dq"]
+[ext_resource type="AudioStream" uid="uid://dbsvxutgdnf07" path="res://assets/sound/sound_effects/items/glass_put.mp3" id="9_vcx15"]
 [ext_resource type="Script" uid="uid://b6shvr6vvnoxp" path="res://scenes/puzzles/mirrors/mirror_stand/dsided_rotate_action.gd" id="10_kaoja"]
+[ext_resource type="AudioStream" uid="uid://d241s6cs8smqx" path="res://assets/sound/sound_effects/items/rock_metal_slide.wav" id="11_iqlqk"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_cdpwx"]
 size = Vector3(0.07, 0.306, 0.26)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_ksdio"]
 size = Vector3(0.11352539, 1.9613647, 0.28027344)
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_47eq5"]
+random_pitch = 1.0293022
+random_volume_offset_db = 1.0
+streams_count = 1
+stream_0/stream = ExtResource("9_vcx15")
 
 [sub_resource type="BoxMesh" id="BoxMesh_ksdio"]
 size = Vector3(0.07, 0.34550488, 0.3166504)
@@ -110,6 +118,17 @@ mirror_b = NodePath("../MirrorStandB")
 side_a_models = [NodePath("../MirrorStandA/HeadPivot/MirrorMesh/mirror_sqr"), NodePath("../MirrorStandA/HeadPivot/MirrorMesh/mirror_a_full"), NodePath("../MirrorStandA/HeadPivot/MirrorMesh/mirror_b_full"), NodePath("../MirrorStandA/HeadPivot/MirrorMesh/mirror_c_full")]
 side_b_models = [NodePath("../MirrorStandB/HeadPivot/MirrorMesh/mirror_sqr"), NodePath("../MirrorStandB/HeadPivot/MirrorMesh/mirror_a_full"), NodePath("../MirrorStandB/HeadPivot/MirrorMesh/mirror_b_full"), NodePath("../MirrorStandB/HeadPivot/MirrorMesh/mirror_c_full")]
 correct_rotation = 0.12345678899998802
+
+[node name="AudioStreamPlayerRot" type="AudioStreamPlayer" parent="DoubleSidedRotateAction" unique_id=1406047408]
+stream = ExtResource("11_iqlqk")
+volume_db = -13.0
+pitch_scale = 3.0
+bus = &"Sound Effects"
+
+[node name="AudioStreamPlayerMirror" type="AudioStreamPlayer" parent="DoubleSidedRotateAction" unique_id=1239758564]
+stream = SubResource("AudioStreamRandomizer_47eq5")
+volume_db = -10.0
+bus = &"Sound Effects"
 
 [node name="RichTextLabel" type="RichTextLabel" parent="." unique_id=1095252712]
 anchors_preset = 8

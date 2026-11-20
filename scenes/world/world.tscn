@@ -831,7 +831,7 @@ environment = SubResource("Environment_t634p")
 [node name="Camera3D" type="Camera3D" parent="VisualConfig" unique_id=1834340419]
 unique_name_in_owner = true
 physics_interpolation_mode = 1
-transform = Transform3D(0.6883389, -0.054471076, 0.7233412, 0.00014267664, 0.9971867, 0.0749572, -0.72538936, -0.05149274, 0.6864101, 29.640553, 14.095213, 20.212458)
+transform = Transform3D(0.6890023, -0.054541897, 0.722704, -6.038617e-05, 0.99715996, 0.07531245, -0.7247592, -0.051934093, 0.6870422, 29.640446, 14.095001, 20.21245)
 top_level = true
 cull_mask = 1048031
 size = 62.088
@@ -944,7 +944,7 @@ omni_range = 20.153
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.082743, 1.6670088, -3.19987)
 
 [node name="Camera3D" parent="Church/ConfessionalBooth" index="2" unique_id=430217490]
-transform = Transform3D(0.68833697, -0.054469917, 0.72334313, 0.00014247517, 0.99718684, 0.074955605, -0.72539115, -0.051491648, 0.68640834, 29.640553, 14.095214, 20.212458)
+transform = Transform3D(0.6890009, -0.054542948, 0.72270525, -5.9944803e-05, 0.9971599, 0.07531334, -0.7247606, -0.05193428, 0.68704075, 29.640446, 14.095001, 20.21245)
 top_level = true
 
 [node name="Sprite3D" parent="Church/ConfessionalBooth/Confessor" parent_id_path=PackedInt32Array(321162436, 1758948578) index="0" unique_id=415751236]
@@ -1130,7 +1130,7 @@ material_overlay = SubResource("ShaderMaterial_j3x8u")
 texture = SubResource("ViewportTexture_l72hy")
 
 [node name="AstrolablusPuzzle" parent="Characters" unique_id=572576743 instance=ExtResource("14_m114p")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 74.03788, 0.89560485, -7.5373673)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 74.17525, 0.89560485, -7.2601056)
 
 [node name="SpotLight3D" type="SpotLight3D" parent="Characters/AstrolablusPuzzle" unique_id=968568728]
 transform = Transform3D(0.9585021, 0.2548376, 0.12779476, 0, -0.44826826, 0.8938991, 0.28508544, -0.85680413, -0.42966607, 0.14440918, 1.4710057, -0.57654715)
@@ -1288,7 +1288,7 @@ noise_emitter_layer = 1
 metadata/_custom_type_script = "uid://csjccrhj5wnx7"
 
 [node name="CloseUpCamera" type="Node3D" parent="Cutscenes/StartingCutscene" unique_id=1789459155 node_paths=PackedStringArray("follow_target", "look_at_target")]
-transform = Transform3D(-0.9201578, 0, 0, 0, 0.8826757, -0.4699747, 0, -0.46997437, -0.8826764, 31.976969, 4.116524, -13.0710745)
+transform = Transform3D(-0.9199934, 0, 0, 0, 0.8826757, -0.4699747, 0, -0.46997437, -0.8826764, 31.976969, 4.116524, -13.0710745)
 top_level = true
 script = ExtResource("28_phx5y")
 follow_mode = 5

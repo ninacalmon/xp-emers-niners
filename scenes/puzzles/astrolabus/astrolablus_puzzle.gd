@@ -4,6 +4,9 @@ extends Puzzle
 
 @onready var phantom_camera_3d: PhantomCamera3D = $PhantomCamera3D
 @onready var interaction_area: InteractionArea = $InteractionArea
+@onready var audio_stream_player_try: AudioStreamPlayer = $AudioStreamPlayerTry
+@onready var audio_stream_player_fit: AudioStreamPlayer = $AudioStreamPlayerFit
+@onready var audio_stream_player_step: AudioStreamPlayer = $AudioStreamPlayerStep
 
 @export var interaction_area_collision: CollisionShape3D
 
@@ -12,7 +15,16 @@ extends Puzzle
 @export var astrolabus_pointer: Node3D
 @export var button_mesh: MeshInstance3D
 @export var astrolabus: Node3D
+@export var step_sound_interval: float = 5.0
 
+@export_group("Shake Feedback")
+@export var shake_intensity: float = 0.01
+@export var shake_duration: float = 0.03
+
+var _shake_tween: Tween
+var _astrolabus_original_position: Vector3
+
+var _sound_angle_accumulator: float = 0.0
 const STARTING_VALUE: int = 0
 const CORRECT_VALUE: int = 75
 
@@ -57,7 +69,7 @@ func finish(solved: bool):
 	is_dragging = false
 
 	if solved:
-		print("VOCÊ CONSEGUIU")
+		audio_stream_player_fit.play()
 		puzzle_solved = true
 		await get_tree().create_timer(1).timeout
 
@@ -74,6 +86,8 @@ func _ready() -> void:
 
 	astrolabus.hide()
 	interaction_area_collision.disabled = true
+
+	_astrolabus_original_position = astrolabus.position
 
 
 func _input(event: InputEvent) -> void:
@@ -105,6 +119,7 @@ func move_pointer(dir: int) -> void:
 	is_moving = true
 
 	var target_value: int = current_value + STEP * dir
+	_update_rotation_audio(float(STEP * dir))
 
 	var tween: Tween = create_tween()
 	tween.set_ease(Tween.EASE_IN)
@@ -133,6 +148,7 @@ func get_dial_value() -> int:
 
 func _on_button_pressed():
 	button_press_visual(true)
+	audio_stream_player_try.play()
 
 
 func _on_button_released():
@@ -141,6 +157,7 @@ func _on_button_released():
 		finish(true)
 		print("solved!")
 	else:
+		shake()
 		print("wrong value")
 
 
@@ -173,8 +190,15 @@ func _drag_pointer(_delta_x: float) -> void:
 	var mouse_angle: float = _get_mouse_angle()
 	var delta_angle: float = angle_difference(last_mouse_angle, mouse_angle)
 	last_mouse_angle = mouse_angle
-	drag_angle += rad_to_deg(delta_angle) * DRAG_DIRECTION
+
+	var rotation_delta: float = rad_to_deg(delta_angle) * DRAG_DIRECTION
+
+	_update_rotation_audio(rotation_delta)
+
+	drag_angle += rotation_delta
 	pointer_pivot.rotation.y = deg_to_rad(drag_angle)
+	
+
 
 
 func _end_drag() -> void:
@@ -204,3 +228,41 @@ func _end_drag() -> void:
 func enable_interaction():
 	astrolabus.show()
 	interaction_area_collision.disabled = false
+
+
+func _update_rotation_audio(delta_angle: float) -> void:
+	_sound_angle_accumulator += absf(delta_angle)
+
+	if _sound_angle_accumulator >= step_sound_interval:
+		_sound_angle_accumulator = fmod(
+			_sound_angle_accumulator,
+			step_sound_interval
+		)
+		audio_stream_player_step.play()
+
+
+func shake() -> void:
+	if _shake_tween and _shake_tween.is_running():
+		_shake_tween.kill()
+
+	astrolabus.position = _astrolabus_original_position
+
+	_shake_tween = create_tween()
+
+	for i in range(4):
+		var offset: float = shake_intensity * (1.0 - float(i) / 4.0)
+		var direction: float = -1.0 if i % 2 == 0 else 1.0
+
+		_shake_tween.tween_property(
+			astrolabus,
+			"position:x",
+			_astrolabus_original_position.x + offset * direction,
+			shake_duration
+		).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT)
+
+	_shake_tween.tween_property(
+		astrolabus,
+		"position",
+		_astrolabus_original_position,
+		shake_duration
+	)

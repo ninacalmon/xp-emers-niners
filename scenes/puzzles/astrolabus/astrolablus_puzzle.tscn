@@ -6,24 +6,18 @@
 [ext_resource type="Script" uid="uid://bd046eokvcnu2" path="res://addons/phantom_camera/scripts/phantom_camera_host/phantom_camera_host.gd" id="4_svmea"]
 [ext_resource type="PackedScene" uid="uid://dvqw4lptsejty" path="res://assets/3d/items/astrolabus/astrolabus_body.glb" id="5_w1bex"]
 [ext_resource type="PackedScene" uid="uid://dv6muq7ftqubi" path="res://assets/3d/items/astrolabus/astrolabus_pointer.glb" id="6_5ev72"]
-[ext_resource type="Material" uid="uid://dki8i4qf7fofd" path="res://resources/shader_materials/outline_shader_material_3d.tres" id="7_cs2rg"]
 [ext_resource type="Material" uid="uid://cxy67ivxn22xy" path="res://resources/shader_materials/outline_draw_mat.tres" id="8_svmea"]
 [ext_resource type="Script" uid="uid://cf2auur4umdjl" path="res://systems/interaction/interaction_area.gd" id="8_wbk0m"]
 [ext_resource type="Script" uid="uid://bpobg6ssmnlny" path="res://scenes/puzzles/astrolabus/button_action_trigger.gd" id="9_f6mmc"]
 [ext_resource type="Shader" uid="uid://dwrb8xvy1ktgo" path="res://resources/shaders/outline_mask.gdshader" id="9_w1bex"]
 [ext_resource type="Script" uid="uid://cmfudvx52x4we" path="res://scenes/puzzles/start_puzzle_action.gd" id="10_6dn17"]
+[ext_resource type="AudioStream" uid="uid://ud2t66utt1fx" path="res://assets/sound/sound_effects/items/metal_clink.ogg" id="13_w1bex"]
+[ext_resource type="AudioStream" uid="uid://i3dfyqkbmaph" path="res://assets/sound/sound_effects/items/metal_fit.ogg" id="14_5ev72"]
 
 [sub_resource type="Resource" id="Resource_p47bc"]
 script = ExtResource("3_fcaj1")
 duration = 0.8
 transition = 3
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_cdpwx"]
-
-[sub_resource type="BoxMesh" id="BoxMesh_cdpwx"]
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ksdio"]
-albedo_color = Color(0.41, 0.24026, 0.1271, 1)
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_5ev72"]
 render_priority = 0
@@ -43,7 +37,18 @@ roughness = 0.25
 radius = 0.02
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_cdpwx"]
-radius = 1.2944505
+radius = 0.8316201
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_35dxp"]
+random_volume_offset_db = 1.0
+streams_count = 1
+stream_0/stream = ExtResource("13_w1bex")
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_cs2rg"]
+random_pitch = 1.0174797
+random_volume_offset_db = 1.0
+streams_count = 1
+stream_0/stream = ExtResource("14_5ev72")
 
 [node name="AstrolablusPuzzle" type="Node3D" unique_id=572576743 node_paths=PackedStringArray("interaction_area_collision", "pointer_pivot", "button_action_trigger", "astrolabus_pointer", "button_mesh", "astrolabus") groups=["puzzles"]]
 script = ExtResource("1_tc74g")
@@ -60,19 +65,6 @@ transform = Transform3D(1.0000001, 0, 0, 0, -4.371139e-08, 0.99999994, 0, -1, -4
 script = ExtResource("2_6dn17")
 tween_resource = SubResource("Resource_p47bc")
 metadata/_custom_type_script = "uid://csjccrhj5wnx7"
-
-[node name="Table" type="StaticBody3D" parent="." unique_id=1685460299]
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Table" unique_id=759516503]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.48867738, 0)
-shape = SubResource("BoxShape3D_cdpwx")
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Table" unique_id=1711685298]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.48983818, 0)
-material_overlay = ExtResource("7_cs2rg")
-instance_shader_parameters/outline_enabled = false
-mesh = SubResource("BoxMesh_cdpwx")
-surface_material_override/0 = SubResource("StandardMaterial3D_ksdio")
 
 [node name="Camera3D" type="Camera3D" parent="." unique_id=1300242329]
 transform = Transform3D(1.0000001, 0, 0, 0, -4.371139e-08, 0.99999994, 0, -1, -4.3711385e-08, 0.041039407, 1.3036839, 0.006399274)
@@ -122,7 +114,7 @@ script = ExtResource("9_f6mmc")
 
 [node name="InteractionArea" type="Area3D" parent="." unique_id=1893375073 node_paths=PackedStringArray("mesh", "action_trigger")]
 script = ExtResource("8_wbk0m")
-mesh = NodePath("../Table/MeshInstance3D")
+mesh = NodePath("../Astrolabus/astrolabus_body/MainFrame")
 action_trigger = NodePath("StartPuzzleAction")
 metadata/_custom_type_script = "uid://cf2auur4umdjl"
 
@@ -132,4 +124,19 @@ shape = SubResource("SphereShape3D_cdpwx")
 
 [node name="StartPuzzleAction" type="Node" parent="InteractionArea" unique_id=1232823712 node_paths=PackedStringArray("mesh_instance_3d")]
 script = ExtResource("10_6dn17")
-mesh_instance_3d = NodePath("../../Table/MeshInstance3D")
+mesh_instance_3d = NodePath("../../Astrolabus/astrolabus_body/MainFrame")
+
+[node name="AudioStreamPlayerTry" type="AudioStreamPlayer" parent="." unique_id=1331127592]
+stream = SubResource("AudioStreamRandomizer_35dxp")
+volume_db = -14.0
+
+[node name="AudioStreamPlayerStep" type="AudioStreamPlayer" parent="." unique_id=286294999]
+stream = SubResource("AudioStreamRandomizer_35dxp")
+volume_db = -23.0
+pitch_scale = 4.0
+
+[node name="AudioStreamPlayerFit" type="AudioStreamPlayer" parent="." unique_id=1504405546]
+stream = SubResource("AudioStreamRandomizer_cs2rg")
+volume_db = -8.0
+
+[editable path="Astrolabus/astrolabus_body"]

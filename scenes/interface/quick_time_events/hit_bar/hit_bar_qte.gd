@@ -9,12 +9,20 @@ signal finished(result: Result)
 @export var indic_speed: float = 500.0
 @export var hit_width: int = 60
 @export_range(0.0, 1.0, 0.1) var full_width_percentage: float = 0.5
+@export_group("Visual Feedback")
+@export var shake_intensity: float = 8.0
+@export var shake_duration: float = 0.25
+
+var _shake_tween: Tween
+var _original_position: Vector2
 
 @onready var hit_bar_panel_cont: PanelContainer = $HitBarPanelCont
 @onready var med_hit_marg: MarginContainer = $HitBarPanelCont/MedHitMarg
 @onready var full_hit_marg: MarginContainer = $HitBarPanelCont/MedHitMarg/Panel/FullHitMarg
 @onready var indicator_marg: MarginContainer = $HitBarPanelCont/IndicatorMarg
 @onready var indicator_panel: Panel = $HitBarPanelCont/IndicatorMarg/IndicatorPanel
+@onready var audio_stream_player_fail: AudioStreamPlayer = $AudioStreamPlayerFail
+@onready var audio_stream_player_open: AudioStreamPlayer = $AudioStreamPlayerOpen
 
 var points_to_open: int = 5
 var max_misses: int = 3
@@ -47,6 +55,7 @@ var _resolving: bool = false
 func _ready() -> void:
 	add_to_group("lockpick_qte")
 	hide()
+	_original_position = hit_bar_panel_cont.position
 
 
 func run(p_points_to_open: int = 5, p_max_misses: int = 3) -> Result:
@@ -93,6 +102,14 @@ func cancel() -> void:
 
 
 func _finish(result: Result) -> void:
+	var adp: AudioStreamPlayer
+	if result:
+		adp = audio_stream_player_open
+	else:
+		adp = audio_stream_player_fail
+	adp.play()
+	await adp.finished
+
 	_active = false
 	_input_enabled = false
 	_resolving = false
@@ -154,9 +171,12 @@ func _resolve_hit() -> void:
 		points += 3
 	elif indicator >= med_hit_start and indicator <= med_hit_end:
 		points += 2
+		shake(2.0)
 	else:
 		misses += 1
 		points = maxi(points - 1, 0)
+		audio_stream_player_fail.play()
+		shake()
 
 	progress_changed.emit(points, misses)
 
@@ -174,3 +194,33 @@ func _resolve_hit() -> void:
 	randomize_hit_placement()
 	move_indic = true
 	_resolving = false
+
+
+func shake(intensity: float = -1.0) -> void:
+	if intensity < 0.0:
+		intensity = shake_intensity
+
+	if _shake_tween and _shake_tween.is_running():
+		_shake_tween.kill()
+
+	hit_bar_panel_cont.position = _original_position
+
+	_shake_tween = create_tween()
+
+	for i in range(5):
+		var strength: float = intensity * (1.0 - float(i) / 5.0)
+		var offset: float = randf_range(-strength, strength)
+
+		_shake_tween.tween_property(
+			hit_bar_panel_cont,
+			"position:x",
+			_original_position.x + offset,
+			shake_duration / 10.0
+		)
+
+	_shake_tween.tween_property(
+		hit_bar_panel_cont,
+		"position",
+		_original_position,
+		shake_duration * 0.5
+	).set_trans(Tween.TRANS_QUAD).set_ease(Tween.EASE_OUT)

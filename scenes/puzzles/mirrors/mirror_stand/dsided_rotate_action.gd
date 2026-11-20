@@ -48,6 +48,8 @@ var target_step: int = 0
 var _visual_angle: float = 0.0
 var _tween: Tween
 
+@onready var audio_stream_player_rot: AudioStreamPlayer = $AudioStreamPlayerRot
+@onready var audio_stream_player_mirror: AudioStreamPlayer = $AudioStreamPlayerMirror
 
 func _ready() -> void:
 	super()
@@ -133,6 +135,8 @@ func _rotate_step(direction: int) -> void:
 	_tween.tween_method(_apply_angle, _visual_angle, _get_angle_for_step(target_step), rotate_duration)
 	_tween.finished.connect(_on_rotate_finished)
 
+	audio_stream_player_rot.play()
+
 
 func _on_rotate_finished() -> void:
 	target_step = posmod(target_step, step_count)
@@ -182,6 +186,7 @@ func _try_place_mirror() -> bool:
 	_sync_mirror_enabled(side)
 	_update_models(side)
 	_update_label()
+	audio_stream_player_mirror.play()
 	return true
 
 
