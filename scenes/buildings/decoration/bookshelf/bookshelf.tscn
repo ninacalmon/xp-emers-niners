@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://dcx4soi1u80nn"]
+
+[ext_resource type="PackedScene" uid="uid://gsj7u7uwxgeg" path="res://assets/3d/scenery/decoration/bookshelf/antique_wooden_bookcase_-_game_model.glb" id="1_gyeh6"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_cdpwx"]
+size = Vector3(2.8066406, 2.987854, 0.44750977)
+
+[node name="Bookshelf" type="Node3D" unique_id=677533175]
+
+[node name="Sketchfab_Scene" parent="." unique_id=1729879090 instance=ExtResource("1_gyeh6")]
+transform = Transform3D(0.75, 0, 0, 0, 0.75, 0, 0, 0, 0.75, 0, 0, 0)
+
+[node name="CollisionShape3D" type="StaticBody3D" parent="." unique_id=293747680]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="CollisionShape3D" unique_id=222200752]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.4587708, 0.17663574)
+shape = SubResource("BoxShape3D_cdpwx")

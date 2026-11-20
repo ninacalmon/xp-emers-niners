@@ -110,7 +110,7 @@ size = Vector2(500, 500)
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_u1gsd"]
 albedo_color = Color(0.66, 0.52536005, 0.4224, 1)
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_hpffo"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_j2kh8"]
 viewport_path = NodePath("SubViewportSprite")
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_u0ka6"]
@@ -186,19 +186,19 @@ top_radius = 2.0
 bottom_radius = 2.0
 height = 1.0
 
+[sub_resource type="ViewportTexture" id="ViewportTexture_hpffo"]
+viewport_path = NodePath("SubViewportSprite")
+
 [sub_resource type="ViewportTexture" id="ViewportTexture_hnqnj"]
 viewport_path = NodePath("SubViewportSprite")
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_7lp0r"]
-viewport_path = NodePath("SubViewportSprite")
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_tj3jo"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_7lp0r"]
 resource_local_to_scene = true
 render_priority = -1
 shader = ExtResource("13_goy61")
-shader_parameter/sprite_texture = SubResource("ViewportTexture_7lp0r")
+shader_parameter/sprite_texture = SubResource("ViewportTexture_hnqnj")
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_j3x8u"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_tj3jo"]
 viewport_path = NodePath("SubViewportSprite")
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_cdpwx"]
@@ -824,7 +824,7 @@ environment = SubResource("Environment_t634p")
 [node name="Camera3D" type="Camera3D" parent="VisualConfig" unique_id=1834340419]
 unique_name_in_owner = true
 physics_interpolation_mode = 1
-transform = Transform3D(0.6891839, -0.05462926, 0.7225242, -7.101509e-05, 0.99714875, 0.07546106, -0.72458655, -0.052057855, 0.687215, 83.21359, 2.829958, -4.3770995)
+transform = Transform3D(0.6891815, -0.054705266, 0.72252077, -1.1115984e-05, 0.9971451, 0.07550891, -0.7245888, -0.052047376, 0.68721336, 55.42251, 8.199543, -3.2020264)
 top_level = true
 cull_mask = 1048031
 size = 62.088
@@ -836,7 +836,7 @@ script = ExtResource("1_mxkvs")
 metadata/_custom_type_script = "uid://bd046eokvcnu2"
 
 [node name="Player" parent="." unique_id=949902107 instance=ExtResource("2_m114p")]
-transform = Transform3D(0.68905383, 0, 0.7247099, 0, 1, 0, -0.7247099, 0, 0.68905383, 83.21362, 1, -4.3770933)
+transform = Transform3D(0.68905383, 0, 0.7247099, 0, 1, 0, -0.7247099, 0, 0.68905383, 55.42253, 6.369584, -3.2020414)
 
 [node name="Terrain" type="Node" parent="." unique_id=1561035952]
 
@@ -937,182 +937,160 @@ omni_range = 20.153
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.082743, 1.6670088, -3.19987)
 
 [node name="Camera3D" parent="Church/ConfessionalBooth" index="2" unique_id=430217490]
-transform = Transform3D(0.6891844, -0.054629456, 0.72252375, -7.128289e-05, 0.9971487, 0.07546163, -0.72458607, -0.052058477, 0.6872154, 83.21359, 2.8299577, -4.3770995)
+transform = Transform3D(0.6891835, -0.054705862, 0.72251886, -1.09013445e-05, 0.99714506, 0.07550972, -0.72458696, -0.052047927, 0.68721527, 55.42251, 8.199543, -3.2020261)
 top_level = true
 
 [node name="Sprite3D" parent="Church/ConfessionalBooth/Confessor" parent_id_path=PackedInt32Array(321162436, 1758948578) index="0" unique_id=415751236]
-texture = SubResource("ViewportTexture_hpffo")
+texture = SubResource("ViewportTexture_j2kh8")
 
-[node name="SecondFloor" type="Node3D" parent="Church" unique_id=1860471051]
+[node name="SecondFloor2" type="Node3D" parent="Church" unique_id=1860471051]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -33.12908, 0, 0)
 
-[node name="Gates" type="Node3D" parent="Church/SecondFloor" unique_id=880568151]
+[node name="Gates" type="Node3D" parent="Church/SecondFloor2" unique_id=880568151]
 
-[node name="Gate" parent="Church/SecondFloor/Gates" unique_id=747285647 instance=ExtResource("27_ckok1")]
+[node name="Gate" parent="Church/SecondFloor2/Gates" unique_id=747285647 instance=ExtResource("27_ckok1")]
 transform = Transform3D(-4.3711385e-08, 0, -0.99999994, 0, 1, 0, 0.99999994, 0, -4.3711385e-08, 24.061218, 1.5026242, -12.433089)
 
-[node name="Gate2" parent="Church/SecondFloor/Gates" unique_id=257566465 instance=ExtResource("27_ckok1")]
+[node name="Gate2" parent="Church/SecondFloor2/Gates" unique_id=257566465 instance=ExtResource("27_ckok1")]
 transform = Transform3D(-4.371138e-08, 0, -0.9999998, 0, 1, 0, 0.9999998, 0, -4.371138e-08, 42.03795, 1.5026242, -12.479482)
 flip = true
 
-[node name="Gate3" parent="Church/SecondFloor/Gates" unique_id=993003229 groups=["corridor_gates"] instance=ExtResource("27_ckok1")]
+[node name="Gate3" parent="Church/SecondFloor2/Gates" unique_id=993003229 groups=["corridor_gates"] instance=ExtResource("27_ckok1")]
 transform = Transform3D(-3.7591793e-08, 0, 0.86, 0, 0.86, 0, -0.86, 0, -3.7591793e-08, 52.475754, 6.26097, 4.3315773)
 flip = true
 
-[node name="StaticBody3D" parent="Church/SecondFloor/Gates/Gate3" index="0" unique_id=446229308]
-collision_layer = 4
-collision_mask = 4
-
-[node name="Gate3_copy1" parent="Church/SecondFloor/Gates" unique_id=349109527 groups=["corridor_gates"] instance=ExtResource("27_ckok1")]
+[node name="Gate3_copy1" parent="Church/SecondFloor2/Gates" unique_id=349109527 groups=["corridor_gates"] instance=ExtResource("27_ckok1")]
 transform = Transform3D(-3.7591793e-08, 0, 0.86, 0, 0.86, 0, -0.86, 0, -3.7591793e-08, 60.475754, 6.26097, 4.3315773)
 flip = true
 
-[node name="StaticBody3D" parent="Church/SecondFloor/Gates/Gate3_copy1" index="0" unique_id=446229308]
-collision_layer = 4
-collision_mask = 4
-
-[node name="Gate3_copy2" parent="Church/SecondFloor/Gates" unique_id=577108361 groups=["corridor_gates"] instance=ExtResource("27_ckok1")]
+[node name="Gate3_copy2" parent="Church/SecondFloor2/Gates" unique_id=577108361 groups=["corridor_gates"] instance=ExtResource("27_ckok1")]
 transform = Transform3D(-3.7591793e-08, 0, 0.86, 0, 0.86, 0, -0.86, 0, -3.7591793e-08, 68.47575, 6.26097, 4.3315773)
 flip = true
 
-[node name="StaticBody3D" parent="Church/SecondFloor/Gates/Gate3_copy2" index="0" unique_id=446229308]
-collision_layer = 4
-collision_mask = 4
-
-[node name="BellAreaDoor" parent="Church/SecondFloor" unique_id=230216749 instance=ExtResource("9_ues17")]
+[node name="BellAreaDoor" parent="Church/SecondFloor2" unique_id=230216749 instance=ExtResource("9_ues17")]
 transform = Transform3D(-4.3711385e-08, 0, -0.99999994, 0, 1, 0, 0.99999994, 0, -4.3711385e-08, 45.89097, 8.685315, -2.8491478)
 unlockeable = false
 
-[node name="DoorAbade" parent="Church/SecondFloor" unique_id=620919005 instance=ExtResource("9_ues17")]
+[node name="DoorAbade" parent="Church/SecondFloor2" unique_id=620919005 instance=ExtResource("9_ues17")]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 51.30352, 6.9499197, -2.8790874)
 locked = true
 item_interaction = true
 wanted_item = ExtResource("27_d0ajt")
 
-[node name="PlayerDetection" type="Area3D" parent="Church/SecondFloor" unique_id=757000802]
+[node name="PlayerDetection" type="Area3D" parent="Church/SecondFloor2" unique_id=757000802]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 47.815685, 6.339241, -2.0246706)
 collision_layer = 0
 collision_mask = 4
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Church/SecondFloor/PlayerDetection" unique_id=1017947276]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Church/SecondFloor2/PlayerDetection" unique_id=1017947276]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.2954712, 0.055541992, 1.3403015)
 shape = SubResource("BoxShape3D_u0ka6")
 
-[node name="NavigationRegion3D" type="NavigationRegion3D" parent="Church/SecondFloor" unique_id=1915335162]
+[node name="NavigationRegion3D" type="NavigationRegion3D" parent="Church/SecondFloor2" unique_id=1915335162]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 46.71915, 6.4062147, 3.5670638)
 navigation_mesh = SubResource("NavigationMesh_cdpwx")
 
-[node name="NavProxy" type="StaticBody3D" parent="Church/SecondFloor" unique_id=916041618 groups=["navigation_mesh_source_group"]]
+[node name="NavProxy" type="StaticBody3D" parent="Church/SecondFloor2" unique_id=916041618 groups=["navigation_mesh_source_group"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 46.71915, 6.339241, 3.5670638)
 collision_layer = 32768
 collision_mask = 0
 
-[node name="Floor" type="CollisionShape3D" parent="Church/SecondFloor/NavProxy" unique_id=142870043]
+[node name="Floor" type="CollisionShape3D" parent="Church/SecondFloor2/NavProxy" unique_id=142870043]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.978909, -0.22527218, -5.5464478)
 shape = SubResource("BoxShape3D_5604n")
 debug_color = Color(0.57, 0.545205, 0.4047, 1)
 
-[node name="Wall" type="CollisionShape3D" parent="Church/SecondFloor/NavProxy" unique_id=576239410]
+[node name="Wall" type="CollisionShape3D" parent="Church/SecondFloor2/NavProxy" unique_id=576239410]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.6904297, 1.2058105, -5.659728)
 shape = SubResource("BoxShape3D_wnndm")
 debug_color = Color(0.5600001, 0.39999998, 1, 0.92941177)
 
-[node name="Wall5" type="CollisionShape3D" parent="Church/SecondFloor/NavProxy" unique_id=281235747]
+[node name="Wall5" type="CollisionShape3D" parent="Church/SecondFloor2/NavProxy" unique_id=281235747]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 25.154491, 1.2058105, -6.4679756)
 shape = SubResource("BoxShape3D_26xou")
 debug_color = Color(0.5600001, 0.39999998, 1, 0.92941177)
 
-[node name="Wall8" type="CollisionShape3D" parent="Church/SecondFloor/NavProxy" unique_id=1747804967]
+[node name="Wall8" type="CollisionShape3D" parent="Church/SecondFloor2/NavProxy" unique_id=1747804967]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 28.26019, 2.548767, -2.7884812)
 shape = SubResource("BoxShape3D_jyr8v")
 debug_color = Color(0.5600001, 0.39999998, 1, 0.92941177)
 
-[node name="Wall9" type="CollisionShape3D" parent="Church/SecondFloor/NavProxy" unique_id=587189824]
+[node name="Wall9" type="CollisionShape3D" parent="Church/SecondFloor2/NavProxy" unique_id=587189824]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 38.113026, 3.17972, -4.1629286)
 shape = SubResource("BoxShape3D_5o5dd")
 debug_color = Color(0.5600001, 0.39999998, 1, 0.92941177)
 
-[node name="Wall12" type="CollisionShape3D" parent="Church/SecondFloor/NavProxy" unique_id=831999789]
+[node name="Wall12" type="CollisionShape3D" parent="Church/SecondFloor2/NavProxy" unique_id=831999789]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 30.861835, 3.17972, -1.4704313)
 shape = SubResource("BoxShape3D_7mx70")
 debug_color = Color(0.5600001, 0.39999998, 1, 0.92941177)
 
-[node name="Wall10" type="CollisionShape3D" parent="Church/SecondFloor/NavProxy" unique_id=4111147]
+[node name="Wall10" type="CollisionShape3D" parent="Church/SecondFloor2/NavProxy" unique_id=4111147]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 34.928364, 2.6771564, -11.593132)
 shape = SubResource("BoxShape3D_d0ajt")
 debug_color = Color(0.5600001, 0.39999998, 1, 0.92941177)
 
-[node name="Wall11" type="CollisionShape3D" parent="Church/SecondFloor/NavProxy" unique_id=1993504821]
+[node name="Wall11" type="CollisionShape3D" parent="Church/SecondFloor2/NavProxy" unique_id=1993504821]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 34.928364, 3.117281, 4.138154)
 shape = SubResource("BoxShape3D_fymcc")
 debug_color = Color(0.5600001, 0.39999998, 1, 0.92941177)
 
-[node name="FloorRamp" type="CollisionShape3D" parent="Church/SecondFloor/NavProxy" unique_id=1041259637]
+[node name="FloorRamp" type="CollisionShape3D" parent="Church/SecondFloor2/NavProxy" unique_id=1041259637]
 transform = Transform3D(0.34202015, 0.9396926, 0, -0.9396926, 0.34202015, 0, 0, 0, 1, 29.014904, 0.402843, -8.381636)
 shape = SubResource("BoxShape3D_lbnhc")
 debug_color = Color(0.5600001, 0.39999998, 1, 0.92941177)
 
-[node name="FloorBell" type="CollisionShape3D" parent="Church/SecondFloor/NavProxy" unique_id=322263929]
+[node name="FloorBell" type="CollisionShape3D" parent="Church/SecondFloor2/NavProxy" unique_id=322263929]
 transform = Transform3D(-4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0, 1, 34.542637, 0.9962592, -7.560025)
 shape = SubResource("BoxShape3D_ckok1")
 debug_color = Color(0.5600001, 0.39999998, 1, 0.92941177)
 
-[node name="FloorBell3" type="CollisionShape3D" parent="Church/SecondFloor/NavProxy" unique_id=1353013525]
+[node name="FloorBell3" type="CollisionShape3D" parent="Church/SecondFloor2/NavProxy" unique_id=1353013525]
 transform = Transform3D(-4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0, 1, 34.542637, 2.4779806, 1.8789425)
 shape = SubResource("BoxShape3D_sygq6")
 debug_color = Color(0.5600001, 0.39999998, 1, 0.92941177)
 
-[node name="FloorBell2" type="CollisionShape3D" parent="Church/SecondFloor/NavProxy" unique_id=288364697]
+[node name="FloorBell2" type="CollisionShape3D" parent="Church/SecondFloor2/NavProxy" unique_id=288364697]
 transform = Transform3D(-4.3711385e-08, -1, 0, 0.96592575, -4.222196e-08, 0.258819, -0.258819, 1.131334e-08, 0.96592575, 34.542637, 1.9563303, -2.0741806)
 shape = SubResource("BoxShape3D_1cxds")
 debug_color = Color(0.5600001, 0.39999998, 1, 0.92941177)
 
-[node name="Wall6" type="CollisionShape3D" parent="Church/SecondFloor/NavProxy" unique_id=1419171188]
+[node name="Wall6" type="CollisionShape3D" parent="Church/SecondFloor2/NavProxy" unique_id=1419171188]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 25.154491, 1.2058105, -6.4679756)
 shape = SubResource("BoxShape3D_0wrxw")
 debug_color = Color(0.5600001, 0.39999998, 1, 0.92941177)
 
-[node name="Wall2" type="CollisionShape3D" parent="Church/SecondFloor/NavProxy" unique_id=424067317]
+[node name="Wall2" type="CollisionShape3D" parent="Church/SecondFloor2/NavProxy" unique_id=424067317]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 1.6396599, 1.2058105, -7.4218726)
 shape = SubResource("BoxShape3D_cmg7y")
 debug_color = Color(0.5600001, 0.39999998, 1, 0.92941177)
 
-[node name="Wall3" type="CollisionShape3D" parent="Church/SecondFloor/NavProxy" unique_id=1029132443]
+[node name="Wall3" type="CollisionShape3D" parent="Church/SecondFloor2/NavProxy" unique_id=1029132443]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.5635986, 1.2058105, -4.4122534)
 shape = SubResource("BoxShape3D_b4max")
 debug_color = Color(0.5600001, 0.39999998, 1, 0.92941177)
 
-[node name="Wall4" type="CollisionShape3D" parent="Church/SecondFloor/NavProxy" unique_id=1936790473]
+[node name="Wall4" type="CollisionShape3D" parent="Church/SecondFloor2/NavProxy" unique_id=1936790473]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 14.739384, 1.2058105, -1.8149896)
 shape = SubResource("BoxShape3D_nqe8x")
 debug_color = Color(0.5600001, 0.39999998, 1, 0.92941177)
 
-[node name="Wall7" type="CollisionShape3D" parent="Church/SecondFloor/NavProxy" unique_id=1486667092]
+[node name="Wall7" type="CollisionShape3D" parent="Church/SecondFloor2/NavProxy" unique_id=1486667092]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 14.814552, 2.407837, -11.577156)
 shape = SubResource("BoxShape3D_sh7a8")
 debug_color = Color(0.5600001, 0.39999998, 1, 0.92941177)
 
-[node name="AbbotsRoom" type="Node3D" parent="Church/SecondFloor" unique_id=1546436192]
+[node name="AbbotsRoom" type="Node3D" parent="Church/SecondFloor2" unique_id=1546436192]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 58.547173, 6.3570027, -1.9071884)
 
-[node name="AbbottDesk" type="StaticBody3D" parent="Church/SecondFloor/AbbotsRoom" unique_id=211221959]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.38527203, 0)
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Church/SecondFloor/AbbotsRoom/AbbottDesk" unique_id=1431378063]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.24414063, 0)
-shape = SubResource("CylinderShape3D_cdpwx")
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Church/SecondFloor/AbbotsRoom/AbbottDesk" unique_id=798092764]
-mesh = SubResource("CylinderMesh_cdpwx")
-
-[node name="DepositDesk" type="StaticBody3D" parent="Church/SecondFloor/AbbotsRoom" unique_id=1761408279]
+[node name="DepositDesk" type="StaticBody3D" parent="Church/SecondFloor2/AbbotsRoom" unique_id=1761408279]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.877411, 0.38527203, 0)
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Church/SecondFloor/AbbotsRoom/DepositDesk" unique_id=1296461808]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Church/SecondFloor2/AbbotsRoom/DepositDesk" unique_id=1296461808]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.24414063, 0)
 shape = SubResource("CylinderShape3D_cdpwx")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Church/SecondFloor/AbbotsRoom/DepositDesk" unique_id=1790156338]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Church/SecondFloor2/AbbotsRoom/DepositDesk" unique_id=1790156338]
 mesh = SubResource("CylinderMesh_cdpwx")
 
 [node name="AbbotsDoor" parent="Church" unique_id=48858221 instance=ExtResource("32_5o5dd")]
@@ -1141,11 +1119,11 @@ unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 78.78419, 0.9976957, -5.94999)
 
 [node name="Sprite3D" parent="Characters/Sanson" index="0" unique_id=415751236]
-texture = SubResource("ViewportTexture_hnqnj")
+texture = SubResource("ViewportTexture_hpffo")
 
 [node name="Outline" parent="Characters/Sanson/Sprite3D" index="0" unique_id=1631064389]
-material_overlay = SubResource("ShaderMaterial_tj3jo")
-texture = SubResource("ViewportTexture_j3x8u")
+material_overlay = SubResource("ShaderMaterial_7lp0r")
+texture = SubResource("ViewportTexture_tj3jo")
 
 [node name="AstrolablusPuzzle" parent="Characters" unique_id=572576743 instance=ExtResource("14_m114p")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 74.03788, 0.89560485, -7.5373673)
@@ -1214,12 +1192,12 @@ transform = Transform3D(-0.47608587, 0.033805065, 0.8787488, -0.069729395, 0.994
 
 [node name="Prior" parent="Characters" unique_id=1738876710 node_paths=PackedStringArray("player_detection", "player_outside_pos", "prior_bell_pos", "prior_hidden_pos", "bell_area_door") instance=ExtResource("13_mxkvs")]
 unique_name_in_owner = true
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 46.71915, 6.3606253, 3.5670638)
-player_detection = NodePath("../../Church/SecondFloor/PlayerDetection")
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 46.71915, 6.364076, 3.5670638)
+player_detection = NodePath("../../Church/SecondFloor2/PlayerDetection")
 player_outside_pos = NodePath("../../Cutscenes/PlayerOutsidePos")
 prior_bell_pos = NodePath("../../Cutscenes/PriorBellPos")
 prior_hidden_pos = NodePath("../../Cutscenes/PriorHiddenPos")
-bell_area_door = NodePath("../../Church/SecondFloor/BellAreaDoor")
+bell_area_door = NodePath("../../Church/SecondFloor2/BellAreaDoor")
 
 [node name="Cutscenes" type="Node" parent="." unique_id=1314055886]
 
@@ -1273,7 +1251,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 79.373314, 0.99999976, -5.172
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 78.25211, 1, -4.9335027)
 
 [node name="AfPriorPos" type="Marker3D" parent="Cutscenes/StartingCutscene/AfterPositions" unique_id=7270146]
-transform = Transform3D(0, 0.9688143, 0.24778776, -1, 0, 0, 0, -0.24778776, 0.9688143, 47.035625, 6.73737, 3.486121)
+transform = Transform3D(0.9688143, 0, 0.24778776, 0, 1, 0, -0.24778776, 0, 0.9688143, 47.086895, 6.369584, 3.4522462)
 
 [node name="SansonPos" type="Marker3D" parent="Cutscenes/StartingCutscene" unique_id=2134042127]
 transform = Transform3D(0.99999994, 0, 0, 0, 1, 0, 0, 0, 0.99999994, 31.976969, 2.4136653, -12.766551)
@@ -1306,7 +1284,7 @@ noise_emitter_layer = 1
 metadata/_custom_type_script = "uid://csjccrhj5wnx7"
 
 [node name="CloseUpCamera" type="Node3D" parent="Cutscenes/StartingCutscene" unique_id=1789459155 node_paths=PackedStringArray("follow_target", "look_at_target")]
-transform = Transform3D(-0.9326706, 0, 0, 0, 0.68254006, 0.7308435, 0, 0.7308429, -0.6825405, 31.976969, 4.5308065, -13.0020275)
+transform = Transform3D(-0.93008995, 0, 0, 0, 0.8826757, -0.4699747, 0, -0.46997437, -0.8826764, 31.976969, 4.116524, -13.0710745)
 top_level = true
 script = ExtResource("28_phx5y")
 follow_mode = 5
@@ -1388,7 +1366,7 @@ shape = SubResource("SphereShape3D_cdpwx")
 [node name="CollectableItems" type="Node" parent="." unique_id=1692708429]
 
 [node name="AstrolabusBody" parent="CollectableItems" unique_id=218661795 instance=ExtResource("17_bt7bg")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 45.29611, 3.1077554, 16.957611)
+transform = Transform3D(1, 0, 0, 0, 0.7711617, 0.6366395, 0, -0.6366395, 0.7711617, 45.29611, 3.187782, 17.064514)
 
 [node name="InteractionArea" parent="CollectableItems/AstrolabusBody" index="0" unique_id=834874890 node_paths=PackedStringArray("mesh")]
 mesh = NodePath("../astrolabus_body/MainFrame")
@@ -1430,7 +1408,7 @@ instance_shader_parameters/outline_enabled = false
 instance_shader_parameters/size = 1.07999999821184
 
 [node name="BlankPaper" parent="CollectableItems" unique_id=875000407 instance=ExtResource("17_bt7bg")]
-transform = Transform3D(0.97040683, 0, -0.24147591, 0, 1, 0, 0.24147591, 0, 0.97040683, 57.21174, 7.272675, -1.7858337)
+transform = Transform3D(0.97040683, 0, -0.24147591, 0, 1, 0, 0.24147591, 0, 0.97040683, 58.46087, 7.0687404, -1.6312032)
 item = ExtResource("29_nqe8x")
 
 [node name="InteractionArea" parent="CollectableItems/BlankPaper" index="0" unique_id=834874890 node_paths=PackedStringArray("mesh")]
@@ -1461,7 +1439,7 @@ mesh = NodePath("../mirror_c2/mirrorC2")
 transform = Transform3D(0.7845753, 0.6064972, -0.12885152, 0, 0.20781378, 0.97816837, 0.62003356, -0.7674467, 0.16304556, -0.16025162, 0.032286644, 0)
 
 [node name="MirrorA1" parent="CollectableItems/Mirrors" unique_id=769254768 instance=ExtResource("17_bt7bg")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 59.12032, 7.1552815, -3.500537)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 58.835304, 6.9297214, -4.7605333)
 item = ExtResource("31_7mx70")
 
 [node name="InteractionArea" parent="CollectableItems/Mirrors/MirrorA1" index="0" unique_id=834874890 node_paths=PackedStringArray("mesh")]
@@ -1663,9 +1641,6 @@ top_level = true
 [editable path="Church/ConfessionalBooth"]
 [editable path="Church/ConfessionalBooth/confessional"]
 [editable path="Church/ConfessionalBooth/Confessor"]
-[editable path="Church/SecondFloor/Gates/Gate3"]
-[editable path="Church/SecondFloor/Gates/Gate3_copy1"]
-[editable path="Church/SecondFloor/Gates/Gate3_copy2"]
 [editable path="Church/ChurchBell"]
 [editable path="Church/ChurchBell/BellPivot/Sketchfab_Scene"]
 [editable path="Characters/Sanson"]
