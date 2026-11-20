@@ -39,6 +39,7 @@ func _on_bell_toll() -> void:
 	if is_disabled:
 		return
 
+	_cancel_lockpick() # new
 	is_bell_strike = true
 
 	global_position = prior_bell_pos.global_position
@@ -174,6 +175,7 @@ func catch_player() -> void:
 	if is_disabled:
 		return
 
+	_cancel_lockpick() # new
 	bell_area_door.locked = false
 
 	player.is_cutscene_locked = true
@@ -209,3 +211,9 @@ func run_and_hide():
 	is_disabled = true
 
 	DialogueData.hide_after_dialogue(self)
+
+
+func _cancel_lockpick() -> void:
+	var qte: LockpickQTE = get_tree().get_first_node_in_group("lockpick_qte") as LockpickQTE
+	if qte:
+		qte.cancel()

@@ -1,4 +1,10 @@
+class_name LockpickQTE
 extends Control
+
+enum Result { SUCCESS, FAILED, CANCELLED }
+
+signal progress_changed(points: int, misses: int)
+signal finished(result: Result)
 
 @export var indic_speed: float = 500.0
 @export var hit_width: int = 60
@@ -10,8 +16,13 @@ extends Control
 @onready var indicator_marg: MarginContainer = $HitBarPanelCont/IndicatorMarg
 @onready var indicator_panel: Panel = $HitBarPanelCont/IndicatorMarg/IndicatorPanel
 
-var move_indic: bool = false
+var points_to_open: int = 5
+var max_misses: int = 3
 
+var points: int = 0
+var misses: int = 0
+
+var move_indic: bool = false
 var max_value_indic: int = 0
 var indicator_width: float = 0.0
 
@@ -24,15 +35,73 @@ var full_hit_inset: int = 0
 
 var full_hit_start: int = 0
 var full_hit_end: int = 0
-
 var med_hit_start: int = 0
 var med_hit_end: int = 0
 
 var _start_at_right: bool = false
+var _active: bool = false
+var _input_enabled: bool = false
+var _resolving: bool = false
 
-var points: int = 0
 
 func _ready() -> void:
+	add_to_group("lockpick_qte")
+	hide()
+
+
+func run(p_points_to_open: int = 5, p_max_misses: int = 3) -> Result:
+	points_to_open = p_points_to_open
+	max_misses = p_max_misses
+	points = 0
+	misses = 0
+	move_indic = false
+	_resolving = false
+	_input_enabled = false
+	_start_at_right = false
+	_active = true
+
+	show()
+	await get_tree().process_frame # wait for the layout to be ready
+	_setup_bar()
+	randomize_hit_placement()
+	progress_changed.emit(points, misses)
+
+	move_indic = true # starts running by itself
+
+	# grace time: the click that opened the QTE must not count as a hit
+	await get_tree().create_timer(0.25).timeout
+	if not _active:
+		return Result.CANCELLED
+
+	_input_enabled = true
+	return await finished
+
+
+func _input(event: InputEvent) -> void:
+	if not _active or not _input_enabled or _resolving:
+		return
+	if not event.is_action_pressed("interact"):
+		return
+
+	get_viewport().set_input_as_handled()
+	await _resolve_hit()
+
+
+func cancel() -> void:
+	if _active:
+		_finish(Result.CANCELLED)
+
+
+func _finish(result: Result) -> void:
+	_active = false
+	_input_enabled = false
+	_resolving = false
+	move_indic = false
+	hide()
+	finished.emit(result)
+
+
+func _setup_bar() -> void:
 	hit_bar_full_width = int(hit_bar_panel_cont.size.x)
 	indicator_width = indicator_panel.get_minimum_size().x
 	max_value_indic = int(hit_bar_full_width - indicator_width)
@@ -43,8 +112,6 @@ func _ready() -> void:
 
 	full_hit_marg.add_theme_constant_override("margin_left", full_hit_inset)
 	full_hit_marg.add_theme_constant_override("margin_right", full_hit_inset)
-
-	randomize_hit_placement()
 
 
 func randomize_hit_placement() -> void:
@@ -66,16 +133,6 @@ func randomize_hit_placement() -> void:
 	full_hit_end = med_hit_end - full_hit_inset
 
 
-func _input(event: InputEvent) -> void:
-	if event.is_action_pressed("interact"):
-		if not move_indic:
-			move_indic = true
-			return
-
-		move_indic = false
-		await calculate_points()
-		randomize_hit_placement()
-		move_indic = true
 
 
 func _process(delta: float) -> void:
@@ -87,7 +144,10 @@ func _process(delta: float) -> void:
 	indicator_marg.add_theme_constant_override("margin_left", int(value))
 
 
-func calculate_points() -> void:
+func _resolve_hit() -> void:
+	_resolving = true
+	move_indic = false
+
 	var indicator: float = indicator_marg.get_theme_constant("margin_left") + indicator_width / 2.0
 
 	if indicator >= full_hit_start and indicator <= full_hit_end:
@@ -95,6 +155,22 @@ func calculate_points() -> void:
 	elif indicator >= med_hit_start and indicator <= med_hit_end:
 		points += 2
 	else:
-		points -= 1
+		misses += 1
+		points = maxi(points - 1, 0)
+
+	progress_changed.emit(points, misses)
 
 	await get_tree().create_timer(0.3).timeout
+	if not _active: # cancelled while waiting
+		return
+
+	if points >= points_to_open:
+		_finish(Result.SUCCESS)
+		return
+	if misses >= max_misses:
+		_finish(Result.FAILED)
+		return
+
+	randomize_hit_placement()
+	move_indic = true
+	_resolving = false

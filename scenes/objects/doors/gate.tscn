@@ -49,14 +49,14 @@ roughness = 0.5
 
 [node name="Gate" type="Node3D" unique_id=668800733 node_paths=PackedStringArray("collision_shape_3d", "mesh_instance_3d", "locked_stream_player")]
 script = ExtResource("1_yhf13")
-open_rotation = 75
-speed = 0.2
+open_rotation = 80
 collision_shape_3d = NodePath("StaticBody3D/CollisionShape3D")
 mesh_instance_3d = NodePath("GatePivot")
 locked = true
+unlockeable = false
 locked_stream_player = NodePath("AudioStreamPlayer")
-item_interaction = true
-wanted_item = ExtResource("2_s84bn")
+lockpickable = true
+lockpick_item = ExtResource("2_s84bn")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="." unique_id=446229308]
 

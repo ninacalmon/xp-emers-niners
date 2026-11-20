@@ -831,7 +831,7 @@ environment = SubResource("Environment_t634p")
 [node name="Camera3D" type="Camera3D" parent="VisualConfig" unique_id=1834340419]
 unique_name_in_owner = true
 physics_interpolation_mode = 1
-transform = Transform3D(0.68907416, -0.054681633, 0.7226249, 4.755961e-05, 0.99715257, 0.07541002, -0.72469085, -0.051928736, 0.68711466, 29.640461, 14.094979, 20.21249)
+transform = Transform3D(0.6883389, -0.054471076, 0.7233412, 0.00014267664, 0.9971867, 0.0749572, -0.72538936, -0.05149274, 0.6864101, 29.640553, 14.095213, 20.212458)
 top_level = true
 cull_mask = 1048031
 size = 62.088
@@ -944,7 +944,7 @@ omni_range = 20.153
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.082743, 1.6670088, -3.19987)
 
 [node name="Camera3D" parent="Church/ConfessionalBooth" index="2" unique_id=430217490]
-transform = Transform3D(0.6890733, -0.054681543, 0.7226257, 4.781624e-05, 0.9971526, 0.07540958, -0.7246917, -0.051928177, 0.6871139, 29.640461, 14.094979, 20.21249)
+transform = Transform3D(0.68833697, -0.054469917, 0.72334313, 0.00014247517, 0.99718684, 0.074955605, -0.72539115, -0.051491648, 0.68640834, 29.640553, 14.095214, 20.212458)
 top_level = true
 
 [node name="Sprite3D" parent="Church/ConfessionalBooth/Confessor" parent_id_path=PackedInt32Array(321162436, 1758948578) index="0" unique_id=415751236]
@@ -957,22 +957,19 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -33.12908, 0, 0)
 
 [node name="Gate" parent="Church/SecondFloor2/Gates" unique_id=747285647 instance=ExtResource("27_ckok1")]
 transform = Transform3D(-4.3711385e-08, 0, -0.99999994, 0, 1, 0, 0.99999994, 0, -4.3711385e-08, 24.061218, 1.5026242, -12.433089)
+flip = true
 
 [node name="Gate2" parent="Church/SecondFloor2/Gates" unique_id=257566465 instance=ExtResource("27_ckok1")]
 transform = Transform3D(-4.371138e-08, 0, -0.9999998, 0, 1, 0, 0.9999998, 0, -4.371138e-08, 42.03795, 1.5026242, -12.479482)
-flip = true
 
 [node name="Gate3" parent="Church/SecondFloor2/Gates" unique_id=993003229 groups=["corridor_gates"] instance=ExtResource("27_ckok1")]
 transform = Transform3D(-3.7591793e-08, 0, 0.86, 0, 0.86, 0, -0.86, 0, -3.7591793e-08, 52.475754, 6.26097, 4.3315773)
-flip = true
 
 [node name="Gate3_copy1" parent="Church/SecondFloor2/Gates" unique_id=349109527 groups=["corridor_gates"] instance=ExtResource("27_ckok1")]
 transform = Transform3D(-3.7591793e-08, 0, 0.86, 0, 0.86, 0, -0.86, 0, -3.7591793e-08, 60.475754, 6.26097, 4.3315773)
-flip = true
 
 [node name="Gate3_copy2" parent="Church/SecondFloor2/Gates" unique_id=577108361 groups=["corridor_gates"] instance=ExtResource("27_ckok1")]
 transform = Transform3D(-3.7591793e-08, 0, 0.86, 0, 0.86, 0, -0.86, 0, -3.7591793e-08, 68.47575, 6.26097, 4.3315773)
-flip = true
 
 [node name="BellAreaDoor" parent="Church/SecondFloor2" unique_id=230216749 instance=ExtResource("9_ues17")]
 transform = Transform3D(-4.3711385e-08, 0, -0.99999994, 0, 1, 0, 0.99999994, 0, -4.3711385e-08, 45.89097, 8.685315, -2.8491478)
@@ -1291,7 +1288,7 @@ noise_emitter_layer = 1
 metadata/_custom_type_script = "uid://csjccrhj5wnx7"
 
 [node name="CloseUpCamera" type="Node3D" parent="Cutscenes/StartingCutscene" unique_id=1789459155 node_paths=PackedStringArray("follow_target", "look_at_target")]
-transform = Transform3D(-0.9206345, 0, 0, 0, 0.8826757, -0.4699747, 0, -0.46997437, -0.8826764, 31.976969, 4.116524, -13.0710745)
+transform = Transform3D(-0.9201578, 0, 0, 0, 0.8826757, -0.4699747, 0, -0.46997437, -0.8826764, 31.976969, 4.116524, -13.0710745)
 top_level = true
 script = ExtResource("28_phx5y")
 follow_mode = 5

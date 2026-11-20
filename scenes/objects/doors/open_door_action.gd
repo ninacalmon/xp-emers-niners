@@ -14,8 +14,14 @@ extends ActionTrigger
 @export var unlockeable: bool = true
 @export var locked_stream_player: AudioStreamPlayer
 
-var is_open: bool = false
+@export_group("Lockpick")
+@export var lockpickable: bool = false
+@export var lockpick_item: ItemRes
+@export var qte_points_to_open: int = 6
+@export var qte_max_misses: int = 3
 
+var is_open: bool = false
+var _picking: bool = false
 
 
 func _ready() -> void:
@@ -25,11 +31,20 @@ func _ready() -> void:
 		self.scale.z *= -1
 
 
-func trigger():
+func trigger() -> void:
+	if _picking:
+		return
+
 	if locked:
-		if unlockeable and InventoryManager.selected_item == wanted_item:
+		var selected: ItemRes = InventoryManager.selected_item
+
+		if unlockeable and wanted_item != null and selected == wanted_item:
 			locked = false
 			locked_stream_player.play()
+		elif lockpickable and lockpick_item != null and selected == lockpick_item:
+			await _try_lockpick()
+			if locked:
+				return
 		else:
 			locked_stream_player.play()
 			await shake_door()
@@ -41,35 +56,66 @@ func trigger():
 		await open_door()
 
 
-func ray_enter():
+func _try_lockpick() -> void:
+	var qte: LockpickQTE = get_tree().get_first_node_in_group("lockpick_qte") as LockpickQTE
+	var player: Player = get_tree().get_first_node_in_group("player") as Player
+	if qte == null or player == null:
+		push_warning("OpenDoorAction: LockpickQTE or Player not found in groups")
+		return
+
+	_picking = true
+	player.is_cutscene_locked = true
+
+	var result: LockpickQTE.Result = await qte.run(qte_points_to_open, qte_max_misses)
+
+	_picking = false
+
+	match result:
+		LockpickQTE.Result.SUCCESS:
+			player.is_cutscene_locked = false
+			locked = false
+		LockpickQTE.Result.FAILED:
+			player.is_cutscene_locked = false
+			InventoryManager.use_item() # the lockpick breaks
+			locked_stream_player.play()
+			await shake_door()
+		LockpickQTE.Result.CANCELLED:
+			pass # whoever cancelled it (the prior) owns the player lock now
+
+
+func relock() -> void:
+	if is_open:
+		await close_door()
+	locked = true
+
+
+func ray_enter() -> void:
 	pass
 
 
-func ray_exit():
+func ray_exit() -> void:
 	pass
 
 
-func open_door():
+func open_door() -> void:
 	is_open = true
 
 	collision_shape_3d.disabled = true
 
-	var tween = create_tween()
+	var tween: Tween = create_tween()
 	tween.set_ease(Tween.EASE_IN)
-
 	tween.tween_property(mesh_instance_3d, "rotation:y", deg_to_rad(open_rotation), speed)
 
 	await tween.finished
 
 
-func close_door():
+func close_door() -> void:
 	is_open = false
 
 	collision_shape_3d.disabled = true
 
-	var tween = create_tween()
+	var tween: Tween = create_tween()
 	tween.set_ease(Tween.EASE_IN)
-
 	tween.tween_property(mesh_instance_3d, "rotation:y", deg_to_rad(0), speed)
 
 	await tween.finished
@@ -77,12 +123,12 @@ func close_door():
 	collision_shape_3d.disabled = false
 
 
-func shake_door():
-	var original_rotation = mesh_instance_3d.rotation.y
-	var shake_amount = deg_to_rad(3.0)
-	var shake_duration = 0.06
+func shake_door() -> void:
+	var original_rotation: float = mesh_instance_3d.rotation.y
+	var shake_amount: float = deg_to_rad(3.0)
+	var shake_duration: float = 0.06
 
-	var tween = create_tween()
+	var tween: Tween = create_tween()
 	tween.tween_property(mesh_instance_3d, "rotation:y", original_rotation + shake_amount, shake_duration)
 	tween.tween_property(mesh_instance_3d, "rotation:y", original_rotation - shake_amount, shake_duration)
 	tween.tween_property(mesh_instance_3d, "rotation:y", original_rotation + shake_amount * 0.5, shake_duration)
