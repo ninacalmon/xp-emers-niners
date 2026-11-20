@@ -30,6 +30,8 @@ var med_hit_end: int = 0
 
 var _start_at_right: bool = false
 
+var points: int = 0
+
 func _ready() -> void:
 	hit_bar_full_width = int(hit_bar_panel_cont.size.x)
 	indicator_width = indicator_panel.get_minimum_size().x
@@ -89,10 +91,10 @@ func calculate_points() -> void:
 	var indicator: float = indicator_marg.get_theme_constant("margin_left") + indicator_width / 2.0
 
 	if indicator >= full_hit_start and indicator <= full_hit_end:
-		print("FULL HIT")
+		points += 3
 	elif indicator >= med_hit_start and indicator <= med_hit_end:
-		print("MEDIUM HIT")
+		points += 2
 	else:
-		print("FAIL")
+		points -= 1
 
-	await get_tree().create_timer(0.5).timeout
+	await get_tree().create_timer(0.3).timeout

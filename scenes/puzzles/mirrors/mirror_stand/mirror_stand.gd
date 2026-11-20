@@ -6,7 +6,7 @@ var enabled: bool = true
 
 ## local axis the reflective face points to.
 @export var reflective_normal_local: Vector3 = Vector3.RIGHT
-@export_range(-260.0, 360.0, 0.000000000000001)
+@export_range(-260.0, 360.0, 0.00000000000001)
 var correct_rotation: float = 0.123456789
 
 

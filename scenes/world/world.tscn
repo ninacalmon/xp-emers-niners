@@ -64,6 +64,8 @@
 [ext_resource type="PackedScene" uid="uid://dhb4ubn1lv1kq" path="res://examples/interaction_examples/item_giver/key_giver_ball.tscn" id="61_cf0uk"]
 [ext_resource type="PackedScene" uid="uid://cut5m0ku8e4e6" path="res://scenes/puzzles/mirrors/mirror_stand/mirror_stand.tscn" id="62_j2kh8"]
 [ext_resource type="PackedScene" uid="uid://beejk147fox5c" path="res://scenes/puzzles/mirrors/light_beam/light_beam.tscn" id="63_hpffo"]
+[ext_resource type="PackedScene" uid="uid://cim06qc8dw8f2" path="res://scenes/puzzles/mirrors/mirror_stand/double_mirror_stand.tscn" id="65_hpffo"]
+[ext_resource type="Script" uid="uid://xmesdfdwl0pm" path="res://scenes/puzzles/mirrors/light_sensor.gd" id="66_hnqnj"]
 
 [sub_resource type="VoxelGIData" id="VoxelGIData_aovk5"]
 _data = {
@@ -110,7 +112,7 @@ size = Vector2(500, 500)
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_u1gsd"]
 albedo_color = Color(0.66, 0.52536005, 0.4224, 1)
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_j2kh8"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_hnqnj"]
 viewport_path = NodePath("SubViewportSprite")
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_u0ka6"]
@@ -186,19 +188,19 @@ top_radius = 2.0
 bottom_radius = 2.0
 height = 1.0
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_hpffo"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_7lp0r"]
 viewport_path = NodePath("SubViewportSprite")
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_hnqnj"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_tj3jo"]
 viewport_path = NodePath("SubViewportSprite")
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_7lp0r"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_j3x8u"]
 resource_local_to_scene = true
 render_priority = -1
 shader = ExtResource("13_goy61")
-shader_parameter/sprite_texture = SubResource("ViewportTexture_hnqnj")
+shader_parameter/sprite_texture = SubResource("ViewportTexture_tj3jo")
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_tj3jo"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_l72hy"]
 viewport_path = NodePath("SubViewportSprite")
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_cdpwx"]
@@ -780,6 +782,9 @@ colors = PackedColorArray(1, 0.56666666, 0, 1, 1, 1, 1, 0)
 offsets = PackedFloat32Array(0, 0.39252338)
 colors = PackedColorArray(1, 0.56666666, 0, 1, 1, 1, 1, 0)
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_7qke6"]
+size = Vector3(0.6677246, 0.3515625, 0.2677002)
+
 [node name="World" type="Node3D" unique_id=1370714841]
 
 [node name="VoxelGI" type="VoxelGI" parent="." unique_id=178088189]
@@ -826,7 +831,7 @@ environment = SubResource("Environment_t634p")
 [node name="Camera3D" type="Camera3D" parent="VisualConfig" unique_id=1834340419]
 unique_name_in_owner = true
 physics_interpolation_mode = 1
-transform = Transform3D(0.689292, -0.054697257, 0.72241586, -5.3231866e-05, 0.99714214, 0.07554877, -0.7244836, -0.052113626, 0.6873192, 31.752895, 14.094909, 22.309683)
+transform = Transform3D(0.68907416, -0.054681633, 0.7226249, 4.755961e-05, 0.99715257, 0.07541002, -0.72469085, -0.051928736, 0.68711466, 29.640461, 14.094979, 20.21249)
 top_level = true
 cull_mask = 1048031
 size = 62.088
@@ -838,7 +843,7 @@ script = ExtResource("1_mxkvs")
 metadata/_custom_type_script = "uid://bd046eokvcnu2"
 
 [node name="Player" parent="." unique_id=949902107 instance=ExtResource("2_m114p")]
-transform = Transform3D(0.68905383, 0, 0.7247099, 0, 1, 0, -0.7247099, 0, 0.68905383, 31.752935, 12.264985, 22.309673)
+transform = Transform3D(0.68905383, 0, 0.7247099, 0, 1, 0, -0.7247099, 0, 0.68905383, 29.640453, 12.264985, 20.212473)
 
 [node name="Terrain" type="Node" parent="." unique_id=1561035952]
 
@@ -939,11 +944,11 @@ omni_range = 20.153
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.082743, 1.6670088, -3.19987)
 
 [node name="Camera3D" parent="Church/ConfessionalBooth" index="2" unique_id=430217490]
-transform = Transform3D(0.68929225, -0.05469642, 0.72241575, -5.3845066e-05, 0.99714214, 0.07554822, -0.72448343, -0.0521137, 0.6873194, 31.752895, 14.094909, 22.309683)
+transform = Transform3D(0.6890733, -0.054681543, 0.7226257, 4.781624e-05, 0.9971526, 0.07540958, -0.7246917, -0.051928177, 0.6871139, 29.640461, 14.094979, 20.21249)
 top_level = true
 
 [node name="Sprite3D" parent="Church/ConfessionalBooth/Confessor" parent_id_path=PackedInt32Array(321162436, 1758948578) index="0" unique_id=415751236]
-texture = SubResource("ViewportTexture_j2kh8")
+texture = SubResource("ViewportTexture_hnqnj")
 
 [node name="SecondFloor2" type="Node3D" parent="Church" unique_id=1860471051]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -33.12908, 0, 0)
@@ -1121,11 +1126,11 @@ unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 78.78419, 0.9976957, -5.94999)
 
 [node name="Sprite3D" parent="Characters/Sanson" index="0" unique_id=415751236]
-texture = SubResource("ViewportTexture_hpffo")
+texture = SubResource("ViewportTexture_7lp0r")
 
 [node name="Outline" parent="Characters/Sanson/Sprite3D" index="0" unique_id=1631064389]
-material_overlay = SubResource("ShaderMaterial_7lp0r")
-texture = SubResource("ViewportTexture_tj3jo")
+material_overlay = SubResource("ShaderMaterial_j3x8u")
+texture = SubResource("ViewportTexture_l72hy")
 
 [node name="AstrolablusPuzzle" parent="Characters" unique_id=572576743 instance=ExtResource("14_m114p")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 74.03788, 0.89560485, -7.5373673)
@@ -1286,7 +1291,7 @@ noise_emitter_layer = 1
 metadata/_custom_type_script = "uid://csjccrhj5wnx7"
 
 [node name="CloseUpCamera" type="Node3D" parent="Cutscenes/StartingCutscene" unique_id=1789459155 node_paths=PackedStringArray("follow_target", "look_at_target")]
-transform = Transform3D(-0.92591774, 0, 0, 0, 0.8826757, -0.4699747, 0, -0.46997437, -0.8826764, 31.976969, 4.116524, -13.0710745)
+transform = Transform3D(-0.9206345, 0, 0, 0, 0.8826757, -0.4699747, 0, -0.46997437, -0.8826764, 31.976969, 4.116524, -13.0710745)
 top_level = true
 script = ExtResource("28_phx5y")
 follow_mode = 5
@@ -1575,55 +1580,61 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.0464954, 1.1204255, 0.4354
 script = ExtResource("52_j0rhc")
 
 [node name="TestKeyGiverBall" parent="." unique_id=471407858 instance=ExtResource("61_cf0uk")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 34.204483, 2.9052212, -7.1789055)
+transform = Transform3D(0.0032624346, 0.99993753, -0.010691556, -0.9999947, 0.0032622481, -3.4880686e-05, 3.637979e-12, 0.010691613, 0.9999429, 29.192574, 12.395769, 18.06601)
 
 [node name="MirrorsPuzzle" type="Node3D" parent="." unique_id=1452259112]
 
 [node name="MirrorsLightL" type="Node3D" parent="MirrorsPuzzle" unique_id=277360010]
 
-[node name="MirrorStandL" parent="MirrorsPuzzle/MirrorsLightL" unique_id=1372541315 instance=ExtResource("62_j2kh8")]
-transform = Transform3D(-0.80592835, 0, 0.5920133, 0, 1, 0, -0.5920133, 0, -0.80592835, 33.155148, 12.285545, 21.109312)
-correct_rotation = 2.508037999999999
-
 [node name="MirrorStandL2" parent="MirrorsPuzzle/MirrorsLightL" unique_id=1412353831 instance=ExtResource("62_j2kh8")]
 transform = Transform3D(-0.030620366, 0, -0.99953115, 0, 1, 0, 0.99953115, 0, -0.030620366, 31.310017, 12.285545, 19.781252)
+correct_rotation = -1.601421475410007
 
 [node name="RotateAction" parent="MirrorsPuzzle/MirrorsLightL/MirrorStandL2" index="3" unique_id=609549120]
 starts_with_mirror = false
 
 [node name="MirrorStandL3" parent="MirrorsPuzzle/MirrorsLightL" unique_id=322325680 instance=ExtResource("62_j2kh8")]
 transform = Transform3D(0.7922896, 0, 0.61014515, 0, 1, 0, -0.61014515, 0, 0.7922896, 29.88713, 12.285545, 22.037823)
+correct_rotation = 0.6562438011170002
 
 [node name="MirrorsLightR" type="Node3D" parent="MirrorsPuzzle" unique_id=614340424]
 
 [node name="MirrorStandR" parent="MirrorsPuzzle/MirrorsLightR" unique_id=811778827 instance=ExtResource("62_j2kh8")]
 transform = Transform3D(-0.15888175, 0, -0.98729765, 0, 0.9999999, 0, 0.98729765, 0, -0.15888175, 35.68652, 12.285545, 19.855373)
+correct_rotation = -1.730354189873026
 
 [node name="MirrorStandR2" parent="MirrorsPuzzle/MirrorsLightR" unique_id=846183218 instance=ExtResource("62_j2kh8")]
 transform = Transform3D(-0.7457432, 0, 0.6662333, 0, 1, 0, -0.6662333, 0, -0.7457432, 36.15553, 12.285545, 21.646526)
+correct_rotation = 2.4124462604519863
 
 [node name="RotateAction" parent="MirrorsPuzzle/MirrorsLightR/MirrorStandR2" index="3" unique_id=609549120]
 starts_with_mirror = false
 
-[node name="MirrorStandR3" parent="MirrorsPuzzle/MirrorsLightR" unique_id=922280604 instance=ExtResource("62_j2kh8")]
-transform = Transform3D(0.80552536, 0, -0.5925615, 0, 1, 0, 0.5925615, 0, 0.80552536, 33.164555, 12.285545, 21.112783)
-
-[node name="RotateAction" parent="MirrorsPuzzle/MirrorsLightR/MirrorStandR3" index="3" unique_id=609549120]
-starts_with_mirror = false
-
 [node name="MirrorStandR4" parent="MirrorsPuzzle/MirrorsLightR" unique_id=1773979352 instance=ExtResource("62_j2kh8")]
 transform = Transform3D(0.3928688, 0, 0.91959476, 0, 1, 0, -0.91959476, 0, 0.3928688, 33.788685, 12.285545, 22.45811)
+correct_rotation = 1.1670472621919998
 
 [node name="MirrorStandR6" parent="MirrorsPuzzle/MirrorsLightR" unique_id=914272272 instance=ExtResource("62_j2kh8")]
 transform = Transform3D(-0.9002334, 0, 0.43540823, 0, 1, 0, -0.43540823, 0, -0.9002334, 34.76481, 12.285545, 22.112791)
+correct_rotation = 2.691101074218978
 
 [node name="LightBeamR" parent="MirrorsPuzzle" unique_id=696817037 node_paths=PackedStringArray("target_marker") instance=ExtResource("63_hpffo")]
 transform = Transform3D(-0.99999994, 0, -8.742277e-08, 0, 1, 0, 8.742277e-08, 0, -0.99999994, 33.252472, 16.941109, 23.482527)
-target_marker = NodePath("Marker3D")
+color_gradient = SubResource("Gradient_cf0uk")
+hit_mask = null
+max_bounces = null
 max_length = 50.0
 beam_radius = 0.05
-color_gradient = SubResource("Gradient_cf0uk")
+flatten_on_reflect = null
+gradient_length = null
 glow_scale = 3.0
+core_intensity = null
+glow_intensity = null
+core_whiten = null
+pulse_strength = null
+pulse_frequency = null
+pulse_speed = null
+target_marker = NodePath("Marker3D")
 
 [node name="Marker3D" type="Marker3D" parent="MirrorsPuzzle/LightBeamR" unique_id=2101903605]
 transform = Transform3D(-0.99999934, 0, -8.74227e-08, 0, 1, 0, 8.74227e-08, 0, -0.99999934, 35.6393, 13.701749, 19.930918)
@@ -1631,11 +1642,21 @@ top_level = true
 
 [node name="LightBeamL" parent="MirrorsPuzzle" unique_id=1486756006 node_paths=PackedStringArray("target_marker") instance=ExtResource("63_hpffo")]
 transform = Transform3D(-0.99999994, 0, -8.742277e-08, 0, 1, 0, 8.742277e-08, 0, -0.99999994, 33.252472, 16.941109, 23.482527)
-target_marker = NodePath("Marker3D2")
+color_gradient = SubResource("Gradient_cf0uk")
+hit_mask = null
+max_bounces = null
 max_length = 50.0
 beam_radius = 0.05
-color_gradient = SubResource("Gradient_cf0uk")
+flatten_on_reflect = null
+gradient_length = null
 glow_scale = 3.0
+core_intensity = null
+glow_intensity = null
+core_whiten = null
+pulse_strength = null
+pulse_frequency = null
+pulse_speed = null
+target_marker = NodePath("Marker3D2")
 
 [node name="Marker3D2" type="Marker3D" parent="MirrorsPuzzle/LightBeamL" unique_id=1096283459]
 transform = Transform3D(-0.9988792, 0, -0.047317337, 0, 1, 0, 0.047317337, 0, -0.9988792, 31.314474, 13.702005, 19.860525)
@@ -1643,15 +1664,39 @@ top_level = true
 
 [node name="LightBeamC" parent="MirrorsPuzzle" unique_id=860993153 node_paths=PackedStringArray("target_marker") instance=ExtResource("63_hpffo")]
 transform = Transform3D(-0.99999994, 0, -8.742277e-08, 0, 1, 0, 8.742277e-08, 0, -0.99999994, 33.252472, 16.941109, 23.482527)
-target_marker = NodePath("Marker3D3")
+color_gradient = SubResource("Gradient_j2kh8")
+hit_mask = null
+max_bounces = null
 max_length = 50.0
 beam_radius = 0.05
-color_gradient = SubResource("Gradient_j2kh8")
+flatten_on_reflect = null
+gradient_length = null
 glow_scale = 3.0
+core_intensity = null
+glow_intensity = null
+core_whiten = null
+pulse_strength = null
+pulse_frequency = null
+pulse_speed = null
+target_marker = NodePath("Marker3D3")
 
 [node name="Marker3D3" type="Marker3D" parent="MirrorsPuzzle/LightBeamC" unique_id=1746850849]
 transform = Transform3D(-0.99999917, 0, -8.742268e-08, 0, 1, 0, 8.742268e-08, 0, -0.99999917, 33.17587, 13.478084, 18.000257)
 top_level = true
+
+[node name="DoubleSidedMirrorStand" parent="MirrorsPuzzle" unique_id=1018925620 instance=ExtResource("65_hpffo")]
+transform = Transform3D(-0.80592835, 0, 0.5920133, 0, 1, 0, -0.5920133, 0, -0.80592835, 33.155148, 12.285545, 21.109312)
+
+[node name="LightSensor" type="Area3D" parent="MirrorsPuzzle" unique_id=990590925 node_paths=PackedStringArray("abbotts_door")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 33.164494, 13.64192, 18.24777)
+collision_layer = 512
+collision_mask = 0
+script = ExtResource("66_hnqnj")
+abbotts_door = NodePath("../../Church/AbbotsDoor")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="MirrorsPuzzle/LightSensor" unique_id=1509478824]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.020446777)
+shape = SubResource("BoxShape3D_7qke6")
 
 [editable path="VisualConfig/GameUiOverlay"]
 [editable path="Church/ConfessionalBooth"]
@@ -1688,4 +1733,3 @@ top_level = true
 [editable path="CollectableItems/Candle/candle"]
 [editable path="MirrorsPuzzle/MirrorsLightL/MirrorStandL2"]
 [editable path="MirrorsPuzzle/MirrorsLightR/MirrorStandR2"]
-[editable path="MirrorsPuzzle/MirrorsLightR/MirrorStandR3"]

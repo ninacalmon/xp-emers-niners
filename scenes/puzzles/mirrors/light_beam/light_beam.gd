@@ -19,6 +19,10 @@ extends Node3D
 @export var pulse_frequency: float = 2.0 # waves per unit of distance
 @export var pulse_speed: float = 6.0
 
+@export_group("Sensors")
+## Layers searched for LightSensor areas. Sensors never block or bend the beam.
+@export_flags_3d_physics var sensor_mask: int = 1 << 10 # Light sensors (11)
+
 const SURFACE_OFFSET: float = 0.001
 const FACE_DOT_THRESHOLD: float = 0.99
 const CORE_EDGE_POWER: float = 1.0
@@ -27,6 +31,7 @@ const GLOW_EDGE_POWER: float = 2.0
 var _segments: Array[MeshInstance3D] = []
 var _core_cylinder: CylinderMesh
 var _glow_cylinder: CylinderMesh
+var _touched_sensors: Array[LightSensor] = []
 
 const BEAM_SHADER_CODE: String = """
 shader_type spatial;
@@ -87,6 +92,10 @@ func _ready() -> void:
 	_shader.code = BEAM_SHADER_CODE
 
 
+func _exit_tree() -> void:
+	_clear_sensors()
+
+
 func _make_cylinder(radius: float) -> CylinderMesh:
 	var cyl: CylinderMesh = CylinderMesh.new()
 	cyl.top_radius = radius
@@ -116,6 +125,7 @@ func _update_beam() -> void:
 	var dir: Vector3 = _get_direction(origin)
 	if dir == Vector3.ZERO:
 		_hide_all_segments()
+		_clear_sensors()
 		return
 
 	var space: PhysicsDirectSpaceState3D = get_world_3d().direct_space_state
@@ -160,7 +170,69 @@ func _update_beam() -> void:
 		origin = hit_pos + hit_normal * SURFACE_OFFSET
 
 	_draw_points(points)
+	_update_sensors(space, points)
 
+
+# ---------------------------------------------------------------------------
+# Sensors
+# ---------------------------------------------------------------------------
+
+## Finds every LightSensor crossed by the beam's segments and reports enter/exit changes.
+func _update_sensors(space: PhysicsDirectSpaceState3D, points: Array[Vector3]) -> void:
+	var now_touching: Array[LightSensor] = []
+
+	for i: int in range(points.size() - 1):
+		var from: Vector3 = points[i]
+		var to: Vector3 = points[i + 1]
+		if from.distance_squared_to(to) < 0.000001:
+			continue
+
+		# A ray stops at its first hit, so keep casting and exclude each sensor already found.
+		var exclude: Array[RID] = []
+		while true:
+			var query: PhysicsRayQueryParameters3D = PhysicsRayQueryParameters3D.create(from, to, sensor_mask)
+			query.collide_with_areas = true
+			query.collide_with_bodies = false
+			query.hit_from_inside = true # also counts a segment that starts or ends inside the sensor
+			query.exclude = exclude
+
+			var result: Dictionary = space.intersect_ray(query)
+			if result.is_empty():
+				break
+
+			var rid: RID = result["rid"]
+			exclude.append(rid)
+
+			var sensor: LightSensor = result["collider"] as LightSensor
+			if sensor != null and not now_touching.has(sensor):
+				now_touching.append(sensor)
+
+	for sensor: LightSensor in _touched_sensors:
+		if not now_touching.has(sensor):
+			sensor.beam_exited(self)
+
+	for sensor: LightSensor in now_touching:
+		if not _touched_sensors.has(sensor):
+			sensor.beam_entered(self)
+
+	_touched_sensors = now_touching
+
+
+func _clear_sensors() -> void:
+	var sensors: Array[LightSensor] = _touched_sensors.duplicate()
+	_touched_sensors.clear()
+	for sensor: LightSensor in sensors:
+		sensor.beam_exited(self)
+
+
+## Called by a LightSensor that is leaving the tree.
+func forget_sensor(sensor: LightSensor) -> void:
+	_touched_sensors.erase(sensor)
+
+
+# ---------------------------------------------------------------------------
+# Drawing
+# ---------------------------------------------------------------------------
 
 func _create_segment() -> MeshInstance3D:
 	# Core: thin, bright, white-hot.
