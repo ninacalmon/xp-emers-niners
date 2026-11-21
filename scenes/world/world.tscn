@@ -834,7 +834,7 @@ environment = SubResource("Environment_t634p")
 [node name="Camera3D" type="Camera3D" parent="VisualConfig" unique_id=1834340419]
 unique_name_in_owner = true
 physics_interpolation_mode = 1
-transform = Transform3D(0.689393, -0.05467723, 0.7223211, -9.4735326e-05, 0.99714047, 0.07557053, -0.72438765, -0.052166224, 0.68741643, 29.6404, 14.094876, 20.212475)
+transform = Transform3D(0.6883826, -0.054456413, 0.72330064, 0.00014684023, 0.9971882, 0.07493732, -0.7253478, -0.05147934, 0.686455, 29.640554, 14.0952, 20.212456)
 top_level = true
 cull_mask = 1048031
 size = 62.088
@@ -947,7 +947,7 @@ omni_range = 20.153
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.082743, 1.6670088, -3.19987)
 
 [node name="Camera3D" parent="Church/ConfessionalBooth" index="2" unique_id=430217490]
-transform = Transform3D(0.6893957, -0.054678217, 0.7223184, -9.5061696e-05, 0.99714035, 0.07557248, -0.72438496, -0.05216801, 0.6874191, 29.640398, 14.094875, 20.212475)
+transform = Transform3D(0.688384, -0.05445538, 0.72329944, 0.00014605044, 0.99718827, 0.074936785, -0.72534657, -0.05147964, 0.6864563, 29.640554, 14.095199, 20.212454)
 top_level = true
 
 [node name="Sprite3D" parent="Church/ConfessionalBooth/Confessor" parent_id_path=PackedInt32Array(321162436, 1758948578) index="0" unique_id=415751236]
@@ -1296,7 +1296,7 @@ noise_emitter_layer = 1
 metadata/_custom_type_script = "uid://csjccrhj5wnx7"
 
 [node name="CloseUpCamera" type="Node3D" parent="Cutscenes/StartingCutscene" unique_id=1789459155 node_paths=PackedStringArray("follow_target", "look_at_target")]
-transform = Transform3D(-0.9183842, 0, 0, 0, 0.68254006, 0.7308435, 0, 0.7308429, -0.6825405, 31.976969, 4.5308065, -13.0020275)
+transform = Transform3D(-0.915231, 0, 0, 0, 0.68254006, 0.7308435, 0, 0.7308429, -0.6825405, 31.976969, 4.5308065, -13.0020275)
 top_level = true
 script = ExtResource("28_phx5y")
 follow_mode = 5

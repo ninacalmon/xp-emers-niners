@@ -27,7 +27,7 @@ Você: “O abade não é assim... é?”
 do DialogueData.set_mood("Lucio", DialogueData.LucioMoods.HAND_ANGRY)
 Lucio: {{locals.eff}}“Você não notou que eles estão agindo de forma estranha? Já se passaram dias desde que se trancaram no próprio quarto, impedindo a entrada de qualquer um.”
 Lucio: {{locals.eff}}“Você realmente acredita que eles ainda estão inteiros? Estão fragmentados, além de qualquer possibilidade de reparo; não passam de uma casca vazia. Por dentro, só existe uma maldade vil. Uma amálgama deplorável de medo e ódio.”
-do DialogueData.set_mood("Lucio", DialogueData.LucioMoods.IDLE_SINIXTRO)
+do DialogueData.set_mood("Lucio", DialogueData.LucioMoods.HEART_SAD)
 Lucio: {{locals.eff}}“Francisco... preste muita atenção...”
 do DialogueData.set_mood("Lucio", DialogueData.LucioMoods.HEART_ANGRY)
 Lucio: {{locals.eff}}“O Abade, esse [b]parasita asqueroso[/b], pretende consumir nossas almas para ascender aos céus. Ele tem capturado aqueles que estavam à beira da morte, roubando-lhes a chance de escapar deste mundo desolado.”
@@ -36,7 +36,7 @@ do DialogueData.set_mood("Lucio", DialogueData.LucioMoods.HEART_SAD)
 Lucio: {{locals.eff}}“Você... você acredita em mim... não acredita?”
 Você: “...”
 Lucio: {{locals.eff}}“Bem... não fique aí só me encarando. [b]Fale.”
-do DialogueData.set_mood("Lucio", DialogueData.LucioMoods.IDLE_ANGRY)
+do DialogueData.set_mood("Lucio", DialogueData.LucioMoods.IDLE_SINIXTRO)
 Lucio: {{locals.eff}}[font_size=40][b]“FALE.”
 Você: “Sim!... sim. Eu acho.”
 do DialogueData.set_mood("Lucio", DialogueData.LucioMoods.IDLE_DEFAULT)
