@@ -1,0 +1,22 @@
+[gd_scene format=3 uid="uid://egm028deqjjk"]
+
+[ext_resource type="Script" uid="uid://bl0nvwlny7mqq" path="res://scenes/characters/sheep/sheep.gd" id="1_t6e31"]
+[ext_resource type="SpriteFrames" uid="uid://cvcbidnbxpgko" path="res://resources/sprite_frames/characters/sheep/sheep1.tres" id="2_t6e31"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_t6e31"]
+radius = 0.2680664
+height = 0.5361328
+
+[node name="Sheep" type="Node3D" unique_id=1164953173]
+script = ExtResource("1_t6e31")
+
+[node name="AnimatedSprite3D" type="AnimatedSprite3D" parent="." unique_id=260980370]
+transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, -0.055920064, 0.49016953, 0)
+billboard = 2
+sprite_frames = ExtResource("2_t6e31")
+animation = &"living"
+
+[node name="ShadowMesh" type="MeshInstance3D" parent="." unique_id=1379106409]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.40543592, 0)
+cast_shadow = 3
+mesh = SubResource("CapsuleMesh_t6e31")

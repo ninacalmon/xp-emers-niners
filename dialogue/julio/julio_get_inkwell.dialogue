@@ -62,7 +62,13 @@ elif InventoryManager.selected_item == CharacterData.Item.toxic_plant:
 => END
 
 ~ animals_ink
-Você: “Aqui está a tinta!”
+do DialogueData.set_mood("Julio", DialogueData.JulioMoods.INTENSE_DEFAULT)
+Julio: “Franciso! Olá! Ah, você parece cansado. Está tudo bem?”
+Você: [font_size=20]“É, vocês ficam me pedindo coisa...[/font_size] Sim, claro. Aqui está a tinta.”
+Julio: “Oi?”
+Você: “Oi?”
+do DialogueData.set_mood("Julio", DialogueData.JulioMoods.IDLE_SAD)
+Julio: “Ah. A tinta. Sim, obrigado. Pode me seguir até a área dos animais agora.”
 do DialogueData.set_mood("Julio", DialogueData.JulioMoods.IDLE_SERIOUS)
 Julio: “Ah! A tinta. Sim, obrigado.”
 do InventoryManager.use_item()

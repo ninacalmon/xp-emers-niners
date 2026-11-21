@@ -1,0 +1,36 @@
+[gd_resource type="SpriteFrames" format=3 uid="uid://cvcbidnbxpgko"]
+
+[ext_resource type="Texture2D" uid="uid://dnukgxwqbc81n" path="res://assets/2d/characters/sheep/dead/sheep_dead_ink.png" id="1_03cuc"]
+[ext_resource type="Texture2D" uid="uid://dw37h1gglh0am" path="res://assets/2d/characters/sheep/dead/sheep_dead_by_plant.png" id="2_b2b16"]
+[ext_resource type="Texture2D" uid="uid://c6iglyhgblut1" path="res://assets/2d/characters/sheep/living/sheep1.png" id="3_o0alv"]
+[ext_resource type="Texture2D" uid="uid://5n64ele3wul1" path="res://assets/2d/characters/sheep/living/sheep1_anim.png" id="4_pm0f6"]
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_03cuc")
+}],
+"loop": 1,
+"name": &"dead_ink",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_b2b16")
+}],
+"loop": 1,
+"name": &"dead_plant",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_o0alv")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_pm0f6")
+}],
+"loop": 1,
+"name": &"living",
+"speed": 3.0
+}]

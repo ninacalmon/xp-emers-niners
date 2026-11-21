@@ -1,0 +1,14 @@
+[gd_resource type="SpriteFrames" format=3 uid="uid://botct8llnmnqj"]
+
+[ext_resource type="Texture2D" uid="uid://cadtc4bijvngp" path="res://assets/2d/characters/sheep/dead/sheep_dead_rotten.png" id="1_hf3pb"]
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_hf3pb")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}]

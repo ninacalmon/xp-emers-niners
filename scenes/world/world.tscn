@@ -44,9 +44,13 @@
 [ext_resource type="FontFile" uid="uid://m4150rl53s6t" path="res://assets/fonts/UncialAntiqua-Regular.ttf" id="32_5aamg"]
 [ext_resource type="PackedScene" uid="uid://gmh3po5m0pml" path="res://scenes/objects/doors/abbots_door.tscn" id="32_5o5dd"]
 [ext_resource type="AudioStream" uid="uid://dtekk6pyyb8j3" path="res://assets/sound/sound_effects/cutscene/starting/fire_ambient.mp3" id="34_dhssw"]
+[ext_resource type="PackedScene" uid="uid://egm028deqjjk" path="res://scenes/characters/sheep/sheep.tscn" id="34_l72hy"]
 [ext_resource type="Resource" uid="uid://koxeqrufqjyl" path="res://items/candle.tres" id="34_lbnhc"]
+[ext_resource type="SpriteFrames" uid="uid://cvcbidnbxpgko" path="res://resources/sprite_frames/characters/sheep/sheep1.tres" id="35_6eles"]
 [ext_resource type="AudioStream" uid="uid://c8lnthk8kiran" path="res://assets/sound/music/Sunsurgence-NinaCalmon.wav" id="35_cf0uk"]
 [ext_resource type="PackedScene" uid="uid://3ke0t8mctl7h" path="res://assets/3d/items/candle/candle.tscn" id="35_sygq6"]
+[ext_resource type="SpriteFrames" uid="uid://b2rje4rg7em66" path="res://resources/sprite_frames/characters/sheep/sheep2.tres" id="36_124cm"]
+[ext_resource type="SpriteFrames" uid="uid://cgl6tvr0f4kiy" path="res://resources/sprite_frames/characters/sheep/sheep3.tres" id="37_6ebim"]
 [ext_resource type="Script" uid="uid://dct2i5sj5m7v2" path="res://scenes/world/end_cutscene.gd" id="37_j0rhc"]
 [ext_resource type="Resource" uid="uid://bgfegur82b8ly" path="res://dialogue/final.dialogue" id="38_4jq4u"]
 [ext_resource type="Resource" uid="uid://dybsg8b6ndlrh" path="res://items/mirrors/mirror_c/mirror_c2.tres" id="38_4v0p3"]
@@ -104,15 +108,7 @@ volumetric_fog_emission = Color(0.16, 0.16, 0.16, 1)
 volumetric_fog_gi_inject = 0.08
 volumetric_fog_length = 16.1
 
-[sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_5604n"]
-
-[sub_resource type="PlaneMesh" id="PlaneMesh_ksdio"]
-size = Vector2(500, 500)
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_u1gsd"]
-albedo_color = Color(0.66, 0.52536005, 0.4224, 1)
-
-[sub_resource type="ViewportTexture" id="ViewportTexture_hnqnj"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_l72hy"]
 viewport_path = NodePath("SubViewportSprite")
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_u0ka6"]
@@ -191,19 +187,19 @@ top_radius = 2.0
 bottom_radius = 2.0
 height = 1.0
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_7lp0r"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_6eles"]
 viewport_path = NodePath("SubViewportSprite")
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_tj3jo"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_124cm"]
 viewport_path = NodePath("SubViewportSprite")
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_j3x8u"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_6ebim"]
 resource_local_to_scene = true
 render_priority = -1
 shader = ExtResource("13_goy61")
-shader_parameter/sprite_texture = SubResource("ViewportTexture_tj3jo")
+shader_parameter/sprite_texture = SubResource("ViewportTexture_124cm")
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_l72hy"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_vl1dq"]
 viewport_path = NodePath("SubViewportSprite")
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_cdpwx"]
@@ -834,7 +830,8 @@ environment = SubResource("Environment_t634p")
 [node name="Camera3D" type="Camera3D" parent="VisualConfig" unique_id=1834340419]
 unique_name_in_owner = true
 physics_interpolation_mode = 1
-transform = Transform3D(0.68871367, -0.054497816, 0.7229824, 9.953625e-05, 0.99717814, 0.07507164, -0.7250336, -0.051630896, 0.68677557, 80.01855, 2.830109, -1.2761266)
+transform = Transform3D(0.68870366, -0.054539494, 0.72298884, 8.594927e-05, 0.9971729, 0.07514103, -0.725043, -0.05168775, 0.6867613, 34.557873, 1.830112, 30.505306)
+top_level = true
 cull_mask = 1048031
 size = 62.088
 
@@ -845,90 +842,7 @@ script = ExtResource("1_mxkvs")
 metadata/_custom_type_script = "uid://bd046eokvcnu2"
 
 [node name="Player" parent="." unique_id=949902107 instance=ExtResource("2_m114p")]
-transform = Transform3D(0.68905383, 0, 0.7247099, 0, 1, 0, -0.7247099, 0, 0.68905383, 80.01848, 1, -1.2761126)
-
-[node name="Terrain" type="Node" parent="." unique_id=1561035952]
-
-[node name="Ground" type="StaticBody3D" parent="Terrain" unique_id=286959965]
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Terrain/Ground" unique_id=316747533]
-shape = SubResource("WorldBoundaryShape3D_5604n")
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Terrain/Ground" unique_id=339831810]
-mesh = SubResource("PlaneMesh_ksdio")
-surface_material_override/0 = SubResource("StandardMaterial3D_u1gsd")
-
-[node name="GroundAreas" type="Node3D" parent="Terrain" unique_id=364615867]
-
-[node name="HardFloorHighEchoArea" type="Area3D" parent="Terrain/GroundAreas" unique_id=1551280368 groups=["ground_areas"]]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 33.282627, 0, 0)
-collision_layer = 0
-collision_mask = 4
-
-[node name="CollisionPolygon3D" type="CollisionPolygon3D" parent="Terrain/GroundAreas/HardFloorHighEchoArea" unique_id=1794694814]
-transform = Transform3D(0.99999994, 0, 0, 0, -4.3711385e-08, -1, 0, 0.99999994, -4.371139e-08, 0, 0, 0)
-depth = -7.0
-polygon = PackedVector2Array(13.129452, -12.847256, 6.2007904, -12.693287, 6.354763, -13.771078, 6.354763, -16.773497, 4.7380753, -19.544958, 2.2745514, -21.23863, -0.11198044, -21.70054, -2.4215393, -21.315617, -4.423149, -20.083855, -5.9628487, -18.390182, -6.8096848, -15.849674, -6.501747, -13.001226, -13.430405, -12.770271, -13.48477, 9.8820095, 13.0521965, 9.833496)
-
-[node name="HardFloorMedEchoArea" type="Area3D" parent="Terrain/GroundAreas" unique_id=2068808358 groups=["ground_areas"]]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 33.093647, 0, 19.156532)
-collision_layer = 0
-collision_mask = 4
-
-[node name="CollisionPolygon3D" type="CollisionPolygon3D" parent="Terrain/GroundAreas/HardFloorMedEchoArea" unique_id=249217601]
-transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0)
-depth = -7.0
-polygon = PackedVector2Array(-13.29579, -9.614118, 13.192665, -9.75966, 13.14415, -5.053834, -13.198763, -5.3449173)
-
-[node name="CollisionPolygon3D2" type="CollisionPolygon3D" parent="Terrain/GroundAreas/HardFloorMedEchoArea" unique_id=728601968]
-transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0)
-depth = -7.0
-polygon = PackedVector2Array(13.727425, -28.459743, 13.7934265, -13.807232, 15.113476, -13.74123, 15.047474, -9.12107, 19.469624, -9.12107, 19.073612, -28.459743)
-
-[node name="CollisionPolygon3D3" type="CollisionPolygon3D" parent="Terrain/GroundAreas/HardFloorMedEchoArea" unique_id=942345675]
-transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0)
-depth = -7.0
-polygon = PackedVector2Array(40.67616, -13.810169, 41.638134, -9.679365, 43.675243, -6.7934628, 47.35335, -4.9827003, 51.201214, -5.6051493, 54.087124, -7.925189, 55.332027, -11.15061, 54.935925, -14.432619, 53.52126, -16.922417, 52.219776, -18.167316, 52.1066, -28.296268, 40.39323, -28.409443)
-
-[node name="HardFloorLowEchoArea" type="Area3D" parent="Terrain/GroundAreas" unique_id=493486602 groups=["ground_areas"]]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 65.245255, 0, 0)
-collision_layer = 0
-collision_mask = 4
-
-[node name="CollisionPolygon3D" type="CollisionPolygon3D" parent="Terrain/GroundAreas/HardFloorLowEchoArea" unique_id=1184846264]
-transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0)
-depth = -7.0
-polygon = PackedVector2Array(-12.457455, 4.73506, -11.995441, -8.993419, 8.5312805, -9.0594225, 8.927292, 4.405049)
-
-[node name="CollisionPolygon3D2" type="CollisionPolygon3D" parent="Terrain/GroundAreas/HardFloorLowEchoArea" unique_id=681529343]
-transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0)
-depth = -7.0
-polygon = PackedVector2Array(-27.547997, 16.20641, -27.547997, 24.060684, -36.722317, 24.060684, -36.722317, 15.810396, -38.10836, 18.714499, -40.550446, 20.298552, -42.794525, 20.23255, -45.368614, 17.988472, -45.50062, 14.952368, -40.550446, 13.962333, -20.749756, 14.160337, -18.769688, 15.282379, -19.099697, 18.384487, -21.607784, 20.364555, -24.709896, 19.96854, -26.557957, 17.92247)
-
-[node name="HardFloorNoEchoArea" type="Area3D" parent="Terrain/GroundAreas" unique_id=1659632312 groups=["ground_areas"]]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 33.093647, 0, 19.156532)
-collision_layer = 0
-collision_mask = 4
-
-[node name="CollisionPolygon3D" type="CollisionPolygon3D" parent="Terrain/GroundAreas/HardFloorNoEchoArea" unique_id=267386822]
-transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0)
-depth = -7.0
-polygon = PackedVector2Array(-2.964714, 5.1151676, -2.8993149, 8.777512, 2.9865913, 8.74481, 2.9538918, 5.1151676)
-
-[node name="CollisionPolygon3D2" type="CollisionPolygon3D" parent="Terrain/GroundAreas/HardFloorNoEchoArea" unique_id=299665823]
-transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0)
-depth = -7.0
-polygon = PackedVector2Array(2.956623, 5.1420727, 2.9257088, 8.665823, -2.916298, 8.727644, -2.916298, 4.925701)
-
-[node name="DirtFloor" type="Area3D" parent="Terrain/GroundAreas" unique_id=1102081533 groups=["ground_areas"]]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 33.093647, 0, -0.39131546)
-collision_layer = 0
-collision_mask = 4
-
-[node name="CollisionPolygon3D" type="CollisionPolygon3D" parent="Terrain/GroundAreas/DirtFloor" unique_id=396864030]
-transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0)
-depth = -0.18
-polygon = PackedVector2Array(-73.80234, -62.97614, 98.83095, -63.519016, 103.7168, 64.32734, -80.3168, 65.14163)
+transform = Transform3D(0.68905383, 0, 0.7247099, 0, 1, 0, -0.7247099, 0, 0.68905383, 34.557816, 0, 30.505314)
 
 [node name="Church" parent="." unique_id=151423155 instance=ExtResource("7_q3hpu")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 33.12908, 0, 0)
@@ -946,10 +860,11 @@ omni_range = 20.153
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.082743, 1.6670088, -3.19987)
 
 [node name="Camera3D" parent="Church/ConfessionalBooth" index="2" unique_id=430217490]
-transform = Transform3D(0.68871194, -0.054497596, 0.722984, 9.978247e-05, 0.9971782, 0.07507094, -0.7250352, -0.05163011, 0.6867739, 80.01855, 2.8301094, -1.2761266)
+transform = Transform3D(0.6887037, -0.054539658, 0.7229887, 8.599866e-05, 0.9971729, 0.075141214, -0.72504294, -0.05168785, 0.6867614, 34.557873, 1.830112, 30.505306)
+top_level = true
 
 [node name="Sprite3D" parent="Church/ConfessionalBooth/Confessor" parent_id_path=PackedInt32Array(321162436, 1758948578) index="0" unique_id=415751236]
-texture = SubResource("ViewportTexture_hnqnj")
+texture = SubResource("ViewportTexture_l72hy")
 
 [node name="SecondFloor2" type="Node3D" parent="Church" unique_id=1860471051]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -33.12908, 0, 0)
@@ -1129,11 +1044,11 @@ unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 78.78419, 0.9976957, -5.94999)
 
 [node name="Sprite3D" parent="Characters/Sanson" index="0" unique_id=415751236]
-texture = SubResource("ViewportTexture_7lp0r")
+texture = SubResource("ViewportTexture_6eles")
 
 [node name="Outline" parent="Characters/Sanson/Sprite3D" index="0" unique_id=1631064389]
-material_overlay = SubResource("ShaderMaterial_j3x8u")
-texture = SubResource("ViewportTexture_l72hy")
+material_overlay = SubResource("ShaderMaterial_6ebim")
+texture = SubResource("ViewportTexture_vl1dq")
 
 [node name="AstrolablusPuzzle" parent="Characters" unique_id=572576743 instance=ExtResource("14_m114p")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 74.17525, 0.89560485, -7.2601056)
@@ -1294,7 +1209,7 @@ noise_emitter_layer = 1
 metadata/_custom_type_script = "uid://csjccrhj5wnx7"
 
 [node name="CloseUpCamera" type="Node3D" parent="Cutscenes/StartingCutscene" unique_id=1789459155 node_paths=PackedStringArray("follow_target", "look_at_target")]
-transform = Transform3D(-0.907114, 0, 0, 0, 0.8826757, -0.4699747, 0, -0.46997437, -0.8826764, 31.976969, 4.116524, -13.0710745)
+transform = Transform3D(-0.9059274, 0, 0, 0, 0.8826757, -0.4699747, 0, -0.46997437, -0.8826764, 31.976969, 4.116524, -13.0710745)
 top_level = true
 script = ExtResource("28_phx5y")
 follow_mode = 5
@@ -1308,6 +1223,9 @@ spring_length = -0.345
 look_at_offset = Vector3(0, 1.865, 0)
 noise = SubResource("Resource_kngxi")
 noise_emitter_layer = 1
+align_transform_with_view = Callable()
+align_position_with_view = Callable()
+align_rotation_with_view = Callable()
 metadata/_custom_type_script = "uid://csjccrhj5wnx7"
 
 [node name="AltarCamera" type="Node3D" parent="Cutscenes/StartingCutscene" unique_id=1345053029]
@@ -1369,6 +1287,20 @@ collision_mask = 4
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Cutscenes/StartingCutscene/PlayerDetection" unique_id=819121188]
 shape = SubResource("SphereShape3D_cdpwx")
+
+[node name="AnimalsCutscene" type="Node3D" parent="Cutscenes" unique_id=1813398001]
+
+[node name="Sheep" parent="Cutscenes/AnimalsCutscene" unique_id=1164953173 instance=ExtResource("34_l72hy")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.508026, -4.7683716e-07, -3.501336)
+anim = ExtResource("35_6eles")
+
+[node name="Sheep2" parent="Cutscenes/AnimalsCutscene" unique_id=1139098193 instance=ExtResource("34_l72hy")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.979084, -4.7683716e-07, -2.3581104)
+anim = ExtResource("36_124cm")
+
+[node name="Sheep3" parent="Cutscenes/AnimalsCutscene" unique_id=1136699526 instance=ExtResource("34_l72hy")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16.698524, -4.7683716e-07, -3.2091374)
+anim = ExtResource("37_6ebim")
 
 [node name="CollectableItems" type="Node" parent="." unique_id=1692708429]
 
