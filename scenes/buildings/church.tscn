@@ -47,6 +47,7 @@
 [ext_resource type="PackedScene" uid="uid://dvo37fqvpneo7" path="res://assets/3d/scenery/decoration/frames/monkframe6.glb" id="45_wes51"]
 [ext_resource type="PackedScene" uid="uid://dcx4soi1u80nn" path="res://scenes/buildings/decoration/bookshelf/bookshelf.tscn" id="46_x6h1e"]
 [ext_resource type="PackedScene" uid="uid://dctikxldrpkmk" path="res://scenes/buildings/decoration/curtain/curtain.tscn" id="47_q2bbb"]
+[ext_resource type="Texture2D" uid="uid://dxtcieus1wd2b" path="res://assets/3d/scenery/decoration/curtain/shapespark_low_poly_curtains_kit_0.png" id="48_7xaha"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_olxrl"]
 resource_name = "BurnedOrange"
@@ -3784,6 +3785,15 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_bvblc")
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_im4i7"]
+resource_name = "Curtain"
+transparency = 1
+cull_mode = 2
+albedo_color = Color(0.87, 0.24649997, 0, 0.9607843)
+albedo_texture = ExtResource("48_7xaha")
+roughness = 0.82111454
+metadata/_gltf_primary_texture_coord = 0
+
 [node name="Church" type="Node3D" unique_id=151423155]
 
 [node name="ChurchModelTex" type="Node3D" parent="." unique_id=1261274182]
@@ -5587,7 +5597,7 @@ transform = Transform3D(-7.081245e-08, 0, -1.62, 0, 1.62, 0, 1.62, 0, -7.081245e
 transform = Transform3D(-9.44166e-08, 0, -2.16, 0, 2.16, 0, 2.16, 0, -9.44166e-08, -1.7840717, 20.189867, 8.575102)
 
 [node name="curtain_04_Curtain_0" parent="MeltingRoom/Curtain" index="0" unique_id=1096424470]
-surface_material_override/0 = null
+surface_material_override/0 = SubResource("StandardMaterial3D_im4i7")
 
 [node name="Cube_001__0" parent="MeltingRoom/Curtain" index="1" unique_id=1542551977]
 surface_material_override/0 = null
@@ -5596,7 +5606,7 @@ surface_material_override/0 = null
 transform = Transform3D(1.6091111, 0, -1.4409583, 0, 2.1599998, 0, 1.4409583, 0, 1.6091111, -3.693572, 20.189867, 10.885095)
 
 [node name="curtain_04_Curtain_0" parent="MeltingRoom/Curtain3" index="0" unique_id=1096424470]
-surface_material_override/0 = null
+surface_material_override/0 = SubResource("StandardMaterial3D_im4i7")
 
 [node name="Cube_001__0" parent="MeltingRoom/Curtain3" index="1" unique_id=1542551977]
 surface_material_override/0 = null
@@ -5605,7 +5615,7 @@ surface_material_override/0 = null
 transform = Transform3D(-1.654656, 0, -1.3884213, 0, 2.16, 0, 1.3884213, 0, -1.654656, 1.4559481, 20.189867, 8.332484)
 
 [node name="curtain_04_Curtain_0" parent="MeltingRoom/Curtain2" index="0" unique_id=1096424470]
-surface_material_override/0 = null
+surface_material_override/0 = SubResource("StandardMaterial3D_im4i7")
 
 [node name="Cube_001__0" parent="MeltingRoom/Curtain2" index="1" unique_id=1542551977]
 surface_material_override/0 = null
@@ -5614,7 +5624,7 @@ surface_material_override/0 = null
 transform = Transform3D(-2.1554537, 0, -0.14007416, 0, 2.1599998, 0, 0.14007416, 0, -2.1554537, 3.496852, 20.189867, 10.220234)
 
 [node name="curtain_04_Curtain_0" parent="MeltingRoom/Curtain6" index="0" unique_id=1096424470]
-surface_material_override/0 = null
+surface_material_override/0 = SubResource("StandardMaterial3D_im4i7")
 
 [node name="Cube_001__0" parent="MeltingRoom/Curtain6" index="1" unique_id=1542551977]
 surface_material_override/0 = null
@@ -5623,7 +5633,7 @@ surface_material_override/0 = null
 transform = Transform3D(-1.4928019, 0, 1.5611353, 0, 2.1600006, 0, -1.5611353, 0, -1.4928019, 3.857786, 20.189867, 13.233013)
 
 [node name="curtain_04_Curtain_0" parent="MeltingRoom/Curtain7" index="0" unique_id=1096424470]
-surface_material_override/0 = null
+surface_material_override/0 = SubResource("StandardMaterial3D_im4i7")
 
 [node name="Cube_001__0" parent="MeltingRoom/Curtain7" index="1" unique_id=1542551977]
 surface_material_override/0 = null
@@ -5632,7 +5642,7 @@ surface_material_override/0 = null
 transform = Transform3D(2.150617, 0, -0.20111674, 0, 2.1599998, 0, 0.20111674, 0, 2.150617, -3.8340425, 20.189867, 13.464778)
 
 [node name="curtain_04_Curtain_0" parent="MeltingRoom/Curtain4" index="0" unique_id=1096424470]
-surface_material_override/0 = null
+surface_material_override/0 = SubResource("StandardMaterial3D_im4i7")
 
 [node name="Cube_001__0" parent="MeltingRoom/Curtain4" index="1" unique_id=1542551977]
 surface_material_override/0 = null
@@ -5641,7 +5651,7 @@ surface_material_override/0 = null
 transform = Transform3D(1.5845221, 0, 1.4679539, 0, 2.1599994, 0, -1.4679539, 0, 1.5845221, -1.7118773, 20.189867, 15.581065)
 
 [node name="curtain_04_Curtain_0" parent="MeltingRoom/Curtain5" index="0" unique_id=1096424470]
-surface_material_override/0 = null
+surface_material_override/0 = SubResource("StandardMaterial3D_im4i7")
 
 [node name="Cube_001__0" parent="MeltingRoom/Curtain5" index="1" unique_id=1542551977]
 surface_material_override/0 = null

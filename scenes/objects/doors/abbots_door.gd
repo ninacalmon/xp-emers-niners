@@ -19,6 +19,7 @@ var is_open: bool = false
 var _r_closed_y: float = 0.0
 var _l_closed_y: float = 0.0
 
+@onready var open_audio_stream_player: AudioStreamPlayer = $OpenAudioStreamPlayer
 
 func _ready() -> void:
 	super()
@@ -60,6 +61,7 @@ func open_door() -> void:
 	if flip:
 		angle = -angle
 
+	open_audio_stream_player.play()
 	await _rotate_doors(_r_closed_y - angle, _l_closed_y + angle)
 
 

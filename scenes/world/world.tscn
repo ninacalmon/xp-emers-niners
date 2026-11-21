@@ -119,8 +119,8 @@ viewport_path = NodePath("SubViewportSprite")
 size = Vector3(3.7296143, 0.15795898, 6.952942)
 
 [sub_resource type="NavigationMesh" id="NavigationMesh_cdpwx"]
-vertices = PackedVector3Array(0.12416458, 0.4330263, -10.728392, 0.12416458, 0.4330263, -8.228392, 5.3741646, 0.4330263, -7.9783916, 24.374165, 0.4330263, -10.728392, 5.3741646, 0.4330263, -2.7283916, 24.374165, 0.4330263, -2.7283916, 26.874165, 0.4330263, -6.7283916, 29.874165, 1.4330263, -6.7283916, 30.124165, 1.4330263, -10.728392, 25.874165, 0.4330263, -10.728392, 27.29083, 0.4330263, -10.728392, 24.374165, 0.4330263, -0.97839165, 5.3741646, 0.4330263, -0.97839165, 5.3741646, 0.4330263, 0.52160835, 24.624165, 0.4330263, -0.47839165, 25.624165, 0.4330263, -0.47839165, 26.874165, 0.4330263, 0.52160835, 29.874165, 0.4330263, 0.52160835, 30.124165, 1.4330263, -6.7283916, 29.874165, 0.4330263, -5.278392, 30.074165, 0.4330263, -5.278392, 31.624165, 1.4330263, -6.7283916, 31.624165, 2.9330263, 3.2716084, 37.374165, 2.9330263, 3.2716084, 37.374165, 1.4330263, -10.728392, 31.624165, 1.4330263, -5.29982, 31.624165, 2.9330263, 0.4144659, 37.374165, 2.9330263, -0.92839146, 37.374165, 1.4330263, -5.1283917, 34.614273, 2.4330263, -2.9545069, 33.124226, 1.4330263, -4.498456, 33.12926, 2.4330263, -2.9654942, 36.14425, 1.4330263, -4.4764814, 36.099285, 2.4330263, -2.9935207, 3.6241646, 0.4330263, -0.97839165, 0.12416458, 0.4330263, 0.52160835, 3.6241646, 0.4330263, -6.4783916, 0.12416458, 0.4330263, -6.4783916, 27.874165, 5.9330263, -5.9783916, 27.874165, 5.9330263, 0.52160835, 28.874165, 5.9330263, 0.52160835, 28.874165, 5.9330263, -5.9783916, 28.124165, 0.4330263, -5.7283916, 28.124165, 0.4330263, 0.27160835, 28.624165, 0.4330263, 0.27160835, 28.624165, 0.4330263, -5.7283916)
-polygons = [PackedInt32Array(1, 0, 2), PackedInt32Array(2, 0, 3), PackedInt32Array(4, 2, 5), PackedInt32Array(5, 2, 3), PackedInt32Array(9, 10, 6), PackedInt32Array(6, 10, 7), PackedInt32Array(7, 10, 8), PackedInt32Array(11, 14, 12), PackedInt32Array(12, 14, 13), PackedInt32Array(16, 15, 6), PackedInt32Array(6, 15, 9), PackedInt32Array(15, 16, 14), PackedInt32Array(14, 16, 13), PackedInt32Array(8, 18, 7), PackedInt32Array(7, 18, 20), PackedInt32Array(7, 20, 19), PackedInt32Array(19, 20, 17), PackedInt32Array(28, 32, 24), PackedInt32Array(24, 32, 21), PackedInt32Array(21, 30, 25), PackedInt32Array(25, 31, 26), PackedInt32Array(26, 23, 22), PackedInt32Array(23, 26, 27), PackedInt32Array(27, 33, 28), PackedInt32Array(28, 33, 32), PackedInt32Array(32, 30, 21), PackedInt32Array(30, 31, 25), PackedInt32Array(31, 29, 26), PackedInt32Array(26, 29, 27), PackedInt32Array(27, 29, 33), PackedInt32Array(33, 29, 32), PackedInt32Array(32, 29, 30), PackedInt32Array(30, 29, 31), PackedInt32Array(18, 8, 21), PackedInt32Array(21, 8, 24), PackedInt32Array(12, 13, 34), PackedInt32Array(34, 13, 35), PackedInt32Array(36, 34, 37), PackedInt32Array(37, 34, 35), PackedInt32Array(41, 40, 38), PackedInt32Array(38, 40, 39), PackedInt32Array(45, 44, 42), PackedInt32Array(42, 44, 43)]
+vertices = PackedVector3Array(5.3741646, 0.4330263, -5.9783916, 4.6241646, 0.4330263, -5.7283916, 4.6241646, 0.4330263, -5.4783916, 5.3741646, 0.4330263, -5.2283916, 22.874165, 0.4330263, -2.7283916, 5.3741646, 0.4330263, -7.9783916, 0.12416458, 0.4330263, -10.728392, 0.12416458, 0.4330263, -8.228392, 24.374165, 0.4330263, -2.7283916, 24.374165, 0.4330263, -10.728392, 5.3741646, 0.4330263, -2.7283916, 3.8741646, 0.4330263, -5.7283916, 3.6241646, 0.4330263, -5.2283916, 27.374165, 0.4330263, -6.7283916, 29.874165, 1.4330263, -6.9783916, 30.124165, 1.4330263, -10.728392, 25.874165, 0.4330263, -10.728392, 27.29083, 0.4330263, -10.728392, 3.6241646, 0.4330263, -6.4783916, 0.12416458, 0.4330263, -6.4783916, 22.874165, 0.4330263, -0.97839165, 24.374165, 0.4330263, -0.72839165, 25.624165, 0.4330263, -0.47839165, 27.374165, 0.4330263, 0.52160835, 3.8741646, 0.4330263, -0.72839165, 0.12416458, 0.4330263, 0.52160835, 31.624165, 1.4330263, -6.7283916, 37.374165, 1.4330263, -10.728392, 31.624165, 2.9330263, 3.2716084, 37.374165, 2.9330263, 3.2716084, 31.624165, 1.4330263, -5.29982, 31.624165, 2.9330263, 0.4144659, 37.374165, 2.9330263, -0.92839146, 37.374165, 1.4330263, -5.1283917, 34.614273, 2.4330263, -2.9545069, 33.124226, 1.4330263, -4.498456, 33.12926, 2.4330263, -2.9654942, 36.14425, 1.4330263, -4.4764814, 36.099285, 2.4330263, -2.9935207, 28.374165, 6.6830263, -5.9783916, 28.374165, 6.6830263, 0.52160835, 30.624165, 6.6830263, 0.52160835, 30.624165, 6.6830263, -5.9783916, 28.624165, 0.4330263, -5.7283916, 28.624165, 0.4330263, 0.27160835, 30.124165, 0.4330263, 0.27160835, 30.124165, 0.4330263, -5.7283916)
+polygons = [PackedInt32Array(1, 0, 2), PackedInt32Array(2, 0, 3), PackedInt32Array(3, 0, 4), PackedInt32Array(4, 0, 5), PackedInt32Array(5, 7, 6), PackedInt32Array(8, 4, 9), PackedInt32Array(9, 4, 5), PackedInt32Array(9, 5, 6), PackedInt32Array(4, 10, 3), PackedInt32Array(1, 2, 11), PackedInt32Array(11, 2, 12), PackedInt32Array(16, 17, 13), PackedInt32Array(13, 17, 14), PackedInt32Array(14, 17, 15), PackedInt32Array(11, 12, 18), PackedInt32Array(18, 12, 19), PackedInt32Array(4, 8, 20), PackedInt32Array(20, 8, 21), PackedInt32Array(23, 22, 13), PackedInt32Array(13, 22, 16), PackedInt32Array(21, 22, 20), PackedInt32Array(20, 22, 23), PackedInt32Array(20, 23, 24), PackedInt32Array(24, 23, 25), PackedInt32Array(12, 24, 19), PackedInt32Array(19, 24, 25), PackedInt32Array(14, 15, 26), PackedInt32Array(26, 15, 27), PackedInt32Array(33, 37, 27), PackedInt32Array(27, 37, 26), PackedInt32Array(26, 35, 30), PackedInt32Array(30, 36, 31), PackedInt32Array(31, 29, 28), PackedInt32Array(29, 31, 32), PackedInt32Array(32, 38, 33), PackedInt32Array(33, 38, 37), PackedInt32Array(37, 35, 26), PackedInt32Array(35, 36, 30), PackedInt32Array(36, 34, 31), PackedInt32Array(31, 34, 32), PackedInt32Array(32, 34, 38), PackedInt32Array(38, 34, 37), PackedInt32Array(37, 34, 35), PackedInt32Array(35, 34, 36), PackedInt32Array(42, 41, 39), PackedInt32Array(39, 41, 40), PackedInt32Array(46, 45, 43), PackedInt32Array(43, 45, 44)]
 geometry_parsed_geometry_type = 1
 geometry_collision_mask = 4294934528
 geometry_source_geometry_mode = 2
@@ -138,7 +138,7 @@ size = Vector3(0.43078613, 3.411621, 12.637327)
 size = Vector3(0.43078613, 3.411621, 10.484127)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_jyr8v"]
-size = Vector3(1.7525024, 6.097534, 7.296751)
+size = Vector3(2.6880646, 6.9647827, 7.296751)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_5o5dd"]
 size = Vector3(0.43078613, 4.416748, 15.303192)
@@ -171,10 +171,13 @@ size = Vector3(0.43078613, 3.411621, 10.484127)
 size = Vector3(0.43078613, 3.411621, 6.0309906)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_b4max"]
-size = Vector3(0.43078613, 3.411621, 6.273163)
+size = Vector3(0.43078613, 3.411621, 3.6292572)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_hnqnj"]
+size = Vector3(0.43078613, 3.411621, 1.176445)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_nqe8x"]
-size = Vector3(0.43078613, 3.411621, 21.029507)
+size = Vector3(0.43078613, 3.411621, 18.387678)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_sh7a8"]
 size = Vector3(0.43078613, 5.815674, 31.34771)
@@ -831,7 +834,7 @@ environment = SubResource("Environment_t634p")
 [node name="Camera3D" type="Camera3D" parent="VisualConfig" unique_id=1834340419]
 unique_name_in_owner = true
 physics_interpolation_mode = 1
-transform = Transform3D(0.68880033, -0.054566473, 0.7228946, 5.5025324e-05, 0.99716717, 0.075217046, -0.7249512, -0.05176975, 0.68685204, 29.64049, 14.095066, 20.212467)
+transform = Transform3D(0.689393, -0.05467723, 0.7223211, -9.4735326e-05, 0.99714047, 0.07557053, -0.72438765, -0.052166224, 0.68741643, 29.6404, 14.094876, 20.212475)
 top_level = true
 cull_mask = 1048031
 size = 62.088
@@ -944,7 +947,7 @@ omni_range = 20.153
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.082743, 1.6670088, -3.19987)
 
 [node name="Camera3D" parent="Church/ConfessionalBooth" index="2" unique_id=430217490]
-transform = Transform3D(0.68880236, -0.05456672, 0.7228926, 5.4551863e-05, 0.9971671, 0.07521804, -0.7249492, -0.051770933, 0.68685406, 29.64049, 14.095065, 20.212467)
+transform = Transform3D(0.6893957, -0.054678217, 0.7223184, -9.5061696e-05, 0.99714035, 0.07557248, -0.72438496, -0.05216801, 0.6874191, 29.640398, 14.094875, 20.212475)
 top_level = true
 
 [node name="Sprite3D" parent="Church/ConfessionalBooth/Confessor" parent_id_path=PackedInt32Array(321162436, 1758948578) index="0" unique_id=415751236]
@@ -963,13 +966,13 @@ flip = true
 transform = Transform3D(-4.371138e-08, 0, -0.9999998, 0, 1, 0, 0.9999998, 0, -4.371138e-08, 42.03795, 1.5026242, -12.479482)
 
 [node name="Gate3" parent="Church/SecondFloor2/Gates" unique_id=993003229 groups=["corridor_gates"] instance=ExtResource("27_ckok1")]
-transform = Transform3D(-3.7591793e-08, 0, 0.86, 0, 0.86, 0, -0.86, 0, -3.7591793e-08, 52.475754, 6.26097, 4.3315773)
+transform = Transform3D(-3.7591793e-08, 0, 0.86, 0, 0.86, 0, -0.86, 0, -3.7591793e-08, 54.14717, 6.26097, 4.3315773)
 
 [node name="Gate3_copy1" parent="Church/SecondFloor2/Gates" unique_id=349109527 groups=["corridor_gates"] instance=ExtResource("27_ckok1")]
-transform = Transform3D(-3.7591793e-08, 0, 0.86, 0, 0.86, 0, -0.86, 0, -3.7591793e-08, 60.475754, 6.26097, 4.3315773)
+transform = Transform3D(-3.7591793e-08, 0, 0.86, 0, 0.86, 0, -0.86, 0, -3.7591793e-08, 62.53172, 6.26097, 4.3315773)
 
 [node name="Gate3_copy2" parent="Church/SecondFloor2/Gates" unique_id=577108361 groups=["corridor_gates"] instance=ExtResource("27_ckok1")]
-transform = Transform3D(-3.7591793e-08, 0, 0.86, 0, 0.86, 0, -0.86, 0, -3.7591793e-08, 68.47575, 6.26097, 4.3315773)
+transform = Transform3D(-3.7591793e-08, 0, 0.86, 0, 0.86, 0, -0.86, 0, -3.7591793e-08, 68.51484, 6.26097, 4.3315773)
 
 [node name="BellAreaDoor" parent="Church/SecondFloor2" unique_id=230216749 instance=ExtResource("9_ues17")]
 transform = Transform3D(-4.3711385e-08, 0, -0.99999994, 0, 1, 0, 0.99999994, 0, -4.3711385e-08, 45.89097, 8.685315, -2.8491478)
@@ -1015,7 +1018,7 @@ shape = SubResource("BoxShape3D_26xou")
 debug_color = Color(0.5600001, 0.39999998, 1, 0.92941177)
 
 [node name="Wall8" type="CollisionShape3D" parent="Church/SecondFloor2/NavProxy" unique_id=1747804967]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 28.26019, 2.548767, -2.7884812)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 29.408222, 2.9823914, -2.7884812)
 shape = SubResource("BoxShape3D_jyr8v")
 debug_color = Color(0.5600001, 0.39999998, 1, 0.92941177)
 
@@ -1070,12 +1073,17 @@ shape = SubResource("BoxShape3D_cmg7y")
 debug_color = Color(0.5600001, 0.39999998, 1, 0.92941177)
 
 [node name="Wall3" type="CollisionShape3D" parent="Church/SecondFloor2/NavProxy" unique_id=1029132443]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.5635986, 1.2058105, -4.4122534)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.5635986, 1.2058105, -3.0903006)
 shape = SubResource("BoxShape3D_b4max")
 debug_color = Color(0.5600001, 0.39999998, 1, 0.92941177)
 
+[node name="Wall13" type="CollisionShape3D" parent="Church/SecondFloor2/NavProxy" unique_id=1685260572]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.5635986, 1.2058105, -6.9858975)
+shape = SubResource("BoxShape3D_hnqnj")
+debug_color = Color(0.5600001, 0.39999998, 1, 0.92941177)
+
 [node name="Wall4" type="CollisionShape3D" parent="Church/SecondFloor2/NavProxy" unique_id=1936790473]
-transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 14.739384, 1.2058105, -1.8149896)
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 13.418468, 1.2058105, -1.8149896)
 shape = SubResource("BoxShape3D_nqe8x")
 debug_color = Color(0.5600001, 0.39999998, 1, 0.92941177)
 
@@ -1288,7 +1296,7 @@ noise_emitter_layer = 1
 metadata/_custom_type_script = "uid://csjccrhj5wnx7"
 
 [node name="CloseUpCamera" type="Node3D" parent="Cutscenes/StartingCutscene" unique_id=1789459155 node_paths=PackedStringArray("follow_target", "look_at_target")]
-transform = Transform3D(-0.91932213, 0, 0, 0, 0.8826757, -0.4699747, 0, -0.46997437, -0.8826764, 31.976969, 4.116524, -13.0710745)
+transform = Transform3D(-0.9183842, 0, 0, 0, 0.68254006, 0.7308435, 0, 0.7308429, -0.6825405, 31.976969, 4.5308065, -13.0020275)
 top_level = true
 script = ExtResource("28_phx5y")
 follow_mode = 5

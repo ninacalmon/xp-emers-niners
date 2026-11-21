@@ -23,6 +23,7 @@ extends ActionTrigger
 var is_open: bool = false
 var _picking: bool = false
 
+@onready var open_audio_stream_player: AudioStreamPlayer = $OpenAudioStreamPlayer
 
 func _ready() -> void:
 	super()
@@ -105,6 +106,7 @@ func open_door() -> void:
 	var tween: Tween = create_tween()
 	tween.set_ease(Tween.EASE_IN)
 	tween.tween_property(mesh_instance_3d, "rotation:y", deg_to_rad(open_rotation), speed)
+	open_audio_stream_player.play()
 
 	await tween.finished
 

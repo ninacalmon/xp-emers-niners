@@ -6,7 +6,7 @@ enum Result { SUCCESS, FAILED, CANCELLED }
 signal progress_changed(points: int, misses: int)
 signal finished(result: Result)
 
-@export var indic_speed: float = 500.0
+@export var indic_speed: float = 400.0
 @export var hit_width: int = 60
 @export_range(0.0, 1.0, 0.1) var full_width_percentage: float = 0.5
 @export_group("Visual Feedback")
@@ -89,11 +89,9 @@ func run(p_points_to_open: int = 5, p_max_misses: int = 3) -> Result:
 func _input(event: InputEvent) -> void:
 	if not _active or not _input_enabled or _resolving:
 		return
-	if not event.is_action_pressed("interact"):
-		return
-
-	get_viewport().set_input_as_handled()
-	await _resolve_hit()
+	if event.is_action_pressed("interact") or event.is_action_pressed("ui_accept"):
+		get_viewport().set_input_as_handled()
+		await _resolve_hit()
 
 
 func cancel() -> void:

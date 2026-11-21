@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://cqraxx8kcmmwx" path="res://assets/3d/objects/confessional/confessional_rosewood_veneer1_nor_gl_1k.png" id="4_8j6u3"]
 [ext_resource type="Script" uid="uid://cf2auur4umdjl" path="res://systems/interaction/interaction_area.gd" id="5_wh2fm"]
 [ext_resource type="AudioStream" uid="uid://c3e8y6a84737w" path="res://assets/sound/sound_effects/door/locked_door.mp3" id="6_hv6oe"]
+[ext_resource type="AudioStream" uid="uid://bdtiqg6k76aya" path="res://assets/sound/sound_effects/door/open_door.mp3" id="7_8j6u3"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_5mok0"]
 
@@ -93,6 +94,11 @@ shadow_mesh = SubResource("ArrayMesh_ygm28")
 [sub_resource type="BoxShape3D" id="BoxShape3D_ksdio"]
 size = Vector3(4.0273438, 3.6757813, 0.6259883)
 
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_wh2fm"]
+random_pitch = 1.0293022
+streams_count = 1
+stream_0/stream = ExtResource("7_8j6u3")
+
 [node name="AbbotsDoor" type="Node3D" unique_id=48858221 node_paths=PackedStringArray("locked_stream_player")]
 script = ExtResource("1_fqxli")
 speed = 3.0
@@ -141,3 +147,7 @@ stream = ExtResource("6_hv6oe")
 volume_db = -6.395
 pitch_scale = 0.68
 bus = &"Sound Effects"
+
+[node name="OpenAudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=2133040209]
+stream = SubResource("AudioStreamRandomizer_wh2fm")
+pitch_scale = 0.5

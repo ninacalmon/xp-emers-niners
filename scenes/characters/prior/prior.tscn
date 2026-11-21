@@ -21,6 +21,7 @@ height = 2.1264648
 floor_max_angle = 1.3962634
 floor_snap_length = 0.5
 script = ExtResource("1_gashb")
+approach_speed = 1.6
 
 [node name="Sprite3D" type="Sprite3D" parent="." unique_id=415751236]
 transform = Transform3D(0.18, 0, 0, 0, 0.18, 0, 0, 0, 0.18, 0, 0.7130867, 0)
