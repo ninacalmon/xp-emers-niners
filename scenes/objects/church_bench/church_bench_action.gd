@@ -3,6 +3,11 @@ extends ActionTrigger
 var is_sit: bool = false
 @export var phantom_camera_3d: PhantomCamera3D
 
+@onready var interaction_area: InteractionArea = $InteractionArea
+@export var chair: Node3D 
+
+@export var disable_chair: bool = false
+
 func trigger():
 	if is_sit:
 		return
@@ -35,6 +40,8 @@ func _ready() -> void:
 	super()
 
 	force_outline_off = true
+	if disable_chair:
+		remove_chair()
 
 
 func _input(event: InputEvent) -> void:
@@ -44,3 +51,8 @@ func _input(event: InputEvent) -> void:
 	if event is InputEventKey and event.pressed and not event.echo:
 		is_sit = false
 		get_up()
+
+func remove_chair():
+	if interaction_area.is_inside_tree() and chair.is_inside_tree():
+		interaction_area.queue_free()
+		chair.queue_free()

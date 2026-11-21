@@ -831,7 +831,7 @@ environment = SubResource("Environment_t634p")
 [node name="Camera3D" type="Camera3D" parent="VisualConfig" unique_id=1834340419]
 unique_name_in_owner = true
 physics_interpolation_mode = 1
-transform = Transform3D(0.6890023, -0.054541897, 0.722704, -6.038617e-05, 0.99715996, 0.07531245, -0.7247592, -0.051934093, 0.6870422, 29.640446, 14.095001, 20.21245)
+transform = Transform3D(0.68880033, -0.054566473, 0.7228946, 5.5025324e-05, 0.99716717, 0.075217046, -0.7249512, -0.05176975, 0.68685204, 29.64049, 14.095066, 20.212467)
 top_level = true
 cull_mask = 1048031
 size = 62.088
@@ -944,7 +944,7 @@ omni_range = 20.153
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.082743, 1.6670088, -3.19987)
 
 [node name="Camera3D" parent="Church/ConfessionalBooth" index="2" unique_id=430217490]
-transform = Transform3D(0.6890009, -0.054542948, 0.72270525, -5.9944803e-05, 0.9971599, 0.07531334, -0.7247606, -0.05193428, 0.68704075, 29.640446, 14.095001, 20.21245)
+transform = Transform3D(0.68880236, -0.05456672, 0.7228926, 5.4551863e-05, 0.9971671, 0.07521804, -0.7249492, -0.051770933, 0.68685406, 29.64049, 14.095065, 20.212467)
 top_level = true
 
 [node name="Sprite3D" parent="Church/ConfessionalBooth/Confessor" parent_id_path=PackedInt32Array(321162436, 1758948578) index="0" unique_id=415751236]
@@ -1288,7 +1288,7 @@ noise_emitter_layer = 1
 metadata/_custom_type_script = "uid://csjccrhj5wnx7"
 
 [node name="CloseUpCamera" type="Node3D" parent="Cutscenes/StartingCutscene" unique_id=1789459155 node_paths=PackedStringArray("follow_target", "look_at_target")]
-transform = Transform3D(-0.9199934, 0, 0, 0, 0.8826757, -0.4699747, 0, -0.46997437, -0.8826764, 31.976969, 4.116524, -13.0710745)
+transform = Transform3D(-0.91932213, 0, 0, 0, 0.8826757, -0.4699747, 0, -0.46997437, -0.8826764, 31.976969, 4.116524, -13.0710745)
 top_level = true
 script = ExtResource("28_phx5y")
 follow_mode = 5
@@ -1617,12 +1617,13 @@ correct_rotation = 2.691101074218978
 
 [node name="LightBeamR" parent="MirrorsPuzzle" unique_id=696817037 node_paths=PackedStringArray("target_marker") instance=ExtResource("63_hpffo")]
 transform = Transform3D(-0.99999994, 0, -8.742277e-08, 0, 1, 0, 8.742277e-08, 0, -0.99999994, 33.252472, 16.941109, 23.482527)
-color_gradient = SubResource("Gradient_cf0uk")
+target_marker = NodePath("Marker3D")
 hit_mask = null
 max_bounces = null
 max_length = 50.0
 beam_radius = 0.05
 flatten_on_reflect = null
+color_gradient = SubResource("Gradient_cf0uk")
 gradient_length = null
 glow_scale = 3.0
 core_intensity = null
@@ -1631,7 +1632,6 @@ core_whiten = null
 pulse_strength = null
 pulse_frequency = null
 pulse_speed = null
-target_marker = NodePath("Marker3D")
 
 [node name="Marker3D" type="Marker3D" parent="MirrorsPuzzle/LightBeamR" unique_id=2101903605]
 transform = Transform3D(-0.99999934, 0, -8.74227e-08, 0, 1, 0, 8.74227e-08, 0, -0.99999934, 35.6393, 13.701749, 19.930918)
@@ -1639,12 +1639,13 @@ top_level = true
 
 [node name="LightBeamL" parent="MirrorsPuzzle" unique_id=1486756006 node_paths=PackedStringArray("target_marker") instance=ExtResource("63_hpffo")]
 transform = Transform3D(-0.99999994, 0, -8.742277e-08, 0, 1, 0, 8.742277e-08, 0, -0.99999994, 33.252472, 16.941109, 23.482527)
-color_gradient = SubResource("Gradient_cf0uk")
+target_marker = NodePath("Marker3D2")
 hit_mask = null
 max_bounces = null
 max_length = 50.0
 beam_radius = 0.05
 flatten_on_reflect = null
+color_gradient = SubResource("Gradient_cf0uk")
 gradient_length = null
 glow_scale = 3.0
 core_intensity = null
@@ -1653,7 +1654,6 @@ core_whiten = null
 pulse_strength = null
 pulse_frequency = null
 pulse_speed = null
-target_marker = NodePath("Marker3D2")
 
 [node name="Marker3D2" type="Marker3D" parent="MirrorsPuzzle/LightBeamL" unique_id=1096283459]
 transform = Transform3D(-0.9988792, 0, -0.047317337, 0, 1, 0, 0.047317337, 0, -0.9988792, 31.314474, 13.702005, 19.860525)
@@ -1661,12 +1661,13 @@ top_level = true
 
 [node name="LightBeamC" parent="MirrorsPuzzle" unique_id=860993153 node_paths=PackedStringArray("target_marker") instance=ExtResource("63_hpffo")]
 transform = Transform3D(-0.99999994, 0, -8.742277e-08, 0, 1, 0, 8.742277e-08, 0, -0.99999994, 33.252472, 16.941109, 23.482527)
-color_gradient = SubResource("Gradient_j2kh8")
+target_marker = NodePath("Marker3D3")
 hit_mask = null
 max_bounces = null
 max_length = 50.0
 beam_radius = 0.05
 flatten_on_reflect = null
+color_gradient = SubResource("Gradient_j2kh8")
 gradient_length = null
 glow_scale = 3.0
 core_intensity = null
@@ -1675,7 +1676,6 @@ core_whiten = null
 pulse_strength = null
 pulse_frequency = null
 pulse_speed = null
-target_marker = NodePath("Marker3D3")
 
 [node name="Marker3D3" type="Marker3D" parent="MirrorsPuzzle/LightBeamC" unique_id=1746850849]
 transform = Transform3D(-0.99999917, 0, -8.742268e-08, 0, 1, 0, 8.742268e-08, 0, -0.99999917, 33.17587, 13.478084, 18.000257)

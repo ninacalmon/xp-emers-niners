@@ -9,7 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://na8xw2uvry6" path="res://assets/3d/items/mirrors/mirror_c/mirror_c_full.glb" id="7_npa0n"]
 [ext_resource type="PackedScene" uid="uid://bkuy8chsqlqrj" path="res://assets/3d/objects/mirror/mirror_sqr.glb" id="8_3bqot"]
 [ext_resource type="Script" uid="uid://cf2auur4umdjl" path="res://systems/interaction/interaction_area.gd" id="9_3s6dq"]
-[ext_resource type="AudioStream" uid="uid://dbsvxutgdnf07" path="res://assets/sound/sound_effects/items/glass_put.mp3" id="9_vcx15"]
+[ext_resource type="AudioStream" uid="uid://dbsvxutgdnf07" path="res://assets/sound/sound_effects/items/mirror_put.mp3" id="9_vcx15"]
 [ext_resource type="Script" uid="uid://b6shvr6vvnoxp" path="res://scenes/puzzles/mirrors/mirror_stand/dsided_rotate_action.gd" id="10_kaoja"]
 [ext_resource type="AudioStream" uid="uid://d241s6cs8smqx" path="res://assets/sound/sound_effects/items/rock_metal_slide.wav" id="11_iqlqk"]
 

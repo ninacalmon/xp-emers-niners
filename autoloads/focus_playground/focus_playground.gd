@@ -12,6 +12,7 @@ const SENSITIVITY: float = 0.005
 @onready var sub_viewport: SubViewport = $SubViewport
 @onready var follow_mouse_spr: Sprite2D = $BlurCRect/FollowMouseSpr
 @onready var exit_tex_button: TextureButton = $BlurCRect/MarginContainer/VBoxContainer/ExitTexButton
+@onready var combining_stream_player: AudioStreamPlayer = $CombiningStreamPlayer
 
 var item_mesh_3d: Node3D
 
@@ -207,6 +208,9 @@ func try_and_combine() -> void:
 		InventoryManager.use_item(combining_item_slot_idx)
 		InventoryManager.add_new_item(result_item, true)
 
+		combining_stream_player.stream = combining_item.combining_sfx
+		combining_stream_player.volume_db = combining_item.combining_sfx_volume_db
+		combining_stream_player.play()
 		_swap_focused_item(result_item)
 	else:
 		InventoryManager.tried_wrong_item(combining_item_slot_idx)

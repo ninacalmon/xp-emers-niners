@@ -13,6 +13,7 @@ const MIRROR_B_FULL = preload("uid://dymw8vckx5n6n")
 const MIRROR_C_FULL = preload("uid://bsdb5amilihps")
 const CANDLE = preload("uid://koxeqrufqjyl")
 const LOCKPICK = preload("uid://cb0fdb2g5cmw2")
+const BLANK_PAPER = preload("uid://bae56sx733f7o")
 
 @export var key_item: ItemRes
 
@@ -29,6 +30,7 @@ var itens: Array[ItemRes] = [
 	MIRROR_C_FULL,
 	CANDLE,
 	LOCKPICK,
+	
 ]
 
 func trigger() -> void:
@@ -36,6 +38,7 @@ func trigger() -> void:
 	InventoryManager.add_new_item(MIRROR_A_FULL)
 	InventoryManager.add_new_item(MIRROR_B_FULL)
 	InventoryManager.add_new_item(MIRROR_C_FULL)
+	InventoryManager.add_new_item(BLANK_PAPER)
 
 
 

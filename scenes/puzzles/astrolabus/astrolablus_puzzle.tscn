@@ -129,14 +129,17 @@ mesh_instance_3d = NodePath("../../Astrolabus/astrolabus_body/MainFrame")
 [node name="AudioStreamPlayerTry" type="AudioStreamPlayer" parent="." unique_id=1331127592]
 stream = SubResource("AudioStreamRandomizer_35dxp")
 volume_db = -14.0
+bus = &"Sound Effects"
 
 [node name="AudioStreamPlayerStep" type="AudioStreamPlayer" parent="." unique_id=286294999]
 stream = SubResource("AudioStreamRandomizer_35dxp")
 volume_db = -23.0
 pitch_scale = 4.0
+bus = &"Sound Effects"
 
 [node name="AudioStreamPlayerFit" type="AudioStreamPlayer" parent="." unique_id=1504405546]
 stream = SubResource("AudioStreamRandomizer_cs2rg")
 volume_db = -8.0
+bus = &"Sound Effects"
 
 [editable path="Astrolabus/astrolabus_body"]

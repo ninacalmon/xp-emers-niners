@@ -29,9 +29,10 @@ positional_multiplier_x = 0.08
 positional_multiplier_y = 1.2
 metadata/_custom_type_script = "uid://cuffvge5ad4aa"
 
-[node name="StudyDesk" type="Node3D" unique_id=1528012825 node_paths=PackedStringArray("phantom_camera_3d")]
+[node name="StudyDesk" type="Node3D" unique_id=1528012825 node_paths=PackedStringArray("phantom_camera_3d", "chair")]
 script = ExtResource("1_mycfh")
 phantom_camera_3d = NodePath("PhantomCamera3D")
+chair = NodePath("chair")
 
 [node name="desk" parent="." unique_id=273123060 instance=ExtResource("2_u7db8")]
 transform = Transform3D(1.39, 0, 0, 0, 1.39, 0, 0, 0, 1.39, 0.051154137, 0, -1.0759441)

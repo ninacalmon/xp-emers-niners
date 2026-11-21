@@ -11,7 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://db8352k03vonw" path="res://assets/3d/items/mirrors/mirror_b/mirror_b_full.glb" id="6_nlpwj"]
 [ext_resource type="PackedScene" uid="uid://bkuy8chsqlqrj" path="res://assets/3d/objects/mirror/mirror_sqr.glb" id="8_q3c3n"]
 [ext_resource type="AudioStream" uid="uid://d241s6cs8smqx" path="res://assets/sound/sound_effects/items/rock_metal_slide.wav" id="11_vkrd6"]
-[ext_resource type="AudioStream" uid="uid://dbsvxutgdnf07" path="res://assets/sound/sound_effects/items/glass_put.mp3" id="12_c6m6d"]
+[ext_resource type="AudioStream" uid="uid://dbsvxutgdnf07" path="res://assets/sound/sound_effects/items/mirror_put.mp3" id="12_c6m6d"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_ksdio"]
 size = Vector3(0.07, 0.34550488, 0.3166504)

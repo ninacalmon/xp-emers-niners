@@ -82,7 +82,9 @@ theme_override_styles/panel = SubResource("StyleBoxFlat_u0ka6")
 [node name="AudioStreamPlayerFail" type="AudioStreamPlayer" parent="." unique_id=1475217657]
 stream = ExtResource("2_okexg")
 volume_db = -4.0
+bus = &"Sound Effects"
 
 [node name="AudioStreamPlayerOpen" type="AudioStreamPlayer" parent="." unique_id=1668276663]
 stream = ExtResource("3_cqmx8")
 volume_db = -8.0
+bus = &"Sound Effects"

@@ -29,4 +29,6 @@ extends Resource
 @export_group("Combination")
 @export var combining_item_id: StringName = ""
 @export var result_item: ItemRes
+@export var combining_sfx: AudioStream
+@export var combining_sfx_volume_db: float = -17
 #endregion

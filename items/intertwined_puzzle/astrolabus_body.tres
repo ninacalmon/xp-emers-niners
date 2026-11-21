@@ -1,5 +1,6 @@
 [gd_resource type="Resource" script_class="ItemRes" format=3 uid="uid://3c0ta31odhc6"]
 
+[ext_resource type="AudioStream" uid="uid://i3dfyqkbmaph" path="res://assets/sound/sound_effects/items/metal_fit.ogg" id="1_ifp4a"]
 [ext_resource type="Script" uid="uid://doqkh62nh5of1" path="res://systems/items_resource/item_resource.gd" id="1_xgk1n"]
 [ext_resource type="PackedScene" uid="uid://b0xmygh7fy035" path="res://scenes/item_focus_view/astrolabus_body_focus_view.tscn" id="2_tltae"]
 [ext_resource type="Resource" uid="uid://c6akotlps2yoe" path="res://items/intertwined_puzzle/astrolabus_full.tres" id="3_0ysvk"]
@@ -13,4 +14,6 @@ texture = ExtResource("3_pixxb")
 item_focus_view = ExtResource("2_tltae")
 combining_item_id = &"astrolab_pointer"
 result_item = ExtResource("3_0ysvk")
+combining_sfx = ExtResource("1_ifp4a")
+combining_sfx_volume_db = -12.0
 metadata/_custom_type_script = "uid://doqkh62nh5of1"

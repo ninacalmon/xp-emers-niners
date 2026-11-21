@@ -34,6 +34,7 @@ var _is_being_dragged: bool = false
 
 func update_slot():
 	if item:
+		print(name)
 		item_texture.texture = item.texture
 		if button_slot.button_pressed and not FocusPlayground.is_focused:
 			_show_label()
@@ -44,6 +45,7 @@ func update_slot():
 func shake_slot() -> void:
 	if _shake_tween != null and _shake_tween.is_valid():
 		_shake_tween.kill()
+
 	center_container.position = _shake_origin
 
 	_shake_tween = create_tween()
@@ -52,6 +54,9 @@ func shake_slot() -> void:
 	_shake_tween.tween_property(center_container, "position", _shake_origin + Vector2(SHAKE_OFFSET, 0.0), SHAKE_STEP)
 	_shake_tween.tween_property(center_container, "position", _shake_origin + Vector2(-SHAKE_OFFSET, 0.0), SHAKE_STEP)
 	_shake_tween.tween_property(center_container, "position", _shake_origin, SHAKE_STEP)
+
+	await _shake_tween.finished
+	center_container.position = _shake_origin
 
 
 func _is_focus_active() -> bool:
