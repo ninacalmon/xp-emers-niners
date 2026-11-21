@@ -138,6 +138,7 @@ class SansonData extends TaskOwner:
 	var flower_got: bool = false
 	var astrolabus_aligned: bool = false
 	var sleep_talked_once: bool = false
+	var changed_mind_flower: bool = false
 
 
 class ItemData:

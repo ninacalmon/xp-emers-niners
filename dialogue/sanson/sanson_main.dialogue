@@ -1,8 +1,11 @@
-import "uid://bu7gl6we2o75c" as get_astrolabus
-import "uid://ony2o4n8ig0a" as fix_astrolabus
+import "uid://bv14pxbr3g1sq" as get_astrolabus
+import "uid://co1f7j8ocd0a7" as fix_astrolabus
+
+
 
 
 ~ start
+#=> get_astrolabus/start
 if not WorldStateManager.starting_cutscene_played:
 	do DialogueData.set_mood("Sanson", DialogueData.SansonMoods.IDLE_DEFAULT)
 	Sanson: “Já é quase meio dia.”
@@ -11,11 +14,16 @@ if CharacterData.Julio.get_status("medication_for_lucio") == 1:
 	do DialogueData.set_mood("Sanson", DialogueData.SansonMoods.POSING_ANGRY)
 	Sanson: “Agora não, agora não! Vou perder o fio do pensamento!”
 	=> END!
-elif CharacterData.Hugo.get_status("get_flower") == 0:
-	Sanson: “Estou ocupado no momento.”
+elif CharacterData.Hugo.get_status("get_flower") == 0 and CharacterData.Hugo.get_status("get_sanson_inkwell") == 0:
+	if CharacterData.Julio.get_status("get_inkwell") == 1:
+		do DialogueData.set_mood("Sanson", DialogueData.SansonMoods.IDLE_DEFAULT)
+		Você: “Oi, você tem um tinteiro pra me dar agora?”
+		Sanson: “Peço mil desculpas, mas estou profundamente imerso no meu trabalho e não posso ser interrompido neste momento.”
+	else:
+		Sanson: “Estou ocupado no momento.”
 	=> END!
 elif CharacterData.Sanson.get_status("fix_astrolabus") != 0:
 	=> fix_astrolabus/start
-elif CharacterData.Hugo.get_status("get_flower") == 1:
+elif CharacterData.Hugo.get_status("get_flower") == 1 or CharacterData.Hugo.get_status("get_sanson_inkwell") == 1:
 	=> get_astrolabus/start
 => END

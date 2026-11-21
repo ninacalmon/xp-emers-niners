@@ -1,4 +1,6 @@
-import "uid://ony2o4n8ig0a" as fix_astrolabus
+import "uid://co1f7j8ocd0a7" as fix_astrolabus
+
+
 
 ~ start
 match CharacterData.Sanson.get_status("get_astrolabus"):
@@ -9,10 +11,27 @@ match CharacterData.Sanson.get_status("get_astrolabus"):
 => END
 
 ~ give_task
-Você: “Oi, sanson. Você está ocupado?”
-do DialogueData.set_mood("Sanson", DialogueData.SansonMoods.IDLE_HAPPY)
+#do CharacterData.Hugo.give_task("get_flower")
+Você: “Sanson, você está ocupado?”
+do DialogueData.set_mood("Sanson", DialogueData.SansonMoods.IDLE_DEFAULT)
 Sanson: “Não, não estou mais. O que te traz aqui, Francisco?”
-Você: “Eu precisava te pedir um favor… gostaria de saber se pode me-“
+Você: “Sanson. É... eu preciso de um pequeno favor.”
+Sanson: “Um favor? E o que seria este favor?”
+do locals.is_flower_route = CharacterData.Hugo.get_status("get_flower") == 1
+if locals.is_flower_route:
+	do locals.line1 = "Você tem que me contar o que está acontecendo."
+	do locals.line2 = "Eu preciso da sua Flor."
+else:
+	do locals.line1 = "Eu preciso saber se você está bem."
+	do locals.line2 = "Eu preciso do seu Tinteiro."
+do set_auto_advance(true, 0.6)
+- {{locals.line1}}
+	=> continue
+- {{locals.line2}}
+	=> continue
+~ continue
+do set_auto_advance(false)
+do DialogueData.set_mood("Sanson", DialogueData.SansonMoods.IDLE_HAPPY)
 Sanson: “Ah, sim! Falando em favor... já que o assunto ainda está fresco na minha mente... eu gostaria de lhe pedir algo, já que você está aqui.”
 do DialogueData.set_mood("Sanson", DialogueData.SansonMoods.IDLE_SAD)
 Sanson: “Meu [b]astrolábio[/b] sumiu, eu o perdi.”
@@ -22,29 +41,55 @@ Sanson: “Sim, de fato. Estou [i]prestes[/i] a concluir minha pesquisa! Preciso
 Você: “Quando foi a última vez que o viu? [font_size=20]Isto é, se você conseguisse enxergar...”
 Sanson: “Eu estava lá fora… estudando o......”
 do DialogueData.set_mood("Sanson", DialogueData.SansonMoods.CRAZY_HAPPY)
-Sanson: “NOSSO [b]GLORIOOOOOOOOSO SOL[/b]! E O QUÃO [b]BELOS[/b] SÃO [b]SEUS RAIOS~![/b]“
+Sanson: “NOSSO [b]GLORIOOOOOOOOSO SOL ~![/b]“
 do DialogueData.set_mood("Sanson", DialogueData.SansonMoods.POSING_HAPPY)
-Sanson: “Sem ele… Não seríamos nada… Existimos apenas como um testemunho biológico de sua [b]perfeição cósmica...[/b] Depois que Ele queimou e consumiu minha visão mortal e imperfeita, Ele me concedeu a visão mais divina de todas: a de [b]ver apenas a Ele.[/b]“ 
+Sanson: “AH, COMO ELE ESTENDE SEU [b]AMOROSO E ACOLHEDOR ABRAÇO![/b] [do DialogueData.set_mood("Sanson", DialogueData.SansonMoods.CRAZY_DEFAULT)]TODA A MATÉRIA QUE ENTRA EM CONTATO COM ELE É [b]INSTANTANEAMENTE CONSAGRADA!”[do DialogueData.set_mood("Sanson", DialogueData.SansonMoods.POSING_HAPPY)]
+do DialogueData.set_mood("Sanson", DialogueData.SansonMoods.POSING_HAPPY)
+Sanson: “COMO ELE DEVOROU A LUA EM UMA [b]ÚNICA E PODEROSA BOCADA![/b] [do DialogueData.set_mood("Sanson", DialogueData.SansonMoods.CRAZY_DEFAULT)]COMO ELE BEBEU DOS OCEANOS COM SUA [b]SEDE VORAZ![/b] [do DialogueData.set_mood("Sanson", DialogueData.SansonMoods.POSING_HAPPY)]SEU PODER ECLIPSA [b]TUDO![/b] E, AINDA ASSIM, [b]ELE[/b], COM MISERICÓRDIA E AMOR, [do DialogueData.set_mood("Sanson", DialogueData.SansonMoods.CRAZY_DEFAULT)][b]NOS CONCEDE A VIDA A CADA DIA![/b]”
+do DialogueData.set_mood("Sanson", DialogueData.SansonMoods.HAND_HAPPY)
+Sanson: “Sem ele... Não seríamos nada… Existimos apenas como um testemunho biológico de sua perfeição cósmica...”
+do DialogueData.set_mood("Sanson", DialogueData.SansonMoods.POSING_HAPPYSAD)
+Sanson: “Depois que Ele queimou e consumiu minha visão mortal e imperfeita, Ele me concedeu a visão mais divina de todas: \n[b]A de ver apenas a Ele.[/b]”
+do DialogueData.set_mood("Sanson", DialogueData.SansonMoods.POSING_HAPPY)
+Sanson: “A dádiva de ainda contemplar sua dança resplandecentemente radiante no céu… De traçar cada fio de seus filamentos em meus pergaminhos. De testemunhar Suas erupções... Ah, que bênção poder estudá-lo... Conhecer cada parte, cada detalhe, de cor...”
+do DialogueData.set_mood("Sanson", DialogueData.SansonMoods.IDLE_HAPPY)
+Sanson: “Ah... o nosso [b]queridíssimo Sol[/b] é simplesmente o melhor... [do DialogueData.set_mood("Sanson", DialogueData.SansonMoods.IDLE_DEFAULT)]Mas, onde é que eu estava mesmo?”
+# PIADA SEXTANTE AQUYI
+Sanson: “Sim, eu estava [do DialogueData.set_mood("Sanson", DialogueData.SansonMoods.CRAZY_HAPPY)]observando o [b]NOSSO SOL~ ...[/b][do DialogueData.set_mood("Sanson", DialogueData.SansonMoods.IDLE_HAPPY)] com o meu [b]sex[/b]tante e eu...”
+do DialogueData.set_mood("Sanson", DialogueData.SansonMoods.HAND_ANGRY)
+Sanson: “O quê? O que é que tem tanta graça?”
+Você: “...nada. Você tá falando desse seu telescópio?”
 do DialogueData.set_mood("Sanson", DialogueData.SansonMoods.IDLE_DEFAULT)
 Sanson: “Exatamente. É isto mesmo. Eu estava lá fora e me lembro de que estava com meu astrolábio comigo.” 
+Sanson: “Depois, fui ao salão principal e, em seguida, voltei às pressas para os meus aposentos.”
 Você: “... ta certo. Vou procurar ele.”
+Você: “Mas... posso te pedir algo em troca depois?”
 do DialogueData.set_mood("Sanson", DialogueData.SansonMoods.IDLE_HAPPY)
-Sanson: “Muito obrigado!”
+Sanson: “Ora, claro. Muito obrigado, Francisco. E volte logo, o tempo está passando.”
 do CharacterData.Sanson.give_task("get_astrolabus")
 => END
 
 ~ waiting_completion
+# [NOVO]
+do DialogueData.set_mood("Sanson", DialogueData.SansonMoods.IDLE_DEFAULT)
+Sanson: “Como está a busca? Deve estar escondido por aqui em algum lugar; acredito que você o encontrará em breve.”
 - > Entregar astrolábio < [if InventoryManager.selected_item == CharacterData.Item.astrolabus_body or InventoryManager.selected_item == CharacterData.Item.astrolabus_pointer or InventoryManager.selected_item == CharacterData.Item.astrolabus_full /] => broken
 - “O que você quer que eu encontre mesmo?” => explain
 - > Finalizar diálogo < => END!
 => END
 
 ~ broken
+# [NOVO]
+Você: “Sanson, eu o achei.”
 if InventoryManager.selected_item == CharacterData.Item.astrolabus_full:
 	=> complete_task
 else:
+	# [NOVO]
+	do DialogueData.set_mood("Sanson", DialogueData.SansonMoods.POSING_HAPPY)
+	Sanson: “ESPLENDOROSO! O traga aqui!”
 	do DialogueData.set_mood("Sanson", DialogueData.SansonMoods.POSING_SAD)
 	Sanson: “Ah, puxa vida. Aparentemente está quebrado. Está faltando a outra parte. Tenho quase certeza de que a outra peça está em algum lugar! Não perca nem mais um segundo de seu tempo aqui! Por favor, vá encontrá-la para mim.”
+	# TODO: se o jogador tiver as duas partes soltas, o roteiro pede: Sanson: “Você pode juntá-las para mim?” (precisa de uma checagem no InventoryManager)
 => END
 
 

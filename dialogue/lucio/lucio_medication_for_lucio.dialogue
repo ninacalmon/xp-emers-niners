@@ -31,7 +31,7 @@ Lucio: “Que tipo de segredo?”
 ~ question_hub
 - “Eu acho que o monastério pegará fogo esta noite. O Sol me contou.”
 	do locals.asked = true
-	do DialogueData.set_mood("Lucio", DialogueData.LucioMoods.IDLE_SINIXTRO)
+	do DialogueData.set_mood("Lucio", DialogueData.LucioMoods.HAND_SAD)
 	Lucio: “Oh! Tenho outra preocupação que já me inquieta há algum tempo... Tenho notado que o [b]Prior[/b] visita o [b]Confessionário[/b] todos os dias... Inúmeras vezes.”
 	Lucio: “Fico imaginando o que será que pesa tanto em sua alma, a ponto de ele precisar recorrer constantemente ao confessionário.”
 	=> question_hub
@@ -59,7 +59,7 @@ do DialogueData.set_mood("Lucio", DialogueData.LucioMoods.HAND_SURPRISED)
 Lucio: “Que... absurdo... Você é incrivelmente absurdo...”
 do DialogueData.set_mood("Lucio", DialogueData.LucioMoods.HEART_SAD)
 Lucio: “Ouça bem, então, Francisco. Vou compartilhar com você aquilo que tem me atormentado. Visões persistem em minha mente há muito tempo. Todas elas brotam da mesma podre raiz: [b]a dúvida[/b].”
-do DialogueData.set_mood("Lucio", DialogueData.LucioMoods.IDLE_SINIXTRO)
+do DialogueData.set_mood("Lucio", DialogueData.LucioMoods.HAND_SAD)
 Lucio: “Nutro uma suspeita sombria… Algo nefasto está se agitando sob o manto sagrado do mosteiro. Parta sem demora e [b]desvende esse mal.[/b]”
 do DialogueData.set_mood("Lucio", DialogueData.LucioMoods.HEART_SAD)
 Lucio: “Contudo, não questione o calor esplêndido que nosso Sol nos concede; em vez disso, deixe-se consumir inteiramente por sua luz e expulse a maldade que tem apodrecido na escuridão.”

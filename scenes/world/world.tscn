@@ -834,8 +834,7 @@ environment = SubResource("Environment_t634p")
 [node name="Camera3D" type="Camera3D" parent="VisualConfig" unique_id=1834340419]
 unique_name_in_owner = true
 physics_interpolation_mode = 1
-transform = Transform3D(0.6883826, -0.054456413, 0.72330064, 0.00014684023, 0.9971882, 0.07493732, -0.7253478, -0.05147934, 0.686455, 29.640554, 14.0952, 20.212456)
-top_level = true
+transform = Transform3D(0.68871367, -0.054497816, 0.7229824, 9.953625e-05, 0.99717814, 0.07507164, -0.7250336, -0.051630896, 0.68677557, 80.01855, 2.830109, -1.2761266)
 cull_mask = 1048031
 size = 62.088
 
@@ -846,7 +845,7 @@ script = ExtResource("1_mxkvs")
 metadata/_custom_type_script = "uid://bd046eokvcnu2"
 
 [node name="Player" parent="." unique_id=949902107 instance=ExtResource("2_m114p")]
-transform = Transform3D(0.68905383, 0, 0.7247099, 0, 1, 0, -0.7247099, 0, 0.68905383, 29.640453, 12.264985, 20.212473)
+transform = Transform3D(0.68905383, 0, 0.7247099, 0, 1, 0, -0.7247099, 0, 0.68905383, 80.01848, 1, -1.2761126)
 
 [node name="Terrain" type="Node" parent="." unique_id=1561035952]
 
@@ -947,8 +946,7 @@ omni_range = 20.153
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.082743, 1.6670088, -3.19987)
 
 [node name="Camera3D" parent="Church/ConfessionalBooth" index="2" unique_id=430217490]
-transform = Transform3D(0.688384, -0.05445538, 0.72329944, 0.00014605044, 0.99718827, 0.074936785, -0.72534657, -0.05147964, 0.6864563, 29.640554, 14.095199, 20.212454)
-top_level = true
+transform = Transform3D(0.68871194, -0.054497596, 0.722984, 9.978247e-05, 0.9971782, 0.07507094, -0.7250352, -0.05163011, 0.6867739, 80.01855, 2.8301094, -1.2761266)
 
 [node name="Sprite3D" parent="Church/ConfessionalBooth/Confessor" parent_id_path=PackedInt32Array(321162436, 1758948578) index="0" unique_id=415751236]
 texture = SubResource("ViewportTexture_hnqnj")
@@ -1296,7 +1294,7 @@ noise_emitter_layer = 1
 metadata/_custom_type_script = "uid://csjccrhj5wnx7"
 
 [node name="CloseUpCamera" type="Node3D" parent="Cutscenes/StartingCutscene" unique_id=1789459155 node_paths=PackedStringArray("follow_target", "look_at_target")]
-transform = Transform3D(-0.915231, 0, 0, 0, 0.68254006, 0.7308435, 0, 0.7308429, -0.6825405, 31.976969, 4.5308065, -13.0020275)
+transform = Transform3D(-0.907114, 0, 0, 0, 0.8826757, -0.4699747, 0, -0.46997437, -0.8826764, 31.976969, 4.116524, -13.0710745)
 top_level = true
 script = ExtResource("28_phx5y")
 follow_mode = 5
@@ -1310,9 +1308,6 @@ spring_length = -0.345
 look_at_offset = Vector3(0, 1.865, 0)
 noise = SubResource("Resource_kngxi")
 noise_emitter_layer = 1
-align_transform_with_view = Callable()
-align_position_with_view = Callable()
-align_rotation_with_view = Callable()
 metadata/_custom_type_script = "uid://csjccrhj5wnx7"
 
 [node name="AltarCamera" type="Node3D" parent="Cutscenes/StartingCutscene" unique_id=1345053029]
@@ -1585,7 +1580,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.0464954, 1.1204255, 0.4354
 script = ExtResource("52_j0rhc")
 
 [node name="TestKeyGiverBall" parent="." unique_id=471407858 instance=ExtResource("61_cf0uk")]
-transform = Transform3D(0.0032624346, 0.99993753, -0.010691556, -0.9999947, 0.0032622481, -3.4880686e-05, 3.637979e-12, 0.010691613, 0.9999429, 29.192574, 12.395769, 18.06601)
+transform = Transform3D(0.9999429, 0, -0.010691556, 0, 1, 0, 0.010691556, 0, 0.9999429, 83.599174, 1.0000002, -4.775498)
 
 [node name="MirrorsPuzzle" type="Node3D" parent="." unique_id=1452259112]
 

@@ -31,7 +31,7 @@ Hugo: “Se me ajudar a escolher algo que esteja à altura disso... te entrego o
 do CharacterData.Hugo.flower_route = false
 do CharacterData.Hugo.tumour_route = false
 - “Um pedaço de si mesmo, a mais pura forma de devoção.” => tumors_route
-- “Uma flor...?” => flower_route
+- “Uma flor...?” [if CharacterData.Sanson.changed_mind_flower == false /] => flower_route
 - “Uma imagem” [if locals.image == false /]
 	do locals.image = true
 	do DialogueData.set_mood("Hugo", DialogueData.HugoMoods.MISCHIVEOUS_HAPPY)
@@ -64,7 +64,7 @@ Hugo: “Keheheh”
 do DialogueData.set_mood("Hugo", DialogueData.HugoMoods.MISCHIVEOUS_WINK)
 Hugo: “Vou até deixar você dar uma espiadinha~”
 do DialogueData.set_mood("Hugo", DialogueData.HugoMoods.TUMOR)
-do wait(3)
+do wait(2)
 do DialogueData.set_mood("Hugo", DialogueData.HugoMoods.IDLE_SUPERHAPPY)
 Hugo: “E aí? Não são lindos?”
 Você: “...”
@@ -137,13 +137,21 @@ do CharacterData.Hugo.give_task("get_flower")
 => END
 
 
-
 ~ waiting_completion_flower
 do DialogueData.set_mood("Hugo", DialogueData.HugoMoods.OPENARMS_DEFAULT)
-Hugo: “Ah, você já trouxe a flor? Não? Bem, que a sorte do sol esteja com você.”
-- “Na verdade aqui está!” > Entregar flor < [if InventoryManager.selected_item == CharacterData.Item.flower /] => complete_task
-- -Finalizar diálogo- => END!
-=> END
+if CharacterData.Sanson.changed_mind_flower:
+	Você: “Eu não consigo pegar a flor.”
+	do DialogueData.set_mood("Hugo", DialogueData.HugoMoods.MISCHIVEOUS_SURPRISED)
+	Hugo: “Ixe. Já desistiu, assim? Achei que você tinha certeza.”
+	do DialogueData.set_mood("Hugo", DialogueData.HugoMoods.OPENARMS_DEFAULT)
+	Hugo: “Tudo bem. Você tem outra ideia, ó, grande futuro abade?”
+	=> options_gift
+
+else:
+	Hugo: “Ah, você já trouxe a flor? Não? Bem, que a sorte do sol esteja com você.”
+	- “Na verdade aqui está!” > Entregar flor < [if InventoryManager.selected_item == CharacterData.Item.flower /] => complete_task
+	- -Finalizar diálogo- => END!
+	=> END
 
 ~ complete_task
 do InventoryManager.use_item()
@@ -154,6 +162,18 @@ do DialogueData.set_mood("Hugo", DialogueData.HugoMoods.OPENARMS_SUPERHAPPY)
 Hugo: “De fato... você ganhou o seu tinteirinho. Pegue!”
 do CharacterData.Hugo.complete_task("get_flower")
 do InventoryManager.add_new_item(CharacterData.Item.inkwell)
+- “Para que você vai usar a flor?”
+	Você: “Então… para que você vai usar ela? Ela meio que é muito importante pro Sanso-”
+	do DialogueData.set_mood("Hugo", DialogueData.HugoMoods.IDLE_ANGRY)
+	Hugo: “Só pegando emprestado! E, afinal, não é da sua conta. Nosso trato já foi feito.”
+	Você: “Ah, vaiii... estava só perguntando!”
+	do DialogueData.set_mood("Hugo", DialogueData.HugoMoods.OPENARMS_SUPERHAPPY)
+	Hugo: “Kehehe, é melhor você focar essa sua curiosidade em outro lugar.”
+	do DialogueData.set_mood("Hugo", DialogueData.HugoMoods.IDLE_WINK)
+	Hugo: “Estou ocupado agora. Muito, mas muiiito ocupado mesmo. Então, tchau tchauu! Obrigado pela visita, a gente se vê!”
+
+	
+- > Finalizar diálogo < => END!
 => END
 
 ~ thanks

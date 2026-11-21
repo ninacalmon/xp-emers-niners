@@ -1,0 +1,85 @@
+~ start
+match CharacterData.Sanson.get_status("fix_astrolabus"):
+	when 0:
+		=> give_task
+	when 1:
+		=> waiting_completion
+	when 2:
+		=> goodbye
+=> END
+
+~ give_task
+Sanson: “Francisco. Tenho mais uma pequena coisa a lhe pedir.“
+Sanson: “Gostaria que você pegasse o astrolábio e o alinhasse com o Sol.”
+Você: “Ah. Claro. Como eu faço isso?”
+Sanson: “Aqui, dê uma olhada. [b]Ao meio-dia, marca 30 graus; à meia-noite, 210 graus.[/b]”
+do CharacterData.Sanson.give_task("fix_astrolabus")
+do PuzzleManager.get_puzzle(PuzzleManager.Puzzles.ASTROLABUS_PUZZLE).enable_interaction()
+do TimeManager.set_time(TimeManager.Times.at1500)
+=> END
+
+~ waiting_completion
+do DialogueData.set_mood("Sanson", DialogueData.SansonMoods.HAND_DEFAULT)
+Sanson: “Conseguiu alinhá-lo?“
+- > Concluir tarefa < [if CharacterData.Sanson.astrolabus_aligned /] => complete_puzzle
+- “Como eu faço isso?”
+	Sanson: “Aqui, dê uma olhada. [b]Ao meio-dia, marca 30 graus; à meia-noite, 210 graus.[/b]”
+- > Finalizar diálogo < => END!
+=> END
+
+~ complete_puzzle
+Você: “Assim como pediu! Aqui está, Sanson.”
+do DialogueData.set_mood("Sanson", DialogueData.SansonMoods.IDLE_HAPPY)
+Sanson: “Obrigado.”
+do DialogueData.set_mood("Sanson", DialogueData.SansonMoods.IDLE_DEFAULT)
+Sanson: “Ah… três da tarde. Ah… Haha… claro. Você está aqui, não está, Mirta?”
+do DialogueData.set_mood("Sanson", DialogueData.SansonMoods.IDLE_SAD)
+Sanson: “Mirta… fechou os olhos, naquele dia, a essa mesma hora. Ela caiu em um sono profundo e… está descansando em paz.”
+do DialogueData.set_mood("Sanson", DialogueData.SansonMoods.POSING_SAD)
+Sanson: “Eu sei que ela não se foi de verdade. Eu sei… Ela me deixou isto, esta [b]flor[/b].”
+do DialogueData.set_mood("Sanson", DialogueData.SansonMoods.POSING_HAPPYSAD)
+Sanson: “Eram as favoritas dela, estas aqui. Embora eu já não consiga sentir cheiro de nada, ela costumava me dizer que elas tinham um aroma bem suave, adocicado.”
+Sanson: “Todas as outras morreram, mas... apesar de... tudo. Esta sobreviveu.”
+do DialogueData.set_mood("Sanson", DialogueData.SansonMoods.POSING_HAPPY)
+Sanson: “Ela está aqui comigo, e eu, com ela.”
+Você: “Ela está aqui sim, eu consigo senti-la também, Sanson.”
+do CharacterData.Sanson.complete_task("fix_astrolabus")
+do DialogueData.set_mood("Sanson", DialogueData.SansonMoods.IDLE_DEFAULT, true)
+Você: “Bom… posso te pedir aquele favor?”
+do DialogueData.set_mood("Sanson", DialogueData.SansonMoods.IDLE_HAPPY)
+Sanson: “Ora, claro. Como posso ajudá-lo?”
+* Será que devo...? *
+- Sim. => ask_flower
+- Não. [if true == false /]
+=> END
+
+~ ask_flower
+Você: “Eu preciso daquela flor… realmente preciso dela”
+do DialogueData.set_mood("Sanson", DialogueData.SansonMoods.IDLE_DEFAULT)
+Sanson: Ah sim, eu- [font_size=40][b]como disse?”
+do DialogueData.set_mood("Sanson", DialogueData.SansonMoods.IDLE_ANGRY)
+Sanson: “De jeito nenhum. Minha resposta é não.”
+Sanson: “Como ousa? Como ousa me perguntar isso AGORA?! Depois de tudo o que eu lhe disse...”
+do DialogueData.set_mood("Sanson", DialogueData.SansonMoods.POSING_ANGRY)
+Sanson: “Que audácia a sua, pensar que poderia tirar a minha AMADA, minha QUERIDA dos meus braços!”
+Você: “Sanson, por favor… é muito importante. [b]Mesmo.[/b]”
+do DialogueData.set_mood("Sanson", DialogueData.SansonMoods.HAND_ANGRY)
+Sanson: “Não.”
+Você: “Eu não teria te pedido se não fosse tão importante! É uma emergência.”
+do DialogueData.set_mood("Sanson", DialogueData.SansonMoods.POSING_POUT)
+Sanson: “...Ah, Mirta… Não olhe para mim desse jeito, eu…”
+Sanson suspira, olhando para a [b]flor[/b].
+do DialogueData.set_mood("Sanson", DialogueData.SansonMoods.IDLE_SAD)
+Sanson: “Você… você vai me prometer que vai cuidar bem dela.”
+Você: “Sim, estará em boas mãos. [font_size=20]Eu espero.”
+do DialogueData.set_mood("Sanson", DialogueData.SansonMoods.POSING_ANGRY)
+Sanson: “Cuide dela com MUITO CARINHO. não quero ver nem sequer uma ÚNICA FOLHA fora do lugar!”
+Você: “Claro! Bom… até mais, Sanson!”
+do InventoryManager.add_new_item(CharacterData.Item.flower)
+=> END
+
+
+~ goodbye
+do DialogueData.set_mood("Sanson", DialogueData.SansonMoods.POSING_SAD)
+Sanson: “Adeus, Mirta...”
+=> END
