@@ -9,6 +9,7 @@ signal beam_count_changed(count: int)
 signal lit_changed(is_lit: bool)
 
 @export var abbotts_door: DoubleDoorAction
+@export var beams_to_open_door: int = 3
 
 ## Collision layer 11. LightBeam.sensor_mask must include this layer.
 const COLLISION_LAYER: int = 1 << 10
@@ -17,11 +18,13 @@ const COLLISION_LAYER: int = 1 << 10
 @export var required_beams: int = 1
 ## If true, the sensor is lit only when EXACTLY required_beams are touching it.
 @export var exact_match: bool = false
+@export var hold_time: float = 0.5
 
+var _hold_elapsed: float = 0.0
 var is_lit: bool = false
 
 var _beams: Array[LightBeam] = []
-
+var _door_opened: bool = false
 
 func _ready() -> void:
 	collision_layer = COLLISION_LAYER
@@ -45,16 +48,23 @@ func get_beams() -> Array[LightBeam]:
 	return _beams.duplicate()
 
 
-## Called by LightBeam when one of its segments starts touching this sensor.
-func beam_entered(beam: LightBeam) -> void:
-	if _beams.has(beam):
+func _physics_process(delta: float) -> void:
+	if _door_opened:
 		return
-	_beams.append(beam)
-	beam_count_changed.emit(_beams.size())
-	_update_lit()
 
-	if get_beam_count() >= 3:
+	if get_beam_count() >= beams_to_open_door:
+		_hold_elapsed += delta
+		if _hold_elapsed >= hold_time:
+			_open_door()
+	else:
+		_hold_elapsed = 0.0
+
+
+func _open_door() -> void:
+	_door_opened = true
+	if abbotts_door != null:
 		abbotts_door.open_door()
+	get_tree().call_group(RotateAction.STANDS_GROUP, "lock")
 
 
 ## Called by LightBeam when it stops touching this sensor.
@@ -65,6 +75,14 @@ func beam_exited(beam: LightBeam) -> void:
 	beam_count_changed.emit(_beams.size())
 	_update_lit()
 
+
+## Called by LightBeam when one of its segments starts touching this sensor.
+func beam_entered(beam: LightBeam) -> void:
+	if _beams.has(beam):
+		return
+	_beams.append(beam)
+	beam_count_changed.emit(_beams.size())
+	_update_lit()
 
 func _update_lit() -> void:
 	var count: int = _beams.size()

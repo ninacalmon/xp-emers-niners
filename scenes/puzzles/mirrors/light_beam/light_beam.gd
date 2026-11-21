@@ -218,6 +218,7 @@ func _update_sensors(space: PhysicsDirectSpaceState3D, points: Array[Vector3]) -
 	_touched_sensors = now_touching
 
 
+
 func _clear_sensors() -> void:
 	var sensors: Array[LightSensor] = _touched_sensors.duplicate()
 	_touched_sensors.clear()

@@ -4,12 +4,18 @@
 [ext_resource type="Script" uid="uid://cf2auur4umdjl" path="res://systems/interaction/interaction_area.gd" id="2_f1k4b"]
 [ext_resource type="PackedScene" uid="uid://cxh8nvoonwwrl" path="res://assets/3d/objects/confessional/confessional_door.glb" id="3_cpnfb"]
 [ext_resource type="AudioStream" uid="uid://c3e8y6a84737w" path="res://assets/sound/sound_effects/door/locked_door.mp3" id="4_f1k4b"]
+[ext_resource type="AudioStream" uid="uid://goypf8a0w7gk" path="res://assets/sound/sound_effects/door/open_door2.mp3" id="5_w0tmq"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_cphiy"]
 size = Vector3(1.6016846, 3.0820313, 0.22851563)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_f1k4b"]
 size = Vector3(0.8446045, 3.0820313, 0.22607422)
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_ihlta"]
+random_pitch = 1.0293022
+streams_count = 1
+stream_0/stream = ExtResource("5_w0tmq")
 
 [node name="ConfissionalDoor" type="Node3D" unique_id=668800733 node_paths=PackedStringArray("collision_shape_3d", "mesh_instance_3d", "locked_stream_player")]
 script = ExtResource("1_cpnfb")
@@ -44,5 +50,9 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0040483475, 0.041208625, 0
 stream = ExtResource("4_f1k4b")
 volume_db = -7.0
 bus = &"Sound Effects"
+
+[node name="OpenAudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1959350931]
+stream = SubResource("AudioStreamRandomizer_ihlta")
+volume_db = -18.0
 
 [editable path="confessional_door"]

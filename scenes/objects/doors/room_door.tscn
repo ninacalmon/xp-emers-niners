@@ -4,7 +4,7 @@
 [ext_resource type="Script" uid="uid://v1xwdjmy7kh4" path="res://scenes/objects/doors/open_door_action.gd" id="2_ovqo0"]
 [ext_resource type="Material" uid="uid://dki8i4qf7fofd" path="res://resources/shader_materials/outline_shader_material_3d.tres" id="3_7t0mo"]
 [ext_resource type="AudioStream" uid="uid://c3e8y6a84737w" path="res://assets/sound/sound_effects/door/locked_door.mp3" id="4_uhfgv"]
-[ext_resource type="AudioStream" uid="uid://bdtiqg6k76aya" path="res://assets/sound/sound_effects/door/open_door.mp3" id="5_nn47r"]
+[ext_resource type="AudioStream" uid="uid://goypf8a0w7gk" path="res://assets/sound/sound_effects/door/open_door2.mp3" id="5_nn47r"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_cphiy"]
 size = Vector3(1.6016846, 3.0820313, 0.22851563)
@@ -93,5 +93,6 @@ stream = ExtResource("4_uhfgv")
 volume_db = -7.0
 bus = &"Sound Effects"
 
-[node name="OpenAudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=2037270738]
+[node name="OpenAudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=778601091]
 stream = SubResource("AudioStreamRandomizer_vhb0a")
+volume_db = -18.0

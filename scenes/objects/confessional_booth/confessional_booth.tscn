@@ -16,7 +16,7 @@ albedo = Color(0.09, 0.064500004, 0.045, 1)
 [sub_resource type="BoxShape3D" id="BoxShape3D_cdpwx"]
 size = Vector3(0.9193878, 1.3876343, 0.2625122)
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_qnmy4"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_ygvyi"]
 viewport_path = NodePath("SubViewportSprite")
 
 [node name="ConfessionalBooth" type="Node3D" unique_id=321162436 groups=["confessor_booth"]]
@@ -57,7 +57,7 @@ transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 1.07
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0.5138207, -0.33811253, 0.13132304)
 
 [node name="Sprite3D" parent="Confessor" index="0" unique_id=415751236]
-texture = SubResource("ViewportTexture_qnmy4")
+texture = SubResource("ViewportTexture_ygvyi")
 
 [node name="CharacterSpriteHandler" parent="Confessor" index="3" unique_id=961269039 node_paths=PackedStringArray("dialogue_action")]
 dialogue_action = NodePath("../../DialogueAction")

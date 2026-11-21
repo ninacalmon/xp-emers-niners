@@ -9,7 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://cos1fefqwe0hv" path="res://assets/3d/objects/confessional/confessional_rosewood_veneer1_diff_1k.jpg" id="6_deaji"]
 [ext_resource type="Texture2D" uid="uid://b41uvfxs6bjos" path="res://assets/3d/objects/confessional/confessional_rosewood_veneer1_rough_1k.png" id="7_diu83"]
 [ext_resource type="Texture2D" uid="uid://cqraxx8kcmmwx" path="res://assets/3d/objects/confessional/confessional_rosewood_veneer1_nor_gl_1k.png" id="8_8o84s"]
-[ext_resource type="AudioStream" uid="uid://bdtiqg6k76aya" path="res://assets/sound/sound_effects/door/open_door.mp3" id="10_diu83"]
+[ext_resource type="AudioStream" uid="uid://goypf8a0w7gk" path="res://assets/sound/sound_effects/door/open_door2.mp3" id="10_diu83"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_cphiy"]
 size = Vector3(2.446167, 1.3654175, 0.14453125)
@@ -48,7 +48,7 @@ albedo_color = Color(0.9063355, 0.6669505, 0.16593137, 1)
 metallic = 1.0
 roughness = 0.5
 
-[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_cdpwx"]
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_diu83"]
 random_pitch = 1.0293022
 streams_count = 1
 stream_0/stream = ExtResource("10_diu83")
@@ -105,5 +105,6 @@ stream = ExtResource("4_3vxm8")
 volume_db = -7.0
 bus = &"Sound Effects"
 
-[node name="OpenAudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=115590259]
-stream = SubResource("AudioStreamRandomizer_cdpwx")
+[node name="OpenAudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=113922767]
+stream = SubResource("AudioStreamRandomizer_diu83")
+volume_db = -18.0

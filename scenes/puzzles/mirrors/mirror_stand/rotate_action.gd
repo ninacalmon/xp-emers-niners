@@ -1,6 +1,8 @@
 extends ActionTrigger
 class_name RotateAction
 
+const STANDS_GROUP: StringName = &"mirror_stands"
+
 @export var rich_text_label: RichTextLabel
 @export var mirror_stand: Mirror
 @export var rotate_duration: float = 0.15
@@ -34,6 +36,7 @@ var has_mirror: bool = true
 var is_hovered: bool = false
 var placed_index: int = -1
 var rotate_text: String = ""
+var is_locked: bool = false
 
 ## Step 0 is the correct rotation. Kept unbounded while tweening so the shortest direction is always used.
 var target_step: int = 0
@@ -43,6 +46,7 @@ var _tween: Tween
 
 func _ready() -> void:
 	super()
+	add_to_group(STANDS_GROUP)
 	rotate_text = rich_text_label.text
 	rich_text_label.hide()
 	has_mirror = starts_with_mirror
@@ -58,6 +62,8 @@ func _ready() -> void:
 
 
 func trigger() -> void:
+	if is_locked:
+		return
 	if not has_mirror:
 		_try_place_mirror()
 		return
@@ -212,3 +218,11 @@ func _physics_process(_delta: float) -> void:
 		_rotate_step(1)
 	elif Input.is_action_just_pressed("rotate_right"):
 		_rotate_step(-1)
+
+
+func lock() -> void:
+	is_locked = true
+	if is_interacting:
+		is_interacting = false
+		GetEntity.get_player().is_puzzle_locked = false
+	_update_label()
