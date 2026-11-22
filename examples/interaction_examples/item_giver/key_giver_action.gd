@@ -37,7 +37,7 @@ var itens: Array[ItemRes] = [
 ]
 
 func trigger() -> void:
-	InventoryManager.add_new_item(INKWELL)
+	InventoryManager.add_new_item(LOCKPICK)
 	InventoryManager.add_new_item(DRINK)
 	InventoryManager.add_new_item(MIRROR_B_FULL)
 	InventoryManager.add_new_item(MIRROR_C_FULL)
