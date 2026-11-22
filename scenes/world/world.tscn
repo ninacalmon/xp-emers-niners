@@ -994,7 +994,7 @@ collision_mask = 4
 [node name="CollisionPolygon3D" type="CollisionPolygon3D" parent="Terrain/GroundAreas/HardFloorHighEchoArea" unique_id=1299276841]
 transform = Transform3D(0.99999994, 0, 0, 0, -4.3711385e-08, -1, 0, 0.99999994, -4.371139e-08, 0, 0, 0)
 depth = -7.0
-polygon = PackedVector2Array(13.129452, -12.847256, 6.2007904, -12.693287, 6.354763, -13.771078, 6.354763, -16.773497, 4.7380753, -19.544958, 2.2745514, -21.23863, -0.11198044, -21.70054, -2.4215393, -21.315617, -4.423149, -20.083855, -5.9628487, -18.390182, -6.8096848, -15.849674, -6.501747, -13.001226, -13.430405, -12.770271, -13.48477, 9.8820095, 13.0521965, 9.833496)
+polygon = PackedVector2Array(12.653072, -12.654401, 6.2007904, -12.693287, 6.354763, -13.771078, 6.354763, -16.773497, 4.7380753, -19.544958, 2.2745514, -21.23863, -0.11198044, -21.70054, -2.4215393, -21.315617, -4.423149, -20.083855, -5.9628487, -18.390182, -6.8096848, -15.849674, -6.2112255, -12.48647, -12.984461, -12.598424, -12.760553, 9.792436, 12.5970955, 9.792436)
 
 [node name="HardFloorMedEchoArea" type="Area3D" parent="Terrain/GroundAreas" unique_id=600067317 groups=["ground_areas"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 33.093647, 0, 19.156532)
@@ -1004,7 +1004,7 @@ collision_mask = 4
 [node name="CollisionPolygon3D" type="CollisionPolygon3D" parent="Terrain/GroundAreas/HardFloorMedEchoArea" unique_id=1769338875]
 transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0)
 depth = -7.0
-polygon = PackedVector2Array(-13.29579, -9.614118, 13.192665, -9.75966, 13.14415, -5.053834, -13.198763, -5.3449173)
+polygon = PackedVector2Array(-12.56913, -9.645011, 12.648403, -9.723343, 12.601036, -5.0850353, -12.539927, -5.571104)
 
 [node name="CollisionPolygon3D2" type="CollisionPolygon3D" parent="Terrain/GroundAreas/HardFloorMedEchoArea" unique_id=2015969854]
 transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0)
@@ -1014,7 +1014,7 @@ polygon = PackedVector2Array(13.727425, -28.459743, 13.901375, -15.224216, 19.28
 [node name="CollisionPolygon3D3" type="CollisionPolygon3D" parent="Terrain/GroundAreas/HardFloorMedEchoArea" unique_id=2012776034]
 transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0)
 depth = -7.0
-polygon = PackedVector2Array(40.67616, -13.810169, 41.638134, -9.679365, 43.675243, -6.7934628, 47.35335, -4.9827003, 51.201214, -5.6051493, 54.087124, -7.925189, 55.332027, -11.15061, 54.935925, -14.432619, 53.52126, -16.922417, 52.219776, -18.167316, 52.1066, -28.296268, 40.39323, -28.409443)
+polygon = PackedVector2Array(41.54777, -15.27513, 42.55556, -10.5306015, 43.81052, -8.634853, 47.015575, -8.386184, 50.85242, -8.534424, 51.765743, -9.736969, 51.967205, -11.436939, 51.885784, -13.833048, 52.252544, -16.388447, 52.219776, -18.167316, 52.1066, -28.296268, 40.39323, -28.409443)
 
 [node name="HardFloorLowEchoArea" type="Area3D" parent="Terrain/GroundAreas" unique_id=890659316 groups=["ground_areas"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 65.245255, 0, 0)
@@ -1029,7 +1029,7 @@ polygon = PackedVector2Array(-12.457455, 4.73506, -11.995441, -8.993419, 8.53128
 [node name="CollisionPolygon3D2" type="CollisionPolygon3D" parent="Terrain/GroundAreas/HardFloorLowEchoArea" unique_id=589249593]
 transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0)
 depth = -7.0
-polygon = PackedVector2Array(-27.547997, 16.20641, -27.547997, 24.060684, -36.722317, 24.060684, -36.722317, 15.810396, -38.10836, 18.714499, -40.550446, 20.298552, -42.794525, 20.23255, -45.368614, 17.988472, -45.50062, 14.952368, -40.550446, 13.962333, -20.749756, 14.160337, -18.769688, 15.282379, -19.099697, 18.384487, -21.607784, 20.364555, -24.709896, 19.96854, -26.557957, 17.92247)
+polygon = PackedVector2Array(-27.547997, 16.20641, -27.547997, 24.060684, -36.722317, 24.060684, -36.722317, 15.810396, -37.79853, 16.259, -38.541023, 18.813763, -41.460423, 20.12662, -44.199753, 18.35605, -44.875446, 15.312669, -42.941635, 14.201758, -20.749756, 14.160337, -19.363354, 15.262283, -20.074467, 17.931454, -22.16121, 19.78822, -24.588753, 19.54135, -26.563705, 16.57892)
 
 [node name="HardFloorNoEchoArea" type="Area3D" parent="Terrain/GroundAreas" unique_id=1610666647 groups=["ground_areas"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 33.093647, 0, 19.156532)
@@ -1100,7 +1100,7 @@ environment = SubResource("Environment_t634p")
 [node name="Camera3D" type="Camera3D" parent="VisualConfig" unique_id=1834340419]
 unique_name_in_owner = true
 physics_interpolation_mode = 1
-transform = Transform3D(-0.64812, 0.66734105, 0.36687392, 0, 0.4817537, -0.8763068, -0.76153827, -0.56795186, -0.31223422, 15.082363, 2.234005, 0.30765164)
+transform = Transform3D(0.68919504, -0.054667525, 0.72251064, -4.3353648e-05, 0.99714667, 0.07548874, -0.72457594, -0.05205778, 0.6872262, 32.04424, 4.24362, -11.329548)
 top_level = true
 cull_mask = 1048031
 size = 62.088
@@ -1112,7 +1112,7 @@ script = ExtResource("1_mxkvs")
 metadata/_custom_type_script = "uid://bd046eokvcnu2"
 
 [node name="Player" parent="." unique_id=949902107 instance=ExtResource("2_m114p")]
-transform = Transform3D(0.68905383, 0, 0.7247099, 0, 1, 0, -0.7247099, 0, 0.68905383, 18.049768, 0, 0.63195753)
+transform = Transform3D(0.68905383, 0, 0.7247099, 0, 1, 0, -0.7247099, 0, 0.68905383, 32.044266, 2.4136653, -11.329552)
 
 [node name="Church" parent="." unique_id=151423155 instance=ExtResource("7_q3hpu")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 33.12908, 0, 0)
@@ -1130,7 +1130,7 @@ omni_range = 20.153
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.082743, 1.6670088, -3.19987)
 
 [node name="Camera3D" parent="Church/ConfessionalBooth" index="2" unique_id=430217490]
-transform = Transform3D(-0.64812, 0.66734105, 0.36687392, 0, 0.4817537, -0.8763068, -0.76153827, -0.56795186, -0.31223422, 15.082363, 2.234005, 0.30765164)
+transform = Transform3D(0.6891959, -0.05466724, 0.7225099, -4.380788e-05, 0.99714667, 0.07548885, -0.72457516, -0.052058246, 0.68722695, 32.04424, 4.24362, -11.329548)
 top_level = true
 
 [node name="Sprite3D" parent="Church/ConfessionalBooth/Confessor" parent_id_path=PackedInt32Array(321162436, 1758948578) index="0" unique_id=415751236]
@@ -1479,7 +1479,7 @@ noise_emitter_layer = 1
 metadata/_custom_type_script = "uid://csjccrhj5wnx7"
 
 [node name="CloseUpCamera" type="Node3D" parent="Cutscenes/StartingCutscene" unique_id=1789459155 node_paths=PackedStringArray("follow_target", "look_at_target")]
-transform = Transform3D(-0.88594294, 0, 0, 0, 0.68254006, 0.7308435, 0, 0.7308429, -0.6825405, 31.976969, 4.5308065, -13.0020275)
+transform = Transform3D(-0.8782195, 0, 0, 0, 0.68254006, 0.7308435, 0, 0.7308429, -0.6825405, 31.976969, 4.5308065, -13.0020275)
 top_level = true
 script = ExtResource("28_phx5y")
 follow_mode = 5
@@ -1637,7 +1637,7 @@ tween_resource = SubResource("Resource_1o6i5")
 metadata/_custom_type_script = "uid://csjccrhj5wnx7"
 
 [node name="julio_camera" type="Node3D" parent="Cutscenes/AnimalsCutscene" unique_id=1149604511 node_paths=PackedStringArray("follow_target", "look_at_target")]
-transform = Transform3D(-0.9838765, 0.007139156, 0.038144376, 2.29255e-10, 0.983372, -0.17801479, -0.038835637, -0.18086605, -0.9663639, 28.114899, 4.2217307, -12.3602295)
+transform = Transform3D(-0.9838765, 0.007139156, 0.037665438, 2.29255e-10, 0.983372, -0.17577964, -0.038835637, -0.18086605, -0.95423025, 28.114899, 4.2217307, -12.3602295)
 top_level = true
 script = ExtResource("28_phx5y")
 follow_mode = 2
@@ -1885,7 +1885,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.0464954, 1.1204255, 0.4354
 script = ExtResource("52_j0rhc")
 
 [node name="TestKeyGiverBall" parent="." unique_id=471407858 instance=ExtResource("61_cf0uk")]
-transform = Transform3D(0.9999429, 0, -0.010691556, 0, 1, 0, 0.010691556, 0, 0.9999429, 83.599174, 1.0000002, -4.775498)
+transform = Transform3D(0.9999429, 0, -0.010691556, 0, 1, 0, 0.010691556, 0, 0.9999429, 36.643867, 2.4136648, -12.595627)
 
 [node name="MirrorsPuzzle" type="Node3D" parent="." unique_id=1452259112]
 

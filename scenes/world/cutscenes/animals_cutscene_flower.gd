@@ -1,5 +1,5 @@
 extends Node
-class_name BarnCutscene
+class_name AnimalsCutscene
 
 signal finished
 
@@ -75,9 +75,6 @@ var hands_overlay: HandsOverlay
 @export var dialogue_input_text: RichTextLabel
 
 
-func _input(event: InputEvent) -> void:
-	if event.is_action_pressed("crouch"):
-		play_cutscene()
 
 func _ready() -> void:
 	hands_overlay = get_tree().get_first_node_in_group("hands_overlay") as HandsOverlay
@@ -129,6 +126,9 @@ func play_cutscene() -> void:
 	end_cutscene()
 	await FadeInOut.fade_out(3.0)
 	finished.emit()
+#
+	#if variant == Variant.PLANT:
+		#balloon = DialogueManager.show_dialogue_balloon(dialogue_res, "plant_thanks")
 
 
 func _position_cutscene() -> void:
@@ -219,6 +219,7 @@ func _on_dialogue_ended(_res: DialogueResource) -> void:
 func _set_julio_mood(mood: DialogueData.JulioMoods) -> void:
 	DialogueData.set_mood("Julio", mood, true, true)
 
+
 func _get_dialogue_title() -> String:
 	if variant == Variant.PLANT:
 		return dialogue_title_plant
@@ -234,7 +235,7 @@ func _get_julio_pos_after() -> Marker3D:
 func _get_julio_face_mood() -> DialogueData.JulioMoods:
 	match variant:
 		Variant.PLANT:
-			return DialogueData.JulioMoods.INTENSE_HAPPY # <- replace with your real enum value
+			return DialogueData.JulioMoods.INTENSE_HAPPY
 		_:
 			return DialogueData.JulioMoods.IDLE_CRY
 
@@ -246,6 +247,7 @@ func end_cutscene() -> void:
 
 	# Animation
 	julio.sprite_3d.shaded = true
+	_set_julio_mood(DialogueData.JulioMoods.idle)
 	animation_player.stop()
 	animation_player.speed_scale = _orig_speed_scale
 	barn_door.locked = false

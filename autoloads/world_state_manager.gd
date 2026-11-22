@@ -10,3 +10,25 @@ func play_starting_cutscene():
 		push_error("StartingCutscene not found in the current scene")
 
 	starting_cutscene.play_cutscene()
+
+
+func play_animals_ink_cutscene():
+	var animals_cutscene: AnimalsCutscene = get_tree().current_scene.get_node_or_null(
+		"Cutscenes/AnimalsCutscene") as AnimalsCutscene
+
+	if animals_cutscene == null:
+		push_error("AnimalsCutscene notfound in the current scene")
+
+	animals_cutscene.variant = animals_cutscene.Variant.INK
+	animals_cutscene.play_cutscene()
+
+
+func play_animals_plant_cutscene():
+	var animals_cutscene: AnimalsCutscene = get_tree().current_scene.get_node_or_null(
+		"Cutscenes/AnimalsCutscene") as AnimalsCutscene
+
+	if animals_cutscene == null:
+		push_error("AnimalsCutscene notfound in the current scene")
+
+	animals_cutscene.variant = animals_cutscene.Variant.PLANT
+	animals_cutscene.play_cutscene()

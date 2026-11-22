@@ -171,8 +171,8 @@ do InventoryManager.add_new_item(CharacterData.Item.inkwell)
 	Hugo: “Kehehe, é melhor você focar essa sua curiosidade em outro lugar.”
 	do DialogueData.set_mood("Hugo", DialogueData.HugoMoods.IDLE_WINK)
 	Hugo: “Estou ocupado agora. Muito, mas muiiito ocupado mesmo. Então, tchau tchauu! Obrigado pela visita, a gente se vê!”
+	=> END!
 
-	
 - > Finalizar diálogo < => END!
 => END
 

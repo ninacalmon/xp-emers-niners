@@ -37,8 +37,8 @@ var itens: Array[ItemRes] = [
 ]
 
 func trigger() -> void:
-	InventoryManager.add_new_item(ASTROLABUS_BODY)
-	InventoryManager.add_new_item(ASTROLABUS_POINTER)
+	InventoryManager.add_new_item(INKWELL)
+	InventoryManager.add_new_item(TOXIC_PLANT)
 	InventoryManager.add_new_item(MIRROR_B_FULL)
 	InventoryManager.add_new_item(MIRROR_C_FULL)
 	InventoryManager.add_new_item(BLANK_PAPER)

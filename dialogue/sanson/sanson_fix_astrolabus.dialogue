@@ -103,6 +103,7 @@ Você: “Está tudo bem?...”
 do DialogueData.set_mood("Sanson", DialogueData.SansonMoods.IDLE_DEFAULT)
 Sanson: “...sim, certamente. Vou concluir minha pesquisa agora. Não me interrompa.”
 do InventoryManager.add_new_item(CharacterData.Item.flower)
+do CharacterData.Sanson.flower_got = true
 => END
 
 ~ refuse_flower

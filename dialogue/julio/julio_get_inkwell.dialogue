@@ -47,7 +47,7 @@ if CharacterData.Julio.get_status("get_inkwell") == 0:
 
 ~ waiting_completion
 do DialogueData.set_mood("Julio", DialogueData.JulioMoods.IDLE_DEFAULT)
-Julio: “Você poderia por favor trazer o tinteiro para mim? Quero poder realizar meu último desejo.”
+Julio: “Você poderia por favor trazer o tinteiro para mim? Quero poder realizar meu último desejo...”
 - > Concluir tarefa <[if InventoryManager.selected_item == CharacterData.Item.inkwell or InventoryManager.selected_item == CharacterData.Item.toxic_plant /] => complete_task
 - > Repetir perguntas < => question_hub
 - > Finalizar diálogo < => END!
@@ -56,8 +56,10 @@ Julio: “Você poderia por favor trazer o tinteiro para mim? Quero poder realiz
 
 ~ complete_task
 if InventoryManager.selected_item == CharacterData.Item.inkwell:
+	do CharacterData.Julio.item_animals = "ink"
 	=> animals_ink
 elif InventoryManager.selected_item == CharacterData.Item.toxic_plant:
+	do CharacterData.Julio.item_animals = "plant"
 	=> animals_plant
 => END
 
@@ -65,53 +67,29 @@ elif InventoryManager.selected_item == CharacterData.Item.toxic_plant:
 do DialogueData.set_mood("Julio", DialogueData.JulioMoods.INTENSE_DEFAULT)
 Julio: “Franciso! Olá! Ah, você parece cansado. Está tudo bem?”
 Você: [font_size=20]“É, vocês ficam me pedindo coisa...[/font_size] Sim, claro. Aqui está a tinta.”
+do DialogueData.set_mood("Julio", DialogueData.JulioMoods.INTENSE_SURPRISED)
 Julio: “Oi?”
 Você: “Oi?”
 do DialogueData.set_mood("Julio", DialogueData.JulioMoods.IDLE_SAD)
-Julio: “Ah. A tinta. Sim, obrigado. Pode me seguir até a área dos animais agora.”
-do DialogueData.set_mood("Julio", DialogueData.JulioMoods.IDLE_SERIOUS)
-Julio: “Ah! A tinta. Sim, obrigado.”
 do InventoryManager.use_item()
-do CharacterData.Julio.complete_task("get_inkwell")
-do FadeInOut.fade_in(2)
-do wait(1.5)
-Julio leva você até o cercado das cabras.
-Julio está dando a tinta na boca dos animais...
-Julio: “Ah, pronto, pronto... fique parado.”
-...
-Julio não está mais ali...
-Há animais mortos no chão, com a boca suja de tinta.
-Um cheiro forte no ar, parece que alguns dos animais já não estavam mais suportando o calor.
-- > Pegar carne podre <
-do InventoryManager.add_new_item(CharacterData.Item.rotten_meat)
-Você retorna ao monastério.
-do FadeInOut.fade_out(2)
-do TimeManager.set_time(TimeManager.Times.at1800)
-=> END
+Julio: “Ah. A tinta. Sim, obrigado. Pode me seguir até a área dos animais agora.”
+do WorldStateManager.play_animals_ink_cutscene()
+=> END!
 
 
 ~ animals_plant
-Você: “Sobre isso… mil desculpas, Julio. Mas, peguei isso do Sanson. Ele me disse que tem como o triturar em uma pastinha e usar como tinta, se é isso que você-“
+do DialogueData.set_mood("Julio", DialogueData.JulioMoods.IDLE_HAPPY)
+Julio: “Olá! Como você está?”
+Você: “Bom... indo.”
+do DialogueData.set_mood("Julio", DialogueData.JulioMoods.INTENSE_HAPPY)
+Julio: “Hum! Melhor que ruim!... [do DialogueData.set_mood("Julio", DialogueData.JulioMoods.IDLE_SERIOUS)]Você trouxe o tinteiro?”
+Você: “Sobre isso... mil desculpas, Julio. Mas, peguei isso do Sanson. Ele me disse que tem como o triturar em uma pastinha e usar como tinta, se é isso que você-”
+do DialogueData.set_mood("Julio", DialogueData.JulioMoods.IDLE_HAPPY)
 Julio: “Perfeito.”
 Julio: “Por favor, me entregue”
 do InventoryManager.use_item()
 do CharacterData.Julio.complete_task("get_inkwell")
 Você: “Cuidado, Sanson disse para não ingerir.”
-Julio: “Venha comigo.”
-do FadeInOut.fade_in(2)
-do wait(1.5)
-Julio leva você até o cercado das cabras.
-Julio está colocando pedaços da folha entre a comida dos animais…
-Julio: “Shh, shh… pronto, pronto… está tudo bem. Durmam bem, pequeninhas.”
-...
-Julio: “Obrigado, Francisco. Você tem a minha gratidão eterna.”
-Julio: “Ahh... Sabes que amo a graça de nosso sol, porém elas não estavam aguentando neste calor...”
-Julio: “Agora elas podem dormir em paz.”
-Julio: “Não pude acreditar nos meus olhos quando vi que você tinha a planta. Ah, é um milagre! Obrigado, Francisco. [b]Você me trouxe um milagre.[/b]”
-Você: “De nada… espero que elas estejam em paz agora.”
-Julio: “Bem, sei que não é muito, mas… e quero te dar isso.”
-Julio: “Eu estava guardando... mas você merece isso muito mais do que eu. E… eu não preciso mais disso. Bom apetite!” 
-do InventoryManager.add_new_item(CharacterData.Item.rotten_meat)
-Você retorna ao monastério.
-do FadeInOut.fade_out(2)
-=> END
+Julio: “Venha comigo. Pode me seguir até a área dos animais.”
+do WorldStateManager.play_animals_plant_cutscene()
+=> END!

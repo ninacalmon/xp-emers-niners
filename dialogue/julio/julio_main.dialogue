@@ -10,8 +10,25 @@ if CharacterData.Julio.get_status("medication_for_lucio") != 2:
 	=> medication_for_lucio/start
 elif CharacterData.Julio.get_status("get_inkwell") != 2:
 	=> get_inkwell/start
+elif CharacterData.Julio.get_status("get_inkwell") == 2 and CharacterData.Julio.item_animals == "plant":
+	=> plant_thanks
 elif CharacterData.Hugo.flower_given_to_julio:
 	do DialogueData.set_mood("Julio", DialogueData.JulioMoods.INTENSE_SAD)
 	Julio: “...”
 => END
 
+~ plant_thanks
+do DialogueData.set_mood("Julio", DialogueData.JulioMoods.IDLE_HAPPY)
+Julio: “Obrigado, Francisco. Você tem a minha gratidão eterna.”
+do DialogueData.set_mood("Julio", DialogueData.JulioMoods.INTENSE_HAPPY)
+Julio: “Agora eles podem dormir em paz.”
+Julio: “Não pude acreditar nos meus olhos quando vi que você tinha a planta. Ah, é um milagre! Obrigado, Francisco. [b]Você me trouxe um milagre.”
+if CharacterData.Julio.given_meat == false:
+	do CharacterData.Julio.given_meat = true
+	Julio: “Ah, sei que não é muito, mas... eu gostaria de lhe dar isto.”
+	do DialogueData.set_mood("Julio", DialogueData.JulioMoods.SILLY_HAPPY)
+	Julio: “Estava a guardando mas você merece isso muito mais do que eu. E... eu não preciso mais disso. Bom apetite!”
+	do InventoryManager.add_new_item(CharacterData.Item.rotten_meat)
+	Você: “Aaah... haha, é. Obrigado. Isso é bem gentil da sua parte.”
+	Julio: “Que a luz [b]Dele[/b] o ilumine. E muito obrigado por me ajudar, nosso querido [i]futuro[/i] abade.”
+=> END

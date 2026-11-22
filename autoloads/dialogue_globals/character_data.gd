@@ -50,6 +50,7 @@ class JulioData extends TaskOwner:
 
 	var lucio_received_medicine: bool = false
 	var item_animals: String
+	var given_meat: bool = false
 
 
 class LucioData extends TaskOwner:

@@ -1,6 +1,5 @@
 extends ActionTrigger
 
-
 const ROTTEN_MEAT = preload("uid://cefbvxaw1bbrf")
 var given_meat: bool = false
 
@@ -12,9 +11,13 @@ func _ready() -> void:
 	super()
 	flies_audio_stream_player_3d.play()
 
+
 func trigger():
-	CharacterData.Julio.item_animals = "flower"
-	if CharacterData.Julio.item_animals == "flower" and not given_meat:
+	if CharacterData.Julio.item_animals == "ink" and \
+	not given_meat or CharacterData.Julio.item_animals == "plant" and \
+	not CharacterData.Julio.given_meat and \
+	not given_meat:
+		CharacterData.Julio.given_meat = true
 		given_meat = true
 		InventoryManager.add_new_item(ROTTEN_MEAT)
 
