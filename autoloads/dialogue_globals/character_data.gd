@@ -49,6 +49,7 @@ class JulioData extends TaskOwner:
 		}
 
 	var lucio_received_medicine: bool = false
+	var item_animals: String
 
 
 class LucioData extends TaskOwner:

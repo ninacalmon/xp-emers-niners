@@ -1,6 +1,7 @@
 extends Node
 
 var starting_cutscene_played: bool = false
+var barn_cutscene_played: bool = false
 
 func play_starting_cutscene():
 	var starting_cutscene: StartingCutscene = get_tree().current_scene.get_node_or_null(

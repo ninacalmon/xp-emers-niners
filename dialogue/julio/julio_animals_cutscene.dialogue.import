@@ -1,0 +1,16 @@
+[remap]
+
+importer="dialogue_manager"
+importer_version=18
+type="Resource"
+uid="uid://cb7rb4i0sjyu6"
+path="res://.godot/imported/julio_animals_cutscene.dialogue-7f3ba454cbd3cc4f7760d80692ed623b.tres"
+
+[deps]
+
+source_file="res://dialogue/julio/julio_animals_cutscene.dialogue"
+dest_files=["res://.godot/imported/julio_animals_cutscene.dialogue-7f3ba454cbd3cc4f7760d80692ed623b.tres"]
+
+[params]
+
+defaults=true

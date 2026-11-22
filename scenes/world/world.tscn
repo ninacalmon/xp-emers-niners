@@ -1,7 +1,9 @@
 [gd_scene format=4 uid="uid://dxwhs1tti7i50"]
 
+[ext_resource type="Texture2D" uid="uid://bmlrpkpts2oym" path="res://assets/3d/scenery/floor/sandy_gravel_02_diff_2k.png" id="1_124cm"]
 [ext_resource type="Script" uid="uid://bd046eokvcnu2" path="res://addons/phantom_camera/scripts/phantom_camera_host/phantom_camera_host.gd" id="1_mxkvs"]
 [ext_resource type="Script" uid="uid://bbu3di48o4k0c" path="res://addons/DayNightCycle/DayNightCycle.gd" id="1_umvgx"]
+[ext_resource type="Texture2D" uid="uid://ldr508m2cnph" path="res://assets/3d/scenery/floor/sandy_gravel_02_nor_gl_2k.png" id="2_6ebim"]
 [ext_resource type="PackedScene" uid="uid://cciw6s8b6nsbw" path="res://scenes/player/player.tscn" id="2_m114p"]
 [ext_resource type="Material" uid="uid://wyikf3yxoy6x" path="res://addons/DayNightCycle/Sky_Day.tres" id="2_mxkvs"]
 [ext_resource type="PackedScene" uid="uid://ndxtkrboiso5" path="res://scenes/puzzles/tumor/tumor_puzzle.tscn" id="4_kngxi"]
@@ -50,12 +52,16 @@
 [ext_resource type="AudioStream" uid="uid://c8lnthk8kiran" path="res://assets/sound/music/Sunsurgence-NinaCalmon.wav" id="35_cf0uk"]
 [ext_resource type="PackedScene" uid="uid://3ke0t8mctl7h" path="res://assets/3d/items/candle/candle.tscn" id="35_sygq6"]
 [ext_resource type="SpriteFrames" uid="uid://b2rje4rg7em66" path="res://resources/sprite_frames/characters/sheep/sheep2.tres" id="36_124cm"]
+[ext_resource type="Script" uid="uid://v4umj4f6xy6j" path="res://scenes/world/cutscenes/animals_cutscene_flower.gd" id="36_vl1dq"]
 [ext_resource type="SpriteFrames" uid="uid://cgl6tvr0f4kiy" path="res://resources/sprite_frames/characters/sheep/sheep3.tres" id="37_6ebim"]
 [ext_resource type="Script" uid="uid://dct2i5sj5m7v2" path="res://scenes/world/end_cutscene.gd" id="37_j0rhc"]
 [ext_resource type="Resource" uid="uid://bgfegur82b8ly" path="res://dialogue/final.dialogue" id="38_4jq4u"]
 [ext_resource type="Resource" uid="uid://dybsg8b6ndlrh" path="res://items/mirrors/mirror_c/mirror_c2.tres" id="38_4v0p3"]
 [ext_resource type="PackedScene" uid="uid://cbgxrmm318b3u" path="res://assets/3d/items/mirrors/mirror_c/mirror_c2.glb" id="39_fqf7g"]
+[ext_resource type="PackedScene" uid="uid://2td7r67ehc8f" path="res://scenes/characters/sheep/sheep_rotten.tscn" id="40_6ebim"]
+[ext_resource type="AudioStream" uid="uid://bhuivqq8gprun" path="res://assets/sound/music/had_a_little_lamb.mp3" id="42_hx1je"]
 [ext_resource type="Resource" uid="uid://ttdlndp7d6el" path="res://items/mirrors/mirror_a/mirror_a2.tres" id="42_jum6b"]
+[ext_resource type="AudioStream" uid="uid://bdnau63j2rjtr" path="res://assets/sound/sound_effects/sheep/sheep_cry.mp3" id="43_ij5nj"]
 [ext_resource type="PackedScene" uid="uid://daa36rnsypobj" path="res://assets/3d/items/mirrors/mirror_a/mirror_a2.glb" id="43_l4ul6"]
 [ext_resource type="Resource" uid="uid://bl4lab6acct8c" path="res://items/mirrors/mirror_b/mirror_b1.tres" id="44_q3hpu"]
 [ext_resource type="PackedScene" uid="uid://neq15i38iq07" path="res://assets/3d/items/mirrors/mirror_b/mirror_b1.glb" id="45_j0rhc"]
@@ -70,6 +76,18 @@
 [ext_resource type="PackedScene" uid="uid://beejk147fox5c" path="res://scenes/puzzles/mirrors/light_beam/light_beam.tscn" id="63_hpffo"]
 [ext_resource type="PackedScene" uid="uid://cim06qc8dw8f2" path="res://scenes/puzzles/mirrors/mirror_stand/double_mirror_stand.tscn" id="65_hpffo"]
 [ext_resource type="Script" uid="uid://xmesdfdwl0pm" path="res://scenes/puzzles/mirrors/light_sensor.gd" id="66_hnqnj"]
+
+[sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_n78lu"]
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_1o6i5"]
+size = Vector2(500, 500)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_vl1dq"]
+albedo_color = Color(0.78, 0.56784004, 0.40559998, 1)
+albedo_texture = ExtResource("1_124cm")
+normal_enabled = true
+normal_texture = ExtResource("2_6ebim")
+uv1_scale = Vector3(15, 15, 15)
 
 [sub_resource type="VoxelGIData" id="VoxelGIData_aovk5"]
 _data = {
@@ -108,7 +126,7 @@ volumetric_fog_emission = Color(0.16, 0.16, 0.16, 1)
 volumetric_fog_gi_inject = 0.08
 volumetric_fog_length = 16.1
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_l72hy"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_ij5nj"]
 viewport_path = NodePath("SubViewportSprite")
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_u0ka6"]
@@ -187,19 +205,19 @@ top_radius = 2.0
 bottom_radius = 2.0
 height = 1.0
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_6eles"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_n78lu"]
 viewport_path = NodePath("SubViewportSprite")
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_124cm"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_1o6i5"]
 viewport_path = NodePath("SubViewportSprite")
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_6ebim"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_7o8ut"]
 resource_local_to_scene = true
 render_priority = -1
 shader = ExtResource("13_goy61")
-shader_parameter/sprite_texture = SubResource("ViewportTexture_124cm")
+shader_parameter/sprite_texture = SubResource("ViewportTexture_1o6i5")
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_vl1dq"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_a5636"]
 viewport_path = NodePath("SubViewportSprite")
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_cdpwx"]
@@ -748,6 +766,174 @@ _data = {
 [sub_resource type="SphereShape3D" id="SphereShape3D_cdpwx"]
 radius = 1.8
 
+[sub_resource type="Resource" id="Resource_1o6i5"]
+script = ExtResource("29_554ci")
+duration = 0.0
+
+[sub_resource type="Animation" id="Animation_7o8ut"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("barn_camera:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(14.911741, 1.560185, 0.33618283)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("barn_camera:priority")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("julio_camera:priority")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("julio_camera:follow_offset")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 1.805, -0.38)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("sky_camera:priority")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("sky_camera:position")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(15.082363, 2.234005, 0.30765164)]
+}
+
+[sub_resource type="Animation" id="Animation_a5636"]
+resource_name = "barn_zoom_out"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("barn_camera:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.9),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(14.911741, 1.560185, 0.33618283), Vector3(14.912, 1.56, 1.436)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("barn_camera:priority")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [10000]
+}
+
+[sub_resource type="Animation" id="Animation_1o6i5"]
+resource_name = "julio_face"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("julio_camera:priority")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [20000]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("julio_camera:follow_offset")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, 1.805, -0.38), Vector3(0, 1.805, -0.545)]
+}
+
+[sub_resource type="Animation" id="Animation_jhdiv"]
+resource_name = "sky"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("sky_camera:priority")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [30000]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("sky_camera:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(15.082363, 2.234005, 0.30765164), Vector3(15.082, 2.234, 0.168)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_jhdiv"]
+_data = {
+&"RESET": SubResource("Animation_7o8ut"),
+&"barn_zoom_out": SubResource("Animation_a5636"),
+&"julio_face": SubResource("Animation_1o6i5"),
+&"sky": SubResource("Animation_jhdiv")
+}
+
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_hnqnj"]
 radius = 0.78808594
 height = 1.5761719
@@ -785,6 +971,90 @@ colors = PackedColorArray(1, 0.56666666, 0, 1, 1, 1, 1, 0)
 size = Vector3(0.6677246, 0.3515625, 0.2677002)
 
 [node name="World" type="Node3D" unique_id=1370714841]
+
+[node name="Terrain" type="Node" parent="." unique_id=1470572691]
+
+[node name="Ground" type="StaticBody3D" parent="Terrain" unique_id=1889733316]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Terrain/Ground" unique_id=2142170941]
+shape = SubResource("WorldBoundaryShape3D_n78lu")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Terrain/Ground" unique_id=1030461064]
+mesh = SubResource("PlaneMesh_1o6i5")
+surface_material_override/0 = SubResource("StandardMaterial3D_vl1dq")
+metadata/_edit_lock_ = true
+
+[node name="GroundAreas" type="Node3D" parent="Terrain" unique_id=106293392]
+
+[node name="HardFloorHighEchoArea" type="Area3D" parent="Terrain/GroundAreas" unique_id=1820778511 groups=["ground_areas"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 33.282627, 0, 0)
+collision_layer = 0
+collision_mask = 4
+
+[node name="CollisionPolygon3D" type="CollisionPolygon3D" parent="Terrain/GroundAreas/HardFloorHighEchoArea" unique_id=1299276841]
+transform = Transform3D(0.99999994, 0, 0, 0, -4.3711385e-08, -1, 0, 0.99999994, -4.371139e-08, 0, 0, 0)
+depth = -7.0
+polygon = PackedVector2Array(13.129452, -12.847256, 6.2007904, -12.693287, 6.354763, -13.771078, 6.354763, -16.773497, 4.7380753, -19.544958, 2.2745514, -21.23863, -0.11198044, -21.70054, -2.4215393, -21.315617, -4.423149, -20.083855, -5.9628487, -18.390182, -6.8096848, -15.849674, -6.501747, -13.001226, -13.430405, -12.770271, -13.48477, 9.8820095, 13.0521965, 9.833496)
+
+[node name="HardFloorMedEchoArea" type="Area3D" parent="Terrain/GroundAreas" unique_id=600067317 groups=["ground_areas"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 33.093647, 0, 19.156532)
+collision_layer = 0
+collision_mask = 4
+
+[node name="CollisionPolygon3D" type="CollisionPolygon3D" parent="Terrain/GroundAreas/HardFloorMedEchoArea" unique_id=1769338875]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0)
+depth = -7.0
+polygon = PackedVector2Array(-13.29579, -9.614118, 13.192665, -9.75966, 13.14415, -5.053834, -13.198763, -5.3449173)
+
+[node name="CollisionPolygon3D2" type="CollisionPolygon3D" parent="Terrain/GroundAreas/HardFloorMedEchoArea" unique_id=2015969854]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0)
+depth = -7.0
+polygon = PackedVector2Array(13.727425, -28.459743, 13.901375, -15.224216, 19.281902, -14.942837, 19.073612, -28.459743)
+
+[node name="CollisionPolygon3D3" type="CollisionPolygon3D" parent="Terrain/GroundAreas/HardFloorMedEchoArea" unique_id=2012776034]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0)
+depth = -7.0
+polygon = PackedVector2Array(40.67616, -13.810169, 41.638134, -9.679365, 43.675243, -6.7934628, 47.35335, -4.9827003, 51.201214, -5.6051493, 54.087124, -7.925189, 55.332027, -11.15061, 54.935925, -14.432619, 53.52126, -16.922417, 52.219776, -18.167316, 52.1066, -28.296268, 40.39323, -28.409443)
+
+[node name="HardFloorLowEchoArea" type="Area3D" parent="Terrain/GroundAreas" unique_id=890659316 groups=["ground_areas"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 65.245255, 0, 0)
+collision_layer = 0
+collision_mask = 4
+
+[node name="CollisionPolygon3D" type="CollisionPolygon3D" parent="Terrain/GroundAreas/HardFloorLowEchoArea" unique_id=2017479731]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0)
+depth = -7.0
+polygon = PackedVector2Array(-12.457455, 4.73506, -11.995441, -8.993419, 8.5312805, -9.0594225, 8.927292, 4.405049)
+
+[node name="CollisionPolygon3D2" type="CollisionPolygon3D" parent="Terrain/GroundAreas/HardFloorLowEchoArea" unique_id=589249593]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0)
+depth = -7.0
+polygon = PackedVector2Array(-27.547997, 16.20641, -27.547997, 24.060684, -36.722317, 24.060684, -36.722317, 15.810396, -38.10836, 18.714499, -40.550446, 20.298552, -42.794525, 20.23255, -45.368614, 17.988472, -45.50062, 14.952368, -40.550446, 13.962333, -20.749756, 14.160337, -18.769688, 15.282379, -19.099697, 18.384487, -21.607784, 20.364555, -24.709896, 19.96854, -26.557957, 17.92247)
+
+[node name="HardFloorNoEchoArea" type="Area3D" parent="Terrain/GroundAreas" unique_id=1610666647 groups=["ground_areas"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 33.093647, 0, 19.156532)
+collision_layer = 0
+collision_mask = 4
+
+[node name="CollisionPolygon3D" type="CollisionPolygon3D" parent="Terrain/GroundAreas/HardFloorNoEchoArea" unique_id=1272901292]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0)
+depth = -7.0
+polygon = PackedVector2Array(-2.964714, 5.1151676, -2.8993149, 8.777512, 2.9865913, 8.74481, 2.9538918, 5.1151676)
+
+[node name="CollisionPolygon3D2" type="CollisionPolygon3D" parent="Terrain/GroundAreas/HardFloorNoEchoArea" unique_id=379532663]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0)
+depth = -7.0
+polygon = PackedVector2Array(2.956623, 5.1420727, 2.9257088, 8.665823, -2.916298, 8.727644, -2.916298, 4.925701)
+
+[node name="DirtFloor" type="Area3D" parent="Terrain/GroundAreas" unique_id=1037518514 groups=["ground_areas"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 33.093647, 0, -0.39131546)
+collision_layer = 0
+collision_mask = 4
+
+[node name="CollisionPolygon3D" type="CollisionPolygon3D" parent="Terrain/GroundAreas/DirtFloor" unique_id=97895797]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0)
+depth = -0.18
+polygon = PackedVector2Array(-73.80234, -62.97614, 98.83095, -63.519016, 103.7168, 64.32734, -80.3168, 65.14163)
 
 [node name="VoxelGI" type="VoxelGI" parent="." unique_id=178088189]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 50.679337, 0, 11.015835)
@@ -830,7 +1100,7 @@ environment = SubResource("Environment_t634p")
 [node name="Camera3D" type="Camera3D" parent="VisualConfig" unique_id=1834340419]
 unique_name_in_owner = true
 physics_interpolation_mode = 1
-transform = Transform3D(0.68870366, -0.054539494, 0.72298884, 8.594927e-05, 0.9971729, 0.07514103, -0.725043, -0.05168775, 0.6867613, 34.557873, 1.830112, 30.505306)
+transform = Transform3D(-0.64812, 0.66734105, 0.36687392, 0, 0.4817537, -0.8763068, -0.76153827, -0.56795186, -0.31223422, 15.082363, 2.234005, 0.30765164)
 top_level = true
 cull_mask = 1048031
 size = 62.088
@@ -842,7 +1112,7 @@ script = ExtResource("1_mxkvs")
 metadata/_custom_type_script = "uid://bd046eokvcnu2"
 
 [node name="Player" parent="." unique_id=949902107 instance=ExtResource("2_m114p")]
-transform = Transform3D(0.68905383, 0, 0.7247099, 0, 1, 0, -0.7247099, 0, 0.68905383, 34.557816, 0, 30.505314)
+transform = Transform3D(0.68905383, 0, 0.7247099, 0, 1, 0, -0.7247099, 0, 0.68905383, 18.049768, 0, 0.63195753)
 
 [node name="Church" parent="." unique_id=151423155 instance=ExtResource("7_q3hpu")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 33.12908, 0, 0)
@@ -860,11 +1130,11 @@ omni_range = 20.153
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.082743, 1.6670088, -3.19987)
 
 [node name="Camera3D" parent="Church/ConfessionalBooth" index="2" unique_id=430217490]
-transform = Transform3D(0.6887037, -0.054539658, 0.7229887, 8.599866e-05, 0.9971729, 0.075141214, -0.72504294, -0.05168785, 0.6867614, 34.557873, 1.830112, 30.505306)
+transform = Transform3D(-0.64812, 0.66734105, 0.36687392, 0, 0.4817537, -0.8763068, -0.76153827, -0.56795186, -0.31223422, 15.082363, 2.234005, 0.30765164)
 top_level = true
 
 [node name="Sprite3D" parent="Church/ConfessionalBooth/Confessor" parent_id_path=PackedInt32Array(321162436, 1758948578) index="0" unique_id=415751236]
-texture = SubResource("ViewportTexture_l72hy")
+texture = SubResource("ViewportTexture_ij5nj")
 
 [node name="SecondFloor2" type="Node3D" parent="Church" unique_id=1860471051]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -33.12908, 0, 0)
@@ -1044,11 +1314,11 @@ unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 78.78419, 0.9976957, -5.94999)
 
 [node name="Sprite3D" parent="Characters/Sanson" index="0" unique_id=415751236]
-texture = SubResource("ViewportTexture_6eles")
+texture = SubResource("ViewportTexture_n78lu")
 
 [node name="Outline" parent="Characters/Sanson/Sprite3D" index="0" unique_id=1631064389]
-material_overlay = SubResource("ShaderMaterial_6ebim")
-texture = SubResource("ViewportTexture_vl1dq")
+material_overlay = SubResource("ShaderMaterial_7o8ut")
+texture = SubResource("ViewportTexture_a5636")
 
 [node name="AstrolablusPuzzle" parent="Characters" unique_id=572576743 instance=ExtResource("14_m114p")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 74.17525, 0.89560485, -7.2601056)
@@ -1209,7 +1479,7 @@ noise_emitter_layer = 1
 metadata/_custom_type_script = "uid://csjccrhj5wnx7"
 
 [node name="CloseUpCamera" type="Node3D" parent="Cutscenes/StartingCutscene" unique_id=1789459155 node_paths=PackedStringArray("follow_target", "look_at_target")]
-transform = Transform3D(-0.9059274, 0, 0, 0, 0.8826757, -0.4699747, 0, -0.46997437, -0.8826764, 31.976969, 4.116524, -13.0710745)
+transform = Transform3D(-0.88594294, 0, 0, 0, 0.68254006, 0.7308435, 0, 0.7308429, -0.6825405, 31.976969, 4.5308065, -13.0020275)
 top_level = true
 script = ExtResource("28_phx5y")
 follow_mode = 5
@@ -1288,19 +1558,122 @@ collision_mask = 4
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Cutscenes/StartingCutscene/PlayerDetection" unique_id=819121188]
 shape = SubResource("SphereShape3D_cdpwx")
 
-[node name="AnimalsCutscene" type="Node3D" parent="Cutscenes" unique_id=1813398001]
+[node name="AnimalsCutscene" type="Node3D" parent="Cutscenes" unique_id=1813398001 node_paths=PackedStringArray("player", "julio", "sheep", "sheep_2", "sheep_3", "sheep_rotten", "barn_door", "sheep_pos", "sheep_pos_2", "sheep_pos_3", "sheep_rotten_pos", "julio_pos", "julio_pos_after", "player_pos_after", "julio_pos_after_plant", "camera", "barn_camera", "sky_camera", "julio_camera", "animation_player", "music", "sheep_cry", "dialogue_input_text")]
+script = ExtResource("36_vl1dq")
+variant = 1
+player = NodePath("../../Player")
+julio = NodePath("../../Characters/Julio")
+sheep = NodePath("Sheep")
+sheep_2 = NodePath("Sheep2")
+sheep_3 = NodePath("Sheep3")
+sheep_rotten = NodePath("SheepRotten")
+barn_door = NodePath("BarnDoor")
+sheep_pos = NodePath("SheepPos")
+sheep_pos_2 = NodePath("SheepPos2")
+sheep_pos_3 = NodePath("SheepPos3")
+sheep_rotten_pos = NodePath("SheepRottenPos")
+julio_pos = NodePath("JulioPos")
+julio_pos_after = NodePath("JulioPosAfter")
+player_pos_after = NodePath("PlayerPosAfter")
+julio_pos_after_plant = NodePath("JulioPosPlantAfter")
+camera = NodePath("../../VisualConfig/Camera3D")
+barn_camera = NodePath("barn_camera")
+sky_camera = NodePath("sky_camera")
+julio_camera = NodePath("julio_camera")
+animation_player = NodePath("AnimationPlayer")
+music = NodePath("MusicCutscene")
+sheep_cry = NodePath("SheepCry")
+dialogue_input_text = NodePath("../../VisualConfig/GameUiOverlay/DialogueFrameManager/RichTextLabel")
 
 [node name="Sheep" parent="Cutscenes/AnimalsCutscene" unique_id=1164953173 instance=ExtResource("34_l72hy")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.508026, -4.7683716e-07, -3.501336)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.516944, -4.7683716e-07, -3.843998)
 anim = ExtResource("35_6eles")
 
 [node name="Sheep2" parent="Cutscenes/AnimalsCutscene" unique_id=1139098193 instance=ExtResource("34_l72hy")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.979084, -4.7683716e-07, -2.3581104)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.753635, -4.7683716e-07, -2.8477535)
 anim = ExtResource("36_124cm")
 
 [node name="Sheep3" parent="Cutscenes/AnimalsCutscene" unique_id=1136699526 instance=ExtResource("34_l72hy")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16.698524, -4.7683716e-07, -3.2091374)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16.115818, -4.7683716e-07, -3.9652517)
 anim = ExtResource("37_6ebim")
+
+[node name="SheepRotten" parent="Cutscenes/AnimalsCutscene" unique_id=1919139520 instance=ExtResource("40_6ebim")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18.657593, 0, -2.7973862)
+
+[node name="SheepPos" type="Marker3D" parent="Cutscenes/AnimalsCutscene" unique_id=615538870]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.324247, 0, -2.157346)
+
+[node name="SheepPos2" type="Marker3D" parent="Cutscenes/AnimalsCutscene" unique_id=1034638054]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.864924, 0, -1.7468575)
+
+[node name="SheepPos3" type="Marker3D" parent="Cutscenes/AnimalsCutscene" unique_id=263783739]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.407703, 0, -1.9477934)
+
+[node name="SheepRottenPos" type="Marker3D" parent="Cutscenes/AnimalsCutscene" unique_id=610338007]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18.78065, 0, -2.933403)
+
+[node name="JulioPos" type="Marker3D" parent="Cutscenes/AnimalsCutscene" unique_id=935626242]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.910967, 0, -0.63228035)
+
+[node name="PlayerPosAfter" type="Marker3D" parent="Cutscenes/AnimalsCutscene" unique_id=131159902]
+transform = Transform3D(0.88179463, 0, -0.47163355, 0, 1, 0, 0.47163355, 0, 0.88179463, 13.849219, 0, 1.8661318)
+
+[node name="JulioPosAfter" type="Marker3D" parent="Cutscenes/AnimalsCutscene" unique_id=1414569798]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 63.572727, 1, -6.1496134)
+
+[node name="JulioPosPlantAfter" type="Marker3D" parent="Cutscenes/AnimalsCutscene" unique_id=385725906]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.796722, 0, 1.0660896)
+
+[node name="barn_camera" type="Node3D" parent="Cutscenes/AnimalsCutscene" unique_id=156653472]
+transform = Transform3D(1, 0, 0, 0, 0.9927749, 0.11999194, 0, -0.11999194, 0.9927749, 14.911741, 1.560185, 0.33618283)
+script = ExtResource("28_phx5y")
+tween_resource = SubResource("Resource_1o6i5")
+metadata/_custom_type_script = "uid://csjccrhj5wnx7"
+
+[node name="sky_camera" type="Node3D" parent="Cutscenes/AnimalsCutscene" unique_id=1655639947]
+transform = Transform3D(-0.64812, 0.66734105, 0.36687392, 0, 0.4817537, -0.8763068, -0.76153827, -0.56795186, -0.31223422, 15.082363, 2.234005, 0.30765164)
+script = ExtResource("28_phx5y")
+tween_resource = SubResource("Resource_1o6i5")
+metadata/_custom_type_script = "uid://csjccrhj5wnx7"
+
+[node name="julio_camera" type="Node3D" parent="Cutscenes/AnimalsCutscene" unique_id=1149604511 node_paths=PackedStringArray("follow_target", "look_at_target")]
+transform = Transform3D(-0.9838765, 0.007139156, 0.038144376, 2.29255e-10, 0.983372, -0.17801479, -0.038835637, -0.18086605, -0.9663639, 28.114899, 4.2217307, -12.3602295)
+top_level = true
+script = ExtResource("28_phx5y")
+follow_mode = 2
+follow_target = NodePath("../../../Characters/Julio")
+look_at_mode = 2
+look_at_target = NodePath("../../../Characters/Julio")
+tween_resource = SubResource("Resource_1o6i5")
+follow_offset = Vector3(0, 1.805, -0.38)
+look_at_offset = Vector3(-0.015, 1.875, 0)
+align_transform_with_view = Callable()
+align_position_with_view = Callable()
+align_rotation_with_view = Callable()
+metadata/_custom_type_script = "uid://csjccrhj5wnx7"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Cutscenes/AnimalsCutscene" unique_id=655486324]
+libraries/ = SubResource("AnimationLibrary_jhdiv")
+autoplay = &"RESET"
+speed_scale = 0.1
+
+[node name="MusicCutscene" type="AudioStreamPlayer" parent="Cutscenes/AnimalsCutscene" unique_id=910268098]
+stream = ExtResource("42_hx1je")
+volume_db = -8.0
+bus = &"Music"
+
+[node name="SheepCry" type="AudioStreamPlayer" parent="Cutscenes/AnimalsCutscene" unique_id=741192477]
+stream = ExtResource("43_ij5nj")
+volume_db = -6.0
+pitch_scale = 2.0
+bus = &"Music"
+
+[node name="BarnDoor" parent="Cutscenes/AnimalsCutscene" unique_id=668800733 instance=ExtResource("9_ues17")]
+transform = Transform3D(1.26, 0, 0, 0, 1.458, 0, 0, 0, 0.8, 13.991197, -0.08391273, 4.5153584)
+unlockeable = false
+
+[node name="OpenAudioStreamPlayer" parent="Cutscenes/AnimalsCutscene/BarnDoor" index="4" unique_id=778601091]
+volume_db = -80.0
 
 [node name="CollectableItems" type="Node" parent="." unique_id=1692708429]
 
@@ -1639,6 +2012,7 @@ shape = SubResource("BoxShape3D_7qke6")
 [editable path="Characters/Sanson"]
 [editable path="Characters/SleepPuzzle/LockPick"]
 [editable path="Characters/SleepPuzzle/LockPick/lockpick"]
+[editable path="Cutscenes/AnimalsCutscene/BarnDoor"]
 [editable path="CollectableItems/AstrolabusBody"]
 [editable path="CollectableItems/AstrolabusBody/astrolabus_body"]
 [editable path="CollectableItems/AstrolabusPointer"]

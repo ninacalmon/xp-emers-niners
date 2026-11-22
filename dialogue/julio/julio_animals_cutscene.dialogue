@@ -1,0 +1,8 @@
+~ start_flower
+Julio: “Ah, pronto, pronto... fique parada.”
+=> END
+
+~ start_plant
+Julio: “Shh... shh... pronto, pronto...”
+Julio: “Durmam bem, pequeninhas.”
+=> END

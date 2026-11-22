@@ -1,0 +1,112 @@
+[gd_scene format=3 uid="uid://2td7r67ehc8f"]
+
+[ext_resource type="Script" uid="uid://bsda8fmo5wym0" path="res://scenes/characters/sheep/give_meat_action.gd" id="1_l7tbg"]
+[ext_resource type="Shader" uid="uid://cmj145moh841t" path="res://resources/shaders/outline_billboard.gdshader" id="3_gbfdc"]
+[ext_resource type="Shader" uid="uid://dp148pt4l0tgh" path="res://resources/shaders/flies.gdshader" id="3_l7tbg"]
+[ext_resource type="Script" uid="uid://ejt07noytxny" path="res://resources/shaders/billboard_shader_tool.gd" id="4_cl2hb"]
+[ext_resource type="Script" uid="uid://cf2auur4umdjl" path="res://systems/interaction/interaction_area.gd" id="4_joqoj"]
+[ext_resource type="Texture2D" uid="uid://cadtc4bijvngp" path="res://assets/2d/characters/sheep/dead/sheep_dead_rotten.png" id="6_gbfdc"]
+[ext_resource type="AudioStream" uid="uid://w4exf8u55ele" path="res://assets/sound/sound_effects/sheep/flies (2).mp3" id="7_cl2hb"]
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_cdpwx"]
+viewport_path = NodePath("SubViewport")
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_alpiu"]
+viewport_path = NodePath("SubViewport")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_j5uie"]
+resource_local_to_scene = true
+render_priority = -1
+shader = ExtResource("3_gbfdc")
+shader_parameter/sprite_texture = SubResource("ViewportTexture_alpiu")
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_ksdio"]
+viewport_path = NodePath("SubViewport")
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_t6e31"]
+radius = 0.2680664
+height = 0.5361328
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_5604n"]
+shader = ExtResource("3_l7tbg")
+shader_parameter/orbit_speed = 1.0
+shader_parameter/orbit_radius = 0.4
+shader_parameter/vertical_spread = 0.5
+shader_parameter/wobble = 0.15
+shader_parameter/orbit_height = 0.055
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_u0ka6"]
+albedo_color = Color(0.13, 0.11119333, 0.0897, 1)
+
+[sub_resource type="SphereMesh" id="SphereMesh_5604n"]
+material = SubResource("StandardMaterial3D_u0ka6")
+radius = 0.005
+height = 0.01
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_gbfdc"]
+size = Vector3(1.8708496, 1.7821655, 1.8839035)
+
+[node name="SheepRotten" type="Node3D" unique_id=1164953173]
+script = ExtResource("1_l7tbg")
+
+[node name="Sprite3D" type="Sprite3D" parent="." unique_id=679501165]
+transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, 0.063, 0.51, 0)
+billboard = 2
+texture = SubResource("ViewportTexture_cdpwx")
+
+[node name="Outline" type="Sprite3D" parent="Sprite3D" unique_id=481931716]
+material_overlay = SubResource("ShaderMaterial_j5uie")
+cast_shadow = 0
+instance_shader_parameters/billboard_y_only = true
+instance_shader_parameters/glowAngle = 1.0000000475
+instance_shader_parameters/glowSharpness = 0.0
+instance_shader_parameters/glowSize = 6.000000285
+instance_shader_parameters/line_color = Color(1, 1, 1, 1)
+instance_shader_parameters/outline_depth_offset = 0.0
+instance_shader_parameters/outline_only = false
+billboard = 2
+render_priority = -1
+texture = SubResource("ViewportTexture_ksdio")
+script = ExtResource("4_cl2hb")
+
+[node name="ShadowMesh" type="MeshInstance3D" parent="." unique_id=1379106409]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.40543592, 0)
+cast_shadow = 3
+mesh = SubResource("CapsuleMesh_t6e31")
+
+[node name="GPUParticles3D2" type="GPUParticles3D" parent="." unique_id=377820549]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.29674673, -0.056256175)
+cast_shadow = 0
+amount = 30
+lifetime = 5.0
+local_coords = true
+process_material = SubResource("ShaderMaterial_5604n")
+draw_pass_1 = SubResource("SphereMesh_5604n")
+
+[node name="InteractionArea" type="Area3D" parent="." unique_id=404603606 node_paths=PackedStringArray("outline_sprite_3d", "action_trigger")]
+script = ExtResource("4_joqoj")
+outline_sprite_3d = NodePath("../Sprite3D/Outline")
+action_trigger = NodePath("..")
+metadata/_custom_type_script = "uid://cf2auur4umdjl"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="InteractionArea" unique_id=363249667]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.39108276, 0.46960068)
+shape = SubResource("BoxShape3D_gbfdc")
+debug_color = Color(0.8088694, 0.0022376948, 0.99015385, 0.41960785)
+
+[node name="SubViewport" type="SubViewport" parent="." unique_id=1762314160]
+transparent_bg = true
+handle_input_locally = false
+size = Vector2i(500, 413)
+render_target_update_mode = 4
+
+[node name="Sprite2D" type="Sprite2D" parent="SubViewport" unique_id=1921033831]
+texture = ExtResource("6_gbfdc")
+centered = false
+
+[node name="FliesAudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="." unique_id=1884502410]
+stream = ExtResource("7_cl2hb")
+max_db = -2.0
+autoplay = true
+max_distance = 4.0
+bus = &"Sound Effects"

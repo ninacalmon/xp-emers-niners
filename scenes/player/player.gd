@@ -2,7 +2,7 @@ class_name Player
 extends CharacterBody3D
 
 
-const STEP_HEIGHT: float = 0.32
+const STEP_HEIGHT: float = 0.25
 const CROUCH_HEIGHT: float = 1.2
 const CROUCH_SPEED_LERP: float = 10.0
 const STAND_HEIGHT: float = 1.85

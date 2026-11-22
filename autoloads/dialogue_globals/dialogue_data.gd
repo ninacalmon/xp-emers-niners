@@ -35,8 +35,11 @@ enum JulioMoods {
 	SILLY_HAPPY,
 	SILLY_SAD,
 	SILLY_SURPRISED,
+	IDLE_CRY,
 	back,
-	idle
+	idle,
+	animals,
+	
 }
 
 enum LucioMoods {

@@ -9,14 +9,20 @@ enum Poison {PLANT, INK}
 @export_group("Movement")
 @export var movement_range: float = 0.3
 @export var movement_speed: float = 0.3
-@export var idle_time_min: float = 1.0
-@export var idle_time_max: float = 3.0
+@export var idle_time_min: float = 4.0
+@export var idle_time_max: float = 10.0
 
 @export_group("Bounce")
 @export var bounce_duration: float = 0.08
 @export_range(0.0, 0.5, 0.01) var bounce_amount: float = 0.025
 
+@export_group("Audio")
+@export var audio_interval_min: float = 3.0
+@export var audio_interval_max: float = 8.0
+
+
 @onready var animated_sprite_3d: AnimatedSprite3D = $AnimatedSprite3D
+@onready var b_eeeh_audio_stream_player_3d: AudioStreamPlayer3D = $bEEEHAudioStreamPlayer3D
 
 var is_dead: bool = false
 var original_position: Vector3
@@ -31,6 +37,7 @@ func _ready() -> void:
 	original_sprite_scale = animated_sprite_3d.scale
 
 	roam()
+	randomize_bleats()
 
 
 func roam() -> void:
@@ -49,7 +56,12 @@ func roam() -> void:
 			original_position.x + movement_range
 		)
 
-		animated_sprite_3d.flip_h = direction > 0.0
+		var actual_direction: float = signf(target_x - position.x)
+
+		if actual_direction == 0.0:
+			continue
+
+		animated_sprite_3d.flip_h = actual_direction > 0.0
 
 		bounce_on_it()
 
@@ -89,9 +101,22 @@ func die(poison: Poison) -> void:
 		return
 
 	is_dead = true
+	b_eeeh_audio_stream_player_3d.stop()
 
 	match poison:
 		Poison.PLANT:
 			animated_sprite_3d.play("dead_plant")
 		Poison.INK:
 			animated_sprite_3d.play("dead_ink")
+
+
+func randomize_bleats() -> void:
+	while not is_dead:
+		await get_tree().create_timer(
+			randf_range(audio_interval_min, audio_interval_max)
+		).timeout
+
+		if is_dead:
+			break
+
+		b_eeeh_audio_stream_player_3d.play()

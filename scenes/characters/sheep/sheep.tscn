@@ -2,12 +2,19 @@
 
 [ext_resource type="Script" uid="uid://bl0nvwlny7mqq" path="res://scenes/characters/sheep/sheep.gd" id="1_t6e31"]
 [ext_resource type="SpriteFrames" uid="uid://cvcbidnbxpgko" path="res://resources/sprite_frames/characters/sheep/sheep1.tres" id="2_t6e31"]
+[ext_resource type="AudioStream" uid="uid://dqblpybj5x3e2" path="res://assets/sound/sound_effects/sheep/sheep1.mp3" id="3_jf3fm"]
+[ext_resource type="AudioStream" uid="uid://b356c8rc2ggcj" path="res://assets/sound/sound_effects/sheep/sheep2.mp3" id="4_y6i14"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_t6e31"]
 radius = 0.2680664
 height = 0.5361328
 
-[node name="Sheep" type="Node3D" unique_id=1164953173]
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_cdpwx"]
+streams_count = 2
+stream_0/stream = ExtResource("3_jf3fm")
+stream_1/stream = ExtResource("4_y6i14")
+
+[node name="Sheep" type="Node3D" unique_id=1164953173 groups=["sheep"]]
 script = ExtResource("1_t6e31")
 
 [node name="AnimatedSprite3D" type="AnimatedSprite3D" parent="." unique_id=260980370]
@@ -20,3 +27,11 @@ animation = &"living"
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.40543592, 0)
 cast_shadow = 3
 mesh = SubResource("CapsuleMesh_t6e31")
+
+[node name="bEEEHAudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="." unique_id=711613438]
+stream = SubResource("AudioStreamRandomizer_cdpwx")
+volume_db = -8.0
+unit_size = 5.0
+max_db = -8.0
+max_distance = 10.0
+bus = &"Sound Effects"

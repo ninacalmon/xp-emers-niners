@@ -4,7 +4,9 @@
 [ext_resource type="Texture2D" uid="uid://0dfvcl320xne" path="res://assets/2d/characters/julio/intense/julio_intense_angry_open.png" id="2_sa1o0"]
 [ext_resource type="Texture2D" uid="uid://bej8cscfqopvi" path="res://assets/2d/characters/julio/idle/julio_idle_default_closed.png" id="2_ylc4b"]
 [ext_resource type="Texture2D" uid="uid://bixe6ui6wxqon" path="res://assets/2d/characters/julio/idle/julio_idle_angry_closed.png" id="3_pm383"]
+[ext_resource type="Texture2D" uid="uid://bwgc62ps78nd" path="res://assets/2d/characters/julio/idle/julio_idle_crying_closed.png" id="3_xuanb"]
 [ext_resource type="Texture2D" uid="uid://c4rgoaymj3ly5" path="res://assets/2d/characters/julio/idle/julio_idle_angry_open.png" id="4_6o56x"]
+[ext_resource type="Texture2D" uid="uid://jsxfjkmyyky0" path="res://assets/2d/characters/julio/idle/julio_idle_crying_open.png" id="4_rlove"]
 [ext_resource type="Texture2D" uid="uid://b7odv81u7xaa0" path="res://assets/2d/characters/julio/idle/julio_idle_default_open.png" id="4_tqquv"]
 [ext_resource type="Texture2D" uid="uid://dhe7u7srqhhe7" path="res://assets/2d/characters/julio/silly/julio_silly_happy_closed.png" id="5_yxswh"]
 [ext_resource type="Texture2D" uid="uid://cr4pcm8fwqre0" path="res://assets/2d/characters/julio/silly/julio_silly_happy_open.png" id="6_3fdgi"]
@@ -30,6 +32,8 @@
 [ext_resource type="Texture2D" uid="uid://cyv8q5t05kj8q" path="res://assets/2d/characters/julio/silly/julio_silly_sad_open.png" id="28_hs7r4"]
 [ext_resource type="Texture2D" uid="uid://chx1vkc7pxlkk" path="res://assets/2d/characters/julio/silly/julio_silly_surprised.png" id="29_e80x1"]
 [ext_resource type="Texture2D" uid="uid://dxt28a703o7u2" path="res://assets/2d/characters/julio/julio_back.png" id="30_0gjop"]
+[ext_resource type="Texture2D" uid="uid://d0bwvpyqfeti4" path="res://assets/2d/characters/julio/julio_animals_1.png" id="30_1pet5"]
+[ext_resource type="Texture2D" uid="uid://cp4llfkoddqph" path="res://assets/2d/characters/julio/julio_animals_2.png" id="31_qlihe"]
 
 [resource]
 animations = [{
@@ -42,6 +46,17 @@ animations = [{
 }],
 "loop": 1,
 "name": &"IDLE_ANGRY",
+"speed": 6.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_xuanb")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_rlove")
+}],
+"loop": 1,
+"name": &"IDLE_CRY",
 "speed": 6.0
 }, {
 "frames": [{
@@ -199,6 +214,17 @@ animations = [{
 "loop": 1,
 "name": &"SILLY_SURPRISED",
 "speed": 6.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("30_1pet5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("31_qlihe")
+}],
+"loop": 1,
+"name": &"animals",
+"speed": 3.0
 }, {
 "frames": [{
 "duration": 1.0,
