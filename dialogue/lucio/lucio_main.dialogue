@@ -15,10 +15,10 @@ elif CharacterData.Julio.get_status("get_inkwell") == 1:
 	do CharacterData.Hugo.asked_lucio_inkwell = true
 	Você: “Olá, Lucio. Por acaso você tem um tinteiro?”
 	Lucio: “O hugo passou por aqui apressado e o levou. Ele disse que estava ‘pegando emprestado por uma questão de extrema importância’.”
-elif CharacterData.Julio.get_status("get_inkwell") == 2:
+elif CharacterData.Julio.worry_lucio_drunk:
 	=> lucio_drunk/start
 else:
-	Lucio: Olá.
+	Lucio: “...”
 => END
 
 

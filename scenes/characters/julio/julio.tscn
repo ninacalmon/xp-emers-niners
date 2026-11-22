@@ -7,7 +7,6 @@
 [ext_resource type="Script" uid="uid://ejt07noytxny" path="res://resources/shaders/billboard_shader_tool.gd" id="3_nrgqq"]
 [ext_resource type="Resource" uid="uid://b7o8h8s2mg0hj" path="res://dialogue/julio/julio_main.dialogue" id="3_o0q0w"]
 [ext_resource type="Script" uid="uid://biodsue5rifq4" path="res://systems/character/character_sprite_handler.gd" id="4_kpkcg"]
-[ext_resource type="Material" uid="uid://dxugeq4hehdak" path="res://resources/shader_materials/outline_shader_material_2d.tres" id="5_o0q0w"]
 [ext_resource type="SpriteFrames" uid="uid://daq8bx0soe2xd" path="res://resources/sprite_frames/characters/julio/julio_sprite_frames.tres" id="6_07clx"]
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_gmoyl"]
@@ -53,7 +52,7 @@ instance_shader_parameters/glowSharpness = 0.0
 instance_shader_parameters/glowSize = 6.000000285
 instance_shader_parameters/line_color = Color(1, 1, 1, 1)
 instance_shader_parameters/outline_depth_offset = 0.0
-instance_shader_parameters/outline_enabled = false
+instance_shader_parameters/outline_enabled = true
 instance_shader_parameters/outline_only = false
 offset = Vector2(0, 241.06)
 billboard = 2
@@ -100,9 +99,6 @@ size = Vector2i(500, 1281)
 render_target_update_mode = 4
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="SubViewportSprite" unique_id=60975985]
-material = ExtResource("5_o0q0w")
-instance_shader_parameters/outline_enabled = false
-instance_shader_parameters/outline_tint = Color(1, 1, 1, 0)
 sprite_frames = ExtResource("6_07clx")
 animation = &"INTENSE_HAPPY"
 centered = false

@@ -17,8 +17,10 @@ const ANIM_AWAKE: StringName = &"AWAKE"
 @onready var sanson_sleep_pos: Marker3D = $sanson_sleep_pos
 
 var _started: bool = false
+var flower_got: bool = false
 var _sanson_awake: bool = false
 var _player_inside: bool = false
+var _ignore_visit: bool = false # true if the player entered drunk
 
 #func _physics_process(_delta: float) -> void:
 	#if not _started or Engine.get_physics_frames() % 60 != 0:
@@ -40,28 +42,36 @@ func _ready() -> void:
 func start() -> void:
 	if _started:
 		return
+
 	_started = true
-	Engine.time_scale = 1
-	lock_pick.global_transform = lock_pick_pos.global_transform
+	flower_got = CharacterData.Sanson.flower_got
+
 	sanson.global_position = sanson_sleep_pos.global_position
-	#player_detection.collision_mask = 0xFFFFFFFF
 	
+	#player_detection.collision_mask = 0xFFFFFFFF
+
 	sanson_interact_collision_shape_3d.disabled = true
 	sanson.dialogue_res = sanson_asleep_dialogue_res
-	lock_pick.deactivate = false
+	sanson.stop_chatting()
 	animated_sprite_2d.play(ANIM_ASLEEP)
+
+	# Without the flower the astrolabe stays where it is and stays deactivated.
+	# Sanson still wakes up, talks to the player and blocks the door.
+	if flower_got:
+		lock_pick.global_transform = lock_pick_pos.global_transform
+		lock_pick.deactivate = false
 
 	player_detection.monitoring = true
 
 
 func finish(solved: bool) -> void:
-	player_detection.set_deferred("monitoring", false)
-	door_blocker.set_deferred("disabled", true)
+	#player_detection.set_deferred("monitoring", false)
+	#door_blocker.set_deferred("disabled", true)
 	puzzle_finished.emit(solved)
 
 
 func _on_item_picked_up() -> void:
-	if not _started:
+	if not _started or not flower_got:
 		return
 	TimeManager.set_time(TimeManager.Times.at2100)
 	finish(true)
@@ -76,7 +86,11 @@ func _on_player_detection_body_entered(body: Node3D) -> void:
 
 	var is_drunk: bool = body._is_drunk
 	print("[SleepPuzzle] is_drunk: ", is_drunk)
-	if is_drunk or _sanson_awake:
+
+	# Decision is locked at entry: if the player entered drunk, ignore this
+	# visit completely, even if they become sober while still inside.
+	_ignore_visit = is_drunk
+	if _ignore_visit or _sanson_awake:
 		return
 
 	_wake_sanson_and_block()
@@ -87,6 +101,7 @@ func _on_player_detection_body_exited(body: Node3D) -> void:
 		return
 
 	_player_inside = false
+	_ignore_visit = false # next entry is evaluated from scratch
 	_sleep_sanson()
 
 
@@ -94,14 +109,11 @@ func _wake_sanson_and_block() -> void:
 	_sanson_awake = true
 	animated_sprite_2d.play(ANIM_AWAKE)
 
-	# Player left while Sanson was waking up: _sleep_sanson() already handled it.
-	if not _sanson_awake or not _player_inside:
-		return
-
 	sanson.trigger()
 	await DialogueManager.dialogue_ended
 
-	if _sanson_awake:
+	# Player may have left during the dialogue: _sleep_sanson() already handled it.
+	if _sanson_awake and _player_inside:
 		door_blocker.set_deferred("disabled", false)
 
 

@@ -1,8 +1,17 @@
 ~ start
+do CharacterData.Julio.worry_lucio_drunk = true
+if CharacterData.Sanson.flower_got:
+	do CharacterData.Lucio.want_drink = true
+	=> asleep_flower
+else:
+	do CharacterData.Lucio.want_drink = false
+	=> asleep_plant
+
+~ asleep_flower
 if not CharacterData.Sanson.sleep_talked_once:
 	do DialogueData.set_mood("Sanson", DialogueData.SansonMoods.AWAKE)
 	Sanson: “Quem está ai? Quem é?”
-	Você: “Ah-“
+	Você: “Ah-”
 	Sanson: “Francisco… sabia que era você. Qual a sua razão para atrapalhar o meu sono?”
 	Você: “Eu só… preciso da gazua...”
 	do DialogueData.set_mood("Sanson", DialogueData.SansonMoods.IDLE_ANGRY)
@@ -12,5 +21,27 @@ if not CharacterData.Sanson.sleep_talked_once:
 	do CharacterData.Sanson.sleep_talked_once = true
 else:
 	do DialogueData.set_mood("Sanson", DialogueData.SansonMoods.AWAKE)
-	Sanson: “Estou sentindo seu calor aqui.”
+	Sanson: “Estou sentindo seu calor aqui. Saia.”
+=> END
+
+
+~ asleep_plant
+if not CharacterData.Sanson.sleep_talked_once:
+	Você: “...Sanson?”
+	do DialogueData.set_mood("Sanson", DialogueData.SansonMoods.IDLE_HAPPY)
+	Sanson: “Hm? Peço desculpas, Francisco, mas estou tirando um breve cochilo. Quero sonhar um pouco. É a minha recompensa por finalmente ter concluído a minha obra principal.”
+	Você: “Desculpa, mas... eu preciso te pedir algo. Preciso da gazua.”
+	do DialogueData.set_mood("Sanson", DialogueData.SansonMoods.IDLE_DEFAULT)
+	Sanson: “A gazua? Para quê?”
+	Você: “Quero ver se está tudo bem.”
+	Sanson: “O que quer dizer com isso? Tudo [i]está[/i] bem.”
+	Você: “Por favor, Sanson. Eu só quero conferir, preciso saber.”
+	Sanson: “Entendo. Eu ainda não tenho certeza sobre o que você quer dizer, mas confio em você.”
+	do InventoryManager.add_new_item(CharacterData.Item.lockpick)
+	Sanson: “Você cresceu tanto… está tão responsável. Tenho muito orgulho de você, Francisco. Nosso querido [font_size=20][i]futuro[/i][/font_size] abade.”
+	Você: “Obrigado, Sanson. Não irei te decepcionar.”
+	do CharacterData.Sanson.sleep_talked_once = true
+else:
+	do DialogueData.set_mood("Sanson", DialogueData.SansonMoods.AWAKE)
+	Sanson: “Hm? Peço desculpas, Francisco, mas estou tirando um breve cochilo.”
 => END

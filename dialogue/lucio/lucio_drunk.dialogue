@@ -38,6 +38,12 @@ Você: “...”
 Lucio: {{locals.eff}}“Bem... não fique aí só me encarando. [b]Fale.”
 do DialogueData.set_mood("Lucio", DialogueData.LucioMoods.IDLE_SINIXTRO)
 Lucio: {{locals.eff}}[font_size=40][b]“FALE.”
+if CharacterData.Lucio.want_drink:
+	=> want_drink
+else:
+	=> confort_him
+
+~ want_drink
 Você: “Sim!... sim. Eu acho.”
 do DialogueData.set_mood("Lucio", DialogueData.LucioMoods.IDLE_DEFAULT)
 Lucio: {{locals.eff}}“Ó, Francisco... você deve ver por si só...”
@@ -45,8 +51,21 @@ Você: “Eu devo o impedir... devo impedir isso tudo. O que o Sol me avisou... 
 Você: “Lucio. Eu preciso da sua garrafa.”
 do DialogueData.set_mood("Lucio", DialogueData.LucioMoods.HEART_DEFAULT)
 Lucio: {{locals.eff}}“Garoto, ergo esta garrafa para aliviar minhas tristezas.”
+Você: "Preciso me apressar!"
+do DialogueData.set_mood("Lucio", DialogueData.LucioMoods.HAND_DEFAULT)
+Lucio: {{locals.eff}}"Então... me responda... *hic*..."
 do DialogueData.set_mood("Lucio", DialogueData.LucioMoods.HEART_SAD)
-Lucio: {{locals.eff}}[font_size=20]“...eu não quero morrer...”
+Lucio: {{locals.eff}}"Você acha... que eu nasci neste corpo... para ser mantido longe do nosso Sol?"
+Lucio: {{locals.eff}}"Você acha... que o Sol me ama?..."
+- “Sim.”
+	Lucio: {{locals.eff}}“Então... por quê... por que ele nos deixa sofrer tanto? Por quê...? Por que ele se deleita ao nos ver definhando?[do DialogueData.set_mood("Lucio", DialogueData.LucioMoods.HEART_ANGRY)] POR QUE ele se recusa a nos salvar?!”
+- “Não.”
+	Lucio: {{locals.eff}}“Aha... é verdade... ele nunca me amou. É por isso que ele me deu este corpo miserável... para que eu fosse banido de sua presença... deixado para apodrecer. 
+	Lucio: {{locals.eff}}Fui reduzido a apenas um observador, condenado a ficar sentado e assistir ao mal se desenrolar diante de mim.”
+do DialogueData.set_mood("Lucio", DialogueData.LucioMoods.IDLE_SAD, true)
+Você: “...”
+do DialogueData.set_mood("Lucio", DialogueData.LucioMoods.HEART_SAD)
+Lucio: {{locals.eff}}[font_size=20]“... Eu não quero morrer...”
 do FadeInOut.fade_in(2)
 do wait(1)
 Lucio caiu desacordado sobre a mesa.
@@ -54,4 +73,23 @@ do wait(1)
 do InventoryManager.add_new_item(CharacterData.Item.drink)
 do DialogueData.hide_after_dialogue(GetEntity.get_lucio())
 do FadeInOut.fade_out(2)
+do CharacterData.Julio.complete_task("lucio_drunk")
 => END!
+
+
+~ confort_him
+Você: “Eu... eu não sei. Esse pensamento me assusta. Como eles puderam fazer isso?”
+do DialogueData.set_mood("Lucio", DialogueData.LucioMoods.IDLE_SAD)
+Lucio: {{locals.eff}}“Eu entendo que pode ser difícil de assimilar-”
+Você: “Não... eu não acredito em você. Eles se importam conosco. Existe outro jeito.”
+do DialogueData.set_mood("Lucio", DialogueData.LucioMoods.IDLE_DEFAULT)
+Lucio: {{locals.eff}}“Não seja tolo, Francisco. Estou apenas tentando lhe mostrar a verdade. [b]Abra os olhos!”
+Você: “Eles estão abertos, e eu verei com clareza.”
+Lucio: {{locals.eff}}“Por favor, seja sensato-“ 
+# sprite bebida
+Lucio dá outro gole de sua bebida.
+do DialogueData.set_mood("Lucio", DialogueData.LucioMoods.IDLE_SAD)
+Lucio: {{locals.eff}}“Faça o que achar que deve fazer... nosso bravo novo Abade. [do DialogueData.set_mood("Lucio", DialogueData.LucioMoods.IDLE_HAPPY)] Seguirei o caminho que você traçar para nós.”
+Você: “Fique bem, Lúcio.”
+do CharacterData.Julio.complete_task("lucio_drunk")
+=> END

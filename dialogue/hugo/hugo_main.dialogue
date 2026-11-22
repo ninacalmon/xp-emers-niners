@@ -2,7 +2,18 @@ import "uid://hogiw5kgfifn" as gift
 import "uid://dt4dpnkm6fpxo" as tumor_puzzle
 
 ~ start
-=> gift/start
+if CharacterData.Hugo.happy_chatting == true:
+	Você: * Eles parecem alegres, não quero os interromper. *
+	if CharacterData.Julio.worry_lucio_drunk:
+		do DialogueData.set_mood("Hugo", DialogueData.HugoMoods.OPENARMS_SUPERHAPPY)
+		Hugo: “Ah! Olá, Francisco.”
+		if CharacterData.Julio.get_status("lucio_drunk") == 1:
+			Hugo: “Vai lá ver o Lucio, estamos ocupados!!!”
+		elif CharacterData.Julio.get_status("lucio_drunk") == 0:
+			do DialogueData.set_mood("Hugo", DialogueData.HugoMoods.MISCHIVEOUS_SURPRISED)
+			Hugo: “Julio queria te pedir algo, por favor fale com ele.”
+	=> END!
+
 if not WorldStateManager.starting_cutscene_played:
 	do DialogueData.set_mood("Hugo", DialogueData.HugoMoods.IDLE_DEFAULT)
 	Hugo: “Apresse-se, já é quase meio-dia!”
@@ -24,9 +35,9 @@ elif CharacterData.Julio.get_status("get_inkwell") == 1:
 			=> END
 		elif CharacterData.Hugo.flower_route:
 			=> gift/start
-
+do CharacterData.Hugo.flower_given_to_julio = true
 elif CharacterData.Hugo.flower_given_to_julio:
-	do DialogueData.set_mood("Hugo", DialogueData.HugoMoods.IDLE_SAD)
+	do DialogueData.set_mood("Hugo", DialogueData.HugoMoods.IDLE_SAD, true)
 	Hugo: “...”
 
 #if CharacterData.Hugo.get_status("find_correct_tumors") == 0:

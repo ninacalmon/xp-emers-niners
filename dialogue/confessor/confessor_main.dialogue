@@ -1,4 +1,7 @@
 ~ start
+do Engine.time_scale = 3
+do CharacterData.Sanson.flower_got = false
+=> meat
 if not WorldStateManager.starting_cutscene_played:
 	Confissor: “Ora, vamos, meu jovem. Está na hora de sua oração.”
 	=> END!
@@ -78,7 +81,6 @@ else:
 => END
 
 ~ hugo_conf_flower
-do locals.hugo_pos = GetEntity.get_hugo().global_position
 do GetEntity.put_entity_at(GetEntity.get_hugo(), GetEntity.get_confessing_pos().global_position)
 do DialogueData.set_mood("Hugo", DialogueData.HugoMoods.OPENARMS_HAPPY)
 Hugo: “Saudações, Confissor!” [do DialogueData.set_mood("Hugo", DialogueData.HugoMoods.OPENARMS_HAPPY, true, true)]
@@ -89,14 +91,14 @@ do InventoryManager.add_new_item(CharacterData.Item.flower)
 Hugo: “Dê isto ao... [font_size=20]Julio...[/font_size]”[do DialogueData.set_mood("Hugo", DialogueData.HugoMoods.IDLE_SURPRISED, true, true)]
 do DialogueData.set_mood("Hugo", DialogueData.HugoMoods.MISCHIVEOUS_SUPERHAPPY)
 Hugo: “D-diga que fui eu quem deu, fale para ele me encontrar no nosso canto.”[do DialogueData.set_mood("Hugo", DialogueData.HugoMoods.MISCHIVEOUS_SUPERHAPPY, true, true)]
-do GetEntity.put_entity_at(GetEntity.get_hugo(), locals.hugo_pos)
+do GetEntity.put_entity_at(GetEntity.get_hugo(), GetEntity.get_hugo_conf_pos_af().global_position)
+do GetEntity.get_hugo().stop_chatting()
 ...
 => julio_conf_flower
 => END
 
 ~ julio_conf_flower
 do wait(1)
-do locals.julio_pos = GetEntity.get_julio().global_position
 do GetEntity.put_entity_at(GetEntity.get_julio(), GetEntity.get_confessing_pos().global_position)
 do DialogueData.set_mood("Julio", DialogueData.JulioMoods.INTENSE_SAD, true)
 Julio: “Olá.”
@@ -120,7 +122,7 @@ do DialogueData.set_mood("Julio", DialogueData.JulioMoods.IDLE_SURPRISED, true)
 Julio: “?!”
 do DialogueData.set_mood("Julio", DialogueData.JulioMoods.IDLE_CRY)
 Julio: “Ooh céuUuUs!”
-do GetEntity.put_entity_at(GetEntity.get_julio(), locals.julio_pos)
+do GetEntity.put_entity_at(GetEntity.get_julio(), GetEntity.get_julio_conf_pos_af_flower().global_position)
 do CharacterData.Hugo.flower_given_to_julio = true
 ...
 ...
@@ -129,14 +131,13 @@ do CharacterData.Hugo.flower_given_to_julio = true
 => END
 
 ~ hugo_conf_plant
-do locals.hugo_pos = GetEntity.get_hugo().global_position
 do GetEntity.put_entity_at(GetEntity.get_hugo(), GetEntity.get_confessing_pos().global_position)
 do DialogueData.set_mood("Hugo", DialogueData.HugoMoods.IDLE_SURPRISED)
 Hugo: “Tenho... um problema.” [do DialogueData.set_mood("Hugo", DialogueData.HugoMoods.IDLE_SURPRISED, true, true)]
 do DialogueData.set_mood("Hugo", DialogueData.HugoMoods.IDLE_SURPRISED, false, true)
 Hugo: “Preciso fazer algo de muito importante. Contudo, sempre que penso nisso, minha mente e meu corpo enfraquecem. Minha garganta fica seca, fico ofegante...” [do DialogueData.set_mood("Hugo", DialogueData.HugoMoods.IDLE_SURPRISED, true, true)]
-do DialogueData.set_mood("Hugo", DialogueData.HugoMoods.IDLE_SURPRISED, false, true)
-Hugo: “Será que fui alvo de uma maldição? Peço perdão.” [do DialogueData.set_mood("Hugo", DialogueData.HugoMoods.IDLE_SURPRISED, true, true)]
+do DialogueData.set_mood("Hugo", DialogueData.HugoMoods.IDLE_SAD, false, true)
+Hugo: “Será que fui alvo de uma maldição? Peço perdão.” [do DialogueData.set_mood("Hugo", DialogueData.HugoMoods.IDLE_SAD, true, true)]
 Você: “...Siga agora, em paz, para a luz d’Ele.”
 do DialogueData.set_mood("Hugo", DialogueData.HugoMoods.MISCHIVEOUS_SURPRISED)
 Hugo: “Não sei o que fazer.” [do DialogueData.set_mood("Hugo", DialogueData.HugoMoods.MISCHIVEOUS_SURPRISED, true, true)]
@@ -151,14 +152,15 @@ Hugo: “É mesmo? Você acha?” [do DialogueData.set_mood("Hugo", DialogueData
 Você: “.....sim.”
 do DialogueData.set_mood("Hugo", DialogueData.HugoMoods.OPENARMS_HAPPY)
 Hugo: “Obrigado.” [do DialogueData.set_mood("Hugo", DialogueData.HugoMoods.OPENARMS_HAPPY, true, true)]
-do GetEntity.put_entity_at(GetEntity.get_hugo(), locals.hugo_pos)
+do GetEntity.put_entity_at(GetEntity.get_hugo(), GetEntity.get_hugo_conf_pos_af().global_position)
+do GetEntity.get_hugo().start_chatting()
+do CharacterData.Hugo.happy_chatting = true
 ...
 => julio_conf_plant
 => END
 
 ~ julio_conf_plant
 do wait(1)
-do locals.julio_pos = GetEntity.get_julio().global_position
 do GetEntity.put_entity_at(GetEntity.get_julio(), GetEntity.get_confessing_pos().global_position)
 do DialogueData.set_mood("Julio", DialogueData.JulioMoods.IDLE_HAPPY)
 Julio: “Olá.” [do DialogueData.set_mood("Julio", DialogueData.JulioMoods.IDLE_HAPPY, true, true)]
@@ -169,8 +171,10 @@ Julio: “Estou profundamente sentido. Já não conseguia mais alimentá-las. N�
 do DialogueData.set_mood("Julio", DialogueData.JulioMoods.IDLE_HAPPY)
 Julio: “Bom, que todos possamos dormir em paz, sem jamais conhecer a fome. Espero reencontrar a todos, não importa a forma que assumam.” [do DialogueData.set_mood("Julio", DialogueData.JulioMoods.IDLE_HAPPY, true, true)]
 do DialogueData.set_mood("Julio", DialogueData.JulioMoods.IDLE_HAPPY, false, true)
-Julio: “Estou em paz. Desejo paz a todos.” [do DialogueData.set_mood("Julio", DialogueData.JulioMoods.IDLE_SAD, true, true)]
-do GetEntity.put_entity_at(GetEntity.get_julio(), locals.julio_pos)
+Julio: “Estou em paz. Desejo paz a todos.” [do DialogueData.set_mood("Julio", DialogueData.JulioMoods.IDLE_HAPPY, true, true)]
+do GetEntity.put_entity_at(GetEntity.get_julio(), GetEntity.get_julio_conf_pos_af_plant().global_position)
+do GetEntity.get_julio().is_chatting = true
+do CharacterData.Hugo.happy_chatting = true
 ...
 ...
 ...

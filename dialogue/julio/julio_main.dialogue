@@ -2,6 +2,23 @@ import "uid://4rnw0u51426k" as medication_for_lucio
 import "uid://djib057op7qt5" as get_inkwell
 
 ~ start
+if CharacterData.Hugo.happy_chatting == true and CharacterData.Julio.worry_lucio_drunk == false:
+	Você: * Eles parecem alegres, não quero os interromper. *
+	=> END!
+elif CharacterData.Julio.worry_lucio_drunk:
+	if CharacterData.Julio.get_status("lucio_drunk") == 0:
+		do DialogueData.set_mood("Julio", DialogueData.JulioMoods.IDLE_HAPPY)
+		Julio: “Olá, Francisco! Espero não estar te incomodando.”
+		do DialogueData.set_mood("Julio", DialogueData.JulioMoods.INTENSE_SAD)
+		Julio: “Eu prometo que esse vai ser meu último pedido! Eu ouvi que Lucio está chorando no quarto e... eu estou muito preocupado, mas ele não quer falar comigo. Você pode ir ver como ele está?”
+		Você: “Claro, já volto.”
+		do CharacterData.Julio.give_task("lucio_drunk")
+	elif CharacterData.Julio.get_status("lucio_drunk") == 1:
+		do DialogueData.set_mood("Julio", DialogueData.JulioMoods.IDLE_DEFAULT, true)
+		Você: “Tem certeza que não tem mais nada que queira que eu faça? [font_size=20]Seu pidão.[/font_size]”
+		do DialogueData.set_mood("Julio", DialogueData.JulioMoods.SILLY_HAPPY)
+		Julio: “Uuuhum!”
+	=> END!
 if not WorldStateManager.starting_cutscene_played:
 	do DialogueData.set_mood("julio", DialogueData.JulioMoods.IDLE_DEFAULT)
 	Julio: “É hora da oração de meio dia.”
@@ -30,5 +47,5 @@ if CharacterData.Julio.given_meat == false:
 	Julio: “Estava a guardando mas você merece isso muito mais do que eu. E... eu não preciso mais disso. Bom apetite!”
 	do InventoryManager.add_new_item(CharacterData.Item.rotten_meat)
 	Você: “Aaah... haha, é. Obrigado. Isso é bem gentil da sua parte.”
-	Julio: “Que a luz [b]Dele[/b] o ilumine. E muito obrigado por me ajudar, nosso querido [i]futuro[/i] abade.”
+	Julio: “Que a luz [b]Dele[/b] o ilumine. E muito obrigado por me ajudar, nosso querido [font_size=20][i]futuro[/i][/font_size] abade.”
 => END

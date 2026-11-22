@@ -1100,7 +1100,7 @@ environment = SubResource("Environment_t634p")
 [node name="Camera3D" type="Camera3D" parent="VisualConfig" unique_id=1834340419]
 unique_name_in_owner = true
 physics_interpolation_mode = 1
-transform = Transform3D(0.68919504, -0.054667525, 0.72251064, -4.3353648e-05, 0.99714667, 0.07548874, -0.72457594, -0.05205778, 0.6872262, 32.04424, 4.24362, -11.329548)
+transform = Transform3D(0.6889006, -0.054633148, 0.72279406, 5.420874e-05, 0.9971595, 0.07531968, -0.7248559, -0.05184858, 0.68694663, 32.04429, 4.2437143, -11.329544)
 top_level = true
 cull_mask = 1048031
 size = 62.088
@@ -1130,7 +1130,7 @@ omni_range = 20.153
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.082743, 1.6670088, -3.19987)
 
 [node name="Camera3D" parent="Church/ConfessionalBooth" index="2" unique_id=430217490]
-transform = Transform3D(0.6891959, -0.05466724, 0.7225099, -4.380788e-05, 0.99714667, 0.07548885, -0.72457516, -0.052058246, 0.68722695, 32.04424, 4.24362, -11.329548)
+transform = Transform3D(0.6889026, -0.054632902, 0.7227921, 5.3429354e-05, 0.9971594, 0.07532028, -0.72485393, -0.05184971, 0.68694866, 32.04429, 4.243714, -11.329544)
 top_level = true
 
 [node name="Sprite3D" parent="Church/ConfessionalBooth/Confessor" parent_id_path=PackedInt32Array(321162436, 1758948578) index="0" unique_id=415751236]
@@ -1346,7 +1346,7 @@ door_blocker = NodePath("../PlayerBlocker/CollisionShape3D")
 sanson_interact_collision_shape_3d = NodePath("../../Sanson/InteractionArea/CollisionShape3D")
 
 [node name="sanson_sleep_pos" type="Marker3D" parent="Characters/SleepPuzzle/SleepEvent" unique_id=1060949907]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 76.31251, 0.99999976, -5.1884975)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 76.31251, 0.99999976, -5.5078425)
 
 [node name="LockPick" parent="Characters/SleepPuzzle" unique_id=1067992399 instance=ExtResource("17_bt7bg")]
 transform = Transform3D(-0.4760858, 0.033805065, 0.87874883, -0.069729395, 0.99466336, -0.07604201, -0.87663, -0.09747716, -0.471188, -0.04221344, -47.87086, -4.468889)
@@ -1399,8 +1399,17 @@ bell_area_door = NodePath("../../Church/SecondFloor2/BellAreaDoor")
 [node name="CharactherConfesingPosition" type="Marker3D" parent="Cutscenes" unique_id=1551973121 groups=["confessing_pos"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 21.404587, 1.5257708, -2.079492)
 
-[node name="HugoRoomPosition" type="Marker3D" parent="Cutscenes" unique_id=2141241143 groups=["hugo_room_pos"]]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 52.039368, 1.0060003, -5.7116895)
+[node name="ConfHugoPositionAf" type="Marker3D" parent="Cutscenes" unique_id=2141241143 groups=["conf_hugo_pos_af"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 84.139, 1.0000005, 4.986676)
+
+[node name="HugoRoomPos" type="Marker3D" parent="Cutscenes" unique_id=1341266334 groups=["hugo_room_pos"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 84.139, 1.0000005, 4.986676)
+
+[node name="ConfJulioPositionAfPlant" type="Marker3D" parent="Cutscenes" unique_id=1175746444 groups=["conf_julio_pos_af_plant"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 84.01936, 1.0000005, 6.4881096)
+
+[node name="ConfJulioPositionAfFlower" type="Marker3D" parent="Cutscenes" unique_id=1283806313 groups=["conf_julio_pos_af_flower"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 64.9992, 0.9999999, -6.740524)
 
 [node name="SansonRoomPosition" type="Marker3D" parent="Cutscenes" unique_id=998715351 groups=["sanson_room_pos"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 74.88704, 1.006, -6.5855584)
@@ -1479,7 +1488,7 @@ noise_emitter_layer = 1
 metadata/_custom_type_script = "uid://csjccrhj5wnx7"
 
 [node name="CloseUpCamera" type="Node3D" parent="Cutscenes/StartingCutscene" unique_id=1789459155 node_paths=PackedStringArray("follow_target", "look_at_target")]
-transform = Transform3D(-0.8782195, 0, 0, 0, 0.68254006, 0.7308435, 0, 0.7308429, -0.6825405, 31.976969, 4.5308065, -13.0020275)
+transform = Transform3D(-0.86437297, 0, 0, 0, 0.8826757, -0.4699747, 0, -0.46997437, -0.8826764, 31.976969, 4.116524, -13.0710745)
 top_level = true
 script = ExtResource("28_phx5y")
 follow_mode = 5
@@ -1558,11 +1567,12 @@ collision_mask = 4
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Cutscenes/StartingCutscene/PlayerDetection" unique_id=819121188]
 shape = SubResource("SphereShape3D_cdpwx")
 
-[node name="AnimalsCutscene" type="Node3D" parent="Cutscenes" unique_id=1813398001 node_paths=PackedStringArray("player", "julio", "sheep", "sheep_2", "sheep_3", "sheep_rotten", "barn_door", "sheep_pos", "sheep_pos_2", "sheep_pos_3", "sheep_rotten_pos", "julio_pos", "julio_pos_after", "player_pos_after", "julio_pos_after_plant", "camera", "barn_camera", "sky_camera", "julio_camera", "animation_player", "music", "sheep_cry", "dialogue_input_text")]
+[node name="AnimalsCutscene" type="Node3D" parent="Cutscenes" unique_id=1813398001 node_paths=PackedStringArray("player", "julio", "hugo", "sheep", "sheep_2", "sheep_3", "sheep_rotten", "barn_door", "sheep_pos", "sheep_pos_2", "sheep_pos_3", "sheep_rotten_pos", "julio_pos", "julio_pos_after", "player_pos_after", "julio_pos_after_plant", "hugo_pos_after", "camera", "barn_camera", "sky_camera", "julio_camera", "animation_player", "music", "sheep_cry", "dialogue_input_text")]
 script = ExtResource("36_vl1dq")
 variant = 1
 player = NodePath("../../Player")
 julio = NodePath("../../Characters/Julio")
+hugo = NodePath("../../Characters/Hugo")
 sheep = NodePath("Sheep")
 sheep_2 = NodePath("Sheep2")
 sheep_3 = NodePath("Sheep3")
@@ -1576,6 +1586,7 @@ julio_pos = NodePath("JulioPos")
 julio_pos_after = NodePath("JulioPosAfter")
 player_pos_after = NodePath("PlayerPosAfter")
 julio_pos_after_plant = NodePath("JulioPosPlantAfter")
+hugo_pos_after = NodePath("HugoPosAfter")
 camera = NodePath("../../VisualConfig/Camera3D")
 barn_camera = NodePath("barn_camera")
 sky_camera = NodePath("sky_camera")
@@ -1621,6 +1632,9 @@ transform = Transform3D(0.88179463, 0, -0.47163355, 0, 1, 0, 0.47163355, 0, 0.88
 [node name="JulioPosAfter" type="Marker3D" parent="Cutscenes/AnimalsCutscene" unique_id=1414569798]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 63.572727, 1, -6.1496134)
 
+[node name="HugoPosAfter" type="Marker3D" parent="Cutscenes/AnimalsCutscene" unique_id=185746730]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 83.64098, -35.033577, 5.390919)
+
 [node name="JulioPosPlantAfter" type="Marker3D" parent="Cutscenes/AnimalsCutscene" unique_id=385725906]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.796722, 0, 1.0660896)
 
@@ -1637,7 +1651,7 @@ tween_resource = SubResource("Resource_1o6i5")
 metadata/_custom_type_script = "uid://csjccrhj5wnx7"
 
 [node name="julio_camera" type="Node3D" parent="Cutscenes/AnimalsCutscene" unique_id=1149604511 node_paths=PackedStringArray("follow_target", "look_at_target")]
-transform = Transform3D(-0.9838765, 0.007139156, 0.037665438, 2.29255e-10, 0.983372, -0.17577964, -0.038835637, -0.18086605, -0.95423025, 28.114899, 4.2217307, -12.3602295)
+transform = Transform3D(-0.9838765, 0.007139156, 0.03682074, 2.29255e-10, 0.983372, -0.17183754, -0.038835637, -0.18086605, -0.93283033, 28.114899, 4.2217307, -12.3602295)
 top_level = true
 script = ExtResource("28_phx5y")
 follow_mode = 2

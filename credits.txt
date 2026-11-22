@@ -1,6 +1,7 @@
 all plugins developers
 shaders used
 grenze font creator
+uncialAntiqua font creator
 
 kenney for input prompt icons
 
@@ -8,7 +9,7 @@ j0y sketchfab for bible
 rakkale sketchfab for lectern
 elisey sketchfab for church bench
 
-freesound_community on pixabay for fire crackling
+freesound_community on pixabay for multiple sfxs
 
 sketchfab:
 srvylord

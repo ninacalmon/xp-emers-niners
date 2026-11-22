@@ -13,6 +13,9 @@ var astrolabus_desk: Node3D = null
 var confessor_booth: Node3D = null
 var confessing_pos: Node3D = null
 var hugo_room_pos: Node3D = null
+var conf_hugo_pos_af: Node3D = null
+var conf_julio_pos_af_plant: Marker3D = null
+var conf_julio_pos_af_flower: Marker3D = null
 var sanson_room_pos: Node3D = null
 
 
@@ -67,6 +70,20 @@ func get_confessing_pos() -> Node3D:
 func get_hugo_room_pos() -> Node3D:
 	hugo_room_pos = _find_cached(hugo_room_pos, &"hugo_room_pos")
 	return hugo_room_pos
+	
+
+func get_hugo_conf_pos_af() -> Node3D:
+	conf_hugo_pos_af = _find_cached(conf_hugo_pos_af, &"conf_hugo_pos_af")
+	return conf_hugo_pos_af
+
+
+func get_julio_conf_pos_af_plant() -> Node3D:
+	conf_julio_pos_af_plant = _find_cached(conf_julio_pos_af_plant, &"conf_julio_pos_af_plant")
+	return conf_julio_pos_af_plant
+
+func get_julio_conf_pos_af_flower() -> Node3D:
+	conf_julio_pos_af_flower = _find_cached(conf_julio_pos_af_flower, &"conf_julio_pos_af_flower")
+	return conf_julio_pos_af_flower
 
 
 func get_sanson_room_pos() -> Node3D:

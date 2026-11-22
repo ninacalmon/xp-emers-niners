@@ -72,6 +72,7 @@ Julio: “Oi?”
 Você: “Oi?”
 do DialogueData.set_mood("Julio", DialogueData.JulioMoods.IDLE_SAD)
 do InventoryManager.use_item()
+do CharacterData.Julio.complete_task("get_inkwell")
 Julio: “Ah. A tinta. Sim, obrigado. Pode me seguir até a área dos animais agora.”
 do WorldStateManager.play_animals_ink_cutscene()
 => END!

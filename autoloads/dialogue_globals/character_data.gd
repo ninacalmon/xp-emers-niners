@@ -46,15 +46,21 @@ class JulioData extends TaskOwner:
 				"status": [false, false],
 				"txt": "Traga um tinteiro para Julio.",
 			},
+			"lucio_drunk": {
+				"status": [false, false],
+				"txt": "Cheque como Lucio está."
+			}
 		}
 
 	var lucio_received_medicine: bool = false
 	var item_animals: String
 	var given_meat: bool = false
+	var worry_lucio_drunk: bool = false
 
 
 class LucioData extends TaskOwner:
 	pass # no tasks yet
+	var want_drink: bool = false
 
 
 class ConfessorData extends TaskOwner:
@@ -100,6 +106,7 @@ class HugoData extends TaskOwner:
 
 	var flower_route: bool = false
 	var tumour_route: bool = false
+	var happy_chatting = false
 
 	func _get_hugo() -> DialogueAction:
 		if is_instance_valid(Hugo):
@@ -153,6 +160,8 @@ class ItemData:
 	var astrolabus_pointer: ItemRes = preload("uid://8dvrkoxmyyx4")
 	var astrolabus_full: ItemRes = preload("uid://c6akotlps2yoe")
 	var drink: ItemRes = preload("uid://bugvpvu1atehq")
+	var lockpick = preload("uid://cb0fdb2g5cmw2")
+	
 
 
 var Julio: JulioData = JulioData.new()

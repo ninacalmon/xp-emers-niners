@@ -12,6 +12,7 @@ enum Variant { INK, PLANT }
 @export_group("Characters")
 @export var player: Player
 @export var julio: Node3D
+@export var hugo: DialogueAction
 @export var sheep: Sheep
 @export var sheep_2: Sheep
 @export var sheep_3: Sheep
@@ -27,6 +28,7 @@ enum Variant { INK, PLANT }
 @export var julio_pos_after: Marker3D
 @export var player_pos_after: Marker3D
 @export var julio_pos_after_plant: Marker3D
+@export var hugo_pos_after: Marker3D
 
 
 @export_group("Cameras")
@@ -74,7 +76,7 @@ var _orig_dialogue_text_modulate: Color
 var hands_overlay: HandsOverlay
 @export var dialogue_input_text: RichTextLabel
 
-
+var plant_julio_is_away
 
 func _ready() -> void:
 	hands_overlay = get_tree().get_first_node_in_group("hands_overlay") as HandsOverlay
@@ -126,7 +128,7 @@ func play_cutscene() -> void:
 	end_cutscene()
 	await FadeInOut.fade_out(3.0)
 	finished.emit()
-#
+
 	#if variant == Variant.PLANT:
 		#balloon = DialogueManager.show_dialogue_balloon(dialogue_res, "plant_thanks")
 
@@ -275,6 +277,7 @@ func end_cutscene() -> void:
 
 	# AFTER positions
 	julio.global_position = _get_julio_pos_after().global_position
+	hugo.global_position = hugo_pos_after.global_position
 	player.global_transform = player_pos_after.global_transform
 	_set_julio_mood(DialogueData.JulioMoods.idle)
 
