@@ -28,8 +28,10 @@ var _picking: bool = false
 func _ready() -> void:
 	super()
 
-	if flip:
-		self.scale.z *= -1
+	if flip and collision_shape_3d != null:
+		pass
+		interaction_area.position.z = 0.77
+
 
 
 func trigger() -> void:
@@ -103,9 +105,12 @@ func open_door() -> void:
 
 	collision_shape_3d.disabled = true
 
+	var direction: float = -1.0 if flip else 1.0
+	var target_angle: float = deg_to_rad(open_rotation) * direction
+
 	var tween: Tween = create_tween()
 	tween.set_ease(Tween.EASE_IN)
-	tween.tween_property(mesh_instance_3d, "rotation:y", deg_to_rad(open_rotation), speed)
+	tween.tween_property(mesh_instance_3d, "rotation:y", target_angle, speed)
 	open_audio_stream_player.play()
 
 	await tween.finished

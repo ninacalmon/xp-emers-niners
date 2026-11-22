@@ -1,0 +1,15 @@
+[gd_scene format=3 uid="uid://cxvnmcm733i7"]
+
+[ext_resource type="Texture2D" uid="uid://5gmxhn7m3ihp" path="res://assets/3d/objects/carpet/carpet_monks.png" id="1_ac0ta"]
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_cdpwx"]
+size = Vector2(1.95, 3)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ksdio"]
+albedo_texture = ExtResource("1_ac0ta")
+
+[node name="Carpet" type="Node3D" unique_id=1580142480]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1177352061]
+mesh = SubResource("PlaneMesh_cdpwx")
+surface_material_override/0 = SubResource("StandardMaterial3D_ksdio")

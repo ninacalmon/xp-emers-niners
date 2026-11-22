@@ -5,6 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://cydbhqp0n65i7" path="res://scenes/buildings/decoration/wall_torch.tscn" id="3_7mfmi"]
 [ext_resource type="PackedScene" uid="uid://c7w23sdby68db" path="res://scenes/objects/study_desk/study_desk.tscn" id="4_my7t4"]
 [ext_resource type="PackedScene" uid="uid://3ke0t8mctl7h" path="res://assets/3d/items/candle/candle.tscn" id="5_asby7"]
+[ext_resource type="PackedScene" uid="uid://cxvnmcm733i7" path="res://scenes/objects/carpet/carpet.tscn" id="6_g40bn"]
 
 [node name="BasicRoom" type="Node3D" unique_id=2042304168]
 
@@ -28,5 +29,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.1538439, 1.0313048, 2.23364
 
 [node name="candle2" parent="." unique_id=1627191445 instance=ExtResource("5_asby7")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.0849085, 0.8344612, 2.3729072)
+
+[node name="Carpet" parent="." unique_id=1580142480 instance=ExtResource("6_g40bn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.247, 0.01, 0.504)
 
 [editable path="candle"]
