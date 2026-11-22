@@ -41,6 +41,7 @@ if not CharacterData.Sanson.sleep_talked_once:
 	Sanson: “Você cresceu tanto… está tão responsável. Tenho muito orgulho de você, Francisco. Nosso querido [font_size=20][i]futuro[/i][/font_size] abade.”
 	Você: “Obrigado, Sanson. Não irei te decepcionar.”
 	do CharacterData.Sanson.sleep_talked_once = true
+	do TimeManager.set_time(TimeManager.Times.at2100)
 else:
 	do DialogueData.set_mood("Sanson", DialogueData.SansonMoods.AWAKE)
 	Sanson: “Hm? Peço desculpas, Francisco, mas estou tirando um breve cochilo.”

@@ -16,7 +16,7 @@ func _on_body_entered(body):
 
 
 func start():
-	TimeManager.set_time(TimeManager.Times.at2400)
+	#TimeManager.set_time(TimeManager.Times.at2400)
 	DialogueManager.show_dialogue_balloon(dialogue_res, "start")
 	await DialogueManager.dialogue_ended
 	await get_tree().create_timer(3).timeout

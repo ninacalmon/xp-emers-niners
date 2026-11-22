@@ -1,7 +1,4 @@
 ~ start
-do Engine.time_scale = 3
-do CharacterData.Sanson.flower_got = false
-=> meat
 if not WorldStateManager.starting_cutscene_played:
 	Confissor: “Ora, vamos, meu jovem. Está na hora de sua oração.”
 	=> END!
@@ -193,8 +190,8 @@ Prior: “Ah... estou exausto; sinto uma dor de cabeça lancinante, como se minh
 do DialogueData.set_mood("Prior", DialogueData.PriorMoods.IDLE_SAD, false, true)
 Prior: “O Abade e eu estivemos ocupados o dia e a noite inteiros. Mas tudo está correndo conforme o planejado; deve prosseguir sem contratempos.” [do DialogueData.set_mood("Prior", DialogueData.PriorMoods.IDLE_SAD, true, true)]
 do DialogueData.set_mood("Prior", DialogueData.PriorMoods.IDLE_SAD, false, true)
-Prior: “Sinto-me culpado por ter deixado as [b]chaves[/b] com [b]Sanson[/b]. Não deveria envolver os monges em questões tão estressantes...” [do DialogueData.set_mood("Prior", DialogueData.PriorMoods.IDLE_SAD, true, true)]
-* O que...? O Sanson está com as chaves do prior...? *
+Prior: “Sinto-me culpado por ter deixado a [b]gazua[/b] com [b]Sanson[/b]. Não deveria envolver os monges em questões tão estressantes...” [do DialogueData.set_mood("Prior", DialogueData.PriorMoods.IDLE_SAD, true, true)]
+* O que...? O Sanson está com a gazua do prior...? *
 do DialogueData.set_mood("Prior", DialogueData.PriorMoods.IDLE_SAD, false, true)
 Prior: “Especialmente Sanson... ele já carrega fardos suficientes. Mas, um único passo em falso, e tudo sairá dos eixos. Ele é o mais responsável de todos; era inevitável.” [do DialogueData.set_mood("Prior", DialogueData.PriorMoods.IDLE_SAD, true, true)]
 do DialogueData.set_mood("Prior", DialogueData.PriorMoods.IDLE_SAD, false, true)

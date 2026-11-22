@@ -56,6 +56,7 @@ func _physics_process(delta: float) -> void:
 		_hold_elapsed += delta
 		if _hold_elapsed >= hold_time:
 			_open_door()
+			TimeManager.set_time(TimeManager.Times.at2300)
 	else:
 		_hold_elapsed = 0.0
 

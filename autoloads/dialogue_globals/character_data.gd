@@ -72,7 +72,7 @@ class PriorData extends TaskOwner:
 		tasks = {
 			"get_keys": {
 				"status": [false, false],
-				"txt": "Consiga as chaves do Prior.",
+				"txt": "Consiga a gazua do Prior.",
 			},
 		}
 
