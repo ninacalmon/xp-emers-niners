@@ -41,7 +41,7 @@ func trigger() -> void:
 	InventoryManager.add_new_item(DRINK)
 	InventoryManager.add_new_item(MIRROR_B_FULL)
 	InventoryManager.add_new_item(MIRROR_C_FULL)
-	InventoryManager.add_new_item(BLANK_PAPER)
+	InventoryManager.add_new_item(MIRROR_A_FULL)
 
 
 

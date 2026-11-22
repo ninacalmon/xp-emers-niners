@@ -1,5 +1,6 @@
 [gd_scene format=3 uid="uid://brqyshn6lkbl1"]
 
+[ext_resource type="Script" uid="uid://bwnv0srn6po78" path="res://scenes/objects/fire/fire.gd" id="1_24gtj"]
 [ext_resource type="Shader" uid="uid://bmnef1sjd1bt0" path="res://resources/shaders/fire.tres" id="1_ce38q"]
 [ext_resource type="Texture2D" uid="uid://dw80djoai03fg" path="res://assets/3d/scenery/fire/Voronoi01.png" id="2_24gtj"]
 [ext_resource type="Texture2D" uid="uid://br0ve0b611707" path="res://assets/3d/scenery/fire/Flame01.png" id="3_w043e"]
@@ -18,7 +19,7 @@ shader_parameter/DissolveAmount = 0.550000026125
 
 [sub_resource type="Curve" id="Curve_oorcj"]
 _limits = [1.0, 15.0, 0.0, 1.0]
-_data = [Vector2(0, 12), 0.0, 0.0, 0, 0]
+_data = [Vector2(0, 15), 0.0, 0.0, 0, 0]
 point_count = 1
 
 [sub_resource type="CurveTexture" id="CurveTexture_3bswy"]
@@ -32,7 +33,7 @@ emission_curve = SubResource("CurveTexture_3bswy")
 [sub_resource type="QuadMesh" id="QuadMesh_ksdio"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_sd0hj"]
-render_priority = 0
+render_priority = 1
 shader = ExtResource("1_ce38q")
 shader_parameter/MainTex = ExtResource("4_lvob3")
 shader_parameter/DissolveTiling = Vector2(0.5, 0.5)
@@ -41,7 +42,7 @@ shader_parameter/DissolveAmount = 0.0
 
 [sub_resource type="Curve" id="Curve_med4g"]
 _limits = [0.0, 15.0, 0.0, 1.0]
-_data = [Vector2(0, 6.5730343), 0.0, 0.0, 0, 0]
+_data = [Vector2(0, 15), 0.0, 0.0, 0, 0]
 point_count = 1
 
 [sub_resource type="CurveTexture" id="CurveTexture_7qke6"]
@@ -71,6 +72,14 @@ emission_curve = SubResource("CurveTexture_7qke6")
 
 [sub_resource type="QuadMesh" id="QuadMesh_u0ka6"]
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ce38q"]
+render_priority = 0
+shader = ExtResource("1_ce38q")
+shader_parameter/MainTex = ExtResource("4_lvob3")
+shader_parameter/DissolveTiling = Vector2(0.5, 0.5)
+shader_parameter/DissolveSpeed = Vector2(0, 0)
+shader_parameter/DissolveAmount = 0.0
+
 [sub_resource type="Gradient" id="Gradient_3g57t"]
 offsets = PackedFloat32Array(0, 0.2713568, 0.63316584, 1)
 colors = PackedColorArray(1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 0.90163934, 1, 1, 1, 0)
@@ -94,7 +103,7 @@ color = Color(0.65834004, 0.6583399, 0.6583399, 1)
 color_ramp = SubResource("GradientTexture1D_w8nbd")
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_1xhwe"]
-render_priority = 0
+render_priority = 2
 shader = ExtResource("5_qso4a")
 shader_parameter/MainTex = ExtResource("6_svmdj")
 
@@ -122,10 +131,12 @@ turbulence_noise_scale = 3.0
 [sub_resource type="QuadMesh" id="QuadMesh_b4max"]
 
 [node name="Fire" type="Node3D" unique_id=669538208]
+script = ExtResource("1_24gtj")
 
 [node name="StaticFlame" type="GPUParticles3D" parent="." unique_id=952130730]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.3380127, 0)
 material_override = SubResource("ShaderMaterial_5604n")
+cast_shadow = 0
 amount = 1
 lifetime = 5.0
 local_coords = true
@@ -134,6 +145,7 @@ draw_pass_1 = SubResource("QuadMesh_ksdio")
 
 [node name="Flames" type="GPUParticles3D" parent="." unique_id=1964061805]
 material_override = SubResource("ShaderMaterial_sd0hj")
+cast_shadow = 0
 amount = 20
 lifetime = 1.2
 process_material = SubResource("ParticleProcessMaterial_5604n")
@@ -142,7 +154,8 @@ draw_pass_1 = SubResource("QuadMesh_u0ka6")
 [node name="Smoke" type="GPUParticles3D" parent="." unique_id=2041608222]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.24571228, 0)
 sorting_offset = -1.0
-material_override = SubResource("ShaderMaterial_sd0hj")
+material_override = SubResource("ShaderMaterial_ce38q")
+cast_shadow = 0
 amount = 20
 lifetime = 1.8
 process_material = SubResource("ParticleProcessMaterial_rtp8r")
@@ -151,7 +164,13 @@ draw_pass_1 = SubResource("QuadMesh_u0ka6")
 [node name="ParticlesFloating" type="GPUParticles3D" parent="." unique_id=440690130]
 sorting_offset = 1.0
 material_override = SubResource("ShaderMaterial_1xhwe")
+cast_shadow = 0
 amount = 50
 lifetime = 2.0
 process_material = SubResource("ParticleProcessMaterial_u0ka6")
 draw_pass_1 = SubResource("QuadMesh_b4max")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="." unique_id=193935427]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.50868213)
+light_color = Color(1, 0.40784314, 0.16862746, 1)
+light_energy = 0.1

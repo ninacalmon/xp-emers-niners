@@ -1,0 +1,16 @@
+[gd_scene format=3 uid="uid://djtqv2rvttdfw"]
+
+[ext_resource type="Script" uid="uid://xmesdfdwl0pm" path="res://scenes/puzzles/mirrors/light_sensor.gd" id="1_ibmaa"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_7qke6"]
+size = Vector3(0.6677246, 0.3515625, 0.2677002)
+
+[node name="LightSensor" type="Area3D" unique_id=1214182191 node_paths=PackedStringArray("abbotts_door")]
+collision_layer = 512
+collision_mask = 0
+script = ExtResource("1_ibmaa")
+abbotts_door = NodePath("")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=554791241]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.020446777)
+shape = SubResource("BoxShape3D_7qke6")
