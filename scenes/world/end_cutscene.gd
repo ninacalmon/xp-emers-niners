@@ -12,7 +12,7 @@ func _on_body_entered(body):
 
 	player = body
 	start()
-	
+
 
 
 func start():
