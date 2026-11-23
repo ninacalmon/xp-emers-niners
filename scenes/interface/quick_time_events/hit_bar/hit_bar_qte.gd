@@ -58,7 +58,7 @@ func _ready() -> void:
 	_original_position = hit_bar_panel_cont.position
 
 
-func run(p_points_to_open: int = 5, p_max_misses: int = 3) -> Result:
+func run(p_points_to_open: int = points_to_open, p_max_misses: int = 3) -> Result:
 	points_to_open = p_points_to_open
 	max_misses = p_max_misses
 	points = 0

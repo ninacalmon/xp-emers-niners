@@ -1,0 +1,34 @@
+[gd_scene format=3 uid="uid://1ixnfc5nq6fe"]
+
+[ext_resource type="PackedScene" uid="uid://dnpv6vh0civj" path="res://assets/3d/objects/lever/lever.glb" id="1_5johu"]
+[ext_resource type="Script" uid="uid://6enxur1m2cli" path="res://scenes/objects/lever/lever.gd" id="1_odwmr"]
+[ext_resource type="Script" uid="uid://cf2auur4umdjl" path="res://systems/interaction/interaction_area.gd" id="3_so6em"]
+[ext_resource type="AudioStream" uid="uid://bis0rg25weeu3" path="res://assets/sound/sound_effects/items/mechanism.mp3" id="4_so6em"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_cdpwx"]
+
+[node name="Lever" type="Node3D" unique_id=1981012901]
+script = ExtResource("1_odwmr")
+
+[node name="Sketchfab_Scene" parent="." unique_id=1933318242 instance=ExtResource("1_5johu")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2.6820288, 0)
+
+[node name="polySurface5_aiStandardSurface1_0" parent="Sketchfab_Scene/Sketchfab_model/fb5ae766491e42f4b6bf9021e076b5b0_fbx/Object_2/RootNode/pCube7/polySurface5" parent_id_path=PackedInt32Array(1933318242, 177621367) index="0" unique_id=1771716492]
+transform = Transform3D(1, 0, 0, 0, 0.34202015, 0.9396926, 0, -0.9396926, 0.34202015, 0, 0, 0)
+
+[node name="InteractionArea" type="Area3D" parent="." unique_id=694631141 node_paths=PackedStringArray("mesh", "action_trigger")]
+script = ExtResource("3_so6em")
+mesh = NodePath("../Sketchfab_Scene/Sketchfab_model/fb5ae766491e42f4b6bf9021e076b5b0_fbx/Object_2/RootNode/pCube7/polySurface1/polySurface1_aiStandardSurface1_0")
+action_trigger = NodePath("..")
+metadata/_custom_type_script = "uid://cf2auur4umdjl"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="InteractionArea" unique_id=149891408]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.055542707, 0.11956048, -0.22636944)
+shape = SubResource("SphereShape3D_cdpwx")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=2084572228]
+stream = ExtResource("4_so6em")
+volume_db = -10.0
+bus = &"Sound Effects"
+
+[editable path="Sketchfab_Scene"]

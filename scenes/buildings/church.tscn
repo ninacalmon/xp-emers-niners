@@ -55,6 +55,7 @@
 [ext_resource type="PackedScene" uid="uid://cxvnmcm733i7" path="res://scenes/objects/carpet/carpet.tscn" id="52_2e0of"]
 [ext_resource type="PackedScene" uid="uid://drag41l7jfn2r" path="res://scenes/objects/cabinet/cabinet.tscn" id="53_evarm"]
 [ext_resource type="PackedScene" uid="uid://dgtvbvuixly68" path="res://assets/3d/objects/chair/wooden_chair.glb" id="54_wes51"]
+[ext_resource type="PackedScene" uid="uid://1ixnfc5nq6fe" path="res://scenes/objects/lever/lever.tscn" id="55_evarm"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_olxrl"]
 resource_name = "BurnedOrange"
@@ -5688,6 +5689,30 @@ transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 30.7
 [node name="Bookshelf8" parent="SecondFloorr/AbbottsRoom" unique_id=663743278 instance=ExtResource("46_x6h1e")]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 30.765331, 9.69481, 0.7389119)
 
+[node name="Bookshelf9" parent="SecondFloorr/AbbottsRoom" unique_id=1488838247 instance=ExtResource("46_x6h1e")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 35.40199, 6.35103, -6.7334504)
+
+[node name="Bookshelf10" parent="SecondFloorr/AbbottsRoom" unique_id=934508830 instance=ExtResource("46_x6h1e")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 35.40199, 6.35103, -4.7455425)
+
+[node name="Bookshelf11" parent="SecondFloorr/AbbottsRoom" unique_id=1205297351 instance=ExtResource("46_x6h1e")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 35.40199, 6.35103, -1.9979429)
+
+[node name="Bookshelf12" parent="SecondFloorr/AbbottsRoom" unique_id=1602976194 instance=ExtResource("46_x6h1e")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 35.40199, 6.35103, 0.7389119)
+
+[node name="Bookshelf13" parent="SecondFloorr/AbbottsRoom" unique_id=283395020 instance=ExtResource("46_x6h1e")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 35.40199, 9.69481, -6.7334504)
+
+[node name="Bookshelf14" parent="SecondFloorr/AbbottsRoom" unique_id=2103652982 instance=ExtResource("46_x6h1e")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 35.40199, 9.69481, -4.7455425)
+
+[node name="Bookshelf15" parent="SecondFloorr/AbbottsRoom" unique_id=2112147934 instance=ExtResource("46_x6h1e")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 35.40199, 9.69481, -1.9979429)
+
+[node name="Bookshelf16" parent="SecondFloorr/AbbottsRoom" unique_id=1211246426 instance=ExtResource("46_x6h1e")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 35.40199, 9.69481, 0.7389119)
+
 [node name="Curtain" parent="SecondFloorr/AbbottsRoom" unique_id=1711412106 instance=ExtResource("47_q2bbb")]
 transform = Transform3D(-7.081245e-08, 0, -1.62, 0, 1.62, 0, 1.62, 0, -7.081245e-08, 30.026232, 12.116776, -8.0802145)
 
@@ -5714,6 +5739,7 @@ surface_material_override/0 = SubResource("StandardMaterial3D_c1vk4")
 
 [node name="ArrayModifier" type="Node3D" parent="SecondFloorr/AbbottsRoom" unique_id=538767031]
 transform = Transform3D(0, 0, -1, 1, 0, 0, 0, -1, 0, 29.675898, 8.807358, 2.1653275)
+visible = false
 script = ExtResource("10_3tbe6")
 repeat_levels = Array[int]([7])
 repeat_offsets = Array[Vector3]([Vector3(0, 0, 1.875)])
@@ -5767,6 +5793,15 @@ transform = Transform3D(1.8, 0, 0, 0, 0.58, 0, 0, 0, 1.8, 25.625587, 7.314341, -
 
 [node name="candle3" parent="SecondFloorr/AbbottsRoom" unique_id=335540914 instance=ExtResource("21_fm7ui")]
 transform = Transform3D(1.8, 0, 0, 0, 0.58, 0, 0, 0, 1.8, 25.248251, 7.314341, -1.4357557)
+
+[node name="Lever" parent="SecondFloorr/AbbottsRoom" unique_id=1981012901 node_paths=PackedStringArray("door_to_open") instance=ExtResource("55_evarm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 37.429718, 7.6987147, -7.6265216)
+door_to_open = NodePath("../DoorAbade")
+
+[node name="DoorAbade" parent="SecondFloorr/AbbottsRoom" unique_id=668800733 instance=ExtResource("28_woilr")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 18.133953, 6.9499197, -2.8790874)
+locked = true
+unlockeable = false
 
 [node name="MeltingRoom" type="Node3D" parent="." unique_id=1494932376]
 

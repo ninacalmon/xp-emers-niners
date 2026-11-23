@@ -1,16 +1,24 @@
 extends CharacterBody3D
 
+const REPATH_INTERVAL: float = 0.25
+const STUCK_CHECK_INTERVAL: float = 0.5
+const STUCK_MIN_DISTANCE: float = 0.15
+const STUCK_MAX_STRIKES: int = 3
+const ACCELERATION: float = 20.0
+const STEP_HEIGHT: float = 0.35
+
 @export var player_detection: Area3D
 @export var player_outside_pos: Marker3D
 @export var prior_bell_pos: Marker3D
 @export var prior_hidden_pos: Marker3D
 @export var bell_area_door: OpenDoorAction
+@export var deposit_door: OpenDoorAction
 
 @export var approach_speed_cutscene: float = 1.0
 @export var stop_distance_cutscene: float = 1.3
 
-@export var approach_speed: float = 2.0
-@export var stop_distance: float = 1.0
+@export var approach_speed: float = 1.2
+@export var stop_distance: float = 0.7
 
 @onready var animated_sprite_2d: AnimatedSprite2D = $SubViewportSprite/AnimatedSprite2D
 @onready var dialogue_action: DialogueAction = $DialogueAction
@@ -27,6 +35,7 @@ var is_bell_strike: bool = false
 var is_disabled: bool = false
 
 func _ready() -> void:
+	deposit_door.locked = true
 	_start_transform = global_transform
 	player_detection.body_entered.connect(_on_body_entered_player_detec)
 
@@ -107,8 +116,8 @@ func _bell_strike():
 	if is_disabled:
 		return
 
-	bell_area_door.open_door()
 	bell_area_door.locked = false
+	deposit_door.locked = false
 	animated_sprite_2d.play("BELL_SOUND")
 	await get_tree().create_timer(1).timeout
 	await _play_dialogue("bell")
@@ -137,34 +146,66 @@ func _play_dialogue(cue: String):
 
 
 func move_towards_target(speed: float, stop_dist: float, target: Node3D = player, interruptible: bool = false) -> bool:
+	var delta_time: float = get_physics_process_delta_time()
+	var nav_map: RID = nav_agent.get_navigation_map()
+
+	var repath_timer: float = 0.0
+	var stuck_timer: float = 0.0
+	var stuck_strikes: int = 0
+	var last_check_pos: Vector3 = global_position
+
 	while true:
 		if interruptible and is_bell_strike:
 			velocity = Vector3.ZERO
 			return false
 
+		if not is_instance_valid(target):
+			velocity = Vector3.ZERO
+			return false
+
 		var to_target: Vector3 = target.global_position - global_position
 		to_target.y = 0.0
-
 		if to_target.length() <= stop_dist:
 			break
 
-		nav_agent.target_position = target.global_position
-		var next_pos: Vector3 = nav_agent.get_next_path_position()
+		# Repath only a few times per second, snapped to the navmesh
+		repath_timer -= delta_time
+		if repath_timer <= 0.0:
+			repath_timer = REPATH_INTERVAL
+			nav_agent.target_position = NavigationServer3D.map_get_closest_point(nav_map, target.global_position)
 
+		# Stuck detection
+		stuck_timer += delta_time
+		if stuck_timer >= STUCK_CHECK_INTERVAL:
+			stuck_timer = 0.0
+			var moved: float = (global_position - last_check_pos).length()
+			last_check_pos = global_position
+			if moved < STUCK_MIN_DISTANCE:
+				stuck_strikes += 1
+				repath_timer = 0.0 # force a fresh path
+				if stuck_strikes >= STUCK_MAX_STRIKES:
+					velocity = Vector3.ZERO
+					return false
+			else:
+				stuck_strikes = 0
+
+		var next_pos: Vector3 = nav_agent.get_next_path_position()
 		var direction: Vector3 = next_pos - global_position
 		direction.y = 0.0
 		direction = direction.normalized()
 
-		var delta_time: float = get_physics_process_delta_time()
-
-		velocity.x = direction.x * speed
-		velocity.z = direction.z * speed
+		# Smooth acceleration instead of instant velocity
+		var desired: Vector3 = direction * speed
+		velocity.x = move_toward(velocity.x, desired.x, ACCELERATION * delta_time)
+		velocity.z = move_toward(velocity.z, desired.z, ACCELERATION * delta_time)
 
 		if not is_on_floor():
 			velocity += get_gravity() * delta_time
 
-		move_and_slide()
+		if is_on_floor():
+			_try_step_up(direction)
 
+		move_and_slide()
 		await get_tree().physics_frame
 
 	velocity = Vector3.ZERO
@@ -217,3 +258,15 @@ func _cancel_lockpick() -> void:
 	var qte: LockpickQTE = get_tree().get_first_node_in_group("lockpick_qte") as LockpickQTE
 	if qte:
 		qte.cancel()
+
+
+
+
+func _try_step_up(direction: Vector3) -> void:
+	if direction.length_squared() < 0.0001:
+		return
+	var probe: Vector3 = direction.normalized() * 0.15
+	var raised: Transform3D = global_transform.translated(Vector3.UP * STEP_HEIGHT)
+	# Blocked at foot level but free one step higher: hop up
+	if test_move(global_transform, probe) and not test_move(raised, probe):
+		global_position.y += STEP_HEIGHT
