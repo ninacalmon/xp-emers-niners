@@ -117,6 +117,9 @@ do DialogueData.set_mood("Sanson", DialogueData.SansonMoods.IDLE_SAD)
 Sanson: “Você acha que eu... vou poder vê-la novamente?”
 Você: “Claro. Creio muito nisso. Você irá vê-la novamente, sob os raios do Sol.”
 ~ inkwell_favor
+if CharacterData.Hugo.get_status("get_sanson_inkwell") == 2:
+	Sanson: "Obrigado."
+	=> END!
 Você: “Bom, posso te pedir aquele favor?”
 do DialogueData.set_mood("Sanson", DialogueData.SansonMoods.HAND_HAPPY)
 Sanson: “Ora, claro. Como posso ajudá-lo?”

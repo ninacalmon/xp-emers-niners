@@ -104,7 +104,6 @@ func _save_original_state() -> void:
 
 
 func play_cutscene() -> void:
-	Engine.time_scale = 3
 	TaskManager.complete_task("noon_prayer")
 	AudioManager.stop_music(3.0)
 	await get_tree().create_timer(0.3)
