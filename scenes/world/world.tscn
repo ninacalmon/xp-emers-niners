@@ -32,6 +32,7 @@
 [ext_resource type="Script" uid="uid://blnqbbyhu0b5u" path="res://scenes/world/cutscenes/starting_cutscene.gd" id="27_hph6x"]
 [ext_resource type="AudioStream" uid="uid://dk0pbedy4mbac" path="res://assets/sound/sound_effects/ambient/outside_the_shroud.mp3" id="28_2x71e"]
 [ext_resource type="Script" uid="uid://csjccrhj5wnx7" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_3d.gd" id="28_phx5y"]
+[ext_resource type="PackedScene" uid="uid://dastn857g3jr7" path="res://scenes/characters/abbott/abbott.tscn" id="28_vl1dq"]
 [ext_resource type="Script" uid="uid://8umksf8e80fw" path="res://addons/phantom_camera/scripts/resources/tween_resource.gd" id="29_554ci"]
 [ext_resource type="Resource" uid="uid://bae56sx733f7o" path="res://items/papers/blank_paper.tres" id="29_nqe8x"]
 [ext_resource type="Script" uid="uid://peejkdrmwsea" path="res://scenes/world/music.gd" id="29_wnndm"]
@@ -123,7 +124,7 @@ volumetric_fog_emission = Color(0.16, 0.16, 0.16, 1)
 volumetric_fog_gi_inject = 0.08
 volumetric_fog_length = 16.1
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_6ebim"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_vl1dq"]
 viewport_path = NodePath("SubViewportSprite")
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_u0ka6"]
@@ -193,19 +194,19 @@ size = Vector3(0.43078613, 3.411621, 18.387678)
 [sub_resource type="BoxShape3D" id="BoxShape3D_sh7a8"]
 size = Vector3(0.43078613, 5.815674, 31.34771)
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_vl1dq"]
-viewport_path = NodePath("SubViewportSprite")
-
 [sub_resource type="ViewportTexture" id="ViewportTexture_hx1je"]
 viewport_path = NodePath("SubViewportSprite")
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_ij5nj"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_ij5nj"]
+viewport_path = NodePath("SubViewportSprite")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_n78lu"]
 resource_local_to_scene = true
 render_priority = -1
 shader = ExtResource("13_goy61")
-shader_parameter/sprite_texture = SubResource("ViewportTexture_hx1je")
+shader_parameter/sprite_texture = SubResource("ViewportTexture_ij5nj")
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_n78lu"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_1o6i5"]
 viewport_path = NodePath("SubViewportSprite")
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_cdpwx"]
@@ -1089,7 +1090,7 @@ environment = SubResource("Environment_t634p")
 [node name="Camera3D" type="Camera3D" parent="VisualConfig" unique_id=1834340419]
 unique_name_in_owner = true
 physics_interpolation_mode = 1
-transform = Transform3D(0.6885681, -0.05459041, 0.723114, 0.00016725458, 0.9971744, 0.07512093, -0.7251717, -0.051604934, 0.68663156, 54.45449, 8.158854, -4.293425)
+transform = Transform3D(0.6889609, -0.05466112, 0.72273445, 6.16014e-05, 0.99715656, 0.07535722, -0.7247986, -0.051873658, 0.6870052, 54.45443, 8.158729, -4.293422)
 top_level = true
 cull_mask = 1048031
 size = 62.088
@@ -1119,11 +1120,11 @@ omni_range = 20.153
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.082743, 1.6670088, -3.19987)
 
 [node name="Camera3D" parent="Church/ConfessionalBooth" index="2" unique_id=430217490]
-transform = Transform3D(0.68856543, -0.05459027, 0.7231165, 0.00016761306, 0.99717444, 0.07512014, -0.72517425, -0.051603932, 0.68662906, 54.45449, 8.1588545, -4.293425)
+transform = Transform3D(0.6889624, -0.054660864, 0.722733, 6.145069e-05, 0.9971566, 0.07535716, -0.7247972, -0.05187384, 0.6870068, 54.45443, 8.158728, -4.293422)
 top_level = true
 
 [node name="Sprite3D" parent="Church/ConfessionalBooth/Confessor" parent_id_path=PackedInt32Array(321162436, 1758948578) index="0" unique_id=415751236]
-texture = SubResource("ViewportTexture_6ebim")
+texture = SubResource("ViewportTexture_vl1dq")
 
 [node name="SecondFloor2" type="Node3D" parent="Church" unique_id=1860471051]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -33.12908, 0, 0)
@@ -1297,11 +1298,11 @@ unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 78.78419, 0.9976957, -5.94999)
 
 [node name="Sprite3D" parent="Characters/Sanson" index="0" unique_id=415751236]
-texture = SubResource("ViewportTexture_vl1dq")
+texture = SubResource("ViewportTexture_hx1je")
 
 [node name="Outline" parent="Characters/Sanson/Sprite3D" index="0" unique_id=1631064389]
-material_overlay = SubResource("ShaderMaterial_ij5nj")
-texture = SubResource("ViewportTexture_n78lu")
+material_overlay = SubResource("ShaderMaterial_n78lu")
+texture = SubResource("ViewportTexture_1o6i5")
 
 [node name="AstrolablusPuzzle" parent="Characters" unique_id=572576743 instance=ExtResource("14_m114p")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 74.17525, 0.89560485, -7.2601056)
@@ -1378,6 +1379,9 @@ prior_hidden_pos = NodePath("../../Cutscenes/PriorHiddenPos")
 bell_area_door = NodePath("../../Church/SecondFloor2/BellAreaDoor")
 deposit_door = NodePath("../../Church/SecondFloor2/AbbotsRoom/DoorDeposit")
 
+[node name="Abbott" parent="Characters" unique_id=502752112 instance=ExtResource("28_vl1dq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -28.595457, 0)
+
 [node name="Cutscenes" type="Node" parent="." unique_id=1314055886]
 
 [node name="CharactherConfesingPosition" type="Marker3D" parent="Cutscenes" unique_id=1551973121 groups=["confessing_pos"]]
@@ -1410,16 +1414,16 @@ gizmo_extents = 0.83
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 70.52426, 7.0501375, -6.2824492)
 gizmo_extents = 0.83
 
-[node name="StartingCutscene" type="Node3D" parent="Cutscenes" unique_id=913486234 node_paths=PackedStringArray("player", "julio", "lucio", "hugo", "sanson", "prior", "camera", "dialogue_input_text", "bell_audio_stream_player_3d", "bell_audio_stream_player_3d_2", "ambient", "world_environment")]
+[node name="StartingCutscene" type="Node3D" parent="Cutscenes" unique_id=913486234 node_paths=PackedStringArray("player", "julio", "lucio", "hugo", "sanson", "prior", "abbott", "camera", "dialogue_input_text", "bell_audio_stream_player_3d", "bell_audio_stream_player_3d_2", "ambient", "world_environment")]
 unique_name_in_owner = true
 script = ExtResource("27_hph6x")
-skip_cutscene = true
 player = NodePath("../../Player")
 julio = NodePath("../../Characters/Julio")
 lucio = NodePath("../../Characters/Lucio")
 hugo = NodePath("../../Characters/Hugo")
 sanson = NodePath("../../Characters/Sanson")
 prior = NodePath("../../Characters/Prior")
+abbott = NodePath("../../Characters/Abbott")
 camera = NodePath("../../VisualConfig/Camera3D")
 dialogue_input_text = NodePath("../../VisualConfig/GameUiOverlay/DialogueFrameManager/RichTextLabel")
 bell_audio_stream_player_3d = NodePath("../../Church/ChurchBell/AudioStreamPlayer3D")
@@ -1456,6 +1460,9 @@ transform = Transform3D(1, 0, 1.19209275e-07, 0, 1, 0, -1.19209275e-07, 0, 1, 43
 [node name="PlayerPos" type="Marker3D" parent="Cutscenes/StartingCutscene" unique_id=873347398]
 transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, 33.043194, 2.4136653, -14.992425)
 
+[node name="AbbottPos" type="Marker3D" parent="Cutscenes/StartingCutscene" unique_id=1788966624]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 33.103466, 12.945657, 9.024833)
+
 [node name="SunCamera" type="Node3D" parent="Cutscenes/StartingCutscene" unique_id=935672393]
 transform = Transform3D(-1, 8.742277e-08, 0, 3.821371e-15, 4.3711385e-08, -0.9999999, -8.742278e-08, -0.9999999, -4.3711385e-08, 33.105, 10.433, -14.055)
 script = ExtResource("28_phx5y")
@@ -1472,7 +1479,7 @@ noise_emitter_layer = 1
 metadata/_custom_type_script = "uid://csjccrhj5wnx7"
 
 [node name="CloseUpCamera" type="Node3D" parent="Cutscenes/StartingCutscene" unique_id=1789459155 node_paths=PackedStringArray("follow_target", "look_at_target")]
-transform = Transform3D(-0.8573798, 0, 0, 0, 0.8826757, -0.4699747, 0, -0.46997437, -0.8826764, 31.976969, 4.116524, -13.0710745)
+transform = Transform3D(-0.8541945, 0, 0, 0, 0.8826757, -0.4699747, 0, -0.46997437, -0.8826764, 31.976969, 4.116524, -13.0710745)
 top_level = true
 script = ExtResource("28_phx5y")
 follow_mode = 5
@@ -1550,6 +1557,10 @@ collision_mask = 4
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Cutscenes/StartingCutscene/PlayerDetection" unique_id=819121188]
 shape = SubResource("SphereShape3D_cdpwx")
+
+[node name="PlayerStartingPos" type="Marker3D" parent="Cutscenes/StartingCutscene" unique_id=183842851]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 70.06668, 0.95911396, 1.1418676)
+gizmo_extents = 0.83
 
 [node name="AnimalsCutscene" type="Node3D" parent="Cutscenes" unique_id=1813398001 node_paths=PackedStringArray("player", "julio", "hugo", "sheep", "sheep_2", "sheep_3", "sheep_rotten", "barn_door", "sheep_pos", "sheep_pos_2", "sheep_pos_3", "sheep_rotten_pos", "julio_pos", "julio_pos_after", "player_pos_after", "julio_pos_after_plant", "hugo_pos_after", "camera", "barn_camera", "sky_camera", "julio_camera", "animation_player", "music", "sheep_cry", "dialogue_input_text")]
 script = ExtResource("36_vl1dq")
@@ -1635,7 +1646,7 @@ tween_resource = SubResource("Resource_1o6i5")
 metadata/_custom_type_script = "uid://csjccrhj5wnx7"
 
 [node name="julio_camera" type="Node3D" parent="Cutscenes/AnimalsCutscene" unique_id=1149604511 node_paths=PackedStringArray("follow_target", "look_at_target")]
-transform = Transform3D(-0.9838765, 0.007139156, 0.036401074, 2.29255e-10, 0.983372, -0.16987902, -0.038835637, -0.18086605, -0.9221984, 28.114899, 4.2217307, -12.3602295)
+transform = Transform3D(-0.9838765, 0.007139156, 0.03621089, 2.29255e-10, 0.983372, -0.16899145, -0.038835637, -0.18086605, -0.9173802, 28.114899, 4.2217307, -12.3602295)
 top_level = true
 script = ExtResource("28_phx5y")
 follow_mode = 2

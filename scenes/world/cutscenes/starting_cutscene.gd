@@ -13,6 +13,7 @@ signal next
 @export var hugo: Node3D
 @export var sanson: Node3D
 @export var prior: Node3D
+@export var abbott: Node3D
 
 @export_group("Scene")
 @export var camera: Camera3D
@@ -38,6 +39,8 @@ signal next
 @onready var hugo_pos: Marker3D = $HugoPos
 @onready var prior_pos: Marker3D = $PriorPos
 @onready var player_pos: Marker3D = $PlayerPos
+@onready var abbott_pos: Marker3D = $AbbottPos
+@onready var player_starting_pos: Marker3D = $PlayerStartingPos
 
 
 @onready var af_julio_pos: Marker3D = $AfterPositions/AfJulioPos
@@ -80,6 +83,8 @@ func _ready() -> void:
 	julio.global_position = julio_pos.global_position
 	hugo.global_position = hugo_pos.global_position
 	prior.global_position = prior_pos.global_position
+	if not skip_cutscene:
+		player.global_position = player_starting_pos.global_position
 
 	player_detection.body_entered.connect(_on_player_entered)
 
@@ -121,6 +126,9 @@ func position_starting_cutscene() -> void:
 	hugo.global_position = hugo_pos.global_position
 	prior.global_position = prior_pos.global_position
 	player.global_position = player_pos.global_position
+	abbott.global_position = abbott_pos.global_position
+	DialogueData.set_mood("Abbott", DialogueData.AbbottsMoods.sillhouette)
+	Engine.time_scale = 3
 
 
 func scene_starting_cutscene() -> void:
@@ -298,6 +306,7 @@ func end_cutscene() -> void:
 
 	# Player
 	player.global_transform = player_pos.global_transform
+	player.reset_head_rot()
 	player.is_cutscene_locked = false
 
 	set_start_game_state()
@@ -332,6 +341,8 @@ func set_start_game_state(talk_to_julio: bool = true) -> void:
 	hugo.is_chatting = true
 	# Prior
 	prior.global_position = af_prior_pos.global_position
+	# Abbott
+	abbott.global_position.y = -100
 
 
 func _skip_to_end_state() -> void:

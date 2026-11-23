@@ -75,6 +75,7 @@ conf_hugo_pos_af=""
 conf_julio_pos_af_plant=""
 hugo_room_pos=""
 conf_julio_pos_af_flower=""
+abbott=""
 
 [gui]
 

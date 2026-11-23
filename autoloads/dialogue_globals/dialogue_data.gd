@@ -15,7 +15,8 @@ const MOODS_BY_CHARACTER: Dictionary = {
 	"Hugo": HugoMoods,
 	"Sanson" : SansonMoods,
 	"Confessor" : ConfessorMoods,
-	"Prior" : PriorMoods
+	"Prior" : PriorMoods,
+	"Abbott" : AbbottsMoods
 }
 
 enum JulioMoods {
@@ -126,6 +127,13 @@ enum PriorMoods {
 	IDLE_DEFAULT,
 	IDLE_HAPPY,
 	IDLE_SAD,
+}
+
+enum AbbottsMoods {
+	ANGRY,
+	WORRIED,
+	sillhouette,
+	idle
 }
 
 

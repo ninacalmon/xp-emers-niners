@@ -24,7 +24,7 @@ var _drunk_time: float = 0.0
 var _drunk_id: int = 0
 var drunk_dialogue: DialogueResource = preload("uid://bvnutokokwyyg")
 var _first_time_drunk: bool = true
-
+var _starting_head_rot: Vector3
 
 var is_dialogue_locked: bool = false:
 	set(value):
@@ -70,6 +70,8 @@ func _ready() -> void:
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 
 	drunk_overlay.hide()
+
+	_starting_head_rot = head.rotation
 
 
 
@@ -233,3 +235,7 @@ func look_at_target(target_pos: Vector3, duration: float = 0.5) -> void:
 
 func _is_locked() -> bool:
 	return is_dialogue_locked or is_focus_locked or is_puzzle_locked or is_cutscene_locked
+
+
+func reset_head_rot():
+	head.rotation = original_head_rot

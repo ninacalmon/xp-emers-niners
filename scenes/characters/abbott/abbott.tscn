@@ -1,0 +1,189 @@
+[gd_scene format=3 uid="uid://dastn857g3jr7"]
+
+[ext_resource type="Script" uid="uid://bjidnq65qcjsh" path="res://systems/character/dialogue_action.gd" id="1_xnjj4"]
+[ext_resource type="Script" uid="uid://biodsue5rifq4" path="res://systems/character/character_sprite_handler.gd" id="2_3yqkd"]
+[ext_resource type="Texture2D" uid="uid://cpjtlqt10hj73" path="res://assets/2d/characters/abbot/abbot_angry1.png" id="3_ohxkg"]
+[ext_resource type="Texture2D" uid="uid://r1usfhxku53u" path="res://assets/2d/characters/abbot/abbot_angry2.png" id="4_ebfjf"]
+[ext_resource type="Texture2D" uid="uid://dr0fqw6opsoip" path="res://assets/2d/characters/abbot/abbot_angry3.png" id="5_67fft"]
+[ext_resource type="Texture2D" uid="uid://ukxa2gtq5qmr" path="res://assets/2d/characters/abbot/abbot_worried1.png" id="6_l7oea"]
+[ext_resource type="Texture2D" uid="uid://db7g7ln5k6d44" path="res://assets/2d/characters/abbot/abbot_worried2.png" id="7_ccvm3"]
+[ext_resource type="Texture2D" uid="uid://dhy3641u4hdlp" path="res://assets/2d/characters/abbot/abbot_worried3.png" id="8_vvppd"]
+[ext_resource type="Texture2D" uid="uid://3vlj3nd61h4u" path="res://assets/2d/characters/abbot/abbot_idle1.png" id="9_ve0yd"]
+[ext_resource type="Texture2D" uid="uid://dhqejb03874lg" path="res://assets/2d/characters/abbot/abbot_idle2.png" id="10_aoeha"]
+[ext_resource type="Texture2D" uid="uid://dfydno25588mn" path="res://assets/2d/characters/abbot/abbot_idle3.png" id="11_fq2pp"]
+[ext_resource type="Texture2D" uid="uid://b8d451nrk8rj2" path="res://assets/2d/characters/abbot/abbot_silhouette.png" id="12_veey6"]
+[ext_resource type="Texture2D" uid="uid://crijnn0jdtap0" path="res://assets/2d/characters/abbot/pendulum/abbot_reveal1.png" id="13_vxo0q"]
+[ext_resource type="Texture2D" uid="uid://6rknaqa0uq0j" path="res://assets/2d/characters/abbot/pendulum/abbot_reveal2.png" id="14_643iq"]
+[ext_resource type="Texture2D" uid="uid://bhnua5qn4p8v5" path="res://assets/2d/characters/abbot/pendulum/abbot_reveal3.png" id="15_8cnhb"]
+[ext_resource type="Texture2D" uid="uid://vbwoee6hehv6" path="res://assets/2d/characters/abbot/pendulum/abbot_reveal4.png" id="16_wmp7o"]
+[ext_resource type="Texture2D" uid="uid://cdkdxccavl1qr" path="res://assets/2d/characters/abbot/pendulum/abbot_reveal5.png" id="17_u8xog"]
+[ext_resource type="Texture2D" uid="uid://b0mqy75dlmx72" path="res://assets/2d/characters/abbot/pendulum/abbot_reveal6.png" id="18_d5p1w"]
+[ext_resource type="Texture2D" uid="uid://bkus3r12h763e" path="res://assets/2d/characters/abbot/pendulum/abbot_reveal7.png" id="19_8gcci"]
+[ext_resource type="Texture2D" uid="uid://bjfvopfb7aijv" path="res://assets/2d/characters/abbot/pendulum/abbot_reveal8.png" id="20_tq21k"]
+[ext_resource type="Texture2D" uid="uid://d4ngdnpyoi05s" path="res://assets/2d/characters/abbot/pendulum/abbot_reveal9.png" id="21_3bmp8"]
+[ext_resource type="Texture2D" uid="uid://b1ifla36ve6vi" path="res://assets/2d/characters/abbot/pendulum/abbot_reveal10.png" id="22_lmnpk"]
+[ext_resource type="Texture2D" uid="uid://b1tdgvg48nx5v" path="res://assets/2d/characters/abbot/pendulum/abbot_reveal11.png" id="23_dhgr4"]
+[ext_resource type="Texture2D" uid="uid://ckspwpcqfut8o" path="res://assets/2d/characters/abbot/pendulum/abbot_reveal12.png" id="24_f6gg0"]
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_ig5f2"]
+viewport_path = NodePath("SubViewportSprite")
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_8bueh"]
+radius = 0.32666016
+height = 2.1264648
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_e5yf2"]
+radius = 0.2993164
+height = 0.8618164
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_1o6i5"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_ohxkg")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_ebfjf")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_67fft")
+}],
+"loop": 1,
+"name": &"ANGRY",
+"speed": 6.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("6_l7oea")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_ccvm3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_vvppd")
+}],
+"loop": 1,
+"name": &"WORRIED",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("9_ve0yd")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_aoeha")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_fq2pp")
+}],
+"loop": 1,
+"name": &"idle",
+"speed": 6.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("12_veey6")
+}],
+"loop": 1,
+"name": &"sillhouette",
+"speed": 5.0
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_7o8ut"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("13_vxo0q")
+}],
+"loop": 1,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("13_vxo0q")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_643iq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15_8cnhb")
+}, {
+"duration": 1.0,
+"texture": ExtResource("16_wmp7o")
+}, {
+"duration": 1.0,
+"texture": ExtResource("17_u8xog")
+}, {
+"duration": 1.0,
+"texture": ExtResource("18_d5p1w")
+}, {
+"duration": 1.0,
+"texture": ExtResource("19_8gcci")
+}, {
+"duration": 1.0,
+"texture": ExtResource("20_tq21k")
+}, {
+"duration": 1.0,
+"texture": ExtResource("21_3bmp8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("22_lmnpk")
+}, {
+"duration": 1.0,
+"texture": ExtResource("23_dhgr4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("24_f6gg0")
+}],
+"loop": 0,
+"name": &"reveal",
+"speed": 11.0
+}]
+
+[node name="Abbott" type="Node3D" unique_id=502752112 groups=["abbott"]]
+
+[node name="Sprite3D" type="Sprite3D" parent="." unique_id=1376294264]
+transform = Transform3D(0.18, 0, 0, 0, 0.18, 0, 0, 0, 0.18, 0, 0.7130867, 0)
+offset = Vector2(0, 241.06)
+billboard = 2
+shaded = true
+texture = SubResource("ViewportTexture_ig5f2")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="." unique_id=1561031773]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" unique_id=890932565]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.0550354, 0)
+shape = SubResource("CapsuleShape3D_8bueh")
+
+[node name="ShadowMesh" type="MeshInstance3D" parent="." unique_id=791220282]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.9330101, 0)
+cast_shadow = 3
+mesh = SubResource("CapsuleMesh_e5yf2")
+
+[node name="DialogueAction" type="Node" parent="." unique_id=131898993]
+script = ExtResource("1_xnjj4")
+character_name = "Abbott"
+
+[node name="CharacterSpriteHandler" type="Node" parent="." unique_id=492471919 node_paths=PackedStringArray("animated_sprite", "dialogue_action")]
+script = ExtResource("2_3yqkd")
+animated_sprite = NodePath("../SubViewportSprite/AnimatedSprite2D")
+dialogue_action = NodePath("../DialogueAction")
+
+[node name="SubViewportSprite" type="SubViewport" parent="." unique_id=1516799171]
+transparent_bg = true
+handle_input_locally = false
+size = Vector2i(1149, 1755)
+render_target_update_mode = 4
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="SubViewportSprite" unique_id=582465483]
+sprite_frames = SubResource("SpriteFrames_1o6i5")
+animation = &"sillhouette"
+frame_progress = 0.4929999
+centered = false
+
+[node name="PendulumAnimatedSprite" type="AnimatedSprite2D" parent="SubViewportSprite" unique_id=1740511123]
+visible = false
+sprite_frames = SubResource("SpriteFrames_7o8ut")
+animation = &"idle"
+centered = false
