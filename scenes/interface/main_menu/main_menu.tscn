@@ -238,7 +238,6 @@ texture = ExtResource("15_yn6hw")
 stream = ExtResource("19_7tn5r")
 volume_db = -20.0
 autoplay = true
-stream_paused = true
 bus = &"Music"
 
 [node name="RichTextLabel" type="RichTextLabel" parent="." unique_id=1587451953]
