@@ -1,7 +1,5 @@
 import "uid://co1f7j8ocd0a7" as fix_astrolabus
 
-
-
 ~ start
 match CharacterData.Sanson.get_status("get_astrolabus"):
 	when 0:

@@ -282,6 +282,7 @@ func end_cutscene() -> void:
 	_set_julio_mood(DialogueData.JulioMoods.idle)
 
 	player.is_cutscene_locked = false
+	TimeManager.set_time(TimeManager.Times.at1800)
 
 
 func _skip_to_end_state() -> void:

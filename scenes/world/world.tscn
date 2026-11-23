@@ -76,7 +76,6 @@
 [ext_resource type="Texture2D" uid="uid://6mu13qolvcin" path="res://assets/3d/scenery/fire/Flame02.png" id="51_yr5cl"]
 [ext_resource type="Script" uid="uid://dh1ltto8wru1y" path="res://screenshots/screenshots.gd" id="52_j0rhc"]
 [ext_resource type="Texture2D" uid="uid://bhj86bqpspx28" path="res://assets/3d/items/candle/candle_roughness_map.png" id="54_j2kh8"]
-[ext_resource type="PackedScene" uid="uid://dhb4ubn1lv1kq" path="res://examples/interaction_examples/item_giver/key_giver_ball.tscn" id="61_cf0uk"]
 [ext_resource type="PackedScene" uid="uid://cut5m0ku8e4e6" path="res://scenes/puzzles/mirrors/mirror_stand/mirror_stand.tscn" id="62_j2kh8"]
 [ext_resource type="PackedScene" uid="uid://beejk147fox5c" path="res://scenes/puzzles/mirrors/light_beam/light_beam.tscn" id="63_hpffo"]
 [ext_resource type="PackedScene" uid="uid://cim06qc8dw8f2" path="res://scenes/puzzles/mirrors/mirror_stand/double_mirror_stand.tscn" id="65_hpffo"]
@@ -1470,7 +1469,7 @@ script = ExtResource("1_mxkvs")
 metadata/_custom_type_script = "uid://bd046eokvcnu2"
 
 [node name="Player" parent="." unique_id=949902107 instance=ExtResource("2_m114p")]
-transform = Transform3D(0.68905383, 0, 0.7247099, 0, 1, 0, -0.7247099, 0, 0.68905383, 32.64977, 12.224099, 20.617588)
+transform = Transform3D(0.68905383, 0, 0.7247099, 0, 1, 0, -0.7247099, 0, 0.68905383, 70.03679, 0.9591141, 1.5696652)
 
 [node name="Church" parent="." unique_id=151423155 instance=ExtResource("7_q3hpu")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 33.096912, -0.040885925, 0.037341118)
@@ -1848,7 +1847,7 @@ noise_emitter_layer = 1
 metadata/_custom_type_script = "uid://csjccrhj5wnx7"
 
 [node name="CloseUpCamera" type="Node3D" parent="Cutscenes/StartingCutscene" unique_id=1789459155 node_paths=PackedStringArray("follow_target", "look_at_target")]
-transform = Transform3D(-0.8322885, 0, 0, 0, 0.68254006, 0.7308435, 0, 0.7308429, -0.6825405, 31.976969, 4.5308065, -13.0020275)
+transform = Transform3D(-0.8247026, 0, 0, 0, 0.68254006, 0.7308435, 0, 0.7308429, -0.6825405, 31.976969, 4.5308065, -13.0020275)
 top_level = true
 script = ExtResource("28_phx5y")
 follow_mode = 5
@@ -2015,7 +2014,7 @@ tween_resource = SubResource("Resource_1o6i5")
 metadata/_custom_type_script = "uid://csjccrhj5wnx7"
 
 [node name="julio_camera" type="Node3D" parent="Cutscenes/AnimalsCutscene" unique_id=1149604511 node_paths=PackedStringArray("follow_target", "look_at_target")]
-transform = Transform3D(-0.9838765, 0.007139156, 0.03492909, 2.29255e-10, 0.983372, -0.16300945, -0.038835637, -0.18086605, -0.8849066, 28.114899, 4.2217307, -12.3602295)
+transform = Transform3D(-0.9838765, 0.007139156, 0.03449271, 2.29255e-10, 0.983372, -0.16097292, -0.038835637, -0.18086605, -0.8738512, 28.114899, 4.2217307, -12.3602295)
 top_level = true
 script = ExtResource("28_phx5y")
 follow_mode = 2
@@ -2394,9 +2393,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.0464954, 1.1204255, 0.4354
 
 [node name="Node" type="Node" parent="." unique_id=974539785]
 script = ExtResource("52_j0rhc")
-
-[node name="TestKeyGiverBall" parent="." unique_id=471407858 instance=ExtResource("61_cf0uk")]
-transform = Transform3D(0, -1, 1.192093e-07, 1, 0, 0, 0, 1.192093e-07, 1, 45.343304, 8.790239, -3.8337026)
 
 [node name="MirrorsPuzzle" type="Node3D" parent="." unique_id=1452259112]
 

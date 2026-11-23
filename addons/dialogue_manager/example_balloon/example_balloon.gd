@@ -333,7 +333,7 @@ func set_auto_advance(enabled: bool, delay: float = 1.5) -> void:
 
 ## Characters whose lines get the "alternating size + shake" effect.
 @export var wobbly_characters: Array[String] = ["Abade"]
-@export var small_size: int = 27
+@export var small_size: int = 33
 @export var big_size: int = 45
 @export var small_group_length: int = 3
 @export var big_group_length: int = 2

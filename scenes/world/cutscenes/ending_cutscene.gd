@@ -85,7 +85,6 @@ func _ready() -> void:
 	fire_2.smoke.emitting = false
 	fire_2.particles_floating.emitting = false
 
-	abbots_door.open_door()
 
 
 
@@ -118,27 +117,31 @@ func play_cutscene() -> void:
 	var oldsky = world_environment.environment.sky
 	world_environment.environment.sky = null
 	camera.cull_mask = 1 << 17
-	await _run_dialogue("abbott", true)
-	smoke.smoke.emitting = true
-	await _run_dialogue("fire_start", true)
-	smoke.particles_floating.emitting = true
-	await _run_dialogue("fire", true)
-	fire_1.static_flame.emitting = true
-	fire_1.flames.emitting = true
-	fire_1.smoke.emitting = true
-	fire_1.particles_floating.emitting = true
-	fire_2.static_flame.emitting = true
-	fire_2.flames.emitting = true
-	fire_2.smoke.emitting = true
-	fire_2.particles_floating.emitting = true
-	await get_tree().create_timer(2).timeout
-	await FadeInOut.fade_in(2)
-	game_ui_overlay.hide()
-	world_environment.environment.sky = oldsky
-	big_fire.show()
-	camera.cull_mask = 0xFFFFF
-	FadeInOut.fade_out(1)
-	await _play_animation("monastery_far", zoom_in_speed)
+	if CharacterData.Sanson.flower_got:
+		await _run_dialogue("abbott", true)
+		smoke.smoke.emitting = true
+		await _run_dialogue("fire_start", true)
+		smoke.particles_floating.emitting = true
+		fire_1.static_flame.emitting = true
+		fire_1.flames.emitting = true
+		fire_1.smoke.emitting = true
+		fire_1.particles_floating.emitting = true
+		fire_2.static_flame.emitting = true
+		fire_2.flames.emitting = true
+		fire_2.smoke.emitting = true
+		fire_2.particles_floating.emitting = true
+		await _run_dialogue("fire", true)
+	else:
+		await _run_dialogue("happy_ending", true)
+
+	#await get_tree().create_timer(2).timeout
+	#await FadeInOut.fade_in(2)
+	#game_ui_overlay.hide()
+	#world_environment.environment.sky = oldsky
+	#big_fire.show()
+	#camera.cull_mask = 0xFFFFF
+	#FadeInOut.fade_out(1)
+	#await _play_animation("monastery_far", zoom_in_speed)
 	await FadeInOut.fade_in(3)
 	LoadingManager.load_scene("res://scenes/interface/main_menu/main_menu.tscn")
 
