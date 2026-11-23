@@ -135,6 +135,7 @@ script = ExtResource("1_24gtj")
 
 [node name="StaticFlame" type="GPUParticles3D" parent="." unique_id=952130730]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.3380127, 0)
+layers = 131073
 material_override = SubResource("ShaderMaterial_5604n")
 cast_shadow = 0
 amount = 1
@@ -144,6 +145,7 @@ process_material = SubResource("ParticleProcessMaterial_cdpwx")
 draw_pass_1 = SubResource("QuadMesh_ksdio")
 
 [node name="Flames" type="GPUParticles3D" parent="." unique_id=1964061805]
+layers = 131073
 material_override = SubResource("ShaderMaterial_sd0hj")
 cast_shadow = 0
 amount = 20
@@ -153,6 +155,7 @@ draw_pass_1 = SubResource("QuadMesh_u0ka6")
 
 [node name="Smoke" type="GPUParticles3D" parent="." unique_id=2041608222]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.24571228, 0)
+layers = 131073
 sorting_offset = -1.0
 material_override = SubResource("ShaderMaterial_ce38q")
 cast_shadow = 0
@@ -162,6 +165,7 @@ process_material = SubResource("ParticleProcessMaterial_rtp8r")
 draw_pass_1 = SubResource("QuadMesh_u0ka6")
 
 [node name="ParticlesFloating" type="GPUParticles3D" parent="." unique_id=440690130]
+layers = 131073
 sorting_offset = 1.0
 material_override = SubResource("ShaderMaterial_1xhwe")
 cast_shadow = 0
@@ -172,5 +176,6 @@ draw_pass_1 = SubResource("QuadMesh_b4max")
 
 [node name="OmniLight3D" type="OmniLight3D" parent="." unique_id=193935427]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.50868213)
+layers = 131072
 light_color = Color(1, 0.40784314, 0.16862746, 1)
 light_energy = 0.1

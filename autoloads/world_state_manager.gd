@@ -32,3 +32,16 @@ func play_animals_plant_cutscene():
 
 	animals_cutscene.variant = animals_cutscene.Variant.PLANT
 	animals_cutscene.play_cutscene()
+
+
+
+@export var abbott: Abbott
+
+
+func fade_abbot(f: bool, time: float = 1):
+	abbott = GetEntity.get_abbott()
+	var tween = create_tween()
+	if f:
+		tween.tween_property(abbott.sprite_3d, "modulate", Color.WHITE, time)
+	else:
+		tween.tween_property(abbott.sprite_3d, "modulate", Color.BLACK, time)

@@ -186,7 +186,8 @@ func apply_dialogue_line() -> void:
 		dialogue_line.character = " "
 	character_label.text = tr(dialogue_line.character, "dialogue")
 
-
+	if dialogue_line.character in wobbly_characters and not dialogue_line.text.begins_with("[shake"):
+		dialogue_line.text = apply_wobbly_effect(dialogue_line.text)
 
 	dialogue_label.hide()
 	dialogue_label.dialogue_line = dialogue_line
@@ -327,3 +328,117 @@ func set_skip_blocked(blocked: bool) -> void:
 func set_auto_advance(enabled: bool, delay: float = 1.5) -> void:
 	auto_advance = enabled
 	auto_advance_delay = delay
+
+
+
+## Characters whose lines get the "alternating size + shake" effect.
+@export var wobbly_characters: Array[String] = ["Abade"]
+@export var small_size: int = 27
+@export var big_size: int = 45
+@export var small_group_length: int = 3
+@export var big_group_length: int = 2
+@export var shake_rate: float = 20.0
+@export var shake_level: int = 5
+## Chance (0.0 to 1.0) that a letter becomes bold / italic. They roll independently,
+## so a letter can be both.
+@export_range(0.0, 1.0) var bold_chance: float = 0.2
+@export_range(0.0, 1.0) var italic_chance: float = 0.2
+
+@export var force_uppercase_letters: Array[String] = ["l"]
+
+@export var big_sentence_start: bool = true
+
+
+## Randomly wraps a single letter in [b] and/or [i].
+func _style_letter(letter: String) -> String:
+	var styled: String = letter
+	var is_bold: bool = randf() < bold_chance
+	var is_italic: bool = randf() < italic_chance
+
+	if is_bold:
+		styled = "[b]%s[/b]" % styled
+	if is_italic:
+		styled = "[i]%s[/i]" % styled
+
+	return styled
+
+## Wraps the text so letters alternate between small/big groups, all inside a [shake].
+## Existing BBCode tags are kept intact and don't count as letters.
+func apply_wobbly_effect(text: String) -> String:
+	var result: String = ""
+	var in_small_group: bool = true
+	var letters_in_group: int = 0
+	var group_open: bool = false
+	var is_sentence_start: bool = true
+	var i: int = 0
+
+	while i < text.length():
+		var current_char: String = text[i]
+
+		# Tag BBCode já existente: fecha a nossa, emite a deles, reabre a nossa
+		if current_char == "[":
+			var tag_end: int = text.find("]", i)
+			if tag_end == -1:
+				tag_end = text.length() - 1
+			var tag: String = text.substr(i, tag_end - i + 1)
+			if group_open:
+				result += "[/font_size]"
+			result += tag
+			if group_open:
+				result += _get_size_open_tag(in_small_group)
+			i = tag_end + 1
+			continue
+
+		# Espaços são mantidos, mas não contam como letra
+		if current_char.strip_edges().is_empty():
+			result += current_char
+			i += 1
+			continue
+
+		# Letras forçadas para maiúscula (ex: "l" -> "L")
+		if current_char in force_uppercase_letters:
+			current_char = current_char.to_upper()
+
+		var is_letter: bool = current_char.to_lower() != current_char.to_upper()
+
+		# Primeira letra da frase nunca pequena: se estiver num grupo pequeno,
+		# fecha esse grupo e começa um grande
+		if big_sentence_start and is_sentence_start and is_letter:
+			if group_open and in_small_group:
+				result += "[/font_size]"
+				group_open = false
+			if not group_open:
+				in_small_group = false
+				letters_in_group = 0
+
+		if not group_open:
+			result += _get_size_open_tag(in_small_group)
+			group_open = true
+
+		result += _style_letter(current_char)
+		letters_in_group += 1
+
+		var group_length: int = small_group_length if in_small_group else big_group_length
+		if letters_in_group >= group_length:
+			result += "[/font_size]"
+			group_open = false
+			in_small_group = not in_small_group
+			letters_in_group = 0
+
+		# Atualiza o estado de "início de frase"
+		if current_char in [".", "!", "?"]:
+			is_sentence_start = true
+		elif is_letter:
+			is_sentence_start = false
+
+		i += 1
+
+	if group_open:
+		result += "[/font_size]"
+
+	return "[shake rate=%s level=%s]%s[/shake]" % [shake_rate, shake_level, result]
+
+
+func _get_size_open_tag(is_small: bool) -> String:
+	var size: int = small_size if is_small else big_size
+	return "[font_size=%d]" % size

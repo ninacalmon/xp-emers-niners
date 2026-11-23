@@ -31,6 +31,14 @@ var _has_met_player: bool = false
 var _start_transform: Transform3D
 var is_bell_strike: bool = false
 
+var is_chatting: bool = false:
+	set(value):
+		is_chatting = value
+		if value:
+			dialogue_action.start_chatting()
+		else:
+			dialogue_action.stop_chatting()
+
 
 var is_disabled: bool = false
 

@@ -53,8 +53,6 @@
 [ext_resource type="SpriteFrames" uid="uid://b2rje4rg7em66" path="res://resources/sprite_frames/characters/sheep/sheep2.tres" id="36_124cm"]
 [ext_resource type="Script" uid="uid://v4umj4f6xy6j" path="res://scenes/world/cutscenes/animals_cutscene_flower.gd" id="36_vl1dq"]
 [ext_resource type="SpriteFrames" uid="uid://cgl6tvr0f4kiy" path="res://resources/sprite_frames/characters/sheep/sheep3.tres" id="37_6ebim"]
-[ext_resource type="Script" uid="uid://dct2i5sj5m7v2" path="res://scenes/world/end_cutscene.gd" id="37_j0rhc"]
-[ext_resource type="Resource" uid="uid://bgfegur82b8ly" path="res://dialogue/final.dialogue" id="38_4jq4u"]
 [ext_resource type="Resource" uid="uid://dybsg8b6ndlrh" path="res://items/mirrors/mirror_c/mirror_c2.tres" id="38_4v0p3"]
 [ext_resource type="PackedScene" uid="uid://cbgxrmm318b3u" path="res://assets/3d/items/mirrors/mirror_c/mirror_c2.glb" id="39_fqf7g"]
 [ext_resource type="PackedScene" uid="uid://2td7r67ehc8f" path="res://scenes/characters/sheep/sheep_rotten.tscn" id="40_6ebim"]
@@ -62,12 +60,20 @@
 [ext_resource type="Resource" uid="uid://ttdlndp7d6el" path="res://items/mirrors/mirror_a/mirror_a2.tres" id="42_jum6b"]
 [ext_resource type="AudioStream" uid="uid://bdnau63j2rjtr" path="res://assets/sound/sound_effects/sheep/sheep_cry.mp3" id="43_ij5nj"]
 [ext_resource type="PackedScene" uid="uid://daa36rnsypobj" path="res://assets/3d/items/mirrors/mirror_a/mirror_a2.glb" id="43_l4ul6"]
+[ext_resource type="Script" uid="uid://dah6o27ijjwq2" path="res://scenes/world/cutscenes/ending_cutscene.gd" id="44_6ebim"]
 [ext_resource type="Resource" uid="uid://bl4lab6acct8c" path="res://items/mirrors/mirror_b/mirror_b1.tres" id="44_q3hpu"]
+[ext_resource type="Resource" uid="uid://b2g1ion1rvmyn" path="res://dialogue/cutscene/ending_cutscene.dialogue" id="45_hx1je"]
 [ext_resource type="PackedScene" uid="uid://neq15i38iq07" path="res://assets/3d/items/mirrors/mirror_b/mirror_b1.glb" id="45_j0rhc"]
+[ext_resource type="PackedScene" uid="uid://brqyshn6lkbl1" path="res://scenes/objects/fire/fire.tscn" id="45_vl1dq"]
 [ext_resource type="Resource" uid="uid://dl77176lkjgun" path="res://items/mirrors/mirror_c/mirror_c1.tres" id="46_4jq4u"]
+[ext_resource type="PackedScene" uid="uid://l7fcqmg6ab4d" path="res://scenes/objects/fire/smoke.tscn" id="47_ij5nj"]
 [ext_resource type="PackedScene" uid="uid://bcf11h135dt1o" path="res://assets/3d/items/mirrors/mirror_c/mirror_c1.glb" id="47_sar2w"]
+[ext_resource type="Shader" uid="uid://bmnef1sjd1bt0" path="res://resources/shaders/fire.tres" id="48_a5636"]
 [ext_resource type="Resource" uid="uid://cgutcfta1002v" path="res://items/mirrors/mirror_b/mirror_b2.tres" id="48_jum6b"]
+[ext_resource type="Texture2D" uid="uid://dw80djoai03fg" path="res://assets/3d/scenery/fire/Voronoi01.png" id="49_jhdiv"]
 [ext_resource type="PackedScene" uid="uid://by3xhr7in7fhx" path="res://assets/3d/items/mirrors/mirror_b/mirror_b2.glb" id="49_l4ul6"]
+[ext_resource type="Texture2D" uid="uid://br0ve0b611707" path="res://assets/3d/scenery/fire/Flame01.png" id="50_4ln07"]
+[ext_resource type="Texture2D" uid="uid://6mu13qolvcin" path="res://assets/3d/scenery/fire/Flame02.png" id="51_yr5cl"]
 [ext_resource type="Script" uid="uid://dh1ltto8wru1y" path="res://screenshots/screenshots.gd" id="52_j0rhc"]
 [ext_resource type="Texture2D" uid="uid://bhj86bqpspx28" path="res://assets/3d/items/candle/candle_roughness_map.png" id="54_j2kh8"]
 [ext_resource type="PackedScene" uid="uid://dhb4ubn1lv1kq" path="res://examples/interaction_examples/item_giver/key_giver_ball.tscn" id="61_cf0uk"]
@@ -106,7 +112,6 @@ background_mode = 2
 background_color = Color(0.43529412, 0.22352941, 0.09019608, 1)
 background_energy_multiplier = 0.7
 sky = SubResource("Sky_1o6i5")
-ambient_light_source = 3
 ambient_light_sky_contribution = 0.58
 reflected_light_source = 1
 ssao_radius = 7.09
@@ -124,7 +129,7 @@ volumetric_fog_emission = Color(0.16, 0.16, 0.16, 1)
 volumetric_fog_gi_inject = 0.08
 volumetric_fog_length = 16.1
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_vl1dq"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_x77xw"]
 viewport_path = NodePath("SubViewportSprite")
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_u0ka6"]
@@ -194,19 +199,19 @@ size = Vector3(0.43078613, 3.411621, 18.387678)
 [sub_resource type="BoxShape3D" id="BoxShape3D_sh7a8"]
 size = Vector3(0.43078613, 5.815674, 31.34771)
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_hx1je"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_pkfnk"]
 viewport_path = NodePath("SubViewportSprite")
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_ij5nj"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_5obl8"]
 viewport_path = NodePath("SubViewportSprite")
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_n78lu"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_1n8ra"]
 resource_local_to_scene = true
 render_priority = -1
 shader = ExtResource("13_goy61")
-shader_parameter/sprite_texture = SubResource("ViewportTexture_ij5nj")
+shader_parameter/sprite_texture = SubResource("ViewportTexture_5obl8")
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_1o6i5"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_0n6td"]
 viewport_path = NodePath("SubViewportSprite")
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_cdpwx"]
@@ -923,6 +928,372 @@ _data = {
 &"sky": SubResource("Animation_jhdiv")
 }
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_7qke6"]
+size = Vector3(4.4353027, 3.461914, 1)
+
+[sub_resource type="Resource" id="Resource_6ebim"]
+script = ExtResource("29_554ci")
+duration = 0.0
+
+[sub_resource type="Resource" id="Resource_cdpwx"]
+script = ExtResource("30_554ci")
+amplitude = 5.0
+metadata/_custom_type_script = "uid://cuffvge5ad4aa"
+
+[sub_resource type="Animation" id="Animation_vl1dq"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ZoomInCamera:priority")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("ZoomInCamera:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(33.052544, 14.0749855, 17.697268)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("WalkToWindowCamera:priority")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("WindowViewCamera:priority")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("WindowViewCamera:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(33.053, 14.075, 7.9552956)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("MonasteryCamera:priority")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("MonasteryCamera:position")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(21.104637, 17.122473, 47.159004)]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("MonasteryFarCamera:priority")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("MonasteryFarCamera:position")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(-4.1581345, 17.122473, 133.65147)]
+}
+
+[sub_resource type="Animation" id="Animation_ij5nj"]
+resource_name = "monastery"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("MonasteryCamera:priority")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [50000]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("MonasteryCamera:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(21.104637, 17.122473, 47.159004), Vector3(21.105, 17.122, 57.889)]
+}
+
+[sub_resource type="Animation" id="Animation_n78lu"]
+resource_name = "monastery_far"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("MonasteryFarCamera:priority")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [60000]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("MonasteryFarCamera:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(-4.1581345, 17.122473, 133.65147), Vector3(-4.158, 17.122, 136.716)]
+}
+
+[sub_resource type="Animation" id="Animation_4ln07"]
+resource_name = "walk_to_window"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("WalkToWindowCamera:priority")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [20000]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("WalkToWindowCamera:position")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(33.053, 14.075, 16.147), Vector3(33.053, 14.075, 9.652)]
+}
+
+[sub_resource type="Animation" id="Animation_yr5cl"]
+resource_name = "window_view"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("WindowViewCamera:priority")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [30000]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("WindowViewCamera:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(33.053, 14.075, 7.9552956), Vector3(33.053, 12.78, 5.88)]
+}
+
+[sub_resource type="Animation" id="Animation_hx1je"]
+resource_name = "zoom_in"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ZoomInCamera:priority")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [10000]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("ZoomInCamera:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(33.052544, 14.0749855, 17.697268), Vector3(33.053, 14.075, 16.147)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ij5nj"]
+_data = {
+&"RESET": SubResource("Animation_vl1dq"),
+&"monastery": SubResource("Animation_ij5nj"),
+&"monastery_far": SubResource("Animation_n78lu"),
+&"walk_to_window": SubResource("Animation_4ln07"),
+&"window_view": SubResource("Animation_yr5cl"),
+&"zoom_in": SubResource("Animation_hx1je")
+}
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_bmoad"]
+render_priority = 0
+shader = ExtResource("48_a5636")
+shader_parameter/MainTex = ExtResource("50_4ln07")
+shader_parameter/DissolveTiling = Vector2(0.25, 0.25)
+shader_parameter/DissolveSpeed = Vector2(0, 0.2)
+shader_parameter/DissolveTex = ExtResource("49_jhdiv")
+shader_parameter/DissolveAmount = 0.550000026125
+
+[sub_resource type="Curve" id="Curve_oorcj"]
+_limits = [1.0, 15.0, 0.0, 1.0]
+_data = [Vector2(0, 15), 0.0, 0.0, 0, 0]
+point_count = 1
+
+[sub_resource type="CurveTexture" id="CurveTexture_3bswy"]
+curve = SubResource("Curve_oorcj")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_mb8w1"]
+gravity = Vector3(0, 0, 0)
+scale_min = 0.45
+scale_max = 0.45
+color = Color(3.5629182, 1.530167, 0.709798, 0.78800005)
+emission_curve = SubResource("CurveTexture_3bswy")
+
+[sub_resource type="QuadMesh" id="QuadMesh_oo0aq"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_olhon"]
+render_priority = 1
+shader = ExtResource("48_a5636")
+shader_parameter/MainTex = ExtResource("51_yr5cl")
+shader_parameter/DissolveTiling = Vector2(0.5, 0.5)
+shader_parameter/DissolveSpeed = Vector2(0, 0)
+shader_parameter/DissolveAmount = 0.0
+
+[sub_resource type="Curve" id="Curve_med4g"]
+_limits = [0.0, 15.0, 0.0, 1.0]
+_data = [Vector2(0, 15), 0.0, 0.0, 0, 0]
+point_count = 1
+
+[sub_resource type="CurveTexture" id="CurveTexture_7qke6"]
+curve = SubResource("Curve_med4g")
+
+[sub_resource type="Curve" id="Curve_v53rc"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.22222221, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_jn1yg"]
+curve = SubResource("Curve_v53rc")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_m4278"]
+lifetime_randomness = 0.1
+emission_shape = 1
+emission_sphere_radius = 0.2
+angle_min = -360.0
+angle_max = 360.00003
+gravity = Vector3(0, 5, 0)
+damping_min = 0.5
+damping_max = 1.0
+scale_min = 0.0
+scale_max = 98.92
+scale_curve = SubResource("CurveTexture_jn1yg")
+color = Color(1, 0.7795, 0.37, 1)
+emission_curve = SubResource("CurveTexture_7qke6")
+
+[sub_resource type="QuadMesh" id="QuadMesh_nyio1"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_n0in2"]
+render_priority = 0
+shader = ExtResource("48_a5636")
+shader_parameter/MainTex = ExtResource("51_yr5cl")
+shader_parameter/DissolveTiling = Vector2(0.5, 0.5)
+shader_parameter/DissolveSpeed = Vector2(0, 0)
+shader_parameter/DissolveAmount = 0.0
+
+[sub_resource type="Gradient" id="Gradient_3g57t"]
+offsets = PackedFloat32Array(0, 0.2713568, 0.63316584, 1)
+colors = PackedColorArray(1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 0.90163934, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_w8nbd"]
+gradient = SubResource("Gradient_3g57t")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_mdkuk"]
+lifetime_randomness = 0.7
+emission_shape = 1
+emission_sphere_radius = 0.3
+angle_min = -360.0
+angle_max = 360.00003
+gravity = Vector3(0, 5, 0)
+damping_min = 0.5
+damping_max = 1.0
+scale_min = 60.0
+scale_max = 80.0
+scale_curve = SubResource("CurveTexture_jn1yg")
+color = Color(0.65834004, 0.6583399, 0.6583399, 1)
+color_ramp = SubResource("GradientTexture1D_w8nbd")
+
+[sub_resource type="QuadMesh" id="QuadMesh_mrxq0"]
+
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_hnqnj"]
 radius = 0.78808594
 height = 1.5761719
@@ -942,9 +1313,6 @@ roughness_texture_channel = 1
 emission_enabled = true
 emission = Color(0.33, 0.24287999, 0.09239999, 1)
 emission_energy_multiplier = 1.08
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_jn1yg"]
-size = Vector3(3.7597656, 2.6875, 1)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_sd0hj"]
 size = Vector3(2.2953491, 1.7250977, 1.362793)
@@ -1090,7 +1458,7 @@ environment = SubResource("Environment_t634p")
 [node name="Camera3D" type="Camera3D" parent="VisualConfig" unique_id=1834340419]
 unique_name_in_owner = true
 physics_interpolation_mode = 1
-transform = Transform3D(0.6889609, -0.05466112, 0.72273445, 6.16014e-05, 0.99715656, 0.07535722, -0.7247986, -0.051873658, 0.6870052, 54.45443, 8.158729, -4.293422)
+transform = Transform3D(0.8796728, 0, -0.47557923, 0, 1, 0, 0.47557923, 0, 0.8796728, -4.1581345, 17.122473, 133.65147)
 top_level = true
 cull_mask = 1048031
 size = 62.088
@@ -1102,7 +1470,7 @@ script = ExtResource("1_mxkvs")
 metadata/_custom_type_script = "uid://bd046eokvcnu2"
 
 [node name="Player" parent="." unique_id=949902107 instance=ExtResource("2_m114p")]
-transform = Transform3D(0.68905383, 0, 0.7247099, 0, 1, 0, -0.7247099, 0, 0.68905383, 54.45441, 6.328698, -4.293436)
+transform = Transform3D(0.68905383, 0, 0.7247099, 0, 1, 0, -0.7247099, 0, 0.68905383, 32.64977, 12.224099, 20.617588)
 
 [node name="Church" parent="." unique_id=151423155 instance=ExtResource("7_q3hpu")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 33.096912, -0.040885925, 0.037341118)
@@ -1120,11 +1488,11 @@ omni_range = 20.153
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.082743, 1.6670088, -3.19987)
 
 [node name="Camera3D" parent="Church/ConfessionalBooth" index="2" unique_id=430217490]
-transform = Transform3D(0.6889624, -0.054660864, 0.722733, 6.145069e-05, 0.9971566, 0.07535716, -0.7247972, -0.05187384, 0.6870068, 54.45443, 8.158728, -4.293422)
+transform = Transform3D(0.8796728, 0, -0.47557923, 0, 1, 0, 0.47557923, 0, 0.8796728, -4.1581345, 17.122473, 133.65147)
 top_level = true
 
 [node name="Sprite3D" parent="Church/ConfessionalBooth/Confessor" parent_id_path=PackedInt32Array(321162436, 1758948578) index="0" unique_id=415751236]
-texture = SubResource("ViewportTexture_vl1dq")
+texture = SubResource("ViewportTexture_x77xw")
 
 [node name="SecondFloor2" type="Node3D" parent="Church" unique_id=1860471051]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -33.12908, 0, 0)
@@ -1298,11 +1666,11 @@ unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 78.78419, 0.9976957, -5.94999)
 
 [node name="Sprite3D" parent="Characters/Sanson" index="0" unique_id=415751236]
-texture = SubResource("ViewportTexture_hx1je")
+texture = SubResource("ViewportTexture_pkfnk")
 
 [node name="Outline" parent="Characters/Sanson/Sprite3D" index="0" unique_id=1631064389]
-material_overlay = SubResource("ShaderMaterial_n78lu")
-texture = SubResource("ViewportTexture_1o6i5")
+material_overlay = SubResource("ShaderMaterial_1n8ra")
+texture = SubResource("ViewportTexture_0n6td")
 
 [node name="AstrolablusPuzzle" parent="Characters" unique_id=572576743 instance=ExtResource("14_m114p")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 74.17525, 0.89560485, -7.2601056)
@@ -1417,6 +1785,7 @@ gizmo_extents = 0.83
 [node name="StartingCutscene" type="Node3D" parent="Cutscenes" unique_id=913486234 node_paths=PackedStringArray("player", "julio", "lucio", "hugo", "sanson", "prior", "abbott", "camera", "dialogue_input_text", "bell_audio_stream_player_3d", "bell_audio_stream_player_3d_2", "ambient", "world_environment")]
 unique_name_in_owner = true
 script = ExtResource("27_hph6x")
+skip_cutscene = true
 player = NodePath("../../Player")
 julio = NodePath("../../Characters/Julio")
 lucio = NodePath("../../Characters/Lucio")
@@ -1479,7 +1848,7 @@ noise_emitter_layer = 1
 metadata/_custom_type_script = "uid://csjccrhj5wnx7"
 
 [node name="CloseUpCamera" type="Node3D" parent="Cutscenes/StartingCutscene" unique_id=1789459155 node_paths=PackedStringArray("follow_target", "look_at_target")]
-transform = Transform3D(-0.8541945, 0, 0, 0, 0.8826757, -0.4699747, 0, -0.46997437, -0.8826764, 31.976969, 4.116524, -13.0710745)
+transform = Transform3D(-0.8322885, 0, 0, 0, 0.68254006, 0.7308435, 0, 0.7308429, -0.6825405, 31.976969, 4.5308065, -13.0020275)
 top_level = true
 script = ExtResource("28_phx5y")
 follow_mode = 5
@@ -1646,7 +2015,7 @@ tween_resource = SubResource("Resource_1o6i5")
 metadata/_custom_type_script = "uid://csjccrhj5wnx7"
 
 [node name="julio_camera" type="Node3D" parent="Cutscenes/AnimalsCutscene" unique_id=1149604511 node_paths=PackedStringArray("follow_target", "look_at_target")]
-transform = Transform3D(-0.9838765, 0.007139156, 0.03621089, 2.29255e-10, 0.983372, -0.16899145, -0.038835637, -0.18086605, -0.9173802, 28.114899, 4.2217307, -12.3602295)
+transform = Transform3D(-0.9838765, 0.007139156, 0.03492909, 2.29255e-10, 0.983372, -0.16300945, -0.038835637, -0.18086605, -0.8849066, 28.114899, 4.2217307, -12.3602295)
 top_level = true
 script = ExtResource("28_phx5y")
 follow_mode = 2
@@ -1683,6 +2052,154 @@ unlockeable = false
 
 [node name="OpenAudioStreamPlayer" parent="Cutscenes/AnimalsCutscene/BarnDoor" index="4" unique_id=778601091]
 volume_db = -80.0
+
+[node name="EndingCutscene" type="Node3D" parent="Cutscenes" unique_id=1632890000 node_paths=PackedStringArray("player", "julio", "hugo", "sanson", "prior", "abbott", "abbots_door", "camera", "world_environment", "big_fire")]
+script = ExtResource("44_6ebim")
+player = NodePath("../../Player")
+julio = NodePath("../../Characters/Julio")
+hugo = NodePath("../../Characters/Hugo")
+sanson = NodePath("../../Characters/Sanson")
+prior = NodePath("../../Characters/Prior")
+abbott = NodePath("../../Characters/Abbott")
+abbots_door = NodePath("../../Church/AbbotsDoor")
+camera = NodePath("../../VisualConfig/Camera3D")
+dialogue_res = ExtResource("45_hx1je")
+fire = ExtResource("45_vl1dq")
+world_environment = NodePath("../../VisualConfig/WorldEnvironment")
+big_fire = NodePath("BigFire")
+
+[node name="PlayerDetection" type="Area3D" parent="Cutscenes/EndingCutscene" unique_id=171410442]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 32.948868, 12.614646, 15.70098)
+collision_layer = 0
+collision_mask = 4
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Cutscenes/EndingCutscene/PlayerDetection" unique_id=856707532]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.230957, 1.4680586)
+shape = SubResource("BoxShape3D_7qke6")
+
+[node name="AbbottPos" type="Marker3D" parent="Cutscenes/EndingCutscene" unique_id=115681154]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 33.11446, 12.614645, 12.4233885)
+
+[node name="AbbottNearPos" type="Marker3D" parent="Cutscenes/EndingCutscene" unique_id=1639552889]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 33.11446, 12.614645, 13.241911)
+
+[node name="ZoomInCamera" type="Node3D" parent="Cutscenes/EndingCutscene" unique_id=1199036886]
+transform = Transform3D(1, 0, 0, 0, 0.9999792, -0.0064361542, 0, 0.0064361542, 0.9999792, 33.052544, 14.0749855, 17.697268)
+script = ExtResource("28_phx5y")
+tween_resource = SubResource("Resource_6ebim")
+metadata/_custom_type_script = "uid://csjccrhj5wnx7"
+
+[node name="WalkToWindowCamera" type="Node3D" parent="Cutscenes/EndingCutscene" unique_id=2022817480]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 33.053, 14.075, 16.147)
+script = ExtResource("28_phx5y")
+tween_resource = SubResource("Resource_6ebim")
+noise = SubResource("Resource_cdpwx")
+metadata/_custom_type_script = "uid://csjccrhj5wnx7"
+
+[node name="WindowViewCamera" type="Node3D" parent="Cutscenes/EndingCutscene" unique_id=1286783820]
+transform = Transform3D(1, 0, 0, 0, 0.92626506, 0.37687278, 0, -0.37687278, 0.92626506, 33.053, 14.075, 7.9552956)
+script = ExtResource("28_phx5y")
+tween_resource = SubResource("Resource_6ebim")
+noise = SubResource("Resource_cdpwx")
+metadata/_custom_type_script = "uid://csjccrhj5wnx7"
+
+[node name="MonasteryCamera" type="Node3D" parent="Cutscenes/EndingCutscene" unique_id=469139807]
+transform = Transform3D(0.903494, 0, -0.4286007, 0, 1, 0, 0.4286007, 0, 0.903494, 21.104637, 17.122473, 47.159004)
+script = ExtResource("28_phx5y")
+tween_resource = SubResource("Resource_6ebim")
+metadata/_custom_type_script = "uid://csjccrhj5wnx7"
+
+[node name="MonasteryFarCamera" type="Node3D" parent="Cutscenes/EndingCutscene" unique_id=1566953885]
+transform = Transform3D(0.8796728, 0, -0.47557923, 0, 1, 0, 0.47557923, 0, 0.8796728, -4.1581345, 17.122473, 133.65147)
+script = ExtResource("28_phx5y")
+tween_resource = SubResource("Resource_6ebim")
+metadata/_custom_type_script = "uid://csjccrhj5wnx7"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Cutscenes/EndingCutscene" unique_id=206591686]
+libraries/ = SubResource("AnimationLibrary_ij5nj")
+speed_scale = 0.1
+
+[node name="SansonPos" type="Marker3D" parent="Cutscenes/EndingCutscene" unique_id=702110578]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 34.62477, 2.372779, -11.115034)
+
+[node name="HugoPos" type="Marker3D" parent="Cutscenes/EndingCutscene" unique_id=1219955237]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 33.625244, 2.372779, -11.148679)
+
+[node name="JulioPos" type="Marker3D" parent="Cutscenes/EndingCutscene" unique_id=48193636]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 31.318718, 2.372779, -11.373213)
+
+[node name="PriorPos" type="Marker3D" parent="Cutscenes/EndingCutscene" unique_id=1571014856]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 32.46531, 2.372779, -10.76836)
+
+[node name="FireMarkers" type="Node3D" parent="Cutscenes/EndingCutscene" unique_id=1310127663]
+
+[node name="Marker3D" type="Marker3D" parent="Cutscenes/EndingCutscene/FireMarkers" unique_id=1207839716]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 36.573463, 15.165356, 10.21394)
+
+[node name="Marker3D2" type="Marker3D" parent="Cutscenes/EndingCutscene/FireMarkers" unique_id=1364970045]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 36.573463, 13.145313, 12.711907)
+
+[node name="Marker3D3" type="Marker3D" parent="Cutscenes/EndingCutscene/FireMarkers" unique_id=736909371]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 35.328476, 11.900316, 14.667746)
+
+[node name="Marker3D4" type="Marker3D" parent="Cutscenes/EndingCutscene/FireMarkers" unique_id=1745192241]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 30.400604, 11.900316, 9.802879)
+
+[node name="Marker3D7" type="Marker3D" parent="Cutscenes/EndingCutscene/FireMarkers" unique_id=1585009310]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 31.654295, 12.614645, 9.385759)
+
+[node name="Marker3D8" type="Marker3D" parent="Cutscenes/EndingCutscene/FireMarkers" unique_id=970568251]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 33.641937, 12.614645, 9.188039)
+
+[node name="Marker3D9" type="Marker3D" parent="Cutscenes/EndingCutscene/FireMarkers" unique_id=1497170317]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 35.272457, 12.614645, 9.938048)
+
+[node name="Marker3D10" type="Marker3D" parent="Cutscenes/EndingCutscene/FireMarkers" unique_id=837533425]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 34.677193, 2.372779, -10.203058)
+
+[node name="Marker3D11" type="Marker3D" parent="Cutscenes/EndingCutscene/FireMarkers" unique_id=833033616]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 29.631502, 2.372779, -11.255958)
+
+[node name="Marker3D12" type="Marker3D" parent="Cutscenes/EndingCutscene/FireMarkers" unique_id=467802911]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 31.736908, 2.372779, -9.797821)
+
+[node name="Marker3D13" type="Marker3D" parent="Cutscenes/EndingCutscene/FireMarkers" unique_id=1666566919]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 36.041866, 2.372779, -11.166804)
+
+[node name="Marker3D5" type="Marker3D" parent="Cutscenes/EndingCutscene/FireMarkers" unique_id=105719807]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 30.165752, 14.230111, 13.887724)
+
+[node name="Marker3D6" type="Marker3D" parent="Cutscenes/EndingCutscene/FireMarkers" unique_id=1618679828]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 30.554007, 10.536255, 14.360422)
+
+[node name="Smoke" parent="Cutscenes/EndingCutscene" unique_id=669538208 instance=ExtResource("47_ij5nj")]
+unique_name_in_owner = true
+transform = Transform3D(0, 8.742278e-08, -1, 1, 0, 0, 0, -1, -8.742278e-08, 33.066635, 13.646247, 17.285112)
+
+[node name="Fire" parent="Cutscenes/EndingCutscene" unique_id=95406681 instance=ExtResource("45_vl1dq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 31.664043, 12.614645, 16.544573)
+
+[node name="Fire2" parent="Cutscenes/EndingCutscene" unique_id=535671864 instance=ExtResource("45_vl1dq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 34.25212, 12.614645, 16.544573)
+
+[node name="BigFire" parent="Cutscenes/EndingCutscene" unique_id=1478896880 instance=ExtResource("45_vl1dq")]
+transform = Transform3D(53.045, 0, 0, 0, 53.045, 0, 0, 0, 53.045, 34.25212, 5.119669, 14.905282)
+visible = false
+
+[node name="StaticFlame" parent="Cutscenes/EndingCutscene/BigFire" index="0" unique_id=952130730]
+material_override = SubResource("ShaderMaterial_bmoad")
+process_material = SubResource("ParticleProcessMaterial_mb8w1")
+draw_pass_1 = SubResource("QuadMesh_oo0aq")
+
+[node name="Flames" parent="Cutscenes/EndingCutscene/BigFire" index="1" unique_id=1964061805]
+material_override = SubResource("ShaderMaterial_olhon")
+process_material = SubResource("ParticleProcessMaterial_m4278")
+draw_pass_1 = SubResource("QuadMesh_nyio1")
+
+[node name="Smoke" parent="Cutscenes/EndingCutscene/BigFire" index="2" unique_id=2041608222]
+material_override = SubResource("ShaderMaterial_n0in2")
+process_material = SubResource("ParticleProcessMaterial_mdkuk")
+draw_pass_1 = SubResource("QuadMesh_mrxq0")
 
 [node name="CollectableItems" type="Node" parent="." unique_id=1692708429]
 
@@ -1836,17 +2353,6 @@ track_a = ExtResource("30_jyr8v")
 track_b = ExtResource("31_5o5dd")
 volume_a = -32.0
 volume_b = -33.0
-
-[node name="EndCutscene" type="Area3D" parent="." unique_id=1146276114]
-transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, 32.97939, 14.233998, 15.665138)
-collision_layer = 0
-collision_mask = 4
-script = ExtResource("37_j0rhc")
-dialogue_res = ExtResource("38_4jq4u")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="EndCutscene" unique_id=12401525]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.84375, 0)
-shape = SubResource("BoxShape3D_jn1yg")
 
 [node name="Candles" type="Node3D" parent="." unique_id=1349123184]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 25.417309, 1.6569831, 19.568079)
@@ -2007,6 +2513,8 @@ transform = Transform3D(-0.80592835, 0, 0.5920133, 0, 1, 0, -0.5920133, 0, -0.80
 [editable path="Characters/SleepPuzzle/LockPick"]
 [editable path="Characters/SleepPuzzle/LockPick/lockpick"]
 [editable path="Cutscenes/AnimalsCutscene/BarnDoor"]
+[editable path="Cutscenes/EndingCutscene/Smoke"]
+[editable path="Cutscenes/EndingCutscene/BigFire"]
 [editable path="CollectableItems/AstrolabusBody"]
 [editable path="CollectableItems/AstrolabusBody/astrolabus_body"]
 [editable path="CollectableItems/AstrolabusPointer"]

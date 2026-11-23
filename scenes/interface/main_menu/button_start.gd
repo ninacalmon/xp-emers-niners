@@ -8,4 +8,4 @@ func _ready() -> void:
 
 
 func _on_pressed():
-	LoadingManager.load_scene("res://scenes/world/world_cutscene.tscn")
+	LoadingManager.load_scene("res://scenes/world/world.tscn")

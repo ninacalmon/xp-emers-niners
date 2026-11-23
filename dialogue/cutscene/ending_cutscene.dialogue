@@ -1,0 +1,36 @@
+~ abbott
+Abade: “Francisco! O que significa isso?!”
+Você: “VOCÊ!...”
+Abade: “Licença?”
+Você: “Você... você nos enganou... Você enganou a todos nós, nos fazendo acreditar em uma[b] mentira doentia[/b], só para nos USAR no seu plano egoísta!”
+Abade: “Isso não ~~ [b]Olhe essa língua.[/b] ~~ rapaz.”
+do GetEntity.get_abbott().pendulum_animated_sprite.play("reveal")
+do DialogueData.set_mood("Abade",DialogueData.AbbottsMoods.WORRIED)
+Abade: “Sob a luz de ~~ Fran ~~ quem você está? Fran. Suas roupas.”
+Você: “O que...? Você... seu monstro vil! Criatura abjeta...”
+Abade: “Não F-”
+do DialogueData.set_mood("Abade", DialogueData.AbbottsMoods.ANGRY)
+Você: “É para este fim que você vem me treinando? Para que eu sirva de instrumento desse teu desígnio nefasto?!”
+Abade: “Desígnio nefasto?! Com quem ~~ Olhe eles. Lá em baixo, o Sol ~~ acha que está falando?! 
+Você: “Você... você é asqueroso! Todos aqueles que morreram... seria você a própria morte?!”
+Abade: [font_size=50][b]“BASTA!!!”[/b][/font_size]
+do WorldStateManager.fade_abbot(false)
+Francisco caminha, tremendo, até a cortina. Abre-a e avista seus irmãos conversando no altar.
+Julio, Sanson, Hugo, e até o Prior, parecem confabular de forma tristonha. Sobre o que estão falando...?
+=> END
+
+
+~ fire_start
+*** Tssssss *** - Um som sibilante.
+* Que cheiro de álcool... *
+* O cheiro de álcool parece ficar mais e mais forte...”
+=> END
+
+~ fire
+do DialogueData.set_mood("Abade",DialogueData.AbbottsMoods.WORRIED)
+do WorldStateManager.fade_abbot(true)
+Abade: [font_size=50][b]“FRANCISCO!”[/b][/font_size]
+do WorldStateManager.fade_abbot(false)
+Francisco sente um calor penetrante em suas costas... Os raios de luz?!
+Quando olha em volta, tudo já está em chamas...
+=> END

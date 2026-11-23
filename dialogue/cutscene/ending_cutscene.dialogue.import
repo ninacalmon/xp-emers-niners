@@ -1,0 +1,16 @@
+[remap]
+
+importer="dialogue_manager"
+importer_version=18
+type="Resource"
+uid="uid://b2g1ion1rvmyn"
+path="res://.godot/imported/ending_cutscene.dialogue-b51923ab8e5d26b92adf8737d03d4b9d.tres"
+
+[deps]
+
+source_file="res://dialogue/cutscene/ending_cutscene.dialogue"
+dest_files=["res://.godot/imported/ending_cutscene.dialogue-b51923ab8e5d26b92adf8737d03d4b9d.tres"]
+
+[params]
+
+defaults=true

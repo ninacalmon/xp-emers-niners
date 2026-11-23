@@ -138,6 +138,7 @@ text = "Iniciar"
 script = ExtResource("1_65o3d")
 
 [node name="ButtonCredits" type="Button" parent="VBoxButtons" unique_id=475841029]
+visible = false
 layout_mode = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_colors/font_hover_color = Color(0, 0, 0, 1)

@@ -1,6 +1,8 @@
 class_name DoubleDoorAction
 extends ActionTrigger
 
+signal opening
+
 @export var open_rotation: int = 95
 @export var flip: bool = false
 @export var speed: float = 0.4
@@ -53,6 +55,7 @@ func ray_exit():
 
 
 func open_door() -> void:
+	opening.emit()
 	is_open = true
 
 	_set_collisions_disabled(true)

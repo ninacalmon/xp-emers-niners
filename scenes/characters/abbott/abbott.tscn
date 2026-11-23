@@ -1,5 +1,6 @@
 [gd_scene format=3 uid="uid://dastn857g3jr7"]
 
+[ext_resource type="Script" uid="uid://d0xhv4jbgyb5c" path="res://scenes/characters/abbott/abbott.gd" id="1_3yqkd"]
 [ext_resource type="Script" uid="uid://bjidnq65qcjsh" path="res://systems/character/dialogue_action.gd" id="1_xnjj4"]
 [ext_resource type="Script" uid="uid://biodsue5rifq4" path="res://systems/character/character_sprite_handler.gd" id="2_3yqkd"]
 [ext_resource type="Texture2D" uid="uid://cpjtlqt10hj73" path="res://assets/2d/characters/abbot/abbot_angry1.png" id="3_ohxkg"]
@@ -33,8 +34,8 @@ radius = 0.32666016
 height = 2.1264648
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_e5yf2"]
-radius = 0.2993164
-height = 0.8618164
+radius = 0.7553711
+height = 1.5107422
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_1o6i5"]
 animations = [{
@@ -54,6 +55,20 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
+"texture": ExtResource("9_ve0yd")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_aoeha")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_fq2pp")
+}],
+"loop": 1,
+"name": &"DEFAULT",
+"speed": 6.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": ExtResource("6_l7oea")
 }, {
 "duration": 1.0,
@@ -69,12 +84,6 @@ animations = [{
 "frames": [{
 "duration": 1.0,
 "texture": ExtResource("9_ve0yd")
-}, {
-"duration": 1.0,
-"texture": ExtResource("10_aoeha")
-}, {
-"duration": 1.0,
-"texture": ExtResource("11_fq2pp")
 }],
 "loop": 1,
 "name": &"idle",
@@ -142,12 +151,13 @@ animations = [{
 }]
 
 [node name="Abbott" type="Node3D" unique_id=502752112 groups=["abbott"]]
+script = ExtResource("1_3yqkd")
 
 [node name="Sprite3D" type="Sprite3D" parent="." unique_id=1376294264]
-transform = Transform3D(0.18, 0, 0, 0, 0.18, 0, 0, 0, 0.18, 0, 0.7130867, 0)
+transform = Transform3D(0.18, 0, 0, 0, 0.18, 0, 0, 0, 0.18, 0, 1.1206455, 0)
+layers = 131073
 offset = Vector2(0, 241.06)
 billboard = 2
-shaded = true
 texture = SubResource("ViewportTexture_ig5f2")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="." unique_id=1561031773]
@@ -163,7 +173,7 @@ mesh = SubResource("CapsuleMesh_e5yf2")
 
 [node name="DialogueAction" type="Node" parent="." unique_id=131898993]
 script = ExtResource("1_xnjj4")
-character_name = "Abbott"
+character_name = "Abade"
 
 [node name="CharacterSpriteHandler" type="Node" parent="." unique_id=492471919 node_paths=PackedStringArray("animated_sprite", "dialogue_action")]
 script = ExtResource("2_3yqkd")
@@ -178,12 +188,11 @@ render_target_update_mode = 4
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="SubViewportSprite" unique_id=582465483]
 sprite_frames = SubResource("SpriteFrames_1o6i5")
-animation = &"sillhouette"
-frame_progress = 0.4929999
+animation = &"idle"
 centered = false
 
 [node name="PendulumAnimatedSprite" type="AnimatedSprite2D" parent="SubViewportSprite" unique_id=1740511123]
-visible = false
+modulate = Color(0, 0, 0, 1)
 sprite_frames = SubResource("SpriteFrames_7o8ut")
-animation = &"idle"
+animation = &"reveal"
 centered = false

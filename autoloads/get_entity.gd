@@ -7,6 +7,7 @@ var hugo: Node3D = null
 var sanson: Node3D = null
 var confessor: Node3D = null
 var prior: Node3D = null
+var abbott: Abbott = null
 
 var astrolabus_desk: Node3D = null
 
@@ -57,6 +58,10 @@ func get_prior() -> Node3D:
 	prior = _find_cached(prior, &"prior")
 	return prior
 
+
+func get_abbott() -> Abbott:
+	abbott = _find_cached(abbott, &"abbott")
+	return abbott
 
 func get_confessor_booth() -> Node3D:
 	confessor_booth = _find_cached(confessor_booth, &"confessor_booth")

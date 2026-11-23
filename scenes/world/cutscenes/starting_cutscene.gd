@@ -127,7 +127,7 @@ func position_starting_cutscene() -> void:
 	prior.global_position = prior_pos.global_position
 	player.global_position = player_pos.global_position
 	abbott.global_position = abbott_pos.global_position
-	DialogueData.set_mood("Abbott", DialogueData.AbbottsMoods.sillhouette)
+	DialogueData.set_mood("Abade", DialogueData.AbbottsMoods.sillhouette)
 	Engine.time_scale = 3
 
 
