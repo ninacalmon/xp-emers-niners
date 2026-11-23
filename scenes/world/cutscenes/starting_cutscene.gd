@@ -104,12 +104,15 @@ func _save_original_state() -> void:
 
 
 func play_cutscene() -> void:
+	Engine.time_scale = 3
 	TaskManager.complete_task("noon_prayer")
+	AudioManager.stop_music(3.0)
+	await get_tree().create_timer(0.3)
 	player.is_cutscene_locked = true
 	await FadeInOut.fade_in(1.5)
 	await  get_tree().create_timer(2).timeout
 	_save_original_state()
-	music.play()
+	AudioManager.play_music(music)
 	hands_overlay.hide()
 	#game_ui_overlay.hide()
 	dialogue_input_text.modulate = Color.TRANSPARENT
@@ -128,7 +131,7 @@ func position_starting_cutscene() -> void:
 	player.global_position = player_pos.global_position
 	abbott.global_position = abbott_pos.global_position
 	DialogueData.set_mood("Abade", DialogueData.AbbottsMoods.sillhouette)
-	Engine.time_scale = 3
+	#Engine.time_scale = 3
 
 
 func scene_starting_cutscene() -> void:
@@ -289,7 +292,7 @@ func end_cutscene() -> void:
 	world_environment.environment.glow_bloom = _orig_glow_bloom
 
 	# Audio
-	music.stop()
+	AudioManager.stop_music(2.0)
 	bell_audio_stream_player_3d.stop()
 	bell_audio_stream_player_3d_2.stop()
 	bell_audio_stream_player_3d.volume_db = _orig_bell_volume_db

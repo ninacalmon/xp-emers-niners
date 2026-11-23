@@ -56,6 +56,10 @@ signal finished
 @onready var abbott_music: AudioStreamPlayer = $AbbottMusic
 @onready var fire_ending_music: AudioStreamPlayer = $FireEndingMusic
 @onready var fire_markers_group: Node3D = $FireMarkers
+@export var music_ending_fire: AudioStreamPlayer
+@export var music_ending_melt: AudioStreamPlayer
+@onready var music_ending_endfire: AudioStreamPlayer = $MusicEndingENDFIRE
+@onready var music_ending_endmelt: AudioStreamPlayer = $MusicEndingENDMELT
 
 var started: bool = false
 var spawned_fires: Array[Node3D] = []
@@ -112,6 +116,10 @@ func play_cutscene() -> void:
 
 	# --- Abbott appears ---
 	#abbott_music.play()
+	if CharacterData.Sanson.flower_got:
+		AudioManager.play_music(music_ending_fire)
+	else:
+		AudioManager.play_music(music_ending_melt)
 	_tween_abbott_closer()
 	await _play_animation("zoom_in", zoom_in_speed)
 	var oldsky = world_environment.environment.sky
@@ -121,6 +129,7 @@ func play_cutscene() -> void:
 		await _run_dialogue("abbott", true)
 		smoke.smoke.emitting = true
 		await _run_dialogue("fire_start", true)
+		AudioManager.play_music(music_ending_endfire)
 		smoke.particles_floating.emitting = true
 		fire_1.static_flame.emitting = true
 		fire_1.flames.emitting = true
@@ -132,6 +141,7 @@ func play_cutscene() -> void:
 		fire_2.particles_floating.emitting = true
 		await _run_dialogue("fire", true)
 	else:
+		AudioManager.play_music(music_ending_endmelt)
 		await _run_dialogue("happy_ending", true)
 
 	#await get_tree().create_timer(2).timeout

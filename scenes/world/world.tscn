@@ -37,9 +37,7 @@
 [ext_resource type="Resource" uid="uid://bae56sx733f7o" path="res://items/papers/blank_paper.tres" id="29_nqe8x"]
 [ext_resource type="Script" uid="uid://peejkdrmwsea" path="res://scenes/world/music.gd" id="29_wnndm"]
 [ext_resource type="Script" uid="uid://cuffvge5ad4aa" path="res://addons/phantom_camera/scripts/resources/phantom_camera_noise_3d.gd" id="30_554ci"]
-[ext_resource type="AudioStream" uid="uid://21vhu4ot54ph" path="res://assets/sound/music/Aguirre I (l'acrime di rei).mp3" id="30_jyr8v"]
 [ext_resource type="PackedScene" uid="uid://x67lk35re62k" path="res://assets/3d/items/paper_mirrors/blank_paper.glb" id="30_sh7a8"]
-[ext_resource type="AudioStream" uid="uid://bc05muurqbflr" path="res://assets/sound/music/Entropy.mp3" id="31_5o5dd"]
 [ext_resource type="Resource" uid="uid://ckjqxau6jceg1" path="res://items/mirrors/mirror_a/mirror_a1.tres" id="31_7mx70"]
 [ext_resource type="PackedScene" uid="uid://b70guh624yvcg" path="res://assets/3d/items/mirrors/mirror_a/mirror_a1.glb" id="32_1cxds"]
 [ext_resource type="FontFile" uid="uid://m4150rl53s6t" path="res://assets/fonts/UncialAntiqua-Regular.ttf" id="32_5aamg"]
@@ -74,8 +72,11 @@
 [ext_resource type="PackedScene" uid="uid://by3xhr7in7fhx" path="res://assets/3d/items/mirrors/mirror_b/mirror_b2.glb" id="49_l4ul6"]
 [ext_resource type="Texture2D" uid="uid://br0ve0b611707" path="res://assets/3d/scenery/fire/Flame01.png" id="50_4ln07"]
 [ext_resource type="Texture2D" uid="uid://6mu13qolvcin" path="res://assets/3d/scenery/fire/Flame02.png" id="51_yr5cl"]
+[ext_resource type="AudioStream" uid="uid://by3ryhp7bo3gp" path="res://assets/sound/music/Father_is_here.mp3" id="52_a5636"]
 [ext_resource type="Script" uid="uid://dh1ltto8wru1y" path="res://screenshots/screenshots.gd" id="52_j0rhc"]
+[ext_resource type="AudioStream" uid="uid://d16cv1nsvskdc" path="res://assets/sound/music/Fathers_here.mp3" id="53_jhdiv"]
 [ext_resource type="Texture2D" uid="uid://bhj86bqpspx28" path="res://assets/3d/items/candle/candle_roughness_map.png" id="54_j2kh8"]
+[ext_resource type="AudioStream" uid="uid://bphwgubrj7mei" path="res://assets/sound/music/Accepted_with_Veneration.mp3" id="54_jhdiv"]
 [ext_resource type="PackedScene" uid="uid://cut5m0ku8e4e6" path="res://scenes/puzzles/mirrors/mirror_stand/mirror_stand.tscn" id="62_j2kh8"]
 [ext_resource type="PackedScene" uid="uid://beejk147fox5c" path="res://scenes/puzzles/mirrors/light_beam/light_beam.tscn" id="63_hpffo"]
 [ext_resource type="PackedScene" uid="uid://cim06qc8dw8f2" path="res://scenes/puzzles/mirrors/mirror_stand/double_mirror_stand.tscn" id="65_hpffo"]
@@ -1758,7 +1759,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 21.404587, 1.5257708, -2.0794
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 84.139, 1.0000005, 4.986676)
 
 [node name="HugoRoomPos" type="Marker3D" parent="Cutscenes" unique_id=1341266334 groups=["hugo_room_pos"]]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 84.139, 1.0000005, 4.986676)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 51.935818, 0.9591142, -5.72486)
 
 [node name="ConfJulioPositionAfPlant" type="Marker3D" parent="Cutscenes" unique_id=1175746444 groups=["conf_julio_pos_af_plant"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 84.01936, 1.0000005, 6.4881096)
@@ -1784,7 +1785,6 @@ gizmo_extents = 0.83
 [node name="StartingCutscene" type="Node3D" parent="Cutscenes" unique_id=913486234 node_paths=PackedStringArray("player", "julio", "lucio", "hugo", "sanson", "prior", "abbott", "camera", "dialogue_input_text", "bell_audio_stream_player_3d", "bell_audio_stream_player_3d_2", "ambient", "world_environment")]
 unique_name_in_owner = true
 script = ExtResource("27_hph6x")
-skip_cutscene = true
 player = NodePath("../../Player")
 julio = NodePath("../../Characters/Julio")
 lucio = NodePath("../../Characters/Lucio")
@@ -1847,7 +1847,7 @@ noise_emitter_layer = 1
 metadata/_custom_type_script = "uid://csjccrhj5wnx7"
 
 [node name="CloseUpCamera" type="Node3D" parent="Cutscenes/StartingCutscene" unique_id=1789459155 node_paths=PackedStringArray("follow_target", "look_at_target")]
-transform = Transform3D(-0.8247026, 0, 0, 0, 0.68254006, 0.7308435, 0, 0.7308429, -0.6825405, 31.976969, 4.5308065, -13.0020275)
+transform = Transform3D(-0.8198799, 0, 0, 0, 0.68254006, 0.7308435, 0, 0.7308429, -0.6825405, 31.976969, 4.5308065, -13.0020275)
 top_level = true
 script = ExtResource("28_phx5y")
 follow_mode = 5
@@ -2014,7 +2014,7 @@ tween_resource = SubResource("Resource_1o6i5")
 metadata/_custom_type_script = "uid://csjccrhj5wnx7"
 
 [node name="julio_camera" type="Node3D" parent="Cutscenes/AnimalsCutscene" unique_id=1149604511 node_paths=PackedStringArray("follow_target", "look_at_target")]
-transform = Transform3D(-0.9838765, 0.007139156, 0.03449271, 2.29255e-10, 0.983372, -0.16097292, -0.038835637, -0.18086605, -0.8738512, 28.114899, 4.2217307, -12.3602295)
+transform = Transform3D(-0.9838765, 0.007139156, 0.034252916, 2.29255e-10, 0.983372, -0.15985385, -0.038835637, -0.18086605, -0.86777616, 28.114899, 4.2217307, -12.3602295)
 top_level = true
 script = ExtResource("28_phx5y")
 follow_mode = 2
@@ -2047,12 +2047,13 @@ bus = &"Music"
 
 [node name="BarnDoor" parent="Cutscenes/AnimalsCutscene" unique_id=654219509 instance=ExtResource("9_ues17")]
 transform = Transform3D(1.26, 0, 0, 0, 1.458, 0, 0, 0, 0.8, 13.991197, -0.08391273, 4.5153584)
+locked = true
 unlockeable = false
 
 [node name="OpenAudioStreamPlayer" parent="Cutscenes/AnimalsCutscene/BarnDoor" index="4" unique_id=778601091]
 volume_db = -80.0
 
-[node name="EndingCutscene" type="Node3D" parent="Cutscenes" unique_id=1632890000 node_paths=PackedStringArray("player", "julio", "hugo", "sanson", "prior", "abbott", "abbots_door", "camera", "world_environment", "big_fire")]
+[node name="EndingCutscene" type="Node3D" parent="Cutscenes" unique_id=1632890000 node_paths=PackedStringArray("player", "julio", "hugo", "sanson", "prior", "abbott", "abbots_door", "camera", "world_environment", "music_ending_fire", "music_ending_melt", "big_fire")]
 script = ExtResource("44_6ebim")
 player = NodePath("../../Player")
 julio = NodePath("../../Characters/Julio")
@@ -2065,6 +2066,8 @@ camera = NodePath("../../VisualConfig/Camera3D")
 dialogue_res = ExtResource("45_hx1je")
 fire = ExtResource("45_vl1dq")
 world_environment = NodePath("../../VisualConfig/WorldEnvironment")
+music_ending_fire = NodePath("MusicEndingFire")
+music_ending_melt = NodePath("MusicEndingMelt")
 big_fire = NodePath("BigFire")
 
 [node name="PlayerDetection" type="Area3D" parent="Cutscenes/EndingCutscene" unique_id=171410442]
@@ -2199,6 +2202,22 @@ draw_pass_1 = SubResource("QuadMesh_nyio1")
 material_override = SubResource("ShaderMaterial_n0in2")
 process_material = SubResource("ParticleProcessMaterial_mdkuk")
 draw_pass_1 = SubResource("QuadMesh_mrxq0")
+
+[node name="MusicEndingFire" type="AudioStreamPlayer" parent="Cutscenes/EndingCutscene" unique_id=406505394]
+stream = ExtResource("52_a5636")
+volume_db = -22.0
+
+[node name="MusicEndingMelt" type="AudioStreamPlayer" parent="Cutscenes/EndingCutscene" unique_id=195029793]
+stream = ExtResource("53_jhdiv")
+volume_db = -22.0
+
+[node name="MusicEndingENDFIRE" type="AudioStreamPlayer" parent="Cutscenes/EndingCutscene" unique_id=299026048]
+stream = ExtResource("52_a5636")
+volume_db = -22.0
+
+[node name="MusicEndingENDMELT" type="AudioStreamPlayer" parent="Cutscenes/EndingCutscene" unique_id=2124393579]
+stream = ExtResource("54_jhdiv")
+volume_db = -24.0
 
 [node name="CollectableItems" type="Node" parent="." unique_id=1692708429]
 
@@ -2348,8 +2367,8 @@ bus = &"Sound Effects"
 
 [node name="Music" type="Node" parent="." unique_id=189480702]
 script = ExtResource("29_wnndm")
-track_a = ExtResource("30_jyr8v")
-track_b = ExtResource("31_5o5dd")
+track_a = ExtResource("35_cf0uk")
+track_b = ExtResource("35_cf0uk")
 volume_a = -32.0
 volume_b = -33.0
 

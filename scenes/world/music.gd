@@ -4,8 +4,8 @@ extends Node
 @export var track_b: AudioStream
 @export var volume_a: float = -22
 @export var volume_b: float = -30
-@export var min_delay: float = 30.0 
-@export var max_delay: float = 90.0
+@export var min_delay: float = 60.0 * 3
+@export var max_delay: float = 60.0 * 7
 
 var _player: AudioStreamPlayer = AudioStreamPlayer.new()
 var _play_a: bool = true
@@ -25,5 +25,5 @@ func _schedule_next() -> void:
 		_first_play = false
 	_player.stream = track_a if _play_a else track_b
 	_player.volume_db = volume_a if _play_a else volume_b
-	_player.play()
+	AudioManager.play_music(_player)
 	_play_a = not _play_a

@@ -61,14 +61,13 @@ do DialogueData.set_mood("Sanson", DialogueData.SansonMoods.IDLE_DEFAULT)
 Sanson: “Exatamente. É isto mesmo. Eu estava lá fora e me lembro de que estava com meu astrolábio comigo.” 
 Sanson: “Depois, fui ao salão principal e, em seguida, voltei às pressas para os meus aposentos.”
 Você: “... ta certo. Vou procurar ele.”
+do CharacterData.Sanson.give_task("get_astrolabus")
 Você: “Mas... posso te pedir algo em troca depois?”
 do DialogueData.set_mood("Sanson", DialogueData.SansonMoods.IDLE_HAPPY)
 Sanson: “Ora, claro. Muito obrigado, Francisco. E volte logo, o tempo está passando.”
-do CharacterData.Sanson.give_task("get_astrolabus")
 => END
 
 ~ waiting_completion
-# [NOVO]
 do DialogueData.set_mood("Sanson", DialogueData.SansonMoods.IDLE_DEFAULT)
 Sanson: “Como está a busca? Deve estar escondido por aqui em algum lugar; acredito que você o encontrará em breve.”
 - > Entregar astrolábio < [if InventoryManager.selected_item == CharacterData.Item.astrolabus_body or InventoryManager.selected_item == CharacterData.Item.astrolabus_pointer or InventoryManager.selected_item == CharacterData.Item.astrolabus_full /] => broken
