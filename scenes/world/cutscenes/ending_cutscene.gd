@@ -62,6 +62,7 @@ signal finished
 @onready var music_ending_endmelt: AudioStreamPlayer = $MusicEndingENDMELT
 @onready var final_animated_spr: AnimatedSprite2D = $SubViewport/FinalAnimatedSpr
 @onready var texture_rect_final: TextureRect = $TextureRectFinal
+@onready var sub_viewport: SubViewport = $SubViewport
 
 var started: bool = false
 var spawned_fires: Array[Node3D] = []
@@ -104,6 +105,7 @@ func _on_abbots_door_opening() -> void:
 	DialogueData.set_mood("Abade", DialogueData.AbbottsMoods.idle)
 	abbott.sprite_3d.modulate = Color.BLACK
 	abbott.pendulum_animated_sprite.modulate = Color.BLACK
+	sub_viewport.render_target_update_mode = SubViewport.UPDATE_ALWAYS
 
 
 func _on_player_entered(body: Node3D) -> void:

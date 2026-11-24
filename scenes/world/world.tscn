@@ -72,7 +72,6 @@
 [ext_resource type="Texture2D" uid="uid://cek4sril3qxul" path="res://assets/2d/characters/endings/fire/finalfogo_prior.png" id="51_1n8ra"]
 [ext_resource type="Texture2D" uid="uid://dvliakg7mnrd6" path="res://assets/2d/characters/endings/fire/finalfogo_hugo.png" id="52_0n6td"]
 [ext_resource type="AudioStream" uid="uid://by3ryhp7bo3gp" path="res://assets/sound/music/Father_is_here.mp3" id="52_a5636"]
-[ext_resource type="Script" uid="uid://dh1ltto8wru1y" path="res://screenshots/screenshots.gd" id="52_j0rhc"]
 [ext_resource type="Texture2D" uid="uid://fjxq3v7vwdv3" path="res://assets/2d/characters/endings/fire/finalfogo_sanson.png" id="53_bmoad"]
 [ext_resource type="AudioStream" uid="uid://d16cv1nsvskdc" path="res://assets/sound/music/Fathers_here.mp3" id="53_jhdiv"]
 [ext_resource type="Texture2D" uid="uid://bhj86bqpspx28" path="res://assets/3d/items/candle/candle_roughness_map.png" id="54_j2kh8"]
@@ -1517,7 +1516,7 @@ environment = SubResource("Environment_t634p")
 [node name="Camera3D" type="Camera3D" parent="VisualConfig" unique_id=1834340419]
 unique_name_in_owner = true
 physics_interpolation_mode = 1
-transform = Transform3D(0.9999526, -0.00052412564, 0.009725216, -0.00021350541, 0.9971312, 0.07569164, -0.009736988, -0.07569013, 0.9970839, 68.86086, 2.7888932, 1.6832645)
+transform = Transform3D(0.99994403, -0.000852375, 0.010548445, 5.3834934e-05, 0.9971479, 0.07547199, -0.010582691, -0.075467184, 0.9970922, 68.86091, 2.7890902, 1.6833677)
 top_level = true
 cull_mask = 1048031
 size = 62.088
@@ -1547,7 +1546,7 @@ omni_range = 20.153
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.082743, 1.6670088, -3.19987)
 
 [node name="Camera3D" parent="Church/ConfessionalBooth" index="2" unique_id=430217490]
-transform = Transform3D(0.9999526, -0.0005235965, 0.009726342, -0.0002141204, 0.9971312, 0.07569185, -0.009738071, -0.075690344, 0.99708384, 68.86086, 2.7888935, 1.6832643)
+transform = Transform3D(0.99994403, -0.00085322396, 0.010548423, 5.4681346e-05, 0.9971479, 0.07547217, -0.010582732, -0.075467356, 0.9970922, 68.86091, 2.7890902, 1.6833681)
 top_level = true
 
 [node name="Sprite3D" parent="Church/ConfessionalBooth/Confessor" parent_id_path=PackedInt32Array(321162436, 1758948578) index="0" unique_id=415751236]
@@ -1907,7 +1906,7 @@ noise_emitter_layer = 1
 metadata/_custom_type_script = "uid://csjccrhj5wnx7"
 
 [node name="CloseUpCamera" type="Node3D" parent="Cutscenes/StartingCutscene" unique_id=1789459155 node_paths=PackedStringArray("follow_target", "look_at_target")]
-transform = Transform3D(-0.8032613, 0, 0, 0, 0.8826757, -0.4699747, 0, -0.46997437, -0.8826764, 31.976969, 4.116524, -13.0710745)
+transform = Transform3D(-0.80210936, 0, 0, 0, 0.68254006, 0.7308435, 0, 0.7308429, -0.6825405, 31.976969, 4.5308065, -13.0020275)
 top_level = true
 script = ExtResource("28_phx5y")
 follow_mode = 5
@@ -2212,7 +2211,7 @@ volume_db = -8.0
 transparent_bg = true
 handle_input_locally = false
 size = Vector2i(1920, 1080)
-render_target_update_mode = 4
+render_target_update_mode = 0
 
 [node name="FinalAnimatedSpr" type="AnimatedSprite2D" parent="Cutscenes/EndingCutscene/SubViewport" unique_id=848447095]
 scale = Vector2(0.5, 0.5)
@@ -2221,6 +2220,7 @@ animation = &"fire"
 centered = false
 
 [node name="TextureRectFinal" type="TextureRect" parent="Cutscenes/EndingCutscene" unique_id=1856605230]
+visible = false
 offset_right = 1920.0
 offset_bottom = 1080.0
 texture = SubResource("ViewportTexture_u0ka6")
@@ -2427,9 +2427,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.1029987, 1.1204255, 0.1006
 
 [node name="candle8" parent="Candles" unique_id=252990567 instance=ExtResource("35_sygq6")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.0464954, 1.1204255, 0.43545723)
-
-[node name="Node" type="Node" parent="." unique_id=974539785]
-script = ExtResource("52_j0rhc")
 
 [node name="MirrorsPuzzle" type="Node3D" parent="." unique_id=1452259112]
 
