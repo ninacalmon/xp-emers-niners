@@ -38,6 +38,7 @@ do DialogueData.set_mood("Sanson", DialogueData.SansonMoods.IDLE_DEFAULT)
 Sanson: “Sim, de fato. Estou [i]prestes[/i] a concluir minha pesquisa! Preciso disso de volta imediatamente, o tempo é um fator crucial.”
 Você: “Quando foi a última vez que o viu? [font_size=20]Isto é, se você conseguisse enxergar...”
 Sanson: “Eu estava lá fora… estudando o......”
+do AudioManager.play_sanson_crazy()
 do DialogueData.set_mood("Sanson", DialogueData.SansonMoods.CRAZY_HAPPY)
 Sanson: “NOSSO [b]GLORIOOOOOOOOSO SOL ~![/b]“
 do DialogueData.set_mood("Sanson", DialogueData.SansonMoods.POSING_HAPPY)

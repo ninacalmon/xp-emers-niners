@@ -84,7 +84,8 @@ func _ready() -> void:
 	hugo.global_position = hugo_pos.global_position
 	prior.global_position = prior_pos.global_position
 	if not skip_cutscene:
-		player.global_position = player_starting_pos.global_position
+		player.global_transform = player_starting_pos.global_transform
+		#player.head.rotation = player_starting_pos.global_rotation
 
 	player_detection.body_entered.connect(_on_player_entered)
 

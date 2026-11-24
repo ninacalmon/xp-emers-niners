@@ -39,6 +39,7 @@
 [ext_resource type="PackedScene" uid="uid://dmkjw1lyju0u" path="res://assets/3d/scenery/decoration/frames/newfranciscoframe.glb" id="34_5vai5"]
 [ext_resource type="PackedScene" uid="uid://eo8p3haakcps" path="res://assets/3d/scenery/decoration/frames/newhugoframe.glb" id="35_c1vk4"]
 [ext_resource type="PackedScene" uid="uid://diq1sd64fjxk1" path="res://assets/3d/scenery/decoration/frames/newsansonframe.glb" id="36_ewgj1"]
+[ext_resource type="PackedScene" uid="uid://dnq451sk1m13d" path="res://assets/3d/scenery/decoration/frames/newjulioframe.glb" id="38_wes51"]
 [ext_resource type="PackedScene" uid="uid://calgj6jruhnvt" path="res://assets/3d/scenery/decoration/frames/newmonkframe1.glb" id="39_2e0of"]
 [ext_resource type="PackedScene" uid="uid://biixtm68t4nbw" path="res://assets/3d/scenery/decoration/frames/newmonkframe2.glb" id="40_evarm"]
 [ext_resource type="PackedScene" uid="uid://bfqh2g4ugfrdi" path="res://assets/3d/scenery/decoration/frames/newmonkframe3.glb" id="41_wes51"]
@@ -5330,7 +5331,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 36.84821, 1, 1.5046964)
 [node name="BasicRoom3" parent="Objects" unique_id=1906776259 instance=ExtResource("18_xyyqr")]
 transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, 40.756718, 1, -5.470685)
 
-[node name="StudyDesk" parent="Objects/BasicRoom3" index="4" unique_id=1528012825]
+[node name="StudyDesk" parent="Objects/BasicRoom3" index="6" unique_id=1528012825]
 disable_chair = true
 
 [node name="BasicRoom4" parent="Objects" unique_id=556765428 instance=ExtResource("18_xyyqr")]
@@ -5458,6 +5459,9 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 57.878, 1.5745991, -3.0448737
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 63.208, 1.5745991, -3.0448737)
 locked = true
 unlockeable = false
+
+[node name="newjulioframe" parent="RoomDoors/Left/Door_copy2/MeshInstance3D" parent_id_path=PackedInt32Array(1122778696, 94713837) index="0" unique_id=691691621 instance=ExtResource("38_wes51")]
+transform = Transform3D(1, 0, 4.371139e-08, 4.371139e-08, 1.9106855e-15, -1, 0, 1, 1.9106855e-15, 0.8018627, 1.7, 0.038000107)
 
 [node name="Door_copy3" parent="RoomDoors/Left" unique_id=1200093443 instance=ExtResource("28_woilr")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 68.538, 1.5745991, -3.0448737)
@@ -5906,6 +5910,7 @@ visible = false
 [editable path="RoomDoors/Right/Door_copy6"]
 [editable path="RoomDoors/Right/Door_copy8"]
 [editable path="RoomDoors/Left/Door_copy0"]
+[editable path="RoomDoors/Left/Door_copy2"]
 [editable path="RoomDoors/Left/Door_copy4"]
 [editable path="SecondFloorr/AbbottsRoom/painting1"]
 [editable path="MeltingRoom/Curtain"]

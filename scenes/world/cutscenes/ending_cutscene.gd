@@ -60,6 +60,8 @@ signal finished
 @export var music_ending_melt: AudioStreamPlayer
 @onready var music_ending_endfire: AudioStreamPlayer = $MusicEndingENDFIRE
 @onready var music_ending_endmelt: AudioStreamPlayer = $MusicEndingENDMELT
+@onready var final_animated_spr: AnimatedSprite2D = $SubViewport/FinalAnimatedSpr
+@onready var texture_rect_final: TextureRect = $TextureRectFinal
 
 var started: bool = false
 var spawned_fires: Array[Node3D] = []
@@ -70,14 +72,15 @@ var spawned_fires: Array[Node3D] = []
 #@export var big_fire: Node3D
 
 func _ready() -> void:
+	texture_rect_final.hide()
 	if skip_cutscene:
 		return
 
 	abbots_door.opening.connect(_on_abbots_door_opening)
 	player_detection.body_entered.connect(_on_player_entered)
 
-	CharacterData.Sanson.flower_got = true
-	abbots_door.open_door()
+	#CharacterData.Sanson.flower_got = true
+	#abbots_door.open_door()
 
 	#for i in fire_markers_group.get_children():
 		#if i is Marker3D:
@@ -124,7 +127,7 @@ func play_cutscene() -> void:
 		AudioManager.play_music(music_ending_melt)
 	_tween_abbott_closer()
 	await _play_animation("zoom_in", zoom_in_speed)
-	var oldsky = world_environment.environment.sky
+	#var oldsky = world_environment.environment.sky
 	world_environment.environment.sky = null
 	camera.cull_mask = 1 << 17
 	if CharacterData.Sanson.flower_got:
@@ -142,9 +145,15 @@ func play_cutscene() -> void:
 		#fire_2.smoke.emitting = true
 		#fire_2.particles_floating.emitting = true
 		await _run_dialogue("fire", true)
+		texture_rect_final.show()
+		final_animated_spr.play("fire")
+		await final_animated_spr.animation_finished
 	else:
 		AudioManager.play_music(music_ending_endmelt)
 		await _run_dialogue("happy_ending", true)
+		texture_rect_final.show()
+		final_animated_spr.play("melt")
+		await final_animated_spr.animation_finished
 
 	#await get_tree().create_timer(2).timeout
 	#await FadeInOut.fade_in(2)
@@ -155,6 +164,7 @@ func play_cutscene() -> void:
 	#FadeInOut.fade_out(1)
 	#await _play_animation("monastery_far", zoom_in_speed)
 	await FadeInOut.fade_in(3)
+	AudioManager.stop_music(4)
 	LoadingManager.load_scene("res://scenes/interface/main_menu/main_menu.tscn")
 
 	#var tween = create_tween()

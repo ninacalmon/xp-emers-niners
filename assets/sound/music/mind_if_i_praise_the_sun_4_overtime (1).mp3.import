@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://dhhxoat5h4b0c"
+path="res://.godot/imported/mind_if_i_praise_the_sun_4_overtime (1).mp3-36f73745b7db053458a3ffb3868e303b.mp3str"
+
+[deps]
+
+source_file="res://assets/sound/music/mind_if_i_praise_the_sun_4_overtime (1).mp3"
+dest_files=["res://.godot/imported/mind_if_i_praise_the_sun_4_overtime (1).mp3-36f73745b7db053458a3ffb3868e303b.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0.0
+bpm=0.0
+beat_count=0
+bar_beats=4

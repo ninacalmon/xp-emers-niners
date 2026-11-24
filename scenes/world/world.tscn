@@ -67,14 +67,27 @@
 [ext_resource type="PackedScene" uid="uid://bcf11h135dt1o" path="res://assets/3d/items/mirrors/mirror_c/mirror_c1.glb" id="47_sar2w"]
 [ext_resource type="Resource" uid="uid://cgutcfta1002v" path="res://items/mirrors/mirror_b/mirror_b2.tres" id="48_jum6b"]
 [ext_resource type="PackedScene" uid="uid://by3xhr7in7fhx" path="res://assets/3d/items/mirrors/mirror_b/mirror_b2.glb" id="49_l4ul6"]
+[ext_resource type="AudioStream" uid="uid://bs67dvpts0taa" path="res://assets/sound/music/Gifted_with_Love (1).mp3" id="50_0n6td"]
+[ext_resource type="Texture2D" uid="uid://tjlldij43oqu" path="res://assets/2d/characters/endings/fire/finalfogo_julio.png" id="50_5obl8"]
+[ext_resource type="Texture2D" uid="uid://cek4sril3qxul" path="res://assets/2d/characters/endings/fire/finalfogo_prior.png" id="51_1n8ra"]
+[ext_resource type="Texture2D" uid="uid://dvliakg7mnrd6" path="res://assets/2d/characters/endings/fire/finalfogo_hugo.png" id="52_0n6td"]
 [ext_resource type="AudioStream" uid="uid://by3ryhp7bo3gp" path="res://assets/sound/music/Father_is_here.mp3" id="52_a5636"]
 [ext_resource type="Script" uid="uid://dh1ltto8wru1y" path="res://screenshots/screenshots.gd" id="52_j0rhc"]
+[ext_resource type="Texture2D" uid="uid://fjxq3v7vwdv3" path="res://assets/2d/characters/endings/fire/finalfogo_sanson.png" id="53_bmoad"]
 [ext_resource type="AudioStream" uid="uid://d16cv1nsvskdc" path="res://assets/sound/music/Fathers_here.mp3" id="53_jhdiv"]
 [ext_resource type="Texture2D" uid="uid://bhj86bqpspx28" path="res://assets/3d/items/candle/candle_roughness_map.png" id="54_j2kh8"]
 [ext_resource type="AudioStream" uid="uid://bphwgubrj7mei" path="res://assets/sound/music/Accepted_with_Veneration.mp3" id="54_jhdiv"]
+[ext_resource type="Texture2D" uid="uid://oa5gt4e71aii" path="res://assets/2d/characters/endings/fire/finalfogo_todos.png" id="54_mb8w1"]
+[ext_resource type="Texture2D" uid="uid://dhung3qkdic7t" path="res://assets/2d/characters/endings/melt/finalderretendo_julio.png" id="55_oo0aq"]
+[ext_resource type="Texture2D" uid="uid://ba1y4g30kqrdw" path="res://assets/2d/characters/endings/melt/finalderretendo_hugo.png" id="56_olhon"]
+[ext_resource type="Texture2D" uid="uid://b5sdib1g16vfn" path="res://assets/2d/characters/endings/melt/finalderretendo_prior.png" id="57_m4278"]
+[ext_resource type="Texture2D" uid="uid://c85y7xxgaagg5" path="res://assets/2d/characters/endings/melt/finalderretendo_lucio.png" id="58_nyio1"]
+[ext_resource type="Texture2D" uid="uid://cn4trb30ru67v" path="res://assets/2d/characters/endings/melt/finalderretendo_sanson.png" id="59_n0in2"]
+[ext_resource type="Texture2D" uid="uid://c5f5urvg0kc7k" path="res://assets/2d/characters/endings/melt/finalderretendo_todos.png" id="60_mdkuk"]
 [ext_resource type="PackedScene" uid="uid://cut5m0ku8e4e6" path="res://scenes/puzzles/mirrors/mirror_stand/mirror_stand.tscn" id="62_j2kh8"]
 [ext_resource type="PackedScene" uid="uid://beejk147fox5c" path="res://scenes/puzzles/mirrors/light_beam/light_beam.tscn" id="63_hpffo"]
 [ext_resource type="PackedScene" uid="uid://cim06qc8dw8f2" path="res://scenes/puzzles/mirrors/mirror_stand/double_mirror_stand.tscn" id="65_hpffo"]
+[ext_resource type="AudioStream" uid="uid://b7hf8cnthe1xj" path="res://assets/sound/music/monastery_mambo_2_fiery_shindig_poop_edition.mp3" id="84_bmoad"]
 
 [sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_n78lu"]
 
@@ -124,7 +137,7 @@ volumetric_fog_emission = Color(0.16, 0.16, 0.16, 1)
 volumetric_fog_gi_inject = 0.08
 volumetric_fog_length = 16.1
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_hx1je"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_0n6td"]
 viewport_path = NodePath("SubViewportSprite")
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_u0ka6"]
@@ -194,19 +207,19 @@ size = Vector3(0.43078613, 3.411621, 18.387678)
 [sub_resource type="BoxShape3D" id="BoxShape3D_sh7a8"]
 size = Vector3(0.43078613, 5.815674, 31.34771)
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_ij5nj"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_bmoad"]
 viewport_path = NodePath("SubViewportSprite")
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_n78lu"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_mb8w1"]
 viewport_path = NodePath("SubViewportSprite")
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_1o6i5"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_oo0aq"]
 resource_local_to_scene = true
 render_priority = -1
 shader = ExtResource("13_goy61")
-shader_parameter/sprite_texture = SubResource("ViewportTexture_n78lu")
+shader_parameter/sprite_texture = SubResource("ViewportTexture_mb8w1")
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_7o8ut"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_olhon"]
 viewport_path = NodePath("SubViewportSprite")
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_cdpwx"]
@@ -1191,6 +1204,143 @@ _data = {
 &"zoom_in": SubResource("Animation_hx1je")
 }
 
+[sub_resource type="SpriteFrames" id="SpriteFrames_cdpwx"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("50_5obl8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("51_1n8ra")
+}, {
+"duration": 1.0,
+"texture": ExtResource("52_0n6td")
+}, {
+"duration": 1.0,
+"texture": ExtResource("53_bmoad")
+}, {
+"duration": 3.0,
+"texture": ExtResource("54_mb8w1")
+}],
+"loop": 0,
+"name": &"fire",
+"speed": 0.5
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("54_mb8w1")
+}],
+"loop": 1,
+"name": &"fire_all",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("52_0n6td")
+}],
+"loop": 1,
+"name": &"fire_hugo",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("50_5obl8")
+}],
+"loop": 1,
+"name": &"fire_julio",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("51_1n8ra")
+}],
+"loop": 1,
+"name": &"fire_prior",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("53_bmoad")
+}],
+"loop": 1,
+"name": &"fire_sanson",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("55_oo0aq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("56_olhon")
+}, {
+"duration": 1.0,
+"texture": ExtResource("57_m4278")
+}, {
+"duration": 1.0,
+"texture": ExtResource("58_nyio1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("59_n0in2")
+}, {
+"duration": 3.0,
+"texture": ExtResource("60_mdkuk")
+}],
+"loop": 0,
+"name": &"melt",
+"speed": 0.5
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("55_oo0aq")
+}],
+"loop": 1,
+"name": &"melt__julio",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("58_nyio1")
+}],
+"loop": 1,
+"name": &"melt__lucio",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("57_m4278")
+}],
+"loop": 1,
+"name": &"melt__prior",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("59_n0in2")
+}],
+"loop": 1,
+"name": &"melt__sanson",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("60_mdkuk")
+}],
+"loop": 1,
+"name": &"melt_all",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("56_olhon")
+}],
+"loop": 1,
+"name": &"melt_hugo",
+"speed": 5.0
+}]
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_u0ka6"]
+viewport_path = NodePath("Cutscenes/EndingCutscene/SubViewport")
+
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_hnqnj"]
 radius = 0.78808594
 height = 1.5761719
@@ -1367,7 +1517,7 @@ environment = SubResource("Environment_t634p")
 [node name="Camera3D" type="Camera3D" parent="VisualConfig" unique_id=1834340419]
 unique_name_in_owner = true
 physics_interpolation_mode = 1
-transform = Transform3D(0.68855095, -0.054428484, 0.72314256, 0.0001228851, 0.9971882, 0.07493797, -0.725188, -0.051509738, 0.6866216, 80.339134, 2.789275, -4.5393624)
+transform = Transform3D(0.9999526, -0.00052412564, 0.009725216, -0.00021350541, 0.9971312, 0.07569164, -0.009736988, -0.07569013, 0.9970839, 68.86086, 2.7888932, 1.6832645)
 top_level = true
 cull_mask = 1048031
 size = 62.088
@@ -1379,7 +1529,7 @@ script = ExtResource("1_mxkvs")
 metadata/_custom_type_script = "uid://bd046eokvcnu2"
 
 [node name="Player" parent="." unique_id=949902107 instance=ExtResource("2_m114p")]
-transform = Transform3D(0.68905383, 0, 0.7247099, 0, 1, 0, -0.7247099, 0, 0.68905383, 80.33904, 0.9591142, -4.539337)
+transform = Transform3D(0.99994266, 0, 0.010691953, 0, 1, 0, -0.010691952, 0, 0.9999427, 68.86092, 0.95911384, 1.6833494)
 
 [node name="Church" parent="." unique_id=151423155 instance=ExtResource("7_q3hpu")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 33.096912, -0.040885925, 0.037341118)
@@ -1397,11 +1547,11 @@ omni_range = 20.153
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.082743, 1.6670088, -3.19987)
 
 [node name="Camera3D" parent="Church/ConfessionalBooth" index="2" unique_id=430217490]
-transform = Transform3D(0.6885534, -0.054428868, 0.72314024, 0.00012278801, 0.9971881, 0.074938826, -0.7251857, -0.05151058, 0.686624, 80.339134, 2.7892742, -4.5393624)
+transform = Transform3D(0.9999526, -0.0005235965, 0.009726342, -0.0002141204, 0.9971312, 0.07569185, -0.009738071, -0.075690344, 0.99708384, 68.86086, 2.7888935, 1.6832643)
 top_level = true
 
 [node name="Sprite3D" parent="Church/ConfessionalBooth/Confessor" parent_id_path=PackedInt32Array(321162436, 1758948578) index="0" unique_id=415751236]
-texture = SubResource("ViewportTexture_hx1je")
+texture = SubResource("ViewportTexture_0n6td")
 
 [node name="SecondFloor2" type="Node3D" parent="Church" unique_id=1860471051]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -33.12908, 0, 0)
@@ -1576,11 +1726,11 @@ unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 78.78419, 0.9976957, -5.94999)
 
 [node name="Sprite3D" parent="Characters/Sanson" index="0" unique_id=415751236]
-texture = SubResource("ViewportTexture_ij5nj")
+texture = SubResource("ViewportTexture_bmoad")
 
 [node name="Outline" parent="Characters/Sanson/Sprite3D" index="0" unique_id=1631064389]
-material_overlay = SubResource("ShaderMaterial_1o6i5")
-texture = SubResource("ViewportTexture_7o8ut")
+material_overlay = SubResource("ShaderMaterial_oo0aq")
+texture = SubResource("ViewportTexture_olhon")
 
 [node name="AstrolablusPuzzle" parent="Characters" unique_id=572576743 instance=ExtResource("14_m114p")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 74.17525, 0.89560485, -7.2601056)
@@ -1596,12 +1746,13 @@ spot_angle = 43.91
 [node name="SleepPuzzle" type="Node3D" parent="Characters" unique_id=875274494]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 74.53745, 2.1546106, -3.4635518)
 
-[node name="SleepEvent" type="Node" parent="Characters/SleepPuzzle" unique_id=220625159 node_paths=PackedStringArray("lock_pick", "lock_pick_pos", "player_detection", "sanson", "door_blocker", "sanson_interact_collision_shape_3d")]
+[node name="SleepEvent" type="Node" parent="Characters/SleepPuzzle" unique_id=220625159 node_paths=PackedStringArray("lock_pick", "lock_pick_pos", "player_detection", "animated_sprite_2d", "sanson", "door_blocker", "sanson_interact_collision_shape_3d")]
 script = ExtResource("16_x0nq1")
 sanson_asleep_dialogue_res = ExtResource("18_rwifv")
 lock_pick = NodePath("../LockPick")
 lock_pick_pos = NodePath("../LockPickPos")
 player_detection = NodePath("../PlayerDetection")
+animated_sprite_2d = NodePath("../../Sanson/SubViewportSprite/AnimatedSprite2D")
 sanson = NodePath("../../Sanson")
 door_blocker = NodePath("../PlayerBlocker/CollisionShape3D")
 sanson_interact_collision_shape_3d = NodePath("../../Sanson/InteractionArea/CollisionShape3D")
@@ -1694,7 +1845,6 @@ gizmo_extents = 0.83
 [node name="StartingCutscene" type="Node3D" parent="Cutscenes" unique_id=913486234 node_paths=PackedStringArray("player", "julio", "lucio", "hugo", "sanson", "prior", "abbott", "camera", "dialogue_input_text", "bell_audio_stream_player_3d", "bell_audio_stream_player_3d_2", "ambient", "world_environment")]
 unique_name_in_owner = true
 script = ExtResource("27_hph6x")
-skip_cutscene = true
 player = NodePath("../../Player")
 julio = NodePath("../../Characters/Julio")
 lucio = NodePath("../../Characters/Lucio")
@@ -1757,7 +1907,7 @@ noise_emitter_layer = 1
 metadata/_custom_type_script = "uid://csjccrhj5wnx7"
 
 [node name="CloseUpCamera" type="Node3D" parent="Cutscenes/StartingCutscene" unique_id=1789459155 node_paths=PackedStringArray("follow_target", "look_at_target")]
-transform = Transform3D(-0.81224823, 0, 0, 0, 0.8826757, -0.4699747, 0, -0.46997437, -0.8826764, 31.976969, 4.116524, -13.0710745)
+transform = Transform3D(-0.8032613, 0, 0, 0, 0.8826757, -0.4699747, 0, -0.46997437, -0.8826764, 31.976969, 4.116524, -13.0710745)
 top_level = true
 script = ExtResource("28_phx5y")
 follow_mode = 5
@@ -1837,7 +1987,7 @@ collision_mask = 4
 shape = SubResource("SphereShape3D_cdpwx")
 
 [node name="PlayerStartingPos" type="Marker3D" parent="Cutscenes/StartingCutscene" unique_id=183842851]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 70.06668, 0.95911396, 1.1418676)
+transform = Transform3D(-0.35738495, 0, 0.9339572, 0, 1, 0, -0.9339572, 0, -0.35738495, 70.06668, 0.95911396, 1.1418676)
 gizmo_extents = 0.83
 
 [node name="AnimalsCutscene" type="Node3D" parent="Cutscenes" unique_id=1813398001 node_paths=PackedStringArray("player", "julio", "hugo", "sheep", "sheep_2", "sheep_3", "sheep_rotten", "barn_door", "sheep_pos", "sheep_pos_2", "sheep_pos_3", "sheep_rotten_pos", "julio_pos", "julio_pos_after", "player_pos_after", "julio_pos_after_plant", "hugo_pos_after", "camera", "barn_camera", "sky_camera", "julio_camera", "animation_player", "music", "sheep_cry", "dialogue_input_text")]
@@ -2044,19 +2194,36 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 32.46531, 2.372779, -10.76836
 
 [node name="MusicEndingFire" type="AudioStreamPlayer" parent="Cutscenes/EndingCutscene" unique_id=406505394]
 stream = ExtResource("52_a5636")
-volume_db = -22.0
+volume_db = -20.0
 
 [node name="MusicEndingMelt" type="AudioStreamPlayer" parent="Cutscenes/EndingCutscene" unique_id=195029793]
 stream = ExtResource("53_jhdiv")
 volume_db = -22.0
 
 [node name="MusicEndingENDFIRE" type="AudioStreamPlayer" parent="Cutscenes/EndingCutscene" unique_id=299026048]
-stream = ExtResource("52_a5636")
-volume_db = -22.0
+stream = ExtResource("54_jhdiv")
+volume_db = -8.0
 
 [node name="MusicEndingENDMELT" type="AudioStreamPlayer" parent="Cutscenes/EndingCutscene" unique_id=2124393579]
-stream = ExtResource("54_jhdiv")
-volume_db = -24.0
+stream = ExtResource("50_0n6td")
+volume_db = -8.0
+
+[node name="SubViewport" type="SubViewport" parent="Cutscenes/EndingCutscene" unique_id=137171360]
+transparent_bg = true
+handle_input_locally = false
+size = Vector2i(1920, 1080)
+render_target_update_mode = 4
+
+[node name="FinalAnimatedSpr" type="AnimatedSprite2D" parent="Cutscenes/EndingCutscene/SubViewport" unique_id=848447095]
+scale = Vector2(0.5, 0.5)
+sprite_frames = SubResource("SpriteFrames_cdpwx")
+animation = &"fire"
+centered = false
+
+[node name="TextureRectFinal" type="TextureRect" parent="Cutscenes/EndingCutscene" unique_id=1856605230]
+offset_right = 1920.0
+offset_bottom = 1080.0
+texture = SubResource("ViewportTexture_u0ka6")
 
 [node name="CollectableItems" type="Node" parent="." unique_id=1692708429]
 
@@ -2219,9 +2386,9 @@ bus = &"Sound Effects"
 [node name="Music" type="Node" parent="." unique_id=189480702]
 script = ExtResource("29_wnndm")
 track_a = ExtResource("35_cf0uk")
-track_b = ExtResource("35_cf0uk")
+track_b = ExtResource("84_bmoad")
 volume_a = -32.0
-volume_b = -33.0
+volume_b = -40.0
 
 [node name="Candles" type="Node3D" parent="." unique_id=1349123184]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 25.417309, 1.6569831, 19.568079)

@@ -72,8 +72,10 @@ Lucio: “Contudo, não questione o calor esplêndido que nosso Sol nos concede;
 do DialogueData.set_mood("Lucio", DialogueData.LucioMoods.HEART_HAPPY)
 Lucio: “Ah… oferecer a [b]própria carne e o próprio sangue[/b] ao nosso [b]divino Sol[/b], que permanece muito além do nosso alcance, embora seus tentáculos ardentes se aproximem cada dia mais. É a forma mais pura de devoção.
 Lucio: É por isso que, apesar da minha terrível maldição, ainda me entrego ao abraço doloroso do nosso misericordioso Sol.”
-## SUBSTITUIR COM WAIT E TOCAR SPRITE AQUI VVVV
-Ele dá um gole do álcool.
+do DialogueData.set_mood("Lucio", DialogueData.LucioMoods.DRINK_HOLD, true)
+do wait(0.8)
+do DialogueData.set_mood("Lucio", DialogueData.LucioMoods.DRINKING1)
+do wait(1)
 do DialogueData.set_mood("Lucio", DialogueData.LucioMoods.IDLE_SAD)
 Lucio: “Bem, é uma teoria sobre a qual venho refletindo há bastante tempo...”
 Você: “Você tem alguma prova disso?”

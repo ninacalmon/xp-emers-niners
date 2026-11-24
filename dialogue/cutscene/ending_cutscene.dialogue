@@ -15,7 +15,7 @@ Abade: “Desígnio nefasto?! Com quem ~~ Olhe eles. Lá em baixo, o Sol ~~ acha
 Você: “Você... você é asqueroso! Todos aqueles que morreram... seria você a própria morte?!”
 Abade: [font_size=50][b]“BASTA!!!”[/b][/font_size]
 do WorldStateManager.fade_abbot(false)
-Francisco caminha, tremendo, até a cortina. Abre-a e avista seus irmãos conversando no altar.
+Francisco caminha, tremendo, até a cortina. De cima, avista seus irmãos conversando no altar.
 Julio, Sanson, Hugo, e até o Prior, parecem confabular de forma tristonha. Sobre o que estão falando...?
 => END
 
@@ -23,13 +23,13 @@ Julio, Sanson, Hugo, e até o Prior, parecem confabular de forma tristonha. Sobr
 ~ fire_start
 *** Tssssss *** - Um som sibilante.
 * Que cheiro de álcool... *
-* O cheiro de álcool parece ficar mais e mais forte...”
+* O cheiro de álcool parece ficar mais e mais forte... *
 => END
 
 ~ fire
 do DialogueData.set_mood("Abade",DialogueData.AbbottsMoods.WORRIED)
 do WorldStateManager.fade_abbot(true)
-Abade: [font_size=50][b]“FRANCISCO!”[/b][/font_size]
+Abade: [font_size=50][b]“FRANCISCO! Suas roupas!”[/b][/font_size]
 do WorldStateManager.fade_abbot(false)
 Francisco sente um calor penetrante em suas costas... Os raios de luz?!
 Quando olha em volta, tudo já está em chamas...
@@ -54,16 +54,17 @@ Você: “Mas tem um problema, nosso Sol...”
 Abade: “Não se preocupe ~~ querido Francisco. Está tudo bem.”
 Abade: “Quanto aos que caíram antes de nós, ~~ sob nossa teimosia... ”
 do GetEntity.get_abbott().pendulum_animated_sprite.play("reveal")
-Abade:  “... Eu não consegui me separar deles. [u]Aqueles que não pude salvar.[/u] [b]Para dar a eles... algo, em vez do nada absoluto.[/b] Foi isso que eles pediram. E, por isso, [u]eu os acolhi em nosso abraço[/u]. Assim como agora oferecemos a [u][b]você.”[/b][/u]
+Abade:  “... Eu não consegui me separar deles. [u]Aqueles que não pude salvar.[/u] [b]Para dar a eles... algo, em vez do nada absoluto.[/b] Foi isso que eles pediram. E, por isso, [u]eu os acolhi em nosso abraço[/u].”
+Abade: “Assim como agora oferecemos a [u][b]você.”[/b][/u]
 Abade: “Sentimos o seu [b]medo[/b], o seu [u]desespero[/u] e a sua dor. Se [b]desejar[/b], pode se juntar a nós agora. Vejo que ainda sente ~~ [b]medo.[/b]”
-Abade: “Seu corpo não sentirá mais essa ~~ [b]agonia cruel[/b] e ~~ [u]injusta[/u], mas sua alma [b]continuará sendo[/b] sua. Depois, todos nós partiremos de volta para o [u]cosmos de onde viemos[/u]; como [b]cinzas e poeira[/b]. As mesmas das quais o [u]nosso [b]Sol[/b][/u] foi criado.”
+Abade: “Seu corpo não sentirá mais essa ~~ [b]agonia cruel[/b] e ~~ [u]injusta[/u], mas sua alma [b]continuará sendo[/b] sua.”
+Abade: “Depois, todos nós partiremos de volta para o [u]cosmos de onde viemos[/u]; como [b]cinzas e poeira[/b]. As mesmas das quais o [u]nosso [b]Sol[/b][/u] foi criado.”
 Abade: “[u]Sabemos[/u] que você estava [u]empolgado[/u] para se tornar parte de [b]nós[/b], mas, [b]se for demais [u]para você[/u][/b], pode [b]recusar[/b]. Isso o deixaria [u]feliz?[/u]”
 ...
 ...
 ...
 Você: “Não... tudo bem. Ficarei aqui por vocês. Partirei com vocês como inteiro.”
 do WorldStateManager.fade_abbot(false)
-Todos vocês se reunem em um círculo.
 Os últimos raios do dia — os mais fortes — adentram a janela e são canalizadas por diversos espelhos e lentes organizadas pela sala.
 Francisco fecha seus olhos... O calor crescente os embala... e... os leva embora...
 => END

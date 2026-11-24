@@ -174,3 +174,31 @@ func _kill_fade(player: Node) -> void:
 		if old_tween.is_valid():
 			old_tween.kill()
 	player.remove_meta(FADE_META)
+
+var _sanson_crazy_player = null
+func play_sanson_crazy() -> void:
+	var SANSON_CRAZY_STREAM_PATH = "res://assets/sound/music/mind_if_i_praise_the_sun_4_overtime (1).mp3"
+	if _sanson_crazy_player == null or not is_instance_valid(_sanson_crazy_player):
+		var stream: AudioStream = load(SANSON_CRAZY_STREAM_PATH) as AudioStream
+		if stream == null:
+			push_warning("AudioManager.play_sanson_crazy(): não foi possível carregar " + SANSON_CRAZY_STREAM_PATH)
+			return
+
+		_sanson_crazy_player = AudioStreamPlayer.new()
+		_sanson_crazy_player.name = "SansonCrazyPlayer"
+		_sanson_crazy_player.stream = stream
+		_sanson_crazy_player.volume_db = -16
+		_sanson_crazy_player.bus = &"Music" # troque para &"Music" se tiver esse bus
+		add_child(_sanson_crazy_player)
+
+	play_music(_sanson_crazy_player, 0.0)
+
+
+func stop_sanson_crazy(fade_time: float = DEFAULT_FADE) -> void:
+	if _sanson_crazy_player == null or not is_instance_valid(_sanson_crazy_player):
+		return
+
+	if _current_music == _sanson_crazy_player:
+		_current_music = null
+
+	stop_sound(_sanson_crazy_player, fade_time)
