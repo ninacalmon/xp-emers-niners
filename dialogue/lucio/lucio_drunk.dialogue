@@ -8,6 +8,15 @@ Você: “Eu estou... bem. Você parece meio... está tudo bem?”
 do DialogueData.set_mood("Lucio", DialogueData.LucioMoods.HEART_SAD)
 Lucio: {{locals.eff}}“...Eis-me aqui.”
 Lucio: {{locals.eff}}“Isso não responde à sua pergunta?”
+do DialogueData.set_mood("Lucio", DialogueData.LucioMoods.DRINK_HOLD, true)
+do wait(0.5)
+do DialogueData.set_mood("Lucio", DialogueData.LucioMoods.DRINKING1)
+do wait(0.4)
+do DialogueData.set_mood("Lucio", DialogueData.LucioMoods.DRINKING2)
+do wait(0.4)
+do DialogueData.set_mood("Lucio", DialogueData.LucioMoods.DRINKING1)
+do wait(0.4)
+do DialogueData.set_mood("Lucio", DialogueData.LucioMoods.IDLE_DEFAULT, true)
 Você: “É...”
 Você: “...”
 do DialogueData.set_mood("Lucio", DialogueData.LucioMoods.IDLE_ANGRY)
@@ -86,10 +95,12 @@ do DialogueData.set_mood("Lucio", DialogueData.LucioMoods.IDLE_DEFAULT)
 Lucio: {{locals.eff}}“Não seja tolo, Francisco. Estou apenas tentando lhe mostrar a verdade. [b]Abra os olhos!”
 Você: “Eles estão abertos, e eu verei com clareza.”
 Lucio: {{locals.eff}}“Por favor, seja sensato-“ 
-# sprite bebida
-Lucio dá outro gole de sua bebida.
-do DialogueData.set_mood("Lucio", DialogueData.LucioMoods.IDLE_SAD)
-Lucio: {{locals.eff}}“Faça o que achar que deve fazer... nosso bravo novo Abade. [do DialogueData.set_mood("Lucio", DialogueData.LucioMoods.IDLE_HAPPY)] Seguirei o caminho que você traçar para nós.”
+do DialogueData.set_mood("Lucio", DialogueData.LucioMoods.DRINK_HOLD, true)
+do wait(0.8)
+do DialogueData.set_mood("Lucio", DialogueData.LucioMoods.DRINKING1)
+do wait(1)
+do DialogueData.set_mood("Lucio", DialogueData.LucioMoods.DRINK_HOLD)
+Lucio: {{locals.eff}}“Faça o que achar que deve fazer... nosso bravo novo Abade. [do DialogueData.set_mood("Lucio", DialogueData.LucioMoods.HEART_HAPPY)] Seguirei o caminho que você traçar para nós.”
 Você: “Fique bem, Lúcio.”
 do CharacterData.Julio.complete_task("lucio_drunk")
 => END

@@ -124,7 +124,7 @@ volumetric_fog_emission = Color(0.16, 0.16, 0.16, 1)
 volumetric_fog_gi_inject = 0.08
 volumetric_fog_length = 16.1
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_ij5nj"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_hx1je"]
 viewport_path = NodePath("SubViewportSprite")
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_u0ka6"]
@@ -194,19 +194,19 @@ size = Vector3(0.43078613, 3.411621, 18.387678)
 [sub_resource type="BoxShape3D" id="BoxShape3D_sh7a8"]
 size = Vector3(0.43078613, 5.815674, 31.34771)
 
+[sub_resource type="ViewportTexture" id="ViewportTexture_ij5nj"]
+viewport_path = NodePath("SubViewportSprite")
+
 [sub_resource type="ViewportTexture" id="ViewportTexture_n78lu"]
 viewport_path = NodePath("SubViewportSprite")
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_1o6i5"]
-viewport_path = NodePath("SubViewportSprite")
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_7o8ut"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_1o6i5"]
 resource_local_to_scene = true
 render_priority = -1
 shader = ExtResource("13_goy61")
-shader_parameter/sprite_texture = SubResource("ViewportTexture_1o6i5")
+shader_parameter/sprite_texture = SubResource("ViewportTexture_n78lu")
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_a5636"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_7o8ut"]
 viewport_path = NodePath("SubViewportSprite")
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_cdpwx"]
@@ -1367,7 +1367,7 @@ environment = SubResource("Environment_t634p")
 [node name="Camera3D" type="Camera3D" parent="VisualConfig" unique_id=1834340419]
 unique_name_in_owner = true
 physics_interpolation_mode = 1
-transform = Transform3D(0.68901485, -0.054637715, 0.72268474, -8.974346e-06, 0.9971536, 0.07539717, -0.7247473, -0.051956255, 0.68705314, 35.84657, 14.0541115, 22.449663)
+transform = Transform3D(0.68855095, -0.054428484, 0.72314256, 0.0001228851, 0.9971882, 0.07493797, -0.725188, -0.051509738, 0.6866216, 80.339134, 2.789275, -4.5393624)
 top_level = true
 cull_mask = 1048031
 size = 62.088
@@ -1379,7 +1379,7 @@ script = ExtResource("1_mxkvs")
 metadata/_custom_type_script = "uid://bd046eokvcnu2"
 
 [node name="Player" parent="." unique_id=949902107 instance=ExtResource("2_m114p")]
-transform = Transform3D(0.68905383, 0, 0.7247099, 0, 1, 0, -0.7247099, 0, 0.68905383, 35.846573, 12.224099, 22.449661)
+transform = Transform3D(0.68905383, 0, 0.7247099, 0, 1, 0, -0.7247099, 0, 0.68905383, 80.33904, 0.9591142, -4.539337)
 
 [node name="Church" parent="." unique_id=151423155 instance=ExtResource("7_q3hpu")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 33.096912, -0.040885925, 0.037341118)
@@ -1397,11 +1397,11 @@ omni_range = 20.153
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.082743, 1.6670088, -3.19987)
 
 [node name="Camera3D" parent="Church/ConfessionalBooth" index="2" unique_id=430217490]
-transform = Transform3D(0.6890137, -0.054637607, 0.7226859, -9.587846e-06, 0.9971535, 0.07539748, -0.7247484, -0.051956825, 0.6870519, 35.84657, 14.0541115, 22.449663)
+transform = Transform3D(0.6885534, -0.054428868, 0.72314024, 0.00012278801, 0.9971881, 0.074938826, -0.7251857, -0.05151058, 0.686624, 80.339134, 2.7892742, -4.5393624)
 top_level = true
 
 [node name="Sprite3D" parent="Church/ConfessionalBooth/Confessor" parent_id_path=PackedInt32Array(321162436, 1758948578) index="0" unique_id=415751236]
-texture = SubResource("ViewportTexture_ij5nj")
+texture = SubResource("ViewportTexture_hx1je")
 
 [node name="SecondFloor2" type="Node3D" parent="Church" unique_id=1860471051]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -33.12908, 0, 0)
@@ -1576,11 +1576,11 @@ unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 78.78419, 0.9976957, -5.94999)
 
 [node name="Sprite3D" parent="Characters/Sanson" index="0" unique_id=415751236]
-texture = SubResource("ViewportTexture_n78lu")
+texture = SubResource("ViewportTexture_ij5nj")
 
 [node name="Outline" parent="Characters/Sanson/Sprite3D" index="0" unique_id=1631064389]
-material_overlay = SubResource("ShaderMaterial_7o8ut")
-texture = SubResource("ViewportTexture_a5636")
+material_overlay = SubResource("ShaderMaterial_1o6i5")
+texture = SubResource("ViewportTexture_7o8ut")
 
 [node name="AstrolablusPuzzle" parent="Characters" unique_id=572576743 instance=ExtResource("14_m114p")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 74.17525, 0.89560485, -7.2601056)
@@ -1596,13 +1596,12 @@ spot_angle = 43.91
 [node name="SleepPuzzle" type="Node3D" parent="Characters" unique_id=875274494]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 74.53745, 2.1546106, -3.4635518)
 
-[node name="SleepEvent" type="Node" parent="Characters/SleepPuzzle" unique_id=220625159 node_paths=PackedStringArray("lock_pick", "lock_pick_pos", "player_detection", "animated_sprite_2d", "sanson", "door_blocker", "sanson_interact_collision_shape_3d")]
+[node name="SleepEvent" type="Node" parent="Characters/SleepPuzzle" unique_id=220625159 node_paths=PackedStringArray("lock_pick", "lock_pick_pos", "player_detection", "sanson", "door_blocker", "sanson_interact_collision_shape_3d")]
 script = ExtResource("16_x0nq1")
 sanson_asleep_dialogue_res = ExtResource("18_rwifv")
 lock_pick = NodePath("../LockPick")
 lock_pick_pos = NodePath("../LockPickPos")
 player_detection = NodePath("../PlayerDetection")
-animated_sprite_2d = NodePath("../../Sanson/SubViewportSprite/AnimatedSprite2D")
 sanson = NodePath("../../Sanson")
 door_blocker = NodePath("../PlayerBlocker/CollisionShape3D")
 sanson_interact_collision_shape_3d = NodePath("../../Sanson/InteractionArea/CollisionShape3D")
@@ -1758,7 +1757,7 @@ noise_emitter_layer = 1
 metadata/_custom_type_script = "uid://csjccrhj5wnx7"
 
 [node name="CloseUpCamera" type="Node3D" parent="Cutscenes/StartingCutscene" unique_id=1789459155 node_paths=PackedStringArray("follow_target", "look_at_target")]
-transform = Transform3D(-0.8156806, 0, 0, 0, 0.8826757, -0.4699747, 0, -0.46997437, -0.8826764, 31.976969, 4.116524, -13.0710745)
+transform = Transform3D(-0.81224823, 0, 0, 0, 0.8826757, -0.4699747, 0, -0.46997437, -0.8826764, 31.976969, 4.116524, -13.0710745)
 top_level = true
 script = ExtResource("28_phx5y")
 follow_mode = 5

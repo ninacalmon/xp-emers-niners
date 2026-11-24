@@ -5,7 +5,6 @@ import "uid://co1f7j8ocd0a7" as fix_astrolabus
 
 
 ~ start
-#=> get_astrolabus/start
 if not WorldStateManager.starting_cutscene_played:
 	do DialogueData.set_mood("Sanson", DialogueData.SansonMoods.IDLE_DEFAULT)
 	Sanson: “Já é quase meio dia.”

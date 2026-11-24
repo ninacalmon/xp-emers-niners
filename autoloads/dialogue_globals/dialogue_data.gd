@@ -60,6 +60,9 @@ enum LucioMoods {
 	IDLE_SAD,
 	IDLE_SINIXTRO,
 	IDLE_SURPRISED,
+	DRINK_HOLD,
+	DRINKING1,
+	DRINKING2,
 	idle
 }
 
@@ -108,8 +111,11 @@ enum SansonMoods {
 	POSING_SAD,
 	AWAKE,
 	ASLEEP,
+	ON_FLOWER,
+	FLOWER,
+	OFF_FLOWER,
 	back,
-	idle
+	idle,
 }
 
 

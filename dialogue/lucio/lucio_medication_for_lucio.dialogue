@@ -1,8 +1,15 @@
 ~ start
 Você: “Como está se sentindo agora?”
-do DialogueData.set_mood("Lucio", DialogueData.LucioMoods.HEART_SAD, true)
-## SUBSTITUIR COM WAIT E TOCAR SPRITE AQUI VVVV
 Antes de responder, Lucio estende a mão até a mesa de cabeceira e pega um garrafão de álcool quase puro. Ele dá um bom gole, respondendo à sua pergunta com o ato.
+do DialogueData.set_mood("Lucio", DialogueData.LucioMoods.DRINK_HOLD, true)
+do wait(0.8)
+do DialogueData.set_mood("Lucio", DialogueData.LucioMoods.DRINKING1)
+do wait(0.4)
+do DialogueData.set_mood("Lucio", DialogueData.LucioMoods.DRINKING2)
+do wait(0.4)
+do DialogueData.set_mood("Lucio", DialogueData.LucioMoods.DRINKING1)
+do wait(0.4)
+do DialogueData.set_mood("Lucio", DialogueData.LucioMoods.DRINK_HOLD, true, true)
 - > Entregar remédio. <[if InventoryManager.selected_item == CharacterData.Item.medication /] => complete_task
 - > Finalizar diálogo < => END!
 => END
@@ -10,7 +17,6 @@ Antes de responder, Lucio estende a mão até a mesa de cabeceira e pega um garr
 ~ complete_task
 do InventoryManager.use_item()
 do CharacterData.Julio.lucio_received_medicine = true
-## SUBSTITUIR COM WAIT E TOCAR SPRITE AQUI VVVV
 Você lhe entrega o remédio rapidamente, e ele mesmo faz a aplicação. Depois, retorna à garrafa.
 - “O álcool disfarça a dor?”
 	do DialogueData.set_mood("Lucio", DialogueData.LucioMoods.HAND_SAD)

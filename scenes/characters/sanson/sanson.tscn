@@ -99,5 +99,5 @@ render_target_update_mode = 4
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="SubViewportSprite" unique_id=60975985]
 position = Vector2(0, 35)
 sprite_frames = ExtResource("6_xm77n")
-animation = &"ASLEEP"
+animation = &"ON_FLOWER"
 centered = false

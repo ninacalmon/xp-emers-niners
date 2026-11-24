@@ -10,7 +10,9 @@
 [ext_resource type="Texture2D" uid="uid://cegt2h5yj2uhd" path="res://assets/2d/characters/sanson/asleep/sanson_awake_open.png" id="4_hqege"]
 [ext_resource type="Texture2D" uid="uid://xuptadif8bb0" path="res://assets/2d/characters/sanson/hand/sanson_idle2_default_closed.png" id="5_pphwt"]
 [ext_resource type="Texture2D" uid="uid://8c54qohseqwj" path="res://assets/2d/characters/sanson/hand/sanson_idle2_default_open.png" id="6_my6wn"]
+[ext_resource type="Texture2D" uid="uid://cn5s3xy0infvn" path="res://assets/2d/characters/sanson/flower/sanson_flower_closed.png" id="7_6huyq"]
 [ext_resource type="Texture2D" uid="uid://ce5tv7ebnvmwg" path="res://assets/2d/characters/sanson/hand/sanson_idle2_happy_closed.png" id="7_ldxcw"]
+[ext_resource type="Texture2D" uid="uid://hnx0vbm4ylvd" path="res://assets/2d/characters/sanson/flower/sanson_flower_open.png" id="8_dgcdp"]
 [ext_resource type="Texture2D" uid="uid://c0t4alr8i7t5r" path="res://assets/2d/characters/sanson/hand/sanson_idle2_happy_open.png" id="8_hqege"]
 [ext_resource type="Texture2D" uid="uid://b0sbg8fbbs63v" path="res://assets/2d/characters/sanson/hand/sanson_idle2_sad_closed.png" id="9_6huyq"]
 [ext_resource type="Texture2D" uid="uid://0tkttralyygw" path="res://assets/2d/characters/sanson/hand/sanson_idle2_sad_open.png" id="10_dgcdp"]
@@ -29,6 +31,7 @@
 [ext_resource type="Texture2D" uid="uid://bdk3ppxjfhgi8" path="res://assets/2d/characters/sanson/posing/sanson_hihi_happysad_closed.png" id="23_d8sxp"]
 [ext_resource type="Texture2D" uid="uid://dpydmjcob1hyj" path="res://assets/2d/characters/sanson/posing/sanson_hihi_happysad_open.png" id="24_vt4xc"]
 [ext_resource type="Texture2D" uid="uid://b2m6d26ya1rh5" path="res://assets/2d/characters/sanson/posing/sanson_hihi_pout_closed.png" id="25_fgoi5"]
+[ext_resource type="Texture2D" uid="uid://bqqf8d6nn3r2" path="res://assets/2d/characters/sanson/flower/sanson_pegandoflor.png" id="25_ngrkw"]
 [ext_resource type="Texture2D" uid="uid://din3pgfgvs7wc" path="res://assets/2d/characters/sanson/posing/sanson_hihi_pout_open.png" id="26_u7tm2"]
 [ext_resource type="Texture2D" uid="uid://d0jo8yceyp8r2" path="res://assets/2d/characters/sanson/posing/sanson_hihi_sad_closed.png" id="27_0oamr"]
 [ext_resource type="Texture2D" uid="uid://dya1ggoo53281" path="res://assets/2d/characters/sanson/posing/sanson_hihi_sad_open.png" id="28_mr6x4"]
@@ -72,6 +75,17 @@ animations = [{
 }],
 "loop": 1,
 "name": &"CRAZY_HAPPY",
+"speed": 6.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("7_6huyq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_dgcdp")
+}],
+"loop": 1,
+"name": &"FLOWER",
 "speed": 6.0
 }, {
 "frames": [{
@@ -161,6 +175,28 @@ animations = [{
 "loop": 1,
 "name": &"IDLE_SAD",
 "speed": 6.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("7_6huyq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("25_ngrkw")
+}],
+"loop": 0,
+"name": &"OFF_FLOWER",
+"speed": 4.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("25_ngrkw")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_6huyq")
+}],
+"loop": 0,
+"name": &"ON_FLOWER",
+"speed": 4.0
 }, {
 "frames": [{
 "duration": 1.0,

@@ -7,6 +7,8 @@ extends Node
 @export_range(0.0, 0.5, 0.01) var bounce_amount: float = 0.025
 @export var animated_sprite: AnimatedSprite2D
 @export var dialogue_action: DialogueAction
+@export var optional_audio_stream_player: AudioStreamPlayer
+@export var moods_to_play_stream: Array[String]
 
 var dialogue_res: DialogueResource
 var original_sprite_scale: Vector2
@@ -48,6 +50,9 @@ func change_anim(mood: String, no_bounce: bool = false):
 
 	if animated_sprite.sprite_frames.has_animation(mood):
 		animated_sprite.play(mood)
+		if mood in moods_to_play_stream:
+			AudioManager.play_sound(optional_audio_stream_player)
+		
 		if no_bounce:
 			return
 		bounce_on_it()

@@ -44,13 +44,17 @@ do DialogueData.set_mood("Sanson", DialogueData.SansonMoods.IDLE_DEFAULT)
 do CharacterData.Sanson.complete_task("fix_astrolabus")
 Sanson: “Ah... três da tarde. Ah... Haha... claro. Você está aqui, não está, Mirta?”
 do DialogueData.set_mood("Sanson", DialogueData.SansonMoods.IDLE_SAD)
-Sanson: “Mirta… fechou os olhos, naquele dia, a essa mesma hora. Ela caiu em um sono profundo e... está descansando em paz.”
+Sanson: “Mirta... fechou os olhos, naquele dia, a essa mesma hora. Ela caiu em um sono profundo e... está descansando em paz.”
 do DialogueData.set_mood("Sanson", DialogueData.SansonMoods.POSING_SAD)
-Sanson: “Eu sei que ela não se foi de verdade. Eu sei… Ela me deixou isto, esta [b]flor[/b].”
-# TODO: o roteiro pede que a flor apareça na tela aqui (sem ir para o inventário)
-do DialogueData.set_mood("Sanson", DialogueData.SansonMoods.POSING_HAPPYSAD)
+Sanson: “Eu sei que ela não se foi de verdade. Eu sei...”
+do DialogueData.set_mood("Sanson", DialogueData.SansonMoods.ON_FLOWER)
+do wait(0.5)
+do DialogueData.set_mood("Sanson", DialogueData.SansonMoods.FLOWER, false, true)
+Sanson: “Ela me deixou isto.
 Sanson: “Eram as favoritas dela, estas aqui. Embora eu já não consiga sentir cheiro de nada, ela costumava me dizer que elas tinham um aroma bem suave, adocicado.”
 Sanson: “Todas as outras morreram, mas... apesar de... tudo. Esta sobreviveu.”
+do DialogueData.set_mood("Sanson", DialogueData.SansonMoods.OFF_FLOWER, false, true)
+do wait(0.5)
 do DialogueData.set_mood("Sanson", DialogueData.SansonMoods.POSING_HAPPY)
 Sanson: “Ela está aqui comigo, e eu, com ela.”
 if CharacterData.Hugo.get_status("get_flower") == 1:
@@ -58,7 +62,6 @@ if CharacterData.Hugo.get_status("get_flower") == 1:
 else:
 	=> inkwell_route
 
-# [NOVO]
 ~ flower_route
 do DialogueData.set_mood("Sanson", DialogueData.SansonMoods.IDLE_DEFAULT, true)
 Você: “Bom... posso te pedir aquele favor?”
@@ -70,11 +73,11 @@ Sanson: “Ora, claro. Como posso ajudá-lo?”
 => END
 
 ~ ask_flower
-Você: “Eu preciso daquela flor... realmente preciso dela”
+Você: “Eu preciso daquela flor... realmente preciso dela.”
 do DialogueData.set_mood("Sanson", DialogueData.SansonMoods.IDLE_HAPPY)
-Sanson: Ah sim, eu- 
+Sanson: “Ah sim, eu-”
 do DialogueData.set_mood("Sanson", DialogueData.SansonMoods.IDLE_ANGRY)
-Sanson: [b][font_size=40]como disse?!”
+Sanson: [b][font_size=40]“Como disse?!”
 Você: “É muito importante, muito mesmo.”
 do DialogueData.set_mood("Sanson", DialogueData.SansonMoods.POSING_POUT)
 Sanson: “Francisco... como... [b]como ousa[/b]. Minha resposta é [b]não.”
@@ -90,19 +93,23 @@ Sanson: “Eu não posso.”
 do DialogueData.set_mood("Sanson", DialogueData.SansonMoods.POSING_SAD)
 Sanson: “Eu...”
 Sanson: “...Ah, Mirta... Não olhe para mim desse jeito, eu... ~ Ah...”
-Sanson suspira, olhando para a [b]flor[/b].
-do DialogueData.set_mood("Sanson", DialogueData.SansonMoods.IDLE_SAD)
+do DialogueData.set_mood("Sanson", DialogueData.SansonMoods.HAND_SAD)
 Sanson: “Você... você vai me prometer que vai cuidar bem dela.”
 Você: “Sim, estará em boas mãos. [font_size=20]Eu espero.”
 do DialogueData.set_mood("Sanson", DialogueData.SansonMoods.POSING_SAD)
 Sanson: “Ah, pela luz...”
-do DialogueData.set_mood("Sanson", DialogueData.SansonMoods.POSING_ANGRY)
+do DialogueData.set_mood("Sanson", DialogueData.SansonMoods.ON_FLOWER)
+do wait(0.5)
+do DialogueData.set_mood("Sanson", DialogueData.SansonMoods.FLOWER, false, true)
 Sanson: “Cuide dela com MUITO CARINHO. não quero ver nem sequer uma ÚNICA FOLHA fora do lugar!”
+do DialogueData.set_mood("Sanson", DialogueData.SansonMoods.OFF_FLOWER, false, true)
+do wait(0.5)
+do DialogueData.set_mood("Sanson", DialogueData.SansonMoods.IDLE_SAD, true, true)
+do InventoryManager.add_new_item(CharacterData.Item.flower)
 Você: “Claro! Bom... até mais, Sanson!”
 Você: “Está tudo bem?...”
 do DialogueData.set_mood("Sanson", DialogueData.SansonMoods.IDLE_DEFAULT)
 Sanson: “...sim, certamente. Vou concluir minha pesquisa agora. Não me interrompa.”
-do InventoryManager.add_new_item(CharacterData.Item.flower)
 do CharacterData.Sanson.flower_got = true
 => END
 

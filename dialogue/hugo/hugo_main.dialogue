@@ -31,7 +31,9 @@ elif CharacterData.Julio.get_status("get_inkwell") == 1:
 		if not CharacterData.Hugo.tumour_route and not CharacterData.Hugo.flower_route:
 			=> gift/start
 		elif CharacterData.Hugo.tumour_route:
-			Hugo: “Acho que não há mais nada com o que eu possa te ajudar...”
+			do DialogueData.set_mood("Hugo", DialogueData.HugoMoods.MISCHIVEOUS_SUPERHAPPY)
+			Hugo: “Muehehe, como vão as coisas, pombo correio?”
+			Você: “...”
 			=> END
 		elif CharacterData.Hugo.flower_route:
 			=> gift/start

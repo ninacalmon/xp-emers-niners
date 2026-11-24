@@ -7,6 +7,7 @@
 [ext_resource type="Resource" uid="uid://rob887ri6clk" path="res://dialogue/lucio/lucio_main.dialogue" id="3_e7h64"]
 [ext_resource type="Script" uid="uid://biodsue5rifq4" path="res://systems/character/character_sprite_handler.gd" id="4_k0wxe"]
 [ext_resource type="SpriteFrames" uid="uid://blwvxp1dghctb" path="res://resources/sprite_frames/characters/lucio/lucio_sprite_frames.tres" id="6_e7h64"]
+[ext_resource type="AudioStream" uid="uid://bapeuitl4yojf" path="res://assets/sound/sound_effects/items/drink/drinking.mp3" id="6_gbdxb"]
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_2g6xd"]
 viewport_path = NodePath("SubViewportSprite")
@@ -87,10 +88,18 @@ script = ExtResource("2_gbimr")
 character_name = "Lucio"
 dialogue_res = ExtResource("3_e7h64")
 
-[node name="CharacterSpriteHandler" type="Node" parent="." unique_id=961269039 node_paths=PackedStringArray("animated_sprite", "dialogue_action")]
+[node name="CharacterSpriteHandler" type="Node" parent="." unique_id=961269039 node_paths=PackedStringArray("animated_sprite", "dialogue_action", "optional_audio_stream_player")]
 script = ExtResource("4_k0wxe")
+bounce_amount = 0.02
 animated_sprite = NodePath("../SubViewportSprite/AnimatedSprite2D")
 dialogue_action = NodePath("../DialogueAction")
+optional_audio_stream_player = NodePath("DrinkingAudioStreamPlayer")
+moods_to_play_stream = Array[String](["DRINKING1", "DRINKING2"])
+
+[node name="DrinkingAudioStreamPlayer" type="AudioStreamPlayer" parent="CharacterSpriteHandler" unique_id=651114513]
+stream = ExtResource("6_gbdxb")
+volume_db = -16.0
+bus = &"Sound Effects"
 
 [node name="SubViewportSprite" type="SubViewport" parent="." unique_id=1177182945]
 transparent_bg = true
@@ -101,6 +110,6 @@ render_target_update_mode = 4
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="SubViewportSprite" unique_id=60975985]
 position = Vector2(383, 327)
 sprite_frames = ExtResource("6_e7h64")
-animation = &"HAND_SURPRISED"
+animation = &"DRINKING2"
 centered = false
 offset = Vector2(-383, -327)

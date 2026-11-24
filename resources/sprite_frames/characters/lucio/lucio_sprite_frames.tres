@@ -1,10 +1,13 @@
 [gd_resource type="SpriteFrames" format=3 uid="uid://blwvxp1dghctb"]
 
 [ext_resource type="Texture2D" uid="uid://cjmtmi4k6khtu" path="res://assets/2d/characters/lucio/idle/lucio_idle_angry_closed.png" id="1_gy802"]
+[ext_resource type="Texture2D" uid="uid://0xfm2c2fncdp" path="res://assets/2d/characters/lucio/drinking/lucio_drinking.png" id="1_k2w4r"]
 [ext_resource type="Texture2D" uid="uid://bnxc8ogre0flc" path="res://assets/2d/characters/lucio/heart/lucio_onheart_angry_closed.png" id="1_yfkql"]
 [ext_resource type="Texture2D" uid="uid://260lpbuued7n" path="res://assets/2d/characters/lucio/idle/lucio_idle_angry_open.png" id="2_bf7qo"]
+[ext_resource type="Texture2D" uid="uid://s7bjt8r1ytjr" path="res://assets/2d/characters/lucio/drinking/lucio_holdingdrink_closed.png" id="2_rq68h"]
 [ext_resource type="Texture2D" uid="uid://cxyvwis6he54" path="res://assets/2d/characters/lucio/heart/lucio_onheart_angry_open.png" id="2_u7j4n"]
 [ext_resource type="Texture2D" uid="uid://2hixeq17qkow" path="res://assets/2d/characters/lucio/heart/lucio_onheart_default_closed.png" id="3_2mt1j"]
+[ext_resource type="Texture2D" uid="uid://dk85b7w7ux1b" path="res://assets/2d/characters/lucio/drinking/lucio_holdingdrink_open.png" id="3_b0qy5"]
 [ext_resource type="Texture2D" uid="uid://d1t72o66nmjjx" path="res://assets/2d/characters/lucio/hand/lucio_hand_angry_closed.png" id="3_ctag7"]
 [ext_resource type="Texture2D" uid="uid://bcxx7epyjhc4g" path="res://assets/2d/characters/lucio/hand/lucio_hand_angry_open.png" id="4_dofdy"]
 [ext_resource type="Texture2D" uid="uid://dyq4gens6bm8v" path="res://assets/2d/characters/lucio/heart/lucio_onheart_default_open.png" id="4_hvq36"]
@@ -35,6 +38,33 @@
 
 [resource]
 animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_k2w4r")
+}],
+"loop": 1,
+"name": &"DRINKING1",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_k2w4r")
+}],
+"loop": 1,
+"name": &"DRINKING2",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_rq68h")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_b0qy5")
+}],
+"loop": 1,
+"name": &"DRINK_HOLD",
+"speed": 6.0
+}, {
 "frames": [{
 "duration": 1.0,
 "texture": ExtResource("3_ctag7")
