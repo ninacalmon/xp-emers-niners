@@ -4,6 +4,8 @@ extends ActionTrigger
 @export var open_rotation: int = 95
 @export var flip: bool = false
 @export var speed: float = 0.4
+@export var flipped_area_z: float = 0.77
+
 
 @export var collision_shape_3d: CollisionShape3D
 @export var mesh_instance_3d: Node3D
@@ -29,8 +31,7 @@ func _ready() -> void:
 	super()
 
 	if flip and collision_shape_3d != null:
-		pass
-		interaction_area.position.z = 0.77
+		interaction_area.position.z = flipped_area_z
 
 
 

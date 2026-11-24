@@ -53,9 +53,9 @@ signal finished
 @onready var julio_pos: Marker3D = $JulioPos
 @onready var prior_pos: Marker3D = $PriorPos
 
-@onready var abbott_music: AudioStreamPlayer = $AbbottMusic
-@onready var fire_ending_music: AudioStreamPlayer = $FireEndingMusic
-@onready var fire_markers_group: Node3D = $FireMarkers
+#@onready var abbott_music: AudioStreamPlayer = $AbbottMusic
+#@onready var fire_ending_music: AudioStreamPlayer = $FireEndingMusic
+#@onready var fire_markers_group: Node3D = $FireMarkers
 @export var music_ending_fire: AudioStreamPlayer
 @export var music_ending_melt: AudioStreamPlayer
 @onready var music_ending_endfire: AudioStreamPlayer = $MusicEndingENDFIRE
@@ -64,10 +64,10 @@ signal finished
 var started: bool = false
 var spawned_fires: Array[Node3D] = []
 
-@onready var smoke: Node3D = %Smoke
-@onready var fire_1: Node3D = $Fire
-@onready var fire_2: Node3D = $Fire2
-@export var big_fire: Node3D
+#@onready var smoke: Node3D = %Smoke
+#@onready var fire_1: Node3D = $Fire
+#@onready var fire_2: Node3D = $Fire2
+#@export var big_fire: Node3D
 
 func _ready() -> void:
 	if skip_cutscene:
@@ -76,19 +76,21 @@ func _ready() -> void:
 	abbots_door.opening.connect(_on_abbots_door_opening)
 	player_detection.body_entered.connect(_on_player_entered)
 
-	for i in fire_markers_group.get_children():
-		if i is Marker3D:
-			fire_markers.append(i)
+	CharacterData.Sanson.flower_got = true
+	abbots_door.open_door()
 
-	fire_1.static_flame.emitting = false
-	fire_1.flames.emitting = false
-	fire_1.smoke.emitting = false
-	fire_1.particles_floating.emitting = false
-	fire_2.static_flame.emitting = false
-	fire_2.flames.emitting = false
-	fire_2.smoke.emitting = false
-	fire_2.particles_floating.emitting = false
+	#for i in fire_markers_group.get_children():
+		#if i is Marker3D:
+			#fire_markers.append(i)
 
+	#fire_1.static_flame.emitting = false
+	#fire_1.flames.emitting = false
+	#fire_1.smoke.emitting = false
+	#fire_1.particles_floating.emitting = false
+	#fire_2.static_flame.emitting = false
+	#fire_2.flames.emitting = false
+	#fire_2.smoke.emitting = false
+	#fire_2.particles_floating.emitting = false
 
 
 
@@ -127,18 +129,18 @@ func play_cutscene() -> void:
 	camera.cull_mask = 1 << 17
 	if CharacterData.Sanson.flower_got:
 		await _run_dialogue("abbott", true)
-		smoke.smoke.emitting = true
+		#smoke.smoke.emitting = true
 		await _run_dialogue("fire_start", true)
 		AudioManager.play_music(music_ending_endfire)
-		smoke.particles_floating.emitting = true
-		fire_1.static_flame.emitting = true
-		fire_1.flames.emitting = true
-		fire_1.smoke.emitting = true
-		fire_1.particles_floating.emitting = true
-		fire_2.static_flame.emitting = true
-		fire_2.flames.emitting = true
-		fire_2.smoke.emitting = true
-		fire_2.particles_floating.emitting = true
+		#smoke.particles_floating.emitting = true
+		#fire_1.static_flame.emitting = true
+		#fire_1.flames.emitting = true
+		#fire_1.smoke.emitting = true
+		#fire_1.particles_floating.emitting = true
+		#fire_2.static_flame.emitting = true
+		#fire_2.flames.emitting = true
+		#fire_2.smoke.emitting = true
+		#fire_2.particles_floating.emitting = true
 		await _run_dialogue("fire", true)
 	else:
 		AudioManager.play_music(music_ending_endmelt)

@@ -49,7 +49,7 @@ _data = {
 point_count = 3
 
 [node name="LoadingScreen" type="CanvasLayer" unique_id=937876760 node_paths=PackedStringArray("progress_bar", "status_text", "percent_text", "anim", "done_sound")]
-layer = 20
+layer = 200000000
 script = ExtResource("1_7eg82")
 progress_bar = NodePath("ColorRect/VBoxContainer/ProgressBar")
 status_text = NodePath("ColorRect/VBoxContainer/Status")

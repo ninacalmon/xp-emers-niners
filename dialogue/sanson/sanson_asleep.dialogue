@@ -38,6 +38,7 @@ if not CharacterData.Sanson.sleep_talked_once:
 	Você: “Por favor, Sanson. Eu só quero conferir, preciso saber.”
 	Sanson: “Entendo. Eu ainda não tenho certeza sobre o que você quer dizer, mas confio em você.”
 	do InventoryManager.add_new_item(CharacterData.Item.lockpick)
+	do TaskManager.complete_task("get_keys")
 	Sanson: “Você cresceu tanto… está tão responsável. Tenho muito orgulho de você, Francisco. Nosso querido [font_size=20][i]futuro[/i][/font_size] abade.”
 	Você: “Obrigado, Sanson. Não irei te decepcionar.”
 	do CharacterData.Sanson.sleep_talked_once = true

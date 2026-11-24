@@ -88,7 +88,7 @@ texture = SubResource("ViewportTexture_cdpwx")
 
 [node name="SubViewport" type="SubViewport" parent="." unique_id=866114536]
 transparent_bg = true
-size = Vector2i(372, 51)
+size = Vector2i(372, 99)
 
 [node name="RichTextLabel" type="RichTextLabel" parent="SubViewport" unique_id=1480474663]
 visibility_layer = 512
@@ -105,7 +105,7 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_colors/default_color = Color(1, 1, 1, 1)
 bbcode_enabled = true
-text = "Incline a garrafa para beber [img=50]res://assets/2d/interface/kenney_input_prompts/keyboard_arrow_down.png[/img]"
+text = "Arraste[img=50]res://assets/2d/interface/kenney_input_prompts/mouse_scroll_outline.png[/img]e incline[img=50]res://assets/2d/interface/kenney_input_prompts/keyboard_arrow_down.png[/img] a garrafa para beber "
 fit_content = true
 horizontal_alignment = 1
 

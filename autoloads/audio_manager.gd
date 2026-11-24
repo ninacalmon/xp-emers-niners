@@ -166,8 +166,11 @@ func _fade_to(player: Node, to_linear: float, time: float, on_done: Callable = C
 
 
 func _kill_fade(player: Node) -> void:
-	var old: Variant = player.get_meta(FADE_META, null)
+	if not player.has_meta(FADE_META):
+		return
+	var old: Variant = player.get_meta(FADE_META)
 	if old is Tween:
 		var old_tween: Tween = old as Tween
 		if old_tween.is_valid():
 			old_tween.kill()
+	player.remove_meta(FADE_META)

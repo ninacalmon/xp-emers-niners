@@ -15,7 +15,7 @@
 size = Vector3(2.446167, 1.3654175, 0.14453125)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_ovqo0"]
-size = Vector3(2.3530884, 1.1265564, 0.37335205)
+size = Vector3(2.3530884, 1.180954, 0.484375)
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_3vxm8"]
 render_priority = 0
@@ -78,7 +78,7 @@ action_trigger = NodePath("..")
 metadata/_custom_type_script = "uid://cf2auur4umdjl"
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="InteractionArea" unique_id=1557408956]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.2170515, 0.6450958, 0.030316591)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.2170515, 0.6722946, 0.030316591)
 shape = SubResource("BoxShape3D_ovqo0")
 
 [node name="GatePivot" type="Node3D" parent="." unique_id=895884389]

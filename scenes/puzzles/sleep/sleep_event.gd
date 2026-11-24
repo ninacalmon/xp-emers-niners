@@ -74,6 +74,7 @@ func _on_item_picked_up() -> void:
 	if not _started or not flower_got:
 		return
 	TimeManager.set_time(TimeManager.Times.at2100)
+	TaskManager.complete_task("get_keys")
 	finish(true)
 
 
