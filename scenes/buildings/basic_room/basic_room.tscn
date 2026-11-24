@@ -21,6 +21,12 @@ transform = Transform3D(-5.3897375e-10, -5.941247e-07, 0.99999994, 0.999924, 0.0
 [node name="WallTorch2" parent="." unique_id=783598986 instance=ExtResource("3_7mfmi")]
 transform = Transform3D(-5.3897375e-10, -5.941247e-07, 0.99999994, 0.999924, 0.012330278, 7.864654e-09, -0.012330278, 0.999924, 5.940728e-07, 0.807107, 2.1883142, -2.1633768)
 
+[node name="WallTorch3" parent="." unique_id=811502160 instance=ExtResource("3_7mfmi")]
+transform = Transform3D(7.3250828e-09, 4.380504e-08, -0.99999994, 0.999924, 0.0123302955, 7.864654e-09, 0.0123302955, -0.999924, -4.3711385e-08, -2.189486, 2.1883142, 2.48141)
+
+[node name="WallTorch4" parent="." unique_id=592910664 instance=ExtResource("3_7mfmi")]
+transform = Transform3D(7.3250828e-09, 4.380504e-08, -0.99999994, 0.999924, 0.0123302955, 7.864654e-09, 0.0123302955, -0.999924, -4.3711385e-08, 0.48280478, 2.1883142, 2.48141)
+
 [node name="StudyDesk" parent="." unique_id=1528012825 instance=ExtResource("4_my7t4")]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0.06649494, -0.011686325, 1.4958193)
 
@@ -32,5 +38,17 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.0849085, 0.8344612, 2.37290
 
 [node name="Carpet" parent="." unique_id=1580142480 instance=ExtResource("6_g40bn")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.247, 0.01, 0.504)
+
+[node name="OmniLight3D" type="OmniLight3D" parent="." unique_id=224528900]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.73122865, 3.1354609, -1.1392224)
+light_color = Color(0.84705883, 0.53333336, 0.23137255, 1)
+light_energy = 9.79
+light_indirect_energy = 4.215
+light_volumetric_fog_energy = 0.0
+light_size = 0.135
+light_specular = 0.796
+light_bake_mode = 1
+omni_range = 4.5
+omni_attenuation = 2.234
 
 [editable path="candle"]
